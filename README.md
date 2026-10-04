@@ -6,8 +6,7 @@ This assistant runs a localized LLM to parse course transcripts and GitHub notes
 
 ## 🚀 App Demo
 
-<video src="https://github.com/vrdsid/Video-Course-To-RAG/raw/main/zoomcamp-rag/assets/demo.mp4" controls="controls" width="100%">
-</video>
+https://github.com/user-attachments/assets/246d0785-b154-423b-af79-58e432d7c763
 
 ## 🎯 The Use Case
 
