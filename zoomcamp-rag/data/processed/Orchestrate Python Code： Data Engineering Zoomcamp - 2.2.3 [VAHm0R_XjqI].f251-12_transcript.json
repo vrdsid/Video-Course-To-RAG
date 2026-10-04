@@ -1,0 +1,252 @@
+[
+    {
+        "start": 0.0,
+        "end": 5.12,
+        "text": "Hello and welcome to the next part of the data engineering zoom camp in module two."
+    },
+    {
+        "start": 5.12,
+        "end": 9.76,
+        "text": "Now today we're going to be looking specifically at how you can orchestrate Python code inside of"
+    },
+    {
+        "start": 9.76,
+        "end": 15.44,
+        "text": "Kestra. Now while we won't be necessarily orchestrating Python code in the ETL pipelines will be"
+    },
+    {
+        "start": 15.44,
+        "end": 20.16,
+        "text": "building in the next part, this is still a fundamental part of data engineering and you might want"
+    },
+    {
+        "start": 20.16,
+        "end": 24.48,
+        "text": "to use this in your project later on. So let's cover it today. Now the Python script we're going to"
+    },
+    {
+        "start": 24.48,
+        "end": 28.8,
+        "text": "be using today is available inside of the GitHub repository. So I'd recommend checking that out."
+    },
+    {
+        "start": 28.8,
+        "end": 34.24,
+        "text": "It's called O2 underscore Python. We can copy and paste this into Kestra and we'll see a workflow"
+    },
+    {
+        "start": 34.24,
+        "end": 39.44,
+        "text": "that looks a little bit like this. Now this workflow just has one task in it. It's got the Python"
+    },
+    {
+        "start": 39.44,
+        "end": 43.68,
+        "text": "script task. Now there are actually a couple of ways you can run Python inside a Kestra. We're"
+    },
+    {
+        "start": 43.68,
+        "end": 48.72,
+        "text": "going to be using the script task today, which allows you to write your Python code directly inside"
+    },
+    {
+        "start": 48.72,
+        "end": 53.68,
+        "text": "of the workflow. So you can see here under this script property, we've written the Python code"
+    },
+    {
+        "start": 53.68,
+        "end": 57.84,
+        "text": "directly in the workflow. Now this is great for small snippets of Python where you just need to be"
+    },
+    {
+        "start": 57.84,
+        "end": 62.160000000000004,
+        "text": "able to manipulate a small bit of data and you want to be able to just tap into the power of Python"
+    },
+    {
+        "start": 62.160000000000004,
+        "end": 67.28,
+        "text": "to do so. But maybe you've got a bigger project that you've written the Python code locally outside"
+    },
+    {
+        "start": 67.28,
+        "end": 72.56,
+        "text": "of Kestra and you want to be able to just execute those files. Now that's where the command task comes"
+    },
+    {
+        "start": 72.56,
+        "end": 80.32000000000001,
+        "text": "in. This task allows you to take a file and then be able to execute it using the command task. We"
+    },
+    {
+        "start": 80.32000000000001,
+        "end": 85.44,
+        "text": "can upload these files as namespace files where we can then access them inside of our workflow."
+    },
+    {
+        "start": 85.52,
+        "end": 90.88,
+        "text": "And as you can see here, we've just included the permission to allow it to access namespace files"
+    },
+    {
+        "start": 90.88,
+        "end": 95.6,
+        "text": "and then we can just execute the command just like we would in our terminal on our local machine."
+    },
+    {
+        "start": 95.6,
+        "end": 100.64,
+        "text": "Now it's also worth clarifying that the way that Python works inside of Kestra is by default,"
+    },
+    {
+        "start": 100.64,
+        "end": 105.75999999999999,
+        "text": "it's going to spin up a Docker container to run that code. This is great because it means that"
+    },
+    {
+        "start": 105.75999999999999,
+        "end": 111.44,
+        "text": "any dependencies it needs to use in this case, requests and Kestra, which for context use UV"
+    },
+    {
+        "start": 111.52,
+        "end": 116.24,
+        "text": "under the hood to manage those dependencies. It's going to install those inside of a container,"
+    },
+    {
+        "start": 116.24,
+        "end": 121.03999999999999,
+        "text": "you can specify the versions you need and it's not going to clash with any other workflows or even"
+    },
+    {
+        "start": 121.03999999999999,
+        "end": 127.03999999999999,
+        "text": "other tasks you have in that workflow that are also using Python. Now you can also specify the"
+    },
+    {
+        "start": 127.03999999999999,
+        "end": 131.28,
+        "text": "container image it's going to use. So maybe you've got a pre-built image that contains a lot of"
+    },
+    {
+        "start": 131.28,
+        "end": 135.52,
+        "text": "these dependencies that you need. So you can build that image, have that hosted in a registry,"
+    },
+    {
+        "start": 135.52,
+        "end": 141.04,
+        "text": "and then access it directly here. So this means that your task runner, which in this case is Docker,"
+    },
+    {
+        "start": 141.04,
+        "end": 146.23999999999998,
+        "text": "will build using that image. It's got the dependencies it needs and it can just execute your code."
+    },
+    {
+        "start": 146.23999999999998,
+        "end": 151.04,
+        "text": "Now there are options to run in other task runners, the most notable being process where you can"
+    },
+    {
+        "start": 151.04,
+        "end": 156.16,
+        "text": "execute it as a sub process on the machine of Kestra. Now in our case, because Kestra is running in"
+    },
+    {
+        "start": 156.16,
+        "end": 161.6,
+        "text": "a Docker container, it will just run it inside that Kestra container. But if you were running Kestra"
+    },
+    {
+        "start": 161.6,
+        "end": 167.12,
+        "text": "as a local executable, it will just run it as a sub process there. So that's where maybe having"
+    },
+    {
+        "start": 167.20000000000002,
+        "end": 172.16,
+        "text": "a virtual environment would be a good idea because it will access any existing dependencies on your"
+    },
+    {
+        "start": 172.16,
+        "end": 175.68,
+        "text": "system. And so you might want to be able to just put it in a virtual environment and control"
+    },
+    {
+        "start": 175.68,
+        "end": 179.36,
+        "text": "their dependencies a little more. But we don't need to do that when we're using a container because"
+    },
+    {
+        "start": 179.36,
+        "end": 184.8,
+        "text": "that gives us the isolation we need. Now just like any other Python code, this code here is just"
+    },
+    {
+        "start": 184.8,
+        "end": 189.76,
+        "text": "written directly inside. There's nothing special about it. But we are using the Kestra library that"
+    },
+    {
+        "start": 189.76,
+        "end": 195.20000000000002,
+        "text": "allows us to then be able to send data generated in the Python code back to Kestra as an output."
+    },
+    {
+        "start": 195.2,
+        "end": 200.88,
+        "text": "So you'll see here we've got this Kestra library here. We're doing dot outputs and we're passing"
+    },
+    {
+        "start": 200.88,
+        "end": 206.48,
+        "text": "it a JSON effectively on this case, a dictionary with key value pairs. If I execute this workflow"
+    },
+    {
+        "start": 206.48,
+        "end": 210.64,
+        "text": "now, we'll see it's going to spin up a container and it's going to install those dependencies using"
+    },
+    {
+        "start": 210.64,
+        "end": 214.95999999999998,
+        "text": "UV. And then once it's finished, it's going to destroy that container. And if we go to outputs,"
+    },
+    {
+        "start": 214.95999999999998,
+        "end": 220.32,
+        "text": "we can see it was able to send us an output called downloads with that number. And we can then"
+    },
+    {
+        "start": 220.4,
+        "end": 226.0,
+        "text": "access that later on in future tasks if we want to. So that gives you an overview of how Python works"
+    },
+    {
+        "start": 226.0,
+        "end": 232.16,
+        "text": "inside of Kestra. You can obviously take this a step further by using a Git plugin to automatically"
+    },
+    {
+        "start": 232.16,
+        "end": 238.07999999999998,
+        "text": "pull your code to your workflow, have Kestra then be able to execute those files from that code,"
+    },
+    {
+        "start": 238.07999999999998,
+        "end": 243.44,
+        "text": "and then generate data that you can then pass on to other tasks. Hopefully you found that useful."
+    },
+    {
+        "start": 243.44,
+        "end": 247.92,
+        "text": "In the next part of the course, we're going to start looking at actually building a data pipeline."
+    },
+    {
+        "start": 247.92,
+        "end": 249.92,
+        "text": "So definitely stay tuned for that."
+    }
+]

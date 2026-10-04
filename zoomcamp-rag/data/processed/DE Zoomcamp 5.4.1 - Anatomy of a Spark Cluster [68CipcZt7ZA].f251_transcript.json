@@ -1,0 +1,362 @@
+[
+    {
+        "start": 0.0,
+        "end": 7.5200000000000005,
+        "text": "Welcome back, this is week 5 of Data Engineering Zoomcamp and in this series of videos we'll talk about Spark Internals."
+    },
+    {
+        "start": 7.5200000000000005,
+        "end": 13.36,
+        "text": "In the previous video I promised that I will talk about GroupBind and Joints, but then I thought that"
+    },
+    {
+        "start": 13.36,
+        "end": 19.28,
+        "text": "it's better if instead of doing one video I record a series where I talk about some"
+    },
+    {
+        "start": 19.28,
+        "end": 25.44,
+        "text": "and Joints of Spark. So first we'll talk about Spark cluster and then in the next video we'll talk about"
+    },
+    {
+        "start": 25.44,
+        "end": 30.400000000000002,
+        "text": "a group by operation how it is implemented in Spark and then we'll talk about Joints."
+    },
+    {
+        "start": 30.400000000000002,
+        "end": 36.96,
+        "text": "I'll start with Spark Internals or maybe Internals is not the right word, I want to talk about Spark"
+    },
+    {
+        "start": 36.96,
+        "end": 41.52,
+        "text": "cluster. And so far we actually experimented with everything locally, so we have"
+    },
+    {
+        "start": 41.52,
+        "end": 47.760000000000005,
+        "text": "local environment and in this environment we have our executor, these are things that execute"
+    },
+    {
+        "start": 47.760000000000005,
+        "end": 54.400000000000006,
+        "text": "as Spark drops everything on one computer and this is called a lock setup. And when we set up"
+    },
+    {
+        "start": 54.4,
+        "end": 60.96,
+        "text": "Spark context we specify the master and remember what we did previously is a here I have an"
+    },
+    {
+        "start": 60.96,
+        "end": 69.84,
+        "text": "example. So we say that master is a local star, meaning that we create a local cluster. But what"
+    },
+    {
+        "start": 69.84,
+        "end": 76.24,
+        "text": "I want to talk about in this video, the setup with a real cluster and we will cover some of the"
+    },
+    {
+        "start": 76.24,
+        "end": 82.64,
+        "text": "things we haven't talked about yet and usually the way it works. So you'll create a script in Python"
+    },
+    {
+        "start": 82.64,
+        "end": 90.24,
+        "text": "or in Scala Java whatever with some Spark code and you usually do this from maybe from your laptop"
+    },
+    {
+        "start": 90.24,
+        "end": 96.0,
+        "text": "or if you use Airflow for scaling Spark drops, Airflow does that, Airflow executor. Let's talk about"
+    },
+    {
+        "start": 96.0,
+        "end": 102.56,
+        "text": "the case when you do it from your laptop. Here you have a package with some Spark code that you"
+    },
+    {
+        "start": 102.56,
+        "end": 110.4,
+        "text": "wrote in Python and you also have a Spark cluster. In this cluster we have a computer that we call Spark"
+    },
+    {
+        "start": 110.80000000000001,
+        "end": 117.36,
+        "text": "Master and its role is coordinating role. It knows what kind of jobs are in there. So we're here"
+    },
+    {
+        "start": 117.36,
+        "end": 124.56,
+        "text": "and when we have our package here with our Spark code we submit it to Spark Master and this is"
+    },
+    {
+        "start": 124.56,
+        "end": 131.84,
+        "text": "actually the URL that we have. Remember we opened this locally, it was localhost44. It usually has a"
+    },
+    {
+        "start": 131.84,
+        "end": 138.96,
+        "text": "web UI on a port44. That we can use to connect to this master and see what actually is being executed"
+    },
+    {
+        "start": 138.96,
+        "end": 144.08,
+        "text": "on a cluster. So this is you can think about this as an entry point to a Spark cluster and we use"
+    },
+    {
+        "start": 144.08,
+        "end": 150.4,
+        "text": "a special command called Spark Submit to send a package with our code to the master and then we'll"
+    },
+    {
+        "start": 150.4,
+        "end": 155.76000000000002,
+        "text": "specify some information like what kind of resources we need for this job and so on. And then on the"
+    },
+    {
+        "start": 155.76000000000002,
+        "end": 160.8,
+        "text": "cluster we have computers that actually execute these jobs they are called executors."
+    },
+    {
+        "start": 161.12,
+        "end": 169.44,
+        "text": "And these are the machines that actually do the computation. So when we submit a job to Spark Master"
+    },
+    {
+        "start": 169.44,
+        "end": 175.76000000000002,
+        "text": "then the master cardinates between executors and say that for a job that we got from here this job"
+    },
+    {
+        "start": 175.76000000000002,
+        "end": 182.48000000000002,
+        "text": "goes to this, this, this, to these five executors. So it sends them instructions what to do and then"
+    },
+    {
+        "start": 182.48000000000002,
+        "end": 188.08,
+        "text": "of course master should be up and running all the time. And if one of the executors goes away or"
+    },
+    {
+        "start": 188.08,
+        "end": 193.60000000000002,
+        "text": "whatever reason then master should know about this and then it really has signs a task that this"
+    },
+    {
+        "start": 193.60000000000002,
+        "end": 199.12,
+        "text": "executor had to somehow the executor. This is the role of a master. And then what executors do is"
+    },
+    {
+        "start": 199.12,
+        "end": 205.28,
+        "text": "they need to first pull some data to get some data and then they process the data. For example,"
+    },
+    {
+        "start": 205.28,
+        "end": 212.32000000000002,
+        "text": "imagine that we have a data frame and this data frame consists of many partitions. You probably"
+    },
+    {
+        "start": 212.32,
+        "end": 218.48,
+        "text": "remember that this is nothing else but a bunch of pocket files. So each partition is a pocket file,"
+    },
+    {
+        "start": 218.48,
+        "end": 226.32,
+        "text": "partition one, partition two and so on. And when we submit a job to a Spark Master, Spark sends some"
+    },
+    {
+        "start": 226.32,
+        "end": 232.72,
+        "text": "information to executors and then each executor pulls a partition. This executor gets this partition"
+    },
+    {
+        "start": 232.72,
+        "end": 239.51999999999998,
+        "text": "and so on. And let's say if only four executors are running. So then each gets a task, a partition."
+    },
+    {
+        "start": 239.52,
+        "end": 245.44,
+        "text": "So they process the work through this partition and then they mark the task as completed successfully"
+    },
+    {
+        "start": 245.44,
+        "end": 250.64000000000001,
+        "text": "and then this executor gets another task. One by one they process this data frame,"
+    },
+    {
+        "start": 250.64000000000001,
+        "end": 257.12,
+        "text": "this partition in the data frame and save the result somewhere. These data frames usually live in S3"
+    },
+    {
+        "start": 257.12,
+        "end": 264.32,
+        "text": "or Google Cloud Storage. But previously it's not very popular these days. Hadou and HDFS"
+    },
+    {
+        "start": 264.64,
+        "end": 271.04,
+        "text": "are pretty popular and the idea in HDFS and in Hadoup you have this data link with files"
+    },
+    {
+        "start": 271.04,
+        "end": 277.12,
+        "text": "and these files are actually stored on executors here. We have some data here, we have some data."
+    },
+    {
+        "start": 277.12,
+        "end": 281.6,
+        "text": "So there is of course some redundancies. So for example the same partition is stored here,"
+    },
+    {
+        "start": 281.6,
+        "end": 288.48,
+        "text": "here and here and then partition two can be stored here, here and here. So there is some redundancy."
+    },
+    {
+        "start": 288.48,
+        "end": 295.76,
+        "text": "In case for example a node goes away then the files are still preserved and the idea behind HDFS"
+    },
+    {
+        "start": 295.76,
+        "end": 302.56,
+        "text": "and Hadoup was that instead of bringing data like we do here so we take a partition here and we"
+    },
+    {
+        "start": 302.56,
+        "end": 307.92,
+        "text": "download it on the machine. But the idea behind the hadoup and the HDFS is instead of downloading"
+    },
+    {
+        "start": 307.92,
+        "end": 313.04,
+        "text": "data on the machine you download code on the machine that already has the data. So there is this"
+    },
+    {
+        "start": 313.04,
+        "end": 318.24,
+        "text": "concept of data locality and it made a lot of sense because typically these files are quite large."
+    },
+    {
+        "start": 318.24,
+        "end": 324.0,
+        "text": "So let's say 100 megabyte each partition and then a data frame on this data set in general"
+    },
+    {
+        "start": 324.0,
+        "end": 330.16,
+        "text": "can be quite large while the code that we have is relatively small let's say 10 megabytes."
+    },
+    {
+        "start": 330.16,
+        "end": 335.12,
+        "text": "So it makes a lot of sense to send smaller things instead of pulling a lot of data, downloading a lot"
+    },
+    {
+        "start": 335.12,
+        "end": 341.2,
+        "text": "of data, let's send source code to the executors that already have the data. But these days actually"
+    },
+    {
+        "start": 341.2,
+        "end": 347.6,
+        "text": "because we have S3 and Google Cloud Storage and other cloud providers they usually live in the same"
+    },
+    {
+        "start": 347.68,
+        "end": 354.64000000000004,
+        "text": "data center, the Spark cluster and Google Cloud Storage they are in the same data center and"
+    },
+    {
+        "start": 354.64000000000004,
+        "end": 362.08000000000004,
+        "text": "then loading 100 megabyte for an executor is very fast. So it's a little bit slower than just reading"
+    },
+    {
+        "start": 362.08000000000004,
+        "end": 368.08000000000004,
+        "text": "from this with the data that it already has but it's not significantly slower and then executors now"
+    },
+    {
+        "start": 368.08000000000004,
+        "end": 373.52000000000004,
+        "text": "instead of keeping all this data there they can just pull data from S3, Google Cloud Storage and"
+    },
+    {
+        "start": 373.52,
+        "end": 380.24,
+        "text": "process this and then save the results back to our data lake. So now let's why Hadoop and HDFS"
+    },
+    {
+        "start": 380.24,
+        "end": 385.12,
+        "text": "they become less popular these days because there is some overhead that we have with this and now"
+    },
+    {
+        "start": 385.12,
+        "end": 391.28,
+        "text": "the preferred way of doing this is just keeping the files on S3 so you don't need to have HDFS,"
+    },
+    {
+        "start": 391.28,
+        "end": 397.28,
+        "text": "you don't need to have Hadoop, you just have a Spark cluster and then you keep data in your cloud"
+    },
+    {
+        "start": 397.28,
+        "end": 403.12,
+        "text": "storage. I think that's the main idea behind that. Let me summarize to have a driver think that's"
+    },
+    {
+        "start": 403.12,
+        "end": 410.16,
+        "text": "a midsigil and the driver's a midsigil to a Spark master. Driver can be operator in airflow so for"
+    },
+    {
+        "start": 410.16,
+        "end": 416.08,
+        "text": "example a task in airflow that does Spark submit or can be your laptop or can be something else"
+    },
+    {
+        "start": 416.08,
+        "end": 420.4,
+        "text": "something that's a midsigil. So this is the driver then the master is they think that coordinates"
+    },
+    {
+        "start": 420.4,
+        "end": 426.24,
+        "text": "everything and executors are the machines that are doing actual computations and Spark keeps track"
+    },
+    {
+        "start": 426.24,
+        "end": 431.44,
+        "text": "of which machines are healthy and if some machine becomes unhealthy it reassigns the work and we"
+    },
+    {
+        "start": 431.44,
+        "end": 436.08,
+        "text": "keep the data in cloud storage. We read from the cloud storage and write results back to the cloud"
+    },
+    {
+        "start": 436.08,
+        "end": 442.16,
+        "text": "storage. So if that's probably all I wanted to cover in this video and in the next video I will"
+    },
+    {
+        "start": 442.16,
+        "end": 449.84,
+        "text": "talk about group by and how group by works in Spark and how exact executors do group by. So see you soon."
+    }
+]

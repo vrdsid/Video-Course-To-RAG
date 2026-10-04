@@ -1,0 +1,662 @@
+[
+    {
+        "start": 0.0,
+        "end": 7.76,
+        "text": "Hello everyone, this is the latest video of the series of Docker and SQL and in this video we finally will do some SQL."
+    },
+    {
+        "start": 7.76,
+        "end": 15.44,
+        "text": "I think I did to prepare for this video is I took a StaxiZone lookup file which is a thing from here."
+    },
+    {
+        "start": 15.44,
+        "end": 24.0,
+        "text": "We already looked at this file. I downloaded this file and I put this to our postgres."
+    },
+    {
+        "start": 24.16,
+        "end": 29.92,
+        "text": "So in our postgres we have this in a table called Zones. We already have all these Zones."
+    },
+    {
+        "start": 29.92,
+        "end": 36.8,
+        "text": "We can take a look at them actually. So we see these are all the Zones like new arc airport,"
+    },
+    {
+        "start": 36.8,
+        "end": 41.519999999999996,
+        "text": "Samsung's and Brooklyn, Greens, Manhattan and so on. So we have all these Zones already in"
+    },
+    {
+        "start": 41.519999999999996,
+        "end": 49.2,
+        "text": "database and in this video I want to do a short review of SQL, of the basics, things that we actually"
+    },
+    {
+        "start": 49.2,
+        "end": 53.84,
+        "text": "will use in this course. For example in the analytics engineering week. I want to talk about"
+    },
+    {
+        "start": 53.84,
+        "end": 58.88,
+        "text": "DBT. We'll do some of these queries. So just to refresh it for you, we'll do some of these queries"
+    },
+    {
+        "start": 58.88,
+        "end": 65.44,
+        "text": "right now. I want to start with a joint query. We have our TRIP TuxiTrips dataset and we have Zones"
+    },
+    {
+        "start": 65.44,
+        "end": 72.88,
+        "text": "dataset. And remember let me quickly select these yellow TuxiTrips. I also have limit 100 here."
+    },
+    {
+        "start": 72.88,
+        "end": 78.96000000000001,
+        "text": "So we see only in the first 100 rows. So here we have pickup, time, drop off time and things"
+    },
+    {
+        "start": 79.75999999999999,
+        "end": 85.36,
+        "text": "like this. And we also have pickup, location, AD and drop off location, AD. Now what we want to do now"
+    },
+    {
+        "start": 85.36,
+        "end": 91.6,
+        "text": "is we want to do a joint with the location table and we want to display the actual name, the district"
+    },
+    {
+        "start": 91.6,
+        "end": 98.08,
+        "text": "of the location instead of seeing the numbers. There are multiple ways that we can do this. So"
+    },
+    {
+        "start": 98.08,
+        "end": 106.56,
+        "text": "first way is we can just do from yellow TuxiTrips T. So this one is Elias for the table. Then we can"
+    },
+    {
+        "start": 106.64,
+        "end": 114.24000000000001,
+        "text": "add a comma and add another table and another table. It will be TRIP's and then location pickup"
+    },
+    {
+        "start": 115.52000000000001,
+        "end": 123.28,
+        "text": "call it location pickup and location drop off location drop off. So now we will select the data from"
+    },
+    {
+        "start": 123.28,
+        "end": 130.96,
+        "text": "all these three tables and I will also need to add a where statement here, work force saying that"
+    },
+    {
+        "start": 130.96,
+        "end": 137.28,
+        "text": "I am only interested in showing only records where this AD is actually much. So I need to say"
+    },
+    {
+        "start": 137.28,
+        "end": 144.72,
+        "text": "where TPU need to put this in quotes, PU location, AD and 3D I need to put it in quotes is because"
+    },
+    {
+        "start": 144.72,
+        "end": 155.68,
+        "text": "it's capital PU location AD equals to LPU. And remember, it's a location AD. And then I'll do"
+    },
+    {
+        "start": 155.76000000000002,
+        "end": 163.92000000000002,
+        "text": "the same but instead of PU I'll have the location AD. I don't need this end anymore and let me write."
+    },
+    {
+        "start": 165.04000000000002,
+        "end": 174.0,
+        "text": "Yeah, so here it's actually not correct right like that. So it's zones. So in both cases it's zones,"
+    },
+    {
+        "start": 174.0,
+        "end": 180.96,
+        "text": "but one zone is for pickup. I'll call zone pickup and zone drop off. And then here zone pickup,"
+    },
+    {
+        "start": 180.96,
+        "end": 191.20000000000002,
+        "text": "zone drop off. And then run it. Let's drop off location AD. Okay, now we have this information here."
+    },
+    {
+        "start": 191.20000000000002,
+        "end": 199.92000000000002,
+        "text": "So we have this location AD, zone and zone. Yeah, but now it's kind of difficult to see which is which."
+    },
+    {
+        "start": 199.92000000000002,
+        "end": 207.12,
+        "text": "So what we will do now instead of doing select star, we will select only some things that we need."
+    },
+    {
+        "start": 207.12,
+        "end": 215.52,
+        "text": "For example, we will select pickup time. We will select drop off time. We will select"
+    },
+    {
+        "start": 216.32,
+        "end": 225.52,
+        "text": "say the total amount. And then we will select the district and zone for drop out. So we will have"
+    },
+    {
+        "start": 225.52,
+        "end": 233.6,
+        "text": "something like zone pickup. We'll select district and zone for pickup and district and zone for drop off."
+    },
+    {
+        "start": 233.6,
+        "end": 241.12,
+        "text": "We'll have something like zone pickup borrow. Then I think it's like that combination in postgres."
+    },
+    {
+        "start": 241.12,
+        "end": 247.76,
+        "text": "Let me try with plus and then now we write it if it doesn't work. Then zone pickup borrow."
+    },
+    {
+        "start": 248.95999999999998,
+        "end": 258.56,
+        "text": "And zone pickup just zone. And then we have analysis here is pickup location. And then we will do"
+    },
+    {
+        "start": 258.56,
+        "end": 266.56,
+        "text": "the same for drop off. Drop off. Drop off location. Let's see if it actually works."
+    },
+    {
+        "start": 268.64,
+        "end": 277.28,
+        "text": "Doesn't like this operator. I think postgres, cut, string, postgres. Yeah, we need to use this"
+    },
+    {
+        "start": 277.28,
+        "end": 289.67999999999995,
+        "text": "concat function. Okay, now it works. So we see here pickup location. We see drop off location."
+    },
+    {
+        "start": 289.67999999999995,
+        "end": 295.59999999999997,
+        "text": "This is one way of doing joints. This way we select all the records. These are all possible"
+    },
+    {
+        "start": 295.59999999999997,
+        "end": 300.4,
+        "text": "combinations of records from this table with records with this table and this table. And then we"
+    },
+    {
+        "start": 300.4,
+        "end": 307.76,
+        "text": "limit them the records we see using this square statement. So we only want to see records where"
+    },
+    {
+        "start": 307.76,
+        "end": 313.44,
+        "text": "these IDs are matching. So this is one way of doing joint. And this is actually called inner joint."
+    },
+    {
+        "start": 313.44,
+        "end": 318.47999999999996,
+        "text": "There is always a match between this ID and this ID. And for records for which there are no"
+    },
+    {
+        "start": 318.47999999999996,
+        "end": 324.47999999999996,
+        "text": "much we don't see them. We can write this differently. We can write the same statement using join"
+    },
+    {
+        "start": 325.44,
+        "end": 333.84000000000003,
+        "text": "operator. You can say we want to select from yellow taxi trips, T join zones and then write on."
+    },
+    {
+        "start": 333.84000000000003,
+        "end": 339.52000000000004,
+        "text": "And then in this on we write on which condition we want to join. The joint condition will be"
+    },
+    {
+        "start": 339.52000000000004,
+        "end": 346.72,
+        "text": "this one. So this gives us one table. And then we want to join this table with another table."
+    },
+    {
+        "start": 346.8,
+        "end": 355.92,
+        "text": "Join again with this table. And now this time we want to use this condition. Now we don't need"
+    },
+    {
+        "start": 355.92,
+        "end": 360.88000000000005,
+        "text": "that wire statement anymore. Let me just try not to see if it works. Yeah, it does work. I don't"
+    },
+    {
+        "start": 360.88000000000005,
+        "end": 365.52000000000004,
+        "text": "think there is any difference in performance between these two. I think they are equivalent."
+    },
+    {
+        "start": 365.52000000000004,
+        "end": 371.12,
+        "text": "Actually, I don't know if we have any records for which we don't have any pickup or drop off"
+    },
+    {
+        "start": 371.28000000000003,
+        "end": 378.8,
+        "text": "location. Let me create a new and new tab here. So I want to select pickup location ID and"
+    },
+    {
+        "start": 379.52,
+        "end": 386.16,
+        "text": "the row of location ID from this yellow taxi trips table. And let me just take a look at them."
+    },
+    {
+        "start": 386.8,
+        "end": 393.12,
+        "text": "I want to see if there are maybe some things that are empty here. Let me add work flows where"
+    },
+    {
+        "start": 393.2,
+        "end": 403.04,
+        "text": "pickup location ID is no. So it seems there are no locations like that. Maybe drop off location."
+    },
+    {
+        "start": 403.04,
+        "end": 409.68,
+        "text": "Now it also seems there are no. We can also check if there are any IDs that are not present in the"
+    },
+    {
+        "start": 409.68,
+        "end": 415.28000000000003,
+        "text": "trips database. For that we can use not in operator. What I want to do is I want to check if there"
+    },
+    {
+        "start": 415.28000000000003,
+        "end": 422.88,
+        "text": "are any pickup drop off locations in this table that are not present in the zones table. Maybe there"
+    },
+    {
+        "start": 422.88,
+        "end": 429.2,
+        "text": "are some IDs that we don't have information about. For that I will use a query like that. So I"
+    },
+    {
+        "start": 429.2,
+        "end": 436.08,
+        "text": "want to see if drop off location not in and then we specify what kind of database we want to look"
+    },
+    {
+        "start": 436.08,
+        "end": 445.76,
+        "text": "in. So then it will be another statement. For that we use select location ID from zones. I think"
+    },
+    {
+        "start": 445.84,
+        "end": 452.0,
+        "text": "should look like that. And we see that there are no such cases and I think probably the same"
+    },
+    {
+        "start": 452.64,
+        "end": 459.76,
+        "text": "happens with pickup locations. And apparently our dataset is good in a sense that all the"
+    },
+    {
+        "start": 459.76,
+        "end": 466.71999999999997,
+        "text": "records have pickup and drop off locations. And all these IDs that we have in the yellow taxi"
+    },
+    {
+        "start": 466.71999999999997,
+        "end": 472.48,
+        "text": "trips table they are present in this zone table. So this is good. On one hand on the other hand"
+    },
+    {
+        "start": 472.48,
+        "end": 478.0,
+        "text": "I also wanted to show you in their outer joints. These are cases when sometimes let's say we don't"
+    },
+    {
+        "start": 478.0,
+        "end": 485.68,
+        "text": "have information about some IDs in another table. What I can do right now is I can just delete"
+    },
+    {
+        "start": 485.68,
+        "end": 492.16,
+        "text": "something from this table and then see what happens. Let me just select the first 100 rows."
+    },
+    {
+        "start": 492.16,
+        "end": 500.64000000000004,
+        "text": "And then for example this location 142 I will go now and remove it."
+    },
+    {
+        "start": 501.28,
+        "end": 510.4,
+        "text": "So it's 142. This one Manhattan, Lincoln, Square East. So we can delete it. Let me create another"
+    },
+    {
+        "start": 511.28,
+        "end": 521.92,
+        "text": "setup. Delete from zones where location ID equals this one. Okay so now we delete it one record."
+    },
+    {
+        "start": 521.92,
+        "end": 529.92,
+        "text": "Now if we execute the same statement we should actually get, yeah you see this 142 is always"
+    },
+    {
+        "start": 530.0,
+        "end": 536.88,
+        "text": "returned. So because this pickup location no longer exists in our zones dataset. And now what"
+    },
+    {
+        "start": 536.88,
+        "end": 545.76,
+        "text": "happens in this case for this Lincoln Square East if I execute that query. You see this Lincoln"
+    },
+    {
+        "start": 545.76,
+        "end": 551.8399999999999,
+        "text": "Square East disappeared. And the reason for that is because we do a usual joint. It only returns"
+    },
+    {
+        "start": 551.8399999999999,
+        "end": 559.36,
+        "text": "records for which both IDs IDs in both table are present. And in our case in zones this record no"
+    },
+    {
+        "start": 559.84,
+        "end": 564.96,
+        "text": "is there. So that's why it doesn't show here. Ideally we want to show something like now here."
+    },
+    {
+        "start": 564.96,
+        "end": 571.2,
+        "text": "Meaning that we have an ID but there is no record associated with this ID. Let's still show it"
+    },
+    {
+        "start": 571.2,
+        "end": 577.36,
+        "text": "but we will say that the location is unknown. For that we use left join. We have two tables that we"
+    },
+    {
+        "start": 577.36,
+        "end": 582.24,
+        "text": "want to join. Table on the left which is this one and then table on the right which is this one"
+    },
+    {
+        "start": 582.24,
+        "end": 588.16,
+        "text": "and left join here means that if there is a record that is present in this left table but is not"
+    },
+    {
+        "start": 588.16,
+        "end": 592.48,
+        "text": "present in the right you still want to show it. That's why it's called left because we still want"
+    },
+    {
+        "start": 592.48,
+        "end": 601.4399999999999,
+        "text": "to show this record. And we just do both joins become left joins and you see here a trust"
+    },
+    {
+        "start": 601.4399999999999,
+        "end": 606.4,
+        "text": "can continue it. That's why we have this weird thing here. Don't want to complicate this query"
+    },
+    {
+        "start": 606.4,
+        "end": 611.76,
+        "text": "because then I would mean to ask the case statement showing that if it's no then write on"
+    },
+    {
+        "start": 611.84,
+        "end": 617.36,
+        "text": "known otherwise do this thing. I hope you get an idea and yeah and it's actually the same thing"
+    },
+    {
+        "start": 617.36,
+        "end": 623.52,
+        "text": "happens with drop off. There is a thing called right join which is similar except if there is a"
+    },
+    {
+        "start": 623.52,
+        "end": 628.8,
+        "text": "record that is present here but the record is not present here then for the left part of the table"
+    },
+    {
+        "start": 628.8,
+        "end": 633.6,
+        "text": "we will have none or no but for the right we will have something and then there is a thing called"
+    },
+    {
+        "start": 633.6,
+        "end": 638.4,
+        "text": "outer join. It's like a combination of left and right so it will show a record in the left when"
+    },
+    {
+        "start": 638.8,
+        "end": 643.28,
+        "text": "there are no records in the right and it will also show a record in the left the other way around"
+    },
+    {
+        "start": 643.28,
+        "end": 650.16,
+        "text": "basically. This is all I wanted to cover regarding joins. You will see this query more in week four"
+    },
+    {
+        "start": 650.16,
+        "end": 656.4,
+        "text": "when we talk about an edX engineering and DBT. I wanted to show you one more query. Group by query."
+    },
+    {
+        "start": 656.4,
+        "end": 662.8,
+        "text": "Group by is when we group by certain column and then we calculate some aggregates placed on that."
+    },
+    {
+        "start": 662.8,
+        "end": 669.76,
+        "text": "So for example let's take a look at their number of trips per each day. We will count the drop"
+    },
+    {
+        "start": 669.76,
+        "end": 677.68,
+        "text": "of day as the day. First let me remove the join. For that we can use a date, date, date,"
+    },
+    {
+        "start": 677.68,
+        "end": 686.16,
+        "text": "rank function and then we can say we want to select a day from this column and yeah so what"
+    },
+    {
+        "start": 686.16,
+        "end": 692.16,
+        "text": "happens is it just removes the time and leaves only the day so we have the day only."
+    },
+    {
+        "start": 692.8,
+        "end": 702.88,
+        "text": "Or another option could be we can cast this as a date and then it will do the same thing except"
+    },
+    {
+        "start": 702.88,
+        "end": 708.88,
+        "text": "now it will cast this to a date type so it will keep on the day. Let's go with this option."
+    },
+    {
+        "start": 710.0,
+        "end": 718.4799999999999,
+        "text": "Don't need this thing so this will be as in the just for testing let's execute it. It works"
+    },
+    {
+        "start": 719.12,
+        "end": 725.44,
+        "text": "and then what I want to do is just count how many records are there and we need to add a group by"
+    },
+    {
+        "start": 725.44,
+        "end": 733.12,
+        "text": "statement saying that we want to group by this thing. We don't need to limit anymore. Let's"
+    },
+    {
+        "start": 733.12,
+        "end": 739.28,
+        "text": "execute that. Now it shows each day it shows how many records we have in our database."
+    },
+    {
+        "start": 740.96,
+        "end": 748.32,
+        "text": "It's not ordered so you see the order is quite arbitrary. It will be nice if we have them in"
+    },
+    {
+        "start": 748.48,
+        "end": 756.32,
+        "text": "chronological order. For that we can just do order by day and then we can say sending or"
+    },
+    {
+        "start": 756.32,
+        "end": 762.8000000000001,
+        "text": "descending. The sending is from lowest to highest and the sending is from highest to lowest."
+    },
+    {
+        "start": 762.8000000000001,
+        "end": 769.76,
+        "text": "Yeah we see that there are a few outliers so I don't know why these things are there but most of"
+    },
+    {
+        "start": 769.84,
+        "end": 779.12,
+        "text": "records are in January from January like we expect and we see that for example to say we want to"
+    },
+    {
+        "start": 779.12,
+        "end": 785.92,
+        "text": "see what is the date with the largest number of records. We can do that by ordering by count."
+    },
+    {
+        "start": 785.92,
+        "end": 793.04,
+        "text": "To add this count we can order by count and then use a descending order. The first record will"
+    },
+    {
+        "start": 793.52,
+        "end": 801.1999999999999,
+        "text": "be the record with the largest number of trips which is 28th of January and of January was pretty"
+    },
+    {
+        "start": 801.1999999999999,
+        "end": 809.5999999999999,
+        "text": "busy and the first of January it's the least busy day. And of course in addition to count we can see"
+    },
+    {
+        "start": 809.5999999999999,
+        "end": 818.0,
+        "text": "let's say what is the maximum number of money that driver made a total amount or we can do"
+    },
+    {
+        "start": 818.08,
+        "end": 825.84,
+        "text": "different kinds of aggregations here like total amount or maybe the largest trip in terms of"
+    },
+    {
+        "start": 825.84,
+        "end": 834.64,
+        "text": "numbers of passengers. Let's execute that. Yeah sometimes we see that people travel in quite large"
+    },
+    {
+        "start": 834.64,
+        "end": 840.72,
+        "text": "groups like eight people so there are days where somebody made more than one thousand dollars per"
+    },
+    {
+        "start": 840.72,
+        "end": 847.6,
+        "text": "trip that's impressive. Perhaps maybe one more thing we can see is how can group by multiple"
+    },
+    {
+        "start": 847.6,
+        "end": 856.16,
+        "text": "fields for example we can also group by district. Let's take drop off location maybe and then what"
+    },
+    {
+        "start": 856.16,
+        "end": 861.52,
+        "text": "we can do instead of typing the whole thing here and then the whole thing at this whole thing"
+    },
+    {
+        "start": 861.52,
+        "end": 867.36,
+        "text": "we can just do group by one and two different to this thing and this thing. Yeah let me execute that."
+    },
+    {
+        "start": 868.32,
+        "end": 877.04,
+        "text": "Yeah it's a caro. A lot of this query will be probably large. Now instead of ordering by count let's"
+    },
+    {
+        "start": 877.04,
+        "end": 885.76,
+        "text": "maybe order first by day ascending and then yeah also it's ordered by this location maybe also"
+    },
+    {
+        "start": 885.76,
+        "end": 896.0,
+        "text": "from both two past. Yeah now we have these results we can see for each district for each drop"
+    },
+    {
+        "start": 896.08,
+        "end": 902.16,
+        "text": "of location how many trips were there how much money the driver made and what was the maximum"
+    },
+    {
+        "start": 902.16,
+        "end": 907.6,
+        "text": "number of passengers and of course we can add more and more stuff there. Yeah so this is how a group by"
+    },
+    {
+        "start": 907.6,
+        "end": 915.84,
+        "text": "works and I think a group by is like a workhorse of all analytics so this is how the majority of"
+    },
+    {
+        "start": 915.84,
+        "end": 921.36,
+        "text": "queries that only stride look like usually it's some sort of some form of group by and then"
+    },
+    {
+        "start": 921.44,
+        "end": 926.96,
+        "text": "there are from joints and I think these two types of queries that they are most important to know."
+    },
+    {
+        "start": 926.96,
+        "end": 933.2,
+        "text": "I think we covered sufficient ground for you to continue. This series of videos we started with"
+    },
+    {
+        "start": 933.2,
+        "end": 939.28,
+        "text": "Discussion Bokker and then did with practicing and refreshing SQL and we also took a look at the"
+    },
+    {
+        "start": 939.28,
+        "end": 945.2,
+        "text": "data set we will be using throughout the course. We wrote also a script for ingesting data from"
+    },
+    {
+        "start": 945.2,
+        "end": 952.1600000000001,
+        "text": "a CC file to post-gress database so I hope you enjoyed it and see you soon next week. Bye bye."
+    }
+]

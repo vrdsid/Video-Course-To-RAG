@@ -1,0 +1,817 @@
+[
+    {
+        "start": 0.0,
+        "end": 5.76,
+        "text": "Hello again, welcome to video three of daily engineering zoom camp week five and in this video"
+    },
+    {
+        "start": 5.76,
+        "end": 12.24,
+        "text": "I will show how to install Spark on a Linux computer. So I will use a cloud virtual machine from Google Cloud"
+    },
+    {
+        "start": 12.24,
+        "end": 18.080000000000002,
+        "text": "So this is the virtual machine that we set up in week one. Let me quickly open our GitHub repo"
+    },
+    {
+        "start": 18.080000000000002,
+        "end": 25.84,
+        "text": "And I already prepared some documents about setup. So this is what we will use. So we will use this setup for Linux"
+    },
+    {
+        "start": 26.0,
+        "end": 34.08,
+        "text": "This will work for usual Linux as well as a Windows subsystem for Linux. I tested it on VSL already"
+    },
+    {
+        "start": 34.08,
+        "end": 40.56,
+        "text": "Yeah, so now I want to show you how to do it with a virtual machine in the cloud. The machine I have is already running"
+    },
+    {
+        "start": 41.04,
+        "end": 43.04,
+        "text": "Let me connect to this machine and"
+    },
+    {
+        "start": 43.92,
+        "end": 49.68,
+        "text": "Open this instruction for this thing. We will need to install multiple things. So we will first need to install Java"
+    },
+    {
+        "start": 50.400000000000006,
+        "end": 55.44,
+        "text": "Then we will install Spark and yeah, let me show you how to do this for installing Java"
+    },
+    {
+        "start": 55.519999999999996,
+        "end": 63.36,
+        "text": "We need to have a specific version of gdk. So it should be either 8 or 11. This is a pretty old version of gdk"
+    },
+    {
+        "start": 63.68,
+        "end": 70.16,
+        "text": "The current one is 17, but 17 will not work with Spark. So you need to have another version of gbm"
+    },
+    {
+        "start": 70.72,
+        "end": 78.0,
+        "text": "And yes, this page it shows all the versions that are there. So you just scroll to"
+    },
+    {
+        "start": 78.96,
+        "end": 80.96,
+        "text": "11 and select"
+    },
+    {
+        "start": 81.03999999999999,
+        "end": 86.55999999999999,
+        "text": "Which one you want like Windows macro Linux actually for Windows. So there is a separate"
+    },
+    {
+        "start": 87.19999999999999,
+        "end": 89.19999999999999,
+        "text": "separate guide guideline"
+    },
+    {
+        "start": 90.16,
+        "end": 98.47999999999999,
+        "text": "And for windows, I would actually recommend to go with Oracle ddk not with OpenGdk for Linux OpenGdk is okay"
+    },
+    {
+        "start": 98.8,
+        "end": 104.32,
+        "text": "So let me just get it. I will copy link address and then I will go to"
+    },
+    {
+        "start": 104.96,
+        "end": 108.0,
+        "text": "remote computer Linux machine and here"
+    },
+    {
+        "start": 108.47999999999999,
+        "end": 110.96,
+        "text": "Maybe let me create a folder called Spark"
+    },
+    {
+        "start": 111.27999999999999,
+        "end": 114.72,
+        "text": "So over there and I will download this thing there"
+    },
+    {
+        "start": 115.36,
+        "end": 119.91999999999999,
+        "text": "So I will download OpenGdk now. I need to unpack it start extract of"
+    },
+    {
+        "start": 120.47999999999999,
+        "end": 127.6,
+        "text": "SpellWos then OpenGdk now it's unpacking now. I will remove it. Don't need it anymore"
+    },
+    {
+        "start": 128.23999999999998,
+        "end": 133.35999999999999,
+        "text": "Now we have this directory now gdk and we are now in"
+    },
+    {
+        "start": 134.16,
+        "end": 138.56,
+        "text": "Slash Spark. So it's home directory slash spark. Now we need to create a variable"
+    },
+    {
+        "start": 139.04,
+        "end": 145.04,
+        "text": "I'll call it this variable will be called Java home and it's important to create a variable that is called exactly like that because"
+    },
+    {
+        "start": 145.6,
+        "end": 152.16,
+        "text": "Spark will use this directory in its script. So we need to write it. So write home"
+    },
+    {
+        "start": 153.12,
+        "end": 160.48,
+        "text": "So home is the same as tilde, but home usually works better than tilde. So then it will be home spark"
+    },
+    {
+        "start": 161.04,
+        "end": 167.35999999999999,
+        "text": "Then this thing gdk 1101. So this will be the location of our gdk"
+    },
+    {
+        "start": 167.6,
+        "end": 172.07999999999998,
+        "text": "It's Java home and then we need to add this to our path to be able to"
+    },
+    {
+        "start": 172.72,
+        "end": 174.72,
+        "text": "use Java. So it will be"
+    },
+    {
+        "start": 175.2,
+        "end": 176.48,
+        "text": "Java"
+    },
+    {
+        "start": 176.56,
+        "end": 179.84,
+        "text": "Home and then all the executables live in the"
+    },
+    {
+        "start": 180.16,
+        "end": 183.2,
+        "text": "Slashpin folder in Java home and then we"
+    },
+    {
+        "start": 183.44,
+        "end": 190.64,
+        "text": "Prepend it in the path like we did in the week one and now I can do which Java and it points to"
+    },
+    {
+        "start": 191.04,
+        "end": 195.67999999999998,
+        "text": "this location here and to check that everything works. I will do Java minus minus version"
+    },
+    {
+        "start": 196.72,
+        "end": 204.0,
+        "text": "And we see that we have Java which is this version. It's 1101. It's pretty old version. Yeah, sure"
+    },
+    {
+        "start": 204.32,
+        "end": 207.76,
+        "text": "We have Java and by the way, this thing let me put it in a file"
+    },
+    {
+        "start": 210.4,
+        "end": 216.96,
+        "text": "So the next thing we need to install is spark. So we install Java. Now we need to install spark"
+    },
+    {
+        "start": 218.24,
+        "end": 221.6,
+        "text": "Now I already have a direct link, but let me show you how to get it"
+    },
+    {
+        "start": 224.64,
+        "end": 226.64,
+        "text": "Go to spark"
+    },
+    {
+        "start": 226.64,
+        "end": 231.12,
+        "text": "Main the page and then I select spark release 3 0 3"
+    },
+    {
+        "start": 231.6,
+        "end": 236.32,
+        "text": "So the reason I go with this one is because it works well for"
+    },
+    {
+        "start": 236.8,
+        "end": 242.56,
+        "text": "Windows. So if you feel adventurous you can go with a more recent one. I do not guarantee it will work"
+    },
+    {
+        "start": 242.64000000000001,
+        "end": 249.36,
+        "text": "You can try probably it will, but I still recommend to go with a bit older version and then we"
+    },
+    {
+        "start": 249.84,
+        "end": 254.64000000000001,
+        "text": "Package type would be this one again. This is more important for Windows users"
+    },
+    {
+        "start": 254.96,
+        "end": 259.12,
+        "text": "But to have some consistency. I will also use this Apache Hadoop 3.2"
+    },
+    {
+        "start": 259.76,
+        "end": 262.24,
+        "text": "And here now I just click on this link"
+    },
+    {
+        "start": 263.68,
+        "end": 270.0,
+        "text": "Now do W get again to download it. Okay, something is wrong. I don't think this is actually the right archive"
+    },
+    {
+        "start": 270.32,
+        "end": 276.16,
+        "text": "So I need to go here and then select the right mirror and this is the link that I have"
+    },
+    {
+        "start": 276.32,
+        "end": 280.08,
+        "text": "So this is the link for a mirror. Let me remove it and then download it"
+    },
+    {
+        "start": 280.88,
+        "end": 283.12,
+        "text": "Yes, and now this is the right link"
+    },
+    {
+        "start": 284.08,
+        "end": 286.32,
+        "text": "Strive the files for walls work"
+    },
+    {
+        "start": 289.2,
+        "end": 292.16,
+        "text": "You know it's extracting I can remove it now"
+    },
+    {
+        "start": 293.6,
+        "end": 299.68,
+        "text": "Yeah, not directory in the archive and I do the same thing as previously with Java. I do export spark"
+    },
+    {
+        "start": 300.96,
+        "end": 302.96,
+        "text": "Home and then I need to"
+    },
+    {
+        "start": 303.84000000000003,
+        "end": 311.68,
+        "text": "Gift a full path to spark directory. It will be again home then spark then this"
+    },
+    {
+        "start": 313.68,
+        "end": 316.88,
+        "text": "And then I do the same thing with path one more time"
+    },
+    {
+        "start": 317.84,
+        "end": 326.0,
+        "text": "Uh spark home slash pin and then the rest of the path will go after that. So let me copy this as well"
+    },
+    {
+        "start": 328.32,
+        "end": 333.76,
+        "text": "And now we can try to see if everything works. I will do spark show"
+    },
+    {
+        "start": 334.96,
+        "end": 340.4,
+        "text": "Okay, it seems it's working. So there are some warnings, but we can just ignore this warnings"
+    },
+    {
+        "start": 341.12,
+        "end": 343.12,
+        "text": "Okay, it's doing something"
+    },
+    {
+        "start": 343.6,
+        "end": 345.6,
+        "text": "And"
+    },
+    {
+        "start": 345.6,
+        "end": 349.28000000000003,
+        "text": "And I have a think I want to execute to test that everything works"
+    },
+    {
+        "start": 350.0,
+        "end": 354.96,
+        "text": "It is color code. So if you don't know scala. So first this think data"
+    },
+    {
+        "start": 355.44,
+        "end": 361.84000000000003,
+        "text": "This is a range of numbers. So basically at least sort of of things of numbers from one to ten"
+    },
+    {
+        "start": 362.32,
+        "end": 367.6,
+        "text": "Thousand and then what we do with this list with this sequence of numbers is we turn this into"
+    },
+    {
+        "start": 368.16,
+        "end": 373.6,
+        "text": "NRGD. So this is a think internal to spark and now it becomes sort of parallel"
+    },
+    {
+        "start": 373.84000000000003,
+        "end": 381.44,
+        "text": "So this thing is local, but now this think distributed data is already it lives on the cluster and this think we"
+    },
+    {
+        "start": 382.0,
+        "end": 388.96000000000004,
+        "text": "Take a look at all the numbers we have in our distributed data set and we keep only ones that are below ten"
+    },
+    {
+        "start": 389.20000000000005,
+        "end": 394.8,
+        "text": "So we execute this on a spark cluster which currently lives on this machine on our Linux machine"
+    },
+    {
+        "start": 395.04,
+        "end": 399.76,
+        "text": "And then at the end we collect results which are just numbers from one to nine"
+    },
+    {
+        "start": 400.0,
+        "end": 405.2,
+        "text": "So this is a simple spark job to make sure that things work and they seem to work"
+    },
+    {
+        "start": 406.0,
+        "end": 410.08000000000004,
+        "text": "And now I don't want to type this every time I log into"
+    },
+    {
+        "start": 410.8,
+        "end": 415.04,
+        "text": "My computer. So now I want to put this to bash RC. So I will use nano"
+    },
+    {
+        "start": 415.76,
+        "end": 417.76,
+        "text": "To edit my bash"
+    },
+    {
+        "start": 418.0,
+        "end": 421.2,
+        "text": "RC file. So now I'll go to the end and"
+    },
+    {
+        "start": 422.15999999999997,
+        "end": 428.24,
+        "text": "I will paste it here and I will now do control all to save the file"
+    },
+    {
+        "start": 428.64,
+        "end": 434.56,
+        "text": "Enter now and control x to exit it now for example what I can do is just execute source"
+    },
+    {
+        "start": 435.2,
+        "end": 441.12,
+        "text": "Bash RC and then when I do this the file will be re-evaluated and I will have all these variables"
+    },
+    {
+        "start": 441.28,
+        "end": 442.88,
+        "text": "I can also just"
+    },
+    {
+        "start": 442.88,
+        "end": 446.4,
+        "text": "Close my connection because this is the remote machine and then enter it again"
+    },
+    {
+        "start": 446.79999999999995,
+        "end": 453.03999999999996,
+        "text": "And now when I do which Java it finds Java and which pi spark it finds it"
+    },
+    {
+        "start": 453.2,
+        "end": 457.35999999999996,
+        "text": "So now this thing is executed every time we open our terminal"
+    },
+    {
+        "start": 457.76,
+        "end": 459.76,
+        "text": "Now I want to show you how to"
+    },
+    {
+        "start": 460.88,
+        "end": 462.88,
+        "text": "Use pi spark"
+    },
+    {
+        "start": 462.88,
+        "end": 468.08,
+        "text": "Yeah, let me create a folder which I'll call notebooks. Yeah, let's let's do that"
+    },
+    {
+        "start": 469.03999999999996,
+        "end": 472.08,
+        "text": "And then here I'll start to be the notebook"
+    },
+    {
+        "start": 472.8,
+        "end": 474.8,
+        "text": "Oh"
+    },
+    {
+        "start": 474.8,
+        "end": 479.68,
+        "text": "Because this is a remote machine. I will now actually I need to connect to"
+    },
+    {
+        "start": 481.52,
+        "end": 483.76,
+        "text": "To this machine with visuals to your code"
+    },
+    {
+        "start": 484.88,
+        "end": 486.88,
+        "text": "And"
+    },
+    {
+        "start": 486.88,
+        "end": 493.03999999999996,
+        "text": "We'll go to this ports tab and if you don't have it the way I open it is I click control"
+    },
+    {
+        "start": 493.59999999999997,
+        "end": 500.71999999999997,
+        "text": "Controlled tilde. I don't know how this thing is like back code. Yeah, control back code to open it and then go to ports and"
+    },
+    {
+        "start": 501.44000000000005,
+        "end": 506.16,
+        "text": "I want to open port 8888. So this is the port that the Jupyter uses"
+    },
+    {
+        "start": 507.20000000000005,
+        "end": 514.0,
+        "text": "I think I was too quick actually we start in Jupyters. Let's be shut it down and go to this pi spark MD file"
+    },
+    {
+        "start": 514.32,
+        "end": 518.48,
+        "text": "Which has instructions for running pi spark. So I need to execute this thing"
+    },
+    {
+        "start": 518.5600000000001,
+        "end": 523.76,
+        "text": "What this thing is doing python path is very similar to usual path except it's for python"
+    },
+    {
+        "start": 524.0,
+        "end": 527.52,
+        "text": "So it tells python where it needs to look for packages"
+    },
+    {
+        "start": 527.68,
+        "end": 533.36,
+        "text": "And it says that python when we try to import something it should look in this location"
+    },
+    {
+        "start": 533.4399999999999,
+        "end": 537.12,
+        "text": "It should try to look in locations park home slash python"
+    },
+    {
+        "start": 537.1999999999999,
+        "end": 541.36,
+        "text": "And this is where our pie spark lives in this location and then it needs some"
+    },
+    {
+        "start": 542.0799999999999,
+        "end": 546.0799999999999,
+        "text": "Extra dependencies. This is this is what these two lines do"
+    },
+    {
+        "start": 546.24,
+        "end": 549.68,
+        "text": "So we need to execute them first and now start Jupyter"
+    },
+    {
+        "start": 550.0,
+        "end": 554.0799999999999,
+        "text": "Otherwise if we don't do this then we will not be able to import pie spark"
+    },
+    {
+        "start": 554.32,
+        "end": 558.72,
+        "text": "You know I copy this thing paste this to the browser"
+    },
+    {
+        "start": 559.44,
+        "end": 561.76,
+        "text": "Now let me create a new notebook"
+    },
+    {
+        "start": 561.76,
+        "end": 565.2800000000001,
+        "text": "Hide it and now I'll do import pie spark"
+    },
+    {
+        "start": 566.8000000000001,
+        "end": 569.2800000000001,
+        "text": "And if I do now version"
+    },
+    {
+        "start": 570.0,
+        "end": 575.2800000000001,
+        "text": "This should be the version we just installed and I think here we have this"
+    },
+    {
+        "start": 576.08,
+        "end": 583.36,
+        "text": "File variable that says where this model lives and this model lives in the location that will where we install spark"
+    },
+    {
+        "start": 583.52,
+        "end": 586.8000000000001,
+        "text": "And now we need to import I don't remember how"
+    },
+    {
+        "start": 587.44,
+        "end": 590.64,
+        "text": "Yeah, so from pie spark SQL import spark session"
+    },
+    {
+        "start": 591.28,
+        "end": 598.5600000000001,
+        "text": "Those park sessions I think that tells how exactly we connect to spark and the session we will use will be this one"
+    },
+    {
+        "start": 600.32,
+        "end": 607.2,
+        "text": "So here we specify how exactly we connect to spark and we will say that we want to connect to a local master"
+    },
+    {
+        "start": 607.36,
+        "end": 610.48,
+        "text": "So master is think for coordinating"
+    },
+    {
+        "start": 611.36,
+        "end": 617.44,
+        "text": "Jobs of a spark cluster and we will use local one. So local means it will create a local cluster"
+    },
+    {
+        "start": 617.6,
+        "end": 620.96,
+        "text": "And star means it will use all the available CPUs"
+    },
+    {
+        "start": 621.12,
+        "end": 626.08,
+        "text": "So we can say that we only want to use let's say two CPUs or we can say let's use all of them"
+    },
+    {
+        "start": 626.24,
+        "end": 634.16,
+        "text": "And then the name of our application will be test and get or create yeah if spark session does not exist created if it does exist return"
+    },
+    {
+        "start": 634.72,
+        "end": 636.24,
+        "text": "Now it's creating"
+    },
+    {
+        "start": 636.32,
+        "end": 642.16,
+        "text": "Yeah, we can probably ignore we saw this the same warning when we were executing spark shell"
+    },
+    {
+        "start": 642.5600000000001,
+        "end": 649.84,
+        "text": "Let me see what else they have yeah, so now what we can do is we can just download this taxi's own look up file"
+    },
+    {
+        "start": 650.4,
+        "end": 653.6,
+        "text": "This is here. I will put it right here"
+    },
+    {
+        "start": 654.48,
+        "end": 656.48,
+        "text": "So now yeah, we downloaded this file"
+    },
+    {
+        "start": 658.16,
+        "end": 658.96,
+        "text": "So"
+    },
+    {
+        "start": 658.96,
+        "end": 663.76,
+        "text": "You have seen this file already now let us read it with spark so to spark read"
+    },
+    {
+        "start": 664.4,
+        "end": 669.36,
+        "text": "CSE and then we just put this file there and it will be our data frame"
+    },
+    {
+        "start": 669.84,
+        "end": 676.64,
+        "text": "So now it is reading this is if I'll and we can take a look at this. So we do spark data frame that show"
+    },
+    {
+        "start": 677.52,
+        "end": 680.08,
+        "text": "And we see that what happens here is"
+    },
+    {
+        "start": 680.8,
+        "end": 686.88,
+        "text": "Doesn't know that dislocation ID borrow and so on are the headers of this easy file"
+    },
+    {
+        "start": 687.12,
+        "end": 692.16,
+        "text": "So it doesn't know how to name these columns. So it gives them arbitrary names or not arbitrary"
+    },
+    {
+        "start": 692.24,
+        "end": 698.48,
+        "text": "But some names that don't make much sense. We need to do spark that it needs to load the headers and for that"
+    },
+    {
+        "start": 698.7199999999999,
+        "end": 700.7199999999999,
+        "text": "We need to do it like that"
+    },
+    {
+        "start": 701.12,
+        "end": 703.92,
+        "text": "Let me break it in multiple lines"
+    },
+    {
+        "start": 704.56,
+        "end": 712.48,
+        "text": "So we need to specify options and the option is so as a header through meaning that the CSE file has a header and when we"
+    },
+    {
+        "start": 713.12,
+        "end": 720.16,
+        "text": "Made it one more time then yeah, it properly sees that this is the name of column now. Let's save it to park it"
+    },
+    {
+        "start": 720.24,
+        "end": 722.4,
+        "text": "So I can see data frame right"
+    },
+    {
+        "start": 723.28,
+        "end": 725.04,
+        "text": "Park it and then the zones"
+    },
+    {
+        "start": 726.7199999999999,
+        "end": 731.6,
+        "text": "Yeah, this thing yeah, it was showing the progress of the job, but it was so fast"
+    },
+    {
+        "start": 732.0,
+        "end": 736.3199999999999,
+        "text": "We couldn't see it and now when we do a less we see that it is actually a folder"
+    },
+    {
+        "start": 736.8,
+        "end": 740.48,
+        "text": "The zones let me go to the middle terminal"
+    },
+    {
+        "start": 740.96,
+        "end": 751.76,
+        "text": "So I'll go to no looks and then yeah, so this is a folder and inside this folder we have two files"
+    },
+    {
+        "start": 752.4,
+        "end": 756.4,
+        "text": "One is success meaning the job is successful and this is our"
+    },
+    {
+        "start": 756.8000000000001,
+        "end": 761.6800000000001,
+        "text": "CSE file that we turned into bracket one more thing before we finish this is working"
+    },
+    {
+        "start": 761.6800000000001,
+        "end": 765.6800000000001,
+        "text": "This is good one more thing before we finish. I want to show you that we need to"
+    },
+    {
+        "start": 766.2399999999999,
+        "end": 772.0,
+        "text": "Forward another port 4040 and we go to local cost 4040 now. We will have"
+    },
+    {
+        "start": 772.4,
+        "end": 775.4399999999999,
+        "text": "So this is the interface for spark master"
+    },
+    {
+        "start": 775.68,
+        "end": 779.8399999999999,
+        "text": "These are all the jobs that we executed and this is something that we will use throughout the"
+    },
+    {
+        "start": 780.7199999999999,
+        "end": 783.76,
+        "text": "Week to see what exactly our spark is executing"
+    },
+    {
+        "start": 783.92,
+        "end": 788.8,
+        "text": "That's why you need to also forward this port 4040 if you're doing this on a remote machine"
+    },
+    {
+        "start": 788.8,
+        "end": 794.3199999999999,
+        "text": "If you're doing this locally, of course, you don't need to forward this port because the moment you do this"
+    },
+    {
+        "start": 795.2,
+        "end": 800.6400000000001,
+        "text": "The moment you do this spark starts local master because we told it to do this and"
+    },
+    {
+        "start": 801.36,
+        "end": 805.6800000000001,
+        "text": "This master is accessible through this port. So it's right in that port"
+    },
+    {
+        "start": 806.0,
+        "end": 808.0,
+        "text": "That's all I wanted to show you for this video"
+    },
+    {
+        "start": 808.0,
+        "end": 813.6,
+        "text": "So this is how you install spark on a Linux machine for windows. It's similar. Check it out"
+    },
+    {
+        "start": 814.48,
+        "end": 816.48,
+        "text": "The only difference for windows is you"
+    },
+    {
+        "start": 817.2,
+        "end": 823.84,
+        "text": "Well, first of all you have windows, but then you also have this addup section that you don't need to do for Linux"
+    },
+    {
+        "start": 824.4000000000001,
+        "end": 829.44,
+        "text": "I don't know if you have mark. So if you have mark, maybe you can help cover this part"
+    },
+    {
+        "start": 829.6800000000001,
+        "end": 835.36,
+        "text": "I think that for max the Linux guide will work with problems, but you never know"
+    },
+    {
+        "start": 835.7600000000001,
+        "end": 839.7600000000001,
+        "text": "So this is how you install spark on Linux and this is how you run"
+    },
+    {
+        "start": 839.9200000000001,
+        "end": 842.72,
+        "text": "PicePark and in the next video we'll write first"
+    },
+    {
+        "start": 843.0400000000001,
+        "end": 848.8800000000001,
+        "text": "PicePark application and we'll execute this locally and we will use a high volume for higher"
+    },
+    {
+        "start": 848.88,
+        "end": 855.2,
+        "text": "Vehicle data set for January 2021 to test a few things. So see you soon"
+    }
+]

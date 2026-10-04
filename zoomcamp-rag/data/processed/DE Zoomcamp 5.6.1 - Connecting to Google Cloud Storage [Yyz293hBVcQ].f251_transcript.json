@@ -1,0 +1,427 @@
+[
+    {
+        "start": 0.0,
+        "end": 6.32,
+        "text": "Hello everyone, I'm coming back after somewhat long break to finish recording of Spark videos."
+    },
+    {
+        "start": 6.32,
+        "end": 12.64,
+        "text": "So last time we stopped at RDs, we discussed RDs, and I wanted to cover more things,"
+    },
+    {
+        "start": 12.64,
+        "end": 18.16,
+        "text": "I wanted to cover how to run Spark in the cloud and also Docker, and I want to start recording"
+    },
+    {
+        "start": 18.16,
+        "end": 23.92,
+        "text": "these videos because now you're taking care of your projects and maybe some of these things"
+    },
+    {
+        "start": 23.92,
+        "end": 30.880000000000003,
+        "text": "will be useful for you. So first I want to cover Rhinespark in the cloud, which in this section"
+    },
+    {
+        "start": 30.880000000000003,
+        "end": 35.44,
+        "text": "we will talk about first seeing how we can connect to Google Cloud Storage,"
+    },
+    {
+        "start": 35.44,
+        "end": 40.96,
+        "text": "then we will see how to create a local Spark cluster, and then we will also see how to create a"
+    },
+    {
+        "start": 40.96,
+        "end": 46.160000000000004,
+        "text": "data pro cluster using Google Cloud. So let's start with connecting to Google Cloud Storage,"
+    },
+    {
+        "start": 46.160000000000004,
+        "end": 51.6,
+        "text": "and for that I want to thank Alvin, so Alvin already made a post about how you can do this."
+    },
+    {
+        "start": 51.6,
+        "end": 57.92,
+        "text": "I just want to follow his instruction for doing this and setting everything up. Let's do that."
+    },
+    {
+        "start": 57.92,
+        "end": 64.4,
+        "text": "I already started JupyterNodeBook, so let me open it. I am doing this in the same location as we did"
+    },
+    {
+        "start": 64.4,
+        "end": 74.72,
+        "text": "previously. So in this location we have this Spark SQL, I will just duplicate it and we will use it"
+    },
+    {
+        "start": 74.72,
+        "end": 83.6,
+        "text": "for connecting to Google Cloud Storage. I will rename it to 9 Spark Google Cloud Storage."
+    },
+    {
+        "start": 83.6,
+        "end": 88.16,
+        "text": "This is the code we had previously, so we were running the thinking local mode, and then we were"
+    },
+    {
+        "start": 88.16,
+        "end": 94.4,
+        "text": "reading data from our local folder called data. So right now this is still in our local folder. First"
+    },
+    {
+        "start": 94.4,
+        "end": 100.88,
+        "text": "I want to move this data to Google Cloud Storage. And let me open Google Cloud Storage."
+    },
+    {
+        "start": 101.75999999999999,
+        "end": 108.32,
+        "text": "We already have a bucket that we created. I have something here, but I want to delete. I want to"
+    },
+    {
+        "start": 108.32,
+        "end": 113.67999999999999,
+        "text": "start from scratch. So this is the bucket we have, and now I want to upload data to this bucket."
+    },
+    {
+        "start": 113.67999999999999,
+        "end": 121.36,
+        "text": "The data that we have, it's right now I am this big fire folder, and the data that we created is"
+    },
+    {
+        "start": 121.36,
+        "end": 127.84,
+        "text": "in the data folder. So let me go there, and I have a PQ, Parked files, Rho files. This is the"
+    },
+    {
+        "start": 127.92,
+        "end": 134.0,
+        "text": "Rho SQL files and report. This is the result of our calculations. I want to upload the PQ folder"
+    },
+    {
+        "start": 134.0,
+        "end": 141.52,
+        "text": "to Google Cloud. For that I think I need to use gsu.cp, which is short for copy, and now I need to"
+    },
+    {
+        "start": 141.52,
+        "end": 147.92000000000002,
+        "text": "specify the location in Google Cloud Storage, which will be the bucket name, and I'll"
+    },
+    {
+        "start": 147.92000000000002,
+        "end": 153.92000000000002,
+        "text": "write it to folder called PQ. Since we are copying a folder, we need to add minus airflug, meaning"
+    },
+    {
+        "start": 154.0,
+        "end": 159.6,
+        "text": "recursive. And because we need to upload a lot of files, we'll add minus airflug. I think it's"
+    },
+    {
+        "start": 159.6,
+        "end": 165.35999999999999,
+        "text": "multithreaded or parallel. Basically this will use all the cores, all the CPUs we have on my computer,"
+    },
+    {
+        "start": 165.35999999999999,
+        "end": 171.04,
+        "text": "or actually on this, I am using a remote computer for that, AVM, for uploading data to Google Cloud"
+    },
+    {
+        "start": 171.04,
+        "end": 177.92,
+        "text": "Storage. So now I run it. It is uploading data. It should be quite fast because as I said,"
+    },
+    {
+        "start": 177.92,
+        "end": 182.95999999999998,
+        "text": "I am running this on a virtual machine. So let me refresh it to make sure it is working."
+    },
+    {
+        "start": 184.16,
+        "end": 189.92,
+        "text": "Yeah, so we have something here. So we have the data, and now let us come back to this"
+    },
+    {
+        "start": 189.92,
+        "end": 195.83999999999997,
+        "text": "instruction from Alvin, and now let's reproduce this and do something with our Spark reading from"
+    },
+    {
+        "start": 195.83999999999997,
+        "end": 201.04,
+        "text": "Google Cloud Storage. The first step here is we need to download the Cloud Storage connector for"
+    },
+    {
+        "start": 201.04,
+        "end": 206.72,
+        "text": "Hadoop. You can ignore Hadoop here, but we need to tell Spark how exactly it can connect to Google"
+    },
+    {
+        "start": 206.72,
+        "end": 212.72,
+        "text": "Cloud Storage. So we want to be able to connect to URL like this, Google Cloud Storage, then name"
+    },
+    {
+        "start": 212.72,
+        "end": 220.88,
+        "text": "of the bucket, which is this one, then BQ, green, whatever. So when it sees a URL like that,"
+    },
+    {
+        "start": 220.88,
+        "end": 226.16,
+        "text": "it needs to know how do I actually connect to this URL to Google Cloud Storage, and we need to help"
+    },
+    {
+        "start": 226.16,
+        "end": 231.68,
+        "text": "it to tell you need to use this specific thing for connecting. So we need to have this jar file."
+    },
+    {
+        "start": 231.68,
+        "end": 237.92,
+        "text": "This is a library in Java that knows how to connect to Google Cloud Storage. So let me open this,"
+    },
+    {
+        "start": 237.92,
+        "end": 244.95999999999998,
+        "text": "and see, yes, we need to Cloud Storage connector for Hadoop 3. We can download it from this"
+    },
+    {
+        "start": 244.95999999999998,
+        "end": 250.79999999999998,
+        "text": "location. So this library is also stored in Google Cloud Storage, so we can just take this and"
+    },
+    {
+        "start": 250.79999999999998,
+        "end": 257.91999999999996,
+        "text": "download the library. Let me create a directory I'll call it LIP, for example, and I will download"
+    },
+    {
+        "start": 257.91999999999996,
+        "end": 265.03999999999996,
+        "text": "this jar now, this file. So it's just you to you. Again, I'll use Cp, so I'm copying from remote"
+    },
+    {
+        "start": 265.52000000000004,
+        "end": 270.08000000000004,
+        "text": "location to a local location, and we actually need Hadoop 3, because remember this park we downloaded"
+    },
+    {
+        "start": 270.08000000000004,
+        "end": 274.72,
+        "text": "was for Hadoop 3, not that it makes much difference for us, but this is just the thing we need to"
+    },
+    {
+        "start": 274.72,
+        "end": 279.28000000000003,
+        "text": "download, and then we need the version. So as for the version, I have it somewhere here. Yes, so this"
+    },
+    {
+        "start": 279.28000000000003,
+        "end": 284.08000000000004,
+        "text": "is the version we need to do two five, I think this is the latest version. So this is a version,"
+    },
+    {
+        "start": 284.08000000000004,
+        "end": 289.44,
+        "text": "not for Spark, but this is a version for this specific Google Cloud Storage connector. And we need"
+    },
+    {
+        "start": 289.52,
+        "end": 296.56,
+        "text": "to save it to this jar file. Okay, now it's downloading, it is over, we have it here, and the location"
+    },
+    {
+        "start": 296.56,
+        "end": 303.04,
+        "text": "is code, LIP, and so on. We have downloaded it, and now we need to follow this instruction, the way"
+    },
+    {
+        "start": 303.04,
+        "end": 307.84,
+        "text": "we're doing it here, we're creating Spark session with a builder. We need to change it a little"
+    },
+    {
+        "start": 307.84,
+        "end": 315.2,
+        "text": "bit, for that we will need to import a few extra things, so let me import that. Let me now execute"
+    },
+    {
+        "start": 315.36,
+        "end": 322.71999999999997,
+        "text": "this. We do not run this right now, because we need to do this thing. So here we are configuring"
+    },
+    {
+        "start": 322.71999999999997,
+        "end": 327.84,
+        "text": "our Spark, so instead of just using builder, we first provide the configuration. In this configuration,"
+    },
+    {
+        "start": 327.84,
+        "end": 333.76,
+        "text": "we still use the cluster in local mode, the name is still test, but here we also specify the"
+    },
+    {
+        "start": 333.76,
+        "end": 341.36,
+        "text": "location for this jar file. So I will now specify the location, which will be LIP, and then this jar,"
+    },
+    {
+        "start": 341.36,
+        "end": 346.88,
+        "text": "so we keep this thing, and now we need to specify the path to our Google credentials, because this"
+    },
+    {
+        "start": 346.88,
+        "end": 352.40000000000003,
+        "text": "is exactly how Spark will know how to connect to our Google Cloud Storage. So I will put this"
+    },
+    {
+        "start": 352.40000000000003,
+        "end": 359.68,
+        "text": "to a separate variable, I'll call it credentials application, and for me credentials, for you"
+    },
+    {
+        "start": 359.68,
+        "end": 365.12,
+        "text": "probably as well, so it's in Google credentials, Google credentials, and we just put it here."
+    },
+    {
+        "start": 365.84000000000003,
+        "end": 371.12,
+        "text": "So this is how we specify the config. The next thing we need to create Spark context."
+    },
+    {
+        "start": 372.0,
+        "end": 377.04,
+        "text": "Spark context, this is something we previously created with a builder, but now we don't use builder,"
+    },
+    {
+        "start": 377.04,
+        "end": 381.84000000000003,
+        "text": "we create the context immediately. I think we have our extra credence session, but then we will"
+    },
+    {
+        "start": 381.84000000000003,
+        "end": 386.72,
+        "text": "create first context and then create a session from this context. So this is a little bit more"
+    },
+    {
+        "start": 386.72,
+        "end": 396.08000000000004,
+        "text": "involved. Not to repeat this step, I'll just call it Hadoop config, and we'll have it here."
+    },
+    {
+        "start": 398.08000000000004,
+        "end": 404.96000000000004,
+        "text": "So this is just a little bit more compact and credential configuration, again, we just put it here,"
+    },
+    {
+        "start": 404.96000000000004,
+        "end": 412.72,
+        "text": "and what this thing is doing, it says when you see a file system that starts with GS, Google Cloud,"
+    },
+    {
+        "start": 412.8,
+        "end": 417.76000000000005,
+        "text": "here we have GS, then we need to use this implementation, which is coming from this jar file,"
+    },
+    {
+        "start": 417.76000000000005,
+        "end": 421.92,
+        "text": "then we need to use these credentials. So let me execute that."
+    },
+    {
+        "start": 424.08000000000004,
+        "end": 429.76000000000005,
+        "text": "I think we saw this warning as well, obviously, when we were creating. Okay, now the last thing we"
+    },
+    {
+        "start": 429.76000000000005,
+        "end": 436.40000000000003,
+        "text": "need to do is this thing. So now we already have configuration, we already have context, now we need"
+    },
+    {
+        "start": 436.47999999999996,
+        "end": 442.56,
+        "text": "to create the session. Yeah, now let's test it. Hopefully it should work. I think it is working."
+    },
+    {
+        "start": 442.56,
+        "end": 448.47999999999996,
+        "text": "I didn't follow the instructions word to word because I didn't download it to the Spark"
+    },
+    {
+        "start": 448.47999999999996,
+        "end": 453.84,
+        "text": "location to jars, maybe it is important, I don't know, but I put this in the separate directory,"
+    },
+    {
+        "start": 453.84,
+        "end": 458.96,
+        "text": "I don't think it matters here. Yeah, let's do something simple, like first I'll do something"
+    },
+    {
+        "start": 459.2,
+        "end": 467.28,
+        "text": "I show. Yeah, we can see this. So it can access the data and it can show something, and now I'll do"
+    },
+    {
+        "start": 467.28,
+        "end": 475.2,
+        "text": "something simple, like count. And we see it works. So I will not execute the entire thing, I don't"
+    },
+    {
+        "start": 475.2,
+        "end": 481.52,
+        "text": "think it's important, let me just delete it. Yeah, the important thing here is how exactly you connect"
+    },
+    {
+        "start": 481.52,
+        "end": 486.71999999999997,
+        "text": "to Google Cloud storage from your Spark cluster. Later we will see that when we will use a"
+    },
+    {
+        "start": 486.72,
+        "end": 492.56,
+        "text": "managed service from Google for Spark, then we will not even need to do that, but before we go"
+    },
+    {
+        "start": 492.56,
+        "end": 498.24,
+        "text": "there, this is how you can connect to Google Cloud storage from your local Spark. Okay, so that's"
+    },
+    {
+        "start": 498.24,
+        "end": 504.40000000000003,
+        "text": "all I have for now. And in the next video, I want to talk about creating a local cluster, local"
+    },
+    {
+        "start": 504.40000000000003,
+        "end": 512.1600000000001,
+        "text": "Spark cluster. So far, we were just using this local thing and when we will need to submit something"
+    },
+    {
+        "start": 512.16,
+        "end": 516.48,
+        "text": "to the cloud, then instead of doing that, we will need to do something else and we will need to use"
+    },
+    {
+        "start": 516.48,
+        "end": 522.16,
+        "text": "a tool called Spark Submit. So in the next video, I want to talk what this is and how to create a"
+    },
+    {
+        "start": 522.16,
+        "end": 527.04,
+        "text": "standalone cluster of Spark on our local machine. So see you soon."
+    }
+]

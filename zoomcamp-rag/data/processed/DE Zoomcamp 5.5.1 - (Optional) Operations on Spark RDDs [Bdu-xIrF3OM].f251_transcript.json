@@ -1,0 +1,1752 @@
+[
+    {
+        "start": 0.0,
+        "end": 5.12,
+        "text": "Hello everyone, welcome to another video of Data Engineering Zoom Camp week 5."
+    },
+    {
+        "start": 5.12,
+        "end": 8.96,
+        "text": "And in this video I will talk about RDDs in Spark."
+    },
+    {
+        "start": 8.96,
+        "end": 14.0,
+        "text": "RDDs tend for resilient distributed data sets and this is something that"
+    },
+    {
+        "start": 14.0,
+        "end": 18.080000000000002,
+        "text": "very internal to Spark that the very first versions of Spark head."
+    },
+    {
+        "start": 18.080000000000002,
+        "end": 23.2,
+        "text": "This is the basis of what it uses for doing distributed combinations."
+    },
+    {
+        "start": 23.2,
+        "end": 26.8,
+        "text": "And data frames that we saw are built on top of RDDs."
+    },
+    {
+        "start": 26.8,
+        "end": 32.72,
+        "text": "So this is another layer of abstraction that gives us this nice API and nice functions"
+    },
+    {
+        "start": 32.72,
+        "end": 35.120000000000005,
+        "text": "so that we don't actually need to use RDD."
+    },
+    {
+        "start": 35.120000000000005,
+        "end": 38.72,
+        "text": "And most of the time we do not indeed need to use them."
+    },
+    {
+        "start": 38.72,
+        "end": 42.08,
+        "text": "That's why I marked this section as optional."
+    },
+    {
+        "start": 42.08,
+        "end": 45.68,
+        "text": "So both this video and the next video will be optional."
+    },
+    {
+        "start": 45.68,
+        "end": 50.32,
+        "text": "And this is more like a bit of history for you to see how things were done"
+    },
+    {
+        "start": 50.32,
+        "end": 51.92,
+        "text": "before like five years ago."
+    },
+    {
+        "start": 51.92,
+        "end": 55.6,
+        "text": "And I will show you how some things are implemented internally."
+    },
+    {
+        "start": 55.6,
+        "end": 58.480000000000004,
+        "text": "So you might decide to actually stay and watch it."
+    },
+    {
+        "start": 58.480000000000004,
+        "end": 60.160000000000004,
+        "text": "So it's actually two videos."
+    },
+    {
+        "start": 60.160000000000004,
+        "end": 62.96,
+        "text": "I keep changing the plan for RDDs."
+    },
+    {
+        "start": 62.96,
+        "end": 65.12,
+        "text": "There is an entire section of two videos."
+    },
+    {
+        "start": 65.12,
+        "end": 68.88,
+        "text": "So in the first section we will talk about simple operations like map and reduce."
+    },
+    {
+        "start": 68.88,
+        "end": 71.44,
+        "text": "And we will talk what RDD is."
+    },
+    {
+        "start": 71.44,
+        "end": 75.92,
+        "text": "In section two we will talk about one specific operation that is map partition,"
+    },
+    {
+        "start": 75.92,
+        "end": 79.44,
+        "text": "which I find quite useful is actually not correct."
+    },
+    {
+        "start": 79.44,
+        "end": 83.68,
+        "text": "I find it quite useful and I still even know we have data frames."
+    },
+    {
+        "start": 83.68,
+        "end": 85.2,
+        "text": "I still use it quite often."
+    },
+    {
+        "start": 85.28,
+        "end": 87.04,
+        "text": "So let's start with RDD."
+    },
+    {
+        "start": 87.04,
+        "end": 90.24000000000001,
+        "text": "RDD is a distributed dataset."
+    },
+    {
+        "start": 90.24000000000001,
+        "end": 93.68,
+        "text": "So let's say we have some dataset that is partitioned."
+    },
+    {
+        "start": 93.68,
+        "end": 95.36,
+        "text": "So we have one by two partitions."
+    },
+    {
+        "start": 95.36,
+        "end": 98.72,
+        "text": "I don't know partition one, partition two, etc."
+    },
+    {
+        "start": 98.72,
+        "end": 100.0,
+        "text": "partition 50."
+    },
+    {
+        "start": 100.0,
+        "end": 101.04,
+        "text": "This is distributed."
+    },
+    {
+        "start": 101.04,
+        "end": 103.76,
+        "text": "So if we have let's say we have a bunch of executors,"
+    },
+    {
+        "start": 104.88,
+        "end": 108.88,
+        "text": "then each executor takes each partition that executes it."
+    },
+    {
+        "start": 108.88,
+        "end": 111.36,
+        "text": "So we saw this already in data frame."
+    },
+    {
+        "start": 111.36,
+        "end": 114.96000000000001,
+        "text": "And actually data frames are implemented on top of RDDs."
+    },
+    {
+        "start": 115.2,
+        "end": 117.28,
+        "text": "So internally there are still RDDs,"
+    },
+    {
+        "start": 117.28,
+        "end": 119.36,
+        "text": "but they follow a specific structure."
+    },
+    {
+        "start": 119.36,
+        "end": 121.92,
+        "text": "They have a schema over right here."
+    },
+    {
+        "start": 121.92,
+        "end": 125.12,
+        "text": "Not a frames, they have schema."
+    },
+    {
+        "start": 125.12,
+        "end": 126.64,
+        "text": "And usual RDDs."
+    },
+    {
+        "start": 126.64,
+        "end": 130.08,
+        "text": "This is just a distributed collection of objects."
+    },
+    {
+        "start": 131.36,
+        "end": 133.36,
+        "text": "And this is a distributed collection."
+    },
+    {
+        "start": 133.36,
+        "end": 135.6,
+        "text": "Maybe it's better if I just show you."
+    },
+    {
+        "start": 135.6,
+        "end": 140.56,
+        "text": "And what I will do is I will create a new notebook."
+    },
+    {
+        "start": 141.6,
+        "end": 144.56,
+        "text": "I will call it 08 RDDs."
+    },
+    {
+        "start": 145.35999999999999,
+        "end": 147.92,
+        "text": "Let me open one of the previous projects."
+    },
+    {
+        "start": 147.92,
+        "end": 150.56,
+        "text": "So I will use this, it's practical."
+    },
+    {
+        "start": 151.51999999999998,
+        "end": 153.92,
+        "text": "So let me copy this thing."
+    },
+    {
+        "start": 154.72,
+        "end": 155.67999999999998,
+        "text": "It takes a cuteness."
+    },
+    {
+        "start": 155.67999999999998,
+        "end": 158.16,
+        "text": "So now our local master will start."
+    },
+    {
+        "start": 158.16,
+        "end": 159.44,
+        "text": "We can actually check that."
+    },
+    {
+        "start": 159.44,
+        "end": 160.95999999999998,
+        "text": "Local host 4040."
+    },
+    {
+        "start": 162.23999999999998,
+        "end": 163.2,
+        "text": "Yeah, we have it."
+    },
+    {
+        "start": 163.2,
+        "end": 166.64,
+        "text": "And I will read green dataset here."
+    },
+    {
+        "start": 167.92,
+        "end": 170.56,
+        "text": "So what I want to do in this video, let me open another one."
+    },
+    {
+        "start": 171.2,
+        "end": 173.83999999999997,
+        "text": "In the group by example, in the group by video,"
+    },
+    {
+        "start": 173.84,
+        "end": 175.6,
+        "text": "we implemented this query."
+    },
+    {
+        "start": 175.6,
+        "end": 178.08,
+        "text": "So in this query, we computed"
+    },
+    {
+        "start": 178.08,
+        "end": 180.4,
+        "text": "the new pair R, per each zone."
+    },
+    {
+        "start": 180.4,
+        "end": 182.88,
+        "text": "So we looked at the total amount of"
+    },
+    {
+        "start": 182.88,
+        "end": 187.2,
+        "text": "trips that are generated from this pick obligation at a specific hour."
+    },
+    {
+        "start": 187.2,
+        "end": 190.16,
+        "text": "So I want to take this query."
+    },
+    {
+        "start": 190.8,
+        "end": 193.36,
+        "text": "I will copy it right now here."
+    },
+    {
+        "start": 194.24,
+        "end": 196.96,
+        "text": "And this is something I want now to implement,"
+    },
+    {
+        "start": 196.96,
+        "end": 198.0,
+        "text": "but with our release."
+    },
+    {
+        "start": 198.0,
+        "end": 201.36,
+        "text": "Before we go into doing that,"
+    },
+    {
+        "start": 201.36,
+        "end": 202.56,
+        "text": "so we have a data frame."
+    },
+    {
+        "start": 202.56,
+        "end": 202.88000000000002,
+        "text": "Right?"
+    },
+    {
+        "start": 202.88000000000002,
+        "end": 207.04000000000002,
+        "text": "If I do show, we will see this data frame."
+    },
+    {
+        "start": 207.04000000000002,
+        "end": 210.64000000000001,
+        "text": "And in a data frame, there is a field called RDD."
+    },
+    {
+        "start": 210.64000000000001,
+        "end": 214.08,
+        "text": "And this is the internal, the underlying RDD"
+    },
+    {
+        "start": 214.08,
+        "end": 215.76000000000002,
+        "text": "of this data frame green."
+    },
+    {
+        "start": 215.76000000000002,
+        "end": 219.36,
+        "text": "And I can use this take 10 and we actually solve this already."
+    },
+    {
+        "start": 219.36,
+        "end": 221.04000000000002,
+        "text": "If I just do, I collapse it."
+    },
+    {
+        "start": 221.04000000000002,
+        "end": 225.76000000000002,
+        "text": "If I just do data frame green take, I can go with 5."
+    },
+    {
+        "start": 225.76000000000002,
+        "end": 228.32000000000002,
+        "text": "So it also returns a list of rows."
+    },
+    {
+        "start": 228.32,
+        "end": 232.07999999999998,
+        "text": "The data frame that we have is built on top of RDD of rows."
+    },
+    {
+        "start": 232.07999999999998,
+        "end": 235.76,
+        "text": "So row is a special object that is used for building data frames."
+    },
+    {
+        "start": 235.76,
+        "end": 241.76,
+        "text": "And when we do this green take 5, we get 5 for first rows."
+    },
+    {
+        "start": 241.76,
+        "end": 244.56,
+        "text": "And we can do anything with these RTGs."
+    },
+    {
+        "start": 244.56,
+        "end": 247.2,
+        "text": "There are some basic operations that I will show you."
+    },
+    {
+        "start": 247.2,
+        "end": 250.56,
+        "text": "But first, I want to keep only, you see,"
+    },
+    {
+        "start": 251.28,
+        "end": 254.48,
+        "text": "we have quite a bunch of columns in this row."
+    },
+    {
+        "start": 254.48,
+        "end": 257.68,
+        "text": "So I want to keep only those columns,"
+    },
+    {
+        "start": 257.84000000000003,
+        "end": 261.44,
+        "text": "that are in here for us, which are, I will just do select,"
+    },
+    {
+        "start": 262.48,
+        "end": 265.2,
+        "text": "select and then go to RDD next."
+    },
+    {
+        "start": 265.84000000000003,
+        "end": 269.44,
+        "text": "So in select, I will select only columns that we need."
+    },
+    {
+        "start": 269.44,
+        "end": 271.28000000000003,
+        "text": "The first one is this one."
+    },
+    {
+        "start": 271.28000000000003,
+        "end": 276.88,
+        "text": "This L-pep pickup time, then zone, then total amount."
+    },
+    {
+        "start": 277.84000000000003,
+        "end": 282.08,
+        "text": "We do not need this count because it just simply counts the number of records."
+    },
+    {
+        "start": 282.08,
+        "end": 285.84000000000003,
+        "text": "So for reproducing this query, we just need these three fields."
+    },
+    {
+        "start": 285.84,
+        "end": 289.67999999999995,
+        "text": "And then this gives us an RDD, which we check."
+    },
+    {
+        "start": 289.67999999999995,
+        "end": 291.11999999999995,
+        "text": "Now take 5."
+    },
+    {
+        "start": 292.15999999999997,
+        "end": 294.64,
+        "text": "It has only the fields we need."
+    },
+    {
+        "start": 294.64,
+        "end": 299.76,
+        "text": "First thing we can do, we can implement this thing, the work loss."
+    },
+    {
+        "start": 299.76,
+        "end": 306.32,
+        "text": "So here we are interested only in records that are either 2020 or later."
+    },
+    {
+        "start": 306.32,
+        "end": 310.23999999999995,
+        "text": "Because we have some outliers that are coming from some earlier days."
+    },
+    {
+        "start": 310.23999999999995,
+        "end": 314.47999999999996,
+        "text": "And for that, we can use this RDD and there is a function called filter,"
+    },
+    {
+        "start": 314.48,
+        "end": 316.88,
+        "text": "which filters every record that we have here."
+    },
+    {
+        "start": 316.88,
+        "end": 319.84000000000003,
+        "text": "In this filter, we can just have any function."
+    },
+    {
+        "start": 319.84000000000003,
+        "end": 321.76,
+        "text": "So for example, I can have a function,"
+    },
+    {
+        "start": 321.76,
+        "end": 325.04,
+        "text": "I'm the row, and then it returns through."
+    },
+    {
+        "start": 325.04,
+        "end": 327.68,
+        "text": "It means that it will keep all the records."
+    },
+    {
+        "start": 327.68,
+        "end": 331.76,
+        "text": "So if I do now take one, it will return."
+    },
+    {
+        "start": 331.76,
+        "end": 337.36,
+        "text": "And now if I do take row false, now it will apply to the entire dataset,"
+    },
+    {
+        "start": 337.36,
+        "end": 339.68,
+        "text": "and it will filter out everything."
+    },
+    {
+        "start": 339.68,
+        "end": 341.84000000000003,
+        "text": "And then at the end, there will be nothing to you."
+    },
+    {
+        "start": 341.91999999999996,
+        "end": 343.91999999999996,
+        "text": "It returns an empty list."
+    },
+    {
+        "start": 343.91999999999996,
+        "end": 345.91999999999996,
+        "text": "Because there is nothing there."
+    },
+    {
+        "start": 345.91999999999996,
+        "end": 347.28,
+        "text": "We filter out everything."
+    },
+    {
+        "start": 347.28,
+        "end": 350.32,
+        "text": "So we can use this for doing this thing."
+    },
+    {
+        "start": 350.32,
+        "end": 354.15999999999997,
+        "text": "So for that, we will need to use date time object in Python."
+    },
+    {
+        "start": 354.15999999999997,
+        "end": 359.2,
+        "text": "Because this is what internally is used date time from date time in per date time."
+    },
+    {
+        "start": 360.15999999999997,
+        "end": 362.23999999999995,
+        "text": "In port date time."
+    },
+    {
+        "start": 364.0,
+        "end": 371.2,
+        "text": "We'll create a start, which will be year 2020, month01,"
+    },
+    {
+        "start": 372.08,
+        "end": 373.52,
+        "text": "and day1."
+    },
+    {
+        "start": 374.24,
+        "end": 379.2,
+        "text": "And to have this row, in row, we have this LPEP pickup date time,"
+    },
+    {
+        "start": 379.2,
+        "end": 382.47999999999996,
+        "text": "which is greater or equals to start."
+    },
+    {
+        "start": 384.24,
+        "end": 387.91999999999996,
+        "text": "We can take another example, maybe, something from 2021,"
+    },
+    {
+        "start": 387.91999999999996,
+        "end": 389.76,
+        "text": "just to see that it works."
+    },
+    {
+        "start": 389.76,
+        "end": 392.56,
+        "text": "So you'll actually need to do sound filtering."
+    },
+    {
+        "start": 392.56,
+        "end": 394.56,
+        "text": "I hope I have some data from 2021."
+    },
+    {
+        "start": 395.12,
+        "end": 395.76,
+        "text": "I do."
+    },
+    {
+        "start": 395.76,
+        "end": 396.71999999999997,
+        "text": "This is how it works."
+    },
+    {
+        "start": 397.44,
+        "end": 400.48,
+        "text": "So this is how we implement the where art."
+    },
+    {
+        "start": 402.0,
+        "end": 405.12,
+        "text": "Actually, it's a good idea instead of using lambda."
+    },
+    {
+        "start": 405.12,
+        "end": 408.64,
+        "text": "Maybe we can put this in a Python function."
+    },
+    {
+        "start": 408.64,
+        "end": 413.28,
+        "text": "I'll call this function filter outliers to have row."
+    },
+    {
+        "start": 413.28,
+        "end": 415.76,
+        "text": "And then I will return this thing."
+    },
+    {
+        "start": 416.64,
+        "end": 418.48,
+        "text": "And I will put it here."
+    },
+    {
+        "start": 418.48,
+        "end": 419.84,
+        "text": "So it's still the same thing."
+    },
+    {
+        "start": 419.84,
+        "end": 422.56,
+        "text": "Just I'm putting this in a separate named function,"
+    },
+    {
+        "start": 422.56,
+        "end": 424.71999999999997,
+        "text": "which is a lot better than lambda."
+    },
+    {
+        "start": 424.71999999999997,
+        "end": 427.76,
+        "text": "Because lambda can get messy quite fast."
+    },
+    {
+        "start": 427.76,
+        "end": 429.52,
+        "text": "So they implemented this part."
+    },
+    {
+        "start": 429.59999999999997,
+        "end": 432.64,
+        "text": "And now let us implement this part."
+    },
+    {
+        "start": 432.64,
+        "end": 436.4,
+        "text": "And also, at the same time, we will start thinking about group by."
+    },
+    {
+        "start": 436.4,
+        "end": 441.44,
+        "text": "I want to go back to the slide where we discussed how group by works."
+    },
+    {
+        "start": 442.15999999999997,
+        "end": 446.56,
+        "text": "Here, we talked about that we apply this thing to each partition."
+    },
+    {
+        "start": 446.56,
+        "end": 451.68,
+        "text": "And as the result of this, we have a subresult of each partition that looks like this."
+    },
+    {
+        "start": 451.68,
+        "end": 455.28,
+        "text": "So we have our one, zone one, which is the key."
+    },
+    {
+        "start": 455.28,
+        "end": 459.35999999999996,
+        "text": "And 105, which is an intermediate result."
+    },
+    {
+        "start": 459.36,
+        "end": 462.8,
+        "text": "So this thing is the key that we use for grouping by."
+    },
+    {
+        "start": 462.8,
+        "end": 464.16,
+        "text": "And these are the values."
+    },
+    {
+        "start": 464.16,
+        "end": 468.96000000000004,
+        "text": "So we now need to do something similar to have a lot of intermediate results,"
+    },
+    {
+        "start": 468.96000000000004,
+        "end": 473.04,
+        "text": "which we will then reduce to something like this."
+    },
+    {
+        "start": 473.04,
+        "end": 476.16,
+        "text": "Except now, for each row of the original data frame,"
+    },
+    {
+        "start": 476.16,
+        "end": 478.64,
+        "text": "we will produce such an intermediate record."
+    },
+    {
+        "start": 478.64,
+        "end": 482.8,
+        "text": "And then on the second step, we will reduce this into one."
+    },
+    {
+        "start": 482.8,
+        "end": 484.24,
+        "text": "But let me show you."
+    },
+    {
+        "start": 484.24,
+        "end": 487.84000000000003,
+        "text": "Because it might be confusing if I just say it like that."
+    },
+    {
+        "start": 487.84,
+        "end": 490.79999999999995,
+        "text": "Now we need to apply the map function."
+    },
+    {
+        "start": 490.79999999999995,
+        "end": 492.15999999999997,
+        "text": "So what filter is doing?"
+    },
+    {
+        "start": 492.15999999999997,
+        "end": 494.79999999999995,
+        "text": "It's a function that returns either two of alls."
+    },
+    {
+        "start": 494.79999999999995,
+        "end": 499.44,
+        "text": "And the purpose of this filtering is this card and some records."
+    },
+    {
+        "start": 499.44,
+        "end": 503.67999999999995,
+        "text": "So map is applied to every element of this already."
+    },
+    {
+        "start": 503.67999999999995,
+        "end": 506.15999999999997,
+        "text": "And we get something else as a result."
+    },
+    {
+        "start": 506.15999999999997,
+        "end": 507.44,
+        "text": "We have this map function."
+    },
+    {
+        "start": 508.4,
+        "end": 511.91999999999996,
+        "text": "It gets in some object in our case row."
+    },
+    {
+        "start": 511.91999999999996,
+        "end": 514.48,
+        "text": "And then the output, there is something else."
+    },
+    {
+        "start": 514.48,
+        "end": 517.68,
+        "text": "Apply some transformation to every element of our RDD."
+    },
+    {
+        "start": 517.68,
+        "end": 520.2399999999999,
+        "text": "And here we have some RDD."
+    },
+    {
+        "start": 520.2399999999999,
+        "end": 523.4399999999999,
+        "text": "And as a result, we have some other RDD."
+    },
+    {
+        "start": 523.4399999999999,
+        "end": 527.4399999999999,
+        "text": "To be able to do group by, the output that we have need to look like that."
+    },
+    {
+        "start": 528.64,
+        "end": 532.8,
+        "text": "So we need to look like key and value."
+    },
+    {
+        "start": 533.76,
+        "end": 536.88,
+        "text": "In our case, key will be a composite key,"
+    },
+    {
+        "start": 536.88,
+        "end": 539.76,
+        "text": "which consists of our and zone."
+    },
+    {
+        "start": 539.76,
+        "end": 546.4799999999999,
+        "text": "And value will be also a composite value, which is a mount and count."
+    },
+    {
+        "start": 548.64,
+        "end": 550.2399999999999,
+        "text": "This is the result we want."
+    },
+    {
+        "start": 550.2399999999999,
+        "end": 555.12,
+        "text": "This is why here we need to output something that for our particular case,"
+    },
+    {
+        "start": 555.76,
+        "end": 558.88,
+        "text": "key will be our and zone."
+    },
+    {
+        "start": 558.88,
+        "end": 562.88,
+        "text": "And value will be a mount and one."
+    },
+    {
+        "start": 562.88,
+        "end": 565.3599999999999,
+        "text": "So for each record, we will have one."
+    },
+    {
+        "start": 565.3599999999999,
+        "end": 569.76,
+        "text": "And then we will sum all these ones later when we will do grouping."
+    },
+    {
+        "start": 569.76,
+        "end": 571.5999999999999,
+        "text": "So let me implement this."
+    },
+    {
+        "start": 571.5999999999999,
+        "end": 575.12,
+        "text": "I will create another function, which I'll call transform."
+    },
+    {
+        "start": 575.2,
+        "end": 577.68,
+        "text": "This is a boring name, but I don't have a better name."
+    },
+    {
+        "start": 578.48,
+        "end": 579.6,
+        "text": "I want to see the names."
+    },
+    {
+        "start": 579.6,
+        "end": 584.8,
+        "text": "So if I do RDD, take 10 and I'll put this in a row."
+    },
+    {
+        "start": 584.8,
+        "end": 590.08,
+        "text": "And if I do a row 0, sorry, a row 0,"
+    },
+    {
+        "start": 590.08,
+        "end": 591.52,
+        "text": "I'll be a row."
+    },
+    {
+        "start": 592.64,
+        "end": 594.16,
+        "text": "I have this row."
+    },
+    {
+        "start": 594.16,
+        "end": 598.4,
+        "text": "And now I can experiment with this row without going inside the function."
+    },
+    {
+        "start": 598.4,
+        "end": 604.16,
+        "text": "So to access some elements of the row, I just do row dot, well, the value."
+    },
+    {
+        "start": 604.24,
+        "end": 605.4399999999999,
+        "text": "So this is the pickup time."
+    },
+    {
+        "start": 606.24,
+        "end": 609.28,
+        "text": "And I need to truncate it."
+    },
+    {
+        "start": 609.28,
+        "end": 613.12,
+        "text": "This is what we did here is we truncated it to a hole."
+    },
+    {
+        "start": 613.12,
+        "end": 616.4,
+        "text": "And I think for, yeah, this is replaced."
+    },
+    {
+        "start": 616.4,
+        "end": 623.36,
+        "text": "And we need to replace minute with zero, then second with zero,"
+    },
+    {
+        "start": 623.36,
+        "end": 626.24,
+        "text": "and then immediately second with zero."
+    },
+    {
+        "start": 626.9599999999999,
+        "end": 630.0,
+        "text": "Section not millisecond, but microsecond."
+    },
+    {
+        "start": 630.72,
+        "end": 631.4399999999999,
+        "text": "Okay."
+    },
+    {
+        "start": 631.5200000000001,
+        "end": 635.6,
+        "text": "I don't think we have anything on microsecond resolution in the original"
+    },
+    {
+        "start": 635.6,
+        "end": 639.0400000000001,
+        "text": "daytime, but just in case I will reset it as well."
+    },
+    {
+        "start": 639.0400000000001,
+        "end": 640.8800000000001,
+        "text": "So this is what we have right now."
+    },
+    {
+        "start": 640.8800000000001,
+        "end": 647.7600000000001,
+        "text": "So this will be our, our, that we have here, our, our, and now we need zone."
+    },
+    {
+        "start": 647.7600000000001,
+        "end": 652.24,
+        "text": "So zone is, let me print row again."
+    },
+    {
+        "start": 653.2,
+        "end": 655.5200000000001,
+        "text": "So zone is this p allocation, I think."
+    },
+    {
+        "start": 656.5600000000001,
+        "end": 658.6400000000001,
+        "text": "Of course, row dot."
+    },
+    {
+        "start": 658.72,
+        "end": 660.64,
+        "text": "So this is our key."
+    },
+    {
+        "start": 660.64,
+        "end": 661.92,
+        "text": "And now we need our value."
+    },
+    {
+        "start": 661.92,
+        "end": 665.68,
+        "text": "The value is 11 amount, just a row to the amount."
+    },
+    {
+        "start": 666.3199999999999,
+        "end": 669.36,
+        "text": "And then count, which will be just one."
+    },
+    {
+        "start": 669.36,
+        "end": 670.48,
+        "text": "Now we need to return."
+    },
+    {
+        "start": 671.36,
+        "end": 675.1999999999999,
+        "text": "We need to return a table because later we want to aggregate this table."
+    },
+    {
+        "start": 675.1999999999999,
+        "end": 677.52,
+        "text": "We need to prepare it in this format."
+    },
+    {
+        "start": 677.52,
+        "end": 680.4,
+        "text": "We'll be a table with two values, key and value."
+    },
+    {
+        "start": 680.4,
+        "end": 685.6,
+        "text": "And the key for us will be a composite key with our and zone."
+    },
+    {
+        "start": 686.24,
+        "end": 691.12,
+        "text": "And then the value is also a composite value with amount and count."
+    },
+    {
+        "start": 692.08,
+        "end": 693.6,
+        "text": "So we will have a table."
+    },
+    {
+        "start": 693.6,
+        "end": 697.28,
+        "text": "The first element of the table is also a table and the second element of the"
+    },
+    {
+        "start": 697.28,
+        "end": 698.48,
+        "text": "table is a table."
+    },
+    {
+        "start": 698.48,
+        "end": 703.0400000000001,
+        "text": "This is a bit complicated, but yeah, this is what we need to do in order to do group"
+    },
+    {
+        "start": 703.0400000000001,
+        "end": 703.76,
+        "text": "by later."
+    },
+    {
+        "start": 703.76,
+        "end": 706.4,
+        "text": "So now we need, we add this transform."
+    },
+    {
+        "start": 706.4,
+        "end": 709.44,
+        "text": "Maybe I'll call it prepare for grouping."
+    },
+    {
+        "start": 710.1600000000001,
+        "end": 713.9200000000001,
+        "text": "I'll just do take again."
+    },
+    {
+        "start": 713.9200000000001,
+        "end": 717.0400000000001,
+        "text": "Just to see what's how the results look like."
+    },
+    {
+        "start": 717.0400000000001,
+        "end": 718.5600000000001,
+        "text": "And this is how they look like."
+    },
+    {
+        "start": 718.5600000000001,
+        "end": 720.32,
+        "text": "So we have this table."
+    },
+    {
+        "start": 720.32,
+        "end": 725.6800000000001,
+        "text": "The first element of the table is the key, which is a table with the hour and then the zone."
+    },
+    {
+        "start": 725.6800000000001,
+        "end": 730.1600000000001,
+        "text": "And then here we have amount and one is just for counting."
+    },
+    {
+        "start": 730.1600000000001,
+        "end": 736.72,
+        "text": "And now we need to take this thing and this values and combine them into one."
+    },
+    {
+        "start": 736.8000000000001,
+        "end": 738.72,
+        "text": "And for that we use a thing called reduce."
+    },
+    {
+        "start": 739.76,
+        "end": 742.0,
+        "text": "So it takes two things to values."
+    },
+    {
+        "start": 742.0,
+        "end": 744.24,
+        "text": "It's actually called reduce by key."
+    },
+    {
+        "start": 745.52,
+        "end": 747.76,
+        "text": "Here reduce by key."
+    },
+    {
+        "start": 749.44,
+        "end": 750.88,
+        "text": "So we draw it."
+    },
+    {
+        "start": 752.1600000000001,
+        "end": 754.48,
+        "text": "It gets an LED that is in this form."
+    },
+    {
+        "start": 755.0400000000001,
+        "end": 756.5600000000001,
+        "text": "Key value."
+    },
+    {
+        "start": 756.5600000000001,
+        "end": 758.64,
+        "text": "This is the input LED."
+    },
+    {
+        "start": 758.64,
+        "end": 763.28,
+        "text": "And the output is key and then reduced value."
+    },
+    {
+        "start": 763.8399999999999,
+        "end": 768.56,
+        "text": "In input LED we will have a lot of elements of this LED with the same key."
+    },
+    {
+        "start": 768.56,
+        "end": 773.92,
+        "text": "But after reduction, after using this reduce there will be only one element with this key."
+    },
+    {
+        "start": 773.92,
+        "end": 778.4,
+        "text": "So it will take a group of elements with the same key."
+    },
+    {
+        "start": 778.4,
+        "end": 779.68,
+        "text": "Let's say this is key one."
+    },
+    {
+        "start": 780.4,
+        "end": 783.68,
+        "text": "Key one key one something."
+    },
+    {
+        "start": 783.68,
+        "end": 787.04,
+        "text": "And then let's say there is key two and again key two."
+    },
+    {
+        "start": 789.04,
+        "end": 792.24,
+        "text": "The result will be only one record with key one."
+    },
+    {
+        "start": 793.36,
+        "end": 795.12,
+        "text": "And only one record with key two."
+    },
+    {
+        "start": 796.24,
+        "end": 800.72,
+        "text": "So it will reduce all these values into one."
+    },
+    {
+        "start": 800.72,
+        "end": 803.04,
+        "text": "And the same will happen with this key two."
+    },
+    {
+        "start": 805.1999999999999,
+        "end": 807.04,
+        "text": "And the weight works."
+    },
+    {
+        "start": 807.04,
+        "end": 808.4,
+        "text": "This reduce function."
+    },
+    {
+        "start": 808.4,
+        "end": 810.88,
+        "text": "I will just call it a, for now reduce."
+    },
+    {
+        "start": 810.88,
+        "end": 812.48,
+        "text": "It actually gets two values."
+    },
+    {
+        "start": 812.48,
+        "end": 814.64,
+        "text": "So it gets, I'll call it left and right."
+    },
+    {
+        "start": 815.52,
+        "end": 817.04,
+        "text": "So the weight works."
+    },
+    {
+        "start": 817.04,
+        "end": 820.8,
+        "text": "Let's say we have key one and then value one."
+    },
+    {
+        "start": 820.88,
+        "end": 824.56,
+        "text": "And then we have again the same key one value two."
+    },
+    {
+        "start": 824.56,
+        "end": 827.28,
+        "text": "And then key one value three."
+    },
+    {
+        "start": 827.28,
+        "end": 832.64,
+        "text": "So what happens is we first invoke reduce on this pair."
+    },
+    {
+        "start": 832.64,
+        "end": 836.4,
+        "text": "So to do this we'll get value one and value two."
+    },
+    {
+        "start": 836.4,
+        "end": 838.24,
+        "text": "And then we'll create something new."
+    },
+    {
+        "start": 838.24,
+        "end": 841.1999999999999,
+        "text": "It will be let's say value one plus value two."
+    },
+    {
+        "start": 841.1999999999999,
+        "end": 842.7199999999999,
+        "text": "This will be the result."
+    },
+    {
+        "start": 842.7199999999999,
+        "end": 846.56,
+        "text": "Then it will take output of the reduction of this pair."
+    },
+    {
+        "start": 846.56,
+        "end": 850.4,
+        "text": "And we'll again invoke reduce to the third value."
+    },
+    {
+        "start": 850.4,
+        "end": 854.56,
+        "text": "This is very abstract, but let me show you now how it actually looks"
+    },
+    {
+        "start": 854.56,
+        "end": 856.72,
+        "text": "here when we talk about our example."
+    },
+    {
+        "start": 856.72,
+        "end": 860.48,
+        "text": "So now in our example remember we want to count these two things."
+    },
+    {
+        "start": 860.48,
+        "end": 864.64,
+        "text": "So we want to count the total amount and we want to count the number of records."
+    },
+    {
+        "start": 865.36,
+        "end": 870.4,
+        "text": "And here so this is left value and right value."
+    },
+    {
+        "start": 870.4,
+        "end": 872.9599999999999,
+        "text": "So these are the things that are coming from here."
+    },
+    {
+        "start": 872.9599999999999,
+        "end": 875.52,
+        "text": "And remember we have this composite value."
+    },
+    {
+        "start": 875.52,
+        "end": 877.84,
+        "text": "I will unpack now this left value."
+    },
+    {
+        "start": 877.9200000000001,
+        "end": 883.84,
+        "text": "So I will call it left amount and left count."
+    },
+    {
+        "start": 885.0400000000001,
+        "end": 888.0,
+        "text": "And I will do the same thing for the right value."
+    },
+    {
+        "start": 889.2800000000001,
+        "end": 893.0400000000001,
+        "text": "Right amount and right count."
+    },
+    {
+        "start": 893.0400000000001,
+        "end": 899.6800000000001,
+        "text": "And what I need to do is I need to produce a value that looks exactly like this"
+    },
+    {
+        "start": 899.6800000000001,
+        "end": 901.6800000000001,
+        "text": "that follows the same pattern."
+    },
+    {
+        "start": 901.6800000000001,
+        "end": 907.2,
+        "text": "So output value again should be a double with two records."
+    },
+    {
+        "start": 907.2800000000001,
+        "end": 911.5200000000001,
+        "text": "So it should be output amount and output count."
+    },
+    {
+        "start": 911.5200000000001,
+        "end": 917.5200000000001,
+        "text": "And in our case output amount will be left amount plus right amount."
+    },
+    {
+        "start": 918.48,
+        "end": 924.1600000000001,
+        "text": "And output count will be left count plus right count."
+    },
+    {
+        "start": 924.8000000000001,
+        "end": 929.84,
+        "text": "So effectively what we are doing here is we first are doing this sum."
+    },
+    {
+        "start": 929.84,
+        "end": 934.0,
+        "text": "And then we get something like I don't know V2 star."
+    },
+    {
+        "start": 934.08,
+        "end": 943.6,
+        "text": "And then when we invoke it second time we do V2 star and V3 which is this V2 star plus V3"
+    },
+    {
+        "start": 943.6,
+        "end": 947.2,
+        "text": "which is some other value let's say V3 star."
+    },
+    {
+        "start": 947.2,
+        "end": 954.64,
+        "text": "Now then this way we take everything that belongs to one key and we reduce them to one value."
+    },
+    {
+        "start": 954.64,
+        "end": 959.44,
+        "text": "Now we need to return this instead of returning output value I will return this top one."
+    },
+    {
+        "start": 960.32,
+        "end": 963.9200000000001,
+        "text": "So this way we reduce these records that we created with MAP."
+    },
+    {
+        "start": 963.9200000000001,
+        "end": 969.5200000000001,
+        "text": "So I'll put it here, reduce, I'll call it, I think I'll call the late revenue."
+    },
+    {
+        "start": 970.72,
+        "end": 975.0400000000001,
+        "text": "And then I'll put it here and then let me execute this thing one more time."
+    },
+    {
+        "start": 976.6400000000001,
+        "end": 980.72,
+        "text": "And taking a bit of time maybe I should have used a smaller data set."
+    },
+    {
+        "start": 980.72,
+        "end": 986.5600000000001,
+        "text": "There it's now performing this group by and we see that the result"
+    },
+    {
+        "start": 986.64,
+        "end": 992.0,
+        "text": "it follows the same format as previously. So first we have this composite key and then we have"
+    },
+    {
+        "start": 992.0,
+        "end": 998.2399999999999,
+        "text": "composite value except that this time it's actually an aggregated version. This is a sum of all"
+    },
+    {
+        "start": 998.2399999999999,
+        "end": 1005.1999999999999,
+        "text": "amounts and this is the sum of all counts on sum of all ones which means that this is the total"
+    },
+    {
+        "start": 1005.1999999999999,
+        "end": 1012.0799999999999,
+        "text": "number of records that we had in this hour for this zone. This is not this nested structure is not"
+    },
+    {
+        "start": 1012.08,
+        "end": 1018.4000000000001,
+        "text": "really nice. Now we want to turn it back to that frame and we want to unnest this. To unnest"
+    },
+    {
+        "start": 1018.4000000000001,
+        "end": 1025.3600000000001,
+        "text": "with this we can do another map so we will apply a function to each element of this RDD and unnest it."
+    },
+    {
+        "start": 1025.3600000000001,
+        "end": 1033.2,
+        "text": "So I will call this function unnest or unrapp. Let's go with unrapp. So we have this row and then"
+    },
+    {
+        "start": 1033.2,
+        "end": 1040.48,
+        "text": "the result will be 0, 0, 0 in this one. So first we access the first tuple and then inside the first"
+    },
+    {
+        "start": 1040.48,
+        "end": 1048.24,
+        "text": "tuple we access this value and then we'll have another one. Now we are unpacking the first"
+    },
+    {
+        "start": 1048.24,
+        "end": 1055.52,
+        "text": "element of the value and now we're getting the second element of the value. Now we will have one"
+    },
+    {
+        "start": 1055.52,
+        "end": 1062.32,
+        "text": "tuple that contains all the elements. So let's wind you up one more time with this unrapp"
+    },
+    {
+        "start": 1063.28,
+        "end": 1069.76,
+        "text": "and this result will get should look nicer. So it will be tuple with just four elements."
+    },
+    {
+        "start": 1071.76,
+        "end": 1079.2,
+        "text": "And now we want to turn it back to a data frame. But that we just use this tudf then I'll just do show"
+    },
+    {
+        "start": 1079.2,
+        "end": 1085.4399999999998,
+        "text": "like we do previously with data frames. Again it will trigger the whole thing now. And it will show us"
+    },
+    {
+        "start": 1086.24,
+        "end": 1091.28,
+        "text": "data frame. Except this data frame will probably have no column names because column names are"
+    },
+    {
+        "start": 1091.28,
+        "end": 1097.6,
+        "text": "lost here. Also the schema is lost. It will try to figure out the schema. Now we can see that"
+    },
+    {
+        "start": 1097.6,
+        "end": 1105.76,
+        "text": "the names are gone. And what we can do to make it easier for it is we can use a named tuple. So it's"
+    },
+    {
+        "start": 1105.76,
+        "end": 1112.96,
+        "text": "from collections, import name tuple and then we will have a class that will call"
+    },
+    {
+        "start": 1113.76,
+        "end": 1121.44,
+        "text": "Revenue Role. So like this it will be a named tuple. The name will be Revenue Role and then I think it"
+    },
+    {
+        "start": 1121.44,
+        "end": 1128.88,
+        "text": "needs yeah we need to give it a list of names names of this named tuple. So the first one is our"
+    },
+    {
+        "start": 1129.68,
+        "end": 1141.92,
+        "text": "then we have zone then Revenue and then count. And here in unrapp we will do our will be this one"
+    },
+    {
+        "start": 1142.64,
+        "end": 1151.52,
+        "text": "zone this one Revenue this one and count this one. Let's execute it one more time."
+    },
+    {
+        "start": 1154.72,
+        "end": 1161.1200000000001,
+        "text": "It finished and we see that it correctly figured out the names and maybe I'll call it data frame"
+    },
+    {
+        "start": 1161.1200000000001,
+        "end": 1167.92,
+        "text": "result and instead of doing show we'll just do that. Yeah it's actually running something right"
+    },
+    {
+        "start": 1167.92,
+        "end": 1172.0800000000002,
+        "text": "now and the reason it's doing this because it needs to figure out the schema. We didn't specify"
+    },
+    {
+        "start": 1172.0800000000002,
+        "end": 1177.68,
+        "text": "the schema. So now it actually tries to go through all these records and see what should be the schema"
+    },
+    {
+        "start": 1177.68,
+        "end": 1185.8400000000001,
+        "text": "because we don't provide the schema upfront but we can see now schema and we can tweak it."
+    },
+    {
+        "start": 1187.04,
+        "end": 1189.52,
+        "text": "We can tweak it again like we did previously."
+    },
+    {
+        "start": 1189.6,
+        "end": 1196.08,
+        "text": "Now add types here and everywhere."
+    },
+    {
+        "start": 1198.08,
+        "end": 1206.48,
+        "text": "These are strings. This should be capital zone. I don't think it's long it should be integer"
+    },
+    {
+        "start": 1207.84,
+        "end": 1213.84,
+        "text": "and the rest Revenue is double and count is long yeah it's fine or here I think integer is"
+    },
+    {
+        "start": 1213.84,
+        "end": 1220.6399999999999,
+        "text": "also fine because we don't have that many trips in one hour but let's say if within some hours"
+    },
+    {
+        "start": 1220.6399999999999,
+        "end": 1227.12,
+        "text": "we can potentially have more than two billion rows then we need to go with long. This is the schema"
+    },
+    {
+        "start": 1227.12,
+        "end": 1236.72,
+        "text": "I need to import this so let me do this from PassPark SQL import types and now I'll call it"
+    },
+    {
+        "start": 1236.96,
+        "end": 1246.16,
+        "text": "result schema and here I just provide schema and then you see it doesn't execute anything so it"
+    },
+    {
+        "start": 1246.16,
+        "end": 1252.32,
+        "text": "doesn't try to infer what schema is because we're providing this schema here. Yeah this is the"
+    },
+    {
+        "start": 1252.32,
+        "end": 1260.0,
+        "text": "schema we provide until I now do show then it triggers the execution. Yeah we see that this is"
+    },
+    {
+        "start": 1260.0,
+        "end": 1269.6,
+        "text": "the result now let me save it I'll do bright, parkette, something like TMP, green revenue, something"
+    },
+    {
+        "start": 1269.6,
+        "end": 1275.92,
+        "text": "like this. In the reason I want to save it I want to look at the execution graph. So the execution"
+    },
+    {
+        "start": 1275.92,
+        "end": 1286.4,
+        "text": "graph we have is let's take a look so we have two stages. Yeah so they look a little bit they"
+    },
+    {
+        "start": 1286.48,
+        "end": 1293.2800000000002,
+        "text": "have more things than what we saw in SQL but probably because here we use the smart partition"
+    },
+    {
+        "start": 1293.2800000000002,
+        "end": 1301.44,
+        "text": "so it kind of incorporates that. Yeah but it's also two stages like before like in the SQL example"
+    },
+    {
+        "start": 1301.44,
+        "end": 1306.64,
+        "text": "and the reason we have two stages here is because we have this reduced by key like here is doing"
+    },
+    {
+        "start": 1306.64,
+        "end": 1312.16,
+        "text": "reshuffling and the reason we need to do reshuffling is we have a bunch of partitions so we have partition"
+    },
+    {
+        "start": 1312.16,
+        "end": 1321.52,
+        "text": "one but we write it here a bunch of partitions and then for each partition we apply a map function"
+    },
+    {
+        "start": 1321.52,
+        "end": 1330.64,
+        "text": "which turns our record into this our zone thing and then value and we do this for every record"
+    },
+    {
+        "start": 1331.44,
+        "end": 1338.0,
+        "text": "and now this is key one and this is key two and then we have here key one key two as well and here"
+    },
+    {
+        "start": 1338.0,
+        "end": 1346.16,
+        "text": "we have key one key two key three and we need to make sure that all the keys key one from here"
+    },
+    {
+        "start": 1346.16,
+        "end": 1351.2,
+        "text": "from here from here they end up in the same partition for that we are doing reshuffling"
+    },
+    {
+        "start": 1352.48,
+        "end": 1359.28,
+        "text": "so they end up in this key one partition and then the key two thing they go here"
+    },
+    {
+        "start": 1360.64,
+        "end": 1366.16,
+        "text": "and then key three ends in separate partition but we still need to do this we still need to be in"
+    },
+    {
+        "start": 1366.16,
+        "end": 1374.24,
+        "text": "the same partition that's why we have two stages this is the first stage this is second stage"
+    },
+    {
+        "start": 1376.0800000000002,
+        "end": 1382.88,
+        "text": "okay so this is all I wanted to show you so we I wanted to show you how to express this SQL"
+    },
+    {
+        "start": 1382.88,
+        "end": 1390.5600000000002,
+        "text": "statement in RDD terms and we did this so this is how we did this first this was the"
+    },
+    {
+        "start": 1390.6399999999999,
+        "end": 1397.44,
+        "text": "wear statement where we filter out all the layers then we needed to prepare for mapping so this is"
+    },
+    {
+        "start": 1397.44,
+        "end": 1404.24,
+        "text": "that part the select part so we had a tuple so this is the key by which we group and these are the"
+    },
+    {
+        "start": 1404.24,
+        "end": 1410.48,
+        "text": "values that we want to aggregate and then the next step was the actual aggregation where we would"
+    },
+    {
+        "start": 1410.48,
+        "end": 1416.56,
+        "text": "do the sound and count and because we needed to format some specific format internal to spark we"
+    },
+    {
+        "start": 1416.56,
+        "end": 1421.52,
+        "text": "needed to unwrap it and then we turned it back to a data frame so this is how we can do group by"
+    },
+    {
+        "start": 1421.52,
+        "end": 1427.76,
+        "text": "if we ever need usually we do not and this was more like to illustrate how things were done many"
+    },
+    {
+        "start": 1427.76,
+        "end": 1433.28,
+        "text": "years ago now because we have data frames we have SQL we don't need to write code like that but maybe"
+    },
+    {
+        "start": 1433.28,
+        "end": 1440.1599999999999,
+        "text": "for somebody is still interesting how to use this low-double operations and sometimes it can be"
+    },
+    {
+        "start": 1440.1599999999999,
+        "end": 1446.32,
+        "text": "useful and actually in the next video I want to show you how to use one white useful operation"
+    },
+    {
+        "start": 1446.32,
+        "end": 1453.28,
+        "text": "map partition on RDDs and this is something we will talk about in the next lecture so see you soon"
+    }
+]

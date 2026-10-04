@@ -1,0 +1,302 @@
+[
+    {
+        "start": 0.0,
+        "end": 6.5,
+        "text": "Hello and welcome again. So in this section we're going to talk about how to actually install"
+    },
+    {
+        "start": 6.5,
+        "end": 11.64,
+        "text": "Brin, start your first project and we're going to start off with a very basic template that"
+    },
+    {
+        "start": 11.64,
+        "end": 17.94,
+        "text": "will show you how Python and SQL assets work. We're going to ingest some data from a third-party"
+    },
+    {
+        "start": 17.94,
+        "end": 24.5,
+        "text": "source, work with real data and we will build an end-to-end pipeline there."
+    },
+    {
+        "start": 25.5,
+        "end": 31.5,
+        "text": "In order to talk about some of the core concepts of Brin, it's better for us to just go ahead,"
+    },
+    {
+        "start": 31.5,
+        "end": 38.5,
+        "text": "install Brin and get started. So if you already have Brin installed then great, if not you will want"
+    },
+    {
+        "start": 38.5,
+        "end": 46.5,
+        "text": "to essentially copy this curl command. It's our recommended way of installing Brin and you can go ahead"
+    },
+    {
+        "start": 46.5,
+        "end": 52.5,
+        "text": "and run it and it will install Brin for you. In my case I already have Brin installed so I will just"
+    },
+    {
+        "start": 52.5,
+        "end": 58.5,
+        "text": "check my version. When I check it here I'm on the latest version which is great. So one more thing that we"
+    },
+    {
+        "start": 58.5,
+        "end": 67.5,
+        "text": "want to do is install the Brin extension within your IDE, whether it's cursor or VS code. You want to"
+    },
+    {
+        "start": 67.5,
+        "end": 74.5,
+        "text": "go ahead and install that and I have it already installed so no need for me to reinstall it but it will"
+    },
+    {
+        "start": 74.5,
+        "end": 80.5,
+        "text": "essentially bring this Brin render panel here that will allow you to do a lot of things as we go"
+    },
+    {
+        "start": 80.5,
+        "end": 87.5,
+        "text": "through the project. As part of this project we will be actually utilizing the Brin MCP. We will use that"
+    },
+    {
+        "start": 87.5,
+        "end": 96.5,
+        "text": "with an AI agent in order to help us create our pipeline with the help of AI. Follow the instructions to"
+    },
+    {
+        "start": 96.5,
+        "end": 104.5,
+        "text": "add the Brin MCP but essentially go to your IDE settings. In this case I'm using cursor so I will"
+    },
+    {
+        "start": 104.5,
+        "end": 110.5,
+        "text": "go through the cursor instructions but you can follow our documentation for other forms of agents that you can"
+    },
+    {
+        "start": 110.5,
+        "end": 117.5,
+        "text": "add our MCP to. So under the cursor settings if you go under Tools and MCP you can add a new MCP"
+    },
+    {
+        "start": 117.5,
+        "end": 127.5,
+        "text": "server and in here I have added the Brin MCP configurations here and it might require you to reset your IDE."
+    },
+    {
+        "start": 127.5,
+        "end": 135.5,
+        "text": "So if that's the case if you see it says not available you will just close your IDE and reopen it."
+    },
+    {
+        "start": 135.5,
+        "end": 143.5,
+        "text": "A side note here is that Brin requires the project to be get initialized as well. So if you want you can go ahead and"
+    },
+    {
+        "start": 143.5,
+        "end": 150.5,
+        "text": "do that yourself if not. When you run the Brin init command it automatically initializes Git for you and takes care of that."
+    },
+    {
+        "start": 150.5,
+        "end": 157.5,
+        "text": "So we're going to go ahead and run Brin init and this will bring up a list of templates that we can choose from"
+    },
+    {
+        "start": 157.5,
+        "end": 163.5,
+        "text": "and we have a lot of different templates that you can use for your own projects and in our case here we're going to"
+    },
+    {
+        "start": 163.5,
+        "end": 170.5,
+        "text": "just to get started and go over the key concepts we're going to go ahead and choose the default templates and that will create"
+    },
+    {
+        "start": 170.5,
+        "end": 179.5,
+        "text": "a subfolder for us in our folder that you have opened here and it will create our first pipeline."
+    },
+    {
+        "start": 179.5,
+        "end": 187.5,
+        "text": "And the first thing it will do is get initialize this project it will add a Git Ignore and it will create the Brin YAML file."
+    },
+    {
+        "start": 187.5,
+        "end": 198.5,
+        "text": "So this Brin YAML file is something that stays locally only and it automatically gets added to the Git Ignore and this is a recommended practice for you to follow as well"
+    },
+    {
+        "start": 198.5,
+        "end": 206.5,
+        "text": "because you really want to really have your database connections and secrets and all of that stuff manage locally"
+    },
+    {
+        "start": 206.5,
+        "end": 213.5,
+        "text": "and never push this to your repo. In here we define our environments and our connections."
+    },
+    {
+        "start": 213.5,
+        "end": 220.5,
+        "text": "Environments are basically the environments that you want to work on. In here we just have a default environment but in production environment you might"
+    },
+    {
+        "start": 220.5,
+        "end": 226.5,
+        "text": "have your production sandbox staging shadow environments and under each environment you define your connection."
+    },
+    {
+        "start": 226.5,
+        "end": 237.5,
+        "text": "So in this case we have our DuckDB connection which it will create a local DuckDB database for us to use as our kind of data warehouse or database."
+    },
+    {
+        "start": 237.5,
+        "end": 250.5,
+        "text": "And we have another connection that's a built-in connection within Brin just for these tutorials which is a chest connection which we will use to ingest some data from chest.com."
+    },
+    {
+        "start": 251.5,
+        "end": 262.5,
+        "text": "You can also take a look at our documentation for all the different connections built-in connections that we have and you can also create your own custom connections and custom secrets here as well."
+    },
+    {
+        "start": 262.5,
+        "end": 277.5,
+        "text": "Once we go inside our pipeline folder you will see that there is an asset folder where it will contain our assets and each asset is essentially a script or query that will run and it will do something with data."
+    },
+    {
+        "start": 277.5,
+        "end": 286.5,
+        "text": "So it can extract data, it can transform data, it can push data to another data destination and they live inside the asset folder."
+    },
+    {
+        "start": 286.5,
+        "end": 301.5,
+        "text": "They can be under subfolders and they're as well but generally speaking they live inside the asset folder. Under the pipeline YAML file you will configure the pipeline and you will define the name of your pipeline, the schedule."
+    },
+    {
+        "start": 301.5,
+        "end": 308.5,
+        "text": "We will come back to start date and catch up, we won't be needing it for this tutorial, we can remove that."
+    },
+    {
+        "start": 308.5,
+        "end": 320.5,
+        "text": "And you want to also initialize the default connection for this pipeline. So in our case we will be using the DuckDB connection so we will initialize that here."
+    },
+    {
+        "start": 320.5,
+        "end": 334.5,
+        "text": "Now let's go through the assets here, this is the most basic asset, it really just prints hello and we just give the asset a name and we will be able to run it."
+    },
+    {
+        "start": 334.5,
+        "end": 346.5,
+        "text": "So in this case we will open the Brun panel and we want to just go ahead and create a run. So I will click the run command here and it ran the pipeline for us here."
+    },
+    {
+        "start": 346.5,
+        "end": 353.5,
+        "text": "Sorry, it ran this asset here and it printed hello for us and really that's all it was doing."
+    },
+    {
+        "start": 353.5,
+        "end": 361.5,
+        "text": "That's an example of a Python asset. Let's take a look at how to ingest some data using Brun's own ingesture assets."
+    },
+    {
+        "start": 361.5,
+        "end": 381.5,
+        "text": "So in this case because we have chess as a chess.com as a built-in data source, we define that here, we say use the chess default connection that we defined previously and we give it the destination as our DuckDB and we say the table that we want to use."
+    },
+    {
+        "start": 381.5,
+        "end": 391.5,
+        "text": "There is a whole list of built-in ingesture destinations and sources that you can use and you can take a look at that in our documentation space."
+    },
+    {
+        "start": 391.5,
+        "end": 401.5,
+        "text": "But we have everything from Redshift to MySQL, Postgres, MotherDuck, BigQuery, all these different data sources and data destinations that you can move data in between."
+    },
+    {
+        "start": 401.5,
+        "end": 414.5,
+        "text": "So in this case, if we go ahead and run this pipeline, we can see that it will extract the data and then it loads it into our database and it automatically created the database for us."
+    },
+    {
+        "start": 414.5,
+        "end": 418.5,
+        "text": "It realized that the database doesn't exist and it created it for us."
+    },
+    {
+        "start": 418.5,
+        "end": 429.5,
+        "text": "And in this case, let's learn about actually one of the key features of Brun which is the interval that you can set."
+    },
+    {
+        "start": 429.5,
+        "end": 447.5,
+        "text": "So there's a start date and end date parameter that you can set in order to ingest data for certain interval and this way you can also ingest data incrementally, you can process data incrementally and basically provide these as a variable that you can inject in your code."
+    },
+    {
+        "start": 447.5,
+        "end": 456.5,
+        "text": "Or in this specific case, as this is a built-in ingestion, it automatically takes the start and end date and it ingest data for us."
+    },
+    {
+        "start": 456.5,
+        "end": 464.5,
+        "text": "So we had specifically February, second, February, third selected so it ingested data for that time."
+    },
+    {
+        "start": 464.5,
+        "end": 472.5,
+        "text": "But maybe let's go back a little bit and say we want to run it for all of 2025."
+    },
+    {
+        "start": 477.5,
+        "end": 501.5,
+        "text": "So we set it to ingest data for that whole one year and it has ingested the data for us now and we will want to go ahead to the next asset that we have here."
+    },
+    {
+        "start": 501.5,
+        "end": 515.5,
+        "text": "So one of the key things that we want to look here is the dependencies so we have our dependency to the first asset that we had which means that once the first asset runs it will automatically trigger the next asset."
+    },
+    {
+        "start": 515.5,
+        "end": 527.5,
+        "text": "And in this case, we are just really taking a look at doing a very basic kind of count start and we will go ahead and run this as well."
+    },
+    {
+        "start": 527.5,
+        "end": 536.5,
+        "text": "And as you see, it is completed now. So it has essentially created this table for us with the query that we have provided it."
+    },
+    {
+        "start": 536.5,
+        "end": 556.5,
+        "text": "All right, so this is basically just to recap the key concepts of Bruins. We define our environments, we define our connections and then within our pipeline you create your pipeline configurations by setting up the pipeline YAML, where you give it the schedule and you initialize your connections."
+    },
+    {
+        "start": 556.5,
+        "end": 576.5,
+        "text": "And then you want to create your asset. So in this case, we have our sample Python asset as well as we have a YAML asset that is a Bruin and ingest asset where we defined it as the type ingestor, we define the destination and the source and the table that we want to process."
+    },
+    {
+        "start": 576.5,
+        "end": 591.5,
+        "text": "And then we have a SQL asset that does some transformations and aggregations and it depends on the first asset and we defined it as a dot db SQL asset and the materialization is table, which means that it creates the table from scratch."
+    }
+]

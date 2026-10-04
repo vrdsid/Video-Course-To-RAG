@@ -1,0 +1,552 @@
+[
+    {
+        "start": 0.0,
+        "end": 9.0,
+        "text": "Welcome back. This is the last video of this section and I want to show you how we can connect Spark that we run with Data Proz to BigQuery."
+    },
+    {
+        "start": 9.0,
+        "end": 19.0,
+        "text": "In the previous video, we saw how to create a Spark cluster with Google Cloud Platform using Data Proz."
+    },
+    {
+        "start": 19.0,
+        "end": 26.0,
+        "text": "We were able to create a cluster, submit a drop and then see the results in Google Cloud Storage."
+    },
+    {
+        "start": 26.0,
+        "end": 32.0,
+        "text": "This is not always convenient. Sometimes we want to write directly to BigQuery to our Data Warehouse."
+    },
+    {
+        "start": 32.0,
+        "end": 41.0,
+        "text": "So in this video, we will see how to do that. And for that, I found a link, this one that talks about Connector to Spark,"
+    },
+    {
+        "start": 41.0,
+        "end": 46.0,
+        "text": "talks about Connecting Spark to BigQuery. We will use that example."
+    },
+    {
+        "start": 46.0,
+        "end": 54.0,
+        "text": "So this is the code I found. I will put the link, actually I have this Cloud MD file."
+    },
+    {
+        "start": 54.0,
+        "end": 58.0,
+        "text": "All the comments are executed, so I will put the link there as well."
+    },
+    {
+        "start": 58.0,
+        "end": 67.0,
+        "text": "In this document, in this page, we see this last line saving the results to BigQuery."
+    },
+    {
+        "start": 67.0,
+        "end": 76.0,
+        "text": "So let me show you how we do this right now. So here we just do data frame results right to Park it."
+    },
+    {
+        "start": 76.0,
+        "end": 79.0,
+        "text": "Now we need to replace it with this line."
+    },
+    {
+        "start": 79.0,
+        "end": 86.0,
+        "text": "So let me create a copy. I will call it BigQuery."
+    },
+    {
+        "start": 86.0,
+        "end": 94.0,
+        "text": "Output, we still want to configure this output, but it will be different. So it will be allocation in BigQuery."
+    },
+    {
+        "start": 95.0,
+        "end": 103.0,
+        "text": "And we don't need to call this here, because it will just write to BigQuery."
+    },
+    {
+        "start": 103.0,
+        "end": 111.0,
+        "text": "So we don't need to merge multiple files into one. Then write format BigQuery."
+    },
+    {
+        "start": 111.0,
+        "end": 120.0,
+        "text": "Then it's not Park it, it's table. And this will be our output."
+    },
+    {
+        "start": 121.0,
+        "end": 126.0,
+        "text": "So this is what we pass through command line interface. And now we do save."
+    },
+    {
+        "start": 126.0,
+        "end": 133.0,
+        "text": "Now let me save it. I also want to check BigQuery."
+    },
+    {
+        "start": 133.0,
+        "end": 140.0,
+        "text": "So we have the project, thelibstata.org, so I will use this schema."
+    },
+    {
+        "start": 140.0,
+        "end": 146.0,
+        "text": "And I actually don't know what happens when we try to write to a table that does not exist."
+    },
+    {
+        "start": 146.0,
+        "end": 151.0,
+        "text": "Maybe actually Spark will try to create this table. Let's find out."
+    },
+    {
+        "start": 151.0,
+        "end": 157.0,
+        "text": "So the schema name is strips all data."
+    },
+    {
+        "start": 157.0,
+        "end": 162.0,
+        "text": "So I will save this. I will go now to this document. So this is the schema name."
+    },
+    {
+        "start": 162.0,
+        "end": 170.0,
+        "text": "And then I will call it reports 2020."
+    },
+    {
+        "start": 170.0,
+        "end": 175.0,
+        "text": "And the code that will execute will look like that."
+    },
+    {
+        "start": 175.0,
+        "end": 184.0,
+        "text": "So we will use Spark SQL BigQuery in this file."
+    },
+    {
+        "start": 184.0,
+        "end": 190.0,
+        "text": "And then here output would be this table."
+    },
+    {
+        "start": 190.0,
+        "end": 196.0,
+        "text": "Now I need to make sure we save it."
+    },
+    {
+        "start": 196.0,
+        "end": 201.0,
+        "text": "I don't know if we need to specify jar here when we create Spark session."
+    },
+    {
+        "start": 201.0,
+        "end": 204.0,
+        "text": "DataProtz already has connectors to BigQuery."
+    },
+    {
+        "start": 204.0,
+        "end": 207.0,
+        "text": "We can test it and see if it works, if it doesn't."
+    },
+    {
+        "start": 207.0,
+        "end": 210.0,
+        "text": "And we'll figure out how to actually add jars."
+    },
+    {
+        "start": 210.0,
+        "end": 215.0,
+        "text": "So yeah, for now I will not add jars here. I will give it as is."
+    },
+    {
+        "start": 215.0,
+        "end": 219.0,
+        "text": "I will upload now this to Google Cloud Storage."
+    },
+    {
+        "start": 219.0,
+        "end": 225.0,
+        "text": "Let me just type it. Google.jsutl.cp."
+    },
+    {
+        "start": 225.0,
+        "end": 229.0,
+        "text": "Then it's this file."
+    },
+    {
+        "start": 229.0,
+        "end": 236.0,
+        "text": "And I want to upload this to this location."
+    },
+    {
+        "start": 242.0,
+        "end": 245.0,
+        "text": "So this will be the comment I want to execute."
+    },
+    {
+        "start": 245.0,
+        "end": 249.0,
+        "text": "So let me see what happens."
+    },
+    {
+        "start": 249.0,
+        "end": 252.0,
+        "text": "Two things might go wrong. So first it doesn't find a jar."
+    },
+    {
+        "start": 252.0,
+        "end": 255.0,
+        "text": "And we will need to somehow find a way to specify the jar."
+    },
+    {
+        "start": 255.0,
+        "end": 258.0,
+        "text": "And the second we don't have a table."
+    },
+    {
+        "start": 258.0,
+        "end": 260.0,
+        "text": "It might say hey, the table is not there."
+    },
+    {
+        "start": 260.0,
+        "end": 261.0,
+        "text": "I don't know what to do."
+    },
+    {
+        "start": 261.0,
+        "end": 266.0,
+        "text": "So let's see what Spark actually does when something like this happens."
+    },
+    {
+        "start": 266.0,
+        "end": 270.0,
+        "text": "Yeah, so we have another."
+    },
+    {
+        "start": 270.0,
+        "end": 274.0,
+        "text": "And it says fail to find data source BigQuery."
+    },
+    {
+        "start": 274.0,
+        "end": 277.0,
+        "text": "So we need now to fix this."
+    },
+    {
+        "start": 277.0,
+        "end": 281.0,
+        "text": "So I will go now to DataProtz."
+    },
+    {
+        "start": 281.0,
+        "end": 286.0,
+        "text": "I think when we create a job, there is an option to specify jars."
+    },
+    {
+        "start": 286.0,
+        "end": 288.0,
+        "text": "Let me check that."
+    },
+    {
+        "start": 288.0,
+        "end": 294.0,
+        "text": "So when I do submit a job, say jar files here."
+    },
+    {
+        "start": 294.0,
+        "end": 295.0,
+        "text": "So this one."
+    },
+    {
+        "start": 295.0,
+        "end": 299.0,
+        "text": "So here I want to specify jar files."
+    },
+    {
+        "start": 299.0,
+        "end": 305.0,
+        "text": "I think it should be something like jars."
+    },
+    {
+        "start": 305.0,
+        "end": 310.0,
+        "text": "Then I will just use this jar when submitting."
+    },
+    {
+        "start": 311.0,
+        "end": 313.0,
+        "text": "So let's see what happens."
+    },
+    {
+        "start": 313.0,
+        "end": 315.0,
+        "text": "This is the first time I'm doing this."
+    },
+    {
+        "start": 315.0,
+        "end": 320.0,
+        "text": "I also don't know if it will work or not."
+    },
+    {
+        "start": 326.0,
+        "end": 328.0,
+        "text": "Okay, so logs are available here."
+    },
+    {
+        "start": 328.0,
+        "end": 332.0,
+        "text": "Let's check them."
+    },
+    {
+        "start": 332.0,
+        "end": 338.0,
+        "text": "I don't know what's wrong there."
+    },
+    {
+        "start": 338.0,
+        "end": 343.0,
+        "text": "This is the same log as we saw here."
+    },
+    {
+        "start": 343.0,
+        "end": 348.0,
+        "text": "I don't know what it means."
+    },
+    {
+        "start": 348.0,
+        "end": 356.0,
+        "text": "So it says that we need to specify a bucket."
+    },
+    {
+        "start": 356.0,
+        "end": 362.0,
+        "text": "So I was hoping that it would just work without any problems because"
+    },
+    {
+        "start": 362.0,
+        "end": 366.0,
+        "text": "well, I just copied the example from here."
+    },
+    {
+        "start": 366.0,
+        "end": 371.0,
+        "text": "Well, apparently this is not sufficient."
+    },
+    {
+        "start": 371.0,
+        "end": 374.0,
+        "text": "So I didn't copy the example correctly."
+    },
+    {
+        "start": 374.0,
+        "end": 378.0,
+        "text": "So let me do that."
+    },
+    {
+        "start": 382.0,
+        "end": 385.0,
+        "text": "So temporary GCS bucket."
+    },
+    {
+        "start": 385.0,
+        "end": 391.0,
+        "text": "And for this bucket, I don't know if I think when we create a cluster,"
+    },
+    {
+        "start": 391.0,
+        "end": 394.0,
+        "text": "it creates some temporary buckets."
+    },
+    {
+        "start": 394.0,
+        "end": 396.0,
+        "text": "We can use one of them."
+    },
+    {
+        "start": 396.0,
+        "end": 398.0,
+        "text": "Cloud storage."
+    },
+    {
+        "start": 398.0,
+        "end": 402.0,
+        "text": "So you see this, it created actually a bucket like that."
+    },
+    {
+        "start": 402.0,
+        "end": 404.0,
+        "text": "So you can just use that."
+    },
+    {
+        "start": 404.0,
+        "end": 406.0,
+        "text": "DataPros temp.us."
+    },
+    {
+        "start": 406.0,
+        "end": 409.0,
+        "text": "So I save it now."
+    },
+    {
+        "start": 409.0,
+        "end": 416.0,
+        "text": "I need to re-apploat this to Google Cloud Storage again."
+    },
+    {
+        "start": 416.0,
+        "end": 421.0,
+        "text": "And now let's execute this one more time."
+    },
+    {
+        "start": 421.0,
+        "end": 426.0,
+        "text": "I'm really wondering what happens when it finds out that the table does not exist."
+    },
+    {
+        "start": 426.0,
+        "end": 433.0,
+        "text": "I'm afraid now it will say, hey, create a table first."
+    },
+    {
+        "start": 433.0,
+        "end": 436.0,
+        "text": "So what I see is promising."
+    },
+    {
+        "start": 436.0,
+        "end": 440.0,
+        "text": "So it says successfully repaired something."
+    },
+    {
+        "start": 440.0,
+        "end": 443.0,
+        "text": "Submitted job."
+    },
+    {
+        "start": 443.0,
+        "end": 446.0,
+        "text": "Probably it actually created a table."
+    },
+    {
+        "start": 446.0,
+        "end": 448.0,
+        "text": "So let's see."
+    },
+    {
+        "start": 448.0,
+        "end": 450.0,
+        "text": "So I'm in BigQuery right now."
+    },
+    {
+        "start": 450.0,
+        "end": 455.0,
+        "text": "Reloading it."
+    },
+    {
+        "start": 455.0,
+        "end": 461.0,
+        "text": "Yeah, this is pretty cool."
+    },
+    {
+        "start": 461.0,
+        "end": 468.0,
+        "text": "So let me see what is actually there."
+    },
+    {
+        "start": 468.0,
+        "end": 470.0,
+        "text": "I see some data."
+    },
+    {
+        "start": 470.0,
+        "end": 471.0,
+        "text": "That's pretty cool."
+    },
+    {
+        "start": 471.0,
+        "end": 476.0,
+        "text": "So this is how you connect from data products to BigQuery."
+    },
+    {
+        "start": 476.0,
+        "end": 481.0,
+        "text": "Now I also know that actually this was the first time I was doing that."
+    },
+    {
+        "start": 481.0,
+        "end": 483.0,
+        "text": "Hopefully it will be useful for you."
+    },
+    {
+        "start": 483.0,
+        "end": 490.0,
+        "text": "I don't know when you will be able to see this video maybe after you already finished the project."
+    },
+    {
+        "start": 490.0,
+        "end": 496.0,
+        "text": "But anyways, you can come back to this and watch this and that will be very useful."
+    },
+    {
+        "start": 496.0,
+        "end": 500.0,
+        "text": "And with that, I want to conclude the section we had about Rhinance Park in the Cloud."
+    },
+    {
+        "start": 500.0,
+        "end": 503.0,
+        "text": "So in this section, we talked about connecting to Google Cloud Storage."
+    },
+    {
+        "start": 503.0,
+        "end": 507.0,
+        "text": "If you're running things locally or not in data products,"
+    },
+    {
+        "start": 507.0,
+        "end": 511.0,
+        "text": "but then we also talked about connecting, creating a data products cluster,"
+    },
+    {
+        "start": 511.0,
+        "end": 516.0,
+        "text": "which is a managed park cluster in Google Cloud platform."
+    },
+    {
+        "start": 516.0,
+        "end": 522.0,
+        "text": "And then we saw how to run jobs with this and how to write data to BigQuery."
+    },
+    {
+        "start": 522.0,
+        "end": 524.0,
+        "text": "That's all I have for this section."
+    },
+    {
+        "start": 524.0,
+        "end": 528.0,
+        "text": "And hopefully soon I will start working on another section,"
+    },
+    {
+        "start": 528.0,
+        "end": 531.0,
+        "text": "which is Spark and Docker."
+    },
+    {
+        "start": 531.0,
+        "end": 533.0,
+        "text": "For now, that's all from me."
+    },
+    {
+        "start": 533.0,
+        "end": 535.0,
+        "text": "And see you soon. Bye."
+    }
+]

@@ -1,0 +1,1242 @@
+[
+    {
+        "start": 0.0,
+        "end": 7.0,
+        "text": "Now that we created our models and we transform our data, we run it in production."
+    },
+    {
+        "start": 7.0,
+        "end": 16.0,
+        "text": "I have here my DVD cloud shop and I can see here that all of my tables run and create it in production."
+    },
+    {
+        "start": 16.0,
+        "end": 20.0,
+        "text": "We are now going to visualize this data."
+    },
+    {
+        "start": 20.0,
+        "end": 25.0,
+        "text": "We're going to go to Google Data Studio. So this is the URL."
+    },
+    {
+        "start": 26.0,
+        "end": 31.0,
+        "text": "And you should first create a data source."
+    },
+    {
+        "start": 31.0,
+        "end": 37.0,
+        "text": "You go here to data source and we're going to take our BigQuery tables."
+    },
+    {
+        "start": 37.0,
+        "end": 40.0,
+        "text": "You're going to be able to choose your project here."
+    },
+    {
+        "start": 40.0,
+        "end": 46.0,
+        "text": "We're going to use production and we're going to use fact trips."
+    },
+    {
+        "start": 46.0,
+        "end": 51.0,
+        "text": "Something very interesting to know is that if your table has a cluster key,"
+    },
+    {
+        "start": 51.0,
+        "end": 64.0,
+        "text": "so for example in trips they tell here my table has the pickup data defined when I created the table from the back cut."
+    },
+    {
+        "start": 64.0,
+        "end": 71.0,
+        "text": "And it's going to allow you immediately to use that as a date range dimension."
+    },
+    {
+        "start": 71.0,
+        "end": 74.0,
+        "text": "In my case, this one's I didn't have them."
+    },
+    {
+        "start": 74.0,
+        "end": 79.0,
+        "text": "I'm going to take it as it is."
+    },
+    {
+        "start": 79.0,
+        "end": 83.0,
+        "text": "Another nice thing is that if you go here, since this is a BigQuery table,"
+    },
+    {
+        "start": 83.0,
+        "end": 86.0,
+        "text": "you can see already from the URL in the bottom."
+    },
+    {
+        "start": 86.0,
+        "end": 94.0,
+        "text": "This is going to take me to my BigQuery console and I'll be able to query the data from here."
+    },
+    {
+        "start": 94.0,
+        "end": 100.0,
+        "text": "And see the table and a preview."
+    },
+    {
+        "start": 100.0,
+        "end": 106.0,
+        "text": "Okay, let's go to connect now."
+    },
+    {
+        "start": 106.0,
+        "end": 111.0,
+        "text": "The first thing that we're going to see is that it takes all of the numbers, all of the fields."
+    },
+    {
+        "start": 111.0,
+        "end": 115.0,
+        "text": "And it can have some default aggregations by default."
+    },
+    {
+        "start": 115.0,
+        "end": 118.0,
+        "text": "So for example, the sample of the drop-perflocation ID."
+    },
+    {
+        "start": 118.0,
+        "end": 122.0,
+        "text": "In this case, pickup location ID also a sum."
+    },
+    {
+        "start": 122.0,
+        "end": 129.0,
+        "text": "I don't want to have a sum on those, so I'm going to change those to none."
+    },
+    {
+        "start": 129.0,
+        "end": 132.0,
+        "text": "Bassenger count, I would like to have a sum."
+    },
+    {
+        "start": 132.0,
+        "end": 134.0,
+        "text": "For example, I think that's interesting."
+    },
+    {
+        "start": 134.0,
+        "end": 138.0,
+        "text": "Write code ID, I don't want to have a sum, so I'm going to put in no."
+    },
+    {
+        "start": 138.0,
+        "end": 143.0,
+        "text": "Famine type also not because that's a category for me."
+    },
+    {
+        "start": 143.0,
+        "end": 150.0,
+        "text": "And the same goes with treat type, that's a category and with the vendor ID."
+    },
+    {
+        "start": 150.0,
+        "end": 156.0,
+        "text": "And here on the metrics, you have server-all metrics that you could find useful."
+    },
+    {
+        "start": 156.0,
+        "end": 163.0,
+        "text": "Viteful always takes the record count, which is very useful because many times we want to know how many trips."
+    },
+    {
+        "start": 163.0,
+        "end": 165.0,
+        "text": "For example, I would be a record count."
+    },
+    {
+        "start": 165.0,
+        "end": 169.0,
+        "text": "We could create our own aggregations the same way we could create our own fields."
+    },
+    {
+        "start": 169.0,
+        "end": 173.0,
+        "text": "We're now going to do it from here, we're going to do it afterwards."
+    },
+    {
+        "start": 173.0,
+        "end": 183.0,
+        "text": "But if you already know that you want to have some extra transformation fields that should be only on the VIs side, then you could do it from here."
+    },
+    {
+        "start": 183.0,
+        "end": 194.0,
+        "text": "Another nice thing is that you could set descriptions for this fields, something that could be useful for the users that are going to be using the reports that we're going to create."
+    },
+    {
+        "start": 194.0,
+        "end": 198.0,
+        "text": "So let's go and create the report."
+    },
+    {
+        "start": 198.0,
+        "end": 203.0,
+        "text": "Another interesting thing to note is that we can define a data freshness."
+    },
+    {
+        "start": 203.0,
+        "end": 208.0,
+        "text": "So imagine this is an active pipeline, that you're constantly receiving every hour the treat data."
+    },
+    {
+        "start": 208.0,
+        "end": 221.0,
+        "text": "Then you could have a data studio check in the freshness of that data and let it pass the threshold, hence the data is as tailed."
+    },
+    {
+        "start": 221.0,
+        "end": 227.0,
+        "text": "Okay, so now it created my report."
+    },
+    {
+        "start": 227.0,
+        "end": 230.0,
+        "text": "Another thing here, you can always change."
+    },
+    {
+        "start": 230.0,
+        "end": 243.0,
+        "text": "So for example, theme in fact are concepts that are very well known for people that know dimensional modeling, but if we think about the businesses stakeholders, they may not know what a fact table is and they shouldn't."
+    },
+    {
+        "start": 243.0,
+        "end": 247.0,
+        "text": "So maybe we actually want to change the name of the table."
+    },
+    {
+        "start": 247.0,
+        "end": 250.0,
+        "text": "This is something that you should consider and do here."
+    },
+    {
+        "start": 250.0,
+        "end": 254.0,
+        "text": "So we're going to now create a report."
+    },
+    {
+        "start": 254.0,
+        "end": 259.0,
+        "text": "But if all already gave me something, I don't want to have this table yet."
+    },
+    {
+        "start": 259.0,
+        "end": 262.0,
+        "text": "We're going to create our own reports."
+    },
+    {
+        "start": 262.0,
+        "end": 274.0,
+        "text": "Let's build something like a time series. For example, you have several graphs to choose from here."
+    },
+    {
+        "start": 274.0,
+        "end": 280.0,
+        "text": "As soon as you choose any of them, it's going to already pick up the dimensions for you."
+    },
+    {
+        "start": 280.0,
+        "end": 284.0,
+        "text": "As you can see here, kind of like us as the default or suggested."
+    },
+    {
+        "start": 284.0,
+        "end": 289.0,
+        "text": "This is quite nice because it could give you an idea of what kind of graphs you could do."
+    },
+    {
+        "start": 289.0,
+        "end": 294.0,
+        "text": "This behaves a little bit like a pivot table if you are familiar with spreadsheets."
+    },
+    {
+        "start": 294.0,
+        "end": 301.0,
+        "text": "And in our case, we want to do, for example, the amount of trips per day."
+    },
+    {
+        "start": 301.0,
+        "end": 304.0,
+        "text": "So let's say pick up data."
+    },
+    {
+        "start": 304.0,
+        "end": 308.0,
+        "text": "As they mentioned, we'll take the pick up data as well."
+    },
+    {
+        "start": 308.0,
+        "end": 329.0,
+        "text": "And let's try to do it by service type maybe here, which was the green and yellow."
+    },
+    {
+        "start": 329.0,
+        "end": 332.0,
+        "text": "Let's maybe choose another time."
+    },
+    {
+        "start": 332.0,
+        "end": 337.0,
+        "text": "Because that one is too small."
+    },
+    {
+        "start": 337.0,
+        "end": 342.0,
+        "text": "Okay, now that this one looks a little bit better."
+    },
+    {
+        "start": 342.0,
+        "end": 350.0,
+        "text": "There's something here, if you note already, that the year's go for in 2001 to 2001."
+    },
+    {
+        "start": 350.0,
+        "end": 353.0,
+        "text": "78 now."
+    },
+    {
+        "start": 353.0,
+        "end": 358.0,
+        "text": "This is because we didn't filter the data and some of those records."
+    },
+    {
+        "start": 358.0,
+        "end": 363.0,
+        "text": "If you go under your account of the amount of records that they are per year,"
+    },
+    {
+        "start": 363.0,
+        "end": 368.0,
+        "text": "then there are some outliers in there that are messing up with our data."
+    },
+    {
+        "start": 368.0,
+        "end": 373.0,
+        "text": "And something quite nice that go to Studio House is that you can add controls."
+    },
+    {
+        "start": 373.0,
+        "end": 381.0,
+        "text": "And we could add here a date range that we're going to use by default to everything"
+    },
+    {
+        "start": 381.0,
+        "end": 384.0,
+        "text": "that's going to be in this report."
+    },
+    {
+        "start": 384.0,
+        "end": 387.0,
+        "text": "And it can be done from here."
+    },
+    {
+        "start": 387.0,
+        "end": 392.0,
+        "text": "Something quite nice is also that you can here take always, let's say the last month,"
+    },
+    {
+        "start": 392.0,
+        "end": 395.0,
+        "text": "this month, last week."
+    },
+    {
+        "start": 395.0,
+        "end": 399.0,
+        "text": "Let's say you are building a dashboard to monitor your dementia KPIs."
+    },
+    {
+        "start": 399.0,
+        "end": 402.0,
+        "text": "You probably would like to see it in the past week."
+    },
+    {
+        "start": 402.0,
+        "end": 407.0,
+        "text": "So then by default, this will always have the right numbers that you want to check."
+    },
+    {
+        "start": 407.0,
+        "end": 410.0,
+        "text": "And if you always want to go back, you can change it from here."
+    },
+    {
+        "start": 410.0,
+        "end": 414.0,
+        "text": "So we know that our data is from 2019."
+    },
+    {
+        "start": 414.0,
+        "end": 423.0,
+        "text": "So I'm going to choose 2019 until 2020 disambla."
+    },
+    {
+        "start": 423.0,
+        "end": 428.0,
+        "text": "And once I apply it, we right now only have one graph."
+    },
+    {
+        "start": 428.0,
+        "end": 430.0,
+        "text": "So only this one is affected."
+    },
+    {
+        "start": 430.0,
+        "end": 434.0,
+        "text": "But imagine that if we were to have more, everything would be here."
+    },
+    {
+        "start": 434.0,
+        "end": 437.0,
+        "text": "So what's the other things you can do?"
+    },
+    {
+        "start": 438.0,
+        "end": 442.0,
+        "text": "You can of course add your own filters as well in here."
+    },
+    {
+        "start": 442.0,
+        "end": 447.0,
+        "text": "In the style, you could change things about this, about the graph."
+    },
+    {
+        "start": 447.0,
+        "end": 449.0,
+        "text": "So how do you want to see?"
+    },
+    {
+        "start": 449.0,
+        "end": 451.0,
+        "text": "You could change, for example, the lines."
+    },
+    {
+        "start": 451.0,
+        "end": 455.0,
+        "text": "Do you want them to be bars instead?"
+    },
+    {
+        "start": 455.0,
+        "end": 459.0,
+        "text": "How big should it be?"
+    },
+    {
+        "start": 459.0,
+        "end": 465.0,
+        "text": "And here at the end,"
+    },
+    {
+        "start": 465.0,
+        "end": 468.0,
+        "text": "you could also change the grid how it looks like."
+    },
+    {
+        "start": 468.0,
+        "end": 473.0,
+        "text": "And you could change, for example, the background or the border."
+    },
+    {
+        "start": 473.0,
+        "end": 477.0,
+        "text": "Let's say we want to put a border here."
+    },
+    {
+        "start": 477.0,
+        "end": 481.0,
+        "text": "That is quite big to make sure it's different."
+    },
+    {
+        "start": 481.0,
+        "end": 486.0,
+        "text": "Something that we could do is add a title to this."
+    },
+    {
+        "start": 486.0,
+        "end": 492.0,
+        "text": "So let's say we do a amount of trips per day."
+    },
+    {
+        "start": 492.0,
+        "end": 499.0,
+        "text": "Instead of this type."
+    },
+    {
+        "start": 499.0,
+        "end": 506.0,
+        "text": "Okay."
+    },
+    {
+        "start": 506.0,
+        "end": 510.0,
+        "text": "And let's do another graph."
+    },
+    {
+        "start": 510.0,
+        "end": 515.0,
+        "text": "Let's add, for example, a scorecard."
+    },
+    {
+        "start": 515.0,
+        "end": 521.0,
+        "text": "Let's maybe add here the number or the records."
+    },
+    {
+        "start": 521.0,
+        "end": 524.0,
+        "text": "So let's take the pickup day time."
+    },
+    {
+        "start": 524.0,
+        "end": 526.0,
+        "text": "Let's take it out."
+    },
+    {
+        "start": 526.0,
+        "end": 534.0,
+        "text": "And this is the amount of records in this date range, for example."
+    },
+    {
+        "start": 534.0,
+        "end": 539.0,
+        "text": "This is also nice to always have in a dashboard to understand what we're looking at."
+    },
+    {
+        "start": 539.0,
+        "end": 548.0,
+        "text": "Like provide a big picture."
+    },
+    {
+        "start": 548.0,
+        "end": 551.0,
+        "text": "Again, here you can always go to the style."
+    },
+    {
+        "start": 551.0,
+        "end": 554.0,
+        "text": "You can always also change them from here."
+    },
+    {
+        "start": 554.0,
+        "end": 557.0,
+        "text": "So for example, I could go to this one if I wanted to."
+    },
+    {
+        "start": 557.0,
+        "end": 559.0,
+        "text": "I could try to use another one."
+    },
+    {
+        "start": 559.0,
+        "end": 561.0,
+        "text": "So something like this."
+    },
+    {
+        "start": 561.0,
+        "end": 565.0,
+        "text": "In this case, I removed the date, the date range."
+    },
+    {
+        "start": 565.0,
+        "end": 571.0,
+        "text": "So then it's going to try to look something else to make sure that I can show bars."
+    },
+    {
+        "start": 571.0,
+        "end": 575.0,
+        "text": "And it's going to see at the 3pd for example."
+    },
+    {
+        "start": 575.0,
+        "end": 577.0,
+        "text": "So I'm going to go back to the number."
+    },
+    {
+        "start": 577.0,
+        "end": 579.0,
+        "text": "I like the number."
+    },
+    {
+        "start": 579.0,
+        "end": 582.0,
+        "text": "I'm going to."
+    },
+    {
+        "start": 582.0,
+        "end": 591.0,
+        "text": "And."
+    },
+    {
+        "start": 591.0,
+        "end": 595.0,
+        "text": "This here is like a box."
+    },
+    {
+        "start": 595.0,
+        "end": 598.0,
+        "text": "Let's add another chart."
+    },
+    {
+        "start": 598.0,
+        "end": 604.0,
+        "text": "Let's do something like a service type distribution."
+    },
+    {
+        "start": 604.0,
+        "end": 605.0,
+        "text": "Now it left."
+    },
+    {
+        "start": 605.0,
+        "end": 607.0,
+        "text": "It was a bug."
+    },
+    {
+        "start": 607.0,
+        "end": 609.0,
+        "text": "Okay, already vited falls."
+    },
+    {
+        "start": 609.0,
+        "end": 611.0,
+        "text": "It gave me already what I wanted."
+    },
+    {
+        "start": 611.0,
+        "end": 614.0,
+        "text": "But let's check what it's done."
+    },
+    {
+        "start": 614.0,
+        "end": 616.0,
+        "text": "So it took the date range dimension."
+    },
+    {
+        "start": 616.0,
+        "end": 620.0,
+        "text": "It doesn't show because at the end, the date range dimension is just there."
+    },
+    {
+        "start": 620.0,
+        "end": 621.0,
+        "text": "It's going to be filtered by this."
+    },
+    {
+        "start": 621.0,
+        "end": 625.0,
+        "text": "We can see that in the filter here already."
+    },
+    {
+        "start": 625.0,
+        "end": 629.0,
+        "text": "But we can take it out and it wouldn't affect."
+    },
+    {
+        "start": 629.0,
+        "end": 630.0,
+        "text": "Actually."
+    },
+    {
+        "start": 630.0,
+        "end": 634.0,
+        "text": "And then it used us a dimension in the service type."
+    },
+    {
+        "start": 634.0,
+        "end": 637.0,
+        "text": "And here you use the record count."
+    },
+    {
+        "start": 637.0,
+        "end": 641.0,
+        "text": "Know that here you could also change this."
+    },
+    {
+        "start": 641.0,
+        "end": 643.0,
+        "text": "You could create your own comparison."
+    },
+    {
+        "start": 643.0,
+        "end": 649.0,
+        "text": "For example, if you want to do like a running calculation, you can change also the sorting."
+    },
+    {
+        "start": 649.0,
+        "end": 654.0,
+        "text": "So let's add also another thing here."
+    },
+    {
+        "start": 654.0,
+        "end": 659.0,
+        "text": "Something like service type distribution."
+    },
+    {
+        "start": 660.0,
+        "end": 662.0,
+        "text": "Let's put this."
+    },
+    {
+        "start": 662.0,
+        "end": 665.0,
+        "text": "You can also format the titles."
+    },
+    {
+        "start": 665.0,
+        "end": 669.0,
+        "text": "Let's put this like this."
+    },
+    {
+        "start": 669.0,
+        "end": 672.0,
+        "text": "What else we can do?"
+    },
+    {
+        "start": 672.0,
+        "end": 677.0,
+        "text": "We see already, for example, that the yellow has like 90% of the trips."
+    },
+    {
+        "start": 677.0,
+        "end": 681.0,
+        "text": "And it kind of makes sense if you look at this graph as well."
+    },
+    {
+        "start": 681.0,
+        "end": 687.0,
+        "text": "Something that I also find very interesting is the drop that you can see in March because of COVID."
+    },
+    {
+        "start": 688.0,
+        "end": 696.0,
+        "text": "And you can already see here that it starts increasing, but nothing like before COVID."
+    },
+    {
+        "start": 696.0,
+        "end": 699.0,
+        "text": "Let's do another chart."
+    },
+    {
+        "start": 699.0,
+        "end": 700.0,
+        "text": "Let's do a scorecard."
+    },
+    {
+        "start": 700.0,
+        "end": 702.0,
+        "text": "Let's do a table."
+    },
+    {
+        "start": 702.0,
+        "end": 705.0,
+        "text": "So for example, let's do a table with a hit mark."
+    },
+    {
+        "start": 705.0,
+        "end": 712.0,
+        "text": "This is good to list the top 10 or the top 5 records of something."
+    },
+    {
+        "start": 712.0,
+        "end": 715.0,
+        "text": "So let's do it by pick up zone."
+    },
+    {
+        "start": 715.0,
+        "end": 722.0,
+        "text": "For example, we don't want to have a date range, which is one to go to the pick up zone."
+    },
+    {
+        "start": 722.0,
+        "end": 728.0,
+        "text": "Let's do remember that we have location, pick up location and we have pick up zone."
+    },
+    {
+        "start": 728.0,
+        "end": 733.0,
+        "text": "We want to have pick up zone because we want to have the description."
+    },
+    {
+        "start": 733.0,
+        "end": 737.0,
+        "text": "And see already by default already gave me the record count."
+    },
+    {
+        "start": 737.0,
+        "end": 744.0,
+        "text": "And the nice thing about the hit mark is that it shows me with the colors, the difference already."
+    },
+    {
+        "start": 745.0,
+        "end": 749.0,
+        "text": "And here you code again shows defined another metric."
+    },
+    {
+        "start": 749.0,
+        "end": 752.0,
+        "text": "If you want it to, you can choose something else to count."
+    },
+    {
+        "start": 752.0,
+        "end": 756.0,
+        "text": "For us, record count is fine because this is what we actually want to know."
+    },
+    {
+        "start": 756.0,
+        "end": 763.0,
+        "text": "This is going to tell us the amount of rights per pick up zone that we had during the date range."
+    },
+    {
+        "start": 763.0,
+        "end": 767.0,
+        "text": "Let's also add a text here."
+    },
+    {
+        "start": 767.0,
+        "end": 771.0,
+        "text": "You can pick here something like trebs."
+    },
+    {
+        "start": 772.0,
+        "end": 776.0,
+        "text": "For pick up zone."
+    },
+    {
+        "start": 776.0,
+        "end": 783.0,
+        "text": "Let's do one other graph."
+    },
+    {
+        "start": 783.0,
+        "end": 786.0,
+        "text": "Let's go to another chart."
+    },
+    {
+        "start": 786.0,
+        "end": 790.0,
+        "text": "Let's do maybe stack bar, something like this."
+    },
+    {
+        "start": 790.0,
+        "end": 796.0,
+        "text": "And I would like to see the trebs per month."
+    },
+    {
+        "start": 796.0,
+        "end": 804.0,
+        "text": "The thing here is that I don't have the trebs per month because I only have a pick up date time."
+    },
+    {
+        "start": 804.0,
+        "end": 811.0,
+        "text": "And in that case, so we can leave the pick up date time here."
+    },
+    {
+        "start": 811.0,
+        "end": 821.0,
+        "text": "But here what we want is to create a new field that's going to allow us to filter by the month."
+    },
+    {
+        "start": 821.0,
+        "end": 825.0,
+        "text": "So from here, we can go and add the field."
+    },
+    {
+        "start": 825.0,
+        "end": 830.0,
+        "text": "And we're going to do something like pick up month for example."
+    },
+    {
+        "start": 830.0,
+        "end": 833.0,
+        "text": "And we can apply formulas here."
+    },
+    {
+        "start": 833.0,
+        "end": 837.0,
+        "text": "So we can do months pick up time."
+    },
+    {
+        "start": 837.0,
+        "end": 840.0,
+        "text": "Pick up date time here."
+    },
+    {
+        "start": 840.0,
+        "end": 844.0,
+        "text": "So you can also create your own fill ID if you wanted to."
+    },
+    {
+        "start": 844.0,
+        "end": 846.0,
+        "text": "I'm just going to leave this one here."
+    },
+    {
+        "start": 846.0,
+        "end": 851.0,
+        "text": "Create an ID to an unique identify for that field as well."
+    },
+    {
+        "start": 851.0,
+        "end": 853.0,
+        "text": "Let's save it."
+    },
+    {
+        "start": 853.0,
+        "end": 856.0,
+        "text": "None."
+    },
+    {
+        "start": 856.0,
+        "end": 862.0,
+        "text": "And let's now take that pick up month."
+    },
+    {
+        "start": 863.0,
+        "end": 869.0,
+        "text": "The dimension."
+    },
+    {
+        "start": 869.0,
+        "end": 876.0,
+        "text": "And."
+    },
+    {
+        "start": 876.0,
+        "end": 878.0,
+        "text": "Is it so not ready?"
+    },
+    {
+        "start": 878.0,
+        "end": 879.0,
+        "text": "Okay."
+    },
+    {
+        "start": 879.0,
+        "end": 885.0,
+        "text": "Here we can see already the amount of trebs that we had per month."
+    },
+    {
+        "start": 885.0,
+        "end": 894.0,
+        "text": "But we know here already that there's a difference between 2020 and 2020 19."
+    },
+    {
+        "start": 894.0,
+        "end": 901.0,
+        "text": "Sorry 2020 and 2019, which means that it would be it would be affecting some of the months and necessarily."
+    },
+    {
+        "start": 901.0,
+        "end": 908.0,
+        "text": "So maybe we want to also drill down by the year to make sure that there's a difference."
+    },
+    {
+        "start": 908.0,
+        "end": 911.0,
+        "text": "And it would also be interesting to see."
+    },
+    {
+        "start": 911.0,
+        "end": 919.0,
+        "text": "So let's create another field now, which would be something like pick up year."
+    },
+    {
+        "start": 919.0,
+        "end": 931.0,
+        "text": "And again, we can do here year pick up date time."
+    },
+    {
+        "start": 931.0,
+        "end": 937.0,
+        "text": "Let's do a done and the sad that us a drill down dimension."
+    },
+    {
+        "start": 937.0,
+        "end": 939.0,
+        "text": "Pick up."
+    },
+    {
+        "start": 939.0,
+        "end": 955.0,
+        "text": "Raise it."
+    },
+    {
+        "start": 955.0,
+        "end": 964.0,
+        "text": "And here we can see 2020 and X to 2019."
+    },
+    {
+        "start": 964.0,
+        "end": 966.0,
+        "text": "In the sword, it's by record count."
+    },
+    {
+        "start": 966.0,
+        "end": 977.0,
+        "text": "I would actually like to have it by pick up months."
+    },
+    {
+        "start": 977.0,
+        "end": 984.0,
+        "text": "And now I would like to change it to the other bar to this one."
+    },
+    {
+        "start": 984.0,
+        "end": 993.0,
+        "text": "I would like to have it."
+    },
+    {
+        "start": 993.0,
+        "end": 1002.0,
+        "text": "And now it looks better."
+    },
+    {
+        "start": 1002.0,
+        "end": 1006.0,
+        "text": "So here we can see already the differences."
+    },
+    {
+        "start": 1006.0,
+        "end": 1008.0,
+        "text": "There's a second sword."
+    },
+    {
+        "start": 1008.0,
+        "end": 1016.0,
+        "text": "I like to take it out."
+    },
+    {
+        "start": 1016.0,
+        "end": 1023.0,
+        "text": "That's something."
+    },
+    {
+        "start": 1023.0,
+        "end": 1028.0,
+        "text": "I'd like to see the year from when it starts to when it ends."
+    },
+    {
+        "start": 1028.0,
+        "end": 1034.0,
+        "text": "Something that we could also do is if you open up, then you can actually see everything."
+    },
+    {
+        "start": 1034.0,
+        "end": 1036.0,
+        "text": "It's going to a chest."
+    },
+    {
+        "start": 1036.0,
+        "end": 1042.0,
+        "text": "And if you make it smaller, it's going to always a chest to the amount of this place that you give to the graph."
+    },
+    {
+        "start": 1042.0,
+        "end": 1045.0,
+        "text": "This is also things that you could check in the style as well."
+    },
+    {
+        "start": 1045.0,
+        "end": 1047.0,
+        "text": "And how do you want to do?"
+    },
+    {
+        "start": 1047.0,
+        "end": 1050.0,
+        "text": "Want to show you the axis for example?"
+    },
+    {
+        "start": 1050.0,
+        "end": 1053.0,
+        "text": "How do you want again the great to show?"
+    },
+    {
+        "start": 1053.0,
+        "end": 1057.0,
+        "text": "We could again do a different background and border."
+    },
+    {
+        "start": 1057.0,
+        "end": 1062.0,
+        "text": "And we're going to add another title here."
+    },
+    {
+        "start": 1062.0,
+        "end": 1069.0,
+        "text": "Wait."
+    },
+    {
+        "start": 1069.0,
+        "end": 1076.0,
+        "text": "I'm going to do the tree's."
+    },
+    {
+        "start": 1076.0,
+        "end": 1084.0,
+        "text": "And here."
+    },
+    {
+        "start": 1084.0,
+        "end": 1089.0,
+        "text": "Something else that we could do for example with the control that we add it here."
+    },
+    {
+        "start": 1089.0,
+        "end": 1091.0,
+        "text": "We could add any other things."
+    },
+    {
+        "start": 1091.0,
+        "end": 1094.0,
+        "text": "So let's say we could do a drop down list."
+    },
+    {
+        "start": 1094.0,
+        "end": 1096.0,
+        "text": "And you could filter, you could check here."
+    },
+    {
+        "start": 1096.0,
+        "end": 1097.0,
+        "text": "Why don't you want to?"
+    },
+    {
+        "start": 1097.0,
+        "end": 1099.0,
+        "text": "So here it's pick update time."
+    },
+    {
+        "start": 1099.0,
+        "end": 1106.0,
+        "text": "But let's say we want to do on the service type."
+    },
+    {
+        "start": 1106.0,
+        "end": 1107.0,
+        "text": "Not very much."
+    },
+    {
+        "start": 1107.0,
+        "end": 1114.0,
+        "text": "They mentioned in the control field service type."
+    },
+    {
+        "start": 1114.0,
+        "end": 1116.0,
+        "text": "And then you could take only it."
+    },
+    {
+        "start": 1116.0,
+        "end": 1123.0,
+        "text": "Let's say we take only yellow."
+    },
+    {
+        "start": 1123.0,
+        "end": 1130.0,
+        "text": "And see how it already affected all of my dashboard."
+    },
+    {
+        "start": 1130.0,
+        "end": 1137.0,
+        "text": "So okay, next thing we can do is we can put something here like"
+    },
+    {
+        "start": 1137.0,
+        "end": 1140.0,
+        "text": "Trapes and Alice says years."
+    },
+    {
+        "start": 1140.0,
+        "end": 1144.0,
+        "text": "She's also 19 2020."
+    },
+    {
+        "start": 1144.0,
+        "end": 1147.0,
+        "text": "And this is ready to share."
+    },
+    {
+        "start": 1147.0,
+        "end": 1150.0,
+        "text": "And what we could do is we could actually see how it looks like."
+    },
+    {
+        "start": 1150.0,
+        "end": 1153.0,
+        "text": "So how someone is going to you be able to use it."
+    },
+    {
+        "start": 1153.0,
+        "end": 1156.0,
+        "text": "Let's put the green as well back."
+    },
+    {
+        "start": 1156.0,
+        "end": 1159.0,
+        "text": "You could go back to edit or you could already share it."
+    },
+    {
+        "start": 1159.0,
+        "end": 1165.0,
+        "text": "And this is very similar to how you share any kind of document with Google."
+    },
+    {
+        "start": 1165.0,
+        "end": 1169.0,
+        "text": "You can give people permission to either edit or view."
+    },
+    {
+        "start": 1169.0,
+        "end": 1172.0,
+        "text": "You should add their emails."
+    },
+    {
+        "start": 1172.0,
+        "end": 1174.0,
+        "text": "And you're ready to share."
+    },
+    {
+        "start": 1174.0,
+        "end": 1177.0,
+        "text": "You could also get a link."
+    },
+    {
+        "start": 1177.0,
+        "end": 1179.0,
+        "text": "You could download it as a PDF."
+    },
+    {
+        "start": 1179.0,
+        "end": 1180.0,
+        "text": "And something that's quite nice."
+    },
+    {
+        "start": 1180.0,
+        "end": 1183.0,
+        "text": "You could as carry a live email delivery, which is very useful."
+    },
+    {
+        "start": 1183.0,
+        "end": 1190.0,
+        "text": "So in the case, for example, of the KPIs that we could set to always check the last week."
+    },
+    {
+        "start": 1190.0,
+        "end": 1194.0,
+        "text": "We could as carry this to be signed every Monday, for example."
+    },
+    {
+        "start": 1194.0,
+        "end": 1198.0,
+        "text": "And we would be able to analyze the last week."
+    }
+]

@@ -1,0 +1,492 @@
+[
+    {
+        "start": 0.0,
+        "end": 4.36,
+        "text": "Welcome to module two of the data engineering zoom camp."
+    },
+    {
+        "start": 4.36,
+        "end": 7.32,
+        "text": "My name is Will, a developer advocate at Kestra,"
+    },
+    {
+        "start": 7.32,
+        "end": 9.92,
+        "text": "and I'm going to be your instructor for this module."
+    },
+    {
+        "start": 9.92,
+        "end": 12.72,
+        "text": "Now, in this module, we're going to cover a bunch of different things."
+    },
+    {
+        "start": 12.72,
+        "end": 14.76,
+        "text": "I'm going to discuss what those are,"
+    },
+    {
+        "start": 14.76,
+        "end": 18.92,
+        "text": "and then we'll jump into what is workflow orchestration."
+    },
+    {
+        "start": 18.92,
+        "end": 22.96,
+        "text": "So to begin with, we're going to start with an introduction to workflow orchestration."
+    },
+    {
+        "start": 22.96,
+        "end": 25.16,
+        "text": "We're explaining what it is, how it's used,"
+    },
+    {
+        "start": 25.16,
+        "end": 28.84,
+        "text": "and we'll also discuss Kestra, which is a workflow orchestrator."
+    },
+    {
+        "start": 28.84,
+        "end": 32.52,
+        "text": "Going into part two, we'll look at getting started with Kestra,"
+    },
+    {
+        "start": 32.52,
+        "end": 36.28,
+        "text": "understanding the concepts you need to build your very own workflows,"
+    },
+    {
+        "start": 36.28,
+        "end": 39.0,
+        "text": "and understanding how you can get some Python code"
+    },
+    {
+        "start": 39.0,
+        "end": 41.56,
+        "text": "running automatically inside of Kestra."
+    },
+    {
+        "start": 41.56,
+        "end": 43.16,
+        "text": "And then going into part three,"
+    },
+    {
+        "start": 43.16,
+        "end": 46.6,
+        "text": "we're going to build off very own data engineering pipeline."
+    },
+    {
+        "start": 46.6,
+        "end": 49.480000000000004,
+        "text": "We're going to extract some data from the New York taxis."
+    },
+    {
+        "start": 49.480000000000004,
+        "end": 52.96,
+        "text": "We're going to transform it and then load it into that Postgres database"
+    },
+    {
+        "start": 52.96,
+        "end": 54.96,
+        "text": "that we had in module one."
+    },
+    {
+        "start": 54.96,
+        "end": 57.84,
+        "text": "Moving into part four, we're going to take it up a notch."
+    },
+    {
+        "start": 57.84,
+        "end": 59.760000000000005,
+        "text": "Instead of doing an ETL pipeline,"
+    },
+    {
+        "start": 59.760000000000005,
+        "end": 65.2,
+        "text": "we're now going to do an ELT pipeline using big query and Google Cloud storage."
+    },
+    {
+        "start": 65.2,
+        "end": 67.84,
+        "text": "This will help you understand why using cloud"
+    },
+    {
+        "start": 67.84,
+        "end": 70.4,
+        "text": "can be beneficial in your data pipelines."
+    },
+    {
+        "start": 70.4,
+        "end": 72.04,
+        "text": "And then going into part five,"
+    },
+    {
+        "start": 72.04,
+        "end": 76.2,
+        "text": "we're going to look at how you can use AI inside of data engineering."
+    },
+    {
+        "start": 76.2,
+        "end": 79.32000000000001,
+        "text": "That's going to look at how we can use the AI co-pilot inside of Kestra"
+    },
+    {
+        "start": 79.32000000000001,
+        "end": 80.96000000000001,
+        "text": "to help you build your workflows,"
+    },
+    {
+        "start": 80.96000000000001,
+        "end": 83.72,
+        "text": "but also looking at concepts like context engineering"
+    },
+    {
+        "start": 83.72,
+        "end": 86.08000000000001,
+        "text": "on how that can help your data pipelines."
+    },
+    {
+        "start": 86.08,
+        "end": 89.4,
+        "text": "And then to round things off, part six is all around deploying"
+    },
+    {
+        "start": 89.4,
+        "end": 92.44,
+        "text": "and managing your data pipelines in production."
+    },
+    {
+        "start": 92.44,
+        "end": 93.64,
+        "text": "Now this is a bonus module."
+    },
+    {
+        "start": 93.64,
+        "end": 95.24,
+        "text": "So if you want to do this,"
+    },
+    {
+        "start": 95.24,
+        "end": 97.52,
+        "text": "then you're completely free to do so,"
+    },
+    {
+        "start": 97.52,
+        "end": 100.28,
+        "text": "but this is not required as part of the module."
+    },
+    {
+        "start": 100.28,
+        "end": 104.88,
+        "text": "So hopefully that gives you a good idea of what to expect going into this module."
+    },
+    {
+        "start": 104.88,
+        "end": 106.68,
+        "text": "You're going to learn tons of new things."
+    },
+    {
+        "start": 106.68,
+        "end": 107.92,
+        "text": "And if you do have any questions,"
+    },
+    {
+        "start": 107.92,
+        "end": 110.84,
+        "text": "I'm going to be in the DTC Slack community."
+    },
+    {
+        "start": 110.84,
+        "end": 113.48,
+        "text": "So ask away and I'll do my best to help you."
+    },
+    {
+        "start": 113.48,
+        "end": 115.12,
+        "text": "Now, let's jump in."
+    },
+    {
+        "start": 115.16000000000001,
+        "end": 117.68,
+        "text": "What is workflow orchestration?"
+    },
+    {
+        "start": 117.68,
+        "end": 120.12,
+        "text": "Orchestration is quite a loaded term,"
+    },
+    {
+        "start": 120.12,
+        "end": 122.4,
+        "text": "a term that means all sorts of different things"
+    },
+    {
+        "start": 122.4,
+        "end": 124.28,
+        "text": "and can be a little bit overwhelming,"
+    },
+    {
+        "start": 124.28,
+        "end": 126.88000000000001,
+        "text": "but I'm going to break it down for you."
+    },
+    {
+        "start": 126.88000000000001,
+        "end": 131.48000000000002,
+        "text": "Now, let's think of orchestration in sort of the traditional sense,"
+    },
+    {
+        "start": 131.48000000000002,
+        "end": 133.20000000000002,
+        "text": "in music."
+    },
+    {
+        "start": 133.20000000000002,
+        "end": 135.16,
+        "text": "In music, you might have an orchestra"
+    },
+    {
+        "start": 135.16,
+        "end": 137.48000000000002,
+        "text": "where you'll have a variety of different instruments,"
+    },
+    {
+        "start": 137.48000000000002,
+        "end": 141.20000000000002,
+        "text": "such as trumpets, violin, drums."
+    },
+    {
+        "start": 141.20000000000002,
+        "end": 142.96,
+        "text": "They all make different sounds."
+    },
+    {
+        "start": 142.96,
+        "end": 145.08,
+        "text": "They all have different purposes."
+    },
+    {
+        "start": 145.08,
+        "end": 148.32000000000002,
+        "text": "And when they come together, they can make a nice song."
+    },
+    {
+        "start": 148.32000000000002,
+        "end": 150.04000000000002,
+        "text": "Whereas played on their own,"
+    },
+    {
+        "start": 150.04000000000002,
+        "end": 153.48000000000002,
+        "text": "they may be limited to the music they can produce."
+    },
+    {
+        "start": 153.48000000000002,
+        "end": 156.48000000000002,
+        "text": "Now, an orchestra would also have someone like a conductor"
+    },
+    {
+        "start": 156.48000000000002,
+        "end": 159.84,
+        "text": "who will stand in the middle and tell each of these instruments"
+    },
+    {
+        "start": 159.84,
+        "end": 163.28,
+        "text": "when they should play, when they should stop, and so on."
+    },
+    {
+        "start": 163.28,
+        "end": 168.52,
+        "text": "Now, let's abstract that and now bring that into data engineering."
+    },
+    {
+        "start": 168.52,
+        "end": 171.84,
+        "text": "Instead, we're going to replace the musical instruments with our tools."
+    },
+    {
+        "start": 171.84,
+        "end": 176.32,
+        "text": "The tools could be stuff like Python, a database, and so on."
+    },
+    {
+        "start": 176.32,
+        "end": 179.6,
+        "text": "And then we can replace the conductor with our orchestrator."
+    },
+    {
+        "start": 179.6,
+        "end": 181.68,
+        "text": "In this case, that's Kestra."
+    },
+    {
+        "start": 181.68,
+        "end": 186.16,
+        "text": "Kestra is going to tell all these independent tools to work together."
+    },
+    {
+        "start": 186.16,
+        "end": 190.44,
+        "text": "It's going to be able to allow us to extract data from a source,"
+    },
+    {
+        "start": 190.44,
+        "end": 193.4,
+        "text": "hand it over to a Python script that can transform it,"
+    },
+    {
+        "start": 193.4,
+        "end": 198.88,
+        "text": "and then our conductor or orchestrator can then load it into our database."
+    },
+    {
+        "start": 198.88,
+        "end": 201.8,
+        "text": "Now, without the conductor or orchestrator,"
+    },
+    {
+        "start": 201.84,
+        "end": 205.28,
+        "text": "none of these tools would be able to interact with each other particularly well."
+    },
+    {
+        "start": 205.28,
+        "end": 208.32000000000002,
+        "text": "Maybe there'd be a lot of manual steps and processes involved"
+    },
+    {
+        "start": 208.32000000000002,
+        "end": 210.4,
+        "text": "to get them to all communicate together."
+    },
+    {
+        "start": 210.4,
+        "end": 213.8,
+        "text": "And so that's where, especially in the world of data engineering,"
+    },
+    {
+        "start": 213.8,
+        "end": 217.48000000000002,
+        "text": "where pipelines are such a fundamental part of it,"
+    },
+    {
+        "start": 217.48000000000002,
+        "end": 221.92000000000002,
+        "text": "being able to use an orchestrator to tie all these different tools together"
+    },
+    {
+        "start": 221.92000000000002,
+        "end": 223.20000000000002,
+        "text": "is so important."
+    },
+    {
+        "start": 223.20000000000002,
+        "end": 227.56,
+        "text": "Now, a workflow orchestrator can do more than just have these tools talk to each other."
+    },
+    {
+        "start": 227.56,
+        "end": 230.56,
+        "text": "It can also do things like provide you with logging information,"
+    },
+    {
+        "start": 230.56,
+        "end": 233.6,
+        "text": "so you can see what's going on between these tools."
+    },
+    {
+        "start": 233.6,
+        "end": 235.68,
+        "text": "Understand if there are failures."
+    },
+    {
+        "start": 235.68,
+        "end": 238.32,
+        "text": "Not only will it allow these tools to talk together,"
+    },
+    {
+        "start": 238.32,
+        "end": 241.6,
+        "text": "it can also have complex orchestration logic"
+    },
+    {
+        "start": 241.6,
+        "end": 244.84,
+        "text": "to allow you to run things in parallel or loop through things."
+    },
+    {
+        "start": 244.84,
+        "end": 247.8,
+        "text": "Things that these tools on their own wouldn't necessarily do,"
+    },
+    {
+        "start": 247.8,
+        "end": 253.2,
+        "text": "but with that logic on top can give you lots of options of how you can build your workflows."
+    },
+    {
+        "start": 253.2,
+        "end": 256.68,
+        "text": "And then these workflows can also be run automatically,"
+    },
+    {
+        "start": 256.68,
+        "end": 259.72,
+        "text": "whether that's on a predefined schedule or event-based"
+    },
+    {
+        "start": 259.72,
+        "end": 263.84000000000003,
+        "text": "when maybe data is now available, the workflow can start and process it."
+    },
+    {
+        "start": 263.84000000000003,
+        "end": 265.68,
+        "text": "So with all of these in mind,"
+    },
+    {
+        "start": 265.68,
+        "end": 270.92,
+        "text": "that is where an orchestrator can supercharge your existing data pipelines."
+    },
+    {
+        "start": 270.92,
+        "end": 274.12,
+        "text": "Now, in this module, we're going to build an ETL pipeline,"
+    },
+    {
+        "start": 274.12,
+        "end": 277.40000000000003,
+        "text": "ETL standing for Extract, Transform and Load,"
+    },
+    {
+        "start": 277.40000000000003,
+        "end": 280.24,
+        "text": "where Kestria is going to be at the core of this operation,"
+    },
+    {
+        "start": 280.24,
+        "end": 283.8,
+        "text": "making sure that each of those steps works in unison."
+    },
+    {
+        "start": 283.8,
+        "end": 287.28000000000003,
+        "text": "For us to get to that point, we first need to understand"
+    },
+    {
+        "start": 287.28,
+        "end": 291.35999999999996,
+        "text": "a little bit more about Kestria and how we can start building with Kestria."
+    },
+    {
+        "start": 291.35999999999996,
+        "end": 295.35999999999996,
+        "text": "So stay tuned for the next video where I'm going to walk you through the concepts of Kestria"
+    },
+    {
+        "start": 295.35999999999996,
+        "end": 297.59999999999997,
+        "text": "and get you building your first workflow."
+    }
+]

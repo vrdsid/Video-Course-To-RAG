@@ -1,0 +1,267 @@
+[
+    {
+        "start": 0.0,
+        "end": 4.36,
+        "text": "So now let's move on to Pipeline."
+    },
+    {
+        "start": 4.36,
+        "end": 9.36,
+        "text": "So within a project you might have multiple different pipelines and you will want to sometimes"
+    },
+    {
+        "start": 9.36,
+        "end": 16.76,
+        "text": "have different pipelines based on specific parameters or specific configurations."
+    },
+    {
+        "start": 16.76,
+        "end": 22.32,
+        "text": "At the very basic level, since a pipeline will always have a single schedule, it's best"
+    },
+    {
+        "start": 22.32,
+        "end": 28.62,
+        "text": "to categorize and group your tasks and your assets and everything based on the pipeline"
+    },
+    {
+        "start": 28.62,
+        "end": 29.62,
+        "text": "schedule."
+    },
+    {
+        "start": 29.7,
+        "end": 35.5,
+        "text": "The sense you're going to be scheduling the pipeline and setting up the connections"
+    },
+    {
+        "start": 35.5,
+        "end": 38.1,
+        "text": "and setting up some default configurations."
+    },
+    {
+        "start": 38.1,
+        "end": 42.900000000000006,
+        "text": "You can think of that as the parameters that are necessary for you to group everything"
+    },
+    {
+        "start": 42.900000000000006,
+        "end": 43.900000000000006,
+        "text": "together."
+    },
+    {
+        "start": 43.900000000000006,
+        "end": 48.7,
+        "text": "And it will make more sense once I show you an example here, but let's go ahead and"
+    },
+    {
+        "start": 48.7,
+        "end": 51.5,
+        "text": "take a look at this pipeline that I have."
+    },
+    {
+        "start": 51.5,
+        "end": 54.74,
+        "text": "It's some New York City taxi data."
+    },
+    {
+        "start": 54.74,
+        "end": 59.18000000000001,
+        "text": "So if we look at the pipeline, YAML file, and that's going to be one of the key components"
+    },
+    {
+        "start": 59.18,
+        "end": 65.22,
+        "text": "of a pipeline is the pipeline YAML file that lives in the parent pipeline folder."
+    },
+    {
+        "start": 65.22,
+        "end": 71.14,
+        "text": "So in this case here, I have this pipeline here and in the folder, I have the pipeline"
+    },
+    {
+        "start": 71.14,
+        "end": 72.14,
+        "text": "YAML file."
+    },
+    {
+        "start": 72.14,
+        "end": 77.7,
+        "text": "And for example, in another pipeline at the pipeline folder, I have the pipeline YAML"
+    },
+    {
+        "start": 77.7,
+        "end": 78.7,
+        "text": "file."
+    },
+    {
+        "start": 78.7,
+        "end": 83.3,
+        "text": "So each pipeline is separated by a folder and a pipeline YAML file that explains what"
+    },
+    {
+        "start": 83.3,
+        "end": 87.1,
+        "text": "is that pipeline, what is the schedule, what are the connections and what are the variables"
+    },
+    {
+        "start": 87.1,
+        "end": 88.1,
+        "text": "that we're using there."
+    },
+    {
+        "start": 88.66,
+        "end": 93.02,
+        "text": "Taking a look at this New York City taxi pipeline, I defined the name of the pipeline,"
+    },
+    {
+        "start": 93.02,
+        "end": 94.22,
+        "text": "and then I set a schedule."
+    },
+    {
+        "start": 94.22,
+        "end": 99.89999999999999,
+        "text": "So the schedule can be either a cron expression or you can just say monthly, daily, hourly,"
+    },
+    {
+        "start": 99.89999999999999,
+        "end": 100.89999999999999,
+        "text": "something like that."
+    },
+    {
+        "start": 100.89999999999999,
+        "end": 104.1,
+        "text": "And Bryn will automatically know how to run it according to that."
+    },
+    {
+        "start": 104.1,
+        "end": 105.1,
+        "text": "You have some other parameters."
+    },
+    {
+        "start": 105.1,
+        "end": 106.1,
+        "text": "I won't go through."
+    },
+    {
+        "start": 106.1,
+        "end": 109.58,
+        "text": "There's a whole list of different parameters and variables that you can define inside the"
+    },
+    {
+        "start": 109.58,
+        "end": 111.69999999999999,
+        "text": "pipeline configuration."
+    },
+    {
+        "start": 111.69999999999999,
+        "end": 113.94,
+        "text": "But one key thing is the default connection."
+    },
+    {
+        "start": 113.94,
+        "end": 120.1,
+        "text": "So even though we defined our connections at the project level, you will want to essentially"
+    },
+    {
+        "start": 120.1,
+        "end": 124.46,
+        "text": "say which one of those connections I'm actually using in this pipeline."
+    },
+    {
+        "start": 124.46,
+        "end": 127.98,
+        "text": "And the reason for this is that these secrets, these credentials are initialized when you"
+    },
+    {
+        "start": 127.98,
+        "end": 129.94,
+        "text": "create a new pipeline run."
+    },
+    {
+        "start": 129.94,
+        "end": 134.06,
+        "text": "And if you have, let's say, the project grows, you have dozens, if not hundreds of different"
+    },
+    {
+        "start": 134.06,
+        "end": 138.66,
+        "text": "connections and secrets, you don't want to initialize all of them because it can be a security"
+    },
+    {
+        "start": 138.66,
+        "end": 141.14,
+        "text": "issue or it's just unnecessary at the very least."
+    },
+    {
+        "start": 141.14,
+        "end": 145.73999999999998,
+        "text": "So you want to only expose the connections and the secrets that are necessary for this"
+    },
+    {
+        "start": 145.73999999999998,
+        "end": 146.73999999999998,
+        "text": "pipeline."
+    },
+    {
+        "start": 146.73999999999998,
+        "end": 151.42,
+        "text": "This is especially important across when you have a big organization, you have multiple"
+    },
+    {
+        "start": 151.42,
+        "end": 156.22,
+        "text": "teams and you want to only expose certain environments, certain credentials to certain"
+    },
+    {
+        "start": 156.22,
+        "end": 157.22,
+        "text": "teams."
+    },
+    {
+        "start": 157.22,
+        "end": 161.89999999999998,
+        "text": "And this way you make sure that the credentials from one department are not shared with another"
+    },
+    {
+        "start": 161.89999999999998,
+        "end": 164.22,
+        "text": "department, for example."
+    },
+    {
+        "start": 164.22,
+        "end": 170.1,
+        "text": "The other thing that you can also define in a pipeline, the pipeline level is some custom"
+    },
+    {
+        "start": 170.1,
+        "end": 171.1,
+        "text": "variables."
+    },
+    {
+        "start": 171.1,
+        "end": 174.82,
+        "text": "So we'll come back to this later, but just something to keep in mind for now."
+    },
+    {
+        "start": 174.82,
+        "end": 177.34,
+        "text": "So let's go look again at our project here."
+    },
+    {
+        "start": 177.34,
+        "end": 184.29999999999998,
+        "text": "So we have just to recap at the root directory, we set up our project configurations and then"
+    },
+    {
+        "start": 184.29999999999998,
+        "end": 185.66,
+        "text": "we have a pipeline."
+    },
+    {
+        "start": 185.66,
+        "end": 190.42,
+        "text": "And at the pipeline level, we set up the schedule, the connections and now we move on to assets."
+    }
+]

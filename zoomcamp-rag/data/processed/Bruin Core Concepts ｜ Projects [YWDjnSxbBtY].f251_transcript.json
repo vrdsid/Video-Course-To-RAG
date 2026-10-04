@@ -1,0 +1,122 @@
+[
+    {
+        "start": 0.0,
+        "end": 6.0,
+        "text": "Hello and welcome everyone. In this video, I'm going to go over the core concepts of Bruin."
+    },
+    {
+        "start": 6.0,
+        "end": 9.0,
+        "text": "What are the key components? What do they mean? What do they look like?"
+    },
+    {
+        "start": 9.0,
+        "end": 14.0,
+        "text": "And I'm going to use a project that I have as an example to show you what these different components look like."
+    },
+    {
+        "start": 14.0,
+        "end": 20.0,
+        "text": "So let's get started with looking at what is a project. So essentially this is going to be your root directory,"
+    },
+    {
+        "start": 20.0,
+        "end": 24.0,
+        "text": "the root folder where you create your project where you start the entire thing."
+    },
+    {
+        "start": 24.0,
+        "end": 29.0,
+        "text": "And one of the key components, one of the key things to keep in mind here is that it needs to be"
+    },
+    {
+        "start": 29.0,
+        "end": 42.0,
+        "text": "get initialized. The reason for this is that the Bruin CLI tool needs to understand where is the root directory in order for it to kind of figure out the directory tree and know how to navigate things and where to find specific files."
+    },
+    {
+        "start": 42.0,
+        "end": 52.0,
+        "text": "So in the project level, you're going to have a Bruin Yable file, which is where you essentially define your environments, your connections, your secrets."
+    },
+    {
+        "start": 52.0,
+        "end": 63.0,
+        "text": "And this is going to be something that locally you define these components. And if you are only using Bruin locally and running it, whether it's locally or on a server,"
+    },
+    {
+        "start": 63.0,
+        "end": 68.0,
+        "text": "this is where your secrets and connections and credentials actually live. This will always be get ignored."
+    },
+    {
+        "start": 68.0,
+        "end": 76.0,
+        "text": "So it will never actually be pushed to your repo. And by default, when you initialize Bruin, it automatically adds the Bruin Yable file to your get ignore."
+    },
+    {
+        "start": 76.0,
+        "end": 88.0,
+        "text": "So let's go ahead and take a look at an example. So in here, I have a few different pipelines in this project. And at the root level of this project, I have the Bruin Yable file."
+    },
+    {
+        "start": 88.0,
+        "end": 94.0,
+        "text": "This Bruin Yable file here, I have a few different connections defined here. And actually before that, we have our environments."
+    },
+    {
+        "start": 94.0,
+        "end": 101.0,
+        "text": "So environments are basically the different, you know, classic environments such as prod and dev and sandbox."
+    },
+    {
+        "start": 101.0,
+        "end": 107.0,
+        "text": "This is where you can define these different environments. And for each environment, you want to set up your connections."
+    },
+    {
+        "start": 107.0,
+        "end": 113.0,
+        "text": "Your connections can either be built in connections like .db, mother duck, this chest.com connection that we have."
+    },
+    {
+        "start": 113.0,
+        "end": 121.0,
+        "text": "It can be postgres, it can be BigQuery, Redshift, any of the built in connections that we already have. Or they can also be custom connections."
+    },
+    {
+        "start": 121.0,
+        "end": 129.0,
+        "text": "So this is where you can inject some secrets, such as your API keys, some variables that you want to use across your different pipelines."
+    },
+    {
+        "start": 129.0,
+        "end": 135.0,
+        "text": "So when you set up your environments, so in this case, I only have default, but if you wanted to, you can set up a prod and dev."
+    },
+    {
+        "start": 135.0,
+        "end": 148.0,
+        "text": "And you can also define the default environment. So when you create new runs by default, where it runs, normally you want to set this as dev so that if you run a pipeline, it normally runs on dev unless you tell it to run on the production environment."
+    },
+    {
+        "start": 149.0,
+        "end": 159.0,
+        "text": "When you set these credentials and connections and everything, they essentially are provided as a variable that you can then use across your different pipelines."
+    },
+    {
+        "start": 159.0,
+        "end": 163.0,
+        "text": "And we will see how that works in the next example."
+    },
+    {
+        "start": 163.0,
+        "end": 172.0,
+        "text": "So just to quickly recap, we have our environments. They are where we determine our connections, the secrets, and it lives inside the root directory of our project."
+    },
+    {
+        "start": 172.0,
+        "end": 180.0,
+        "text": "And the root directory must be get initialized. And as a side note, make sure that the Bruniamo is always added to the Git ignore."
+    }
+]

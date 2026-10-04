@@ -1,0 +1,332 @@
+[
+    {
+        "start": 0.0,
+        "end": 3.04,
+        "text": "Welcome to the next part of the data engineering zoom camp."
+    },
+    {
+        "start": 3.04,
+        "end": 5.5200000000000005,
+        "text": "In the last episode, we looked at context engineering"
+    },
+    {
+        "start": 5.5200000000000005,
+        "end": 7.32,
+        "text": "to understand the importance of it"
+    },
+    {
+        "start": 7.32,
+        "end": 9.6,
+        "text": "when building your data pipelines."
+    },
+    {
+        "start": 9.6,
+        "end": 11.72,
+        "text": "And today, we're going to look a step further"
+    },
+    {
+        "start": 11.72,
+        "end": 15.08,
+        "text": "at the Kestra AI Copilot and how you can use that"
+    },
+    {
+        "start": 15.08,
+        "end": 19.0,
+        "text": "to help you build your data pipelines with assistance."
+    },
+    {
+        "start": 19.0,
+        "end": 22.080000000000002,
+        "text": "Now, jumping right in, we've got our Kestra configuration here."
+    },
+    {
+        "start": 22.080000000000002,
+        "end": 25.400000000000002,
+        "text": "Now, we need to add a new block to our Kestra configuration"
+    },
+    {
+        "start": 25.400000000000002,
+        "end": 27.6,
+        "text": "to be able to access the AI Copilot."
+    },
+    {
+        "start": 27.6,
+        "end": 29.8,
+        "text": "Now, we just need to get a Gemini API key,"
+    },
+    {
+        "start": 29.8,
+        "end": 32.56,
+        "text": "which we can do using the Google AI Studio in a second."
+    },
+    {
+        "start": 32.56,
+        "end": 35.08,
+        "text": "And we can add this block in here, which is going to specify"
+    },
+    {
+        "start": 35.08,
+        "end": 37.56,
+        "text": "that we use the Gemini for the AI Copilot."
+    },
+    {
+        "start": 37.56,
+        "end": 40.04,
+        "text": "And our API key is this environment variable."
+    },
+    {
+        "start": 40.04,
+        "end": 42.16,
+        "text": "We can then easily export our environment variable"
+    },
+    {
+        "start": 42.16,
+        "end": 44.56,
+        "text": "using the command like so, so that we're not putting it"
+    },
+    {
+        "start": 44.56,
+        "end": 46.519999999999996,
+        "text": "directly in the Docker Compose file."
+    },
+    {
+        "start": 46.519999999999996,
+        "end": 50.16,
+        "text": "And when we do so like so, I should be able to now do echo"
+    },
+    {
+        "start": 50.16,
+        "end": 51.68,
+        "text": "like so, and I can access that."
+    },
+    {
+        "start": 51.68,
+        "end": 54.16,
+        "text": "And now that our workflow will be able to access it too."
+    },
+    {
+        "start": 54.16,
+        "end": 55.92,
+        "text": "When you head over to the Google AI Studio,"
+    },
+    {
+        "start": 55.92,
+        "end": 59.2,
+        "text": "you'll have the option to create an API key, give it a name,"
+    },
+    {
+        "start": 59.2,
+        "end": 60.760000000000005,
+        "text": "and then you'll be able to then copy that"
+    },
+    {
+        "start": 60.760000000000005,
+        "end": 62.760000000000005,
+        "text": "and paste it into your Kestra configuration"
+    },
+    {
+        "start": 62.760000000000005,
+        "end": 63.96,
+        "text": "as an environment variable."
+    },
+    {
+        "start": 63.96,
+        "end": 67.36,
+        "text": "Now that I've got my API key added to my Kestra configuration,"
+    },
+    {
+        "start": 67.36,
+        "end": 69.96000000000001,
+        "text": "I can now click on this AI Copilot button here"
+    },
+    {
+        "start": 69.96000000000001,
+        "end": 72.48,
+        "text": "to start prompting what I want it to build."
+    },
+    {
+        "start": 72.48,
+        "end": 74.56,
+        "text": "Now, if I go into here and paste in,"
+    },
+    {
+        "start": 74.56,
+        "end": 77.48,
+        "text": "create a Kestra flow that loads NYC taxi data"
+    },
+    {
+        "start": 77.48,
+        "end": 79.88,
+        "text": "from a CSV file to BigQuery,"
+    },
+    {
+        "start": 79.88,
+        "end": 82.32000000000001,
+        "text": "the flow should extract data, upload to GCS,"
+    },
+    {
+        "start": 82.32000000000001,
+        "end": 83.64,
+        "text": "and load to BigQuery."
+    },
+    {
+        "start": 83.64,
+        "end": 86.72,
+        "text": "Let's click submit and see what it can generate for us"
+    },
+    {
+        "start": 86.72,
+        "end": 87.96000000000001,
+        "text": "without us having to do anything."
+    },
+    {
+        "start": 87.96,
+        "end": 90.32,
+        "text": "So we can see here it's generated what we need"
+    },
+    {
+        "start": 90.32,
+        "end": 92.39999999999999,
+        "text": "to be able to build this workflow."
+    },
+    {
+        "start": 92.39999999999999,
+        "end": 96.11999999999999,
+        "text": "Now if I press accept here and click on the documentation tab here."
+    },
+    {
+        "start": 96.11999999999999,
+        "end": 98.63999999999999,
+        "text": "Now that I've pressed accept, we can see it's got three tasks."
+    },
+    {
+        "start": 98.63999999999999,
+        "end": 101.44,
+        "text": "So download task, a GCS upload, and then I load"
+    },
+    {
+        "start": 101.44,
+        "end": 103.28,
+        "text": "from GCS BigQuery task."
+    },
+    {
+        "start": 103.28,
+        "end": 105.28,
+        "text": "As we can see, the syntax is all valid."
+    },
+    {
+        "start": 105.28,
+        "end": 107.96,
+        "text": "It's added comments here, including for a few bits"
+    },
+    {
+        "start": 107.96,
+        "end": 110.6,
+        "text": "we need to change, such as our project ID."
+    },
+    {
+        "start": 110.6,
+        "end": 114.11999999999999,
+        "text": "And we can see that it's going to allow these all to interact,"
+    },
+    {
+        "start": 114.11999999999999,
+        "end": 116.8,
+        "text": "including the outputs to pass between them."
+    },
+    {
+        "start": 116.8,
+        "end": 119.2,
+        "text": "So this just shows the importance of being"
+    },
+    {
+        "start": 119.2,
+        "end": 121.39999999999999,
+        "text": "able to have that context."
+    },
+    {
+        "start": 121.39999999999999,
+        "end": 123.16,
+        "text": "Now the other nice thing is I can actually"
+    },
+    {
+        "start": 123.16,
+        "end": 125.88,
+        "text": "ask it to add other tasks or rename them,"
+    },
+    {
+        "start": 125.88,
+        "end": 128.72,
+        "text": "such as I can tell it just to rename the first task to download."
+    },
+    {
+        "start": 128.72,
+        "end": 130.96,
+        "text": "Let's just get it, it knows the context."
+    },
+    {
+        "start": 130.96,
+        "end": 132.4,
+        "text": "I don't have to give it the workflow."
+    },
+    {
+        "start": 132.4,
+        "end": 133.92,
+        "text": "Again, I don't have to explain."
+    },
+    {
+        "start": 133.92,
+        "end": 136.28,
+        "text": "And as you can see here, it's renaming the task,"
+    },
+    {
+        "start": 136.28,
+        "end": 139.32,
+        "text": "but it's also renaming where it's referenced later on as well."
+    },
+    {
+        "start": 139.32,
+        "end": 141.56,
+        "text": "So we don't run into any issues in that regard."
+    },
+    {
+        "start": 141.56,
+        "end": 144.16,
+        "text": "So hopefully that gives you a taste of the AI co-pilot"
+    },
+    {
+        "start": 144.16,
+        "end": 147.92,
+        "text": "and how you can use that to help you build your data pipelines."
+    },
+    {
+        "start": 147.92,
+        "end": 148.92,
+        "text": "Let me know in the comments below how you're"
+    },
+    {
+        "start": 148.92,
+        "end": 150.48,
+        "text": "going to use this to help you with your project"
+    },
+    {
+        "start": 150.48,
+        "end": 152.0,
+        "text": "at the end of the Zoom camp."
+    },
+    {
+        "start": 152.0,
+        "end": 154.12,
+        "text": "I'd love to hear from you and get some feedback."
+    },
+    {
+        "start": 154.12,
+        "end": 155.64,
+        "text": "And what you read it, make sure to subscribe"
+    },
+    {
+        "start": 155.64,
+        "end": 156.88,
+        "text": "to this YouTube channel."
+    }
+]

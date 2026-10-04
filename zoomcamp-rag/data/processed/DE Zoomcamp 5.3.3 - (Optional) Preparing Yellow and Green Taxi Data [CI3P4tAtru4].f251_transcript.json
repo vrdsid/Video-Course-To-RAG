@@ -1,0 +1,957 @@
+[
+    {
+        "start": 0.0,
+        "end": 5.36,
+        "text": "Hello everyone, welcome to another video of date engine isum gump week 5 and in this video"
+    },
+    {
+        "start": 5.36,
+        "end": 10.88,
+        "text": "I want to show you how to prepare a data set for this week. So I know in the previous weeks"
+    },
+    {
+        "start": 10.88,
+        "end": 17.84,
+        "text": "we had some problems and because you use different ways of copying data to the data lake that's why you had some issues with"
+    },
+    {
+        "start": 18.16,
+        "end": 25.44,
+        "text": "schema with types and so on. So that's why I want to record this video to show how exactly you can do it for this week."
+    },
+    {
+        "start": 25.44,
+        "end": 32.64,
+        "text": "So hopefully we can minimize the number of issues you have this week. This video is optional. You do not have to watch it."
+    },
+    {
+        "start": 32.64,
+        "end": 38.56,
+        "text": "If you want you can just go on GitHub and execute this script that you will be writing in this video."
+    },
+    {
+        "start": 38.56,
+        "end": 45.44,
+        "text": "You can just execute it and have the data. But if you want to see how I create this script feel free to stay and see how I do this."
+    },
+    {
+        "start": 45.44,
+        "end": 51.92,
+        "text": "So I am on a virtual machine on a Google blog in this directory. So already in the code directory."
+    },
+    {
+        "start": 51.92,
+        "end": 60.160000000000004,
+        "text": "So what I want to do now I want to get some data from New York taxi data set for four years 2020 and 21"
+    },
+    {
+        "start": 60.160000000000004,
+        "end": 66.8,
+        "text": "and they want to download yellow and green data. And the reason I want to take this specific data sets yellow and green"
+    },
+    {
+        "start": 66.8,
+        "end": 75.68,
+        "text": "is because in the previous week week for about analytics engineering we use these data sets also for computing some things"
+    },
+    {
+        "start": 75.68,
+        "end": 81.60000000000001,
+        "text": "and they want to do something similar to that. So we have these two let me copy the links."
+    },
+    {
+        "start": 84.0,
+        "end": 91.28,
+        "text": "We have these two data sets and we know from the previous weeks that they follow the same pattern yellow or green"
+    },
+    {
+        "start": 91.28,
+        "end": 99.36000000000001,
+        "text": "and then we just need to change the year and month here. So what I want to do is I want to write a simple bar script for downloading the data."
+    },
+    {
+        "start": 99.44,
+        "end": 105.28,
+        "text": "So let me create a file. I will call it download data."
+    },
+    {
+        "start": 105.28,
+        "end": 114.88,
+        "text": "So it is a past script. In this past script we will have a couple of parameters. So the first parameter we will have is taxi type."
+    },
+    {
+        "start": 115.68,
+        "end": 126.48,
+        "text": "For example yellow and then year for example we will do it first for year 2020. So these are two parameters and I want now to do a for loop for each month for"
+    },
+    {
+        "start": 126.72,
+        "end": 145.44,
+        "text": "more months from Thursday till 12 and exit UW get for downloading this file. So in bash for loop looks like that. So for month in let me quickly google see how we do this I always forget how to do for loops in bash for loop"
+    },
+    {
+        "start": 145.44,
+        "end": 156.4,
+        "text": "bash range. So I need to do range and well this is a question but I'll try to copy it from the question I think because I think this is right syntax"
+    },
+    {
+        "start": 156.48000000000002,
+        "end": 175.20000000000002,
+        "text": "except I want to go it from one till 12. Let me change it to two spaces and I'll just echo month. So let me execute that. I will do now change mode make it executable for download data and then we'll execute it."
+    },
+    {
+        "start": 176.08,
+        "end": 186.16,
+        "text": "Something is wrong probably I need to remove these spaces. Okay now it's better. So this is how we iterate over different months in bash."
+    },
+    {
+        "start": 186.4,
+        "end": 216.32,
+        "text": "But if we take a look here at the URL let me copy it. We see that we actually have instead of one like we have in the output it's 1 to 3 we have 0 1. So we need to somehow format this at a 0 at the beginning. The way I would format it in python I would use something like 0 to d 0 means that I want to add a leading 0 then 2 I want to have 2 numbers in total. So let's say if I have 1 I want to have 0."
+    },
+    {
+        "start": 216.4,
+        "end": 234.32,
+        "text": "So I want to have 1 and then 2 numbers and d means it's a digit. So 3 digit. And this is not specific to python this is actually coming from I think C and this is the way you specify formatting in C and in bash there is a tool called print f which is doing something like this."
+    },
+    {
+        "start": 234.32,
+        "end": 246.88,
+        "text": "Print f and then I give it a number and then I give it a template. So for example it can be 0 to d. I think I probably need to add a person sign. Maybe it's first template."
+    },
+    {
+        "start": 248.0,
+        "end": 258.24,
+        "text": "Yeah so first it should be template and then the number and then it outputs 1 and then if I do 2 it outputs 0 to and if I do 10 it outputs just 10."
+    },
+    {
+        "start": 258.40000000000003,
+        "end": 271.84000000000003,
+        "text": "So I will do I will create another variable which I will call now f month which is short for format at month and I will put this in this how do you call this codes and let me copy it from here."
+    },
+    {
+        "start": 273.6,
+        "end": 285.44,
+        "text": "And yeah now I will put month here and then let me echo f month instead of month. So I will do now again done load data and we see you have these things."
+    },
+    {
+        "start": 285.52,
+        "end": 295.6,
+        "text": "Yeah our URL let me actually create another variable URL prefix. No very similar to what we did with helpful. So I just want to get this prefix here."
+    },
+    {
+        "start": 296.88,
+        "end": 308.24,
+        "text": "And then your URL will be the first we have your prefix and then we have slash then we have type taxi type."
+    },
+    {
+        "start": 308.96000000000004,
+        "end": 315.52,
+        "text": "C yellow right then underscore then we have tip data. Then we have tip data then we have here."
+    },
+    {
+        "start": 317.04,
+        "end": 325.44,
+        "text": "Here and then we have this f month. So this is the URL and let me see that it works well."
+    },
+    {
+        "start": 326.48,
+        "end": 334.08,
+        "text": "So this looks correct. Well except for this month the data is not there but yeah not important right now."
+    },
+    {
+        "start": 334.15999999999997,
+        "end": 343.59999999999997,
+        "text": "And we just need to execute now w yet right. Well not just that we also need to specify the location where we will output this where we will save it."
+    },
+    {
+        "start": 343.59999999999997,
+        "end": 354.08,
+        "text": "So let me now instead of doing w yet I will do echo w yet. So if I do echo w yet it just prints the command instead of executing the command it would otherwise execute."
+    },
+    {
+        "start": 354.15999999999997,
+        "end": 365.59999999999997,
+        "text": "Now we have this URL right so let's come up with how exactly we will put things locally. So I'll call it local prefix and then local prefix will start with data."
+    },
+    {
+        "start": 365.59999999999997,
+        "end": 376.64,
+        "text": "Then let's say row data then we will have taxi type then let's say here and then yeah maybe we can even have months here."
+    },
+    {
+        "start": 377.12,
+        "end": 385.12,
+        "text": "F month. So this will be the prefix and then local file. The name of the file will be for example this. So let's take this one."
+    },
+    {
+        "start": 386.47999999999996,
+        "end": 394.8,
+        "text": "Maybe I'll replace this minus with underscore because it looks nicer. Then the full path will be local path will be."
+    },
+    {
+        "start": 395.2,
+        "end": 406.0,
+        "text": "So it's local prefix then slash then local file. And then for w yet this is with the parameter capital home."
+    },
+    {
+        "start": 406.16,
+        "end": 409.04,
+        "text": "And this specify where exactly it is going to save it."
+    },
+    {
+        "start": 410.8,
+        "end": 416.4,
+        "text": "And yeah I think right now this directory doesn't exist so we also need to create this directory."
+    },
+    {
+        "start": 416.4,
+        "end": 423.92,
+        "text": "Let me also do mkdir minus p and this means create directory minus p like I think it stands for parent."
+    },
+    {
+        "start": 423.92,
+        "end": 428.4,
+        "text": "So also create parent directory if they do not exist and then we will local prefix."
+    },
+    {
+        "start": 429.03999999999996,
+        "end": 440.56,
+        "text": "Many think that is enough but as you remember the cc files they can be quite large. So instead of keeping the cc file itself I want to compress this."
+    },
+    {
+        "start": 440.56,
+        "end": 446.71999999999997,
+        "text": "And I will use jzip for that. So this is I think for compressing like zip but it's jzip."
+    },
+    {
+        "start": 446.71999999999997,
+        "end": 454.71999999999997,
+        "text": "And jzip is good because pandas can read it without any extra unpacking spark can read it without any extra unpacking."
+    },
+    {
+        "start": 454.72,
+        "end": 460.24,
+        "text": "So we can just say I want to zip it. I want to archive it. I want to compress it."
+    },
+    {
+        "start": 460.24,
+        "end": 466.08000000000004,
+        "text": "And by default it first compresses the file and then it removes the original one."
+    },
+    {
+        "start": 466.08000000000004,
+        "end": 472.32000000000005,
+        "text": "So then we will have only compressed files. I think what we can also do is we can make it configurable."
+    },
+    {
+        "start": 472.32000000000005,
+        "end": 477.92,
+        "text": "So instead of hard coding the values here we will pass these values through command line maybe move this thing."
+    },
+    {
+        "start": 477.92,
+        "end": 484.64000000000004,
+        "text": "At some point like when it tries to download month 8 I think August August no longer exists and"
+    },
+    {
+        "start": 484.64000000000004,
+        "end": 492.24,
+        "text": "doubly yet we'll return a 404 and it will be non-zero code. We want the script to stop executing."
+    },
+    {
+        "start": 492.24,
+        "end": 498.72,
+        "text": "So we wanted to quit on the first non-zero code and for that we need to do set minus e."
+    },
+    {
+        "start": 498.72,
+        "end": 505.76,
+        "text": "So this means that if there is a command that exits with non-zero code then interrupt the execution of a script."
+    },
+    {
+        "start": 505.76,
+        "end": 514.96,
+        "text": "Yeah I need to remove this echo. I think so let's see how do you download data yellow and 2021."
+    },
+    {
+        "start": 514.96,
+        "end": 523.92,
+        "text": "Let's start with that. It is downloading. Yeah I thought it would be faster but remember it's"
+    },
+    {
+        "start": 523.92,
+        "end": 529.04,
+        "text": "actually not a super small file. I think what I also need to do is add some sort of logging."
+    },
+    {
+        "start": 529.12,
+        "end": 541.28,
+        "text": "So let me do a few echo statements. Compressing local path and here I will say echo downloading URL to"
+    },
+    {
+        "start": 542.88,
+        "end": 543.52,
+        "text": "local path."
+    },
+    {
+        "start": 546.64,
+        "end": 552.0799999999999,
+        "text": "While it's downloading I will open another terminal. I'm in the same directory and I want to show"
+    },
+    {
+        "start": 552.0799999999999,
+        "end": 558.0799999999999,
+        "text": "what's happening. Let's take a look at this one. So here you see that"
+    },
+    {
+        "start": 558.1600000000001,
+        "end": 564.0,
+        "text": "the CSE file was downloaded and it was compressed and the actual CSE file is gone. We can"
+    },
+    {
+        "start": 564.4000000000001,
+        "end": 568.0,
+        "text": "see the content of this file actually. So we can use something like ZCAD."
+    },
+    {
+        "start": 574.24,
+        "end": 582.24,
+        "text": "ZCAD is the same as CAD. I accept that it works with ZIPT files. So do let's say add 10 and"
+    },
+    {
+        "start": 582.24,
+        "end": 587.6,
+        "text": "did it uncompresses on the fly and shows the content. So we see that it's actually correct or we can"
+    },
+    {
+        "start": 587.6800000000001,
+        "end": 594.88,
+        "text": "do something like VCE-L to count how many rows there and it returns us how many rows there."
+    },
+    {
+        "start": 594.88,
+        "end": 600.4,
+        "text": "So we saw this number already a few times. Yeah so this thing I think after that it should"
+    },
+    {
+        "start": 600.4,
+        "end": 607.6,
+        "text": "break because I don't think we have data in August. Okay yeah you see it's error 404 not found."
+    },
+    {
+        "start": 607.6,
+        "end": 611.36,
+        "text": "So it interrupts the execution of a script. Now let's do the same for green."
+    },
+    {
+        "start": 612.32,
+        "end": 618.48,
+        "text": "And while it's doing this for green and what I will do is I will also do download data."
+    },
+    {
+        "start": 618.48,
+        "end": 623.36,
+        "text": "What's the order? I'll just take a look here. So first we"
+    },
+    {
+        "start": 624.4,
+        "end": 631.92,
+        "text": "finished. So now let me do the same thing for 2020. So I'll copy it and execute here and then"
+    },
+    {
+        "start": 632.5600000000001,
+        "end": 640.88,
+        "text": "I will execute this also for yellow. My data for 2020 is in bit and bounds. So in January we have"
+    },
+    {
+        "start": 640.88,
+        "end": 646.72,
+        "text": "a lot of data in February less data and then because of COVID there are very few trips and then by"
+    },
+    {
+        "start": 646.72,
+        "end": 652.32,
+        "text": "the end of the year it kind of recovered but it's very unbalanced. Now let's download it anyways."
+    },
+    {
+        "start": 652.32,
+        "end": 659.6,
+        "text": "And you see it says that it's compressing now. And this should download all 12 months. Yeah you see"
+    },
+    {
+        "start": 659.6,
+        "end": 664.8,
+        "text": "so at the end we have this 12 months. Let me take a look at how this data looks like. I will use"
+    },
+    {
+        "start": 664.88,
+        "end": 673.28,
+        "text": "3 command. 3 data. I don't have it. So let me install it. So let's get install 3."
+    },
+    {
+        "start": 674.16,
+        "end": 679.92,
+        "text": "So if you're doing this on Windows probably this 3 command does not exist and you will need to"
+    },
+    {
+        "start": 679.92,
+        "end": 686.4799999999999,
+        "text": "find a way to install it separately. Okay this is how it looks like. It shows the 3 structure."
+    },
+    {
+        "start": 686.4799999999999,
+        "end": 692.9599999999999,
+        "text": "We have this data row green and then this is our data for green 2020. So for each one we have"
+    },
+    {
+        "start": 692.96,
+        "end": 700.96,
+        "text": "a folder and then inside this month we have a compressed CSE and wondering why we have this"
+    },
+    {
+        "start": 700.96,
+        "end": 710.1600000000001,
+        "text": "thing here. So let's not remove it. Yeah let me quickly take a look at it. So go data row, say yellow"
+    },
+    {
+        "start": 710.1600000000001,
+        "end": 717.44,
+        "text": "2021, age or age and you have this yellow taxidator. Yeah it's not here. So we actually need to"
+    },
+    {
+        "start": 717.5200000000001,
+        "end": 724.4000000000001,
+        "text": "remove it. That's my scar. I don't know why it tries to create an empty file when it's 404. I guess"
+    },
+    {
+        "start": 724.4000000000001,
+        "end": 732.72,
+        "text": "this is how WKT works. Let me also do the same for green. Green, I need to first go here then green"
+    },
+    {
+        "start": 732.72,
+        "end": 743.12,
+        "text": "2021 and then do RMR08. Okay need to go a few levels up. It's still downloading it."
+    },
+    {
+        "start": 743.44,
+        "end": 751.28,
+        "text": "Probably take maybe one or two minutes more. While it's doing this and maybe I should also move"
+    },
+    {
+        "start": 751.28,
+        "end": 756.5600000000001,
+        "text": "this data. CSE file, I will not do this. I'll leave it here. Now I want to execute to start"
+    },
+    {
+        "start": 756.5600000000001,
+        "end": 762.72,
+        "text": "by spark. So let me close it. No, not safe. So I want to start by spark or starting by spark."
+    },
+    {
+        "start": 764.08,
+        "end": 771.44,
+        "text": "I need to remember to execute these things. Export by thnbath. Now I need to do Jupiter"
+    },
+    {
+        "start": 771.44,
+        "end": 778.8800000000001,
+        "text": "notebook. Let me make sure I'm forwarding the ports. Yes both the ports are being forwarded"
+    },
+    {
+        "start": 778.8800000000001,
+        "end": 787.6800000000001,
+        "text": "and I will open now localhost. Okay we'll have it and let's create a notebook. I don't know how"
+    },
+    {
+        "start": 787.6800000000001,
+        "end": 792.6400000000001,
+        "text": "will I call it. So what I want to do now is I want to read these CSE files and I want to define"
+    },
+    {
+        "start": 792.6400000000001,
+        "end": 798.24,
+        "text": "a schema for them and then I want to save them as park cat with the same schema. So these files"
+    },
+    {
+        "start": 798.24,
+        "end": 803.6800000000001,
+        "text": "have the same schema. So later when we read it and we do some computations there are no surprises"
+    },
+    {
+        "start": 803.6800000000001,
+        "end": 810.08,
+        "text": "because we define the schema right here. So I'll call it something like 05. Let's see schema maybe"
+    },
+    {
+        "start": 810.08,
+        "end": 818.64,
+        "text": "and then let me copy this thing from here. Okay this import by spark and I will also import this"
+    },
+    {
+        "start": 819.6,
+        "end": 829.1999999999999,
+        "text": "corpithi thing and then from here I probably need to let me read it. So did it finish?"
+    },
+    {
+        "start": 830.24,
+        "end": 839.4399999999999,
+        "text": "It finished great. So let me read for example data from green taxes for the January. And here we"
+    },
+    {
+        "start": 839.4399999999999,
+        "end": 845.36,
+        "text": "way way we don't need to specify a path to the file. We can just say the folder or even more than"
+    },
+    {
+        "start": 845.36,
+        "end": 851.2,
+        "text": "that we can say star and this will read all the data for entire year. Let me start with just this one."
+    },
+    {
+        "start": 851.84,
+        "end": 862.16,
+        "text": "Okay maybe I'll call it green. And now let me do show and as you remember I think if I"
+    },
+    {
+        "start": 862.16,
+        "end": 868.4,
+        "text": "do print schema now it doesn't have any schema so it knows the names but everything is"
+    },
+    {
+        "start": 868.8,
+        "end": 876.24,
+        "text": "and the way we did it last time we used pandas to read cc file and then we used the information from"
+    },
+    {
+        "start": 876.24,
+        "end": 885.04,
+        "text": "pandas.fram to come up with the schema. So do data frame green pd to say that it's a pandas.fram"
+    },
+    {
+        "start": 885.92,
+        "end": 894.0,
+        "text": "probably need to import pandas first spd then read cc then it's data row green 01"
+    },
+    {
+        "start": 894.88,
+        "end": 904.48,
+        "text": "year 01 and then the name and then let's read only 1000 rows and here because pandas can"
+    },
+    {
+        "start": 904.48,
+        "end": 912.0,
+        "text": "figure out that this is a received cc file to just some packs on the file. And here we have some"
+    },
+    {
+        "start": 912.0,
+        "end": 919.36,
+        "text": "these some types. So pandas figured it out the types of these things so now we can do spark"
+    },
+    {
+        "start": 919.36,
+        "end": 924.96,
+        "text": "create data frame. Now we will turn this pandas data frame into spark data frame and we will get"
+    },
+    {
+        "start": 924.96,
+        "end": 932.8000000000001,
+        "text": "it schema. So this is the schema I will copy it right now and I will put this into Visual Studio"
+    },
+    {
+        "start": 932.8000000000001,
+        "end": 939.2,
+        "text": "code so here I can relatively quickly edit this first of all I want to add line breaks here."
+    },
+    {
+        "start": 940.1600000000001,
+        "end": 949.2800000000001,
+        "text": "So yeah format that then this list since it's python we need to turn it into a python list"
+    },
+    {
+        "start": 949.2800000000001,
+        "end": 956.88,
+        "text": "like that then these names here are strings so I need to use I need to add codes here then"
+    },
+    {
+        "start": 957.44,
+        "end": 963.2,
+        "text": "the types leave in the types package so I will do I will add types in front of that and"
+    },
+    {
+        "start": 963.76,
+        "end": 968.5600000000001,
+        "text": "because it's python two and false they start with capital case so I need to do that and"
+    },
+    {
+        "start": 969.2,
+        "end": 976.24,
+        "text": "also here we need to write types and also the very beginning we need to add types."
+    },
+    {
+        "start": 976.88,
+        "end": 984.1600000000001,
+        "text": "Yeah I think that's it so let me firstly think we need to import it from pysepark"
+    },
+    {
+        "start": 985.9200000000001,
+        "end": 993.6800000000001,
+        "text": "import types and then I will say green schema and then I will paste this."
+    },
+    {
+        "start": 994.0,
+        "end": 1005.92,
+        "text": "Okay good and now when reading green data I can say that schema is green schema"
+    },
+    {
+        "start": 1008.64,
+        "end": 1016.0799999999999,
+        "text": "and let me remove that now when I print schema I see a schema actually this schema is not"
+    },
+    {
+        "start": 1016.0799999999999,
+        "end": 1022.0799999999999,
+        "text": "great so let me edit this a little bit first of all this should be timestamp remember if it's"
+    },
+    {
+        "start": 1022.08,
+        "end": 1030.08,
+        "text": "date type or timestamp let's go with timestamp then these three long type I think it should be"
+    },
+    {
+        "start": 1030.08,
+        "end": 1037.52,
+        "text": "integer it's four bytes instead of eight and all these IDs they are not super large numbers"
+    },
+    {
+        "start": 1037.52,
+        "end": 1042.8,
+        "text": "and then passage account is not a very large number so for this I will leave them as double type"
+    },
+    {
+        "start": 1042.8,
+        "end": 1051.44,
+        "text": "and then I think these two should be also integer and 103d also let's go with integer so I will replace"
+    },
+    {
+        "start": 1051.44,
+        "end": 1059.76,
+        "text": "it not the whole thing just that again and now let me try one more time I think that's better"
+    },
+    {
+        "start": 1059.76,
+        "end": 1065.04,
+        "text": "of course this thing maybe instead of double we can use float or probably there is also decimal"
+    },
+    {
+        "start": 1066.0,
+        "end": 1074.0,
+        "text": "in spark let's go with this and we need to do the same thing now with yellow that's it so how do"
+    },
+    {
+        "start": 1074.48,
+        "end": 1085.44,
+        "text": "yellow and it will be yellow and then yellow here and then did I remove it already so spark created"
+    },
+    {
+        "start": 1085.44,
+        "end": 1094.32,
+        "text": "a frame to frame yellow PD schema and then again copy this put this to this code"
+    },
+    {
+        "start": 1094.3999999999999,
+        "end": 1105.6,
+        "text": "remember here another lembrick remove this and add this thing here and now we need to add codes"
+    },
+    {
+        "start": 1106.72,
+        "end": 1112.56,
+        "text": "types long type capital true and then at the beginning we need to also add types"
+    },
+    {
+        "start": 1113.6,
+        "end": 1119.04,
+        "text": "and here let's edit types right now integer then here this one is"
+    },
+    {
+        "start": 1119.36,
+        "end": 1129.2,
+        "text": "time stop passage account is integer rate code ID is integer this three integer"
+    },
+    {
+        "start": 1131.2,
+        "end": 1141.6,
+        "text": "say yellow schema this and we'll do something like this here that a frame yellow schema yellow yellow"
+    },
+    {
+        "start": 1142.3999999999999,
+        "end": 1147.84,
+        "text": "so now we specified the schema for these two datasets and I want to remove that"
+    },
+    {
+        "start": 1148.48,
+        "end": 1154.48,
+        "text": "I want to now execute this in spark take this one and then do another frame green"
+    },
+    {
+        "start": 1155.36,
+        "end": 1162.56,
+        "text": "right park cat and try it to the same location so this way I will convert the CSV file into"
+    },
+    {
+        "start": 1162.56,
+        "end": 1167.4399999999998,
+        "text": "pocket files then this pocket files will have the schema that I defined so this way I make sure"
+    },
+    {
+        "start": 1167.4399999999998,
+        "end": 1175.9199999999998,
+        "text": "that this schema will not cause any problems hopefully okay so let me take this thing the path will"
+    },
+    {
+        "start": 1175.92,
+        "end": 1186.16,
+        "text": "be data pq short for park cat then green then 2021 0 I also want to repetition it because I think"
+    },
+    {
+        "start": 1186.16,
+        "end": 1192.24,
+        "text": "when we go with jzip then it will read entire file as one partition I might be wrong again but I"
+    },
+    {
+        "start": 1192.24,
+        "end": 1198.88,
+        "text": "think this is the case so probably CSV file usual CC file spark manages to somehow split into multiple"
+    },
+    {
+        "start": 1198.88,
+        "end": 1204.48,
+        "text": "partitions but I think for jzip it actually doesn't do this so it reads the entire file as one"
+    },
+    {
+        "start": 1204.48,
+        "end": 1209.2800000000002,
+        "text": "partition and even if it reads it as multiple partitions I still want to repetition to make sure that"
+    },
+    {
+        "start": 1209.2800000000002,
+        "end": 1215.8400000000001,
+        "text": "we can utilize our all our course for course here so let me repetition it to four partitions"
+    },
+    {
+        "start": 1216.4,
+        "end": 1224.8000000000002,
+        "text": "so repetition and then right I also want to do now a for loop for month in range from 1 to 13"
+    },
+    {
+        "start": 1224.8,
+        "end": 1234.1599999999999,
+        "text": "so 13 is excluded so it will be from 1 to 12 input path now this will be input path and the"
+    },
+    {
+        "start": 1234.1599999999999,
+        "end": 1242.6399999999999,
+        "text": "input path will be I'll make it a next thing so this will be here let me specify here here so it's"
+    },
+    {
+        "start": 1242.6399999999999,
+        "end": 1250.08,
+        "text": "2021 and this will be month but we also need to say that we want to edit this lead in 0 at beginning"
+    },
+    {
+        "start": 1250.1599999999999,
+        "end": 1255.76,
+        "text": "then output path will be like that but instead of row we will have pq"
+    },
+    {
+        "start": 1257.4399999999998,
+        "end": 1267.76,
+        "text": "and now I'll just do a print statement saying that processing that for year month code here okay"
+    },
+    {
+        "start": 1267.76,
+        "end": 1278.0,
+        "text": "let's try executing this yeah I forgot to add path of course now let's wait till it's doing this"
+    },
+    {
+        "start": 1278.4,
+        "end": 1287.36,
+        "text": "maybe we can see what it's doing in the master UI yeah so it has this park head drop here we can see"
+    },
+    {
+        "start": 1287.36,
+        "end": 1292.32,
+        "text": "what it's doing so this exchange remember we had this already so this is where the repetition"
+    },
+    {
+        "start": 1292.32,
+        "end": 1298.64,
+        "text": "happens and it's pretty fast green dataset green taxi dataset is not that large so"
+    },
+    {
+        "start": 1299.76,
+        "end": 1304.48,
+        "text": "and yeah it says this path does not exist yeah because there is no data for August"
+    },
+    {
+        "start": 1305.04,
+        "end": 1313.3600000000001,
+        "text": "let me also now execute the same thing but for year 2020 and while we're executing this for green"
+    },
+    {
+        "start": 1313.3600000000001,
+        "end": 1322.32,
+        "text": "dataset I want to now do the same for yellow so I'll do it here yellow then I will replace it here"
+    },
+    {
+        "start": 1322.32,
+        "end": 1328.24,
+        "text": "and then I'll just replace green with yellow I don't think I need to change anything else the schema"
+    },
+    {
+        "start": 1328.48,
+        "end": 1335.2,
+        "text": "yeah it's yellow did I actually use green here yeah all good yeah and I need to replace input path"
+    },
+    {
+        "start": 1336.32,
+        "end": 1342.16,
+        "text": "okay so let's see what it's doing right now it will probably take some time and yeah for the rest"
+    },
+    {
+        "start": 1342.16,
+        "end": 1350.96,
+        "text": "of 2020 should be fast but this should be also be thought fast but this will probably take some"
+    },
+    {
+        "start": 1350.96,
+        "end": 1356.96,
+        "text": "time yeah let me just execute that and while it is I think yeah that finished"
+    },
+    {
+        "start": 1358.32,
+        "end": 1363.44,
+        "text": "that's also finished now this one is running and this one is quite huge as far as I remember"
+    },
+    {
+        "start": 1363.44,
+        "end": 1371.1200000000001,
+        "text": "so now we just want to see what we have I'll just do three data park head and we see it because we"
+    },
+    {
+        "start": 1371.1200000000001,
+        "end": 1376.96,
+        "text": "did three partition we have four files in each month and for yellow we just started that's why"
+    },
+    {
+        "start": 1376.96,
+        "end": 1384.24,
+        "text": "there is this temporary file and for cc we saw it already we can also look at the size of the files"
+    },
+    {
+        "start": 1384.4,
+        "end": 1392.16,
+        "text": "so I think we can do less minus a h and data row let's say let's take yellow taxi data for"
+    },
+    {
+        "start": 1392.16,
+        "end": 1402.4,
+        "text": "2020 generally this is compressed it's 111 megabytes and for park head yeah it is still processing"
+    },
+    {
+        "start": 1402.4,
+        "end": 1410.0,
+        "text": "maybe let's take you know we'll take green that park head green so green is relatively small"
+    },
+    {
+        "start": 1410.08,
+        "end": 1418.16,
+        "text": "then the row is a c park head is even the size is bigger than this compressed csv I'm wondering why"
+    },
+    {
+        "start": 1418.16,
+        "end": 1423.68,
+        "text": "well I guess that's just quite good at compressing it and let's see if there is it's still executing"
+    },
+    {
+        "start": 1423.68,
+        "end": 1429.44,
+        "text": "all but at least the benefit of using park head here is that we get schema built in and we"
+    },
+    {
+        "start": 1429.44,
+        "end": 1435.76,
+        "text": "shouldn't have any strange surprises later when we try to combine these files from different years"
+    },
+    {
+        "start": 1435.84,
+        "end": 1440.8,
+        "text": "because we made sure that all of them follow the same schema let's take a while I guess because"
+    },
+    {
+        "start": 1440.8,
+        "end": 1447.36,
+        "text": "of the partitioning so let's see the I was actually right so right now it's only one task is"
+    },
+    {
+        "start": 1447.36,
+        "end": 1454.08,
+        "text": "running so only one executor is working right now and then it is splitting one file into four and"
+    },
+    {
+        "start": 1454.08,
+        "end": 1461.28,
+        "text": "then these four files will be written to this so you can see yeah so this is on at this stage one"
+    },
+    {
+        "start": 1461.28,
+        "end": 1466.48,
+        "text": "executor is going through this cc file it created four different temporary files and writes the"
+    },
+    {
+        "start": 1466.48,
+        "end": 1471.68,
+        "text": "results there to these temporary files and then on the next stage these temporary files will be"
+    },
+    {
+        "start": 1471.68,
+        "end": 1480.0,
+        "text": "dumped to our disk yeah it will probably take some time because this is quite a large file so"
+    },
+    {
+        "start": 1481.04,
+        "end": 1486.08,
+        "text": "yeah I'm wondering if I wanted to do something else while it's doing this probably no that's"
+    },
+    {
+        "start": 1486.08,
+        "end": 1490.8799999999999,
+        "text": "all I wanted to show you in this video so I just wanted to show you how you can create files and"
+    },
+    {
+        "start": 1490.88,
+        "end": 1497.6000000000001,
+        "text": "such a way that you have no surprises and this way because we here specify the schema it should"
+    },
+    {
+        "start": 1497.6000000000001,
+        "end": 1505.0400000000002,
+        "text": "be pretty safe so let me clean this file a little bit and then I will publish this file and you can"
+    },
+    {
+        "start": 1505.0400000000002,
+        "end": 1513.5200000000002,
+        "text": "just execute this as well okay yeah I think that's all I wanted to show you in this video and in the"
+    },
+    {
+        "start": 1513.52,
+        "end": 1522.32,
+        "text": "next video we will actually do the thing we plan to do which is Spark SQL and I will take query"
+    },
+    {
+        "start": 1522.32,
+        "end": 1537.68,
+        "text": "that Victoria used in week four and we will execute this queries once Spark see you soon"
+    }
+]

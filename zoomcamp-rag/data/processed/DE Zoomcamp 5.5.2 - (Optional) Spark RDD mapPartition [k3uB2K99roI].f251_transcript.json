@@ -1,0 +1,787 @@
+[
+    {
+        "start": 0.0,
+        "end": 6.16,
+        "text": "Welcome back. This is the Data Engineering Zoom Cam Week 5 and in this video I want to talk about"
+    },
+    {
+        "start": 6.16,
+        "end": 13.120000000000001,
+        "text": "the map partition function on Spark RDDs. So in the previous video we talked about what RDDs is"
+    },
+    {
+        "start": 13.120000000000001,
+        "end": 18.96,
+        "text": "and how they are related to data frames and one of the things we did we implemented one of the"
+    },
+    {
+        "start": 18.96,
+        "end": 25.84,
+        "text": "group by queries from the previous videos with RDDs with using basic operations like filter,"
+    },
+    {
+        "start": 25.84,
+        "end": 31.36,
+        "text": "map and reduce. Actually have it here. This is what we did in the previous video and in this video"
+    },
+    {
+        "start": 31.36,
+        "end": 38.0,
+        "text": "I want to talk about one operation that is called map partition. RDDs have this map partition"
+    },
+    {
+        "start": 38.0,
+        "end": 45.44,
+        "text": "and this is operation similar to map, map gets in an RDD and it is applied to every element of"
+    },
+    {
+        "start": 45.44,
+        "end": 51.519999999999996,
+        "text": "this RDD and for every element it produces another element and creates another RDD. So what map"
+    },
+    {
+        "start": 51.52,
+        "end": 61.120000000000005,
+        "text": "partition is doing it gets a partition and then it produces another partition. The input is"
+    },
+    {
+        "start": 61.120000000000005,
+        "end": 67.44,
+        "text": "an RDD and output is another RDD and we take an entire partition entire chunk of data. We apply"
+    },
+    {
+        "start": 67.44,
+        "end": 73.12,
+        "text": "some function to this chunk of data and we output the result. This is quite convenient because"
+    },
+    {
+        "start": 73.12,
+        "end": 78.0,
+        "text": "let's say we have a large data set with some data. I don't know this data set is one"
+    },
+    {
+        "start": 78.56,
+        "end": 83.92,
+        "text": "and we don't have a machine that has that amount of memory. Let's say our partitions are 100"
+    },
+    {
+        "start": 83.92,
+        "end": 89.6,
+        "text": "it makes each and then we can apply this map partition. Process this data create another partition"
+    },
+    {
+        "start": 89.6,
+        "end": 97.03999999999999,
+        "text": "with process data effectively chunk our data set and process it separately and this is quite"
+    },
+    {
+        "start": 97.03999999999999,
+        "end": 103.28,
+        "text": "convenient for many applications and most notably machine learning. This operations here that we"
+    },
+    {
+        "start": 103.52,
+        "end": 108.4,
+        "text": "have in this transformation can be applied a machine learning model for doing some predictions."
+    },
+    {
+        "start": 108.96000000000001,
+        "end": 114.08,
+        "text": "So all we need to do is have our machine learning model. Put this inside a map partition"
+    },
+    {
+        "start": 114.08,
+        "end": 119.68,
+        "text": "function and then a spark will chunk a big data set for us into smaller things and apply"
+    },
+    {
+        "start": 119.68,
+        "end": 125.6,
+        "text": "this function to each partition and then it will combine the results and save the results to a data"
+    },
+    {
+        "start": 125.6,
+        "end": 131.92000000000002,
+        "text": "lake. And for example I want to use here is let me again take a look at the green data set."
+    },
+    {
+        "start": 132.23999999999998,
+        "end": 138.07999999999998,
+        "text": "So in the green data set we have some information and we have this pickup data and drop off"
+    },
+    {
+        "start": 138.07999999999998,
+        "end": 143.76,
+        "text": "data. In imagine we want to create an application a service that predicts the duration of a trip."
+    },
+    {
+        "start": 143.76,
+        "end": 149.76,
+        "text": "We can use machine learning for that and the things we will need for this service is vendor"
+    },
+    {
+        "start": 149.76,
+        "end": 156.0,
+        "text": "already maybe some vendors are faster than others then we will need pickup time. So depending on"
+    },
+    {
+        "start": 156.08,
+        "end": 161.84,
+        "text": "when exactly a passenger picked up if it's midnight then it's probably faster than if it's"
+    },
+    {
+        "start": 161.84,
+        "end": 168.16,
+        "text": "during rush hour then we need location ID pickup location ID and drop off location ID."
+    },
+    {
+        "start": 168.16,
+        "end": 173.12,
+        "text": "We're still longer they are from each other the longer it takes and we have another field which"
+    },
+    {
+        "start": 173.12,
+        "end": 178.8,
+        "text": "is three distance. So again the longer the distance the longer it takes to travel."
+    },
+    {
+        "start": 179.76000000000002,
+        "end": 186.32000000000002,
+        "text": "So we need this information so call this columns. So we select this columns."
+    },
+    {
+        "start": 187.52,
+        "end": 189.92000000000002,
+        "text": "Let's me just show yeah it should be list of course."
+    },
+    {
+        "start": 191.20000000000002,
+        "end": 197.04000000000002,
+        "text": "And this is the information we have. So we have vendor ID pickup time we're mostly interested"
+    },
+    {
+        "start": 197.04000000000002,
+        "end": 202.08,
+        "text": "in our and then pick application drop off location and the distance. And let's say we have"
+    },
+    {
+        "start": 202.08,
+        "end": 207.76000000000002,
+        "text": "a machine learning model and we want to apply this model to this data set. I will now turn this"
+    },
+    {
+        "start": 207.84,
+        "end": 214.23999999999998,
+        "text": "thing into an RDD because I want to apply. I'm use this approach so I want to use park for"
+    },
+    {
+        "start": 214.23999999999998,
+        "end": 219.51999999999998,
+        "text": "chunking our data set and then applying our model to each chunk of the data. So I'll have this"
+    },
+    {
+        "start": 219.51999999999998,
+        "end": 227.51999999999998,
+        "text": "already I'll call it duration RDD and this is our RDD. So I already did some filtering. What happens"
+    },
+    {
+        "start": 227.51999999999998,
+        "end": 233.68,
+        "text": "often in practice that I might have some SQL here that would do all the preprocessing and here"
+    },
+    {
+        "start": 233.68,
+        "end": 239.6,
+        "text": "I would have all the important information already prepared information that I would then feed"
+    },
+    {
+        "start": 239.6,
+        "end": 248.08,
+        "text": "to the model. So this is how our duration RDD looks like. Let me do take five and now we want to"
+    },
+    {
+        "start": 248.08,
+        "end": 253.92000000000002,
+        "text": "apply a model. For applying the model I will have something like apply a model in batch and batch"
+    },
+    {
+        "start": 253.92000000000002,
+        "end": 258.88,
+        "text": "is probably a good term here because we're talking about batch processing. Yeah what we have here"
+    },
+    {
+        "start": 258.88,
+        "end": 264.8,
+        "text": "is we have a partition. So this is something that we will actually put inside this map partition."
+    },
+    {
+        "start": 264.8,
+        "end": 270.08,
+        "text": "Before we apply a model I just want to show you how it looks like. So let's say I want to return"
+    },
+    {
+        "start": 270.08,
+        "end": 275.6,
+        "text": "something here. So let's return one. If I do now collect, collect is something we didn't talk"
+    },
+    {
+        "start": 275.6,
+        "end": 283.44,
+        "text": "about but it collects all the elements of RDD and returns this is the Python list. It says there"
+    },
+    {
+        "start": 283.44,
+        "end": 288.48,
+        "text": "is an error. In top jikt is not iterable. This thing needs to return something that is iterable."
+    },
+    {
+        "start": 288.48,
+        "end": 293.92,
+        "text": "It needs to return a sequence. So let me return a list with just one. In to when I apply it,"
+    },
+    {
+        "start": 293.92,
+        "end": 298.88,
+        "text": "I get a list with four ones. It means that there are four partitions and it applies this"
+    },
+    {
+        "start": 298.88,
+        "end": 304.40000000000003,
+        "text": "apply model in batch to each partition and then it returns this one and then what it does it"
+    },
+    {
+        "start": 304.40000000000003,
+        "end": 310.56,
+        "text": "flattens it into this list and by flattening I mean it returns something like this. Then another one"
+    },
+    {
+        "start": 310.56,
+        "end": 316.32,
+        "text": "returns this another one another one. So we actually have this as a result and then it"
+    },
+    {
+        "start": 317.04,
+        "end": 324.56,
+        "text": "removes this nestedness and returns a list like that. So it flattens the list. Yeah we have that."
+    },
+    {
+        "start": 324.56,
+        "end": 330.4,
+        "text": "What we can do is maybe count how many rows we have in each partition. For example let's see if we"
+    },
+    {
+        "start": 330.4,
+        "end": 338.48,
+        "text": "can use this length function. So call it cnt, short for count and then execute. This partition is"
+    },
+    {
+        "start": 338.48,
+        "end": 345.44,
+        "text": "actually not a Python list. So it says that's an object of type iterable's chain. This is an iterator."
+    },
+    {
+        "start": 345.44,
+        "end": 351.52,
+        "text": "It means that we cannot just do length but what we can do is execute a for loop on this partition."
+    },
+    {
+        "start": 351.52,
+        "end": 360.08,
+        "text": "So let's do something like for row in partition and then so count will be zero and then I can do count"
+    },
+    {
+        "start": 360.08,
+        "end": 366.0,
+        "text": "equals count plus one and then at then just return this count. That means execute that. So this will"
+    },
+    {
+        "start": 366.0,
+        "end": 372.08,
+        "text": "probably take a bit of time because it needs to actually go through each record of each partition"
+    },
+    {
+        "start": 372.08,
+        "end": 378.15999999999997,
+        "text": "then collect all these counts and return. Yeah we see that our partitions are not super balanced."
+    },
+    {
+        "start": 378.15999999999997,
+        "end": 384.96,
+        "text": "So this partition is very large. It contains one million one hundred thousand records and this"
+    },
+    {
+        "start": 384.96,
+        "end": 390.88,
+        "text": "is three times smaller and this is even smaller than this two. Our partitions are not super balanced"
+    },
+    {
+        "start": 390.88,
+        "end": 396.56,
+        "text": "which might not always be a good thing because this one will be processed quite fast. This one's"
+    },
+    {
+        "start": 397.52,
+        "end": 403.44,
+        "text": "a bit slower but this one will take some time. So other executors will finish processing and"
+    },
+    {
+        "start": 403.44,
+        "end": 408.96,
+        "text": "the first executor will steal a process. So others will need to wait so this is not a good thing."
+    },
+    {
+        "start": 408.96,
+        "end": 414.4,
+        "text": "To avoid this we could do repetition in but then repetition in is an expensive operation."
+    },
+    {
+        "start": 414.4,
+        "end": 419.04,
+        "text": "Let's not talk about this right now. This is something I guess you will need to learn how to do"
+    },
+    {
+        "start": 419.04,
+        "end": 426.48,
+        "text": "with this in practice. Okay now we're getting a bit closer to what we want to do. Now I want to"
+    },
+    {
+        "start": 426.48,
+        "end": 432.64000000000004,
+        "text": "turn this partition into a pandas data frame. Usually as a daily scientist I like pandas"
+    },
+    {
+        "start": 432.64000000000004,
+        "end": 439.6,
+        "text": "data frames and the models I have usually expect a pandas data frame. So let me import pandas."
+    },
+    {
+        "start": 439.6,
+        "end": 447.76,
+        "text": "Can do pandas. Let me show it to you here. So I do duration RDD take 10 and it will return a bunch"
+    },
+    {
+        "start": 447.76,
+        "end": 455.36,
+        "text": "of rows. So this is how these rows look like and define how do pandas data frame and put these rows."
+    },
+    {
+        "start": 455.36,
+        "end": 461.04,
+        "text": "It will actually create a pandas data frame with all these rows and you see it doesn't know what"
+    },
+    {
+        "start": 461.04,
+        "end": 467.2,
+        "text": "the columns are. So we need to tell it that the columns are columns. We conveniently created these"
+    },
+    {
+        "start": 467.2,
+        "end": 474.32,
+        "text": "columns variable here and if I do know if I execute this we have this data frame. Pandas data frame"
+    },
+    {
+        "start": 474.32,
+        "end": 480.72,
+        "text": "with all this information. So it's quite easy to turn a bunch of rows from Spark to a pandas data"
+    },
+    {
+        "start": 480.8,
+        "end": 487.52000000000004,
+        "text": "frame. Let me actually copy this thing and I will put here maybe I'll go through all sensitive"
+    },
+    {
+        "start": 487.52000000000004,
+        "end": 495.20000000000005,
+        "text": "partitions and this will be our data frame. And let's still do count. So do count and then for this"
+    },
+    {
+        "start": 495.20000000000005,
+        "end": 501.20000000000005,
+        "text": "data frame I can just look at the length of this data frame and let me execute this. While it's"
+    },
+    {
+        "start": 501.20000000000005,
+        "end": 508.48,
+        "text": "executing I want to add a caveat here. So this thing actually materializes the entire data frame"
+    },
+    {
+        "start": 508.48,
+        "end": 514.72,
+        "text": "in memory. Your executors need to have enough memory. If it happens that your executors maybe"
+    },
+    {
+        "start": 514.72,
+        "end": 519.52,
+        "text": "don't have a lot of memory you will need to repartition it or do some chunking of this rows"
+    },
+    {
+        "start": 519.52,
+        "end": 526.0,
+        "text": "or something like this. But let's see what the error is. Five columns passed but data has three"
+    },
+    {
+        "start": 526.0,
+        "end": 533.04,
+        "text": "columns. Yeah the reason is so I apply this on RID instead of applying this on duration RID."
+    },
+    {
+        "start": 533.8399999999999,
+        "end": 539.1999999999999,
+        "text": "Okay so now let me execute this. Now it creates a data frame now with just Spark columns."
+    },
+    {
+        "start": 539.1999999999999,
+        "end": 542.4,
+        "text": "No three so three was the RID we used on the previous video."
+    },
+    {
+        "start": 543.68,
+        "end": 550.16,
+        "text": "Yeah and again it returns the same result. Here it puts the entire partition into a data frame"
+    },
+    {
+        "start": 550.16,
+        "end": 556.0,
+        "text": "which is not always good. So if you want to solve it there is package code titer tools in Python"
+    },
+    {
+        "start": 556.08,
+        "end": 563.04,
+        "text": "and in the in either tools you can use slicing you can slice iterators. This way you can break"
+    },
+    {
+        "start": 563.04,
+        "end": 570.96,
+        "text": "these peak partitions into separations of size 100,000 for example and then process them separately."
+    },
+    {
+        "start": 570.96,
+        "end": 576.0,
+        "text": "I will not do this now this is just a remark if you ever need to do something like this in the future."
+    },
+    {
+        "start": 576.0,
+        "end": 580.72,
+        "text": "But yeah we were actually talking about machine learning. We have hard data frame and now we want to"
+    },
+    {
+        "start": 580.72,
+        "end": 587.76,
+        "text": "apply a model for predicting the trip duration. I'll just create a function model predict."
+    },
+    {
+        "start": 587.76,
+        "end": 594.88,
+        "text": "We get a data frame and let's say we have some model here right on what we usually do is model."
+    },
+    {
+        "start": 594.88,
+        "end": 602.5600000000001,
+        "text": ".predict and pass a data frame here and the result is Y-PRED which is predicted value. If this model"
+    },
+    {
+        "start": 602.5600000000001,
+        "end": 608.64,
+        "text": "predicts the duration of the trip then this Y-PRED contains the predictions for each row of this"
+    },
+    {
+        "start": 608.64,
+        "end": 613.84,
+        "text": "data frame. Now we don't have a model here. Let's pretend we do and our model will be something"
+    },
+    {
+        "start": 613.84,
+        "end": 620.0,
+        "text": "super simple. It will for each mile in the trip. It will let's say I don't know five minutes per"
+    },
+    {
+        "start": 620.0,
+        "end": 626.24,
+        "text": "mile is the reasonable estimate or not. I don't know. I don't even know how much a mile is. Let's"
+    },
+    {
+        "start": 626.24,
+        "end": 631.84,
+        "text": "go with that. So then this will be our fancy machine learning model that just for each mile in"
+    },
+    {
+        "start": 631.84,
+        "end": 638.32,
+        "text": "the distance it counts five minutes. So this is our machine learning model. So now we'll have our"
+    },
+    {
+        "start": 638.32,
+        "end": 645.36,
+        "text": "predictions here that we do in our map partition function. And now the predictions this is an array"
+    },
+    {
+        "start": 645.36,
+        "end": 650.5600000000001,
+        "text": "with predictions and each element of this array is a prediction for a respective column of this"
+    },
+    {
+        "start": 650.5600000000001,
+        "end": 656.48,
+        "text": "data frame. What we can do now is we can create a new column in our data frame that we created here"
+    },
+    {
+        "start": 656.48,
+        "end": 662.48,
+        "text": "and we can say predicted duration or expected duration and we can just put this back."
+    },
+    {
+        "start": 663.04,
+        "end": 668.8000000000001,
+        "text": "And now we can output this data frame. That's the result. Of course this will not work so we need"
+    },
+    {
+        "start": 668.8000000000001,
+        "end": 675.12,
+        "text": "two outputs each element of the data frame. And for that purpose in pandas there is a thing called"
+    },
+    {
+        "start": 675.12,
+        "end": 682.08,
+        "text": "dirt walls. You can maybe show you. So we have this rows right. And if I do pandas data frame rows"
+    },
+    {
+        "start": 682.1600000000001,
+        "end": 688.88,
+        "text": "and then call that a frame in data frame. Itter tuples. Yeah it is an iterator so we cannot see it"
+    },
+    {
+        "start": 688.88,
+        "end": 695.44,
+        "text": "immediately. I will need to materialize it. Use the list. And yeah so if I have columns here"
+    },
+    {
+        "start": 696.96,
+        "end": 702.64,
+        "text": "so it will look like that for each row it will have a tuple that will contain everything that we"
+    },
+    {
+        "start": 702.64,
+        "end": 708.08,
+        "text": "have in this row it will also add this index field. Yeah we can just ignore for now. Yeah let me"
+    },
+    {
+        "start": 708.08,
+        "end": 714.5600000000001,
+        "text": "remove that. And so this is an iterable. It means that we can run a for loop on it. So I can do"
+    },
+    {
+        "start": 714.5600000000001,
+        "end": 722.4000000000001,
+        "text": "for row in iter tuples. And then I can use this yield keyword. So I will output each row of"
+    },
+    {
+        "start": 722.4000000000001,
+        "end": 728.5600000000001,
+        "text": "this thing. And if you don't know what this yield is doing let me show you. I will write a simple"
+    },
+    {
+        "start": 728.5600000000001,
+        "end": 737.5200000000001,
+        "text": "function that will let's say return an infinite sequence of numbers. So it will be an infinite loop"
+    },
+    {
+        "start": 737.52,
+        "end": 745.36,
+        "text": "and it will return the value of this variable. So it will yield the value so it will return this"
+    },
+    {
+        "start": 745.36,
+        "end": 751.52,
+        "text": "and then we will increment this. So I was one. So what will happen here is it will return a value"
+    },
+    {
+        "start": 751.52,
+        "end": 758.4,
+        "text": "then increment this return again increment return again and the result of this thing is a sequence."
+    },
+    {
+        "start": 758.4,
+        "end": 765.28,
+        "text": "So let me do sequence infinite sequence. And when we look at this says it's a generator so it"
+    },
+    {
+        "start": 765.28,
+        "end": 771.4399999999999,
+        "text": "generates these values. If I do now at least like this if I try to materialize it I will run out"
+    },
+    {
+        "start": 771.4399999999999,
+        "end": 777.6,
+        "text": "of memory because this is an infinite sequence. And what I can do is I can just do next and get the"
+    },
+    {
+        "start": 777.6,
+        "end": 784.56,
+        "text": "next element. Then the next element, the next element and so on. And if I do a for loop here. So"
+    },
+    {
+        "start": 784.56,
+        "end": 792.0,
+        "text": "for example I can do for E in sequence print I of course it is an infinite sequence. So it will"
+    },
+    {
+        "start": 792.0,
+        "end": 797.6,
+        "text": "this for loop will never finish. That's why let me add a break statement. So let's say if I"
+    },
+    {
+        "start": 797.6,
+        "end": 803.84,
+        "text": "is bigger than 10 I want to break. And then it starts with 5 because we already executed it with"
+    },
+    {
+        "start": 803.84,
+        "end": 810.0,
+        "text": "multiple times and then yeah it outputs everything. Yeah what if we modified it let's say if I"
+    },
+    {
+        "start": 810.0,
+        "end": 817.92,
+        "text": "is more than 15 then break then this is no longer infinite sequence and I can actually materialize it."
+    },
+    {
+        "start": 818.88,
+        "end": 828.16,
+        "text": "See it becomes finite sequence and this is what Spark uses here. So it will write each row to"
+    },
+    {
+        "start": 828.16,
+        "end": 834.16,
+        "text": "the resulting RTD and then it will flatten it. In the end we will have all these rows from these"
+    },
+    {
+        "start": 834.16,
+        "end": 839.4399999999999,
+        "text": "data frames combined together from all the predictions. Okay let me now execute this. I don't want to"
+    },
+    {
+        "start": 839.4399999999999,
+        "end": 845.68,
+        "text": "collect now because it will collect all these values. So whatever you do is I'll just maybe do take"
+    },
+    {
+        "start": 846.2399999999999,
+        "end": 852.56,
+        "text": "10. So I will take the first 10 elements of the RLD. But what happens right now it actually"
+    },
+    {
+        "start": 852.56,
+        "end": 859.28,
+        "text": "applies this model to all the predictions and then just takes 10 of them. And this is what we have."
+    },
+    {
+        "start": 859.28,
+        "end": 868.0,
+        "text": "We have this pandas thing and now we can maybe turn this back into data frame and do something"
+    },
+    {
+        "start": 868.08,
+        "end": 876.16,
+        "text": "like show. I will not specify the schema here. Ideally I should. The first Spark tried to infer"
+    },
+    {
+        "start": 876.16,
+        "end": 881.84,
+        "text": "the schema. That's why it would run something and then only then it will turn this into a data frame"
+    },
+    {
+        "start": 881.84,
+        "end": 889.52,
+        "text": "and then we do show. But I see something that something is wrong. So maybe I was too fast to do"
+    },
+    {
+        "start": 889.52,
+        "end": 896.96,
+        "text": "this. So let me see what is wrong. So I'll take 5 values here. No it's actually fine. I don't know"
+    },
+    {
+        "start": 896.96,
+        "end": 905.44,
+        "text": "what is wrong with this. Let me create data frame. Data frame result or predictions. Now do something"
+    },
+    {
+        "start": 905.44,
+        "end": 911.52,
+        "text": "like this. Yes so this index thing will appear in the data frame as well. So I want to do something"
+    },
+    {
+        "start": 911.52,
+        "end": 917.0400000000001,
+        "text": "like draw index. So I don't want to have this comb. And now because I don't specify the schema it"
+    },
+    {
+        "start": 917.0400000000001,
+        "end": 925.2,
+        "text": "is trying to infer it. Then let me do show again. Now I don't know what this data I don't know why"
+    },
+    {
+        "start": 925.44,
+        "end": 931.76,
+        "text": "it's an empty list. But these are our predictions. And now let's say I just want to select this"
+    },
+    {
+        "start": 932.4000000000001,
+        "end": 940.0,
+        "text": "predictive duration. We can do that as well. And we see the predictions for each row of our data frame."
+    },
+    {
+        "start": 940.0,
+        "end": 946.32,
+        "text": "We can predict the duration in minutes and this is something we can show to the passengers to know"
+    },
+    {
+        "start": 946.32,
+        "end": 952.4000000000001,
+        "text": "how long that will take. Well of course like for this case it actually should happen in real time."
+    },
+    {
+        "start": 952.4,
+        "end": 958.48,
+        "text": "We don't need spark for that. So in real life we would have a service and then passengers"
+    },
+    {
+        "start": 958.48,
+        "end": 963.6,
+        "text": "with their mobile phone will send requests to this service and the service will be"
+    },
+    {
+        "start": 963.6,
+        "end": 969.36,
+        "text": "live with duration. So it will contain all this information that we have and the reply will be"
+    },
+    {
+        "start": 969.36,
+        "end": 976.0,
+        "text": "expected duration is 20 minutes. But just for the sake of example here we did this in spark."
+    },
+    {
+        "start": 976.0,
+        "end": 979.76,
+        "text": "For this particular use case you probably wouldn't use spark. You would use a web service."
+    },
+    {
+        "start": 979.76,
+        "end": 985.76,
+        "text": "But just to show you how I usually use map partition and practice I came up with this example."
+    },
+    {
+        "start": 985.76,
+        "end": 991.6,
+        "text": "I hope it was useful. It was a good illustration of how you can use map partition and it made sense"
+    },
+    {
+        "start": 991.6,
+        "end": 998.56,
+        "text": "even though it was maybe not very well thought through example. And actually this concludes our"
+    },
+    {
+        "start": 998.56,
+        "end": 1003.92,
+        "text": "small section of spark internals and RDDs. And see you soon."
+    }
+]

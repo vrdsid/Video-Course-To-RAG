@@ -1,0 +1,967 @@
+[
+    {
+        "start": 0.0,
+        "end": 7.0,
+        "text": "Hello again everyone and welcome back to another part of our Terraform section."
+    },
+    {
+        "start": 7.0,
+        "end": 18.0,
+        "text": "So when we left off last time we had a simple Terraform file just to make a storage bucket."
+    },
+    {
+        "start": 18.0,
+        "end": 24.0,
+        "text": "And we showed how we could use plan to see what this file is going to create,"
+    },
+    {
+        "start": 24.0,
+        "end": 31.0,
+        "text": "apply to actually make those changes and then destroy to remove them."
+    },
+    {
+        "start": 31.0,
+        "end": 37.0,
+        "text": "And just as a refresher I'm going to make this a little bit bigger."
+    },
+    {
+        "start": 37.0,
+        "end": 46.0,
+        "text": "And if I go to my project here we can see I have no bucket."
+    },
+    {
+        "start": 46.0,
+        "end": 66.0,
+        "text": "And if I just do a Terraform apply and yes, give that a moment."
+    },
+    {
+        "start": 66.0,
+        "end": 75.0,
+        "text": "And we'll hit refresh and we should see that indeed the bucket has been created."
+    },
+    {
+        "start": 75.0,
+        "end": 86.0,
+        "text": "Okay. And we can see here our state file shows us what has been created."
+    },
+    {
+        "start": 86.0,
+        "end": 91.0,
+        "text": "The bucket wasn't there before so it does create a backup."
+    },
+    {
+        "start": 91.0,
+        "end": 95.0,
+        "text": "This is showing pretty much nothing's there."
+    },
+    {
+        "start": 95.0,
+        "end": 103.0,
+        "text": "And if we go ahead and do a Terraform destroy,"
+    },
+    {
+        "start": 103.0,
+        "end": 119.0,
+        "text": "we should then see the TF state file show pretty much nothing and then the backup showing our bucket."
+    },
+    {
+        "start": 119.0,
+        "end": 125.0,
+        "text": "Honestly I've never had to use this but I believe that's just in case something's lost in communication"
+    },
+    {
+        "start": 125.0,
+        "end": 132.0,
+        "text": "and the TF state file doesn't get updated."
+    },
+    {
+        "start": 132.0,
+        "end": 138.0,
+        "text": "Your resources aren't destroyed but your TF state is updated to look like this."
+    },
+    {
+        "start": 138.0,
+        "end": 148.0,
+        "text": "You can just grab this, put it back, remove the dot backup and then it will know what resources to then go out and destroy it to try again."
+    },
+    {
+        "start": 148.0,
+        "end": 155.0,
+        "text": "I've never had to really mess with that but that's the concept as I understand it."
+    },
+    {
+        "start": 155.0,
+        "end": 161.0,
+        "text": "So I will zoom out a little bit. Sorry this is hard to see. I will zoom back in momentarily."
+    },
+    {
+        "start": 161.0,
+        "end": 170.0,
+        "text": "But we just have a simple Google provider. We're giving it our project, our region and a simple bucket."
+    },
+    {
+        "start": 170.0,
+        "end": 175.0,
+        "text": "But let's say we want to build this out and we want to do something a little more interesting."
+    },
+    {
+        "start": 175.0,
+        "end": 185.0,
+        "text": "So let's do a BigQuery data set and we can just look for Terraform."
+    },
+    {
+        "start": 185.0,
+        "end": 195.0,
+        "text": "I should really update this VM. Big, query data set."
+    },
+    {
+        "start": 195.0,
+        "end": 202.0,
+        "text": "And Terraform gives us a pretty large example. They call it basic."
+    },
+    {
+        "start": 202.0,
+        "end": 208.0,
+        "text": "Their documentation is pretty good but you kind of need to understand how to use it."
+    },
+    {
+        "start": 208.0,
+        "end": 216.0,
+        "text": "So when you see all these fields, what I would almost do is just control F."
+    },
+    {
+        "start": 216.0,
+        "end": 223.0,
+        "text": "And go required."
+    },
+    {
+        "start": 223.0,
+        "end": 231.0,
+        "text": "Okay, so that is view block which I don't think we necessarily need to just create a BigQuery data set."
+    },
+    {
+        "start": 231.0,
+        "end": 236.0,
+        "text": "So I'm seeing I'm on search number two. Let's see what one is."
+    },
+    {
+        "start": 236.0,
+        "end": 239.0,
+        "text": "Data set ID."
+    },
+    {
+        "start": 239.0,
+        "end": 247.0,
+        "text": "So it looks like pretty much all of these are optional."
+    },
+    {
+        "start": 247.0,
+        "end": 255.0,
+        "text": "I kind of wish they had something like this but gave the optional and required there."
+    },
+    {
+        "start": 255.0,
+        "end": 262.0,
+        "text": "And you could always play around with these. If you're missing a field that is required, it'll give you a big fat error."
+    },
+    {
+        "start": 262.0,
+        "end": 273.0,
+        "text": "But let's see. Data set ID. Is that the only thing that's required?"
+    },
+    {
+        "start": 273.0,
+        "end": 280.0,
+        "text": "It doesn't even take a project ID. And locations probably good to know."
+    },
+    {
+        "start": 280.0,
+        "end": 286.0,
+        "text": "So let's see what it says about that."
+    },
+    {
+        "start": 286.0,
+        "end": 295.0,
+        "text": "Because my thinking is, okay, location is optional. The geographic location, where the data set."
+    },
+    {
+        "start": 295.0,
+        "end": 297.0,
+        "text": "Make that a little bigger so you can see it."
+    },
+    {
+        "start": 297.0,
+        "end": 303.0,
+        "text": "It should reside. See official docs. There are two types of locations. Regional or multi-regional."
+    },
+    {
+        "start": 303.0,
+        "end": 311.0,
+        "text": "A regional location is specific to a geographic place such as Tokyo and a multi-regional location is a large geographic area."
+    },
+    {
+        "start": 311.0,
+        "end": 316.0,
+        "text": "Kind of skim it. You see the default value is multi-regional location U.S."
+    },
+    {
+        "start": 316.0,
+        "end": 326.0,
+        "text": "And there's probably some building associated with that. I happen to know it's not really too much especially if you're doing a personal project."
+    },
+    {
+        "start": 326.0,
+        "end": 331.0,
+        "text": "But depending on where you're at and what your project's looking like."
+    },
+    {
+        "start": 331.0,
+        "end": 337.0,
+        "text": "So if you're in the EU, you would want to use EU. Make sure to set that."
+    },
+    {
+        "start": 337.0,
+        "end": 351.0,
+        "text": "And because the only required one I saw was data set ID, I'm just going to go and grab this."
+    },
+    {
+        "start": 351.0,
+        "end": 358.0,
+        "text": "And make sure that's maybe that's a little bit too big."
+    },
+    {
+        "start": 359.0,
+        "end": 369.0,
+        "text": "Here we go. Give ourself some space. And we'll just call this the mode data set."
+    },
+    {
+        "start": 369.0,
+        "end": 379.0,
+        "text": "And we'll close that off at the curly brace. That does not look right. But luckily if we save that, we can see the X showing that it's saved."
+    },
+    {
+        "start": 379.0,
+        "end": 388.0,
+        "text": "And we can just do a terraform FMT for format and make it look all nice and pretty."
+    },
+    {
+        "start": 388.0,
+        "end": 403.0,
+        "text": "And again, this is our resource name. And then this is the name of that resource block that we're working with within the terraform files."
+    },
+    {
+        "start": 403.0,
+        "end": 410.0,
+        "text": "So I can just call this demo data set."
+    },
+    {
+        "start": 410.0,
+        "end": 419.0,
+        "text": "Again, save that and do a terraform apply."
+    },
+    {
+        "start": 419.0,
+        "end": 425.0,
+        "text": "And if we open this up, we see our bucket."
+    },
+    {
+        "start": 425.0,
+        "end": 440.0,
+        "text": "But indeed, the demo data set will be created in US delete contents on destroy."
+    },
+    {
+        "start": 440.0,
+        "end": 454.0,
+        "text": "We can of course spin back to the documentation and see what that is."
+    },
+    {
+        "start": 454.0,
+        "end": 467.0,
+        "text": "If set to true, delete all the tables in the data set, when destroying the resource otherwise destroying the resource will fail if tables are present."
+    },
+    {
+        "start": 467.0,
+        "end": 475.0,
+        "text": "Well, I'm not going to create any tables in this demo. So I will leave that as is."
+    },
+    {
+        "start": 475.0,
+        "end": 488.0,
+        "text": "If you do create tables and you're bringing it down and you see some errors, you just want to go back to the docs and just put that in set it to true."
+    },
+    {
+        "start": 488.0,
+        "end": 496.0,
+        "text": "Okay. So everything looks good. We can just run a terraform apply."
+    },
+    {
+        "start": 496.0,
+        "end": 504.0,
+        "text": "And just to show there's nothing up my sleeve."
+    },
+    {
+        "start": 504.0,
+        "end": 511.0,
+        "text": "There we go. You see I have no data sets. This is my project."
+    },
+    {
+        "start": 511.0,
+        "end": 519.0,
+        "text": "And we can just go ahead."
+    },
+    {
+        "start": 519.0,
+        "end": 526.0,
+        "text": "Oh, looks like it was looking for yes there."
+    },
+    {
+        "start": 526.0,
+        "end": 533.0,
+        "text": "All right, we see it's creating the BigQuery data set, the storage bucket."
+    },
+    {
+        "start": 533.0,
+        "end": 542.0,
+        "text": "And if we look at our key estate file, we can see the resources that were created."
+    },
+    {
+        "start": 542.0,
+        "end": 552.0,
+        "text": "Some of the more bits of detail there, but our backup should be blank because we did not have resources before this apply."
+    },
+    {
+        "start": 552.0,
+        "end": 559.0,
+        "text": "And then if we go ahead and spin back over to BigQuery, do a quick refresh."
+    },
+    {
+        "start": 559.0,
+        "end": 567.0,
+        "text": "We do indeed have a demo data set."
+    },
+    {
+        "start": 567.0,
+        "end": 578.0,
+        "text": "Okay. So depending on what you're trying to build out using variables is very handy."
+    },
+    {
+        "start": 578.0,
+        "end": 584.0,
+        "text": "By convention in terraform, we are going to create a variables that TF file."
+    },
+    {
+        "start": 584.0,
+        "end": 588.0,
+        "text": "And then we will use those variables in our other files."
+    },
+    {
+        "start": 588.0,
+        "end": 593.0,
+        "text": "For this demonstration, we'll just be using our main.TF file."
+    },
+    {
+        "start": 593.0,
+        "end": 596.0,
+        "text": "We're using our variables in the main.TF file."
+    },
+    {
+        "start": 596.0,
+        "end": 599.0,
+        "text": "And you'll see what I mean here in a moment."
+    },
+    {
+        "start": 599.0,
+        "end": 607.0,
+        "text": "So I'm going to go ahead and do a terraform destroy."
+    },
+    {
+        "start": 607.0,
+        "end": 615.0,
+        "text": "And just do a yes."
+    },
+    {
+        "start": 615.0,
+        "end": 622.0,
+        "text": "And I will create a new file called variables.TF."
+    },
+    {
+        "start": 622.0,
+        "end": 626.0,
+        "text": "And then here I can declare variables."
+    },
+    {
+        "start": 626.0,
+        "end": 638.0,
+        "text": "Let's see. I could do something like BQ."
+    },
+    {
+        "start": 638.0,
+        "end": 640.0,
+        "text": "Data set name."
+    },
+    {
+        "start": 640.0,
+        "end": 643.0,
+        "text": "And here we can define a few things."
+    },
+    {
+        "start": 643.0,
+        "end": 647.0,
+        "text": "Again, with the terraform extension, it's very handy."
+    },
+    {
+        "start": 647.0,
+        "end": 658.0,
+        "text": "We can do a description equals my big query data set name."
+    },
+    {
+        "start": 658.0,
+        "end": 661.0,
+        "text": "And we can give that a default."
+    },
+    {
+        "start": 661.0,
+        "end": 675.0,
+        "text": "And if we come back here, we can just grab that."
+    },
+    {
+        "start": 675.0,
+        "end": 678.0,
+        "text": "Make that a little bit bigger."
+    },
+    {
+        "start": 678.0,
+        "end": 682.0,
+        "text": "Okay. And one of the things can we make variables."
+    },
+    {
+        "start": 682.0,
+        "end": 691.0,
+        "text": "Anything you think would be useful."
+    },
+    {
+        "start": 691.0,
+        "end": 701.0,
+        "text": "GCS storage class for our GCP bucket."
+    },
+    {
+        "start": 701.0,
+        "end": 709.0,
+        "text": "And bucket storage class."
+    },
+    {
+        "start": 709.0,
+        "end": 717.0,
+        "text": "And for default, we're going to call that standard."
+    },
+    {
+        "start": 717.0,
+        "end": 728.0,
+        "text": "And you could look at GCP documentation for their storage buckets or the terraform documentation to see what possible values you could have in here."
+    },
+    {
+        "start": 728.0,
+        "end": 745.0,
+        "text": "And actually, I'm just going to copy that save myself some typing and do GCS bucket name."
+    },
+    {
+        "start": 745.0,
+        "end": 756.0,
+        "text": "And description, my storage bucket name."
+    },
+    {
+        "start": 756.0,
+        "end": 761.0,
+        "text": "Grab that from here."
+    },
+    {
+        "start": 761.0,
+        "end": 768.0,
+        "text": "And one that"
+    },
+    {
+        "start": 768.0,
+        "end": 781.0,
+        "text": "I should probably put on the top because I think it's the most important and would come in very handy is the location."
+    },
+    {
+        "start": 781.0,
+        "end": 791.0,
+        "text": "So say my friend over in the EU was building a personal data engineering project using terraform like this."
+    },
+    {
+        "start": 791.0,
+        "end": 800.0,
+        "text": "It would be very easy to just update that in one place."
+    },
+    {
+        "start": 800.0,
+        "end": 803.0,
+        "text": "And then I could reuse that here with the bucket."
+    },
+    {
+        "start": 803.0,
+        "end": 816.0,
+        "text": "And actually, I'll go ahead and set that."
+    },
+    {
+        "start": 816.0,
+        "end": 827.0,
+        "text": "Here location project location."
+    },
+    {
+        "start": 827.0,
+        "end": 832.0,
+        "text": "The default is going to be US."
+    },
+    {
+        "start": 832.0,
+        "end": 836.0,
+        "text": "Just once at a double quotes, I'm going to save that."
+    },
+    {
+        "start": 836.0,
+        "end": 841.0,
+        "text": "And now I could do bar dot location."
+    },
+    {
+        "start": 841.0,
+        "end": 846.0,
+        "text": "Got to love that auto complete."
+    },
+    {
+        "start": 846.0,
+        "end": 852.0,
+        "text": "Could have just moved the space over, but it's more fun to use terraform FMT."
+    },
+    {
+        "start": 852.0,
+        "end": 862.0,
+        "text": "And instead of that, I can use my variable BQ data set name, which looks at this file and says,"
+    },
+    {
+        "start": 862.0,
+        "end": 866.0,
+        "text": "OK, what is the variable BQ data set name?"
+    },
+    {
+        "start": 866.0,
+        "end": 870.0,
+        "text": "And it sees demo data set."
+    },
+    {
+        "start": 870.0,
+        "end": 877.0,
+        "text": "A few more updates here."
+    },
+    {
+        "start": 877.0,
+        "end": 882.0,
+        "text": "Bar dot location."
+    },
+    {
+        "start": 882.0,
+        "end": 890.0,
+        "text": "And bar dot GCS bucket name."
+    },
+    {
+        "start": 890.0,
+        "end": 900.0,
+        "text": "Actually, we could again, going back to the example of someone passing this over."
+    },
+    {
+        "start": 900.0,
+        "end": 909.0,
+        "text": "It would be a great idea to go ahead and make a project variable."
+    },
+    {
+        "start": 909.0,
+        "end": 911.0,
+        "text": "And just project for descriptions."
+    },
+    {
+        "start": 911.0,
+        "end": 918.0,
+        "text": "OK."
+    },
+    {
+        "start": 918.0,
+        "end": 929.0,
+        "text": "Got that under the variable project."
+    },
+    {
+        "start": 929.0,
+        "end": 941.0,
+        "text": "Again, save that."
+    },
+    {
+        "start": 941.0,
+        "end": 949.0,
+        "text": "And again, no auto complete on bar dot region, because we do not have that defined."
+    },
+    {
+        "start": 949.0,
+        "end": 951.0,
+        "text": "Should copy that first."
+    },
+    {
+        "start": 951.0,
+        "end": 956.0,
+        "text": "Control C, Control Y."
+    },
+    {
+        "start": 956.0,
+        "end": 969.0,
+        "text": "And maybe a little overkill with the variables, but just for this demonstration."
+    },
+    {
+        "start": 969.0,
+        "end": 980.0,
+        "text": "I wanted to show how to use these."
+    },
+    {
+        "start": 980.0,
+        "end": 984.0,
+        "text": "Space those out a little more."
+    },
+    {
+        "start": 984.0,
+        "end": 987.0,
+        "text": "OK."
+    },
+    {
+        "start": 987.0,
+        "end": 992.0,
+        "text": "Everything looks good."
+    },
+    {
+        "start": 992.0,
+        "end": 998.0,
+        "text": "And I'm going to zoom out here just so you can kind of see all these variables at once."
+    },
+    {
+        "start": 998.0,
+        "end": 1010.0,
+        "text": "And zoom back in so they're a little bit more readable to pay on your screen size."
+    },
+    {
+        "start": 1010.0,
+        "end": 1027.0,
+        "text": "See if it throws us any errors."
+    },
+    {
+        "start": 1027.0,
+        "end": 1029.0,
+        "text": "OK."
+    },
+    {
+        "start": 1029.0,
+        "end": 1031.0,
+        "text": "Everything looks green."
+    },
+    {
+        "start": 1031.0,
+        "end": 1039.0,
+        "text": "So if you can come back here, if we have refresh, we destroyed this data set."
+    },
+    {
+        "start": 1039.0,
+        "end": 1044.0,
+        "text": "So we should see that is gone now."
+    },
+    {
+        "start": 1044.0,
+        "end": 1052.0,
+        "text": "Quick Terraform apply."
+    },
+    {
+        "start": 1052.0,
+        "end": 1064.0,
+        "text": "All right. No errors."
+    },
+    {
+        "start": 1064.0,
+        "end": 1067.0,
+        "text": "All right."
+    },
+    {
+        "start": 1067.0,
+        "end": 1069.0,
+        "text": "So the variables worked."
+    },
+    {
+        "start": 1069.0,
+        "end": 1076.0,
+        "text": "There is one other piece I would like to show with the variables that TFILE."
+    },
+    {
+        "start": 1076.0,
+        "end": 1093.0,
+        "text": "And that is you could actually go ahead and I probably need to let me destroy these real quick."
+    },
+    {
+        "start": 1093.0,
+        "end": 1101.0,
+        "text": "So they're gone."
+    },
+    {
+        "start": 1101.0,
+        "end": 1115.0,
+        "text": "Unset variable."
+    },
+    {
+        "start": 1115.0,
+        "end": 1116.0,
+        "text": "OK."
+    },
+    {
+        "start": 1116.0,
+        "end": 1118.0,
+        "text": "Actually, I just needed to copy unset."
+    },
+    {
+        "start": 1118.0,
+        "end": 1122.0,
+        "text": "If you recall in last video, we set our Google credentials."
+    },
+    {
+        "start": 1122.0,
+        "end": 1130.0,
+        "text": "So if I echo Google credentials."
+    },
+    {
+        "start": 1130.0,
+        "end": 1141.0,
+        "text": "Well, here I'm going to unset Google credentials."
+    },
+    {
+        "start": 1141.0,
+        "end": 1142.0,
+        "text": "Up arrow twice."
+    },
+    {
+        "start": 1142.0,
+        "end": 1143.0,
+        "text": "So that is blank."
+    },
+    {
+        "start": 1143.0,
+        "end": 1153.0,
+        "text": "I'm going to go ahead and do a Terraform plan."
+    },
+    {
+        "start": 1153.0,
+        "end": 1176.0,
+        "text": "I'm going to go ahead and set this wherever we want."
+    },
+    {
+        "start": 1176.0,
+        "end": 1186.0,
+        "text": "And I'm going to go ahead and not sure where that makes sense to set it."
+    },
+    {
+        "start": 1186.0,
+        "end": 1187.0,
+        "text": "I guess at the top."
+    },
+    {
+        "start": 1187.0,
+        "end": 1201.0,
+        "text": "And I'm just going to call that credentials and description."
+    },
+    {
+        "start": 1201.0,
+        "end": 1211.0,
+        "text": "I'm going to go ahead and do a little bit of the credentials."
+    },
+    {
+        "start": 1211.0,
+        "end": 1214.0,
+        "text": "And default."
+    },
+    {
+        "start": 1214.0,
+        "end": 1220.0,
+        "text": "There are actually some functions you can use in Terraform."
+    },
+    {
+        "start": 1220.0,
+        "end": 1222.0,
+        "text": "You can look them up."
+    },
+    {
+        "start": 1222.0,
+        "end": 1228.0,
+        "text": "One that's really nice is file, which lets you load the contents of a file."
+    },
+    {
+        "start": 1228.0,
+        "end": 1233.0,
+        "text": "It's in the current directory, but in a subfolder called keys."
+    },
+    {
+        "start": 1233.0,
+        "end": 1243.0,
+        "text": "So I can do .slash keys slash my crez."
+    },
+    {
+        "start": 1243.0,
+        "end": 1252.0,
+        "text": "Jason, I think this might need to be double quotes."
+    },
+    {
+        "start": 1252.0,
+        "end": 1254.0,
+        "text": "Go ahead and save that."
+    },
+    {
+        "start": 1254.0,
+        "end": 1264.0,
+        "text": "And then here, if you recall, we didn't need to specify credentials because we had that variable set in our system."
+    },
+    {
+        "start": 1264.0,
+        "end": 1270.0,
+        "text": "But here we can do credentials equals var.credentials."
+    },
+    {
+        "start": 1270.0,
+        "end": 1274.0,
+        "text": "Save that."
+    },
+    {
+        "start": 1274.0,
+        "end": 1277.0,
+        "text": "Quick format."
+    },
+    {
+        "start": 1277.0,
+        "end": 1279.0,
+        "text": "All right."
+    },
+    {
+        "start": 1279.0,
+        "end": 1286.0,
+        "text": "And we try Terraform apply."
+    },
+    {
+        "start": 1286.0,
+        "end": 1296.0,
+        "text": "Functions may not be called here."
+    },
+    {
+        "start": 1296.0,
+        "end": 1306.0,
+        "text": "Could not find default credentials."
+    },
+    {
+        "start": 1306.0,
+        "end": 1317.0,
+        "text": "Okay. So I think where I messed up was the function needs to be called in the main file."
+    },
+    {
+        "start": 1317.0,
+        "end": 1320.0,
+        "text": "So here we'll pass in the path."
+    },
+    {
+        "start": 1320.0,
+        "end": 1326.0,
+        "text": "And here is where we will call our function."
+    },
+    {
+        "start": 1326.0,
+        "end": 1338.0,
+        "text": "And let's see if it's okay with that."
+    },
+    {
+        "start": 1338.0,
+        "end": 1339.0,
+        "text": "Okay."
+    },
+    {
+        "start": 1339.0,
+        "end": 1351.0,
+        "text": "And I did apply instead of plan like I intended, but some very inexpensive resources."
+    },
+    {
+        "start": 1351.0,
+        "end": 1356.0,
+        "text": "And if we look, we can create our bucket."
+    },
+    {
+        "start": 1356.0,
+        "end": 1361.0,
+        "text": "We can create our data set based on that."
+    },
+    {
+        "start": 1361.0,
+        "end": 1365.0,
+        "text": "And of course, do a terraform."
+    },
+    {
+        "start": 1365.0,
+        "end": 1380.0,
+        "text": "Destroy."
+    },
+    {
+        "start": 1380.0,
+        "end": 1383.0,
+        "text": "And our bucket is gone."
+    },
+    {
+        "start": 1383.0,
+        "end": 1392.0,
+        "text": "And in BigQuery, our data set is now gone."
+    },
+    {
+        "start": 1392.0,
+        "end": 1395.0,
+        "text": "And I think we'll leave it there for now."
+    },
+    {
+        "start": 1395.0,
+        "end": 1404.0,
+        "text": "Hopefully you've gotten a taste of the power and flexibility that Terraform gives us defining infrastructure as code."
+    },
+    {
+        "start": 1404.0,
+        "end": 1410.0,
+        "text": "And then we'll be able to just say what resources we would like to create."
+    },
+    {
+        "start": 1410.0,
+        "end": 1417.0,
+        "text": "And then previewing those with Terraform plan, deploying them with Terraform apply."
+    },
+    {
+        "start": 1417.0,
+        "end": 1422.0,
+        "text": "And then having a nice easy cleanup with Terraform destroy."
+    },
+    {
+        "start": 1422.0,
+        "end": 1427.0,
+        "text": "If you're looking to go further, there's plenty of great resources out there."
+    },
+    {
+        "start": 1427.0,
+        "end": 1440.0,
+        "text": "And I recommend looking into something like TFVAR files, which allow you to have different variable files that you can specify when running Terraform apply."
+    },
+    {
+        "start": 1440.0,
+        "end": 1443.0,
+        "text": "I think that's a very powerful tool."
+    },
+    {
+        "start": 1443.0,
+        "end": 1446.0,
+        "text": "Again, this should be enough to get you going."
+    },
+    {
+        "start": 1446.0,
+        "end": 1449.0,
+        "text": "And we will see you in another video."
+    }
+]

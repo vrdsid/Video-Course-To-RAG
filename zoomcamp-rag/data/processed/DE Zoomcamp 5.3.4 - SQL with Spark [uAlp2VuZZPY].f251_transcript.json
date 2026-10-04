@@ -1,0 +1,667 @@
+[
+    {
+        "start": 0.0,
+        "end": 5.36,
+        "text": "Hello everyone, this is another video and in this video we will talk about Spark SQL."
+    },
+    {
+        "start": 5.36,
+        "end": 10.8,
+        "text": "In this video what we will do is we will take querying from week 4 about Tribune calculation"
+    },
+    {
+        "start": 10.8,
+        "end": 15.84,
+        "text": "and we will use Spark for execution this query. We will use the data that we prepared in the previous"
+    },
+    {
+        "start": 15.84,
+        "end": 21.12,
+        "text": "video but as I said the previous video was optional. What you can do is you can just execute"
+    },
+    {
+        "start": 21.12,
+        "end": 27.52,
+        "text": "these two files. So the first one is for downloading the data. You need to execute it for yellow and"
+    },
+    {
+        "start": 27.52,
+        "end": 35.519999999999996,
+        "text": "green taxi for 2021 and then you need to execute this file which would turn cc files into"
+    },
+    {
+        "start": 35.519999999999996,
+        "end": 41.519999999999996,
+        "text": "pocket files. You don't have to actually execute this particular notebook so if you don't do this"
+    },
+    {
+        "start": 41.519999999999996,
+        "end": 48.8,
+        "text": "if you want to use the cc files instead of pocket just be sure that you use schema here to avoid any"
+    },
+    {
+        "start": 48.8,
+        "end": 55.2,
+        "text": "unpleasant surprises. If you use the same schema then things should hopefully work. Let me close this"
+    },
+    {
+        "start": 55.36,
+        "end": 65.04,
+        "text": "and let's start. So I want to create a new notebook so I will call it something like 06 Spark SQL"
+    },
+    {
+        "start": 65.04,
+        "end": 71.44,
+        "text": "and then I will start with the usual import like we do. So I will import by Spark,"
+    },
+    {
+        "start": 71.44,
+        "end": 79.68,
+        "text": "the first part session and I will create a session. Now we should have master UI available for us"
+    },
+    {
+        "start": 80.24000000000001,
+        "end": 89.84,
+        "text": "and now I want to load the green and yellow data sets with taxi tips that we have for 2020 and 2021"
+    },
+    {
+        "start": 89.84,
+        "end": 97.68,
+        "text": "as well. From that I will do Spark edit pocket because we already have this data in pocket and it will"
+    },
+    {
+        "start": 97.68,
+        "end": 106.08000000000001,
+        "text": "be data pocket for example green and what we can do here if we want to read both 2020 and 21 I can"
+    },
+    {
+        "start": 106.08,
+        "end": 111.75999999999999,
+        "text": "just use stars here but then because it has this nested structure because inside a year we have"
+    },
+    {
+        "start": 111.75999999999999,
+        "end": 118.32,
+        "text": "months I need to use stars let's start and then it will go into subfolders and then this will be"
+    },
+    {
+        "start": 118.32,
+        "end": 128.64,
+        "text": "data set green and for data set green just use show. So this is what we have and if I do print schema"
+    },
+    {
+        "start": 128.72,
+        "end": 133.76,
+        "text": "to use this schema from the pocket file and I will do the same thing with yellow taxes."
+    },
+    {
+        "start": 137.6,
+        "end": 144.72,
+        "text": "For yellow taxes it's very similar and now if I look at this query I see that yeah so it uses"
+    },
+    {
+        "start": 144.72,
+        "end": 152.88,
+        "text": "tips data which is a combination of both yellow and green so I want first to combine these two"
+    },
+    {
+        "start": 152.88,
+        "end": 160.32,
+        "text": "data frames into one and we see that let me print again data frame green print schema so we see that"
+    },
+    {
+        "start": 161.28,
+        "end": 168.07999999999998,
+        "text": "some fields are the same so for example we have these congestion supercharge and no fair amount"
+    },
+    {
+        "start": 168.07999999999998,
+        "end": 176.32,
+        "text": "at all in both cases but in some cases for example we do not have this e-mail p so what I want to do"
+    },
+    {
+        "start": 176.32,
+        "end": 182.95999999999998,
+        "text": "now is I want to select fields that both data frames have and use only them so each data frame"
+    },
+    {
+        "start": 182.95999999999998,
+        "end": 190.56,
+        "text": "you can have these columns field that shows what exactly we have there columns and we can just"
+    },
+    {
+        "start": 190.56,
+        "end": 196.0,
+        "text": "take a look at what is common between these two sets of columns and just keep them so the easiest"
+    },
+    {
+        "start": 196.0,
+        "end": 201.51999999999998,
+        "text": "way of doing this will be to use set and then to look at the intersection between two sets but that"
+    },
+    {
+        "start": 201.68,
+        "end": 209.36,
+        "text": "we need to do something like this so it means end so things that live both in this set and in this"
+    },
+    {
+        "start": 209.36,
+        "end": 216.72,
+        "text": "set and we see that these are the columns that both data sets have which is a good start but what I"
+    },
+    {
+        "start": 216.72,
+        "end": 223.92000000000002,
+        "text": "see is they don't have pick up time and drop off time and the reason for that if we do if we go"
+    },
+    {
+        "start": 223.92,
+        "end": 231.11999999999998,
+        "text": "to green columns it's lpp pick up time and for yellow I think it's something else it's tpp"
+    },
+    {
+        "start": 231.11999999999998,
+        "end": 236.95999999999998,
+        "text": "pick up time I don't know why it's different but what we can do is we can just rename these columns"
+    },
+    {
+        "start": 236.95999999999998,
+        "end": 244.32,
+        "text": "can I use this special function with column renamed and let's start with green so for green"
+    },
+    {
+        "start": 244.32,
+        "end": 252.39999999999998,
+        "text": "let's start with green columns and it's lpp so first here the current one and then the new name"
+    },
+    {
+        "start": 252.4,
+        "end": 261.68,
+        "text": "so just call it pick up date time and I will do the same thing but for drop off so drop off will be"
+    },
+    {
+        "start": 262.56,
+        "end": 268.96,
+        "text": "drop off and I will just write it back to the data frame green okay I don't need that one"
+    },
+    {
+        "start": 268.96,
+        "end": 275.84000000000003,
+        "text": "and now if I look at green columns this is different now let me remove that and I will do the"
+    },
+    {
+        "start": 275.84,
+        "end": 287.59999999999997,
+        "text": "same thing with yellow and there so let me again take a look at yellow columns it's tpp so I need"
+    },
+    {
+        "start": 287.59999999999997,
+        "end": 296.79999999999995,
+        "text": "to replace lpp then I would just execute that and here now we have drop off date time and pick up"
+    },
+    {
+        "start": 296.79999999999995,
+        "end": 302.88,
+        "text": "and I see that actually the order now is different but look at the columns here"
+    },
+    {
+        "start": 303.36,
+        "end": 309.84,
+        "text": "so it starts with vendor ID and then you see it I think it's sorted it starts with the"
+    },
+    {
+        "start": 309.84,
+        "end": 317.84,
+        "text": "with capital letters I want to preserve the order with the same as here so for that what I will do"
+    },
+    {
+        "start": 317.84,
+        "end": 324.0,
+        "text": "is I will go for each column from the green dataset I will look if this is already in the yellow"
+    },
+    {
+        "start": 324.0,
+        "end": 330.48,
+        "text": "dataset and then I will just create common columns so it will be an empty list and I will go for"
+    },
+    {
+        "start": 330.56,
+        "end": 338.56,
+        "text": "each column over each column in the green dataset let me give this one yellow columns"
+    },
+    {
+        "start": 339.20000000000005,
+        "end": 346.08000000000004,
+        "text": "and then if column is in this yellow then I will append to this common columns"
+    },
+    {
+        "start": 347.76,
+        "end": 354.08000000000004,
+        "text": "something like this and then yeah now the order is preserved so this is the same order"
+    },
+    {
+        "start": 354.08000000000004,
+        "end": 358.48,
+        "text": "and we have this pick up date time drop off date time so things look good"
+    },
+    {
+        "start": 358.48,
+        "end": 365.76,
+        "text": "and now we want to select these things from both datasets so for that we use select that"
+    },
+    {
+        "start": 365.76,
+        "end": 372.48,
+        "text": "the data frame green select common columns and then remember so now I can show you it selects it's"
+    },
+    {
+        "start": 372.48,
+        "end": 378.0,
+        "text": "like select and then list of columns like what you in SQL and when we combine these two datasets we"
+    },
+    {
+        "start": 378.0,
+        "end": 384.48,
+        "text": "need to know where exactly each record comes from whether it comes from green dataset or yellow"
+    },
+    {
+        "start": 384.72,
+        "end": 392.40000000000003,
+        "text": "this is what service type is so I will do it with column then I will name it service type"
+    },
+    {
+        "start": 394.8,
+        "end": 401.04,
+        "text": "and then I'll just do green okay yeah I think I need to use I need to use from"
+    },
+    {
+        "start": 401.6,
+        "end": 409.04,
+        "text": "PassPark SQL I need to use a function import functions as cover left and the function I need to use"
+    },
+    {
+        "start": 409.04,
+        "end": 416.8,
+        "text": "here is lit which is literal now it works yeah so now we see we have this service type in"
+    },
+    {
+        "start": 416.8,
+        "end": 423.52000000000004,
+        "text": "your column and then I'll call this data frame green let's call it cell select it I don't know"
+    },
+    {
+        "start": 423.52000000000004,
+        "end": 431.12,
+        "text": "I don't have a better name right now and then I will do the same thing with yellow yellow"
+    },
+    {
+        "start": 432.0,
+        "end": 439.12,
+        "text": "and service type in this case will be yellow so now we can I don't know combine them into one and we"
+    },
+    {
+        "start": 439.12,
+        "end": 446.24,
+        "text": "can call this tips data so I will call it also the frame tips data which will be a union of"
+    },
+    {
+        "start": 446.24,
+        "end": 454.32,
+        "text": "data frame green selected union all data frame yellow selected so now it will be both data frames"
+    },
+    {
+        "start": 454.32,
+        "end": 459.68,
+        "text": "combined into one we can maybe do something like group by the service type and then to count"
+    },
+    {
+        "start": 460.64,
+        "end": 467.68,
+        "text": "it should be string of course we need to also this is a lazy operation so it returns another data frame"
+    },
+    {
+        "start": 467.68,
+        "end": 474.48,
+        "text": "so to actually trigger the execution we need to do show and now it counts how many records of each"
+    },
+    {
+        "start": 474.48,
+        "end": 481.6,
+        "text": "service type we have and we see it here of course we haven't really used SQL so far now we can see"
+    },
+    {
+        "start": 481.6,
+        "end": 487.52,
+        "text": "how to use SQL for querying this data and in Spark there is this thing called SQL and we can"
+    },
+    {
+        "start": 487.59999999999997,
+        "end": 494.15999999999997,
+        "text": "write a query here select star from and now we have this from like what exactly can we put here"
+    },
+    {
+        "start": 494.15999999999997,
+        "end": 501.03999999999996,
+        "text": "so we cannot put the name of the other frame I don't think we can let me try it will say okay"
+    },
+    {
+        "start": 501.03999999999996,
+        "end": 507.2,
+        "text": "I don't know what it is so what we need to do is we need to tell Spark that this data frame is a"
+    },
+    {
+        "start": 507.2,
+        "end": 514.0799999999999,
+        "text": "table and for that we do data frame that's just a temporary table and we can call this table for"
+    },
+    {
+        "start": 514.08,
+        "end": 522.8000000000001,
+        "text": "example tripstata now if we do this thing now yeah we can do show and then it will actually"
+    },
+    {
+        "start": 522.8000000000001,
+        "end": 529.76,
+        "text": "access this data frame and it will do something with this for example we can do count"
+    },
+    {
+        "start": 530.88,
+        "end": 541.76,
+        "text": "and what else yes service type count from tripstata group by service type right and then the result"
+    },
+    {
+        "start": 541.84,
+        "end": 548.8,
+        "text": "should be exactly the same as we had here let me execute that we have exactly the same result"
+    },
+    {
+        "start": 548.8,
+        "end": 554.56,
+        "text": "well the name is a little bit different but this is the same result okay now we have that let me"
+    },
+    {
+        "start": 554.56,
+        "end": 562.3199999999999,
+        "text": "execute this query I will edit this slightly so I will open Visual Studio code and I'll use capital"
+    },
+    {
+        "start": 562.8000000000001,
+        "end": 571.7600000000001,
+        "text": "here here also our place everything is capital we don't need this node here and here everything will"
+    },
+    {
+        "start": 571.7600000000001,
+        "end": 578.72,
+        "text": "be capital if he I think this is specific to green data sets so I will just remove it"
+    },
+    {
+        "start": 579.84,
+        "end": 588.08,
+        "text": "I'll also do that I'm first okay then we selected from tripstata and then group by 1"
+    },
+    {
+        "start": 588.1600000000001,
+        "end": 594.24,
+        "text": "with 3 and we can also just explicitly say that want to group by a TV new zone then a"
+    },
+    {
+        "start": 594.24,
+        "end": 602.88,
+        "text": "TV new month and service type but this will be the query that we will execute so let me"
+    },
+    {
+        "start": 602.88,
+        "end": 611.5200000000001,
+        "text": "copy this and paste it here and I will call this data frame result so not do show to complain"
+    },
+    {
+        "start": 611.6,
+        "end": 619.12,
+        "text": "it's about something you can do this all 3 in your zone maybe let me just try to group by 1 2 3"
+    },
+    {
+        "start": 620.3199999999999,
+        "end": 628.16,
+        "text": "and 3 by D I know what 3 by D is I'll just remove that okay seems to work now let me just do"
+    },
+    {
+        "start": 628.16,
+        "end": 637.12,
+        "text": "the data frame result show this will be doing things for each month because we loaded the data"
+    },
+    {
+        "start": 637.12,
+        "end": 643.12,
+        "text": "for many years at the same time we think probably can just execute it for every month separately"
+    },
+    {
+        "start": 643.12,
+        "end": 648.96,
+        "text": "but here just for the sake of doing this we can do this for the entire month so for each trip in your"
+    },
+    {
+        "start": 648.96,
+        "end": 654.5600000000001,
+        "text": "zone for each month we have these statistics right now more we can do with these results is just"
+    },
+    {
+        "start": 654.5600000000001,
+        "end": 663.04,
+        "text": "save this so we can do data frame result write part cat and we can specify a location like data"
+    },
+    {
+        "start": 663.04,
+        "end": 671.1999999999999,
+        "text": "process maybe data report and here we can say maybe revenue somehow like this or ideally we would"
+    },
+    {
+        "start": 671.1999999999999,
+        "end": 678.56,
+        "text": "do this for each year separately but because I already do this for 2020 and 21 I will just do this"
+    },
+    {
+        "start": 678.56,
+        "end": 686.0799999999999,
+        "text": "and then execute this and now we can go to our spark master UI and then see what it's actually"
+    },
+    {
+        "start": 686.08,
+        "end": 693.9200000000001,
+        "text": "doing so there are 215 tasks five of them are running and there are multiple stages let's"
+    },
+    {
+        "start": 693.9200000000001,
+        "end": 699.2800000000001,
+        "text": "click on this to see what exactly is going on here and here you see that there are two things"
+    },
+    {
+        "start": 699.2800000000001,
+        "end": 705.6,
+        "text": "that are combined so one of them is our yellow taxi data frame and the other one is green taxi"
+    },
+    {
+        "start": 705.6,
+        "end": 711.2,
+        "text": "data set this whole stage code again is when we add new columns and do things like that and then"
+    },
+    {
+        "start": 711.2,
+        "end": 718.24,
+        "text": "we combine them into one and then we do some other things maybe this date trunk or things like this"
+    },
+    {
+        "start": 718.24,
+        "end": 724.6400000000001,
+        "text": "and then we also here to group by and maybe in one of the other lessons we'll talk how it's"
+    },
+    {
+        "start": 724.6400000000001,
+        "end": 730.4000000000001,
+        "text": "implemented by internally it writes data to some temporary locations and it waits till all the"
+    },
+    {
+        "start": 730.4000000000001,
+        "end": 735.36,
+        "text": "executors finish this and then it starts the next stage and then in the next stage gets all these"
+    },
+    {
+        "start": 735.36,
+        "end": 742.32,
+        "text": "temporary results and puts them together then I think it does some extra post processing and then"
+    },
+    {
+        "start": 742.32,
+        "end": 748.0,
+        "text": "saves the results to pocket and let's see yeah it actually finished while I was talking about this"
+    },
+    {
+        "start": 748.0,
+        "end": 758.32,
+        "text": "so the data should be here and if I open it in terminal so now if I go to data report revenue"
+    },
+    {
+        "start": 758.4000000000001,
+        "end": 764.8000000000001,
+        "text": "I get quite a lot of files so let's see the size of these files so they're super small it's"
+    },
+    {
+        "start": 764.8000000000001,
+        "end": 771.36,
+        "text": "7kWh 6kWh and we have 200 of such files it will be actually convenient to reduce this"
+    },
+    {
+        "start": 771.36,
+        "end": 776.32,
+        "text": "the number of files for that we can use the thing called callless it's the same as repetition"
+    },
+    {
+        "start": 776.32,
+        "end": 782.0,
+        "text": "but callless we use when we want to reduce the number of partitions so let's say we want to reduce"
+    },
+    {
+        "start": 782.0,
+        "end": 786.96,
+        "text": "it to only one partition so we just want to have one file here instead of having 200"
+    },
+    {
+        "start": 787.6800000000001,
+        "end": 794.1600000000001,
+        "text": "and if we execute now it says path already exists so we need to say that mode is over right"
+    },
+    {
+        "start": 795.52,
+        "end": 800.32,
+        "text": "it wasn't too long it took 26 seconds which should be pretty fast"
+    },
+    {
+        "start": 802.64,
+        "end": 809.6800000000001,
+        "text": "let's now it's writing the results yeah there are some statistics here but I think it was finished"
+    },
+    {
+        "start": 809.6800000000001,
+        "end": 814.88,
+        "text": "yeah it is finished so the results are here now let me do a list I can get to go"
+    },
+    {
+        "start": 815.84,
+        "end": 817.4399999999999,
+        "text": "yeah and if I do a list"
+    },
+    {
+        "start": 818.96,
+        "end": 825.84,
+        "text": "each yes we have one file 500 kilobytes and it has all the revenue data for each month for each"
+    },
+    {
+        "start": 825.84,
+        "end": 832.48,
+        "text": "taxidip for each revenue location so this is how we took this query and put this to spark and"
+    },
+    {
+        "start": 832.48,
+        "end": 838.96,
+        "text": "the thing here with spark is we wrote the results back to our well we pretend this is a data"
+    },
+    {
+        "start": 838.96,
+        "end": 843.36,
+        "text": "leak so we wrote the results back to a layer leak it's still a bunch of files we didn't write"
+    },
+    {
+        "start": 843.36,
+        "end": 849.84,
+        "text": "results to a data warehouse yet so we can operate completely in a data leak so we don't need to"
+    },
+    {
+        "start": 849.84,
+        "end": 857.12,
+        "text": "actually go to a data warehouse this is when spark comes in handy and then remember in the beginning"
+    },
+    {
+        "start": 857.12,
+        "end": 863.36,
+        "text": "I was talking about when to spark and when not to spark and I mentioned that if you can use sickle"
+    },
+    {
+        "start": 863.36,
+        "end": 868.8000000000001,
+        "text": "then you don't need to spark maybe you can use something else but you don't always have these"
+    },
+    {
+        "start": 868.8,
+        "end": 875.3599999999999,
+        "text": "tools like high f and presto and if you already have a spark cluster why not use it for executing"
+    },
+    {
+        "start": 875.3599999999999,
+        "end": 880.8,
+        "text": "sickle queries but then in addition you get a bit of other things like you can do this thing for"
+    },
+    {
+        "start": 880.8,
+        "end": 886.7199999999999,
+        "text": "example well this maybe is not a great example because you can do all these things with sickle"
+    },
+    {
+        "start": 886.7199999999999,
+        "end": 892.9599999999999,
+        "text": "like including union all and all that now but this is still a good example of how you can use"
+    },
+    {
+        "start": 892.9599999999999,
+        "end": 898.24,
+        "text": "spark to execute sickle queries on your files in a data lake so this is all I wanted to cover in"
+    },
+    {
+        "start": 898.24,
+        "end": 905.04,
+        "text": "this lesson and the next one is about joints and I think maybe in addition to joints I want to"
+    },
+    {
+        "start": 905.04,
+        "end": 911.36,
+        "text": "spend some time talking about group by so maybe I will call it differently so I think exactly how"
+    },
+    {
+        "start": 911.36,
+        "end": 918.16,
+        "text": "I will call it not actually group by and joints are somewhat similar so I will talk about both"
+    },
+    {
+        "start": 918.16,
+        "end": 924.72,
+        "text": "of these things maybe I will call it into soft spark well anyways I'll figure out how to name it"
+    },
+    {
+        "start": 924.72,
+        "end": 930.32,
+        "text": "but I want to talk about different types of joints in spark and also I will probably touch"
+    },
+    {
+        "start": 930.32,
+        "end": 939.12,
+        "text": "and see you soon"
+    }
+]

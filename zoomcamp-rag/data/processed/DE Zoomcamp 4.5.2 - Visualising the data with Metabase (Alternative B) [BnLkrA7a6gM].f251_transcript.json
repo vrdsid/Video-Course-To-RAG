@@ -1,0 +1,1062 @@
+[
+    {
+        "start": 0.0,
+        "end": 6.68,
+        "text": "Now that we have transform our data and we run it in our production environment after"
+    },
+    {
+        "start": 6.68,
+        "end": 9.32,
+        "text": "deployment, it's time to visualize it."
+    },
+    {
+        "start": 9.32,
+        "end": 16.4,
+        "text": "When we're working locally in our post-curricular environment, we can't use a tool like Data"
+    },
+    {
+        "start": 16.4,
+        "end": 17.68,
+        "text": "Studio."
+    },
+    {
+        "start": 17.68,
+        "end": 22.400000000000002,
+        "text": "And for that reason, we're going to be using MetaVase as an alternative."
+    },
+    {
+        "start": 22.400000000000002,
+        "end": 28.12,
+        "text": "MetaVase has a cloud environment solution as well, but they have an open source edition"
+    },
+    {
+        "start": 28.12,
+        "end": 29.76,
+        "text": "that's free to use."
+    },
+    {
+        "start": 29.76,
+        "end": 32.88,
+        "text": "And that we can install locally."
+    },
+    {
+        "start": 32.88,
+        "end": 38.36,
+        "text": "They already from Europe page, if you go to get a start it, they're going to try to"
+    },
+    {
+        "start": 38.36,
+        "end": 42.96,
+        "text": "first welcome you to the cloud solution that they provide."
+    },
+    {
+        "start": 42.96,
+        "end": 49.2,
+        "text": "But if you go here to the open source, then you'll be able to find the Docker image."
+    },
+    {
+        "start": 49.2,
+        "end": 54.32000000000001,
+        "text": "You can get it directly from Docker Hub and then run it in your port 3000."
+    },
+    {
+        "start": 54.32,
+        "end": 60.76,
+        "text": "You have to make sure that your post-curricular environment is also available because we're"
+    },
+    {
+        "start": 60.76,
+        "end": 62.92,
+        "text": "going to be connected to the database."
+    },
+    {
+        "start": 62.92,
+        "end": 70.2,
+        "text": "Otherwise, you could also use the sharp file locally to run MetaVase."
+    },
+    {
+        "start": 70.2,
+        "end": 78.2,
+        "text": "And this other stuff, it's going to start working in our local host in this port 3000."
+    },
+    {
+        "start": 78.2,
+        "end": 83.72,
+        "text": "At the beginning, it's going to ask a few things for dissidents like a user and the connection"
+    },
+    {
+        "start": 83.72,
+        "end": 88.2,
+        "text": "to the database, which database do you want to use exactly?"
+    },
+    {
+        "start": 88.2,
+        "end": 90.6,
+        "text": "I put a name to it."
+    },
+    {
+        "start": 90.6,
+        "end": 98.4,
+        "text": "And because of that, now I have already all of these keymas that I have available."
+    },
+    {
+        "start": 98.4,
+        "end": 106.52,
+        "text": "Something really nice about MetaVase is that, let's say I chose here my local development."
+    },
+    {
+        "start": 106.52,
+        "end": 113.68,
+        "text": "I can go to one table, I can see already several tiles about that table that I should have"
+    },
+    {
+        "start": 113.68,
+        "end": 118.48,
+        "text": "generated automatically."
+    },
+    {
+        "start": 118.48,
+        "end": 122.48,
+        "text": "Within this panel, I can also apply filters."
+    },
+    {
+        "start": 122.48,
+        "end": 128.76000000000002,
+        "text": "So something like a voro, for example, it's going to identify some of them, but I could"
+    },
+    {
+        "start": 128.76000000000002,
+        "end": 137.32,
+        "text": "also go and update this tiles to swim into several fields that I would like to see."
+    },
+    {
+        "start": 137.32,
+        "end": 142.8,
+        "text": "And it also even generates some related questions that we would like to answer with the data,"
+    },
+    {
+        "start": 142.8,
+        "end": 143.8,
+        "text": "for example."
+    },
+    {
+        "start": 143.8,
+        "end": 152.12,
+        "text": "And here we're going to see a distribution for all of the fields, most of our call-lamps."
+    },
+    {
+        "start": 152.12,
+        "end": 159.32000000000002,
+        "text": "We can click show more about this and there are also going to show us some time series,"
+    },
+    {
+        "start": 159.32000000000002,
+        "end": 162.88000000000002,
+        "text": "some other distributions."
+    },
+    {
+        "start": 162.88000000000002,
+        "end": 168.52,
+        "text": "And this is very nice for us to already be able to explore the data, especially when"
+    },
+    {
+        "start": 168.52,
+        "end": 173.72,
+        "text": "it's new and we may not know very well what kind of graph we would like to do."
+    },
+    {
+        "start": 173.72,
+        "end": 179.28,
+        "text": "In here, all of the graphs, there are also interactive, so you can go in the graph and then"
+    },
+    {
+        "start": 179.28,
+        "end": 181.60000000000002,
+        "text": "you could check the numbers."
+    },
+    {
+        "start": 181.60000000000002,
+        "end": 188.4,
+        "text": "You can also, if you click here, for example, you can zoom in into this specific column,"
+    },
+    {
+        "start": 188.4,
+        "end": 191.0,
+        "text": "you can use them as filters."
+    },
+    {
+        "start": 191.0,
+        "end": 197.04000000000002,
+        "text": "So if I go here, I could go directly to the graph, for example, I could compare them with"
+    },
+    {
+        "start": 197.04,
+        "end": 202.28,
+        "text": "the others, I could filter by this file here and make sure that I only have a count"
+    },
+    {
+        "start": 202.28,
+        "end": 204.79999999999998,
+        "text": "that is equal to that."
+    },
+    {
+        "start": 204.79999999999998,
+        "end": 213.23999999999998,
+        "text": "And let's now go back to the x-ray dashboard."
+    },
+    {
+        "start": 213.23999999999998,
+        "end": 220.28,
+        "text": "And you could save this dashboard as well if you wanted to, that it was generated for"
+    },
+    {
+        "start": 220.28,
+        "end": 223.12,
+        "text": "us."
+    },
+    {
+        "start": 223.12,
+        "end": 226.4,
+        "text": "We are now going to create some questions."
+    },
+    {
+        "start": 226.4,
+        "end": 229.08,
+        "text": "All of this, there are cool questions here in MetaVe."
+    },
+    {
+        "start": 229.08,
+        "end": 238.76,
+        "text": "So the tiles, everything that it's here, everything that appears here, these are questions."
+    },
+    {
+        "start": 238.76,
+        "end": 243.64000000000001,
+        "text": "And we're going to go here and select fact trips."
+    },
+    {
+        "start": 243.64000000000001,
+        "end": 248.6,
+        "text": "If we go to here already two fact trips, we're going to find two things."
+    },
+    {
+        "start": 248.6,
+        "end": 253.68,
+        "text": "One, it would be the tables in a database and the other one, it would be the questions,"
+    },
+    {
+        "start": 253.68,
+        "end": 257.8,
+        "text": "which are the tiles for dashboard that I say before."
+    },
+    {
+        "start": 257.8,
+        "end": 261.71999999999997,
+        "text": "So from here, we're going to be using the table."
+    },
+    {
+        "start": 261.71999999999997,
+        "end": 266.84,
+        "text": "But from here, another nice thing is that you could go directly to, let's say we see"
+    },
+    {
+        "start": 266.84,
+        "end": 269.8,
+        "text": "that the table is in this database and then in this schema."
+    },
+    {
+        "start": 269.8,
+        "end": 276.68,
+        "text": "So I could click in this schema and I could see, so I could go also to a database and check"
+    },
+    {
+        "start": 276.72,
+        "end": 278.32,
+        "text": "my schema."
+    },
+    {
+        "start": 278.32,
+        "end": 285.76,
+        "text": "And I could go here and I could click on any of my tables and do something like the X-ray"
+    },
+    {
+        "start": 285.76,
+        "end": 290.0,
+        "text": "and I would come back to this."
+    },
+    {
+        "start": 290.0,
+        "end": 293.96000000000004,
+        "text": "And I could also do something like this, learn about a disable and I would have something"
+    },
+    {
+        "start": 293.96000000000004,
+        "end": 299.72,
+        "text": "similar to a data dictionary where I could have, for example, potential useful questions"
+    },
+    {
+        "start": 299.72,
+        "end": 304.92,
+        "text": "and I could even go and click, I could directly go and see the raw data as well."
+    },
+    {
+        "start": 304.96000000000004,
+        "end": 313.68,
+        "text": "I could check the fields, I could see the data type, so like some basic information"
+    },
+    {
+        "start": 313.68,
+        "end": 319.76,
+        "text": "and I could hear link questions that I want to do about this table."
+    },
+    {
+        "start": 319.76,
+        "end": 325.12,
+        "text": "And once again, here we can go to the X-ray of the table, which is the main dashboard."
+    },
+    {
+        "start": 325.12,
+        "end": 329.12,
+        "text": "So let's go back here and let's create a question."
+    },
+    {
+        "start": 329.12,
+        "end": 337.84000000000003,
+        "text": "We're going to be using this one."
+    },
+    {
+        "start": 337.84000000000003,
+        "end": 341.4,
+        "text": "And the questions they mainly have three components."
+    },
+    {
+        "start": 341.4,
+        "end": 345.12,
+        "text": "One is the data and here we could join with other data."
+    },
+    {
+        "start": 345.12,
+        "end": 349.16,
+        "text": "We could filter the columns that we want to, maybe we don't want all of the tables in"
+    },
+    {
+        "start": 349.16,
+        "end": 352.6,
+        "text": "factory, we only want to use a few."
+    },
+    {
+        "start": 352.6,
+        "end": 357.08,
+        "text": "We could also create our own question columns and the custom columns were mainly going"
+    },
+    {
+        "start": 357.08,
+        "end": 359.84,
+        "text": "to be able to use mass formula."
+    },
+    {
+        "start": 359.84,
+        "end": 365.12,
+        "text": "They don't have many formula like we did in data studio to truncate the months or the"
+    },
+    {
+        "start": 365.12,
+        "end": 370.47999999999996,
+        "text": "years and you could create that field."
+    },
+    {
+        "start": 370.47999999999996,
+        "end": 373.32,
+        "text": "We're going to remove this one."
+    },
+    {
+        "start": 373.32,
+        "end": 375.0,
+        "text": "We can add some filters."
+    },
+    {
+        "start": 375.0,
+        "end": 382.96,
+        "text": "So let's think about pick up data and for example, that we only want the data for 2019 and"
+    },
+    {
+        "start": 382.96,
+        "end": 384.84,
+        "text": "2020."
+    },
+    {
+        "start": 384.84,
+        "end": 390.88,
+        "text": "But you could even define already something like pick always the last month or the last"
+    },
+    {
+        "start": 390.88,
+        "end": 395.23999999999995,
+        "text": "week, which is very useful."
+    },
+    {
+        "start": 395.23999999999995,
+        "end": 405.12,
+        "text": "Let's do that's a friend, the beginning of January 2019 until the end of December 2020."
+    },
+    {
+        "start": 405.12,
+        "end": 408.55999999999995,
+        "text": "And here we're going to say what is that we want to see?"
+    },
+    {
+        "start": 408.55999999999995,
+        "end": 413.55999999999995,
+        "text": "So let's say the counter froze and again, you can create your own expressions as well."
+    },
+    {
+        "start": 414.56,
+        "end": 418.44,
+        "text": "Something that I also like is that all of this."
+    },
+    {
+        "start": 418.44,
+        "end": 422.4,
+        "text": "These are very self explanatories reading that the average."
+    },
+    {
+        "start": 422.4,
+        "end": 429.04,
+        "text": "But from here you can see the whole name and the whole explanation of what the metric"
+    },
+    {
+        "start": 429.04,
+        "end": 430.04,
+        "text": "is about."
+    },
+    {
+        "start": 430.04,
+        "end": 433.32,
+        "text": "Let's do the counter froze."
+    },
+    {
+        "start": 433.32,
+        "end": 438.04,
+        "text": "And here we're going to select the fields that we want to group that by."
+    },
+    {
+        "start": 439.04,
+        "end": 444.6,
+        "text": "So for example, the pick up location, the pick up data."
+    },
+    {
+        "start": 444.6,
+        "end": 449.68,
+        "text": "And from here we can already see the type of data that we're talking about."
+    },
+    {
+        "start": 449.68,
+        "end": 455.20000000000005,
+        "text": "And in this case that it's a daytime, I could select something like the dimension."
+    },
+    {
+        "start": 455.20000000000005,
+        "end": 461.12,
+        "text": "So this would be something like the equivalent to what we did in Google studio that we took"
+    },
+    {
+        "start": 461.12,
+        "end": 466.96000000000004,
+        "text": "the month out of the pick up data and we took the year."
+    },
+    {
+        "start": 466.96,
+        "end": 474.79999999999995,
+        "text": "So let's say that I'll pick the week here and I could pick other fields."
+    },
+    {
+        "start": 474.79999999999995,
+        "end": 482.96,
+        "text": "Something to have in mind is that we can always pick it feel only once, which means that I"
+    },
+    {
+        "start": 482.96,
+        "end": 487.84,
+        "text": "cannot, I'm not able to do like I didn't go to the data studio that I pick the week"
+    },
+    {
+        "start": 487.84,
+        "end": 491.32,
+        "text": "and then I pick also the year."
+    },
+    {
+        "start": 491.32,
+        "end": 498.44,
+        "text": "If I go here to daytime, then I would see the dropout data and for example."
+    },
+    {
+        "start": 498.44,
+        "end": 504.88,
+        "text": "From here I can already click on preview and then the preview which home me a table,"
+    },
+    {
+        "start": 504.88,
+        "end": 508.52,
+        "text": "which would be the result of this data."
+    },
+    {
+        "start": 508.52,
+        "end": 513.88,
+        "text": "I could also set some things like a sorting."
+    },
+    {
+        "start": 513.88,
+        "end": 522.4,
+        "text": "So if I want to order the send in or if I want to set a road limit, so if I only want"
+    },
+    {
+        "start": 522.4,
+        "end": 526.84,
+        "text": "to see the first time rows or something like that."
+    },
+    {
+        "start": 526.84,
+        "end": 532.36,
+        "text": "And another thing that I could also do is add another filter of course, but then I could"
+    },
+    {
+        "start": 532.36,
+        "end": 534.12,
+        "text": "also add another summarize."
+    },
+    {
+        "start": 534.12,
+        "end": 541.52,
+        "text": "So I want to have the count by daytime, but I also want to have the average for example."
+    },
+    {
+        "start": 541.52,
+        "end": 545.96,
+        "text": "And once we do this, we're going to click visualize."
+    },
+    {
+        "start": 545.96,
+        "end": 551.1999999999999,
+        "text": "Unfortunately this with Postgres is taken a lot of time and for that reason, but I had"
+    },
+    {
+        "start": 551.1999999999999,
+        "end": 555.52,
+        "text": "already created the question before and this is how it looks like."
+    },
+    {
+        "start": 555.52,
+        "end": 559.64,
+        "text": "So if you see here is the same filter that I have defined."
+    },
+    {
+        "start": 559.64,
+        "end": 565.56,
+        "text": "Here I have defined a week and we can see already how it looks like."
+    },
+    {
+        "start": 565.56,
+        "end": 570.52,
+        "text": "If we are here, we can go back to the editor."
+    },
+    {
+        "start": 570.52,
+        "end": 580.0799999999999,
+        "text": "So this part and if we go here, we could define another filters."
+    },
+    {
+        "start": 580.0799999999999,
+        "end": 591.88,
+        "text": "So let's say service type and then I could select I could apply a filter."
+    },
+    {
+        "start": 591.88,
+        "end": 598.04,
+        "text": "And I could go here in visualization and I could seem like change it if I wanted to."
+    },
+    {
+        "start": 598.04,
+        "end": 608.9599999999999,
+        "text": "So let's say instead of this one, I want to have a bar and it would change it."
+    },
+    {
+        "start": 608.9599999999999,
+        "end": 610.76,
+        "text": "Let's go back."
+    },
+    {
+        "start": 610.76,
+        "end": 618.28,
+        "text": "Let's use a line and here in the access, I could change smaller scenes like how do I want"
+    },
+    {
+        "start": 618.28,
+        "end": 619.9599999999999,
+        "text": "to show all of this dates?"
+    },
+    {
+        "start": 619.9599999999999,
+        "end": 624.36,
+        "text": "For example, do want to have them shortened."
+    },
+    {
+        "start": 624.36,
+        "end": 629.4,
+        "text": "Let's go back."
+    },
+    {
+        "start": 629.4,
+        "end": 632.64,
+        "text": "And here and their settings, you can define other things."
+    },
+    {
+        "start": 632.64,
+        "end": 636.36,
+        "text": "So for example, I want this to be a different color."
+    },
+    {
+        "start": 636.36,
+        "end": 639.64,
+        "text": "I want to have it filled here."
+    },
+    {
+        "start": 639.64,
+        "end": 641.6800000000001,
+        "text": "I want to change the style of the line."
+    },
+    {
+        "start": 641.6800000000001,
+        "end": 646.76,
+        "text": "I want to make it softer or I want to make it more square."
+    },
+    {
+        "start": 646.76,
+        "end": 648.8000000000001,
+        "text": "Do I want to show the dots here?"
+    },
+    {
+        "start": 648.8000000000001,
+        "end": 654.04,
+        "text": "This is small dots, which are kind of quite nice."
+    },
+    {
+        "start": 654.04,
+        "end": 662.16,
+        "text": "I can add different, do I want to have for example the trend line?"
+    },
+    {
+        "start": 662.16,
+        "end": 663.16,
+        "text": "Take that out."
+    },
+    {
+        "start": 663.16,
+        "end": 665.56,
+        "text": "It's too much and done."
+    },
+    {
+        "start": 665.56,
+        "end": 666.56,
+        "text": "Okay."
+    },
+    {
+        "start": 666.56,
+        "end": 670.68,
+        "text": "And here I have the option as well to see this as a table."
+    },
+    {
+        "start": 670.68,
+        "end": 672.64,
+        "text": "And I can download my data as well."
+    },
+    {
+        "start": 672.64,
+        "end": 676.92,
+        "text": "So I can download this if I wanted to have this as a result."
+    },
+    {
+        "start": 676.92,
+        "end": 679.28,
+        "text": "I could save it."
+    },
+    {
+        "start": 679.28,
+        "end": 681.3199999999999,
+        "text": "And we now can save it."
+    },
+    {
+        "start": 681.32,
+        "end": 686.12,
+        "text": "So this question, we can put a name to it."
+    },
+    {
+        "start": 686.12,
+        "end": 692.0400000000001,
+        "text": "So doodle, treeps per week."
+    },
+    {
+        "start": 692.0400000000001,
+        "end": 698.12,
+        "text": "For example, I could add this description that would go to what we saw at the data dictionary."
+    },
+    {
+        "start": 698.12,
+        "end": 701.32,
+        "text": "And I could also set several folders."
+    },
+    {
+        "start": 701.32,
+        "end": 707.2800000000001,
+        "text": "And I could save them in a folder if I wanted to use it later on."
+    },
+    {
+        "start": 707.2800000000001,
+        "end": 709.12,
+        "text": "Save this."
+    },
+    {
+        "start": 709.12,
+        "end": 713.76,
+        "text": "And here, right, the folder already tells me if I want to add it to a dashboard, I'm going"
+    },
+    {
+        "start": 713.76,
+        "end": 715.52,
+        "text": "to fit them now."
+    },
+    {
+        "start": 715.52,
+        "end": 718.72,
+        "text": "And we're going to create a dashboard."
+    },
+    {
+        "start": 718.72,
+        "end": 724.48,
+        "text": "I kind of already created all of their questions because this was taking a long time."
+    },
+    {
+        "start": 724.48,
+        "end": 726.52,
+        "text": "So I created them."
+    },
+    {
+        "start": 726.52,
+        "end": 732.24,
+        "text": "And if we go not to dashboard, we can create a new dashboard."
+    },
+    {
+        "start": 732.24,
+        "end": 740.64,
+        "text": "So my dashboard about treeps."
+    },
+    {
+        "start": 740.64,
+        "end": 745.96,
+        "text": "You can again choose if you wanted to have a folder, if you want to add a description."
+    },
+    {
+        "start": 745.96,
+        "end": 749.52,
+        "text": "And here what we're going to do is just add questions."
+    },
+    {
+        "start": 749.52,
+        "end": 758.04,
+        "text": "So once we click in our questions, we can even take the questions, for example, that we"
+    },
+    {
+        "start": 758.04,
+        "end": 760.36,
+        "text": "have generated from before."
+    },
+    {
+        "start": 760.36,
+        "end": 763.52,
+        "text": "And here they're going to be loading."
+    },
+    {
+        "start": 763.52,
+        "end": 769.96,
+        "text": "We could also add some filters like we saw, for example, in the dashboards that were generated,"
+    },
+    {
+        "start": 769.96,
+        "end": 771.5600000000001,
+        "text": "that we already had some filters."
+    },
+    {
+        "start": 771.5600000000001,
+        "end": 780.2,
+        "text": "So we could add something like, for example, a month or a year, or we could also do here"
+    },
+    {
+        "start": 780.2,
+        "end": 784.52,
+        "text": "the last seven days, like we said before."
+    },
+    {
+        "start": 784.52,
+        "end": 789.9200000000001,
+        "text": "And I actually had already created a dashboard here because it was taken too long."
+    },
+    {
+        "start": 790.64,
+        "end": 793.5999999999999,
+        "text": "Here is how it would look like."
+    },
+    {
+        "start": 793.5999999999999,
+        "end": 798.3199999999999,
+        "text": "You have a grid and then you can just play around with the sync."
+    },
+    {
+        "start": 798.3199999999999,
+        "end": 802.52,
+        "text": "With the tiles, you can make them bigger, you can make them smaller."
+    },
+    {
+        "start": 802.52,
+        "end": 808.88,
+        "text": "And also let's say here, for example, I have several colors and they don't match very"
+    },
+    {
+        "start": 808.88,
+        "end": 810.12,
+        "text": "well."
+    },
+    {
+        "start": 810.12,
+        "end": 818.56,
+        "text": "So I could go to the tile and I could go here to visualization options and I could change"
+    },
+    {
+        "start": 818.56,
+        "end": 824.3199999999999,
+        "text": "something like I don't like the title, for example, it doesn't match or I could change the"
+    },
+    {
+        "start": 824.3199999999999,
+        "end": 828.16,
+        "text": "order that I want to see, for example, the columns."
+    },
+    {
+        "start": 828.16,
+        "end": 836.92,
+        "text": "And I could change basically how it looks like here, that this one is just a table."
+    },
+    {
+        "start": 836.92,
+        "end": 840.0,
+        "text": "So the only thing I can do is basically move things around."
+    },
+    {
+        "start": 840.0,
+        "end": 847.8,
+        "text": "But you hear, for example, I could say, okay, I want this one to be the size or I don't"
+    },
+    {
+        "start": 847.8,
+        "end": 854.8,
+        "text": "want to show the last one or I don't want to show the percentage and then it would change."
+    },
+    {
+        "start": 854.8,
+        "end": 860.12,
+        "text": "Again, I would be able to change the title and let's say this is done."
+    },
+    {
+        "start": 860.12,
+        "end": 868.3599999999999,
+        "text": "And once our dashboard is done, so let's say that this goes with what we want to show,"
+    },
+    {
+        "start": 868.3599999999999,
+        "end": 873.4799999999999,
+        "text": "then we can save it."
+    },
+    {
+        "start": 873.4799999999999,
+        "end": 877.04,
+        "text": "And from here, we have a few other options."
+    },
+    {
+        "start": 877.04,
+        "end": 881.56,
+        "text": "If once it's done, see I can't move things around."
+    },
+    {
+        "start": 881.56,
+        "end": 886.8399999999999,
+        "text": "And now that I click, I can see things like we saw in the main dashboard, in the original"
+    },
+    {
+        "start": 886.8399999999999,
+        "end": 888.4399999999999,
+        "text": "dashboard at the very beginning."
+    },
+    {
+        "start": 888.4399999999999,
+        "end": 895.56,
+        "text": "So I could use the filtering, for example, or I could hover over the bars and then see"
+    },
+    {
+        "start": 895.56,
+        "end": 896.56,
+        "text": "the exact numbers."
+    },
+    {
+        "start": 896.56,
+        "end": 903.92,
+        "text": "Something that when I'm editing, I'm not able to do because every time when I click, then"
+    },
+    {
+        "start": 904.0,
+        "end": 909.76,
+        "text": "it would mean that it would have to edit the title."
+    },
+    {
+        "start": 909.76,
+        "end": 918.76,
+        "text": "But if we save it, then now isn't interactive, so now it allows us to hover and see the data."
+    },
+    {
+        "start": 918.76,
+        "end": 922.52,
+        "text": "Other things that can be done is, of course, sharing."
+    },
+    {
+        "start": 922.52,
+        "end": 924.1999999999999,
+        "text": "So I could share this."
+    },
+    {
+        "start": 924.1999999999999,
+        "end": 929.4399999999999,
+        "text": "And we saw, again, also that we have these collections that's folders where we could save"
+    },
+    {
+        "start": 929.4399999999999,
+        "end": 930.4399999999999,
+        "text": "them."
+    },
+    {
+        "start": 930.44,
+        "end": 935.24,
+        "text": "And this is what we would normally share with our stakeholders."
+    },
+    {
+        "start": 935.24,
+        "end": 940.44,
+        "text": "So we would have maybe a share folder where we put our dashboards or questions."
+    },
+    {
+        "start": 940.44,
+        "end": 946.6400000000001,
+        "text": "But I could also, we'd like to maybe have people, the Microsoft cry to my dashboard, then"
+    },
+    {
+        "start": 946.6400000000001,
+        "end": 948.84,
+        "text": "I could also do that."
+    },
+    {
+        "start": 948.84,
+        "end": 952.44,
+        "text": "And I could set an autotrug refresh."
+    },
+    {
+        "start": 952.44,
+        "end": 959.6,
+        "text": "So let's say this data is coming every 10 minutes, I'm having new script data."
+    },
+    {
+        "start": 959.6,
+        "end": 962.5600000000001,
+        "text": "And in this case, I want this document to refresh."
+    },
+    {
+        "start": 962.5600000000001,
+        "end": 968.36,
+        "text": "If someone is using this, then I want this to refresh every 10 minutes to make sure that"
+    },
+    {
+        "start": 968.36,
+        "end": 973.0400000000001,
+        "text": "I always see in at the last numbers."
+    },
+    {
+        "start": 973.0400000000001,
+        "end": 982.2,
+        "text": "And once we have the dashboard cyber ready, we can also see it, set it up to see it in"
+    },
+    {
+        "start": 982.2,
+        "end": 985.52,
+        "text": "our main window."
+    },
+    {
+        "start": 985.52,
+        "end": 990.96,
+        "text": "And we could do things like duplicate it or archive it as well if we don't want to use"
+    },
+    {
+        "start": 990.96,
+        "end": 992.56,
+        "text": "it anymore."
+    },
+    {
+        "start": 992.56,
+        "end": 999.04,
+        "text": "And something that I missed to say is that once you're editing the dashboard, let's say"
+    },
+    {
+        "start": 999.04,
+        "end": 1006.64,
+        "text": "you are in one of this and you want to see in this case, this is the distribution between"
+    },
+    {
+        "start": 1006.64,
+        "end": 1007.64,
+        "text": "the service type."
+    },
+    {
+        "start": 1007.64,
+        "end": 1010.1999999999999,
+        "text": "So just with the yellow and this was the green."
+    },
+    {
+        "start": 1010.1999999999999,
+        "end": 1015.1999999999999,
+        "text": "And let's say I want someone, the person that is looking at the dashboard, once they"
+    },
+    {
+        "start": 1015.2,
+        "end": 1022.2,
+        "text": "click in this graph to go to a second that where I have way more tiles and questions around"
+    },
+    {
+        "start": 1022.2,
+        "end": 1026.24,
+        "text": "this distribution between the yellow and tree of data."
+    },
+    {
+        "start": 1026.24,
+        "end": 1029.6000000000001,
+        "text": "And I could do that by selecting the click behavior."
+    },
+    {
+        "start": 1029.6000000000001,
+        "end": 1036.6000000000001,
+        "text": "And here I could put, go to a custom destination and I could send them somewhere that it's relevant"
+    },
+    {
+        "start": 1036.6000000000001,
+        "end": 1043.76,
+        "text": "to that question that I'm showing here."
+    },
+    {
+        "start": 1043.76,
+        "end": 1045.16,
+        "text": "And this is for..."
+    }
+]

@@ -1,0 +1,282 @@
+[
+    {
+        "start": 0.0,
+        "end": 3.52,
+        "text": "Hello all. Welcome back to week three,"
+    },
+    {
+        "start": 3.52,
+        "end": 8.0,
+        "text": "Data Warehouse and BigQuery. In today's lecture,"
+    },
+    {
+        "start": 8.0,
+        "end": 11.0,
+        "text": "we are going to talk about BigQuery best practices."
+    },
+    {
+        "start": 11.0,
+        "end": 16.0,
+        "text": "Generally, most of our efforts are focused upon"
+    },
+    {
+        "start": 16.0,
+        "end": 20.28,
+        "text": "either cost reduction or improving query performance."
+    },
+    {
+        "start": 20.28,
+        "end": 23.92,
+        "text": "These are some of the best practices used for cost reduction."
+    },
+    {
+        "start": 23.92,
+        "end": 29.84,
+        "text": "It's generally preferred to always avoid select star."
+    },
+    {
+        "start": 29.84,
+        "end": 33.84,
+        "text": "When you want to select from a particular table,"
+    },
+    {
+        "start": 33.84,
+        "end": 36.84,
+        "text": "you should generally specify the name of the columns."
+    },
+    {
+        "start": 36.84,
+        "end": 40.84,
+        "text": "The reason being is that BigQuery is"
+    },
+    {
+        "start": 40.84,
+        "end": 43.84,
+        "text": "stores data in a column of storage."
+    },
+    {
+        "start": 43.84,
+        "end": 48.84,
+        "text": "And if you want to access data for one or two or three columns,"
+    },
+    {
+        "start": 48.84,
+        "end": 51.84,
+        "text": "it's always better to specify those column names"
+    },
+    {
+        "start": 51.84,
+        "end": 53.84,
+        "text": "rather than doing a star."
+    },
+    {
+        "start": 53.84,
+        "end": 56.84,
+        "text": "Star will result in reading all the columns,"
+    },
+    {
+        "start": 56.84,
+        "end": 60.84,
+        "text": "which will cause to read all the data."
+    },
+    {
+        "start": 60.84,
+        "end": 62.84,
+        "text": "When you specify a particular column,"
+    },
+    {
+        "start": 62.84,
+        "end": 65.84,
+        "text": "only those column data is being read."
+    },
+    {
+        "start": 65.84,
+        "end": 68.84,
+        "text": "You should always price your query before running them."
+    },
+    {
+        "start": 68.84,
+        "end": 73.84,
+        "text": "The price can be seen on the right-hand side top collar."
+    },
+    {
+        "start": 73.84,
+        "end": 77.84,
+        "text": "Obviously, we have discussed in detail about clustering and partitioning"
+    },
+    {
+        "start": 77.84,
+        "end": 81.84,
+        "text": "and they help a lot when terms of cost reduction."
+    },
+    {
+        "start": 81.84,
+        "end": 85.84,
+        "text": "If you are doing streaming in search, use them with caution."
+    },
+    {
+        "start": 85.84,
+        "end": 90.84,
+        "text": "They can actually increase your cost drastically."
+    },
+    {
+        "start": 90.84,
+        "end": 96.84,
+        "text": "You should always materialize queries into different stages."
+    },
+    {
+        "start": 96.84,
+        "end": 101.84,
+        "text": "So in case you are using a CTE and you're using it in multiple stages,"
+    },
+    {
+        "start": 101.84,
+        "end": 106.84,
+        "text": "it might make sense to materialize those queries before using them"
+    },
+    {
+        "start": 106.84,
+        "end": 109.84,
+        "text": "in multiple locations."
+    },
+    {
+        "start": 109.84,
+        "end": 114.84,
+        "text": "BigQuery also caches query results."
+    },
+    {
+        "start": 115.84,
+        "end": 119.84,
+        "text": "These are some of the big, very best practices for query performance equipment."
+    },
+    {
+        "start": 119.84,
+        "end": 124.84,
+        "text": "You should always filter on the partitioned column or cluster column."
+    },
+    {
+        "start": 124.84,
+        "end": 127.84,
+        "text": "You should try to denormalize your data."
+    },
+    {
+        "start": 127.84,
+        "end": 129.84,
+        "text": "In case you have a complicated structure,"
+    },
+    {
+        "start": 129.84,
+        "end": 132.84,
+        "text": "you should use nested or repeated columns."
+    },
+    {
+        "start": 132.84,
+        "end": 136.84,
+        "text": "That will help you in denormalizing your data."
+    },
+    {
+        "start": 136.84,
+        "end": 139.84,
+        "text": "Users of external data source should be appropriately used."
+    },
+    {
+        "start": 139.84,
+        "end": 142.84,
+        "text": "You should not do it too much"
+    },
+    {
+        "start": 142.84,
+        "end": 145.84,
+        "text": "because by reading from a Google Cloud storage,"
+    },
+    {
+        "start": 145.84,
+        "end": 148.84,
+        "text": "for example, it might incur more cost."
+    },
+    {
+        "start": 148.84,
+        "end": 151.84,
+        "text": "Reduce data before using a join."
+    },
+    {
+        "start": 151.84,
+        "end": 154.84,
+        "text": "Do not treat a width clause as a prepared statement"
+    },
+    {
+        "start": 154.84,
+        "end": 159.84,
+        "text": "and obviously avoid overshadowing the tables."
+    },
+    {
+        "start": 161.84,
+        "end": 164.84,
+        "text": "Some of the other big query performance"
+    },
+    {
+        "start": 164.84,
+        "end": 168.84,
+        "text": "is to avoid using JavaScript and user defined functions."
+    },
+    {
+        "start": 169.84,
+        "end": 173.84,
+        "text": "Use approximation, aggregation functions,"
+    },
+    {
+        "start": 173.84,
+        "end": 177.84,
+        "text": "rather than the complete one such as hyperlog, plus."
+    },
+    {
+        "start": 177.84,
+        "end": 182.84,
+        "text": "Order statements should be the last part of your query to maximize my performance."
+    },
+    {
+        "start": 182.84,
+        "end": 185.84,
+        "text": "You should optimize your join pattern."
+    },
+    {
+        "start": 185.84,
+        "end": 189.84,
+        "text": "As a best practice, you should place the largest table"
+    },
+    {
+        "start": 189.84,
+        "end": 196.84,
+        "text": "as the first table, followed by tables with the fewest rows,"
+    },
+    {
+        "start": 196.84,
+        "end": 199.84,
+        "text": "and then place the remaining tables by decreasing size."
+    },
+    {
+        "start": 199.84,
+        "end": 203.84,
+        "text": "The reason for this is that if you place the largest table"
+    },
+    {
+        "start": 203.84,
+        "end": 207.84,
+        "text": "as the first one, it will get distributed evenly."
+    },
+    {
+        "start": 207.84,
+        "end": 214.84,
+        "text": "Or the second table would be actually broadcasted to all the nodes."
+    },
+    {
+        "start": 214.84,
+        "end": 218.84,
+        "text": "We will see in detail how big query internally handles query"
+    },
+    {
+        "start": 218.84,
+        "end": 221.84,
+        "text": "and that might make it more clear to you."
+    }
+]

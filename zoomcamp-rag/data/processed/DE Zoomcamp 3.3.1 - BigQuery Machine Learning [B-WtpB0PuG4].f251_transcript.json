@@ -1,0 +1,712 @@
+[
+    {
+        "start": 0.0,
+        "end": 3.92,
+        "text": "Hello all, welcome to V3 Data Warehouse and BigQuery."
+    },
+    {
+        "start": 4.8,
+        "end": 8.08,
+        "text": "In this video, we are going to talk about machine learning in BigQuery."
+    },
+    {
+        "start": 9.84,
+        "end": 14.64,
+        "text": "We are also going to build a model, export it, and run it by a Docker."
+    },
+    {
+        "start": 16.96,
+        "end": 21.04,
+        "text": "These videos are basically advanced steps for BigQuery."
+    },
+    {
+        "start": 21.84,
+        "end": 25.36,
+        "text": "If you are not familiar with machine learning, feel free to skip these videos."
+    },
+    {
+        "start": 26.08,
+        "end": 33.519999999999996,
+        "text": "The machine learning in BigQuery has a target audience of data analysts and managers."
+    },
+    {
+        "start": 34.24,
+        "end": 38.0,
+        "text": "The idea is that you don't have to know any Python or Java."
+    },
+    {
+        "start": 39.2,
+        "end": 42.56,
+        "text": "You just have to know SQL and some machine learning algorithms."
+    },
+    {
+        "start": 44.0,
+        "end": 49.28,
+        "text": "Another advantage of using BigQuery for machine learning is that you do not have to export"
+    },
+    {
+        "start": 49.28,
+        "end": 51.44,
+        "text": "the data outside into a different system."
+    },
+    {
+        "start": 52.4,
+        "end": 56.48,
+        "text": "Generally, when training a machine learning model, you would export the data from a"
+    },
+    {
+        "start": 56.48,
+        "end": 60.239999999999995,
+        "text": "data warehouse, build a model, train it, and then deploy it."
+    },
+    {
+        "start": 61.839999999999996,
+        "end": 67.44,
+        "text": "What BigQuery allows us to do is to building the model in the data warehouse itself,"
+    },
+    {
+        "start": 67.44,
+        "end": 71.84,
+        "text": "and that removes the extra step of exporting the data."
+    },
+    {
+        "start": 73.03999999999999,
+        "end": 76.08,
+        "text": "Before moving ahead, let's talk about pricing in BigQuery."
+    },
+    {
+        "start": 76.48,
+        "end": 83.03999999999999,
+        "text": "The pricing would be the actual condition you would have to choose between using machine learning"
+    },
+    {
+        "start": 83.03999999999999,
+        "end": 90.24,
+        "text": "in BigQuery or to build your own model separately. The first step is the data storage."
+    },
+    {
+        "start": 90.24,
+        "end": 96.08,
+        "text": "In machine learning, in machine learning, in BigQuery, one terabyte of queries processed in a month"
+    },
+    {
+        "start": 96.08,
+        "end": 102.72,
+        "text": "is free. If you are using the create model step, the first 10 gigabytes is free per month."
+    },
+    {
+        "start": 103.67999999999999,
+        "end": 111.28,
+        "text": "After the free tier, you would have to spend around $250 per terabyte for logistic,"
+    },
+    {
+        "start": 111.28,
+        "end": 117.44,
+        "text": "regression, gaming, plus train, time cities, model creation, and around $5 per terabyte"
+    },
+    {
+        "start": 118.24,
+        "end": 126.48,
+        "text": "for auto-ML, DNN, boosted trees, with extra vertex error in costs. These costs are based upon US."
+    },
+    {
+        "start": 127.44,
+        "end": 131.52,
+        "text": "If you are in a different region, please check out the cost corresponding to your region."
+    },
+    {
+        "start": 133.35999999999999,
+        "end": 141.68,
+        "text": "Before taking a look into creating a model via BigQuery, let's first look into the steps involved"
+    },
+    {
+        "start": 141.68,
+        "end": 147.68,
+        "text": "in machine learning development. The first step is to obviously collect the data,"
+    },
+    {
+        "start": 147.68,
+        "end": 151.76,
+        "text": "and that's what you have already done before putting the data into BigQuery."
+    },
+    {
+        "start": 152.4,
+        "end": 156.48,
+        "text": "The second step is to process the data, do some feature engineering on top of that,"
+    },
+    {
+        "start": 156.95999999999998,
+        "end": 163.28,
+        "text": "obviously splitting the data into training and test set, then building your machine learning model,"
+    },
+    {
+        "start": 163.28,
+        "end": 168.72,
+        "text": "choosing the correct algorithm, optimizing your parameters, or what we call as hyper-parameter"
+    },
+    {
+        "start": 168.72,
+        "end": 175.76,
+        "text": "tuning, and then validate your model against different error metrics. Obviously, the ML"
+    },
+    {
+        "start": 175.76,
+        "end": 181.04,
+        "text": "model training and ML model validations will have multiple steps, and once you are satisfied with"
+    },
+    {
+        "start": 181.04,
+        "end": 187.68,
+        "text": "your model, you will deploy that model. BigQuery actually helps us in all these steps."
+    },
+    {
+        "start": 188.48,
+        "end": 193.84,
+        "text": "BigQuery actually allows us to do feature engineering. It also has automatic feature engineering,"
+    },
+    {
+        "start": 194.64,
+        "end": 200.95999999999998,
+        "text": "then it can already split the data into training and evaluation steps. It allows us to choose"
+    },
+    {
+        "start": 200.95999999999998,
+        "end": 209.51999999999998,
+        "text": "between different algorithms, also do hyper-parameter tuning. It provides us many error matrices to"
+    },
+    {
+        "start": 209.76000000000002,
+        "end": 216.48000000000002,
+        "text": "do our validation against. BigQuery also allows us to deploy our model using a Docker image."
+    },
+    {
+        "start": 218.8,
+        "end": 223.36,
+        "text": "Let's look into what algorithms you will choose for different use cases."
+    },
+    {
+        "start": 224.4,
+        "end": 232.8,
+        "text": "This image has been directly taken from BigQuery page, which distributes the algorithms based"
+    },
+    {
+        "start": 232.8,
+        "end": 238.96,
+        "text": "upon the use case. For example, if you are predicting values for like sales figures or stock"
+    },
+    {
+        "start": 239.92000000000002,
+        "end": 246.24,
+        "text": "prizes, you will use linear regression, boosted tree, auto-ML, DNN regressor, or wide and deep"
+    },
+    {
+        "start": 246.24,
+        "end": 254.48000000000002,
+        "text": "regressor. If you want to perform some sort of customer segmentation, k-means is a good start."
+    },
+    {
+        "start": 255.84,
+        "end": 261.84000000000003,
+        "text": "If you want to identify spans or predict between different categories, then logistic regression,"
+    },
+    {
+        "start": 262.79999999999995,
+        "end": 269.35999999999996,
+        "text": "boosted tree classifiers, and auto-ML tables are good. You can always come back to this image."
+    },
+    {
+        "start": 270.47999999999996,
+        "end": 275.76,
+        "text": "Figure out the use case you are trying to solve and choose the algorithms based upon that."
+    },
+    {
+        "start": 278.47999999999996,
+        "end": 280.96,
+        "text": "This video will be on a build linear regression model."
+    },
+    {
+        "start": 281.03999999999996,
+        "end": 292.15999999999997,
+        "text": "I am using some created SQL queries. I am going to go through all of them one by one."
+    },
+    {
+        "start": 292.96,
+        "end": 299.35999999999996,
+        "text": "You can find all of these queries in our GitHub repo. You do not need to copy-paste them."
+    },
+    {
+        "start": 300.71999999999997,
+        "end": 307.67999999999995,
+        "text": "Before we start, let's look into our dataset again. Our dataset of your load-trip data partition"
+    },
+    {
+        "start": 307.76,
+        "end": 312.24,
+        "text": "is being used. We already know the different type of columns there."
+    },
+    {
+        "start": 313.6,
+        "end": 315.52,
+        "text": "And we can also check the preview."
+    },
+    {
+        "start": 317.68,
+        "end": 321.84000000000003,
+        "text": "For my machine learning model, I am trying to predict the tip amount."
+    },
+    {
+        "start": 322.88,
+        "end": 327.76,
+        "text": "The tip amount is generally the tip paid to the driver at the end of the journey."
+    },
+    {
+        "start": 329.76,
+        "end": 336.32,
+        "text": "And from my limited knowledge of data science and machine learning, I have chosen some columns."
+    },
+    {
+        "start": 337.28,
+        "end": 343.04,
+        "text": "These columns are passenger count, trip distance, pickup location ID, drop off location ID,"
+    },
+    {
+        "start": 343.04,
+        "end": 345.2,
+        "text": "payment type, fair amount, and tolerance."
+    },
+    {
+        "start": 346.64,
+        "end": 350.0,
+        "text": "Obviously, I am not an expert in machine learning or data scientists."
+    },
+    {
+        "start": 351.84,
+        "end": 356.56,
+        "text": "That's why I might not be able to develop the best model for this use case."
+    },
+    {
+        "start": 357.52,
+        "end": 362.15999999999997,
+        "text": "My aim in this video is to show you the basics of machine learning in BigQuery."
+    },
+    {
+        "start": 363.12,
+        "end": 366.48,
+        "text": "To build a basic model and export it."
+    },
+    {
+        "start": 368.16,
+        "end": 374.24,
+        "text": "All right, so I have selected my columns and I have chosen a"
+    },
+    {
+        "start": 374.24,
+        "end": 376.40000000000003,
+        "text": "wear-cloth with fair amount not equal to zero."
+    },
+    {
+        "start": 377.28000000000003,
+        "end": 382.72,
+        "text": "This is done because I have seen that a lot of fair amount is zero, which also"
+    },
+    {
+        "start": 382.72,
+        "end": 387.44000000000005,
+        "text": "incurs into a tip amount with zero. Let's run this."
+    },
+    {
+        "start": 387.92,
+        "end": 395.2,
+        "text": "So we can see we have many rows. We have selected columns, passenger count, trip distance,"
+    },
+    {
+        "start": 395.2,
+        "end": 400.96,
+        "text": "PU location ID, drop off location ID, payment type, fair amount, tolerance and tips."
+    },
+    {
+        "start": 403.2,
+        "end": 406.64,
+        "text": "BigQuery provides us to do some sort of feature engineering."
+    },
+    {
+        "start": 408.0,
+        "end": 413.28,
+        "text": "Let's take a look into future pre-processing steps provided by BigQuery."
+    },
+    {
+        "start": 413.52,
+        "end": 417.59999999999997,
+        "text": "BigQuery feature processing steps are divided into two parts."
+    },
+    {
+        "start": 418.4,
+        "end": 421.03999999999996,
+        "text": "Automatic pre-processing and manual pre-processing."
+    },
+    {
+        "start": 421.76,
+        "end": 425.35999999999996,
+        "text": "Let's first take a look into automatic feature pre-processing."
+    },
+    {
+        "start": 429.52,
+        "end": 434.4,
+        "text": "In automatic feature pre-processing, some of the transformations which are automatically"
+    },
+    {
+        "start": 434.4,
+        "end": 442.32,
+        "text": "applied by BigQuery are standardization of numeric fields, one hot encoding of category fields,"
+    },
+    {
+        "start": 443.04,
+        "end": 448.88,
+        "text": "and multi-hot encoding of arrays. They are also other type of feature,"
+    },
+    {
+        "start": 448.88,
+        "end": 452.8,
+        "text": "automatic feature pre-processing which I'm not discussing as of right now."
+    },
+    {
+        "start": 454.56,
+        "end": 458.24,
+        "text": "If you are unfamiliar with one hot encoding or multi-hot encoding,"
+    },
+    {
+        "start": 459.68,
+        "end": 463.28,
+        "text": "you can pause this video and quickly do a Google around it."
+    },
+    {
+        "start": 464.24,
+        "end": 469.44,
+        "text": "It basically converts a category feature into a sparse vector."
+    },
+    {
+        "start": 470.0,
+        "end": 474.4,
+        "text": "Secondly, let's take a look into the manual pre-processing steps."
+    },
+    {
+        "start": 475.92,
+        "end": 481.44,
+        "text": "As you can see, we have many manual pre-processing like bucketization,"
+    },
+    {
+        "start": 481.44,
+        "end": 485.6,
+        "text": "polynomial expansion, feature cross, n grams, min and max killer."
+    },
+    {
+        "start": 486.64,
+        "end": 490.88,
+        "text": "For my example, I did not have to do any manual pre-processing."
+    },
+    {
+        "start": 492.4,
+        "end": 499.12,
+        "text": "If you are more expert in data science or machine learning, feel free to build a model and"
+    },
+    {
+        "start": 499.12,
+        "end": 500.16,
+        "text": "share it with us."
+    },
+    {
+        "start": 504.88,
+        "end": 511.68,
+        "text": "So, till now I have selected my columns, but I know that some of the types of the columns"
+    },
+    {
+        "start": 511.68,
+        "end": 519.52,
+        "text": "would not be fit for automatic pre-processing. For example, the pickup location ID and drop"
+    },
+    {
+        "start": 519.52,
+        "end": 525.92,
+        "text": "of location IDs are integers, so is payment type, but they are actually a category feature."
+    },
+    {
+        "start": 526.8,
+        "end": 532.56,
+        "text": "They are not an integer. They are basically a category of different payments like a card or a"
+    },
+    {
+        "start": 532.56,
+        "end": 543.12,
+        "text": "cache, some other. So, what I have done is basically I have created a different table from my"
+    },
+    {
+        "start": 543.68,
+        "end": 550.16,
+        "text": "columns, but I have casted different columns into string type, allowing us a"
+    },
+    {
+        "start": 550.16,
+        "end": 556.7199999999999,
+        "text": "allowing BigQuery to do an automatic pre-processing step on it, basically converting my strings into"
+    },
+    {
+        "start": 557.4399999999999,
+        "end": 564.56,
+        "text": "a category feature and using one hot encoding on it. So, I have created a table which is called"
+    },
+    {
+        "start": 564.56,
+        "end": 571.76,
+        "text": "yellow-tripped data ml. I have the same messenger count in trip distance. I have converted"
+    },
+    {
+        "start": 571.76,
+        "end": 578.96,
+        "text": "PU location ID, drop of location ID and payment type the string. I have also used the same"
+    },
+    {
+        "start": 579.84,
+        "end": 588.64,
+        "text": "type of fair amount, tolls amount and type of one. So, as you can see, I have just added the same"
+    },
+    {
+        "start": 588.64,
+        "end": 607.52,
+        "text": "columns into my table. Let's run this."
+    },
+    {
+        "start": 608.0,
+        "end": 619.28,
+        "text": "All right. So, as we can see, our table is generated, processed around 6.5 gigabytes of data."
+    },
+    {
+        "start": 620.56,
+        "end": 625.04,
+        "text": "We have a table with the correct data types which we can use for our machine learning model."
+    },
+    {
+        "start": 626.72,
+        "end": 635.4399999999999,
+        "text": "In the next step, we are going to create a model. I have named my model as a tip model,"
+    },
+    {
+        "start": 635.44,
+        "end": 641.2800000000001,
+        "text": "basically because I'm trying to predict the tip. I'm using the model type or my algorithm"
+    },
+    {
+        "start": 641.2800000000001,
+        "end": 647.44,
+        "text": "is basically linear regression. My input label columns is basically tip amount. This is what I"
+    },
+    {
+        "start": 647.44,
+        "end": 653.44,
+        "text": "want to predict. And I am using a data split method of autosplit. This will split the data"
+    },
+    {
+        "start": 653.44,
+        "end": 660.5600000000001,
+        "text": "for training and evaluation step. The evaluation steps would be used later. So, let's quickly run this."
+    },
+    {
+        "start": 661.28,
+        "end": 666.16,
+        "text": "It might take a few minutes to build a model."
+    },
+    {
+        "start": 672.0799999999999,
+        "end": 677.68,
+        "text": "So, for me, it took around five minutes to create this model. Let's take a look inside it."
+    },
+    {
+        "start": 679.8399999999999,
+        "end": 686.16,
+        "text": "So, we can already see the model type linear regression. It says that it used temporary training"
+    },
+    {
+        "start": 686.16,
+        "end": 692.16,
+        "text": "data set and a temporary evaluation data set. There was no optimizations done."
+    },
+    {
+        "start": 694.24,
+        "end": 700.0,
+        "text": "You can already see the loss there, the duration, the tick, and the evaluation."
+    },
+    {
+        "start": 700.7199999999999,
+        "end": 706.16,
+        "text": "So, you can see that the mean squared error is around 8 and the mean absolute error is around 1."
+    },
+    {
+        "start": 708.24,
+        "end": 715.68,
+        "text": "This is not very optimal. But for our use case, this is perfectly fine. This is a simple model"
+    },
+    {
+        "start": 715.68,
+        "end": 723.28,
+        "text": "dataset and I am not aiming to build the most optimal model. Next, let's take a look into our feature"
+    },
+    {
+        "start": 723.28,
+        "end": 735.28,
+        "text": "information. So, BigQuery provides us our features. So, basically, ML.feature info will basically give"
+    },
+    {
+        "start": 735.28,
+        "end": 741.04,
+        "text": "you all the information you require. So, we can see that the passenger count, trip distance,"
+    },
+    {
+        "start": 741.04,
+        "end": 749.92,
+        "text": "fair amount, tolls are all numeric types and they have been calculated into min max,"
+    },
+    {
+        "start": 750.7199999999999,
+        "end": 757.76,
+        "text": "the mean, and can be used for standardizations. We can also see that the pick application, drop"
+    },
+    {
+        "start": 757.76,
+        "end": 763.5999999999999,
+        "text": "off location and payment type has been converted into category and there are different category"
+    },
+    {
+        "start": 763.6800000000001,
+        "end": 773.76,
+        "text": "counts for them and so on. In the next step, let's evaluate our model against the training data."
+    },
+    {
+        "start": 779.36,
+        "end": 784.8000000000001,
+        "text": "In BigQuery, we can simply use ml.valuate the model name and the dataset."
+    },
+    {
+        "start": 784.9599999999999,
+        "end": 795.8399999999999,
+        "text": "So, we can see that the mean absolute error is 1, the mean squared error is around 150 and so on."
+    },
+    {
+        "start": 796.9599999999999,
+        "end": 802.56,
+        "text": "These evaluations can be used for optimizing your model later on."
+    },
+    {
+        "start": 804.8,
+        "end": 813.76,
+        "text": "We can now also use ml.predict, which basically will predict our tip amount based in our dataset."
+    },
+    {
+        "start": 813.76,
+        "end": 825.92,
+        "text": "So, let's quickly run this. We can see that there is an extra column coming in, which is basically"
+    },
+    {
+        "start": 825.92,
+        "end": 833.04,
+        "text": "our trip amount, sorry trip amount and we can see all the other columns based upon that."
+    },
+    {
+        "start": 835.04,
+        "end": 839.52,
+        "text": "These two columns can also be used for manual evaluation."
+    },
+    {
+        "start": 839.52,
+        "end": 848.0,
+        "text": "BigQuery also provides us with the possibility to explain and predict different models."
+    },
+    {
+        "start": 848.0,
+        "end": 854.88,
+        "text": "The explain and predict will actually tell us what are the top three features used for our dataset."
+    },
+    {
+        "start": 854.88,
+        "end": 861.1999999999999,
+        "text": "You can also do four to understand the top four features used in our prediction. Let's quickly run this."
+    },
+    {
+        "start": 861.5200000000001,
+        "end": 873.84,
+        "text": "And we can see that all of our category features are basically being used at our top three features."
+    },
+    {
+        "start": 876.96,
+        "end": 878.88,
+        "text": "Similarly for the second row and so on."
+    },
+    {
+        "start": 881.84,
+        "end": 885.36,
+        "text": "We have seen that our model was not optimal."
+    },
+    {
+        "start": 886.16,
+        "end": 890.4,
+        "text": "We can also do some hyper parameter tuning."
+    },
+    {
+        "start": 892.08,
+        "end": 895.6800000000001,
+        "text": "BigQuery provides us with many different features for different models."
+    },
+    {
+        "start": 895.6800000000001,
+        "end": 900.72,
+        "text": "For linear regression, it provides us with parameters like number of trials."
+    },
+    {
+        "start": 901.44,
+        "end": 906.5600000000001,
+        "text": "Max parallel trials will do multiple trials parallelly so that your query is running faster."
+    },
+    {
+        "start": 907.36,
+        "end": 910.96,
+        "text": "L1 regression hyper parameter and L2 regression hyper parameter tuning."
+    },
+    {
+        "start": 911.6,
+        "end": 914.24,
+        "text": "There are also other parameter tunings which you can use."
+    },
+    {
+        "start": 916.48,
+        "end": 923.12,
+        "text": "If you look into the create model step, you can basically choose linear"
+    },
+    {
+        "start": 923.12,
+        "end": 928.32,
+        "text": "and logistic regression here and you can see what all feature sets you have."
+    },
+    {
+        "start": 929.0400000000001,
+        "end": 931.2,
+        "text": "So we can also have learned rate strategy,"
+    },
+    {
+        "start": 932.8000000000001,
+        "end": 937.0400000000001,
+        "text": "mean rail progress, early stop, learning rate and everything like that."
+    },
+    {
+        "start": 937.76,
+        "end": 940.8,
+        "text": "So this is a rich state of hyper parameter tuning."
+    },
+    {
+        "start": 940.8,
+        "end": 945.92,
+        "text": "If you are familiar with machine learning, you can use all these parameters to tune your model."
+    },
+    {
+        "start": 947.04,
+        "end": 955.8399999999999,
+        "text": "I will attach a link to this file in our readme."
+    }
+]

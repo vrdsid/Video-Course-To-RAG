@@ -1,0 +1,207 @@
+[
+    {
+        "start": 0.0,
+        "end": 5.5200000000000005,
+        "text": "Welcome to part two where we're going to start off by installing Kestria on our system."
+    },
+    {
+        "start": 5.5200000000000005,
+        "end": 10.4,
+        "text": "So we can then get started with building our own workflows. Now, if you..."
+    },
+    {
+        "start": 11.44,
+        "end": 16.4,
+        "text": "Now, we're going to be using that Postgres database and the PG Admin Docker container that you"
+    },
+    {
+        "start": 16.4,
+        "end": 22.8,
+        "text": "used in module one as in module two. So we can observe the data being added to that database."
+    },
+    {
+        "start": 22.8,
+        "end": 27.28,
+        "text": "But we're going to have to make a few modifications to the Docker Compose file that we used in"
+    },
+    {
+        "start": 27.28,
+        "end": 32.24,
+        "text": "module one to make this work for us in module two. Let's check it out. Now, in module one,"
+    },
+    {
+        "start": 32.24,
+        "end": 35.92,
+        "text": "you should have finished with a Docker Compose file that looks something like this where"
+    },
+    {
+        "start": 35.92,
+        "end": 41.2,
+        "text": "you've got a volume managed by Docker here called New York Taxi Postgres data. So this is going"
+    },
+    {
+        "start": 41.2,
+        "end": 47.44,
+        "text": "to store all of the data in our database. We've got our PG data... We've got our Postgres database"
+    },
+    {
+        "start": 47.44,
+        "end": 52.08,
+        "text": "set up here as the first service and then a PG Admin one for being able to view the data in that"
+    },
+    {
+        "start": 52.16,
+        "end": 57.76,
+        "text": "database. Now, what we're going to do in module two is do something pretty similar. So we've still"
+    },
+    {
+        "start": 57.76,
+        "end": 62.8,
+        "text": "got that PG database and PG Admin. But what we're going to do a little bit further down is we're"
+    },
+    {
+        "start": 62.8,
+        "end": 67.67999999999999,
+        "text": "going to add another Postgres database. But this is specifically for Kestria to store data about our"
+    },
+    {
+        "start": 67.67999999999999,
+        "end": 73.03999999999999,
+        "text": "workflows and Kestria metadata. So we're going to add this in here and we're going to call this"
+    },
+    {
+        "start": 73.03999999999999,
+        "end": 78.48,
+        "text": "Kestria Postgres. We're going to also add two new volumes. We've got one for that Postgres"
+    },
+    {
+        "start": 78.48,
+        "end": 83.36,
+        "text": "database and then one for Kestria to go back to that in a second. And then we're also going to add"
+    },
+    {
+        "start": 83.36,
+        "end": 89.2,
+        "text": "a container here for Kestria. Now, this is using Kestria at 1.1, which means this should be pretty"
+    },
+    {
+        "start": 89.2,
+        "end": 97.04,
+        "text": "stable at the time of the course. But, so make sure that this is set to 1.1. And we can then see"
+    },
+    {
+        "start": 97.04,
+        "end": 102.64,
+        "text": "under this environment variable here the configuration for Kestria. Now, this should be set up to work as"
+    },
+    {
+        "start": 102.64,
+        "end": 108.24000000000001,
+        "text": "we need, but we can modify this if we need to. Now, here you can see under this environment variable,"
+    },
+    {
+        "start": 108.24,
+        "end": 113.28,
+        "text": "we have the Kestria configuration. This is where we can configure how Kestria works. We're going to"
+    },
+    {
+        "start": 113.28,
+        "end": 118.47999999999999,
+        "text": "leave this as is for now. I've already set it up here so that it's looking at the Kestria Postgres"
+    },
+    {
+        "start": 118.47999999999999,
+        "end": 124.96,
+        "text": "database. You can access this example inside of the GitHub repository. It's under module two. So,"
+    },
+    {
+        "start": 124.96,
+        "end": 130.32,
+        "text": "all you should need to do is copy the two services underneath and paste those into your existing"
+    },
+    {
+        "start": 130.32,
+        "end": 135.6,
+        "text": "Docker Compose file and then just add these two volumes at the top. Now, if you also want to,"
+    },
+    {
+        "start": 135.6,
+        "end": 139.44,
+        "text": "you can just start using this new Docker Compose file. You should be able to just go to it,"
+    },
+    {
+        "start": 139.44,
+        "end": 144.32,
+        "text": "to Docker Compose up and it will start up Kestria with all of those different dependencies as you"
+    },
+    {
+        "start": 144.32,
+        "end": 148.79999999999998,
+        "text": "would expect. Now, I'm just going to run Docker Compose up on the one inside of the module two"
+    },
+    {
+        "start": 148.79999999999998,
+        "end": 154.16,
+        "text": "folder. When we spin this up, it's going to pull a Kestria image. It's going to get the two databases"
+    },
+    {
+        "start": 154.16,
+        "end": 158.72,
+        "text": "running and it's going to run PG admin. And then we'll be able to head over to localhost 8080 where"
+    },
+    {
+        "start": 158.72,
+        "end": 164.0,
+        "text": "we can then log into Kestria and start building our own workflows. When you first spin up Kestria,"
+    },
+    {
+        "start": 164.0,
+        "end": 167.6,
+        "text": "you might be prompted with this login screen. But if you're not, you'll be prompted to put in a"
+    },
+    {
+        "start": 167.6,
+        "end": 173.04,
+        "text": "username, first name, last name, and a password. Now, if it doesn't do that, we can put in the admin"
+    },
+    {
+        "start": 173.04,
+        "end": 178.4,
+        "text": "at Kestria.io and then we can put this password in as well, like so. And then when I press log it,"
+    },
+    {
+        "start": 178.4,
+        "end": 182.64,
+        "text": "and when I press log in, we'll see it will be logged into Kestria ready for us to build our first"
+    },
+    {
+        "start": 182.64,
+        "end": 187.04,
+        "text": "workflow. So, you should have Kestria up and running now with four different containers. We've got"
+    },
+    {
+        "start": 187.04,
+        "end": 192.72,
+        "text": "the Kestria container itself running Kestria itself. We've got PG admin where we can view data in"
+    },
+    {
+        "start": 192.72,
+        "end": 199.04,
+        "text": "Postgres databases. We've got a Postgres database dedicated to Kestria's data and a Postgres"
+    },
+    {
+        "start": 199.04,
+        "end": 204.88,
+        "text": "database dedicated to the data produced from our data pipelines. In the next video, I'm going to walk"
+    },
+    {
+        "start": 204.88,
+        "end": 210.24,
+        "text": "you through the concepts of building your own workflows so that we can start building our data"
+    },
+    {
+        "start": 210.24,
+        "end": 211.92,
+        "text": "engineering pipelines."
+    }
+]

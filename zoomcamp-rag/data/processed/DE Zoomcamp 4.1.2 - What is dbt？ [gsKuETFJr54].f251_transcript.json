@@ -1,0 +1,457 @@
+[
+    {
+        "start": 0.0,
+        "end": 3.64,
+        "text": "We're going to learn now what is DVD."
+    },
+    {
+        "start": 3.64,
+        "end": 10.4,
+        "text": "DVD is a transformation workflow that allows us to use SQL or it could be"
+    },
+    {
+        "start": 10.4,
+        "end": 15.8,
+        "text": "Python as well to deploy an only-tagled code that's going to allow us to take"
+    },
+    {
+        "start": 15.8,
+        "end": 19.76,
+        "text": "all the data that we loaded from all of different sources."
+    },
+    {
+        "start": 19.76,
+        "end": 25.88,
+        "text": "In our case, we're using the taxidata, but if we take this into the use case of"
+    },
+    {
+        "start": 25.88,
+        "end": 29.12,
+        "text": "a company where you will be working as a data engineer,"
+    },
+    {
+        "start": 29.12,
+        "end": 33.480000000000004,
+        "text": "you'll have a lot of sources that will come from back-end systems."
+    },
+    {
+        "start": 33.480000000000004,
+        "end": 37.52,
+        "text": "The new company may have something I can up as well, so there could be a lot of"
+    },
+    {
+        "start": 37.52,
+        "end": 40.68,
+        "text": "frontend data as well about how people are using that data."
+    },
+    {
+        "start": 40.68,
+        "end": 44.92,
+        "text": "You may have third-party providers doing hates that data,"
+    },
+    {
+        "start": 44.92,
+        "end": 46.72,
+        "text": "things like weather, for example."
+    },
+    {
+        "start": 46.72,
+        "end": 50.88,
+        "text": "And all of this, you're going to load it as you've seen in the previous weeks"
+    },
+    {
+        "start": 50.88,
+        "end": 52.68,
+        "text": "into your data workhouse."
+    },
+    {
+        "start": 52.68,
+        "end": 58.120000000000005,
+        "text": "We are always talking about BigQuery, but this could be anything else."
+    },
+    {
+        "start": 58.12,
+        "end": 62.8,
+        "text": "It's not like data works, frontend, fabric, there are many options."
+    },
+    {
+        "start": 62.8,
+        "end": 67.92,
+        "text": "And DVD is going to sit on top of your data workhouse and it's going to help us"
+    },
+    {
+        "start": 67.92,
+        "end": 73.96,
+        "text": "to transform that data into something that is useful for us to expose and present"
+    },
+    {
+        "start": 73.96,
+        "end": 77.32,
+        "text": "to the business desk they hold or so to the data consumers."
+    },
+    {
+        "start": 77.32,
+        "end": 82.68,
+        "text": "This is going to be in some kind of BI tool, but it can also be that we're"
+    },
+    {
+        "start": 82.68,
+        "end": 87.12,
+        "text": "just fitting this into other applications, something like for machine learning"
+    },
+    {
+        "start": 87.12,
+        "end": 88.96000000000001,
+        "text": "workflies, for example."
+    },
+    {
+        "start": 88.96000000000001,
+        "end": 94.28,
+        "text": "So we're going to have this throughout data and DVD is going to help us to make"
+    },
+    {
+        "start": 94.28,
+        "end": 101.2,
+        "text": "that transform data, flow in some of the data modeling techniques that we saw"
+    },
+    {
+        "start": 101.2,
+        "end": 103.32000000000001,
+        "text": "in the previous videos."
+    },
+    {
+        "start": 103.32000000000001,
+        "end": 107.28,
+        "text": "So how is DVD going to help us with this?"
+    },
+    {
+        "start": 107.28,
+        "end": 111.68,
+        "text": "Not only we're going to be writing the SQL or the Python, the nice thing about"
+    },
+    {
+        "start": 111.68,
+        "end": 116.52000000000001,
+        "text": "DVD is that it's also introduced in all this get software engineering practices"
+    },
+    {
+        "start": 116.52000000000001,
+        "end": 121.04,
+        "text": "into our workfloc into the way that we create this analytics code."
+    },
+    {
+        "start": 121.04,
+        "end": 124.32000000000001,
+        "text": "So it's going to introduce all this layers."
+    },
+    {
+        "start": 124.32000000000001,
+        "end": 133.08,
+        "text": "We're going to be doing the devaluement of this SQL code in something like a sandbox,"
+    },
+    {
+        "start": 133.08,
+        "end": 136.84,
+        "text": "where HD Lofer has their own separate environment."
+    },
+    {
+        "start": 136.84,
+        "end": 142.64000000000001,
+        "text": "Then it's going to introduce and test in and documentation framework as part of our"
+    },
+    {
+        "start": 142.64000000000001,
+        "end": 144.4,
+        "text": "devaluement workflow."
+    },
+    {
+        "start": 144.4,
+        "end": 147.44,
+        "text": "And then we're going to deploy this into production."
+    },
+    {
+        "start": 147.44,
+        "end": 151.72,
+        "text": "And in here we're going to be using things like CI City, but it's also going to introduce"
+    },
+    {
+        "start": 151.72,
+        "end": 160.08,
+        "text": "all other concepts like version control, modularity, do not try, do not repeat yourself."
+    },
+    {
+        "start": 160.08,
+        "end": 165.16,
+        "text": "All of this things that having helped in software engineers for years are going to help"
+    },
+    {
+        "start": 165.16,
+        "end": 173.64,
+        "text": "us to create this high quality and availability and available pipelines in order to deliver"
+    },
+    {
+        "start": 173.64,
+        "end": 176.92,
+        "text": "our data for our stakeholders."
+    },
+    {
+        "start": 176.92,
+        "end": 178.76,
+        "text": "How does it work?"
+    },
+    {
+        "start": 178.76,
+        "end": 183.8,
+        "text": "As I said, we're creating a SQL file that you can see here how a DVD model looks like,"
+    },
+    {
+        "start": 183.8,
+        "end": 186.64,
+        "text": "for example, this is a select assignment."
+    },
+    {
+        "start": 186.64,
+        "end": 193.96,
+        "text": "DVD is going to take away a lot of the complexities around where are we going to create the data"
+    },
+    {
+        "start": 193.96,
+        "end": 196.24,
+        "text": "under which environment."
+    },
+    {
+        "start": 196.24,
+        "end": 199.96,
+        "text": "And it's going to generate all that DDL and DML for us."
+    },
+    {
+        "start": 199.96,
+        "end": 206.0,
+        "text": "And whenever we do a DVD run, it's going to compile all that code and it's going to"
+    },
+    {
+        "start": 206.0,
+        "end": 208.8,
+        "text": "run it against your data warehouse."
+    },
+    {
+        "start": 208.8,
+        "end": 215.36,
+        "text": "So it's selecting the data, let's say the raw data is transforming it and it's persisting"
+    },
+    {
+        "start": 215.36,
+        "end": 221.56,
+        "text": "it back as a view, as a table into your data warehouse."
+    },
+    {
+        "start": 221.56,
+        "end": 224.28,
+        "text": "So how to use DVD?"
+    },
+    {
+        "start": 224.28,
+        "end": 226.08,
+        "text": "There are two main ways of using DVD."
+    },
+    {
+        "start": 226.08,
+        "end": 231.04,
+        "text": "The first part that's important to understand, all of the things that we were looking at before,"
+    },
+    {
+        "start": 231.04,
+        "end": 236.24,
+        "text": "the writing a SQL file or maybe a Python file, writing documentation, writing all the"
+    },
+    {
+        "start": 236.24,
+        "end": 243.28,
+        "text": "tests, writing, so by writing I mean the compilation of that into something that creates a"
+    },
+    {
+        "start": 243.28,
+        "end": 248.4,
+        "text": "table or a view into your data warehouse, that's all part of the DVD core."
+    },
+    {
+        "start": 248.8,
+        "end": 254.56,
+        "text": "DVD core is open source, therefore free to use, something that you can install in your"
+    },
+    {
+        "start": 254.56,
+        "end": 261.0,
+        "text": "terminal and it's like an interface, right, to run those DVD commands."
+    },
+    {
+        "start": 261.0,
+        "end": 262.64,
+        "text": "And then there's DVD cloud."
+    },
+    {
+        "start": 262.64,
+        "end": 267.96,
+        "text": "So DD Cloud is a SAS application that runs DVD core."
+    },
+    {
+        "start": 267.96,
+        "end": 272.28000000000003,
+        "text": "It has everything that you need to create a DVD project."
+    },
+    {
+        "start": 272.28000000000003,
+        "end": 276.0,
+        "text": "So that means you have a place where to develop those transformations."
+    },
+    {
+        "start": 276.0,
+        "end": 283.16,
+        "text": "It's a web based IDE or you can also use a cloud CLI to connect to the environment that"
+    },
+    {
+        "start": 283.16,
+        "end": 284.8,
+        "text": "you're managing within the cloud."
+    },
+    {
+        "start": 284.8,
+        "end": 291.08,
+        "text": "So it gives you this place to manage this environment and it has a place where to orchestrate"
+    },
+    {
+        "start": 291.08,
+        "end": 295.56,
+        "text": "your code once it went to production."
+    },
+    {
+        "start": 295.56,
+        "end": 302.52,
+        "text": "It also has login and learning, it has hosted documentation, it has APIs as well for"
+    },
+    {
+        "start": 302.52,
+        "end": 309.56,
+        "text": "administration to get all that metadata and it also has a semantic layer among other"
+    },
+    {
+        "start": 309.56,
+        "end": 314.28,
+        "text": "of the features that has on top of the DVD core."
+    },
+    {
+        "start": 314.28,
+        "end": 319.59999999999997,
+        "text": "We are going to be using two ways, there are two ways we're going to be using the"
+    },
+    {
+        "start": 319.59999999999997,
+        "end": 320.59999999999997,
+        "text": "DVD."
+    },
+    {
+        "start": 320.59999999999997,
+        "end": 325.96,
+        "text": "We're going to see that the videos have always like a version A and a version B, that's"
+    },
+    {
+        "start": 325.96,
+        "end": 330.91999999999996,
+        "text": "the version A, which is like the main one that I'll be using is BigQuery."
+    },
+    {
+        "start": 330.92,
+        "end": 336.2,
+        "text": "So you need a warehouse that you may already have in place and we're going to use the"
+    },
+    {
+        "start": 336.2,
+        "end": 337.2,
+        "text": "cloud IDE."
+    },
+    {
+        "start": 337.2,
+        "end": 343.96000000000004,
+        "text": "So we're going to use a DVD cloud, DVD Liper plan, which is free."
+    },
+    {
+        "start": 343.96000000000004,
+        "end": 347.76,
+        "text": "You can create your account at no cost."
+    },
+    {
+        "start": 347.76,
+        "end": 353.52000000000004,
+        "text": "And this means we don't have to install anything locally unless you want to."
+    },
+    {
+        "start": 353.52000000000004,
+        "end": 358.96000000000004,
+        "text": "And then the second option is to use your Postgres and in here you're going to be doing"
+    },
+    {
+        "start": 358.96,
+        "end": 361.88,
+        "text": "all the development using your ID."
+    },
+    {
+        "start": 361.88,
+        "end": 366.64,
+        "text": "Maybe you're using a ready-to-beest code or something like that."
+    },
+    {
+        "start": 366.64,
+        "end": 373.28,
+        "text": "And you're going to install the DVD core locally and then we're going to have to do orchestration"
+    },
+    {
+        "start": 373.28,
+        "end": 375.32,
+        "text": "and all of that separate."
+    },
+    {
+        "start": 375.32,
+        "end": 381.79999999999995,
+        "text": "So what is going to happen during the project is you already may have this if you've been"
+    },
+    {
+        "start": 381.79999999999995,
+        "end": 384.96,
+        "text": "following the weeks before the course."
+    },
+    {
+        "start": 384.96,
+        "end": 391.68,
+        "text": "So you may have already in your, she's the B buckets, all of this trip data loaded."
+    },
+    {
+        "start": 391.68,
+        "end": 397.84,
+        "text": "We're going to also be using something like a master data table to enhance our data as"
+    },
+    {
+        "start": 397.84,
+        "end": 401.47999999999996,
+        "text": "well to see how it combines different data sources."
+    },
+    {
+        "start": 401.47999999999996,
+        "end": 406.35999999999996,
+        "text": "And we're going to take all that as for data loaded in tables in our BigQuery."
+    },
+    {
+        "start": 406.35999999999996,
+        "end": 414.12,
+        "text": "We're going to use DVD to transform the data and then at the end we're going to use some,"
+    },
+    {
+        "start": 414.12,
+        "end": 417.76,
+        "text": "we're going to create some dashboards to express that data."
+    },
+    {
+        "start": 417.76,
+        "end": 422.72,
+        "text": "So see you in the next video for a starting your DVD project."
+    }
+]

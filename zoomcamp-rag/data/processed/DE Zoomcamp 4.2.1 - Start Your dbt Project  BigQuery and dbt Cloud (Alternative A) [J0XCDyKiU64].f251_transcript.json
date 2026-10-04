@@ -1,0 +1,307 @@
+[
+    {
+        "start": 0.0,
+        "end": 5.32,
+        "text": "I'll show you an oncology start, a DVD project from scratch."
+    },
+    {
+        "start": 5.32,
+        "end": 11.56,
+        "text": "Every DVD project has a certain amount of folders with some names as well and a lot of"
+    },
+    {
+        "start": 11.56,
+        "end": 17.18,
+        "text": "configs that are global that are going to define how we work with DVD."
+    },
+    {
+        "start": 17.18,
+        "end": 22.64,
+        "text": "So to get you started, DVD actually gives you an authoritative project that has all of"
+    },
+    {
+        "start": 22.64,
+        "end": 27.62,
+        "text": "the basic and has like two examples of some models and there are two ways that you can"
+    },
+    {
+        "start": 27.62,
+        "end": 28.94,
+        "text": "generate this."
+    },
+    {
+        "start": 28.94,
+        "end": 32.06,
+        "text": "So you're going to create a repository from scratch."
+    },
+    {
+        "start": 32.06,
+        "end": 38.5,
+        "text": "DT must have this connection to your repository so in a Git provider, where is in GitHub"
+    },
+    {
+        "start": 38.5,
+        "end": 41.68,
+        "text": "in this course that could be something else."
+    },
+    {
+        "start": 41.68,
+        "end": 47.400000000000006,
+        "text": "And if you're using the CLI, what you're going to do is run this DVD in it and it's going"
+    },
+    {
+        "start": 47.400000000000006,
+        "end": 51.92,
+        "text": "to create all this file tree with all this files."
+    },
+    {
+        "start": 51.92,
+        "end": 57.28,
+        "text": "And if you're using DT Cloud, the IDE is going to guide you through this and what it's"
+    },
+    {
+        "start": 57.28,
+        "end": 62.800000000000004,
+        "text": "going to create is among all this folders, you're also going to find something that"
+    },
+    {
+        "start": 62.800000000000004,
+        "end": 65.96000000000001,
+        "text": "it's called a project YML."
+    },
+    {
+        "start": 65.96000000000001,
+        "end": 70.08,
+        "text": "And this is something that it's going to be created as well with things that when you're"
+    },
+    {
+        "start": 70.08,
+        "end": 74.8,
+        "text": "working with the CLI, it's going to be asking you and when you're working with the Cloud,"
+    },
+    {
+        "start": 74.8,
+        "end": 80.12,
+        "text": "it's going to be things that you're going to be adding in your configurations."
+    },
+    {
+        "start": 80.12,
+        "end": 84.16,
+        "text": "And here we're going to define the name of our project, what's the connections that"
+    },
+    {
+        "start": 84.16,
+        "end": 91.47999999999999,
+        "text": "we want to use, where do we want to store it, things, and we can define some global configurations."
+    },
+    {
+        "start": 91.47999999999999,
+        "end": 96.12,
+        "text": "I'm going to show you how to do it from the Cloud."
+    },
+    {
+        "start": 96.12,
+        "end": 106.56,
+        "text": "So I have here my project, I'm in the IDE, I'll show you how my account is set up."
+    },
+    {
+        "start": 106.56,
+        "end": 111.72,
+        "text": "So within my project on the Texas, I have my connection to Vickquery."
+    },
+    {
+        "start": 111.72,
+        "end": 116.76,
+        "text": "And something that I've done is, and I gave my project a name, which is called TaxiRite."
+    },
+    {
+        "start": 116.76,
+        "end": 125.36,
+        "text": "Something that I've done is, I define here as a directory, because what I want is my project"
+    },
+    {
+        "start": 125.36,
+        "end": 130.44,
+        "text": "to be created and they're a folder in a repository that already exists, which is this one,"
+    },
+    {
+        "start": 130.44,
+        "end": 132.07999999999998,
+        "text": "TaxiRite's New York."
+    },
+    {
+        "start": 132.07999999999998,
+        "end": 137.4,
+        "text": "So the project already exists, but we're going to create this project from scratch and at"
+    },
+    {
+        "start": 137.4,
+        "end": 140.96,
+        "text": "the end it should look something like this."
+    },
+    {
+        "start": 140.96,
+        "end": 147.04000000000002,
+        "text": "So it's important that we set that directory adapted to your repository."
+    },
+    {
+        "start": 147.04000000000002,
+        "end": 152.76000000000002,
+        "text": "And I have here this connection to query and this connection to the repo."
+    },
+    {
+        "start": 152.76000000000002,
+        "end": 159.24,
+        "text": "So once we go in there, we're going to see that we are by default on the main branch,"
+    },
+    {
+        "start": 159.24,
+        "end": 164.68,
+        "text": "and it doesn't allow us to work on this."
+    },
+    {
+        "start": 164.68,
+        "end": 173.68,
+        "text": "I will create a branch to work with this."
+    },
+    {
+        "start": 173.68,
+        "end": 179.68,
+        "text": "And I'm going to delete the old project."
+    },
+    {
+        "start": 179.68,
+        "end": 187.0,
+        "text": "So I can show you how to do a project from scratch, and we're going to be recreating that"
+    },
+    {
+        "start": 187.0,
+        "end": 188.96,
+        "text": "project on our own."
+    },
+    {
+        "start": 188.96,
+        "end": 190.52,
+        "text": "I'll commit."
+    },
+    {
+        "start": 190.52,
+        "end": 195.28,
+        "text": "In your case, you either won't have it, or if you have it, then my recommendation is"
+    },
+    {
+        "start": 195.28,
+        "end": 200.12,
+        "text": "that you do delete it, so then you can follow all of the steps."
+    },
+    {
+        "start": 200.12,
+        "end": 206.8,
+        "text": "If you saw it told me to initialize my project and it created this TaxiRite's New York,"
+    },
+    {
+        "start": 206.8,
+        "end": 211.88,
+        "text": "this is where my project leaves, with all of this folders similar to what we saw, and"
+    },
+    {
+        "start": 211.88,
+        "end": 214.72,
+        "text": "there's this project YML."
+    },
+    {
+        "start": 214.72,
+        "end": 222.28,
+        "text": "By default, it gives me this name, a new project, but I do want to call it something different,"
+    },
+    {
+        "start": 222.28,
+        "end": 227.12,
+        "text": "like TaxiRite's New York."
+    },
+    {
+        "start": 227.12,
+        "end": 229.0,
+        "text": "There's a version for my project."
+    },
+    {
+        "start": 229.0,
+        "end": 235.48,
+        "text": "This is, we could, if we wanted to change the names of the folders that come from the"
+    },
+    {
+        "start": 235.48,
+        "end": 245.2,
+        "text": "By default, and then here as well, we're going to just do TaxiRite's New York."
+    },
+    {
+        "start": 245.2,
+        "end": 248.2,
+        "text": "And here we can do things that we apply for it."
+    },
+    {
+        "start": 248.2,
+        "end": 256.15999999999997,
+        "text": "So for every model, so here, for example, applies materialization table to all of the models"
+    },
+    {
+        "start": 256.15999999999997,
+        "end": 258.03999999999996,
+        "text": "under this structure."
+    },
+    {
+        "start": 258.03999999999996,
+        "end": 263.08,
+        "text": "We're going to delete this because we don't need this yet."
+    },
+    {
+        "start": 263.08,
+        "end": 267.8,
+        "text": "Under the model tables, you're going to find that example folder, and you're going to"
+    },
+    {
+        "start": 267.8,
+        "end": 272.24,
+        "text": "find some initial models as well with its lineage."
+    },
+    {
+        "start": 272.24,
+        "end": 281.52,
+        "text": "This is how a DVD code, a DVD model looks like you could do a DVD build as well from your"
+    },
+    {
+        "start": 281.52,
+        "end": 285.24,
+        "text": "whole project if you wanted to make sure that everything is working here."
+    },
+    {
+        "start": 285.24,
+        "end": 289.79999999999995,
+        "text": "You'll notice that there is a DVD that's as well, what it's doing here is setting up"
+    },
+    {
+        "start": 289.88,
+        "end": 296.04,
+        "text": "your environment, and well, it had us, for example, a test that it fails to remind you"
+    },
+    {
+        "start": 296.04,
+        "end": 298.76,
+        "text": "to do your quality checks, I guess."
+    },
+    {
+        "start": 298.76,
+        "end": 306.56,
+        "text": "Yeah, so we're going to commit all of this and at my DVD project, this is like the"
+    },
+    {
+        "start": 306.56,
+        "end": 311.6,
+        "text": "hello DVD world."
+    },
+    {
+        "start": 311.6,
+        "end": 317.64,
+        "text": "And we'll see next how to start the development of those models."
+    }
+]

@@ -1,0 +1,34 @@
+# Python Environment & Secrets
+venv/
+env/
+.env
+__pycache__/
+*.pyc
+
+# Local Vector Database
+data/qdrant_db/
+
+# Media Files & Data
+data/raw/audio/
+data/processed/
+*.webm
+*.mp4
+*.mp3
+*.wav
+
+data/raw/merged_videos/
+merged_videos/
+download_audio.py
+# (Note: If your download script is named something else, add it here)
+
+# Streamlit (Ignore local secrets if you use them)
+.streamlit/secrets.toml
+
+# IDE & OS Artifacts
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+
+!assets/demo.mp4

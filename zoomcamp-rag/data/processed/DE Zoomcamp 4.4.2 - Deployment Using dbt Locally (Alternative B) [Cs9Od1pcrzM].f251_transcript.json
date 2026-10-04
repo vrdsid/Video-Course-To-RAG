@@ -1,0 +1,372 @@
+[
+    {
+        "start": 0.0,
+        "end": 4.76,
+        "text": "Now that we created a complete project and we tested it and"
+    },
+    {
+        "start": 4.76,
+        "end": 10.56,
+        "text": "know that everything runs correctly, it's time to deploy our DVT project."
+    },
+    {
+        "start": 13.68,
+        "end": 16.56,
+        "text": "When I introduced the DVT at the very beginning,"
+    },
+    {
+        "start": 16.56,
+        "end": 19.28,
+        "text": "I said it would help us with the different"
+    },
+    {
+        "start": 19.28,
+        "end": 22.240000000000002,
+        "text": "statements of the development workflow."
+    },
+    {
+        "start": 22.240000000000002,
+        "end": 26.96,
+        "text": "An development workflow will look something like we've done so far."
+    },
+    {
+        "start": 27.36,
+        "end": 32.64,
+        "text": "DeveLipin. Normally it would be in a separate branch."
+    },
+    {
+        "start": 32.64,
+        "end": 36.08,
+        "text": "Testin and documentin, this model."
+    },
+    {
+        "start": 36.08,
+        "end": 40.480000000000004,
+        "text": "And all of this in the development environment, like we've used so far,"
+    },
+    {
+        "start": 40.480000000000004,
+        "end": 46.56,
+        "text": "that it has its own separate schema and it will be a separate user,"
+    },
+    {
+        "start": 46.56,
+        "end": 51.28,
+        "text": "ideally. And after that, once all of this is ready,"
+    },
+    {
+        "start": 51.28,
+        "end": 56.0,
+        "text": "we're going to deploy it, use inversion control and CICD as well,"
+    },
+    {
+        "start": 56.08,
+        "end": 58.8,
+        "text": "in a production environment. So deployment,"
+    },
+    {
+        "start": 58.8,
+        "end": 61.04,
+        "text": "Adian is the process of running this model,"
+    },
+    {
+        "start": 61.04,
+        "end": 63.52,
+        "text": "that we created in our development environment,"
+    },
+    {
+        "start": 63.52,
+        "end": 70.88,
+        "text": "in a production environment. Having DEF workflow, it's going to allow us"
+    },
+    {
+        "start": 70.88,
+        "end": 77.2,
+        "text": "to keep DVLipin, to later deploy in the production environment,"
+    },
+    {
+        "start": 78.24000000000001,
+        "end": 82.56,
+        "text": "but without affecting the models that we already have running on test in"
+    },
+    {
+        "start": 82.72,
+        "end": 87.52,
+        "text": "production. This deployment environment will run against"
+    },
+    {
+        "start": 87.52,
+        "end": 92.64,
+        "text": "the different schema. This will be using the production schema,"
+    },
+    {
+        "start": 92.64,
+        "end": 96.72,
+        "text": "that I showed at the very beginning, which means that all of the models that we"
+    },
+    {
+        "start": 96.72,
+        "end": 100.0,
+        "text": "were creating before, in the DVT on this core, Victoria,"
+    },
+    {
+        "start": 100.0,
+        "end": 103.76,
+        "text": "they're going to be created on their production."
+    },
+    {
+        "start": 106.4,
+        "end": 110.32000000000001,
+        "text": "So let's see how to run a DVT project in production."
+    },
+    {
+        "start": 110.55999999999999,
+        "end": 117.19999999999999,
+        "text": "We saw in the DVT cloud that running the DVT model was simply running a command"
+    },
+    {
+        "start": 117.19999999999999,
+        "end": 122.47999999999999,
+        "text": "in the cloud IDE, but DVT cloud also includes a scheduler,"
+    },
+    {
+        "start": 122.47999999999999,
+        "end": 125.83999999999999,
+        "text": "where we can create shots and run them in production."
+    },
+    {
+        "start": 125.83999999999999,
+        "end": 128.64,
+        "text": "These shots are going to use the production environment,"
+    },
+    {
+        "start": 128.64,
+        "end": 132.56,
+        "text": "which means they're going to create those models in the production database."
+    },
+    {
+        "start": 133.35999999999999,
+        "end": 138.0,
+        "text": "A single shot can have multiple commands. So we saw that in the IDE,"
+    },
+    {
+        "start": 138.0,
+        "end": 143.76,
+        "text": "where we're running always one command at a time. Here we could actually separate them to have"
+    },
+    {
+        "start": 144.64,
+        "end": 151.6,
+        "text": "separate logs as well. Once we created our shot, here we can see that creation off a shot."
+    },
+    {
+        "start": 153.44,
+        "end": 157.12,
+        "text": "Once we've created, we can trigger this manually, or we can actually"
+    },
+    {
+        "start": 157.12,
+        "end": 160.72,
+        "text": "ask Cadulate to run it on their schedule basis."
+    },
+    {
+        "start": 161.84,
+        "end": 167.6,
+        "text": "And this is how it's going to look like. The shot is going to have every run that happened,"
+    },
+    {
+        "start": 168.16,
+        "end": 174.64,
+        "text": "over time. And each run is going to have a log for the commands that we run in there."
+    },
+    {
+        "start": 175.6,
+        "end": 182.8,
+        "text": "If the shot is generated in documentation, this can also be viewed under the details of the run."
+    },
+    {
+        "start": 184.0,
+        "end": 190.56,
+        "text": "If one of the commands that we're running is DVT source freshness, in that case the shot will"
+    },
+    {
+        "start": 190.56,
+        "end": 196.32,
+        "text": "also have a link to the data sources, where it's going to show all the forward data sources."
+    },
+    {
+        "start": 197.28,
+        "end": 204.56,
+        "text": "And the freshness. So here we can see that some of them, the data is fresh,"
+    },
+    {
+        "start": 204.56,
+        "end": 209.2,
+        "text": "they're others, they're close to the threshold that we had defined in this QML,"
+    },
+    {
+        "start": 209.2,
+        "end": 211.12,
+        "text": "and there are no as tail branches."
+    },
+    {
+        "start": 216.0,
+        "end": 220.64,
+        "text": "And lastly, a very important part of deployment is the continuous integration."
+    },
+    {
+        "start": 221.2,
+        "end": 225.2,
+        "text": "Continuous integration is a normal practice in software development that"
+    },
+    {
+        "start": 225.76,
+        "end": 231.6,
+        "text": "establish regular immersion of those development branches into the central repository."
+    },
+    {
+        "start": 232.32,
+        "end": 236.64,
+        "text": "And ideally, they would also include automated bills and test runs."
+    },
+    {
+        "start": 236.64,
+        "end": 244.07999999999998,
+        "text": "The goal here is to reduce adding bugs to production code and maintain a more stable project."
+    },
+    {
+        "start": 244.07999999999998,
+        "end": 250.56,
+        "text": "How can we do that with DVT? So we already know how to schedule shots, and we know that in a"
+    },
+    {
+        "start": 250.56,
+        "end": 256.72,
+        "text": "shop we can put as many commands as we want. We could enable to run those shots"
+    },
+    {
+        "start": 257.68,
+        "end": 263.28000000000003,
+        "text": "from a web hook from GitHub or GitLab, where we're hosting our repository."
+    },
+    {
+        "start": 263.92,
+        "end": 269.44,
+        "text": "What is going to happen here is that once we open a PR, and this PR is ready to emerge,"
+    },
+    {
+        "start": 271.36,
+        "end": 277.28,
+        "text": "GitHub is going to send a web hook to DVT Cloud, and DVT Cloud will create a shop"
+    },
+    {
+        "start": 277.91999999999996,
+        "end": 283.76,
+        "text": "that we've defined before, and it's going to start a run of this one."
+    },
+    {
+        "start": 284.4,
+        "end": 290.47999999999996,
+        "text": "In this run, it's going to be using a temporary schema that has been created for the PR,"
+    },
+    {
+        "start": 291.52,
+        "end": 297.59999999999997,
+        "text": "and no PR will be able to emerge, and left the run has been completed successfully."
+    },
+    {
+        "start": 297.59999999999997,
+        "end": 301.52,
+        "text": "And here we can see how it would look like in GitHub."
+    },
+    {
+        "start": 301.91999999999996,
+        "end": 311.52,
+        "text": "I am now going to show our alternative for those that are only using local development."
+    },
+    {
+        "start": 312.47999999999996,
+        "end": 317.03999999999996,
+        "text": "Unfortunately, we can't use all of the benefits of do-teach Cloud, and then we would have to use"
+    },
+    {
+        "start": 317.03999999999996,
+        "end": 324.15999999999997,
+        "text": "the different alternative. But if we go to our profile schema again, they remember that this was"
+    },
+    {
+        "start": 324.24,
+        "end": 332.0,
+        "text": "in the home, and then dot DVT, and then a slash profiles email. And here we have defined"
+    },
+    {
+        "start": 332.0,
+        "end": 339.76000000000005,
+        "text": "after here, after this part. We created a profile for using Postgres. We defined our user,"
+    },
+    {
+        "start": 339.76000000000005,
+        "end": 347.92,
+        "text": "our password, and the database name, and a local development schema. We are now going to create"
+    },
+    {
+        "start": 347.92,
+        "end": 352.64000000000004,
+        "text": "a second target, which is called PR. And we're going to use a different user if we want to,"
+    },
+    {
+        "start": 352.71999999999997,
+        "end": 357.91999999999996,
+        "text": "or a different password here, since we are the only ones using this project, you could still use"
+    },
+    {
+        "start": 357.91999999999996,
+        "end": 363.59999999999997,
+        "text": "the same ones. And we are going to change the schema. We could also use a different"
+    },
+    {
+        "start": 364.96,
+        "end": 372.47999999999996,
+        "text": "database name if you wanted to. And what it's going to do for us, it's going to allow us to run"
+    },
+    {
+        "start": 372.56,
+        "end": 381.68,
+        "text": "DVT build in this target, this dev target, or this product target, that we are going to indicate here"
+    },
+    {
+        "start": 381.68,
+        "end": 390.08000000000004,
+        "text": "in the command line. By default, it's going to take this target dev, which means that if I do"
+    },
+    {
+        "start": 390.08000000000004,
+        "end": 398.8,
+        "text": "DVT build, it's always going to run it against my DVT on the score with Dodia. But if I do DVT build,"
+    },
+    {
+        "start": 399.76,
+        "end": 407.6,
+        "text": "minus there from target, and I choose prod, we're going to see that it's going to run it"
+    },
+    {
+        "start": 407.6,
+        "end": 416.40000000000003,
+        "text": "against master, which is my schema for production. So what you could do is now that you already know"
+    },
+    {
+        "start": 416.40000000000003,
+        "end": 424.16,
+        "text": "how to use a production target. So what you could do is check out into master, and you said to"
+    },
+    {
+        "start": 424.16,
+        "end": 430.96000000000004,
+        "text": "deploy your models in production once you've finished your development. Another thing that you"
+    },
+    {
+        "start": 430.96000000000004,
+        "end": 438.96000000000004,
+        "text": "could do to schedule those jobs is just simply use a cron and indicate the command, indicate the target as well."
+    }
+]

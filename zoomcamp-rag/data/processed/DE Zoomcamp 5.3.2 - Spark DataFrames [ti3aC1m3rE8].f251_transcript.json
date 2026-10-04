@@ -1,0 +1,672 @@
+[
+    {
+        "start": 0.0,
+        "end": 5.68,
+        "text": "Hello everyone, welcome to video 5 and in this video we will talk about Spark DataFrames."
+    },
+    {
+        "start": 5.68,
+        "end": 10.64,
+        "text": "In the previous video we took a first look at PySparc so we saw how to read the CIS file,"
+    },
+    {
+        "start": 10.64,
+        "end": 15.92,
+        "text": "we talked a bit about partitions and then we saw how to save our CIS data to ParkEd"
+    },
+    {
+        "start": 15.92,
+        "end": 21.6,
+        "text": "and then we talked a bit about Spark Master UI. In this video I want to talk more about Spark DataFrames"
+    },
+    {
+        "start": 21.6,
+        "end": 26.96,
+        "text": "so we already saw the dataFrames. DataFrames are these things that we call DF,"
+    },
+    {
+        "start": 27.04,
+        "end": 33.84,
+        "text": "the F is short for DataFrame and now I want to... let me hide this thing. Now I want to use"
+    },
+    {
+        "start": 33.84,
+        "end": 38.480000000000004,
+        "text": "this ParkEd files that we created in the previous video. I want to read them so for that I will use"
+    },
+    {
+        "start": 39.6,
+        "end": 44.64,
+        "text": "Spark, edit, ParkEd and then I will use this location for reading them"
+    },
+    {
+        "start": 46.24,
+        "end": 52.96,
+        "text": "and because ParkEd contain the information about schema, here remembers the types for each column,"
+    },
+    {
+        "start": 53.04,
+        "end": 58.4,
+        "text": "so this one is string, these are strings, this is the timestamp, this is an integer and the last one"
+    },
+    {
+        "start": 58.4,
+        "end": 65.12,
+        "text": "is string, so we don't need to specify schema here explicitly, we know it and let's say if we do"
+    },
+    {
+        "start": 65.76,
+        "end": 71.68,
+        "text": "schema, I think instead of just using schema there is a nicer way of doing this print schema, so this"
+    },
+    {
+        "start": 71.68,
+        "end": 76.32,
+        "text": "is better, we don't need to specify it because it already knows the schema and that's one of the"
+    },
+    {
+        "start": 76.32,
+        "end": 81.76,
+        "text": "reasons that ParkEd files are smaller, so they know the schema and then they use more efficient ways"
+    },
+    {
+        "start": 81.92,
+        "end": 87.52000000000001,
+        "text": "of compressing the data, so for example for this one we can just use four bytes for each value"
+    },
+    {
+        "start": 87.52000000000001,
+        "end": 93.84,
+        "text": "instead of using multiple bytes like we would do with CSV with plain text. So we have this data"
+    },
+    {
+        "start": 93.84,
+        "end": 99.68,
+        "text": "frame, what can we do with this data frame? We can do the usual stuff we can do with pandas,"
+    },
+    {
+        "start": 99.68,
+        "end": 106.32000000000001,
+        "text": "what if we only want to select a few columns, then for that we use data frame select and then"
+    },
+    {
+        "start": 106.32000000000001,
+        "end": 111.12,
+        "text": "here we will give a list of columns we want to select, so for example if we want to select"
+    },
+    {
+        "start": 111.12,
+        "end": 119.44,
+        "text": "pick up the time, then drop of the time and let's say pick up location ID and drop of location maybe,"
+    },
+    {
+        "start": 120.0,
+        "end": 125.60000000000001,
+        "text": "then this is how we would do this, and this data frame will contain only these four columns,"
+    },
+    {
+        "start": 125.60000000000001,
+        "end": 132.0,
+        "text": "then we can do other things like filtering, so for example we can use filter statement and here we"
+    },
+    {
+        "start": 132.0,
+        "end": 140.8,
+        "text": "can say that we want this license number, so we do hit n, 10, then I will pick this one,"
+    },
+    {
+        "start": 141.84,
+        "end": 147.84,
+        "text": "so I want to show these columns only for the records where this license number is this one,"
+    },
+    {
+        "start": 148.48000000000002,
+        "end": 156.96,
+        "text": "you see execute this and nothing happens, well it was hard to see, but it now it's 59 and it was"
+    },
+    {
+        "start": 156.96,
+        "end": 163.84,
+        "text": "4 minutes ago, so this is not what I executed right now, but now if I do the show, then spark will"
+    },
+    {
+        "start": 163.92000000000002,
+        "end": 172.88,
+        "text": "do something, so this is only here, something happens, let me refresh it, you see it's now 59,"
+    },
+    {
+        "start": 174.0,
+        "end": 180.48000000000002,
+        "text": "00 and it actually executed something, so the reason is these things are lazy, like this"
+    },
+    {
+        "start": 180.48000000000002,
+        "end": 185.92000000000002,
+        "text": "repartition is lazy, they are not executed right away, and in spark there is this distinction between"
+    },
+    {
+        "start": 185.92000000000002,
+        "end": 190.72,
+        "text": "things that are executed right away and things that are executed not right away, and they are called"
+    },
+    {
+        "start": 190.8,
+        "end": 195.84,
+        "text": "actions and transformations, the things that are not executed right away are called transformations,"
+    },
+    {
+        "start": 195.84,
+        "end": 201.52,
+        "text": "and these are things that we use for transforming the data, for example selecting columns,"
+    },
+    {
+        "start": 201.52,
+        "end": 208.24,
+        "text": "filtering or applying some functions to each column for example, all of these things are"
+    },
+    {
+        "start": 208.24,
+        "end": 214.48,
+        "text": "transformations and they are not executed immediately, and what happens is that spark creates a sequence"
+    },
+    {
+        "start": 214.56,
+        "end": 221.12,
+        "text": "of transformations, so for this code, first we have select, so we have our original data frame,"
+    },
+    {
+        "start": 221.12,
+        "end": 228.23999999999998,
+        "text": "let me create a new slide here, so we have our original data frame, and then we do select,"
+    },
+    {
+        "start": 228.23999999999998,
+        "end": 235.92,
+        "text": "and then we do filter, then we can do bunch of other things, and here this is not executed,"
+    },
+    {
+        "start": 235.92,
+        "end": 243.67999999999998,
+        "text": "but the moment we do the show, this is executed, so let me add out here, and I will use a different"
+    },
+    {
+        "start": 243.68,
+        "end": 250.48000000000002,
+        "text": "shape, maybe different colors as well, show, and when we execute show only then the computation"
+    },
+    {
+        "start": 250.48000000000002,
+        "end": 255.52,
+        "text": "happens, so this one is lazy, this is just transformation, this one is also lazy, this is transformation,"
+    },
+    {
+        "start": 255.52,
+        "end": 261.36,
+        "text": "but this thing is called an action, and when we do an action, the whole thing gets evaluated"
+    },
+    {
+        "start": 261.36,
+        "end": 267.2,
+        "text": "to see the results, so these are transformations, they are lazy, and this one is action,"
+    },
+    {
+        "start": 267.2,
+        "end": 272.8,
+        "text": "it's, I think it's called Iker, that's basically, this triggers the whole thing to be executed,"
+    },
+    {
+        "start": 272.8,
+        "end": 279.68,
+        "text": "and I don't know if you can see this actually here, if I, I think it just compresses all these"
+    },
+    {
+        "start": 279.68,
+        "end": 285.92,
+        "text": "transformations in one thing, I cannot see anything here, probably like spark compresses,"
+    },
+    {
+        "start": 285.92,
+        "end": 291.6,
+        "text": "like all these transformations in this whole stage code again, then it executes all of them at once,"
+    },
+    {
+        "start": 291.6,
+        "end": 298.40000000000003,
+        "text": "so these two things at once, and let me finish this, so, and so on, transformations are lazy,"
+    },
+    {
+        "start": 298.4,
+        "end": 307.03999999999996,
+        "text": "not executed immediately, and actions, they are not lazy, executed immediately, and these are"
+    },
+    {
+        "start": 307.03999999999996,
+        "end": 313.12,
+        "text": "things like show, take, so take is, let's say we want to take five records from this data frame,"
+    },
+    {
+        "start": 313.12,
+        "end": 319.35999999999996,
+        "text": "then it gives us five records, this is I think the same as head, so take head to these"
+    },
+    {
+        "start": 319.35999999999996,
+        "end": 324.23999999999995,
+        "text": "certain transformations because they cause spark to ability it, these transformations to arrive at"
+    },
+    {
+        "start": 325.2,
+        "end": 331.52,
+        "text": "them right, so right CSV, right for cat, these are actions as well, and I think this is like the"
+    },
+    {
+        "start": 331.52,
+        "end": 336.8,
+        "text": "main one, writing the results, triggers the entire transformation graph that you have, and of course"
+    },
+    {
+        "start": 336.8,
+        "end": 344.0,
+        "text": "it can be more complex, that could be, I don't know, joins group by and so on, but there's something"
+    },
+    {
+        "start": 344.0,
+        "end": 350.56,
+        "text": "we'll see in the next video, I can also do it here, well I think it's nicer to do it with SQL,"
+    },
+    {
+        "start": 350.64,
+        "end": 354.64,
+        "text": "it's more expressive in my opinion, but yeah, so this is the main distinction between"
+    },
+    {
+        "start": 354.64,
+        "end": 360.24,
+        "text": "transformation and action, now so this is how we do simple stuff, of course, yeah I think I mentioned"
+    },
+    {
+        "start": 360.24,
+        "end": 366.16,
+        "text": "that there is group by, it's working to group by and we can specify what kind of column we want to"
+    },
+    {
+        "start": 366.16,
+        "end": 371.04,
+        "text": "group by and what exactly we want to do, I will not go into details here, you can check the official"
+    },
+    {
+        "start": 371.04,
+        "end": 376.72,
+        "text": "documentation, it's pretty good, and as I said I would go with SQL because it's a bit simpler,"
+    },
+    {
+        "start": 376.8,
+        "end": 382.32000000000005,
+        "text": "at least for some stuff, than this way of doing the same thing, but with plain spark, yeah you're"
+    },
+    {
+        "start": 382.32000000000005,
+        "end": 387.84000000000003,
+        "text": "looking at this and you might be wondering if we can do this, but this is the same thing as using"
+    },
+    {
+        "start": 387.84000000000003,
+        "end": 393.6,
+        "text": "SQL, right, and SQL, we can just write select these four things, ROM, whatever name of the database"
+    },
+    {
+        "start": 393.6,
+        "end": 400.08000000000004,
+        "text": "that we have, where this thing equals to this, right, and so why do we need to bother with this?"
+    },
+    {
+        "start": 400.08000000000004,
+        "end": 406.56,
+        "text": "The spark is more flexible, and one of the things that it can give us is this user defined functions,"
+    },
+    {
+        "start": 406.88,
+        "end": 411.92,
+        "text": "but before we go into user defined functions, I want to show what are the functions that are"
+    },
+    {
+        "start": 411.92,
+        "end": 419.92,
+        "text": "already available in Spark, so in Spark we have by Spark SQL functions, so these are a collection"
+    },
+    {
+        "start": 419.92,
+        "end": 427.12,
+        "text": "of functions that Spark already has, by Spark SQL and Perf functions as F, capital F, I think this"
+    },
+    {
+        "start": 427.12,
+        "end": 432.4,
+        "text": "is the convention because you can just write this capital F, then hip top, and you can see all the"
+    },
+    {
+        "start": 432.4,
+        "end": 439.2,
+        "text": "functions that are available, there's quite a lot of them, what I want to use here is this"
+    },
+    {
+        "start": 439.2,
+        "end": 446.0,
+        "text": "function called two date, which takes a date time and keeps only the date information, so it"
+    },
+    {
+        "start": 446.0,
+        "end": 452.0,
+        "text": "discards the information about our minute, second, and so on, it only keeps the date, and the way it"
+    },
+    {
+        "start": 452.0,
+        "end": 458.88,
+        "text": "works, the way we can use these functions is we can do the data frame with column, and this"
+    },
+    {
+        "start": 458.96,
+        "end": 464.48,
+        "text": "expression adds a new column to a data frame, this is also transformation, it's not causing our"
+    },
+    {
+        "start": 464.48,
+        "end": 469.92,
+        "text": "transformation graph to be executed, so now we say that we want to add a new column, this column will"
+    },
+    {
+        "start": 469.92,
+        "end": 477.6,
+        "text": "be let's say pick up date, so this is the name of the column, and now we need to say what exactly"
+    },
+    {
+        "start": 477.6,
+        "end": 484.0,
+        "text": "we want to do, and what we want to do is we want to execute this two date function on let's say"
+    },
+    {
+        "start": 484.08,
+        "end": 489.84,
+        "text": "data frame pick up date, the way I do this I usually do it on the next line like that,"
+    },
+    {
+        "start": 490.72,
+        "end": 496.56,
+        "text": "and then we can have another column, which is drop of date, then we do the same with drop of"
+    },
+    {
+        "start": 496.56,
+        "end": 502.96,
+        "text": "location, and now what happens, we add two new columns to our data frame, so if I do now show,"
+    },
+    {
+        "start": 502.96,
+        "end": 509.44,
+        "text": "we will see that there are two new columns, if we give a name of a column that already exists,"
+    },
+    {
+        "start": 509.44,
+        "end": 514.48,
+        "text": "you will overwrite this column, so right now if we do something like this, then pick up date"
+    },
+    {
+        "start": 514.48,
+        "end": 519.92,
+        "text": "time and drop of date time, you see it's overwritten, yeah in this case maybe it's not a good idea to"
+    },
+    {
+        "start": 519.92,
+        "end": 525.2,
+        "text": "overwrite it because this semantic changes a little bit because previously it was date time,"
+    },
+    {
+        "start": 525.2,
+        "end": 532.0,
+        "text": "but now it's just date, so now we can do something like select, and then specify the names of the"
+    },
+    {
+        "start": 532.0,
+        "end": 540.88,
+        "text": "columns we want to select, for example with ones, but instead of date time, I will just use date,"
+    },
+    {
+        "start": 540.88,
+        "end": 546.8,
+        "text": "and yeah of course I need this thing, and now you see we have pick up date drop of date and so on,"
+    },
+    {
+        "start": 546.8,
+        "end": 555.04,
+        "text": "so this is how you usually do this in Spark, and these functions, so there is a huge list of functions"
+    },
+    {
+        "start": 555.04,
+        "end": 561.28,
+        "text": "that we can use, I don't know most of them, but we can also define our own functions, and this is"
+    },
+    {
+        "start": 561.28,
+        "end": 566.64,
+        "text": "not what you would typically do in data warehouses because they're defining your own functions,"
+    },
+    {
+        "start": 566.64,
+        "end": 573.12,
+        "text": "it's cumbersome, but Spark, PySparc is Python, and you can store all this code in your Git repo,"
+    },
+    {
+        "start": 573.12,
+        "end": 577.4399999999999,
+        "text": "you can cover it with test, you can really make sure that your code works, and then you can just"
+    },
+    {
+        "start": 577.4399999999999,
+        "end": 583.68,
+        "text": "execute this code on your data friends, let's say we have a function that is doing something crazy,"
+    },
+    {
+        "start": 583.68,
+        "end": 589.6,
+        "text": "something that is not super easy to express with SQL, I'll call this function crazy stuff,"
+    },
+    {
+        "start": 589.6,
+        "end": 595.2,
+        "text": "and let's say this function is doing something with, let me show this, let me take a look at this"
+    },
+    {
+        "start": 595.2,
+        "end": 602.8000000000001,
+        "text": "again, so let's say it is doing something with this patching base number, so this is the input it"
+    },
+    {
+        "start": 602.8000000000001,
+        "end": 608.8000000000001,
+        "text": "gets, call just base number, and the logic here could be something crazy, for example, if this"
+    },
+    {
+        "start": 608.8000000000001,
+        "end": 614.96,
+        "text": "number that we have here can be divided by seven, then we do one thing, if it cannot be divided by seven,"
+    },
+    {
+        "start": 614.96,
+        "end": 620.1600000000001,
+        "text": "then we do another thing, for that we do base number, and then we select everything starting from"
+    },
+    {
+        "start": 620.1600000000001,
+        "end": 626.8000000000001,
+        "text": "this character, from position one, and then we turn this into integer, and when we check if number"
+    },
+    {
+        "start": 626.8000000000001,
+        "end": 633.36,
+        "text": "is divisible by seven, I think this is how we do this, if they remain there, after dividing is zero,"
+    },
+    {
+        "start": 633.36,
+        "end": 640.88,
+        "text": "it means that it is divisible by seven, then let's say in this case we return an ID that starts with"
+    },
+    {
+        "start": 640.96,
+        "end": 647.6,
+        "text": "s, and then our ID is something like that, so it's s slash, and then we have this number,"
+    },
+    {
+        "start": 647.6,
+        "end": 656.72,
+        "text": "but let's say this number is in hex, and otherwise if it is not divisible by seven, then instead of s,"
+    },
+    {
+        "start": 656.72,
+        "end": 662.8,
+        "text": "return e, so this is a pretty crazy stuff, but let's say these are business requirements for whatever"
+    },
+    {
+        "start": 662.8,
+        "end": 668.64,
+        "text": "reason, and then yeah, if you want to express this in SQL, probably not super nice, especially when"
+    },
+    {
+        "start": 668.72,
+        "end": 675.12,
+        "text": "it gets more and more complex, when you have more conditions here like L, if let's say it's divisible"
+    },
+    {
+        "start": 675.12,
+        "end": 683.92,
+        "text": "by three, then maybe you want to have A here, and otherwise go with this, let me quickly check if it"
+    },
+    {
+        "start": 683.92,
+        "end": 692.56,
+        "text": "actually works, I think it does, it seems to work, so the video at this thing is that this thing"
+    },
+    {
+        "start": 692.56,
+        "end": 697.52,
+        "text": "can live in a separate model, and then so this is a usual Python function that we can test, we can"
+    },
+    {
+        "start": 697.52,
+        "end": 703.76,
+        "text": "cover with unit tests, and we can cover every branch of this weird logic, and now we can turn"
+    },
+    {
+        "start": 703.76,
+        "end": 709.4399999999999,
+        "text": "this thing into a user defined function for that, I think in this f there is a thing called UDF,"
+    },
+    {
+        "start": 709.4399999999999,
+        "end": 716.16,
+        "text": "and what it does, it takes in this crazy stuff function, and then we can specify return type, by"
+    },
+    {
+        "start": 716.16,
+        "end": 721.36,
+        "text": "default it's string type, but let's say if we return integer, we need to explicitly say this,"
+    },
+    {
+        "start": 721.36,
+        "end": 727.12,
+        "text": "yeah, so this thing will call crazy stuff UDF, so this is our user defined function,"
+    },
+    {
+        "start": 727.12,
+        "end": 734.72,
+        "text": "so this is how we turn a usual Python function into a user defined function, and now we can do with"
+    },
+    {
+        "start": 734.72,
+        "end": 744.24,
+        "text": "column base ID, and we just use this UDF here, to apply to what's the name of the column, it's"
+    },
+    {
+        "start": 744.24,
+        "end": 754.48,
+        "text": "patching based on, and then yeah of course we can select it as well, and this base ID, so this is"
+    },
+    {
+        "start": 754.48,
+        "end": 761.28,
+        "text": "also transformation, so all these things are delayed, until we actually execute show, until execute"
+    },
+    {
+        "start": 761.28,
+        "end": 767.84,
+        "text": "an action, while this is a completely made up example, I don't think you will ever need to"
+    },
+    {
+        "start": 767.84,
+        "end": 774.0,
+        "text": "use something like this, there are some business rules that can get quite difficult, and when you"
+    },
+    {
+        "start": 774.0,
+        "end": 780.5600000000001,
+        "text": "seek call you end up with a bunch of case statements, and then you create just looks very ugly,"
+    },
+    {
+        "start": 780.64,
+        "end": 786.88,
+        "text": "and since it's echo, it's very difficult to test, as in dbt you can test things, but this is still"
+    },
+    {
+        "start": 786.88,
+        "end": 795.1999999999999,
+        "text": "not as easy as testing Python code, so this is how you do transformations in bias park with data frames,"
+    },
+    {
+        "start": 795.1999999999999,
+        "end": 800.4799999999999,
+        "text": "and of course I'm only scratching the surface, you can do a lot more things, but for many of these"
+    },
+    {
+        "start": 800.4799999999999,
+        "end": 806.56,
+        "text": "things, they look very similar to sickle, except these things, crazy UDF stuff, we'll talk about how"
+    },
+    {
+        "start": 806.7199999999999,
+        "end": 812.16,
+        "text": "to do sickle in the next video, but the nice thing about park is you can have best from the"
+    },
+    {
+        "start": 812.16,
+        "end": 818.64,
+        "text": "both worlds, so you can have sickle, and then after that you can do crazy UDF stuff there, and for me"
+    },
+    {
+        "start": 818.64,
+        "end": 824.16,
+        "text": "personally this is quite convenient, so machine learning logic looks usually like this crazy stuff,"
+    },
+    {
+        "start": 824.16,
+        "end": 829.92,
+        "text": "and I don't want to just rely on sickle for doing these things, this flexibility, this"
+    },
+    {
+        "start": 830.4799999999999,
+        "end": 836.9599999999999,
+        "text": "ability of being able to put some custom logic in our transformations, which is quite useful,"
+    },
+    {
+        "start": 836.9599999999999,
+        "end": 841.76,
+        "text": "so I think that's all I wanted to cover in this video, we talked about actions and transformations,"
+    },
+    {
+        "start": 841.76,
+        "end": 848.0799999999999,
+        "text": "we talked about functions and dbtf, and in the next video I want to show you how to use sickle"
+    },
+    {
+        "start": 848.08,
+        "end": 850.08,
+        "text": "inside park too, see you soon!"
+    }
+]

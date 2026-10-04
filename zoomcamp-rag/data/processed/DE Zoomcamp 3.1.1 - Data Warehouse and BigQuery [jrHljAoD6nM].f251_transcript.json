@@ -1,0 +1,987 @@
+[
+    {
+        "start": 0.0,
+        "end": 5.0,
+        "text": "Hello, everyone. In today's week lecture, we are going to talk about data warehouses."
+    },
+    {
+        "start": 5.0,
+        "end": 10.0,
+        "text": "We're going to use BigQuery as one of our examples, but we are going to talk about"
+    },
+    {
+        "start": 10.0,
+        "end": 15.0,
+        "text": "data warehouses in general. In this video's index, we are going to talk about"
+    },
+    {
+        "start": 15.0,
+        "end": 22.0,
+        "text": "OLAP versus OLTP. What is a data warehouse? And look at BigQuery in perspective,"
+    },
+    {
+        "start": 22.0,
+        "end": 26.0,
+        "text": "of course, partitioning and clustering, some of the best practices,"
+    },
+    {
+        "start": 26.0,
+        "end": 31.0,
+        "text": "and learning journals and machine learning in BigQuery. So let's take a look on"
+    },
+    {
+        "start": 31.0,
+        "end": 36.0,
+        "text": "OLAP versus OLTP. OLTP stands for online transaction processing,"
+    },
+    {
+        "start": 36.0,
+        "end": 43.0,
+        "text": "and OLAP stands for online analytical processing. You can use OLTP"
+    },
+    {
+        "start": 43.0,
+        "end": 48.0,
+        "text": "kind of databases in your pack and services, where you want to group a couple"
+    },
+    {
+        "start": 48.0,
+        "end": 54.0,
+        "text": "of SQL queries together, and you want to fall back or roll back in case one"
+    },
+    {
+        "start": 54.0,
+        "end": 61.0,
+        "text": "of them fails. OLAP is designed for a different purpose. OLAP are more used for"
+    },
+    {
+        "start": 61.0,
+        "end": 66.0,
+        "text": "putting a lot of data in and discovering hidden insights. They are used mainly"
+    },
+    {
+        "start": 66.0,
+        "end": 73.0,
+        "text": "for analytical purposes by data analysts or data scientists. In OLTP,"
+    },
+    {
+        "start": 73.0,
+        "end": 82.0,
+        "text": "the updates are fast but small, whereas OLAP, the data is periodically"
+    },
+    {
+        "start": 82.0,
+        "end": 89.0,
+        "text": "changed, and the data size is generally way larger in comparison to OLTP."
+    },
+    {
+        "start": 89.0,
+        "end": 95.0,
+        "text": "When we look at the database design, generally in OLTP, it's normalized data for"
+    },
+    {
+        "start": 95.0,
+        "end": 102.0,
+        "text": "efficiency, and in OLAP, it's denomalized databases. Some of the other things"
+    },
+    {
+        "start": 102.0,
+        "end": 110.0,
+        "text": "can also be the productivity in OLTP is increased for the end user,"
+    },
+    {
+        "start": 110.0,
+        "end": 115.0,
+        "text": "wherever in the OLAP, it's a productivity increase for data analyst and"
+    },
+    {
+        "start": 115.0,
+        "end": 122.0,
+        "text": "executives. Some of the user examples for OLTP are custom-facing"
+    },
+    {
+        "start": 122.0,
+        "end": 127.0,
+        "text": "personal, online shopping, and all the other data back in databases you can"
+    },
+    {
+        "start": 127.0,
+        "end": 132.0,
+        "text": "think of. In OLAP, the knowledge workers, such as data analyst, business"
+    },
+    {
+        "start": 132.0,
+        "end": 138.0,
+        "text": "analyst, and executives, basically use this kind of database."
+    },
+    {
+        "start": 138.0,
+        "end": 143.0,
+        "text": "Next, let's talk about what is a data warehouse? A data warehouse is an OLAP"
+    },
+    {
+        "start": 143.0,
+        "end": 149.0,
+        "text": "solution. It's used for reporting and data analysis. And as you can see in the"
+    },
+    {
+        "start": 149.0,
+        "end": 154.0,
+        "text": "diagram, data warehouse generally consists of a raw data, metadata, and"
+    },
+    {
+        "start": 154.0,
+        "end": 160.0,
+        "text": "summary. Generally, data warehouses have many data sources, such as"
+    },
+    {
+        "start": 160.0,
+        "end": 166.0,
+        "text": "operating systems, flat-sile systems, maybe an OLTP database, and all"
+    },
+    {
+        "start": 166.0,
+        "end": 171.0,
+        "text": "these systems report to a staging area, which is then written to a data warehouse."
+    },
+    {
+        "start": 171.0,
+        "end": 178.0,
+        "text": "As an output, data warehouses can be transformed into data"
+    },
+    {
+        "start": 178.0,
+        "end": 184.0,
+        "text": "match. In this diagram, we see data match as purchasing, sales, inventory,"
+    },
+    {
+        "start": 184.0,
+        "end": 191.0,
+        "text": "and from there, different users can directly access this data. So for"
+    },
+    {
+        "start": 191.0,
+        "end": 196.0,
+        "text": "analysts, using data match as an interface would be an idle situation."
+    },
+    {
+        "start": 196.0,
+        "end": 201.0,
+        "text": "But in certain use cases, especially for data scientists, it might make sense"
+    },
+    {
+        "start": 201.0,
+        "end": 208.0,
+        "text": "to look at raw data directly from the warehouse. Irrespective of it, data"
+    },
+    {
+        "start": 208.0,
+        "end": 212.0,
+        "text": "warehouses provides all these possibilities to directly access raw data,"
+    },
+    {
+        "start": 212.0,
+        "end": 218.0,
+        "text": "summary data, or data match. Moving ahead, let's talk about"
+    },
+    {
+        "start": 218.0,
+        "end": 225.0,
+        "text": "BigQuery. BigQuery is a data warehouse issue. But in the biggest advantages"
+    },
+    {
+        "start": 225.0,
+        "end": 230.0,
+        "text": "that it's serverless, there are no servers to manage, or database software"
+    },
+    {
+        "start": 230.0,
+        "end": 235.0,
+        "text": "installed. Generally, when a company starts on its journey of data warehouse"
+    },
+    {
+        "start": 235.0,
+        "end": 241.0,
+        "text": "or data analytics, a huge chunk of time is spending creating a data warehouse,"
+    },
+    {
+        "start": 241.0,
+        "end": 247.0,
+        "text": "maintaining it, and these kinds of pains are already elevated using BigQuery."
+    },
+    {
+        "start": 247.0,
+        "end": 254.0,
+        "text": "BigQuery provides a software as well as an infrastructure with scalability and"
+    },
+    {
+        "start": 254.0,
+        "end": 260.0,
+        "text": "high availability in mind. Generally, you can start with a couple of"
+    },
+    {
+        "start": 260.0,
+        "end": 266.0,
+        "text": "gigabytes of data in BigQuery and can scale easily to petabytes level without"
+    },
+    {
+        "start": 266.0,
+        "end": 271.0,
+        "text": "any issues. Some of the built-in features, which really outshine,"
+    },
+    {
+        "start": 271.0,
+        "end": 276.0,
+        "text": "is doing machine learning via the SQL interface of BigQuery,"
+    },
+    {
+        "start": 276.0,
+        "end": 284.0,
+        "text": "handing of geospatial data, and doing business intelligence queries."
+    },
+    {
+        "start": 284.0,
+        "end": 292.0,
+        "text": "Another big advantage of BigQuery is its flexibility of how it stores the data."
+    },
+    {
+        "start": 292.0,
+        "end": 298.0,
+        "text": "Generally, when you have one big server with storage and compute together,"
+    },
+    {
+        "start": 298.0,
+        "end": 303.0,
+        "text": "once your data size increases, your machine has to grow with it."
+    },
+    {
+        "start": 303.0,
+        "end": 310.0,
+        "text": "BigQuery takes advantage of separating the compute engine and"
+    },
+    {
+        "start": 310.0,
+        "end": 315.0,
+        "text": "analyzes your data on a separate storage of your choice."
+    },
+    {
+        "start": 315.0,
+        "end": 322.0,
+        "text": "That's a huge win in terms of cost. Next, let's look in the interface of BigQuery."
+    },
+    {
+        "start": 323.0,
+        "end": 329.0,
+        "text": "As we can see, BigQuery has a very clean interface."
+    },
+    {
+        "start": 329.0,
+        "end": 338.0,
+        "text": "The taxi-ride NY here determines the project. NY taxi is our data set."
+    },
+    {
+        "start": 338.0,
+        "end": 345.0,
+        "text": "And external yellow-trip data and external yellow-trip data 2019 is our tables."
+    },
+    {
+        "start": 345.0,
+        "end": 351.0,
+        "text": "Before looking deep into BigQuery, there are few things which you might want to consider."
+    },
+    {
+        "start": 352.0,
+        "end": 359.0,
+        "text": "BigQuery generally caches data. For our demo, in this example,"
+    },
+    {
+        "start": 359.0,
+        "end": 364.0,
+        "text": "I will disable this just to have consistent results."
+    },
+    {
+        "start": 364.0,
+        "end": 369.0,
+        "text": "BigQuery also provides a lot of open source public data."
+    },
+    {
+        "start": 369.0,
+        "end": 375.0,
+        "text": "For example, New York City bike station's data. Let's take a look at that."
+    },
+    {
+        "start": 376.0,
+        "end": 382.0,
+        "text": "I can easily search any data set with the table name in the search bar here."
+    },
+    {
+        "start": 382.0,
+        "end": 388.0,
+        "text": "As you can see, the project name, the data set and the table corresponding to it."
+    },
+    {
+        "start": 388.0,
+        "end": 392.0,
+        "text": "Let's take a look inside the table itself."
+    },
+    {
+        "start": 392.0,
+        "end": 398.0,
+        "text": "As we can see, the table consists of many columns, like station ID, name,"
+    },
+    {
+        "start": 398.0,
+        "end": 402.0,
+        "text": "short name, latitude, longitude of the station, and others."
+    },
+    {
+        "start": 402.0,
+        "end": 409.0,
+        "text": "Some of the details which can be quickly seen is that the number of rows are only 1,584."
+    },
+    {
+        "start": 409.0,
+        "end": 416.0,
+        "text": "And the table size is only in GABs. So this is a very small data set."
+    },
+    {
+        "start": 416.0,
+        "end": 424.0,
+        "text": "You can also do a quick preview of your table, where you can see some of the data sources and how they are aged."
+    },
+    {
+        "start": 424.0,
+        "end": 430.0,
+        "text": "Next, let's quickly query one of our public data sets."
+    },
+    {
+        "start": 431.0,
+        "end": 435.0,
+        "text": "As we can see, there is a publicly available table for us."
+    },
+    {
+        "start": 435.0,
+        "end": 442.0,
+        "text": "The same table we explored, City bike stations. Let's quickly run this command."
+    },
+    {
+        "start": 444.0,
+        "end": 450.0,
+        "text": "And as we can see, we will have all the station ID and name data on the bottom here,"
+    },
+    {
+        "start": 450.0,
+        "end": 456.0,
+        "text": "which are our query results. You can obviously save this results in CSV if you want."
+    },
+    {
+        "start": 456.0,
+        "end": 461.0,
+        "text": "Or you can actually also explore them using Data Studio."
+    },
+    {
+        "start": 463.0,
+        "end": 468.0,
+        "text": "Next, let's take a quick look at BigQuery cost."
+    },
+    {
+        "start": 468.0,
+        "end": 474.0,
+        "text": "BigQuery has two pricing models. One is an on demand pricing model,"
+    },
+    {
+        "start": 474.0,
+        "end": 479.0,
+        "text": "which is basically based upon the amount of data you scan or process."
+    },
+    {
+        "start": 479.0,
+        "end": 484.0,
+        "text": "So for every data byte of data processed, you generally pay $5 for it,"
+    },
+    {
+        "start": 484.0,
+        "end": 489.0,
+        "text": "which is pretty convenient. There is also a flat rate price model,"
+    },
+    {
+        "start": 489.0,
+        "end": 494.0,
+        "text": "which is based on number of three requested slots."
+    },
+    {
+        "start": 494.0,
+        "end": 499.0,
+        "text": "Generally, 100 slots are approximately equal to $2,000 per month,"
+    },
+    {
+        "start": 499.0,
+        "end": 506.0,
+        "text": "which can be roughly converted into 400 terabytes of data processed on demand."
+    },
+    {
+        "start": 506.0,
+        "end": 510.0,
+        "text": "So it does not make sense for you to go for a flat price model,"
+    },
+    {
+        "start": 510.0,
+        "end": 515.0,
+        "text": "until and unless you are scanning way above 200 terabytes of data."
+    },
+    {
+        "start": 515.0,
+        "end": 521.0,
+        "text": "And you also have to think about query competing various others."
+    },
+    {
+        "start": 521.0,
+        "end": 526.0,
+        "text": "So for example, if you have 50 queries running and all your slots,"
+    },
+    {
+        "start": 526.0,
+        "end": 531.0,
+        "text": "all your 100 slots are full, your 51st query has to wait."
+    },
+    {
+        "start": 531.0,
+        "end": 534.0,
+        "text": "That would not be the case in on demand. In on demand,"
+    },
+    {
+        "start": 534.0,
+        "end": 539.0,
+        "text": "BigQuery would be able to give you more slots based upon the requirements of a query."
+    },
+    {
+        "start": 541.0,
+        "end": 546.0,
+        "text": "Before moving forward, let's take a quick look at our BigQuery"
+    },
+    {
+        "start": 546.0,
+        "end": 551.0,
+        "text": "and create an external table from our data set."
+    },
+    {
+        "start": 553.0,
+        "end": 559.0,
+        "text": "So as you can, as you know, that we have already imported our data"
+    },
+    {
+        "start": 559.0,
+        "end": 566.0,
+        "text": "from our external source of New York taxis rights into our Google Cloud Storage."
+    },
+    {
+        "start": 566.0,
+        "end": 571.0,
+        "text": "BigQuery allows you to create external tables from these sources."
+    },
+    {
+        "start": 571.0,
+        "end": 577.0,
+        "text": "So in my use case, I have a bucket named NYC-TL data."
+    },
+    {
+        "start": 577.0,
+        "end": 586.0,
+        "text": "I have a trip data inside it, and I have CSVs containing my yellow trip data for 2019, 2020, and so on."
+    },
+    {
+        "start": 586.0,
+        "end": 592.0,
+        "text": "I have created an external table with the name of external yellow trip data"
+    },
+    {
+        "start": 593.0,
+        "end": 599.0,
+        "text": "in my data set in my taxi from the CSVs of 2019 and 2020."
+    },
+    {
+        "start": 599.0,
+        "end": 605.0,
+        "text": "Let's quickly run this SQL and let's see the result."
+    },
+    {
+        "start": 608.0,
+        "end": 611.0,
+        "text": "This might take a couple of seconds to run."
+    },
+    {
+        "start": 611.0,
+        "end": 614.0,
+        "text": "So as you can see, my table is created."
+    },
+    {
+        "start": 614.0,
+        "end": 618.0,
+        "text": "Let's go to the table and check what results do we have."
+    },
+    {
+        "start": 619.0,
+        "end": 626.0,
+        "text": "As you can see, all the column names of the CSVs are read and understood by BigQuery."
+    },
+    {
+        "start": 626.0,
+        "end": 633.0,
+        "text": "It already knows what type it is and can convert and figure out if it's nullable or not."
+    },
+    {
+        "start": 633.0,
+        "end": 638.0,
+        "text": "This is a huge win in terms of importing data into BigQuery."
+    },
+    {
+        "start": 638.0,
+        "end": 641.0,
+        "text": "As you do not have to always define the schema,"
+    },
+    {
+        "start": 642.0,
+        "end": 647.0,
+        "text": "but in case you want to, that's also a possibility."
+    },
+    {
+        "start": 648.0,
+        "end": 650.0,
+        "text": "Let's look at the details."
+    },
+    {
+        "start": 650.0,
+        "end": 657.0,
+        "text": "As you can see, that long-term storage size is zero bytes and the table size is also zero bytes."
+    },
+    {
+        "start": 657.0,
+        "end": 667.0,
+        "text": "Unfortunately, when we create an external table, BigQuery is not able to determine its rows or the table size it's going to cost."
+    },
+    {
+        "start": 668.0,
+        "end": 671.0,
+        "text": "Because the data itself is not inside BigQuery."
+    },
+    {
+        "start": 673.0,
+        "end": 677.0,
+        "text": "It's in an external system such as Google Cloud Storage."
+    },
+    {
+        "start": 681.0,
+        "end": 684.0,
+        "text": "Now we have created our external table."
+    },
+    {
+        "start": 684.0,
+        "end": 686.0,
+        "text": "Let's quickly query it."
+    },
+    {
+        "start": 688.0,
+        "end": 691.0,
+        "text": "And you can find all these queries in GitHub."
+    },
+    {
+        "start": 691.0,
+        "end": 693.0,
+        "text": "So you do not have to stop and copy it."
+    },
+    {
+        "start": 694.0,
+        "end": 698.0,
+        "text": "You can just go to our GitHub repository and find all these queries in Vick3."
+    },
+    {
+        "start": 700.0,
+        "end": 704.0,
+        "text": "As you can see, I have selected the 10th rows."
+    },
+    {
+        "start": 704.0,
+        "end": 713.0,
+        "text": "And we have a vendor ID, a pick-up date time, a drop-off date time, a passenger count, the trip distance,"
+    },
+    {
+        "start": 713.0,
+        "end": 721.0,
+        "text": "some information about location, and also the fair amount, and as well as total amount to it."
+    },
+    {
+        "start": 724.0,
+        "end": 729.0,
+        "text": "Moving ahead, I'm going to talk about partitioning in BigQuery."
+    },
+    {
+        "start": 730.0,
+        "end": 732.0,
+        "text": "This is a very useful feature."
+    },
+    {
+        "start": 733.0,
+        "end": 742.0,
+        "text": "So, generally, when we create a data set, let's assume that our data set in this case is stack overflow questions for 2018."
+    },
+    {
+        "start": 744.0,
+        "end": 750.0,
+        "text": "Generally, we have certain columns like creation date, title of the question, and maybe some tags."
+    },
+    {
+        "start": 751.0,
+        "end": 768.0,
+        "text": "Assuming that most of our queries are based upon date and use it as a filter, for example, give me all the questions, or give me account of questions asked only in March or only in first week of March."
+    },
+    {
+        "start": 770.0,
+        "end": 773.0,
+        "text": "Partitioning can really improve BigQuery performance."
+    },
+    {
+        "start": 774.0,
+        "end": 780.0,
+        "text": "So, how will a partition table look when we partition it by creation date?"
+    },
+    {
+        "start": 781.0,
+        "end": 790.0,
+        "text": "So, the table on the left is our raw data, and when we partition it, what we get is something like data set on the right-hand side."
+    },
+    {
+        "start": 791.0,
+        "end": 800.0,
+        "text": "The data is partitioned by the date itself, so in the first partition, it's partitioned by 1st of March 2018."
+    },
+    {
+        "start": 801.0,
+        "end": 806.0,
+        "text": "And as you can see, all the creation dates of 1st of March comes into this partition."
+    },
+    {
+        "start": 807.0,
+        "end": 817.0,
+        "text": "The second partition is for 2nd of March 2018, and similarly, we have all the data only for 2nd of March 2018, and so on and so forth."
+    },
+    {
+        "start": 818.0,
+        "end": 828.0,
+        "text": "This is really powerful for BigQuery, because once BigQuery understands that it only needs to get the data for 2nd of March 2018,"
+    },
+    {
+        "start": 828.0,
+        "end": 837.0,
+        "text": "it will not read or process any data of 1st of March 2018 or 3rd of March 2018."
+    },
+    {
+        "start": 838.0,
+        "end": 843.0,
+        "text": "That helps to reduce our cost because we are processing less data."
+    },
+    {
+        "start": 844.0,
+        "end": 850.0,
+        "text": "Let's quickly take a look and create and change our data set into a partition table."
+    },
+    {
+        "start": 850.0,
+        "end": 857.0,
+        "text": "Till now, we have only an external table, which is not partitioned."
+    },
+    {
+        "start": 858.0,
+        "end": 861.0,
+        "text": "So, let's try to partition it."
+    },
+    {
+        "start": 862.0,
+        "end": 866.0,
+        "text": "Or first, let's create a non-partition data, non-partition table."
+    },
+    {
+        "start": 867.0,
+        "end": 875.0,
+        "text": "So, from our external database, we have created a non-partition table by directly copying all its content to table called yellow, pip data, non-partition."
+    },
+    {
+        "start": 875.0,
+        "end": 883.0,
+        "text": "This will help us to see the performance improvements we have once we partition our data."
+    },
+    {
+        "start": 887.0,
+        "end": 894.0,
+        "text": "Generally, this takes some time because the data has to be copied from Google Cloud Storage to actually BigQuery Storage."
+    },
+    {
+        "start": 894.0,
+        "end": 906.0,
+        "text": "While this is happening, we can also take a quick look into our partition data."
+    },
+    {
+        "start": 907.0,
+        "end": 913.0,
+        "text": "So, in now, I have created a partition table, so yellow, pip data partitioned."
+    },
+    {
+        "start": 914.0,
+        "end": 923.0,
+        "text": "To partition it, you have to use syntax, something like partition by what column do you want to partition it."
+    },
+    {
+        "start": 924.0,
+        "end": 929.0,
+        "text": "And I'm using the same source, my external source, to get all the data in."
+    },
+    {
+        "start": 930.0,
+        "end": 933.0,
+        "text": "Let's quickly create this table."
+    },
+    {
+        "start": 935.0,
+        "end": 942.0,
+        "text": "All right. So, as you can see, this table is also created. Let's take a quick look at it."
+    },
+    {
+        "start": 945.0,
+        "end": 948.0,
+        "text": "All the columns are the same as in the external table."
+    },
+    {
+        "start": 948.0,
+        "end": 956.0,
+        "text": "But if you now look, it already knows the row size, the total size, which is around 13 gigabytes or almost 14 gigabytes."
+    },
+    {
+        "start": 957.0,
+        "end": 962.0,
+        "text": "And it also gives you the information of the partition, that it's partitioned by D."
+    },
+    {
+        "start": 963.0,
+        "end": 967.0,
+        "text": "And this is the column, which is used for the partitioning."
+    },
+    {
+        "start": 968.0,
+        "end": 973.0,
+        "text": "You can also see that there is a different structure between non-partitioned and partition table."
+    },
+    {
+        "start": 974.0,
+        "end": 981.0,
+        "text": "Generally, a non-partition table look like this, whereas a partition table has a break in between."
+    },
+    {
+        "start": 982.0,
+        "end": 987.0,
+        "text": "This is helpful for quickly identifying which tables are partitioned and which tables are not."
+    },
+    {
+        "start": 988.0,
+        "end": 1002.0,
+        "text": "To see the advantage of our processing, all I need to do is to check the cost or the processing or the amount of data which is to be processed for a non-partition table."
+    },
+    {
+        "start": 1003.0,
+        "end": 1017.0,
+        "text": "So, in this use case, what I'm doing or in this way, what I'm doing is I'm just selecting all the distinct render IDs from the non-partition table between first of June and 30th of June, goes on 19."
+    },
+    {
+        "start": 1018.0,
+        "end": 1026.0,
+        "text": "So, as you can see on the right-hand side top, it shows that this query will process 1.6 gigabytes of data."
+    },
+    {
+        "start": 1026.0,
+        "end": 1034.0,
+        "text": "That means it will process almost all the data which we have in our table."
+    },
+    {
+        "start": 1035.0,
+        "end": 1041.0,
+        "text": "For our partitioned data set, I have the same query, I have just changed my table to partition."
+    },
+    {
+        "start": 1042.0,
+        "end": 1051.0,
+        "text": "And as you can see on the right-hand side, the total query, this query will process about 106 megabytes of data."
+    },
+    {
+        "start": 1051.0,
+        "end": 1056.0,
+        "text": "And that's a huge advantage if you want to run this query over and over again."
+    },
+    {
+        "start": 1057.0,
+        "end": 1068.0,
+        "text": "Instead of processing 1.6 gigabytes of data every single time, now you are processing only 106 megabytes of data which directly has an impact on your cost."
+    },
+    {
+        "start": 1069.0,
+        "end": 1073.0,
+        "text": "Moreover, we can actually take a look into the partitions."
+    },
+    {
+        "start": 1073.0,
+        "end": 1081.0,
+        "text": "Generally, each data set has information schema table, which has a partitions."
+    },
+    {
+        "start": 1082.0,
+        "end": 1088.0,
+        "text": "Once we select this, we can actually see how many rows are falling into which partition."
+    },
+    {
+        "start": 1090.0,
+        "end": 1102.0,
+        "text": "So, in this case, in our table, which is partitioned, we can see that for 1st of February 2019, we have the most rows and so on and so forth."
+    },
+    {
+        "start": 1103.0,
+        "end": 1109.0,
+        "text": "5th of April 2019, we have around 292,000 rows and so on."
+    },
+    {
+        "start": 1110.0,
+        "end": 1117.0,
+        "text": "This is also helpful to determine if you have a bias in your partition."
+    },
+    {
+        "start": 1118.0,
+        "end": 1124.0,
+        "text": "If some of the partitions are getting more rows and data, whereas other partitions are getting less data."
+    },
+    {
+        "start": 1126.0,
+        "end": 1131.0,
+        "text": "Moving ahead from partitioning, there is another interesting concept in BigQuery which is clustering."
+    },
+    {
+        "start": 1132.0,
+        "end": 1140.0,
+        "text": "So, in our previous use case of Stack Overflow, we have seen that we had 3 columns, date, title and tax."
+    },
+    {
+        "start": 1142.0,
+        "end": 1149.0,
+        "text": "We have already partitioned our table based upon date and as you can see, this is a similar structure to the last slide."
+    },
+    {
+        "start": 1151.0,
+        "end": 1156.0,
+        "text": "But in this use case, we have also clustered by the tag."
+    },
+    {
+        "start": 1157.0,
+        "end": 1171.0,
+        "text": "If you take a look in partition number 2, we can see that although all the dates are being arranged together, all the data which is clustered is also arranged together."
+    },
+    {
+        "start": 1172.0,
+        "end": 1178.0,
+        "text": "So, Android comes together in the first 3 rows and Linux comes in the next 2 rows."
+    },
+    {
+        "start": 1179.0,
+        "end": 1188.0,
+        "text": "Similar structure can be observed for partition 1 that Android is grouped together, Linux comes after that and SQL comes after that."
+    },
+    {
+        "start": 1189.0,
+        "end": 1195.0,
+        "text": "This also helps us to improve our cost as well as improve our query performance."
+    },
+    {
+        "start": 1196.0,
+        "end": 1203.0,
+        "text": "So, let's quickly take a look at an example of how to create a cluster and see the difference in data processing there."
+    },
+    {
+        "start": 1204.0,
+        "end": 1221.0,
+        "text": "From our external table, now I have created a partitioned table which is partitioned by the same column name, date, pickup date time and I have clustered by vendor ID."
+    },
+    {
+        "start": 1222.0,
+        "end": 1229.0,
+        "text": "The reason for choosing a cluster by vendor ID depends upon how I want to query the data."
+    },
+    {
+        "start": 1230.0,
+        "end": 1245.0,
+        "text": "So, for my use case, I am querying the data or I am filtering the data always based upon vendor ID and pickup date and these kind of clustering and partitioning will actually help me improve my performance drastically."
+    },
+    {
+        "start": 1246.0,
+        "end": 1248.0,
+        "text": "So, let's quickly create this table."
+    },
+    {
+        "start": 1250.0,
+        "end": 1256.0,
+        "text": "This also might take a couple of seconds just because BigQuery needs to read all the data."
+    },
+    {
+        "start": 1257.0,
+        "end": 1266.0,
+        "text": "While this table is created, let's take a look into its details."
+    },
+    {
+        "start": 1267.0,
+        "end": 1280.0,
+        "text": "As you can see, the columns are the same and in the detailed section, we can already see that it's partitioned by date, the column is pickup date time and it's also clustered by vendor ID."
+    },
+    {
+        "start": 1280.0,
+        "end": 1289.0,
+        "text": "So, our table has now been created."
+    },
+    {
+        "start": 1290.0,
+        "end": 1301.0,
+        "text": "Now let's take a quick look and a quick comparison between partitioned table and cluster table."
+    },
+    {
+        "start": 1301.0,
+        "end": 1319.0,
+        "text": "So, in this case, I am counting on the rows which are in the partitioned table between the pickup date of 1st of June 2019 and 31st of December 2020, which comes from vendor ID 1."
+    },
+    {
+        "start": 1320.0,
+        "end": 1329.0,
+        "text": "So, now, on the right hand side top, we can see that it will process or it will approximate that it will process 1.1 gigabytes of data."
+    },
+    {
+        "start": 1330.0,
+        "end": 1331.0,
+        "text": "Let's execute this."
+    },
+    {
+        "start": 1333.0,
+        "end": 1342.0,
+        "text": "So, in BigQuery, you always have to remember whatever comes on the right is an approximation and whatever comes here is the actual process there."
+    },
+    {
+        "start": 1343.0,
+        "end": 1351.0,
+        "text": "So, now we can see that it took around 0.7 seconds to run this query and it will process 1.1 gigabytes of data."
+    },
+    {
+        "start": 1352.0,
+        "end": 1356.0,
+        "text": "Let's run the same query on our partitioned cluster table."
+    },
+    {
+        "start": 1357.0,
+        "end": 1370.0,
+        "text": "So, before running this, we can see that the approximation is 1.1 gigabytes but when we run this query, we can notice that less data is being processed."
+    },
+    {
+        "start": 1370.0,
+        "end": 1383.0,
+        "text": "So, here, which is the final process data, we can see that it took 0.8 seconds but it only processed 843 megabytes of data in comparison to 1.1 gigabytes."
+    }
+]

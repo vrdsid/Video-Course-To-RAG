@@ -1,0 +1,192 @@
+[
+    {
+        "start": 0.0,
+        "end": 4.08,
+        "text": "Welcome back to the next part of the data engineering zoom camp."
+    },
+    {
+        "start": 4.08,
+        "end": 9.92,
+        "text": "Now so far what we've covered is building our first data engineering pipeline using Postgres."
+    },
+    {
+        "start": 9.92,
+        "end": 15.280000000000001,
+        "text": "And we've also been able to add a schedule to this and run backfields to fetch data from past"
+    },
+    {
+        "start": 15.280000000000001,
+        "end": 23.04,
+        "text": "schedules. Now this data pipeline has been using ETL, also known as extract, transform and load."
+    },
+    {
+        "start": 23.04,
+        "end": 28.48,
+        "text": "This is where we extract the data from our source, in this case a CSV file stored on the web."
+    },
+    {
+        "start": 28.48,
+        "end": 34.24,
+        "text": "Then we transform it in our scenario we've been adding unique IDs and the file name to our data"
+    },
+    {
+        "start": 34.24,
+        "end": 39.76,
+        "text": "before we then merge it into our final destination where we combine all the data together in the"
+    },
+    {
+        "start": 39.76,
+        "end": 46.64,
+        "text": "load step. Now this is standard across the industry where pipelines that run on a nightly schedule"
+    },
+    {
+        "start": 46.64,
+        "end": 53.2,
+        "text": "will run in this sort of format because it works very very well. However sometimes there are cases"
+    },
+    {
+        "start": 53.2,
+        "end": 60.24,
+        "text": "where it may make sense to do things in a different order. Let's have a look at ELT. Now ELT"
+    },
+    {
+        "start": 60.24,
+        "end": 66.24000000000001,
+        "text": "stands for extract, load, transform. So instead of transforming your data before you load it into"
+    },
+    {
+        "start": 66.24000000000001,
+        "end": 71.68,
+        "text": "your final destination you actually load it into the destination first and then transform on top of"
+    },
+    {
+        "start": 71.68,
+        "end": 77.76,
+        "text": "that data. Now the benefit here is this enables you to access things like the cloud where you can load"
+    },
+    {
+        "start": 77.76,
+        "end": 83.04,
+        "text": "your massive data set into the cloud and then you can start transforming it with the power of"
+    },
+    {
+        "start": 83.04,
+        "end": 88.16000000000001,
+        "text": "the cloud to help you. Now if any of you tried running the yellow data set using your PostgreSQL"
+    },
+    {
+        "start": 88.16000000000001,
+        "end": 94.4,
+        "text": "setup you probably found it was incredibly slow because trying to add unique IDs to millions of rows"
+    },
+    {
+        "start": 94.4,
+        "end": 98.96000000000001,
+        "text": "can take a beating especially on a personal laptop. So this is where we're going to start having a"
+    },
+    {
+        "start": 98.96000000000001,
+        "end": 105.28,
+        "text": "look at how we can use BigQuery in the next few episodes to allow us to interact with that yellow"
+    },
+    {
+        "start": 105.28,
+        "end": 110.80000000000001,
+        "text": "data set without it being such a hassle. So let's break it down. What does ELT really look like in"
+    },
+    {
+        "start": 110.88,
+        "end": 116.64,
+        "text": "this scenario? So we're going to start off by extracting our data just like we did from GitHub."
+    },
+    {
+        "start": 116.64,
+        "end": 121.75999999999999,
+        "text": "We're going to make a HTTP request to get that CSV file. Now what we're going to do is load it into"
+    },
+    {
+        "start": 121.75999999999999,
+        "end": 127.52,
+        "text": "a Google Cloud storage bucket which in this case we're going to use as a data lake. Now a data lake is"
+    },
+    {
+        "start": 127.52,
+        "end": 132.4,
+        "text": "where we can store our data it doesn't need to be organized or sorted like it would in a database."
+    },
+    {
+        "start": 132.4,
+        "end": 136.72,
+        "text": "So in this case we can just put the CSV file straight in our data lake and we can come back to it"
+    },
+    {
+        "start": 137.44,
+        "end": 141.28,
+        "text": "now if you'd love to learn more about data lakes we recently just did a video on it so I'd"
+    },
+    {
+        "start": 141.28,
+        "end": 147.28,
+        "text": "recommend checking that out here now that we have our data in the cloud in our data lake what we can"
+    },
+    {
+        "start": 147.28,
+        "end": 153.92,
+        "text": "do is now use our data warehouse which in this case is BigQuery to be able to map to that data lake"
+    },
+    {
+        "start": 153.92,
+        "end": 159.52,
+        "text": "use that CSV file in it and now it can add some metadata on top this means the data stored in"
+    },
+    {
+        "start": 159.52,
+        "end": 165.76,
+        "text": "the data lake but BigQuery is able to then utilize that data to perform our transformations and queries"
+    },
+    {
+        "start": 165.76,
+        "end": 170.95999999999998,
+        "text": "as we wish. The reason this is faster is not only because we're utilizing the cloud which obviously"
+    },
+    {
+        "start": 170.95999999999998,
+        "end": 176.79999999999998,
+        "text": "is typically faster than a computer that you might have at home but it isn't loading all of the data"
+    },
+    {
+        "start": 176.79999999999998,
+        "end": 181.6,
+        "text": "into BigQuery instead it's just referencing it from the data lake which one helps to keep costs a"
+    },
+    {
+        "start": 181.6,
+        "end": 186.88,
+        "text": "little bit lower but too it allows you to be able to perform big transformations without it getting"
+    },
+    {
+        "start": 186.88,
+        "end": 192.16,
+        "text": "super slow. This means the original data stays untouched and you're just doing queries on top of"
+    },
+    {
+        "start": 192.48,
+        "end": 197.35999999999999,
+        "text": "it so you get the benefit of cheap storage in this case the data lake rather than a database but"
+    },
+    {
+        "start": 197.35999999999999,
+        "end": 202.88,
+        "text": "you get the power of the cloud to be able to get some insight into your data. Now in the next episode"
+    },
+    {
+        "start": 202.88,
+        "end": 207.76,
+        "text": "we're going to look at how we can modify our workflow that we already have to now use ELT and"
+    },
+    {
+        "start": 207.76,
+        "end": 212.88,
+        "text": "include Google Cloud Storage as our data lake and BigQuery as our data warehouse."
+    }
+]

@@ -1,0 +1,442 @@
+[
+    {
+        "start": 0.0,
+        "end": 6.96,
+        "text": "We are now going to start our DVD project from scratch."
+    },
+    {
+        "start": 6.96,
+        "end": 12.44,
+        "text": "So we want to create a DVD project and we don't have anything yet."
+    },
+    {
+        "start": 12.44,
+        "end": 13.84,
+        "text": "How do we start?"
+    },
+    {
+        "start": 13.84,
+        "end": 20.080000000000002,
+        "text": "First, you would create something like a repository where you want to start a DVD project and you"
+    },
+    {
+        "start": 20.080000000000002,
+        "end": 23.28,
+        "text": "could use the started project that they provide."
+    },
+    {
+        "start": 23.28,
+        "end": 29.16,
+        "text": "This is going to provide us the basic folders and files that we're going to need and it"
+    },
+    {
+        "start": 29.16,
+        "end": 33.12,
+        "text": "even includes some example models."
+    },
+    {
+        "start": 33.12,
+        "end": 37.92,
+        "text": "One of the important files that we're going to see while setting up our project is DVD"
+    },
+    {
+        "start": 37.92,
+        "end": 40.76,
+        "text": "project YML."
+    },
+    {
+        "start": 40.76,
+        "end": 47.400000000000006,
+        "text": "And here we're going to be able to define global settings for our project like the name,"
+    },
+    {
+        "start": 47.400000000000006,
+        "end": 49.400000000000006,
+        "text": "the profile."
+    },
+    {
+        "start": 49.400000000000006,
+        "end": 55.68,
+        "text": "This is the setting that's going to configure which database is DVD going to be used to"
+    },
+    {
+        "start": 55.68,
+        "end": 57.08,
+        "text": "run this project."
+    },
+    {
+        "start": 57.08,
+        "end": 62.8,
+        "text": "So we could actually have one duty project and then by changing the profile, we can run"
+    },
+    {
+        "start": 62.8,
+        "end": 68.28,
+        "text": "our project in let's say postcards and then we can change it and we can run it against"
+    },
+    {
+        "start": 68.28,
+        "end": 70.92,
+        "text": "BigQuery."
+    },
+    {
+        "start": 70.92,
+        "end": 77.84,
+        "text": "And since DVD is going to be generated the DDL on the DML for us, it's going to make it"
+    },
+    {
+        "start": 77.84,
+        "end": 83.03999999999999,
+        "text": "way simpler because it's going to adapt it to the correct version."
+    },
+    {
+        "start": 83.04,
+        "end": 89.36000000000001,
+        "text": "We can also define other settings that are global, for example, in a given folder, every"
+    },
+    {
+        "start": 89.36000000000001,
+        "end": 95.08000000000001,
+        "text": "model that it's there, it's going to be a view or it's going to be a table unless it"
+    },
+    {
+        "start": 95.08000000000001,
+        "end": 98.60000000000001,
+        "text": "is indicated otherwise in the model."
+    },
+    {
+        "start": 98.60000000000001,
+        "end": 104.80000000000001,
+        "text": "We can also define global variables that we could use in different models or tests."
+    },
+    {
+        "start": 104.80000000000001,
+        "end": 107.24000000000001,
+        "text": "So how do we create this started project?"
+    },
+    {
+        "start": 108.24,
+        "end": 112.24,
+        "text": "And now I'm going to show how to start a project locally."
+    },
+    {
+        "start": 112.24,
+        "end": 123.47999999999999,
+        "text": "So if you're using a local installation of DVD, I created already an empty repository to start"
+    },
+    {
+        "start": 123.47999999999999,
+        "end": 125.47999999999999,
+        "text": "my project from scratch."
+    },
+    {
+        "start": 125.47999999999999,
+        "end": 132.88,
+        "text": "And I also want to show that I clone this repository locally and in my postgres environment, I have"
+    },
+    {
+        "start": 132.88,
+        "end": 135.12,
+        "text": "my database like cold production."
+    },
+    {
+        "start": 135.12,
+        "end": 136.35999999999999,
+        "text": "You may have a different name."
+    },
+    {
+        "start": 136.35999999999999,
+        "end": 142.76,
+        "text": "So under my database, I created another schema for me to run my DDL oils."
+    },
+    {
+        "start": 142.76,
+        "end": 147.72,
+        "text": "This is where I'm going to create my DDL oils when I'm writing it locally."
+    },
+    {
+        "start": 147.72,
+        "end": 151.84,
+        "text": "And you should already have the troops data all this schema where you have them green"
+    },
+    {
+        "start": 151.84,
+        "end": 155.0,
+        "text": "on the yellow troop data for a mayor flow."
+    },
+    {
+        "start": 155.0,
+        "end": 157.16,
+        "text": "So I'm going to go to visuals through your code."
+    },
+    {
+        "start": 157.16,
+        "end": 163.52,
+        "text": "What it's very important to start your open locally is that we define a profile's YML."
+    },
+    {
+        "start": 163.52,
+        "end": 166.96,
+        "text": "And the profile's YML, you can define as many profiles as you want."
+    },
+    {
+        "start": 166.96,
+        "end": 171.56,
+        "text": "But basically what you should define here is the connection to the database you're going"
+    },
+    {
+        "start": 171.56,
+        "end": 172.8,
+        "text": "to be using."
+    },
+    {
+        "start": 172.8,
+        "end": 177.35999999999999,
+        "text": "This profile's YML is going to leave outside of my DDT project, which means that I could"
+    },
+    {
+        "start": 177.35999999999999,
+        "end": 179.76,
+        "text": "have several DDT projects."
+    },
+    {
+        "start": 179.76,
+        "end": 183.32,
+        "text": "And in all of them use the same or several profiles."
+    },
+    {
+        "start": 183.32,
+        "end": 188.2,
+        "text": "And all of this profiles will be always defined in one single file."
+    },
+    {
+        "start": 188.2,
+        "end": 191.68,
+        "text": "This file as it leads outside of those projects."
+    },
+    {
+        "start": 191.68,
+        "end": 198.07999999999998,
+        "text": "It's in my home directory as slash DDT slash profiles YML."
+    },
+    {
+        "start": 198.07999999999998,
+        "end": 205.12,
+        "text": "So here, for example, I define my connection to postgres."
+    },
+    {
+        "start": 205.12,
+        "end": 213.28,
+        "text": "I name my target dev and then other dev I define my user, my password, my data."
+    },
+    {
+        "start": 213.28,
+        "end": 219.04,
+        "text": "I name production, but I show you my schema and how many threats I want to use while"
+    },
+    {
+        "start": 219.04,
+        "end": 221.52,
+        "text": "for my new T-Locally."
+    },
+    {
+        "start": 221.52,
+        "end": 227.04,
+        "text": "And here I could even have several targets under the same database, but I'm actually"
+    },
+    {
+        "start": 227.04,
+        "end": 231.96,
+        "text": "new on two ran things in a sandbox and then in production you could define them here"
+    },
+    {
+        "start": 231.96,
+        "end": 235.28,
+        "text": "and then alternate targets."
+    },
+    {
+        "start": 235.28,
+        "end": 240.8,
+        "text": "I've also defined one for my BigQuery account as well."
+    },
+    {
+        "start": 240.8,
+        "end": 249.36,
+        "text": "Now that if you're using local DDT installation for BigQuery, then you should install DDT with"
+    },
+    {
+        "start": 249.36,
+        "end": 251.08,
+        "text": "the BigQuery adapter."
+    },
+    {
+        "start": 251.08,
+        "end": 254.4,
+        "text": "And if you're using it for postgres with postgres adapter."
+    },
+    {
+        "start": 254.4,
+        "end": 260.08000000000004,
+        "text": "If you want to alternate between postgres and BigQuery, you'll have to unlink and link"
+    },
+    {
+        "start": 260.08000000000004,
+        "end": 262.28000000000003,
+        "text": "the correct adapter."
+    },
+    {
+        "start": 262.28000000000003,
+        "end": 270.68,
+        "text": "So now I'm located already in my project folder and I'm going to do DDT in it."
+    },
+    {
+        "start": 270.68,
+        "end": 273.36,
+        "text": "And this is going to clone the local repository."
+    },
+    {
+        "start": 273.36,
+        "end": 280.6,
+        "text": "And first, it's going to create another folder inside my already created folder for the"
+    },
+    {
+        "start": 280.6,
+        "end": 281.6,
+        "text": "repository."
+    },
+    {
+        "start": 281.6,
+        "end": 286.88,
+        "text": "This is probably because it's meant to first create a project and then upload it as a"
+    },
+    {
+        "start": 286.88,
+        "end": 287.88,
+        "text": "repo."
+    },
+    {
+        "start": 287.88,
+        "end": 290.76,
+        "text": "And so we are going to take that out."
+    },
+    {
+        "start": 290.76,
+        "end": 298.44,
+        "text": "So the name of our project is going to be taxi and sport rides."
+    },
+    {
+        "start": 298.44,
+        "end": 303.28,
+        "text": "York is asking me which database to use."
+    },
+    {
+        "start": 303.28,
+        "end": 308.68,
+        "text": "Since I'm already installed, I have already installed the postgres adapter, then it's going"
+    },
+    {
+        "start": 308.68,
+        "end": 312.68,
+        "text": "to take my postgres by default."
+    },
+    {
+        "start": 312.68,
+        "end": 319.32,
+        "text": "And if you see here, it already created a created a last folder and it already created"
+    },
+    {
+        "start": 319.32,
+        "end": 322.36,
+        "text": "a taxi ride to New York folder."
+    },
+    {
+        "start": 322.36,
+        "end": 323.36,
+        "text": "And there are my other folders."
+    },
+    {
+        "start": 323.36,
+        "end": 329.2,
+        "text": "I'm going to move all of these aside and then I want to keep only this one."
+    },
+    {
+        "start": 329.2,
+        "end": 335.08,
+        "text": "And this one we're going to see several other folders that are going to be used during"
+    },
+    {
+        "start": 335.08,
+        "end": 336.08,
+        "text": "the development."
+    },
+    {
+        "start": 336.08,
+        "end": 340.0,
+        "text": "Let's first go to the duty project, why not?"
+    },
+    {
+        "start": 340.0,
+        "end": 345.68,
+        "text": "We can see already that it used the name of the project that we define, but the profile"
+    },
+    {
+        "start": 345.68,
+        "end": 350.2,
+        "text": "is wrong because we actually define our profile with Disney."
+    },
+    {
+        "start": 350.2,
+        "end": 353.24,
+        "text": "It could be that you have a different one."
+    },
+    {
+        "start": 353.24,
+        "end": 358.2,
+        "text": "Just make sure that your profile, if you didn't use the one in the sample code from the"
+    },
+    {
+        "start": 358.2,
+        "end": 364.48,
+        "text": "repository from the workshop, then you should change it up here as well."
+    },
+    {
+        "start": 364.48,
+        "end": 368.0,
+        "text": "So just make sure that it's the same for both."
+    },
+    {
+        "start": 368.0,
+        "end": 375.24,
+        "text": "And here, if we see, we also have already the name of our project."
+    },
+    {
+        "start": 376.24,
+        "end": 381.96000000000004,
+        "text": "And in this file, we're going to have definitions that affect the whole project."
+    },
+    {
+        "start": 381.96000000000004,
+        "end": 388.2,
+        "text": "Something that we could actually do is a DVD bug locally and you will test that our"
+    },
+    {
+        "start": 388.2,
+        "end": 394.56,
+        "text": "connections are working to an database and also our project."
+    },
+    {
+        "start": 397.44,
+        "end": 403.28000000000003,
+        "text": "So in my case, since I already changed all of the connections to in order not to show,"
+    },
+    {
+        "start": 403.32,
+        "end": 405.15999999999997,
+        "text": "it's going to fail back hopefully in your case."
+    },
+    {
+        "start": 405.15999999999997,
+        "end": 405.76,
+        "text": "It works."
+    }
+]

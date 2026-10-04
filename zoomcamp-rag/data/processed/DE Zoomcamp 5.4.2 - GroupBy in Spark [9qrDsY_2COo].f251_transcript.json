@@ -1,0 +1,657 @@
+[
+    {
+        "start": 0.0,
+        "end": 4.8,
+        "text": "Welcome back in this series of videos we're talking about some internal self-spark."
+    },
+    {
+        "start": 4.8,
+        "end": 9.28,
+        "text": "In the previous video we talked about spark cluster, what kind of things are there,"
+    },
+    {
+        "start": 9.28,
+        "end": 14.96,
+        "text": "we talked about what spark driver is, what is a spark master and what are the spark executors."
+    },
+    {
+        "start": 14.96,
+        "end": 21.04,
+        "text": "In this video I want to talk about group by and they want to show you how spark implements group by."
+    },
+    {
+        "start": 21.04,
+        "end": 27.04,
+        "text": "A few videos ago we did this query, we did a group by, so we group by revenue zone,"
+    },
+    {
+        "start": 27.68,
+        "end": 32.24,
+        "text": "revenue month and service type and yeah we did a bunch of calculations."
+    },
+    {
+        "start": 32.24,
+        "end": 38.4,
+        "text": "So now I want to spend a little bit more time looking at this group by query and then explain"
+    },
+    {
+        "start": 38.4,
+        "end": 48.16,
+        "text": "how it actually works internally in spark. I will create a new notebook, I will call it group by"
+    },
+    {
+        "start": 48.16,
+        "end": 56.559999999999995,
+        "text": "join, something like that. So I'll just copy this part again, so we should have our spark master here,"
+    },
+    {
+        "start": 56.559999999999995,
+        "end": 63.599999999999994,
+        "text": "should start when we execute this thing and then you'll let me read again green data"
+    },
+    {
+        "start": 64.88,
+        "end": 69.36,
+        "text": "and now I want to execute a query that is similar to this, just smaller."
+    },
+    {
+        "start": 69.6,
+        "end": 79.6,
+        "text": "So I will not need this service type, a revenue calculation maybe just let's take a look at the total amount"
+    },
+    {
+        "start": 80.4,
+        "end": 86.96000000000001,
+        "text": "and I want to see how many records we are there in each revenue zone, so I'll just do count"
+    },
+    {
+        "start": 87.92,
+        "end": 95.44,
+        "text": "this number of records and then yeah instead of doing monthly let's do our, we will do per hour"
+    },
+    {
+        "start": 96.39999999999999,
+        "end": 101.67999999999999,
+        "text": "and we will leave everything as this and of course we need to register this data frame"
+    },
+    {
+        "start": 103.2,
+        "end": 110.96,
+        "text": "we will just register it as green, we will have revenue zone location, I'll just call it hour,"
+    },
+    {
+        "start": 110.96,
+        "end": 120.4,
+        "text": "maybe I'll call it zone and then amount and number of records from green and group by one and two."
+    },
+    {
+        "start": 120.48,
+        "end": 126.48,
+        "text": "So it will be a data frame green revenue, will be hourly revenue,"
+    },
+    {
+        "start": 127.44000000000001,
+        "end": 134.96,
+        "text": "there is a mistake let's see, cannot resolve pick up data, yeah of course because I think if we look at"
+    },
+    {
+        "start": 134.96,
+        "end": 145.84,
+        "text": "the columns, here the name is LPPCAPTime, whatever LPP means, so we will need to replace it here"
+    },
+    {
+        "start": 146.48,
+        "end": 155.36,
+        "text": "and that should work, so let me now do show here to see how it looks like, now it is executed something"
+    },
+    {
+        "start": 156.56,
+        "end": 164.08,
+        "text": "okay so we have zone, we have hour amount, how much money taxi drivers got in total and then"
+    },
+    {
+        "start": 164.08,
+        "end": 170.08,
+        "text": "how many trips are there that started in this location, so maybe just to make it a little bit easier"
+    },
+    {
+        "start": 170.16000000000003,
+        "end": 178.4,
+        "text": "to read, let's also add order by also I think I will reorder this slightly, so first we will have"
+    },
+    {
+        "start": 178.4,
+        "end": 183.44,
+        "text": "hour and then zone and then I also want to order by first hour and then zone"
+    },
+    {
+        "start": 185.92000000000002,
+        "end": 192.32000000000002,
+        "text": "and yeah this is how it looks like, we have some data from the past like one record with"
+    },
+    {
+        "start": 192.32,
+        "end": 198.95999999999998,
+        "text": "amount of zero from 2008, this must be some mistake I don't know why it is happening,"
+    },
+    {
+        "start": 199.68,
+        "end": 209.84,
+        "text": "so let me just add a filter here, so do where this LPPCAPD time is let's say we will only"
+    },
+    {
+        "start": 209.84,
+        "end": 222.07999999999998,
+        "text": "consider data from 2020 January, I like that, yeah so I think this is better, so now we have 45"
+    },
+    {
+        "start": 222.08,
+        "end": 229.68,
+        "text": "records in zone 7, the very first hour of 2020 and so on, yeah so we have some group by here,"
+    },
+    {
+        "start": 230.88000000000002,
+        "end": 238.16000000000003,
+        "text": "let me now write results, I will write it to parket and then I will write it to data report"
+    },
+    {
+        "start": 238.16000000000003,
+        "end": 246.48000000000002,
+        "text": "to a new green, let me execute this and I want to go now to spark master and then see what exactly"
+    },
+    {
+        "start": 246.56,
+        "end": 251.44,
+        "text": "spark is doing, so there is this job, three stages, actually I thought it would be two"
+    },
+    {
+        "start": 252.48,
+        "end": 259.59999999999997,
+        "text": "and yeah it is doing something, so I think the first one it is doing group by and the second one"
+    },
+    {
+        "start": 259.59999999999997,
+        "end": 265.52,
+        "text": "it is doing order by, yeah the first stage it's doing preparation for group by, then it's doing"
+    },
+    {
+        "start": 265.52,
+        "end": 271.76,
+        "text": "the actual group by and then the first stage is order by, right now let me remove order by"
+    },
+    {
+        "start": 271.84,
+        "end": 278.48,
+        "text": "just to check that this is the case, so I will remove order by, yeah it will take this, I will need"
+    },
+    {
+        "start": 278.48,
+        "end": 290.32,
+        "text": "to overwrite it, it's more overwrite, and now if I go back to jobs again and open this, yeah we have"
+    },
+    {
+        "start": 290.32,
+        "end": 296.4,
+        "text": "two stages here, the first stage is preparation for group by and the second stage is doing the"
+    },
+    {
+        "start": 296.64,
+        "end": 302.88,
+        "text": "actual group by, now I want to spend a little bit of time explaining what exactly spark is doing"
+    },
+    {
+        "start": 302.88,
+        "end": 307.28,
+        "text": "when we execute a query like that, so let's say we have bunch of partitions,"
+    },
+    {
+        "start": 308.64,
+        "end": 314.15999999999997,
+        "text": "for simplicity I'll take the three partitions and we have some executors,"
+    },
+    {
+        "start": 315.91999999999996,
+        "end": 322.79999999999995,
+        "text": "each executor pulls the partition and then the callway execute, each executor executes is this,"
+    },
+    {
+        "start": 323.2,
+        "end": 330.24,
+        "text": "first executor is doing filtering because we want to discard all the records from the past,"
+    },
+    {
+        "start": 330.24,
+        "end": 338.8,
+        "text": "like before 2020, and then after filtering it is doing initial group by, why is it initial?"
+    },
+    {
+        "start": 338.8,
+        "end": 344.72,
+        "text": "because executor can only process one partition at a time, so currently it is processing let's say"
+    },
+    {
+        "start": 344.72,
+        "end": 350.32,
+        "text": "partition number one, then the second executor is processing partition number two and then we have"
+    },
+    {
+        "start": 350.48,
+        "end": 356.0,
+        "text": "partition number three, that one of them will execute when they are done with the partition,"
+    },
+    {
+        "start": 356.0,
+        "end": 363.44,
+        "text": "first each executor is doing a group by within a partition, these are the fields by which we group,"
+    },
+    {
+        "start": 363.44,
+        "end": 370.96,
+        "text": "it's our and zone, and then we do a bit of calculations, so we output our one, zone one, then"
+    },
+    {
+        "start": 371.92,
+        "end": 378.32,
+        "text": "some revenue, let's say 100, and then number of trips, five trips, because this partition had only"
+    },
+    {
+        "start": 378.32,
+        "end": 383.04,
+        "text": "five trips for this hour and for this zone, then for the same hour but a different zone,"
+    },
+    {
+        "start": 383.04,
+        "end": 389.2,
+        "text": "zone two, maybe we will have 200 and we have 10 trips, only within this partition, we do some"
+    },
+    {
+        "start": 389.2,
+        "end": 394.71999999999997,
+        "text": "grouping already, but this is only the result of applying grouping to one partition, and then the"
+    },
+    {
+        "start": 394.71999999999997,
+        "end": 400.8,
+        "text": "second executor is doing the same thing, so we have some grouping here as well, and then once one of"
+    },
+    {
+        "start": 400.8,
+        "end": 407.44,
+        "text": "them finishes, then we have a third result, then for each partition we have a bunch of, let's say,"
+    },
+    {
+        "start": 407.44,
+        "end": 413.52,
+        "text": "temporary files that contain sub results, all of them are results, but we need to somehow combine"
+    },
+    {
+        "start": 413.52,
+        "end": 419.12,
+        "text": "them and group them again, so I'll call it sub results, I don't know if it's the right term,"
+    },
+    {
+        "start": 419.12,
+        "end": 427.04,
+        "text": "but I'll just go with this, and this is actually stage number one of a group by, and remember,"
+    },
+    {
+        "start": 427.04,
+        "end": 433.52,
+        "text": "we have two stages here, so in this case there's stage 12 and stage 13, but yeah, so this is like"
+    },
+    {
+        "start": 433.59999999999997,
+        "end": 439.35999999999996,
+        "text": "the first stage, this is where we do some filtering, and then we do grouping for each partition,"
+    },
+    {
+        "start": 439.35999999999996,
+        "end": 444.24,
+        "text": "and the second stage is when we actually combine the results from different predictions,"
+    },
+    {
+        "start": 444.79999999999995,
+        "end": 452.08,
+        "text": "so now let me tell you how exactly stage two looks like, so I'll call it group on by stage two,"
+    },
+    {
+        "start": 453.76,
+        "end": 461.44,
+        "text": "so we take these sub results, and in these sub results, so maybe in the this second partition,"
+    },
+    {
+        "start": 461.44,
+        "end": 469.2,
+        "text": "we also have R1, zone one, and then I don't know 50 and two trips, and then we have R1, zone two,"
+    },
+    {
+        "start": 469.2,
+        "end": 475.28,
+        "text": "two hundred fifty, eleven trips, and then the same, maybe we have the same combination here,"
+    },
+    {
+        "start": 475.28,
+        "end": 483.36,
+        "text": "R1, zone one, two hundred and ten trips, and now we need to somehow take all these records and"
+    },
+    {
+        "start": 483.36,
+        "end": 489.44,
+        "text": "combine them into one, this will be the result, the final group by result, the process of doing this"
+    },
+    {
+        "start": 489.44,
+        "end": 496.8,
+        "text": "in Spark is called Trishuffling, and the reason it is called Trishuffling, it's kind of shuffles"
+    },
+    {
+        "start": 496.8,
+        "end": 501.2,
+        "text": "the records we have in each partition, and it moves records between different"
+    },
+    {
+        "start": 501.2,
+        "end": 506.56,
+        "text": "predictions, this is the key, which we use for grouping, this part of the record is the key,"
+    },
+    {
+        "start": 507.2,
+        "end": 512.48,
+        "text": "and as the result, all the records with the same key must end up in the same partition,"
+    },
+    {
+        "start": 512.48,
+        "end": 518.56,
+        "text": "let's say I have two partitions here, so this record will go to this partition, this record will"
+    },
+    {
+        "start": 518.56,
+        "end": 528.2399999999999,
+        "text": "go to this partition, and to this partition, this H1, Z1, 105, then the same key, here we have 50"
+    },
+    {
+        "start": 528.2399999999999,
+        "end": 535.1199999999999,
+        "text": "and two, and then again the same key, and we have 200 and ten, and then the other partition,"
+    },
+    {
+        "start": 535.1199999999999,
+        "end": 545.92,
+        "text": "we will get for example this one, and this one, it will be H1, Z2, 200, 10, and H1, Z2, 50 and two,"
+    },
+    {
+        "start": 545.92,
+        "end": 553.8399999999999,
+        "text": "and this process of resuffling, internally this is implemented as it's called external merge sort,"
+    },
+    {
+        "start": 554.64,
+        "end": 561.1999999999999,
+        "text": "so this is an algorithm for sorting the data, you can do it distributed sorting, and the records"
+    },
+    {
+        "start": 561.1999999999999,
+        "end": 568.8,
+        "text": "inside each partition, they are sorted, so here maybe we have another record, which is H2, Z2,"
+    },
+    {
+        "start": 568.8,
+        "end": 575.68,
+        "text": "something, so at this stage after resuffling, we have these two partitions, partition 1 and partition 2,"
+    },
+    {
+        "start": 575.68,
+        "end": 581.76,
+        "text": "within each partition we can do another group by, we can group all the records with the same key"
+    },
+    {
+        "start": 581.76,
+        "end": 590.4799999999999,
+        "text": "into one, and then here we can reduce it into one, apply the sum here, so it will be 350,"
+    },
+    {
+        "start": 590.4799999999999,
+        "end": 598.56,
+        "text": "and then 17, and the same we can do here, so it will be 250 and 12, and then as the result of this,"
+    },
+    {
+        "start": 598.56,
+        "end": 604.3199999999999,
+        "text": "we will output these reduced records, so it will be instead of having three records with the same key,"
+    },
+    {
+        "start": 604.32,
+        "end": 610.24,
+        "text": "we'll have only one record with this key and combine the result, and this is exactly what we see here,"
+    },
+    {
+        "start": 610.24,
+        "end": 618.1600000000001,
+        "text": "so this exchange I think it means resuffling, and then after it's really resuffling, it combines the"
+    },
+    {
+        "start": 618.1600000000001,
+        "end": 626.1600000000001,
+        "text": "records into one, and if we do order by here, like we did, and if I execute it again, there is another stage,"
+    },
+    {
+        "start": 627.12,
+        "end": 634.88,
+        "text": "and yeah this is very similar to what we discussed here, so it also uses this sharply mechanism"
+    },
+    {
+        "start": 634.88,
+        "end": 640.64,
+        "text": "to make sure that actually the results are ordered, I think this is not really important right now,"
+    },
+    {
+        "start": 640.64,
+        "end": 645.8399999999999,
+        "text": "to have this ordered, so I can remove this, and let me execute it because why not,"
+    },
+    {
+        "start": 645.8399999999999,
+        "end": 649.1999999999999,
+        "text": "then I want to do the same thing with yellow data,"
+    },
+    {
+        "start": 649.2,
+        "end": 654.8000000000001,
+        "text": "so also register a temporary table,"
+    },
+    {
+        "start": 657.84,
+        "end": 664.88,
+        "text": "and now let me compute the revenue for yellow, I think for yellow taxes it's not LPEP but something else,"
+    },
+    {
+        "start": 664.88,
+        "end": 672.96,
+        "text": "so let me quickly look at the columns here, so it's TPEP, and then the rest will be the same,"
+    },
+    {
+        "start": 673.0400000000001,
+        "end": 679.36,
+        "text": "so except here I'll select from yellow, and then yeah I will have this filtering condition,"
+    },
+    {
+        "start": 680.24,
+        "end": 687.9200000000001,
+        "text": "so let me execute that, and actually write the results to the revenue yellow report, and of course"
+    },
+    {
+        "start": 687.9200000000001,
+        "end": 692.88,
+        "text": "it should be not green, but yellow, so this probably will take a bit more time than green,"
+    },
+    {
+        "start": 693.6800000000001,
+        "end": 700.1600000000001,
+        "text": "let me take a look at how it looks like, so this is the same process, yeah so this is the"
+    },
+    {
+        "start": 700.16,
+        "end": 705.04,
+        "text": "it's running the first stage, and then in the second stage, yeah now it is running the second stage,"
+    },
+    {
+        "start": 705.04,
+        "end": 709.92,
+        "text": "so in the second stage we will have 200 rotations, this is quite a few rotations, we don't need"
+    },
+    {
+        "start": 709.92,
+        "end": 716.56,
+        "text": "that many, so maybe what we can add here, as a step is repartitioning, just to make files smaller,"
+    },
+    {
+        "start": 716.56,
+        "end": 725.12,
+        "text": "so let me do it here, repetition, usually though in practice this is fine, we have 200 rotations"
+    },
+    {
+        "start": 725.12,
+        "end": 730.4,
+        "text": "because we have larger files, so here in this example the files are quite small,"
+    },
+    {
+        "start": 730.4,
+        "end": 735.52,
+        "text": "that we are dealing with our button practice, you have files that are a few orders of"
+    },
+    {
+        "start": 735.52,
+        "end": 741.52,
+        "text": "login to bigger, and what I'm actually selecting right now, you see this shuffle read and shuffle"
+    },
+    {
+        "start": 741.52,
+        "end": 747.76,
+        "text": "write, so this is exactly this shuffling stage, is how much data we need to reach half"
+    },
+    {
+        "start": 747.76,
+        "end": 752.64,
+        "text": "whole, and usually we want to reach half whole as little data as possible, because this is an"
+    },
+    {
+        "start": 752.64,
+        "end": 757.68,
+        "text": "expensive operation, because we need to move a lot of data around, and we typically don't want to"
+    },
+    {
+        "start": 757.68,
+        "end": 762.96,
+        "text": "do that, just in case I will repartition this, because these files are relatively small, I want to"
+    },
+    {
+        "start": 762.96,
+        "end": 769.4399999999999,
+        "text": "make them a little bit bigger, by combining them into fewer files, so I will do that, and I will do"
+    },
+    {
+        "start": 769.4399999999999,
+        "end": 779.84,
+        "text": "the same for yellow, and if we take a look at the jobs, so right now the job for yellow taxi is"
+    },
+    {
+        "start": 779.9200000000001,
+        "end": 786.08,
+        "text": "running, we see that we have three stages, right, so this is the first is grouping, and then again"
+    },
+    {
+        "start": 787.0400000000001,
+        "end": 792.24,
+        "text": "finishing the aggregating and the shuffling, and the last one we are doing repartition, so we are"
+    },
+    {
+        "start": 792.24,
+        "end": 798.5600000000001,
+        "text": "taking smaller partitions and merging them, and this again, this also involves a bit of reshuffling,"
+    },
+    {
+        "start": 798.5600000000001,
+        "end": 806.24,
+        "text": "and we will see it here, so when we, yeah it finished, the stage number two produced 200 rotations,"
+    },
+    {
+        "start": 806.24,
+        "end": 812.24,
+        "text": "but the stage number three produced only 220, and we see that it needed to shuffle the data around"
+    },
+    {
+        "start": 812.24,
+        "end": 818.4,
+        "text": "28 megabytes, and we see that this is not a really big amount, but when this amount is big, you"
+    },
+    {
+        "start": 818.4,
+        "end": 826.64,
+        "text": "actually want to avoid shuffling, and we can take a look at our data, so if I do three reports,"
+    },
+    {
+        "start": 827.76,
+        "end": 834.0,
+        "text": "we see this data now, so each folder here green and yellow has 20 files, and we can also look at"
+    },
+    {
+        "start": 834.16,
+        "end": 843.04,
+        "text": "the size of these files, we do a lhr, r recursive, it will go inside each directory, and we can see"
+    },
+    {
+        "start": 843.04,
+        "end": 849.76,
+        "text": "that for yellow it's 15 megs, and for green it's six megabytes, it's not that large even though"
+    },
+    {
+        "start": 849.76,
+        "end": 858.48,
+        "text": "it's 300 kilobytes results, it's very small, there is at almost, it's better than probably 200"
+    },
+    {
+        "start": 858.48,
+        "end": 864.24,
+        "text": "even smaller files, this is how you do group by and spark, and this is how group by is implemented,"
+    },
+    {
+        "start": 864.24,
+        "end": 870.5600000000001,
+        "text": "so in summary it happens in two stages, so the first stage does group by within each partition,"
+    },
+    {
+        "start": 870.5600000000001,
+        "end": 875.36,
+        "text": "and then the second stage we're doing a bit of reshuffling to make sure that we have the same keys"
+    },
+    {
+        "start": 875.36,
+        "end": 881.44,
+        "text": "within one partition, and then we are reducing these records with the same key into one, and this"
+    },
+    {
+        "start": 881.44,
+        "end": 887.6,
+        "text": "is our final result. In the next video I want to talk about joints, and joints and group by"
+    },
+    {
+        "start": 887.6,
+        "end": 892.8000000000001,
+        "text": "are more similar than you think, because internally they are implemented using similar"
+    },
+    {
+        "start": 892.8000000000001,
+        "end": 898.08,
+        "text": "mechanism, this external merge sort, and because we already have these two tables, so this green"
+    },
+    {
+        "start": 898.08,
+        "end": 904.0,
+        "text": "divinute table, and yellow divinute table, I now in the next video want to join them, and want to talk"
+    },
+    {
+        "start": 904.0,
+        "end": 915.76,
+        "text": "a bit about how these joints are implemented, so see you soon."
+    }
+]

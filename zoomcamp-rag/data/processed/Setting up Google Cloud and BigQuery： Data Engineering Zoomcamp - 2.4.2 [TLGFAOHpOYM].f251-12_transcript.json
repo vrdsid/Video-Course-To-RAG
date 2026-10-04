@@ -1,0 +1,737 @@
+[
+    {
+        "start": 0.0,
+        "end": 3.3000000000000003,
+        "text": "Welcome to the next part of the Data Engineering Zoom Camp."
+    },
+    {
+        "start": 3.3000000000000003,
+        "end": 5.76,
+        "text": "Now in our previous episode, we looked at the differences"
+    },
+    {
+        "start": 5.76,
+        "end": 8.16,
+        "text": "between ETL and ELT."
+    },
+    {
+        "start": 8.16,
+        "end": 10.76,
+        "text": "And today we're going to delve further into ELT"
+    },
+    {
+        "start": 10.76,
+        "end": 13.0,
+        "text": "by getting Google Cloud setup ready for us"
+    },
+    {
+        "start": 13.0,
+        "end": 15.32,
+        "text": "to build our next data pipeline."
+    },
+    {
+        "start": 15.32,
+        "end": 16.56,
+        "text": "There's a couple of things we need to do"
+    },
+    {
+        "start": 16.56,
+        "end": 18.72,
+        "text": "before we can get started with Google Cloud."
+    },
+    {
+        "start": 18.72,
+        "end": 20.72,
+        "text": "Number one, we need to go to Google Cloud"
+    },
+    {
+        "start": 20.72,
+        "end": 22.56,
+        "text": "and create a new project."
+    },
+    {
+        "start": 22.56,
+        "end": 24.16,
+        "text": "Once we've created a new project,"
+    },
+    {
+        "start": 24.16,
+        "end": 26.32,
+        "text": "then we can come back to Kesha and start adding"
+    },
+    {
+        "start": 26.32,
+        "end": 27.6,
+        "text": "some information in."
+    },
+    {
+        "start": 27.68,
+        "end": 30.880000000000003,
+        "text": "Now what we can do is put the name of our project"
+    },
+    {
+        "start": 30.880000000000003,
+        "end": 32.52,
+        "text": "into Kesha."
+    },
+    {
+        "start": 32.52,
+        "end": 35.68,
+        "text": "Now if we go over here to my Google Cloud instance,"
+    },
+    {
+        "start": 35.68,
+        "end": 38.72,
+        "text": "you can see I'm in this Kesha Sandbox project that I have"
+    },
+    {
+        "start": 38.72,
+        "end": 40.24,
+        "text": "so we can use that."
+    },
+    {
+        "start": 40.24,
+        "end": 42.84,
+        "text": "The next thing we can do is create a service account."
+    },
+    {
+        "start": 42.84,
+        "end": 44.68000000000001,
+        "text": "So if we go to the menu on the left hand side,"
+    },
+    {
+        "start": 44.68000000000001,
+        "end": 46.6,
+        "text": "we can see IAM and admin,"
+    },
+    {
+        "start": 46.6,
+        "end": 48.6,
+        "text": "and then we want to go to service accounts."
+    },
+    {
+        "start": 48.6,
+        "end": 50.8,
+        "text": "Now, when we're in here, we can see there's a button"
+    },
+    {
+        "start": 50.8,
+        "end": 53.160000000000004,
+        "text": "at the top here called create service account."
+    },
+    {
+        "start": 53.160000000000004,
+        "end": 55.44,
+        "text": "If we click this, this will give us options"
+    },
+    {
+        "start": 55.44,
+        "end": 56.64,
+        "text": "for what we can do."
+    },
+    {
+        "start": 56.64,
+        "end": 58.04,
+        "text": "Now name this whatever you want."
+    },
+    {
+        "start": 58.04,
+        "end": 60.76,
+        "text": "I'm going to call this will zoom camp."
+    },
+    {
+        "start": 60.76,
+        "end": 62.72,
+        "text": "And then I'm going to click create and continue."
+    },
+    {
+        "start": 62.72,
+        "end": 64.36,
+        "text": "I'm going to give this the owner role."
+    },
+    {
+        "start": 64.36,
+        "end": 66.68,
+        "text": "So it's got access to everything in the project."
+    },
+    {
+        "start": 66.68,
+        "end": 68.44,
+        "text": "But if you want to be a little more specific,"
+    },
+    {
+        "start": 68.44,
+        "end": 72.0,
+        "text": "we're going to be using BigQuery and Google Cloud Storage."
+    },
+    {
+        "start": 72.0,
+        "end": 74.2,
+        "text": "And then once you've done that, you can press done here,"
+    },
+    {
+        "start": 74.2,
+        "end": 76.08,
+        "text": "and it's going to create your service account."
+    },
+    {
+        "start": 76.08,
+        "end": 78.0,
+        "text": "Now once you've created your service account, scroll down"
+    },
+    {
+        "start": 78.0,
+        "end": 79.88,
+        "text": "to it, and once you're in here, you'll"
+    },
+    {
+        "start": 79.88,
+        "end": 81.64,
+        "text": "be able to now click keys."
+    },
+    {
+        "start": 81.64,
+        "end": 84.48,
+        "text": "And the key thing is we're going to create a new set of keys"
+    },
+    {
+        "start": 84.48,
+        "end": 86.88000000000001,
+        "text": "so that Kestra can talk to Google Cloud."
+    },
+    {
+        "start": 86.88000000000001,
+        "end": 89.64,
+        "text": "Now in here, we're going to click the JSON recommended type."
+    },
+    {
+        "start": 89.64,
+        "end": 92.96000000000001,
+        "text": "And it's going to give us a JSON file that will be downloaded."
+    },
+    {
+        "start": 92.96000000000001,
+        "end": 95.04,
+        "text": "Now we want to be able to take that JSON file,"
+    },
+    {
+        "start": 95.04,
+        "end": 97.04,
+        "text": "and we can now load that into Kestra."
+    },
+    {
+        "start": 97.04,
+        "end": 98.60000000000001,
+        "text": "Now there's a few ways we can do this."
+    },
+    {
+        "start": 98.60000000000001,
+        "end": 100.48,
+        "text": "And I'd recommend checking out these separate videos"
+    },
+    {
+        "start": 100.48,
+        "end": 102.12,
+        "text": "for how you can do that."
+    },
+    {
+        "start": 102.12,
+        "end": 103.80000000000001,
+        "text": "Now the way I would recommend doing it"
+    },
+    {
+        "start": 103.80000000000001,
+        "end": 105.56,
+        "text": "is creating it as a secret."
+    },
+    {
+        "start": 105.56,
+        "end": 107.4,
+        "text": "Now in the open source edition of Kestra,"
+    },
+    {
+        "start": 107.4,
+        "end": 109.72,
+        "text": "which you will be using, you'll need to create this"
+    },
+    {
+        "start": 109.72,
+        "end": 113.2,
+        "text": "as an environment-remariable inside of your Docker Compose."
+    },
+    {
+        "start": 113.2,
+        "end": 115.24000000000001,
+        "text": "Inside of there, you'll just be able to preference it"
+    },
+    {
+        "start": 115.24000000000001,
+        "end": 116.52000000000001,
+        "text": "with secret underscore."
+    },
+    {
+        "start": 116.52000000000001,
+        "end": 118.68,
+        "text": "But I'd recommend checking out this dedicated video"
+    },
+    {
+        "start": 118.68,
+        "end": 121.60000000000001,
+        "text": "that walks all through creating secrets."
+    },
+    {
+        "start": 121.60000000000001,
+        "end": 123.84,
+        "text": "We also have a dedicated guide on creating secrets"
+    },
+    {
+        "start": 123.84,
+        "end": 126.32000000000001,
+        "text": "with your Google Cloud service account, JSON."
+    },
+    {
+        "start": 126.32000000000001,
+        "end": 127.84,
+        "text": "So you should follow that."
+    },
+    {
+        "start": 127.84,
+        "end": 129.8,
+        "text": "And hopefully you won't run into any issues."
+    },
+    {
+        "start": 129.8,
+        "end": 132.68,
+        "text": "Now that we've done that, we can jump back into Kestra"
+    },
+    {
+        "start": 132.68,
+        "end": 134.88,
+        "text": "and we can reload our Docker Compose,"
+    },
+    {
+        "start": 134.88,
+        "end": 137.36,
+        "text": "and we'll have that secret available for us to use."
+    },
+    {
+        "start": 137.36,
+        "end": 140.32,
+        "text": "Now in here, we're going to use this next flow, which"
+    },
+    {
+        "start": 140.32,
+        "end": 142.76,
+        "text": "is 06GCPKV."
+    },
+    {
+        "start": 142.79999999999998,
+        "end": 145.0,
+        "text": "Now what this will do is it's going to help us"
+    },
+    {
+        "start": 145.0,
+        "end": 148.92,
+        "text": "by using the Kestra key value store here to give us a hand."
+    },
+    {
+        "start": 148.92,
+        "end": 150.48,
+        "text": "Now the key value store is a great way"
+    },
+    {
+        "start": 150.48,
+        "end": 152.44,
+        "text": "for being able to add information to your flows"
+    },
+    {
+        "start": 152.44,
+        "end": 155.0,
+        "text": "without hard coding them directly into the flow."
+    },
+    {
+        "start": 155.0,
+        "end": 156.6,
+        "text": "Now it's all stored as plain text,"
+    },
+    {
+        "start": 156.6,
+        "end": 159.39999999999998,
+        "text": "so I don't recommend necessarily storing credentials in here,"
+    },
+    {
+        "start": 159.39999999999998,
+        "end": 161.79999999999998,
+        "text": "but you can do if you want to make sure you're not putting them"
+    },
+    {
+        "start": 161.79999999999998,
+        "end": 163.32,
+        "text": "in the workflow."
+    },
+    {
+        "start": 163.32,
+        "end": 164.64,
+        "text": "But the key thing here is we're going"
+    },
+    {
+        "start": 164.64,
+        "end": 167.04,
+        "text": "to be able to put Zoom Camp as the namespace,"
+    },
+    {
+        "start": 167.04,
+        "end": 168.79999999999998,
+        "text": "and then we can add some information here"
+    },
+    {
+        "start": 168.79999999999998,
+        "end": 171.84,
+        "text": "as key value pairs that we can then fetch in our workflow."
+    },
+    {
+        "start": 171.84,
+        "end": 174.56,
+        "text": "Now I've got a handy workflow to help us automatically"
+    },
+    {
+        "start": 174.56,
+        "end": 176.52,
+        "text": "add things to the key value store."
+    },
+    {
+        "start": 176.52,
+        "end": 178.72,
+        "text": "So all we've got to do here is we need"
+    },
+    {
+        "start": 178.72,
+        "end": 182.48000000000002,
+        "text": "to add the project ID, which in my case is Kestra Sandbox."
+    },
+    {
+        "start": 182.48000000000002,
+        "end": 185.72,
+        "text": "The location you want to use on Google Cloud Platform"
+    },
+    {
+        "start": 185.72,
+        "end": 188.44,
+        "text": "for your storage bucket and BigQuery,"
+    },
+    {
+        "start": 188.44,
+        "end": 191.4,
+        "text": "I want to use the Europe West 2, which"
+    },
+    {
+        "start": 191.4,
+        "end": 193.72,
+        "text": "is London, my nearest data center."
+    },
+    {
+        "start": 193.72,
+        "end": 194.96,
+        "text": "But if you're somewhere else in the world,"
+    },
+    {
+        "start": 194.96,
+        "end": 197.92000000000002,
+        "text": "I'd recommend picking somewhere close to you."
+    },
+    {
+        "start": 197.92000000000002,
+        "end": 200.84,
+        "text": "Then we want to get our GCP bucket name."
+    },
+    {
+        "start": 200.84,
+        "end": 203.48,
+        "text": "So I need make sure this is globally unique."
+    },
+    {
+        "start": 203.48,
+        "end": 204.84,
+        "text": "So if this workflow fails, it probably"
+    },
+    {
+        "start": 204.84,
+        "end": 206.6,
+        "text": "means that the name is not unique."
+    },
+    {
+        "start": 206.6,
+        "end": 211.64000000000001,
+        "text": "I'm going to call this Kestra Zoom Camp Will demo."
+    },
+    {
+        "start": 211.64000000000001,
+        "end": 213.92000000000002,
+        "text": "Hopefully that is all good."
+    },
+    {
+        "start": 213.92000000000002,
+        "end": 215.36,
+        "text": "And then the last thing we're going to do"
+    },
+    {
+        "start": 215.36,
+        "end": 218.12,
+        "text": "is create a data set for BigQuery"
+    },
+    {
+        "start": 218.12,
+        "end": 220.68,
+        "text": "so that all of our stuff is under one place."
+    },
+    {
+        "start": 220.68,
+        "end": 222.4,
+        "text": "Let's call this Zoom Camp."
+    },
+    {
+        "start": 222.4,
+        "end": 223.16,
+        "text": "Now this is done."
+    },
+    {
+        "start": 223.16,
+        "end": 225.2,
+        "text": "We can press Save, and then we can press Execute."
+    },
+    {
+        "start": 225.2,
+        "end": 227.0,
+        "text": "And we'll see that it's going to run all of that."
+    },
+    {
+        "start": 227.0,
+        "end": 229.56,
+        "text": "And if we go to the key value store and click Refresh,"
+    },
+    {
+        "start": 229.56,
+        "end": 232.36,
+        "text": "we'll see that here we've got all of our different things"
+    },
+    {
+        "start": 232.36,
+        "end": 234.88,
+        "text": "and we can actually click into them and see location."
+    },
+    {
+        "start": 234.88,
+        "end": 238.92000000000002,
+        "text": "We can see the data set is exactly what we expected it to be."
+    },
+    {
+        "start": 238.92000000000002,
+        "end": 240.92000000000002,
+        "text": "Now that we've done that, what we can do is now"
+    },
+    {
+        "start": 240.92000000000002,
+        "end": 243.48,
+        "text": "move over to our next workflow, which in this case"
+    },
+    {
+        "start": 243.48,
+        "end": 244.68,
+        "text": "is number seven."
+    },
+    {
+        "start": 244.68,
+        "end": 246.0,
+        "text": "And this is where we're going to start"
+    },
+    {
+        "start": 246.0,
+        "end": 248.52,
+        "text": "to use those key value pairs to be able to actually"
+    },
+    {
+        "start": 248.52,
+        "end": 250.76,
+        "text": "add information to Google Cloud."
+    },
+    {
+        "start": 250.76,
+        "end": 253.24,
+        "text": "Now this workflow just does two things for us."
+    },
+    {
+        "start": 253.24,
+        "end": 254.88,
+        "text": "It creates that bucket for us, which"
+    },
+    {
+        "start": 254.88,
+        "end": 256.16,
+        "text": "will use as a data lake."
+    },
+    {
+        "start": 256.16,
+        "end": 258.52,
+        "text": "And it will also create the data set in BigQuery,"
+    },
+    {
+        "start": 258.52,
+        "end": 260.68,
+        "text": "which is where we're going to have all of our different tables"
+    },
+    {
+        "start": 260.68,
+        "end": 263.0,
+        "text": "that we're going to use to do ELT."
+    },
+    {
+        "start": 263.0,
+        "end": 265.52,
+        "text": "Now as you can see here, we've got expressions"
+    },
+    {
+        "start": 265.52,
+        "end": 267.91999999999996,
+        "text": "just like we had in our previous workflows"
+    },
+    {
+        "start": 267.91999999999996,
+        "end": 270.12,
+        "text": "to be able to access these key value pairs."
+    },
+    {
+        "start": 270.12,
+        "end": 274.76,
+        "text": "As you can see, we've got GCP, bucket name, and GCP data set."
+    },
+    {
+        "start": 274.76,
+        "end": 276.44,
+        "text": "I'm actually using plug-in defaults here"
+    },
+    {
+        "start": 276.44,
+        "end": 280.03999999999996,
+        "text": "so these Google Cloud Platform plugins can access information."
+    },
+    {
+        "start": 280.03999999999996,
+        "end": 283.08,
+        "text": "So as you can see here, we've got Project ID location"
+    },
+    {
+        "start": 283.08,
+        "end": 284.08,
+        "text": "and the bucket."
+    },
+    {
+        "start": 284.08,
+        "end": 287.32,
+        "text": "And for the service account, if you're using it as a secret,"
+    },
+    {
+        "start": 287.32,
+        "end": 288.96,
+        "text": "make sure to rename that to secret,"
+    },
+    {
+        "start": 288.96,
+        "end": 291.96,
+        "text": "which is what I would highly recommend you do in your workflows."
+    },
+    {
+        "start": 291.96,
+        "end": 293.8,
+        "text": "Now let's execute this workflow."
+    },
+    {
+        "start": 293.8,
+        "end": 295.88,
+        "text": "And you'll see that it's going to create our bucket,"
+    },
+    {
+        "start": 295.88,
+        "end": 297.15999999999997,
+        "text": "which is successful in doing so."
+    },
+    {
+        "start": 297.15999999999997,
+        "end": 298.84,
+        "text": "And if we now go over to buckets,"
+    },
+    {
+        "start": 298.84,
+        "end": 301.28,
+        "text": "and I give this a refresh, we can see here"
+    },
+    {
+        "start": 301.28,
+        "end": 302.92,
+        "text": "that there is now a new bucket here called"
+    },
+    {
+        "start": 302.92,
+        "end": 306.52,
+        "text": "Kestra Zoom Camp Wheel Demo, which was just created."
+    },
+    {
+        "start": 306.52,
+        "end": 308.08,
+        "text": "Shouldn't have anything in it."
+    },
+    {
+        "start": 308.08,
+        "end": 310.56,
+        "text": "It looks like it doesn't have anything in it, which is great."
+    },
+    {
+        "start": 310.56,
+        "end": 313.15999999999997,
+        "text": "And now if we go over to BigQuery as well."
+    },
+    {
+        "start": 313.15999999999997,
+        "end": 315.28,
+        "text": "And actually, and as you can see here in BigQuery,"
+    },
+    {
+        "start": 315.28,
+        "end": 317.67999999999995,
+        "text": "we have our Zoom Camp data set as well."
+    },
+    {
+        "start": 317.67999999999995,
+        "end": 319.91999999999996,
+        "text": "It's got nothing in it because all we've done is just created."
+    },
+    {
+        "start": 319.91999999999996,
+        "end": 323.47999999999996,
+        "text": "But now we are ready to be able to build our ELT pipeline."
+    },
+    {
+        "start": 323.47999999999996,
+        "end": 326.35999999999996,
+        "text": "So hopefully you should all be set up on Google Cloud now"
+    },
+    {
+        "start": 326.35999999999996,
+        "end": 329.03999999999996,
+        "text": "where you've got your Google Cloud bucket created."
+    },
+    {
+        "start": 329.03999999999996,
+        "end": 331.55999999999995,
+        "text": "You've got your BigQuery data set created."
+    },
+    {
+        "start": 331.55999999999995,
+        "end": 333.79999999999995,
+        "text": "So now we can jump into the next part"
+    },
+    {
+        "start": 333.79999999999995,
+        "end": 336.67999999999995,
+        "text": "where we're going to build our ELT pipeline."
+    }
+]

@@ -1,0 +1,322 @@
+[
+    {
+        "start": 0.0,
+        "end": 3.44,
+        "text": "Welcome to the next part of the Data Engineering Zoom Camp."
+    },
+    {
+        "start": 3.44,
+        "end": 7.28,
+        "text": "Today we're going to look at building our very first ETL pipeline."
+    },
+    {
+        "start": 7.28,
+        "end": 11.44,
+        "text": "Now this is actually one of the getting started blueprints on the Keshtra website,"
+    },
+    {
+        "start": 11.44,
+        "end": 16.0,
+        "text": "but it's also available inside of the Data Engineering Zoom Camp GitHub repository."
+    },
+    {
+        "start": 16.0,
+        "end": 20.400000000000002,
+        "text": "So I'd recommend copying and pasting this into Keshtra and following along with this video."
+    },
+    {
+        "start": 20.400000000000002,
+        "end": 24.240000000000002,
+        "text": "Now jumping into Keshtra I've already got the workflow loaded in."
+    },
+    {
+        "start": 24.240000000000002,
+        "end": 29.2,
+        "text": "Now it's got some of those concepts that we've covered in 2.2 the previous part"
+    },
+    {
+        "start": 29.2,
+        "end": 32.8,
+        "text": "where we learnt the concepts of Keshtra and how we can run our first workflow."
+    },
+    {
+        "start": 32.8,
+        "end": 38.0,
+        "text": "Concepts such as inputs where here we've got columns we want to keep as part of the transformation"
+    },
+    {
+        "start": 38.0,
+        "end": 42.64,
+        "text": "process. We've got tasks. This is where we can see that ETL pipeline happen."
+    },
+    {
+        "start": 42.64,
+        "end": 47.2,
+        "text": "We've got the extract, the transform, and at the bottom here we have the load step."
+    },
+    {
+        "start": 47.2,
+        "end": 50.8,
+        "text": "In this case we've called it query because we're not really loading it into a database."
+    },
+    {
+        "start": 50.8,
+        "end": 53.92,
+        "text": "And here we've got a step dedicated to running Python code."
+    },
+    {
+        "start": 53.92,
+        "end": 57.68,
+        "text": "And we can also see the use of inputs and outputs to pass data"
+    },
+    {
+        "start": 57.76,
+        "end": 62.08,
+        "text": "between each of these stages so that the pipeline can work well together."
+    },
+    {
+        "start": 62.08,
+        "end": 65.2,
+        "text": "Let's dive into each step and understand what's going on."
+    },
+    {
+        "start": 65.2,
+        "end": 70.0,
+        "text": "Now for an ETL pipeline to work we need to be able to first extract data."
+    },
+    {
+        "start": 70.0,
+        "end": 73.92,
+        "text": "We're doing that by extracting a JSON using a HTTP request."
+    },
+    {
+        "start": 73.92,
+        "end": 78.08,
+        "text": "When we do this and we can see this from the documentation tab and if I click on the task"
+    },
+    {
+        "start": 78.08,
+        "end": 82.64,
+        "text": "we can see under output it's going to generate a URI which is going to have the file"
+    },
+    {
+        "start": 82.64,
+        "end": 89.6,
+        "text": "with all of that data. We can then use that data in an output and pass it to our Python task here"
+    },
+    {
+        "start": 89.6,
+        "end": 94.48,
+        "text": "that is going to then use that as an input file which means when our Python code's running"
+    },
+    {
+        "start": 94.48,
+        "end": 100.08,
+        "text": "it will have a file inside of that Docker container called data.json so we can just"
+    },
+    {
+        "start": 100.08,
+        "end": 105.28,
+        "text": "easily assign that existing data as an output to a file inside of this container."
+    },
+    {
+        "start": 105.28,
+        "end": 109.6,
+        "text": "And we've also got our inputs here from earlier on which we've just mapped to an environment"
+    },
+    {
+        "start": 110.16,
+        "end": 114.55999999999999,
+        "text": "variable. So in Python we can then just use an environment variable to access these"
+    },
+    {
+        "start": 114.55999999999999,
+        "end": 119.19999999999999,
+        "text": "which then also means our Python code can be tested locally outside of Kestria because there's"
+    },
+    {
+        "start": 119.19999999999999,
+        "end": 124.39999999999999,
+        "text": "no Kestria specific logic here. Now our Python code here is written in line rather than the"
+    },
+    {
+        "start": 124.39999999999999,
+        "end": 129.04,
+        "text": "more dedicated file. We can see that it accesses the environment variable to know which columns it's"
+    },
+    {
+        "start": 129.04,
+        "end": 134.64,
+        "text": "keeping and we can also see here that it opens up that data.json file to get that data."
+    },
+    {
+        "start": 135.44,
+        "end": 140.39999999999998,
+        "text": "We can see here then it then figures out how it can delete or keep different columns"
+    },
+    {
+        "start": 140.39999999999998,
+        "end": 146.07999999999998,
+        "text": "and then it creates a new file at the end called products.json. Now we can actually see we've also"
+    },
+    {
+        "start": 146.07999999999998,
+        "end": 151.2,
+        "text": "got output files as a property here and we've just given it an asterix.json. It will allow us to"
+    },
+    {
+        "start": 151.2,
+        "end": 156.39999999999998,
+        "text": "generate any output that finishes in dot json but we could be more specific here if we wanted to be."
+    },
+    {
+        "start": 156.39999999999998,
+        "end": 160.64,
+        "text": "Once that's finished then we're going to use the duckdb query task which is a great way for us"
+    },
+    {
+        "start": 160.64,
+        "end": 165.27999999999997,
+        "text": "to be able to have a look at the data in memory without having to interact with a database directly."
+    },
+    {
+        "start": 165.27999999999997,
+        "end": 170.55999999999997,
+        "text": "Now again we've got an input file here of our products.json and we're able just to access that"
+    },
+    {
+        "start": 170.55999999999997,
+        "end": 176.79999999999998,
+        "text": "input just like we did for the transformation task to access the extract data and then we're able"
+    },
+    {
+        "start": 176.79999999999998,
+        "end": 183.11999999999998,
+        "text": "to specify a number of SQL commands here where it's going to access products.json and it's going to"
+    },
+    {
+        "start": 183.11999999999998,
+        "end": 187.04,
+        "text": "group it together and the last property here is the fetch time which we've told it to store it as a"
+    },
+    {
+        "start": 187.04,
+        "end": 192.48,
+        "text": "dedicated file so we can then easily open it up. Now let me execute this workflow where it's"
+    },
+    {
+        "start": 192.48,
+        "end": 197.44,
+        "text": "going to ask us to define our inputs. When we press execute we'll see it here in the gantview"
+    },
+    {
+        "start": 198.48,
+        "end": 204.16,
+        "text": "have each of those steps we can see it did the extraction then it transformed the data with the"
+    },
+    {
+        "start": 204.16,
+        "end": 209.2,
+        "text": "inputs we provided and then it was able to query it but the best way to understand if this actually"
+    },
+    {
+        "start": 209.2,
+        "end": 215.76,
+        "text": "worked is the hop over to output and see each of these steps. Now first of all here extract if we"
+    },
+    {
+        "start": 215.76,
+        "end": 223.51999999999998,
+        "text": "click preview we can see that entire raw json file in its form. Great that's not hugely helpful to"
+    },
+    {
+        "start": 223.51999999999998,
+        "end": 228.48,
+        "text": "us in this raw format. So now let's have a look at Python where we can see that Python was able to"
+    },
+    {
+        "start": 228.48,
+        "end": 235.12,
+        "text": "generate two different output files. We've got data dot json which was the file that we started with"
+    },
+    {
+        "start": 235.12,
+        "end": 240.32,
+        "text": "but then we also have products dot json and here we can see that this is in a significantly better"
+    },
+    {
+        "start": 240.88,
+        "end": 246.72,
+        "text": "form than before. It's a lot easier for us to visualize and work with. Let's take that a step further"
+    },
+    {
+        "start": 246.72,
+        "end": 251.76,
+        "text": "at our load stage where we'd be putting this into a database. Now if I click on the URL I hear and"
+    },
+    {
+        "start": 251.76,
+        "end": 257.36,
+        "text": "preview this we can see here that now it's been able to visualize this into a nice table format."
+    },
+    {
+        "start": 257.36,
+        "end": 262.15999999999997,
+        "text": "So this is what it would look like if we were to put it into a database ourselves and so this is"
+    },
+    {
+        "start": 262.15999999999997,
+        "end": 268.32,
+        "text": "a lot more useful than when we go back to our original extraction where this data is big and messy"
+    },
+    {
+        "start": 268.4,
+        "end": 273.84,
+        "text": "there's lots of properties we don't care about. The transformation task is able to help us here by"
+    },
+    {
+        "start": 273.84,
+        "end": 279.04,
+        "text": "getting rid of a load of columns we don't care about and keeping just brand and price and then the"
+    },
+    {
+        "start": 279.04,
+        "end": 285.2,
+        "text": "query task or in our ETL example loading task would load it into a database table that looked like"
+    },
+    {
+        "start": 285.2,
+        "end": 291.12,
+        "text": "this. Now this is just one example of what an ETL pipeline could look like. Now in the next video"
+    },
+    {
+        "start": 291.12,
+        "end": 296.24,
+        "text": "what we're going to do is start looking at setting up with our dedicated Postgres database and ETL"
+    },
+    {
+        "start": 296.24,
+        "end": 301.04,
+        "text": "pipeline that's going to extract data from the New York taxis we're going to transform that"
+    },
+    {
+        "start": 301.04,
+        "end": 306.0,
+        "text": "using some SQL queries and then we're going to load it into our database. The key thing we're trying"
+    },
+    {
+        "start": 306.0,
+        "end": 311.36,
+        "text": "to do there is take multiple months worth of data and combine them together without duplicates."
+    },
+    {
+        "start": 311.36,
+        "end": 315.28000000000003,
+        "text": "Hopefully you found this video helpful and if you have any questions make sure to ask them in the"
+    },
+    {
+        "start": 315.28000000000003,
+        "end": 318.88,
+        "text": "DTC Slack community or in the comments of this video."
+    }
+]

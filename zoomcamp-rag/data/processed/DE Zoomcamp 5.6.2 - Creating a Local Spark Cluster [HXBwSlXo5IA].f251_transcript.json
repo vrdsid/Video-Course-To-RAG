@@ -1,0 +1,707 @@
+[
+    {
+        "start": 0.0,
+        "end": 4.5600000000000005,
+        "text": "Welcome back in this section where talking about trinians park in the cloud. Previously we talked about"
+    },
+    {
+        "start": 4.5600000000000005,
+        "end": 11.36,
+        "text": "connecting our local spark to Google Cloud storage and in this video we want to talk about creating a"
+    },
+    {
+        "start": 11.36,
+        "end": 16.4,
+        "text": "local spark cluster even though we are talking about trinians park in the cloud but before we can do"
+    },
+    {
+        "start": 16.4,
+        "end": 21.76,
+        "text": "this I want to talk about two things. So first we need to see how to turn the Jupyter notebook into"
+    },
+    {
+        "start": 21.76,
+        "end": 26.64,
+        "text": "a script and then second how we can use spark submit for submitting spark jobs. So for that we first"
+    },
+    {
+        "start": 26.64,
+        "end": 31.76,
+        "text": "will use a local cluster so we will see how to do this in this video and we will see other things"
+    },
+    {
+        "start": 31.76,
+        "end": 37.2,
+        "text": "I mentioned and then in the next video we will actually see how to run this completely in the cloud."
+    },
+    {
+        "start": 37.2,
+        "end": 42.480000000000004,
+        "text": "So even though I'm running this in a virtual machine I still consider this as local air quotes"
+    },
+    {
+        "start": 42.480000000000004,
+        "end": 47.68,
+        "text": "environment because this is technically almost the same as you would run this on your laptop."
+    },
+    {
+        "start": 47.68,
+        "end": 55.040000000000006,
+        "text": "So for that let me open this spark sigo. So before we were doing this local star and when we run"
+    },
+    {
+        "start": 55.04,
+        "end": 60.56,
+        "text": "this when we run when they execute this cell what happens under the hood is we create a local"
+    },
+    {
+        "start": 60.56,
+        "end": 65.92,
+        "text": "spark cluster and then we connect to this local spark cluster and we connect to this using this"
+    },
+    {
+        "start": 65.92,
+        "end": 72.0,
+        "text": "URL local force 4040 so this is our spark master and this spark master was created because we created"
+    },
+    {
+        "start": 72.0,
+        "end": 78.0,
+        "text": "a spark session where we said that master is local and then spark set this up. So I will"
+    },
+    {
+        "start": 78.48,
+        "end": 84.16,
+        "text": "shut down the kernel so now this thing should be gone I guess it's not shut down immediately."
+    },
+    {
+        "start": 87.2,
+        "end": 92.72,
+        "text": "Okay now it's gone because I actually had two of them so yeah you see we cannot connect to this"
+    },
+    {
+        "start": 92.72,
+        "end": 99.03999999999999,
+        "text": "because we stopped the notebook that we stopped the kernel that created this and now I want to"
+    },
+    {
+        "start": 99.03999999999999,
+        "end": 105.68,
+        "text": "create a cluster as spark cluster outside of the notebook. For that I will follow this document"
+    },
+    {
+        "start": 105.68,
+        "end": 112.24000000000001,
+        "text": "so I just found this on google when I looked up Brian's park and stand alone mode and yeah we need"
+    },
+    {
+        "start": 112.24000000000001,
+        "end": 120.24000000000001,
+        "text": "you it's as simple as running this thing so now I will open this in my terminal I will go to my spark"
+    },
+    {
+        "start": 120.24000000000001,
+        "end": 127.92000000000002,
+        "text": "directory and then spark so this is my spark home I think home yeah so this is where I install spark"
+    },
+    {
+        "start": 128.48000000000002,
+        "end": 134.48000000000002,
+        "text": "and I just need to go to this directory and execute this thing and then it actually starts part"
+    },
+    {
+        "start": 134.48,
+        "end": 143.6,
+        "text": "master so it has started this and now if I attempt to go there I think we need to run it on port 8080"
+    },
+    {
+        "start": 143.6,
+        "end": 151.12,
+        "text": "so let me open another port support 8080 okay yeah so I think when we start the spark master using"
+    },
+    {
+        "start": 151.12,
+        "end": 157.2,
+        "text": "this tool since there are 4040 it creates it on port 8080 this is the spark master and we have some"
+    },
+    {
+        "start": 157.2,
+        "end": 164.0,
+        "text": "information about the master and now in our notebook we instead of using local we can just say"
+    },
+    {
+        "start": 164.0,
+        "end": 170.48,
+        "text": "master is local I think we need to write it like that spark we can see it here right so this is the"
+    },
+    {
+        "start": 170.48,
+        "end": 176.96,
+        "text": "URL but instead of this long URL we just need to write local host and then this is how we started"
+    },
+    {
+        "start": 176.96,
+        "end": 184.88,
+        "text": "this is how we connect I think I need to restart it so now it's trying to connect to this spark master"
+    },
+    {
+        "start": 185.76,
+        "end": 190.72,
+        "text": "yeah I think it cannot connect maybe I'll try a different way of connecting"
+    },
+    {
+        "start": 191.68,
+        "end": 199.04,
+        "text": "for some reasons it cannot connect I think the problem is because it uses this URL and I don't"
+    },
+    {
+        "start": 199.04,
+        "end": 205.04,
+        "text": "know if I try this without changing it to local host if it will work that may restart it"
+    },
+    {
+        "start": 208.0,
+        "end": 214.48,
+        "text": "yeah actually it seems to be able to connect to this okay good yeah I didn't know that this"
+    },
+    {
+        "start": 214.48,
+        "end": 220.32,
+        "text": "thing actually is off to the URL if you don't run this on a virtual machine maybe you will have"
+    },
+    {
+        "start": 220.32,
+        "end": 224.32,
+        "text": "a slightly different result at least on a virtual machine this is how you need to do this"
+    },
+    {
+        "start": 225.28,
+        "end": 230.48,
+        "text": "and you see we need to specify the master and then we connected to master here so we see the"
+    },
+    {
+        "start": 230.48,
+        "end": 237.51999999999998,
+        "text": "application ID here and we can click on this and see what's happening and now let's run something"
+    },
+    {
+        "start": 237.51999999999998,
+        "end": 242.16,
+        "text": "now it actually goes through the files and sees what are the files are there before it can create"
+    },
+    {
+        "start": 242.16,
+        "end": 246.4,
+        "text": "a data frame it is to know what are the files there and how to put all of them together in a"
+    },
+    {
+        "start": 246.4,
+        "end": 251.36,
+        "text": "data frame and you see we have this thing initial job has not accepted any resources check"
+    },
+    {
+        "start": 251.36,
+        "end": 256.32,
+        "text": "your cluster URL to ensure that workers are registered so the thing here is we started a cluster"
+    },
+    {
+        "start": 256.32,
+        "end": 261.6,
+        "text": "but we have zero workers we only have a master we need actually something to take care of"
+    },
+    {
+        "start": 261.6,
+        "end": 267.68,
+        "text": "executing the thing so we need an executor and when we go back to this page it says what we need"
+    },
+    {
+        "start": 267.68,
+        "end": 274.48,
+        "text": "to do to start the worker so let me go back here and I will start the worker I think we need to"
+    },
+    {
+        "start": 274.48,
+        "end": 280.16,
+        "text": "master Spark URL let me try to copy this one I don't know if this is the right one"
+    },
+    {
+        "start": 283.36,
+        "end": 288.88,
+        "text": "we use a slightly older version of Spark so it was called instead of worker it was called slave"
+    },
+    {
+        "start": 288.88,
+        "end": 295.92,
+        "text": "so we need to use that instead of worker and now we were able to connect to this and if I refresh"
+    },
+    {
+        "start": 295.92,
+        "end": 301.6,
+        "text": "we have a worker here and we have a task and we see that the state is running so it was executed"
+    },
+    {
+        "start": 301.68,
+        "end": 306.88,
+        "text": "because Spark's all that there is an executor and it just used the executor to execute this thing"
+    },
+    {
+        "start": 307.52000000000004,
+        "end": 314.8,
+        "text": "and I think now we can just execute the entire thing here I want to print this columns because I"
+    },
+    {
+        "start": 314.8,
+        "end": 320.16,
+        "text": "think this could be useful later when we can work this to a script so instead of running this code"
+    },
+    {
+        "start": 320.16,
+        "end": 327.6,
+        "text": "I just want to explicitly specify what are the common columns okay and then so let me just execute"
+    },
+    {
+        "start": 327.6,
+        "end": 334.72,
+        "text": "this and see if everything works now it seems that it works I will just edit this slightly"
+    },
+    {
+        "start": 334.72,
+        "end": 342.16,
+        "text": "so we will logister table and we will execute this code let me try to run this works well I"
+    },
+    {
+        "start": 342.16,
+        "end": 346.64000000000004,
+        "text": "didn't execute this thing so because the next thing I want to do is now I want to turn this"
+    },
+    {
+        "start": 346.64000000000004,
+        "end": 354.32000000000005,
+        "text": "notebook into a Python script for that I will go to my terminal and I want to turn this"
+    },
+    {
+        "start": 354.32,
+        "end": 361.52,
+        "text": "thing now into a Python script so I will do Jupyter and be convert I think we did this once already"
+    },
+    {
+        "start": 361.52,
+        "end": 368.71999999999997,
+        "text": "to script and then we just specify what notebook we want to convert to a script so we converted it I"
+    },
+    {
+        "start": 368.71999999999997,
+        "end": 377.36,
+        "text": "can close it now and I will open now this in Visual Studio code and this is the file yeah it looks"
+    },
+    {
+        "start": 377.36,
+        "end": 383.12,
+        "text": "strange I don't know why Jupyter notebook is and be converted doing that I think I was too fast"
+    },
+    {
+        "start": 383.2,
+        "end": 392.48,
+        "text": "close it so let me just copy it like that and yeah it somehow loses formatting here"
+    },
+    {
+        "start": 394.48,
+        "end": 407.28000000000003,
+        "text": "so and I will move this at the top don't need this and this should look nice this should also look"
+    },
+    {
+        "start": 407.76,
+        "end": 416.4,
+        "text": "nice now we do union all just to the temporary table and execute this SQL query and then we write"
+    },
+    {
+        "start": 416.4,
+        "end": 424.64,
+        "text": "results back to this location so what I will do now is I will just go to my terminal and execute this"
+    },
+    {
+        "start": 424.64,
+        "end": 435.91999999999996,
+        "text": "I will just use Python to execute this thing I forgot to add this so what it will do now it will"
+    },
+    {
+        "start": 435.92,
+        "end": 443.12,
+        "text": "connect to Sparkmaster that we set up separately and it will do everything right now it is executing"
+    },
+    {
+        "start": 443.12,
+        "end": 450.88,
+        "text": "this thing here yeah it seems you see we still have this thing here right so it says initial job has"
+    },
+    {
+        "start": 450.88,
+        "end": 456.8,
+        "text": "not accepted any resources I think the problem for that is we probably have two applications so the"
+    },
+    {
+        "start": 456.8,
+        "end": 462.48,
+        "text": "first application is our notebook which took all the resources so we didn't specify how many"
+    },
+    {
+        "start": 462.48,
+        "end": 468.16,
+        "text": "executors we need so it took everything that was available all four cores and the thing that we"
+    },
+    {
+        "start": 468.16,
+        "end": 474.56,
+        "text": "run right now it cannot get any resources so we need to remove the first application and now"
+    },
+    {
+        "start": 474.56,
+        "end": 480.16,
+        "text": "yeah so this thing it's not connected to master so this thing now is being executed yeah actually"
+    },
+    {
+        "start": 480.16,
+        "end": 489.20000000000005,
+        "text": "you see it finished and it disconnected now if we go to data report we can see that it was created"
+    },
+    {
+        "start": 489.36,
+        "end": 495.2,
+        "text": "today there are a few things we can improve here but right now this thing we have called the"
+    },
+    {
+        "start": 495.2,
+        "end": 500.08,
+        "text": "input data so we say that you always read from this folder and for yellow you always read from"
+    },
+    {
+        "start": 500.08,
+        "end": 505.91999999999996,
+        "text": "this folder but what if we want to run this job just for one month or for a year or 2020 not for"
+    },
+    {
+        "start": 505.91999999999996,
+        "end": 511.03999999999996,
+        "text": "the entire history so we want to make it configurable and the easiest way to do this configurable is to"
+    },
+    {
+        "start": 511.03999999999996,
+        "end": 517.6,
+        "text": "use CLI command line interface this is very similar to what we did previously in week one so this"
+    },
+    {
+        "start": 517.6,
+        "end": 522.88,
+        "text": "in test data script maybe you remember we used arc parse package so we will use also this"
+    },
+    {
+        "start": 522.88,
+        "end": 528.08,
+        "text": "arc parse package here to make this script configurable to make this script configurable we use"
+    },
+    {
+        "start": 528.08,
+        "end": 534.08,
+        "text": "something like this so let me place it here this is actually optional we don't need that so let's see"
+    },
+    {
+        "start": 534.08,
+        "end": 539.28,
+        "text": "what we have we have multiple arguments the first argument would be input green I'll remove help"
+    },
+    {
+        "start": 539.92,
+        "end": 550.48,
+        "text": "the input yellow and then output so we have three arguments and this is our input folder so input"
+    },
+    {
+        "start": 550.48,
+        "end": 559.6,
+        "text": "green after parsing it will go to input green right so this will go here then we will have input yellow"
+    },
+    {
+        "start": 559.6,
+        "end": 567.76,
+        "text": "so this will be input yellow it goes here and finally we have output so this will be our output"
+    },
+    {
+        "start": 569.36,
+        "end": 579.8399999999999,
+        "text": "so this is how we configure this script and we have more flexibility we can say where should read"
+    },
+    {
+        "start": 579.8399999999999,
+        "end": 585.12,
+        "text": "from where should write to from the command line interface I will do something like this right now"
+    },
+    {
+        "start": 585.12,
+        "end": 591.76,
+        "text": "I will first type it in VS code and then I will place it to terminal and execute it so we execute"
+    },
+    {
+        "start": 591.76,
+        "end": 598.48,
+        "text": "this thing and then we have multiple arguments so it's input green and then we have input yellow"
+    },
+    {
+        "start": 599.28,
+        "end": 607.68,
+        "text": "and we have output let's just do it for one year for 2020 so this will be data yellow 2020"
+    },
+    {
+        "start": 607.68,
+        "end": 614.0,
+        "text": "then star that's actually green and we need to have this pq on park yet then for yellow"
+    },
+    {
+        "start": 614.88,
+        "end": 622.88,
+        "text": "we have yellow and output will be let's say data report 2020 so let's execute that"
+    },
+    {
+        "start": 623.4399999999999,
+        "end": 629.36,
+        "text": "now it should write to this separate directory probably we should add more logging because right now"
+    },
+    {
+        "start": 629.36,
+        "end": 635.4399999999999,
+        "text": "when we look at this we have no idea what's going on it's executing something hopefully it's doing"
+    },
+    {
+        "start": 635.4399999999999,
+        "end": 643.04,
+        "text": "something we expect it to do meaning that it will calculate revenue for 2020 okay it was fast remember"
+    },
+    {
+        "start": 643.04,
+        "end": 651.76,
+        "text": "for 2020 we didn't have much data and if I check now data report 2000 now we have this one for"
+    },
+    {
+        "start": 652.24,
+        "end": 658.8,
+        "text": "with the report so this is how we make it configurable but imagine we have multiple clusters every time"
+    },
+    {
+        "start": 658.8,
+        "end": 663.84,
+        "text": "specifying this master here is not convenient because for example we have one cluster that we're"
+    },
+    {
+        "start": 663.84,
+        "end": 668.96,
+        "text": "unlocally but when we run this thing on airflow we need to use some different something else"
+    },
+    {
+        "start": 668.96,
+        "end": 674.64,
+        "text": "a different URL so hard coding this thing the master here is not very practical and there are other"
+    },
+    {
+        "start": 674.64,
+        "end": 679.52,
+        "text": "things that we might want to specify here like how many executors we want to have something"
+    },
+    {
+        "start": 680.0,
+        "end": 685.84,
+        "text": "which we didn't cover in this course yet but in practice usually you say that I want to have 10"
+    },
+    {
+        "start": 685.84,
+        "end": 691.92,
+        "text": "executors that have one gigabyte of RAM each what usually happens is we don't specify this"
+    },
+    {
+        "start": 691.92,
+        "end": 697.12,
+        "text": "configuration here in the python script but we specified outside and we use a tool called"
+    },
+    {
+        "start": 697.12,
+        "end": 701.76,
+        "text": "spark submit for doing this and I will show you how to do this right now so we will remove master"
+    },
+    {
+        "start": 701.76,
+        "end": 706.96,
+        "text": "from here so here we will just use park section builder and so on so we do not specify master here"
+    },
+    {
+        "start": 706.96,
+        "end": 713.12,
+        "text": "but we specify master outside and we use a think called spark submit so first let me write this to"
+    },
+    {
+        "start": 713.12,
+        "end": 721.76,
+        "text": "your own and then we use spark submit spark submit like that this is a script that comes with spark"
+    },
+    {
+        "start": 721.76,
+        "end": 726.1600000000001,
+        "text": "that we can use for submitting spark jobs to spark clusters let me quickly google it"
+    },
+    {
+        "start": 726.96,
+        "end": 732.08,
+        "text": "so there is some syntax that we can use yeah so you see this spark submit then we specify"
+    },
+    {
+        "start": 732.1600000000001,
+        "end": 738.08,
+        "text": "some things like class this is important if we run in skull or Java so I think in this example"
+    },
+    {
+        "start": 738.08,
+        "end": 743.84,
+        "text": "this is more like a Java skull example in case of pi spark to have an example here"
+    },
+    {
+        "start": 745.0400000000001,
+        "end": 751.44,
+        "text": "I don't see an example here but instead of examples dot jar or specifying a class we just"
+    },
+    {
+        "start": 751.44,
+        "end": 758.6400000000001,
+        "text": "specify the python file we want to execute so in our case the python file is this and yeah even"
+    },
+    {
+        "start": 758.64,
+        "end": 764.4,
+        "text": "before that we need to specify a master so for us master will be this URL and then some other"
+    },
+    {
+        "start": 764.4,
+        "end": 769.6,
+        "text": "configuration if needed like all these things so this executor memory how many cores we want to"
+    },
+    {
+        "start": 769.6,
+        "end": 774.24,
+        "text": "have and so on yeah we don't do this we just specify the master here and then the file we want to"
+    },
+    {
+        "start": 774.24,
+        "end": 782.0,
+        "text": "execute and then we need to specify these things so we just copy them and put them after so here"
+    },
+    {
+        "start": 782.0,
+        "end": 787.36,
+        "text": "before the python file we specify the configuration for the task we submit to the master and after the"
+    },
+    {
+        "start": 787.44,
+        "end": 795.12,
+        "text": "python file we configure the job itself let me execute this for 2020 now we will use this for submitting"
+    },
+    {
+        "start": 795.12,
+        "end": 806.0,
+        "text": "a tool as park cluster that is run locally I think I forgot something yeah I had an extra space here"
+    },
+    {
+        "start": 808.5600000000001,
+        "end": 813.52,
+        "text": "okay now it's working we see a lot more content here because we use spark submit for submitting"
+    },
+    {
+        "start": 813.84,
+        "end": 820.0799999999999,
+        "text": "but in practice this is the way you submit spark drops to a spark cluster so using spark submit"
+    },
+    {
+        "start": 820.0799999999999,
+        "end": 825.92,
+        "text": "and you do not hard-code the spark master URL and other configuration in your python script so you do"
+    },
+    {
+        "start": 825.92,
+        "end": 832.16,
+        "text": "it through spark submit yeah you see it is outputting some stuff here but I think it finished so"
+    },
+    {
+        "start": 832.16,
+        "end": 841.12,
+        "text": "did we do this for 2021 yes and if I go to data report we have for 2020 that we run without"
+    },
+    {
+        "start": 841.12,
+        "end": 847.04,
+        "text": "spark submit and 2021 that we run with spark submit this is all I wanted to cover in this lesson so"
+    },
+    {
+        "start": 847.04,
+        "end": 852.72,
+        "text": "in this lesson I wanted to show you how we can turn our notebook in python file we did that"
+    },
+    {
+        "start": 852.72,
+        "end": 858.5600000000001,
+        "text": "then I showed you how we can create a standalone spark cluster we did that as well so we created"
+    },
+    {
+        "start": 858.5600000000001,
+        "end": 863.92,
+        "text": "spark master and then we created an executor and we connected this executor to the master and then"
+    },
+    {
+        "start": 863.92,
+        "end": 869.84,
+        "text": "I showed you how to use spark submit for submitting spark drops and I think also I showed you how you"
+    },
+    {
+        "start": 869.84,
+        "end": 875.6800000000001,
+        "text": "can configure this spark scapes to make it more flexible and run the same job for different"
+    },
+    {
+        "start": 875.6800000000001,
+        "end": 881.0400000000001,
+        "text": "arguments and when you use this for let's say airflow this is pretty useful because this is how"
+    },
+    {
+        "start": 881.0400000000001,
+        "end": 886.88,
+        "text": "you configure your spark drops to run for different months or days or and so on okay so I think"
+    },
+    {
+        "start": 886.88,
+        "end": 892.24,
+        "text": "that's all for this video and in the next video I will show you how you can create a spark cluster"
+    },
+    {
+        "start": 892.24,
+        "end": 897.76,
+        "text": "in google cloud platform so you will not need to run spark in standalone mode on your virtual"
+    },
+    {
+        "start": 897.76,
+        "end": 902.56,
+        "text": "machine or your local laptop you can just create a cluster in google cloud platform so one thing"
+    },
+    {
+        "start": 902.56,
+        "end": 909.12,
+        "text": "I forgot to mention is you need to stop the workers and stop the master after you finish for that you"
+    },
+    {
+        "start": 909.12,
+        "end": 915.68,
+        "text": "just use this script again as being folder and then stop for older version it stops lay for a newer"
+    },
+    {
+        "start": 915.68,
+        "end": 923.6,
+        "text": "version it's stop worker and then stop master so now nothing is running and if we try to connect"
+    },
+    {
+        "start": 923.6,
+        "end": 935.36,
+        "text": "nothing is there so it stops so this is how you stop them after you done with your work"
+    }
+]

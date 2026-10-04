@@ -1,0 +1,8 @@
+yt-dlp
+openai-whisper
+langchain
+langchain-community
+qdrant-client
+sentence-transformers
+streamlit
+python-dotenv

@@ -1,0 +1,2557 @@
+[
+    {
+        "start": 0.0,
+        "end": 8.0,
+        "text": "Hello everyone. This is the second part of streaming with Python and in this session we will"
+    },
+    {
+        "start": 8.0,
+        "end": 16.0,
+        "text": "be covering the twice-barg structure streaming and how we can communicate with Kafka cluster"
+    },
+    {
+        "start": 16.0,
+        "end": 24.0,
+        "text": "and Spark cluster. In the previous session we started our Kafka"
+    },
+    {
+        "start": 24.0,
+        "end": 35.0,
+        "text": "course but I ended up disturbing with the videos but let's start that and if anyone would"
+    },
+    {
+        "start": 35.0,
+        "end": 41.0,
+        "text": "like to, if you already have up and running Kafka services you don't need to follow this one."
+    },
+    {
+        "start": 41.0,
+        "end": 55.0,
+        "text": "Let me go to the Kafka and just do a lot of things."
+    },
+    {
+        "start": 55.0,
+        "end": 64.0,
+        "text": "And this is creating us in the previous session. This will be creating the Kafka services."
+    },
+    {
+        "start": 64.0,
+        "end": 74.0,
+        "text": "And let's also check and also I would like to mention like in the rate means we needed to follow some"
+    },
+    {
+        "start": 74.0,
+        "end": 80.0,
+        "text": "stuff especially for Spark. We have some images and if already the local"
+    },
+    {
+        "start": 80.0,
+        "end": 88.0,
+        "text": "local campus with network and I'm pretty good. And for me I already have this volume and"
+    },
+    {
+        "start": 88.0,
+        "end": 96.0,
+        "text": "networks and images that let me show you how it should look like after following first and second"
+    },
+    {
+        "start": 96.0,
+        "end": 98.0,
+        "text": "stuff."
+    },
+    {
+        "start": 98.0,
+        "end": 100.0,
+        "text": "Okay."
+    },
+    {
+        "start": 100.0,
+        "end": 108.0,
+        "text": "And this will show me the, it should include the practice part network."
+    },
+    {
+        "start": 108.0,
+        "end": 114.0,
+        "text": "This will be the publishing network between that allows us to communicate between Kafka and Spark"
+    },
+    {
+        "start": 114.0,
+        "end": 120.0,
+        "text": "services. And then, um, lack of real meaning."
+    },
+    {
+        "start": 120.0,
+        "end": 127.0,
+        "text": "Yes. And this should include hard distributed prior system and this will be used as a"
+    },
+    {
+        "start": 127.0,
+        "end": 134.0,
+        "text": "replication of HD of us to store some logs, some messages and it's possible for this"
+    },
+    {
+        "start": 134.0,
+        "end": 137.0,
+        "text": "Spark cluster."
+    },
+    {
+        "start": 137.0,
+        "end": 147.0,
+        "text": "And also, let me show you the images that I have."
+    },
+    {
+        "start": 147.0,
+        "end": 152.0,
+        "text": "This should include your love Spark, where Spark masters, Spark with cluster base,"
+    },
+    {
+        "start": 152.0,
+        "end": 156.0,
+        "text": "all of the images that you should have."
+    },
+    {
+        "start": 156.0,
+        "end": 163.0,
+        "text": "And these images are created based on the document files that is defined under Spark."
+    },
+    {
+        "start": 163.0,
+        "end": 171.0,
+        "text": "And these are created based on some, uh, constraint, some layering and each of these Spark"
+    },
+    {
+        "start": 171.0,
+        "end": 176.0,
+        "text": "base must have needs some specific configurations."
+    },
+    {
+        "start": 176.0,
+        "end": 181.0,
+        "text": "But I will not explain how this layering with is per to road."
+    },
+    {
+        "start": 181.0,
+        "end": 188.0,
+        "text": "But I find it's suggested to read to our press meeting block post that explains how this"
+    },
+    {
+        "start": 188.0,
+        "end": 194.0,
+        "text": "layering works and why they are building such a layering system that is currently used in our"
+    },
+    {
+        "start": 194.0,
+        "end": 197.0,
+        "text": "local campus. Right."
+    },
+    {
+        "start": 197.0,
+        "end": 201.0,
+        "text": "And let me."
+    },
+    {
+        "start": 201.0,
+        "end": 208.0,
+        "text": "Right now we are with the new is which we are telling local logic."
+    },
+    {
+        "start": 208.0,
+        "end": 215.0,
+        "text": "Yes. And my Kafka cluster and my focus services in pop and running."
+    },
+    {
+        "start": 215.0,
+        "end": 220.0,
+        "text": "And now I will be using same."
+    },
+    {
+        "start": 220.0,
+        "end": 227.0,
+        "text": "Spark."
+    },
+    {
+        "start": 227.0,
+        "end": 233.0,
+        "text": "And I will be running double compose again."
+    },
+    {
+        "start": 233.0,
+        "end": 240.0,
+        "text": "And it will create your love Spark master and to spark local knowledge."
+    },
+    {
+        "start": 240.0,
+        "end": 244.0,
+        "text": "And let's one last time check the."
+    },
+    {
+        "start": 244.0,
+        "end": 246.0,
+        "text": "The years."
+    },
+    {
+        "start": 246.0,
+        "end": 249.0,
+        "text": "Just to be sure everything is up and running."
+    },
+    {
+        "start": 249.0,
+        "end": 256.0,
+        "text": "Yeah. It's like in my Kafka class, you're running for humans and also spark is just started."
+    },
+    {
+        "start": 256.0,
+        "end": 259.0,
+        "text": "Oops."
+    },
+    {
+        "start": 259.0,
+        "end": 269.0,
+        "text": "This is for this is a we need for setting starting the services in our local machine."
+    },
+    {
+        "start": 269.0,
+        "end": 275.0,
+        "text": "Let's move to the streams example with."
+    },
+    {
+        "start": 275.0,
+        "end": 282.0,
+        "text": "Within this example, I will be using two different and other set of consumer and producer."
+    },
+    {
+        "start": 282.0,
+        "end": 290.0,
+        "text": "These are facts straight forward and follow the same pattern as in the previous example, like our ingestion example."
+    },
+    {
+        "start": 290.0,
+        "end": 294.0,
+        "text": "And they just different as it just are we."
+    },
+    {
+        "start": 294.0,
+        "end": 300.0,
+        "text": "Record and encourage our values and."
+    },
+    {
+        "start": 300.0,
+        "end": 305.0,
+        "text": "And just to keep it simple because this is not the main part."
+    },
+    {
+        "start": 305.0,
+        "end": 307.0,
+        "text": "We focus off this."
+    },
+    {
+        "start": 307.0,
+        "end": 317.0,
+        "text": "We will be just keeping simple and we are encoding string to a binary and also decoding that."
+    },
+    {
+        "start": 317.0,
+        "end": 327.0,
+        "text": "And then we will be using a binary to string just as an example, we are not being any specific type of visualization and."
+    },
+    {
+        "start": 327.0,
+        "end": 335.0,
+        "text": "So, realization steps as we did in our example, and Jason example, this is a simple simplified version of it."
+    },
+    {
+        "start": 335.0,
+        "end": 341.0,
+        "text": "And you can see that in the producer, we just encode and consumer."
+    },
+    {
+        "start": 341.0,
+        "end": 344.0,
+        "text": "We just."
+    },
+    {
+        "start": 344.0,
+        "end": 355.0,
+        "text": "And let's start off our first producer and this producer should create a."
+    },
+    {
+        "start": 355.0,
+        "end": 361.0,
+        "text": "Messages in our topic about CSV."
+    },
+    {
+        "start": 361.0,
+        "end": 367.0,
+        "text": "And let me run this."
+    },
+    {
+        "start": 367.0,
+        "end": 379.0,
+        "text": "An slides are deployed in just several slides looked like."
+    },
+    {
+        "start": 385.0,
+        "end": 394.0,
+        "text": "And it is Sharforcekine system call it."
+    },
+    {
+        "start": 394.0,
+        "end": 396.0,
+        "text": "Let me start out."
+    },
+    {
+        "start": 396.0,
+        "end": 400.0,
+        "text": "Those are the bills that we needed."
+    },
+    {
+        "start": 400.0,
+        "end": 407.0,
+        "text": "We already have some messages in our CSP topic."
+    },
+    {
+        "start": 407.0,
+        "end": 409.0,
+        "text": "That will produce topic to rise."
+    },
+    {
+        "start": 409.0,
+        "end": 418.0,
+        "text": "And now we need to consume this topic by using the class part structure streaming system."
+    },
+    {
+        "start": 419.0,
+        "end": 428.0,
+        "text": "As we already have class part, we can, we needed to set up, we needed to use class."
+    },
+    {
+        "start": 428.0,
+        "end": 435.0,
+        "text": "But before moving into the use class streaming class group, I would like to talk to this."
+    },
+    {
+        "start": 435.0,
+        "end": 440.0,
+        "text": "And show some of the concept in the streaming platform."
+    },
+    {
+        "start": 440.0,
+        "end": 447.0,
+        "text": "You can access it because in our, let me talk again."
+    },
+    {
+        "start": 447.0,
+        "end": 451.0,
+        "text": "For example, that we need to put PS again."
+    },
+    {
+        "start": 451.0,
+        "end": 459.0,
+        "text": "And for example, before the head object for left defined and the structural lab is running in the data that's called."
+    },
+    {
+        "start": 459.0,
+        "end": 466.0,
+        "text": "And now what I will do is I will show some of the concepts and the immediate art, but in the digital network."
+    },
+    {
+        "start": 466.0,
+        "end": 469.0,
+        "text": "And then we will be coming to the streaming screen."
+    },
+    {
+        "start": 469.0,
+        "end": 478.0,
+        "text": "And we will run it in a more production way or continuous, continuous way."
+    },
+    {
+        "start": 478.0,
+        "end": 481.0,
+        "text": "And you will see some art is in our concept."
+    },
+    {
+        "start": 481.0,
+        "end": 483.0,
+        "text": "Right."
+    },
+    {
+        "start": 483.0,
+        "end": 490.0,
+        "text": "This I just open it for a run my."
+    },
+    {
+        "start": 490.0,
+        "end": 500.0,
+        "text": "And now after I run my doctor, this part is already available and it's already knowing the streaming."
+    },
+    {
+        "start": 500.0,
+        "end": 502.0,
+        "text": "Next touch."
+    },
+    {
+        "start": 502.0,
+        "end": 510.0,
+        "text": "First is part set up to be able to connect part with press part with Kafka."
+    },
+    {
+        "start": 510.0,
+        "end": 518.0,
+        "text": "We needed to install and say some specific install some specific in jar files like spark square."
+    },
+    {
+        "start": 518.0,
+        "end": 523.0,
+        "text": "Kafka, for example, and also as far our jar."
+    },
+    {
+        "start": 523.0,
+        "end": 530.0,
+        "text": "If we are running our visualization and our."
+    },
+    {
+        "start": 530.0,
+        "end": 539.0,
+        "text": "Our specific observation and we needed to help us but show for being able to run and then we do turn it."
+    },
+    {
+        "start": 539.0,
+        "end": 542.0,
+        "text": "Let's start."
+    },
+    {
+        "start": 542.0,
+        "end": 554.0,
+        "text": "And now I'm creating the first part section."
+    },
+    {
+        "start": 554.0,
+        "end": 563.0,
+        "text": "In this when in this part session is being created, it's trying to follow this passpad submit arguments try to download this jar."
+    },
+    {
+        "start": 563.0,
+        "end": 566.0,
+        "text": "Jar files in place as we see."
+    },
+    {
+        "start": 566.0,
+        "end": 568.0,
+        "text": "And now it's finished."
+    },
+    {
+        "start": 568.0,
+        "end": 574.0,
+        "text": "But even though it's read, it's just a successful successful one."
+    },
+    {
+        "start": 574.0,
+        "end": 580.0,
+        "text": "And now we can move to our streaming example basically."
+    },
+    {
+        "start": 580.0,
+        "end": 585.0,
+        "text": "And we can wait by using plus part structures streaming."
+    },
+    {
+        "start": 585.0,
+        "end": 589.0,
+        "text": "And we can use we can read Kafka streams directly."
+    },
+    {
+        "start": 589.0,
+        "end": 592.0,
+        "text": "And this is can be done by mainstream."
+    },
+    {
+        "start": 592.0,
+        "end": 598.0,
+        "text": "And we need to be specified format and options format helps to be Kafka."
+    },
+    {
+        "start": 598.0,
+        "end": 602.0,
+        "text": "And options we need to specify bootstrap source."
+    },
+    {
+        "start": 602.0,
+        "end": 610.0,
+        "text": "I already mentioned in the previous session like this are the local first 1992 is the is the."
+    },
+    {
+        "start": 610.0,
+        "end": 615.0,
+        "text": "The first that we are using for external access."
+    },
+    {
+        "start": 615.0,
+        "end": 623.0,
+        "text": "But we still needed to provide this broker internal blocker to the developer service."
+    },
+    {
+        "start": 623.0,
+        "end": 628.0,
+        "text": "And here we are specifying which topic we would like to subscribe."
+    },
+    {
+        "start": 628.0,
+        "end": 634.0,
+        "text": "And it is right since we need topic that we have created messages."
+    },
+    {
+        "start": 634.0,
+        "end": 639.0,
+        "text": "And we are setting up starting offsets and earliest."
+    },
+    {
+        "start": 639.0,
+        "end": 643.0,
+        "text": "We set up as per on this that we can also say name this program."
+    },
+    {
+        "start": 643.0,
+        "end": 648.0,
+        "text": "And it's just keeps getting the only latest messages."
+    },
+    {
+        "start": 648.0,
+        "end": 651.0,
+        "text": "And text print location is a lot of partners."
+    },
+    {
+        "start": 651.0,
+        "end": 655.0,
+        "text": "It's towards basically for example, when it's this part of print local."
+    },
+    {
+        "start": 655.0,
+        "end": 657.0,
+        "text": "Location is track for it."
+    },
+    {
+        "start": 657.0,
+        "end": 660.0,
+        "text": "It's greater."
+    },
+    {
+        "start": 660.0,
+        "end": 672.0,
+        "text": "The folder and it's basically keep us for specific messages and keep track of which messages is really the which ones are still later."
+    },
+    {
+        "start": 672.0,
+        "end": 677.0,
+        "text": "As soon as I'm."
+    },
+    {
+        "start": 677.0,
+        "end": 681.0,
+        "text": "Later with the most effective what is the of cut or looks like."
+    },
+    {
+        "start": 681.0,
+        "end": 683.0,
+        "text": "Right."
+    },
+    {
+        "start": 683.0,
+        "end": 690.0,
+        "text": "What I want to say is in this another video something from traffic traffic in the past."
+    },
+    {
+        "start": 690.0,
+        "end": 697.0,
+        "text": "But it has key value players that contains our data that we have sent to the car."
+    },
+    {
+        "start": 697.0,
+        "end": 703.0,
+        "text": "But also bunch of other information traffic partition outside time stamp and time."
+    },
+    {
+        "start": 703.0,
+        "end": 707.0,
+        "text": "This can be information might be useful."
+    },
+    {
+        "start": 707.0,
+        "end": 716.0,
+        "text": "If you are running especially new on the some kind of metric analysis or some kind of production system."
+    },
+    {
+        "start": 716.0,
+        "end": 720.0,
+        "text": "In our story, I believe that was in the game value."
+    },
+    {
+        "start": 720.0,
+        "end": 726.0,
+        "text": "Just to show our we are getting data back from pasta and to the spot."
+    },
+    {
+        "start": 726.0,
+        "end": 730.0,
+        "text": "The message to the spot and one important thing."
+    },
+    {
+        "start": 730.0,
+        "end": 739.0,
+        "text": "So say as you see any value in the final first, we need to do some transformation to be able to."
+    },
+    {
+        "start": 739.0,
+        "end": 749.0,
+        "text": "I made it immediately convert them to string and then apply some manipulations to be able to convert it to a specific."
+    },
+    {
+        "start": 749.0,
+        "end": 759.0,
+        "text": "So that's the actual in basically next."
+    },
+    {
+        "start": 759.0,
+        "end": 767.0,
+        "text": "This is basically telling us we can do some select statement and testing on the."
+    },
+    {
+        "start": 767.0,
+        "end": 771.0,
+        "text": "We have couple that this will be included in this structure."
+    },
+    {
+        "start": 771.0,
+        "end": 781.0,
+        "text": "And then we will do some training data frame as you see as I we needed to some passing in our road."
+    },
+    {
+        "start": 781.0,
+        "end": 789.0,
+        "text": "A message of the main, and what we are doing as we are first checking the first year role that we."
+    },
+    {
+        "start": 789.0,
+        "end": 794.0,
+        "text": "Yet as a minute of this screaming data frame because."
+    },
+    {
+        "start": 794.0,
+        "end": 802.0,
+        "text": "In class part streaming data frame is everything is classical."
+    },
+    {
+        "start": 802.0,
+        "end": 806.0,
+        "text": "It's a great afraid that they would raise on this is streaming."
+    },
+    {
+        "start": 806.0,
+        "end": 812.0,
+        "text": "And that's also a change how we reach the data inside this data frame."
+    },
+    {
+        "start": 812.0,
+        "end": 816.0,
+        "text": "That's why I just want to add this to a approach."
+    },
+    {
+        "start": 816.0,
+        "end": 824.0,
+        "text": "We are for selecting which will be only the key and value columns from the."
+    },
+    {
+        "start": 824.0,
+        "end": 831.0,
+        "text": "And we are testing that because these were in binary we are testing them as a string that we can."
+    },
+    {
+        "start": 831.0,
+        "end": 834.0,
+        "text": "Extract some valuable information."
+    },
+    {
+        "start": 834.0,
+        "end": 843.0,
+        "text": "And the value column contains basically a lot of the data that we have sent in the."
+    },
+    {
+        "start": 843.0,
+        "end": 848.0,
+        "text": "And we can separate it from here we're using the pass problem."
+    },
+    {
+        "start": 848.0,
+        "end": 849.0,
+        "text": "Martian split."
+    },
+    {
+        "start": 849.0,
+        "end": 857.0,
+        "text": "We are splitting columns and less by using the same comment separated pattern that we have right the data."
+    },
+    {
+        "start": 857.0,
+        "end": 862.0,
+        "text": "And here we are basically explain with the column to multiple chat level colors."
+    },
+    {
+        "start": 862.0,
+        "end": 872.0,
+        "text": "And that we are doing art and statement that basic selects from the column names that that is defined in this to."
+    },
+    {
+        "start": 872.0,
+        "end": 879.0,
+        "text": "It can be more of words for example when we currently."
+    },
+    {
+        "start": 879.0,
+        "end": 889.0,
+        "text": "For example, our rights team are include vendor ID because they time drop a time passenger comment should distance payment to federal amount of this information."
+    },
+    {
+        "start": 889.0,
+        "end": 898.0,
+        "text": "And what has after this part strike from the messages, which is basically here after all, which includes."
+    },
+    {
+        "start": 898.0,
+        "end": 902.0,
+        "text": "See value pillars only."
+    },
+    {
+        "start": 902.0,
+        "end": 908.0,
+        "text": "Become a data frame that contains all of this information as a call."
+    },
+    {
+        "start": 908.0,
+        "end": 912.0,
+        "text": "This is on us."
+    },
+    {
+        "start": 912.0,
+        "end": 917.0,
+        "text": "I think I should find it."
+    },
+    {
+        "start": 917.0,
+        "end": 922.0,
+        "text": "Should we respond to."
+    },
+    {
+        "start": 922.0,
+        "end": 925.0,
+        "text": "Yes, please."
+    },
+    {
+        "start": 925.0,
+        "end": 934.0,
+        "text": "As expected, like we now have all of these columns as a list, but let's now try to because it looks like."
+    },
+    {
+        "start": 934.0,
+        "end": 941.0,
+        "text": "The normal data for a guide in the past, but whenever we try to do the rights show."
+    },
+    {
+        "start": 941.0,
+        "end": 948.0,
+        "text": "It will contain about the you can just show your data, because this is a streaming sources."
+    },
+    {
+        "start": 948.0,
+        "end": 951.0,
+        "text": "We can do it."
+    },
+    {
+        "start": 951.0,
+        "end": 954.0,
+        "text": "We can."
+    },
+    {
+        "start": 954.0,
+        "end": 958.0,
+        "text": "We can decide how our statement data should be output."
+    },
+    {
+        "start": 958.0,
+        "end": 962.0,
+        "text": "It should be sync to a different."
+    },
+    {
+        "start": 962.0,
+        "end": 966.0,
+        "text": "Different environment."
+    },
+    {
+        "start": 966.0,
+        "end": 969.0,
+        "text": "Right."
+    },
+    {
+        "start": 969.0,
+        "end": 970.0,
+        "text": "And yeah."
+    },
+    {
+        "start": 970.0,
+        "end": 976.0,
+        "text": "And this being does to this thing of sync operations and screen query."
+    },
+    {
+        "start": 976.0,
+        "end": 979.0,
+        "text": "Very much."
+    },
+    {
+        "start": 979.0,
+        "end": 983.0,
+        "text": "The sync operations is happening with drag."
+    },
+    {
+        "start": 983.0,
+        "end": 986.0,
+        "text": "See function."
+    },
+    {
+        "start": 986.0,
+        "end": 994.0,
+        "text": "But that depends ways of different types of opportunities, for example, you can write your streaming data into a file."
+    },
+    {
+        "start": 994.0,
+        "end": 997.0,
+        "text": "We can send back another cover topic."
+    },
+    {
+        "start": 997.0,
+        "end": 1000.0,
+        "text": "You can apply some."
+    },
+    {
+        "start": 1000.0,
+        "end": 1006.0,
+        "text": "Or some kind of queries for based on the best for using the phone sync."
+    },
+    {
+        "start": 1006.0,
+        "end": 1011.0,
+        "text": "Or you can just sync in a console or sync in a memory."
+    },
+    {
+        "start": 1011.0,
+        "end": 1015.0,
+        "text": "Syncing a console and sync in memory is my life for debugging purposes."
+    },
+    {
+        "start": 1015.0,
+        "end": 1017.0,
+        "text": "It is not for production."
+    },
+    {
+        "start": 1017.0,
+        "end": 1021.0,
+        "text": "But it says a good pass to see what kind of information we are."
+    },
+    {
+        "start": 1021.0,
+        "end": 1026.0,
+        "text": "It's not ever we use the processing quite a lot in this story."
+    },
+    {
+        "start": 1026.0,
+        "end": 1029.0,
+        "text": "And there are a couple of different."
+    },
+    {
+        "start": 1029.0,
+        "end": 1034.0,
+        "text": "One is complete appendent update."
+    },
+    {
+        "start": 1034.0,
+        "end": 1039.0,
+        "text": "These are really different based on some transformations that we applied."
+    },
+    {
+        "start": 1039.0,
+        "end": 1042.0,
+        "text": "For example, if we are with."
+    },
+    {
+        "start": 1042.0,
+        "end": 1043.0,
+        "text": "Very."
+    },
+    {
+        "start": 1043.0,
+        "end": 1049.0,
+        "text": "A group by operations in a non time based."
+    },
+    {
+        "start": 1049.0,
+        "end": 1052.0,
+        "text": "We can't really do complete."
+    },
+    {
+        "start": 1052.0,
+        "end": 1057.0,
+        "text": "These are some restrictions that are not in the path streaming."
+    },
+    {
+        "start": 1057.0,
+        "end": 1061.0,
+        "text": "And this can be find in the."
+    },
+    {
+        "start": 1061.0,
+        "end": 1067.0,
+        "text": "For example, you can read through and you can decide which operations you can do."
+    },
+    {
+        "start": 1067.0,
+        "end": 1072.0,
+        "text": "And one different kind of different set of points."
+    },
+    {
+        "start": 1072.0,
+        "end": 1074.0,
+        "text": "Likewise,"
+    },
+    {
+        "start": 1074.0,
+        "end": 1080.0,
+        "text": "it's part even though it's a stream streaming engine."
+    },
+    {
+        "start": 1080.0,
+        "end": 1084.0,
+        "text": "It's not there for a functioning streaming engine."
+    },
+    {
+        "start": 1084.0,
+        "end": 1088.0,
+        "text": "It still includes some kind of play and it's rather than it's."
+    },
+    {
+        "start": 1088.0,
+        "end": 1092.0,
+        "text": "Process the data or messages in the old time."
+    },
+    {
+        "start": 1092.0,
+        "end": 1095.0,
+        "text": "It's processing method that's not."
+    },
+    {
+        "start": 1095.0,
+        "end": 1100.0,
+        "text": "And therefore you need to define how the record that should look like."
+    },
+    {
+        "start": 1100.0,
+        "end": 1102.0,
+        "text": "You can refine that fix intro."
+    },
+    {
+        "start": 1102.0,
+        "end": 1104.0,
+        "text": "You need one time."
+    },
+    {
+        "start": 1104.0,
+        "end": 1107.0,
+        "text": "And you can say whenever need data is available."
+    },
+    {
+        "start": 1107.0,
+        "end": 1109.0,
+        "text": "I would like to trigger this."
+    },
+    {
+        "start": 1109.0,
+        "end": 1112.0,
+        "text": "One of things you can set up by three or seven."
+    },
+    {
+        "start": 1112.0,
+        "end": 1116.0,
+        "text": "And in this story, we're using master will fix interrooming for badge."
+    },
+    {
+        "start": 1116.0,
+        "end": 1119.0,
+        "text": "And we will be triggering most of the."
+    },
+    {
+        "start": 1119.0,
+        "end": 1122.0,
+        "text": "Where is every five seconds just data is available."
+    },
+    {
+        "start": 1122.0,
+        "end": 1126.0,
+        "text": "It will be giving us some sync output."
+    },
+    {
+        "start": 1126.0,
+        "end": 1129.0,
+        "text": "Right."
+    },
+    {
+        "start": 1129.0,
+        "end": 1132.0,
+        "text": "The first example can be simple."
+    },
+    {
+        "start": 1132.0,
+        "end": 1139.0,
+        "text": "And the simple so as I say it's using bright stream and output mode as."
+    },
+    {
+        "start": 1139.0,
+        "end": 1141.0,
+        "text": "Complete."
+    },
+    {
+        "start": 1141.0,
+        "end": 1144.0,
+        "text": "And through the five seconds."
+    },
+    {
+        "start": 1144.0,
+        "end": 1150.0,
+        "text": "And for not only on console and death away from the producing something on the console."
+    },
+    {
+        "start": 1150.0,
+        "end": 1152.0,
+        "text": "And additional."
+    },
+    {
+        "start": 1152.0,
+        "end": 1155.0,
+        "text": "And it was like trying to."
+    },
+    {
+        "start": 1155.0,
+        "end": 1159.0,
+        "text": "You can also specify additional options as well."
+    },
+    {
+        "start": 1159.0,
+        "end": 1161.0,
+        "text": "And that's the end."
+    },
+    {
+        "start": 1161.0,
+        "end": 1165.0,
+        "text": "It's not a direct data frame."
+    },
+    {
+        "start": 1165.0,
+        "end": 1166.0,
+        "text": "It's."
+    },
+    {
+        "start": 1166.0,
+        "end": 1171.0,
+        "text": "It's a training code that we are keep running and we need to stop if you don't want to use it anymore."
+    },
+    {
+        "start": 1171.0,
+        "end": 1173.0,
+        "text": "Otherwise."
+    },
+    {
+        "start": 1173.0,
+        "end": 1176.0,
+        "text": "Keep looking for this information."
+    },
+    {
+        "start": 1176.0,
+        "end": 1179.0,
+        "text": "There's only me data."
+    },
+    {
+        "start": 1179.0,
+        "end": 1181.0,
+        "text": "And then you're processing to."
+    },
+    {
+        "start": 1181.0,
+        "end": 1183.0,
+        "text": "And based on your."
+    },
+    {
+        "start": 1183.0,
+        "end": 1193.0,
+        "text": "And through the conversation."
+    },
+    {
+        "start": 1193.0,
+        "end": 1196.0,
+        "text": "And now for example, simple."
+    },
+    {
+        "start": 1196.0,
+        "end": 1198.0,
+        "text": "We just."
+    },
+    {
+        "start": 1198.0,
+        "end": 1201.0,
+        "text": "I need for a price."
+    },
+    {
+        "start": 1201.0,
+        "end": 1206.0,
+        "text": "In a pen."
+    },
+    {
+        "start": 1206.0,
+        "end": 1210.0,
+        "text": "And it was shown me the first set of."
+    },
+    {
+        "start": 1210.0,
+        "end": 1214.0,
+        "text": "Produced messages as an output."
+    },
+    {
+        "start": 1214.0,
+        "end": 1219.0,
+        "text": "But for example, if I go back to."
+    },
+    {
+        "start": 1219.0,
+        "end": 1226.0,
+        "text": "Well, producer one more time for another five messages."
+    },
+    {
+        "start": 1226.0,
+        "end": 1228.0,
+        "text": "It's with with another batch."
+    },
+    {
+        "start": 1228.0,
+        "end": 1230.0,
+        "text": "A new data because we just."
+    },
+    {
+        "start": 1230.0,
+        "end": 1232.0,
+        "text": "It's in a pen."
+    },
+    {
+        "start": 1232.0,
+        "end": 1233.0,
+        "text": "It will not."
+    },
+    {
+        "start": 1233.0,
+        "end": 1234.0,
+        "text": "Show."
+    },
+    {
+        "start": 1234.0,
+        "end": 1237.0,
+        "text": "And then you'll just."
+    },
+    {
+        "start": 1237.0,
+        "end": 1240.0,
+        "text": "Now."
+    },
+    {
+        "start": 1240.0,
+        "end": 1242.0,
+        "text": "As you see."
+    },
+    {
+        "start": 1242.0,
+        "end": 1244.0,
+        "text": "I didn't do anything."
+    },
+    {
+        "start": 1244.0,
+        "end": 1246.0,
+        "text": "I didn't learn with sync."
+    },
+    {
+        "start": 1246.0,
+        "end": 1248.0,
+        "text": "But it takes the batch."
+    },
+    {
+        "start": 1248.0,
+        "end": 1250.0,
+        "text": "Just cut this."
+    },
+    {
+        "start": 1250.0,
+        "end": 1254.0,
+        "text": "I'll stop it."
+    },
+    {
+        "start": 1254.0,
+        "end": 1258.0,
+        "text": "Now, even though you're pushing your messages."
+    },
+    {
+        "start": 1258.0,
+        "end": 1262.0,
+        "text": "Lightwise we have sync memory."
+    },
+    {
+        "start": 1262.0,
+        "end": 1265.0,
+        "text": "And then you can."
+    },
+    {
+        "start": 1265.0,
+        "end": 1267.0,
+        "text": "And then you can."
+    },
+    {
+        "start": 1267.0,
+        "end": 1270.0,
+        "text": "Allow us to keep."
+    },
+    {
+        "start": 1270.0,
+        "end": 1273.0,
+        "text": "Some streaming data."
+    },
+    {
+        "start": 1273.0,
+        "end": 1276.0,
+        "text": "And in data frame format."
+    },
+    {
+        "start": 1276.0,
+        "end": 1278.0,
+        "text": "For example, in here."
+    },
+    {
+        "start": 1278.0,
+        "end": 1281.0,
+        "text": "We need to start calling in."
+    },
+    {
+        "start": 1281.0,
+        "end": 1283.0,
+        "text": "And format as a memory."
+    },
+    {
+        "start": 1283.0,
+        "end": 1284.0,
+        "text": "And."
+    },
+    {
+        "start": 1284.0,
+        "end": 1285.0,
+        "text": "Query name."
+    },
+    {
+        "start": 1285.0,
+        "end": 1287.0,
+        "text": "And."
+    },
+    {
+        "start": 1287.0,
+        "end": 1290.0,
+        "text": "For example, this one starts."
+    },
+    {
+        "start": 1290.0,
+        "end": 1293.0,
+        "text": "And then."
+    },
+    {
+        "start": 1293.0,
+        "end": 1295.0,
+        "text": "On this."
+    },
+    {
+        "start": 1295.0,
+        "end": 1297.0,
+        "text": "But query."
+    },
+    {
+        "start": 1297.0,
+        "end": 1302.0,
+        "text": "And then this will create a library as such as in the."
+    },
+    {
+        "start": 1302.0,
+        "end": 1303.0,
+        "text": "And also some."
+    },
+    {
+        "start": 1303.0,
+        "end": 1305.0,
+        "text": "And for me, it was as that."
+    },
+    {
+        "start": 1305.0,
+        "end": 1306.0,
+        "text": "Keep it in memory."
+    },
+    {
+        "start": 1306.0,
+        "end": 1307.0,
+        "text": "That's these are."
+    },
+    {
+        "start": 1307.0,
+        "end": 1309.0,
+        "text": "These are basically the."
+    },
+    {
+        "start": 1309.0,
+        "end": 1311.0,
+        "text": "And."
+    },
+    {
+        "start": 1311.0,
+        "end": 1313.0,
+        "text": "For example, if I."
+    },
+    {
+        "start": 1313.0,
+        "end": 1315.0,
+        "text": "Check the example."
+    },
+    {
+        "start": 1315.0,
+        "end": 1316.0,
+        "text": "I'm."
+    },
+    {
+        "start": 1316.0,
+        "end": 1319.0,
+        "text": "In this."
+    },
+    {
+        "start": 1319.0,
+        "end": 1320.0,
+        "text": "This is."
+    },
+    {
+        "start": 1320.0,
+        "end": 1321.0,
+        "text": "This is."
+    },
+    {
+        "start": 1321.0,
+        "end": 1324.0,
+        "text": "This is how we."
+    },
+    {
+        "start": 1324.0,
+        "end": 1327.0,
+        "text": "This is defined in this."
+    },
+    {
+        "start": 1327.0,
+        "end": 1328.0,
+        "text": "And."
+    },
+    {
+        "start": 1328.0,
+        "end": 1332.0,
+        "text": "This is how we do our queries on there."
+    },
+    {
+        "start": 1332.0,
+        "end": 1333.0,
+        "text": "I think."
+    },
+    {
+        "start": 1333.0,
+        "end": 1334.0,
+        "text": "I."
+    },
+    {
+        "start": 1334.0,
+        "end": 1336.0,
+        "text": "I have a table name."
+    },
+    {
+        "start": 1336.0,
+        "end": 1339.0,
+        "text": "And this table name has to be."
+    },
+    {
+        "start": 1339.0,
+        "end": 1341.0,
+        "text": "I don't know each other."
+    },
+    {
+        "start": 1341.0,
+        "end": 1343.0,
+        "text": "And they don't know how to."
+    },
+    {
+        "start": 1343.0,
+        "end": 1345.0,
+        "text": "And they."
+    },
+    {
+        "start": 1345.0,
+        "end": 1346.0,
+        "text": "They."
+    },
+    {
+        "start": 1346.0,
+        "end": 1348.0,
+        "text": "They."
+    },
+    {
+        "start": 1348.0,
+        "end": 1349.0,
+        "text": "They."
+    },
+    {
+        "start": 1349.0,
+        "end": 1350.0,
+        "text": "They."
+    },
+    {
+        "start": 1350.0,
+        "end": 1351.0,
+        "text": "They."
+    },
+    {
+        "start": 1351.0,
+        "end": 1352.0,
+        "text": "They."
+    },
+    {
+        "start": 1352.0,
+        "end": 1353.0,
+        "text": "They."
+    },
+    {
+        "start": 1353.0,
+        "end": 1354.0,
+        "text": "They."
+    },
+    {
+        "start": 1354.0,
+        "end": 1355.0,
+        "text": "We are."
+    },
+    {
+        "start": 1355.0,
+        "end": 1356.0,
+        "text": "Let's."
+    },
+    {
+        "start": 1356.0,
+        "end": 1357.0,
+        "text": "Let's."
+    },
+    {
+        "start": 1357.0,
+        "end": 1358.0,
+        "text": "Let's."
+    },
+    {
+        "start": 1358.0,
+        "end": 1359.0,
+        "text": "Let's."
+    },
+    {
+        "start": 1359.0,
+        "end": 1360.0,
+        "text": "Can."
+    },
+    {
+        "start": 1360.0,
+        "end": 1361.0,
+        "text": "Can."
+    },
+    {
+        "start": 1361.0,
+        "end": 1362.0,
+        "text": "Right."
+    },
+    {
+        "start": 1362.0,
+        "end": 1363.0,
+        "text": "Right."
+    },
+    {
+        "start": 1363.0,
+        "end": 1365.0,
+        "text": "I."
+    },
+    {
+        "start": 1365.0,
+        "end": 1366.0,
+        "text": "And now."
+    },
+    {
+        "start": 1366.0,
+        "end": 1367.0,
+        "text": "For example,"
+    },
+    {
+        "start": 1367.0,
+        "end": 1368.0,
+        "text": "whenever."
+    },
+    {
+        "start": 1368.0,
+        "end": 1369.0,
+        "text": "I see, why do."
+    },
+    {
+        "start": 1369.0,
+        "end": 1370.0,
+        "text": "Let's see."
+    },
+    {
+        "start": 1370.0,
+        "end": 1371.0,
+        "text": "That's."
+    },
+    {
+        "start": 1371.0,
+        "end": 1372.0,
+        "text": "Okay."
+    },
+    {
+        "start": 1372.0,
+        "end": 1377.68,
+        "text": "Now I can't be able to be under I get false because this is shit in memory."
+    },
+    {
+        "start": 1377.68,
+        "end": 1378.88,
+        "text": "It's not an email."
+    },
+    {
+        "start": 1386.08,
+        "end": 1387.6,
+        "text": "We get the results."
+    },
+    {
+        "start": 1387.6,
+        "end": 1390.48,
+        "text": "And now again, I need to update the"
+    },
+    {
+        "start": 1392.88,
+        "end": 1394.32,
+        "text": "and stop the query."
+    },
+    {
+        "start": 1394.3999999999999,
+        "end": 1394.8799999999999,
+        "text": "In my name."
+    },
+    {
+        "start": 1399.2,
+        "end": 1403.12,
+        "text": "And the last part is first-saint operation."
+    },
+    {
+        "start": 1405.2,
+        "end": 1409.2,
+        "text": "We can do sync Kafka."
+    },
+    {
+        "start": 1409.84,
+        "end": 1413.4399999999998,
+        "text": "We expect data frames, complete and output mode."
+    },
+    {
+        "start": 1414.72,
+        "end": 1420.56,
+        "text": "Complete output mode is not supported for Kafka sync operations."
+    },
+    {
+        "start": 1420.72,
+        "end": 1423.12,
+        "text": "As far as I can."
+    },
+    {
+        "start": 1423.12,
+        "end": 1428.08,
+        "text": "We did in the with street."
+    },
+    {
+        "start": 1428.08,
+        "end": 1430.56,
+        "text": "We need to define format and option."
+    },
+    {
+        "start": 1430.56,
+        "end": 1434.0,
+        "text": "And I have to put service options."
+    },
+    {
+        "start": 1435.04,
+        "end": 1439.36,
+        "text": "The output mode and option is a topic and check the location as well."
+    },
+    {
+        "start": 1441.2,
+        "end": 1443.2,
+        "text": "This is the same setup as the reach."
+    },
+    {
+        "start": 1443.2,
+        "end": 1445.84,
+        "text": "But what is important here is"
+    },
+    {
+        "start": 1446.8,
+        "end": 1452.0,
+        "text": "sync Kafka operation to be able to start this via right stream or format content."
+    },
+    {
+        "start": 1453.04,
+        "end": 1456.72,
+        "text": "Yes, the data frame that we are working with"
+    },
+    {
+        "start": 1456.72,
+        "end": 1463.6,
+        "text": "has to include some kind of specific colors."
+    },
+    {
+        "start": 1463.6,
+        "end": 1467.6799999999998,
+        "text": "It's always expected value column and it also"
+    },
+    {
+        "start": 1467.6799999999998,
+        "end": 1470.24,
+        "text": "suggests to have a sync column as well."
+    },
+    {
+        "start": 1470.32,
+        "end": 1478.0,
+        "text": "As far as before, we need to define what is the key and value"
+    },
+    {
+        "start": 1478.64,
+        "end": 1482.48,
+        "text": "for my Kafka topic."
+    },
+    {
+        "start": 1482.48,
+        "end": 1488.16,
+        "text": "And I needed to merge them using the content we have again with the CSV format."
+    },
+    {
+        "start": 1488.16,
+        "end": 1493.84,
+        "text": "And then ensure my final date and the intlux key and value columns as well."
+    },
+    {
+        "start": 1494.64,
+        "end": 1498.56,
+        "text": "I will not run it here, but I was sure it in the script column."
+    },
+    {
+        "start": 1501.2,
+        "end": 1505.2,
+        "text": "Of course, addition to that, we can also run a bunch of colors and"
+    },
+    {
+        "start": 1505.2,
+        "end": 1510.32,
+        "text": "integrations. But I didn't just I just want to keep it simple here and"
+    },
+    {
+        "start": 1511.2,
+        "end": 1514.64,
+        "text": "we will see 30 pages in the script part."
+    },
+    {
+        "start": 1518.32,
+        "end": 1520.48,
+        "text": "Right now."
+    },
+    {
+        "start": 1523.04,
+        "end": 1528.48,
+        "text": "Let's go to the streaming.py and let's go to the main method."
+    },
+    {
+        "start": 1529.44,
+        "end": 1533.52,
+        "text": "This function is creates the"
+    },
+    {
+        "start": 1536.0,
+        "end": 1537.44,
+        "text": "in Spark session."
+    },
+    {
+        "start": 1537.44,
+        "end": 1541.1200000000001,
+        "text": "We set some Spark content in local level warnings."
+    },
+    {
+        "start": 1542.24,
+        "end": 1543.3600000000001,
+        "text": "Nothing specific."
+    },
+    {
+        "start": 1543.3600000000001,
+        "end": 1547.68,
+        "text": "We already did the same on the in MacBook as well."
+    },
+    {
+        "start": 1549.2,
+        "end": 1550.0,
+        "text": "We don't."
+    },
+    {
+        "start": 1550.8,
+        "end": 1555.1200000000001,
+        "text": "In here, we are to do some change from Kafka and continue to"
+    },
+    {
+        "start": 1555.12,
+        "end": 1557.4399999999998,
+        "text": "express CSV."
+    },
+    {
+        "start": 1559.12,
+        "end": 1564.9599999999998,
+        "text": "And this read from Kafka is exactly the same code that we have seen like"
+    },
+    {
+        "start": 1564.9599999999998,
+        "end": 1566.8,
+        "text": "with stream and write it."
+    },
+    {
+        "start": 1569.6799999999998,
+        "end": 1574.56,
+        "text": "And likewise afterwards, I'll be just printing out the schema and"
+    },
+    {
+        "start": 1574.56,
+        "end": 1576.1599999999999,
+        "text": "then parse rights."
+    },
+    {
+        "start": 1576.1599999999999,
+        "end": 1582.3999999999999,
+        "text": "And again, the already covered that part and it will be basically"
+    },
+    {
+        "start": 1582.4,
+        "end": 1587.0400000000002,
+        "text": "expanding column to value column to the magical level columns and"
+    },
+    {
+        "start": 1587.0400000000002,
+        "end": 1589.6000000000001,
+        "text": "in our expected schema format."
+    },
+    {
+        "start": 1591.1200000000001,
+        "end": 1593.52,
+        "text": "And we will be also printing the schema as well."
+    },
+    {
+        "start": 1594.24,
+        "end": 1597.2,
+        "text": "We can tell that the values are very"
+    },
+    {
+        "start": 1597.2,
+        "end": 1603.2,
+        "text": "streaming query objected and become directly accessed."
+    },
+    {
+        "start": 1603.2,
+        "end": 1605.0400000000002,
+        "text": "But we can do this."
+    },
+    {
+        "start": 1605.0400000000002,
+        "end": 1608.0,
+        "text": "We should do sync also by writing and"
+    },
+    {
+        "start": 1608.08,
+        "end": 1615.36,
+        "text": "we can specify we can read what kind of messages we get on our question."
+    },
+    {
+        "start": 1620.16,
+        "end": 1623.76,
+        "text": "And after the first part, we are doing some kind of"
+    },
+    {
+        "start": 1623.76,
+        "end": 1628.08,
+        "text": "aggregations on the existing feedback."
+    },
+    {
+        "start": 1628.72,
+        "end": 1633.36,
+        "text": "And one of them is group by operation and the other one is group by"
+    },
+    {
+        "start": 1633.36,
+        "end": 1638.4799999999998,
+        "text": "window to group by let's take the left part of the"
+    },
+    {
+        "start": 1638.4799999999998,
+        "end": 1638.7199999999998,
+        "text": "group."
+    },
+    {
+        "start": 1640.24,
+        "end": 1645.12,
+        "text": "Maybe group by operation just takes in instead of column means and"
+    },
+    {
+        "start": 1645.12,
+        "end": 1648.0,
+        "text": "group by the operation and return a BF integration."
+    },
+    {
+        "start": 1648.0,
+        "end": 1650.0,
+        "text": "Just the integration is really"
+    },
+    {
+        "start": 1651.12,
+        "end": 1651.9199999999998,
+        "text": "clear type."
+    },
+    {
+        "start": 1651.9199999999998,
+        "end": 1653.52,
+        "text": "It's not a direct data frame."
+    },
+    {
+        "start": 1654.08,
+        "end": 1658.56,
+        "text": "We to be able to read it, we need it at the right stream operation."
+    },
+    {
+        "start": 1658.56,
+        "end": 1662.32,
+        "text": "And likewise, we don't group by as so same."
+    },
+    {
+        "start": 1663.6799999999998,
+        "end": 1669.04,
+        "text": "Except nothing change in the larger or nothing change with the data types."
+    },
+    {
+        "start": 1669.52,
+        "end": 1676.0,
+        "text": "But in here, squab allows us to specify specific windows"
+    },
+    {
+        "start": 1676.0,
+        "end": 1678.3999999999999,
+        "text": "based on the columns."
+    },
+    {
+        "start": 1678.3999999999999,
+        "end": 1687.6,
+        "text": "And that in our data, the data is data time and we can use this as a window"
+    },
+    {
+        "start": 1687.6,
+        "end": 1688.32,
+        "text": "parameter."
+    },
+    {
+        "start": 1689.4399999999998,
+        "end": 1692.8,
+        "text": "And if you wonder how how this window parameter is"
+    },
+    {
+        "start": 1693.44,
+        "end": 1698.72,
+        "text": "I think there are a bunch of examples in the"
+    },
+    {
+        "start": 1699.68,
+        "end": 1702.6399999999999,
+        "text": "list document that we can take."
+    },
+    {
+        "start": 1703.28,
+        "end": 1706.08,
+        "text": "But also I think I'm pushed already,"
+    },
+    {
+        "start": 1707.12,
+        "end": 1710.32,
+        "text": "explained well in the previous concepts."
+    },
+    {
+        "start": 1711.76,
+        "end": 1713.12,
+        "text": "Cauter, perhaps that's so cheap."
+    },
+    {
+        "start": 1713.6,
+        "end": 1714.08,
+        "text": "Sorry."
+    },
+    {
+        "start": 1721.6,
+        "end": 1729.36,
+        "text": "And then we are expecting to see again, I'm sending it to the"
+    },
+    {
+        "start": 1729.36,
+        "end": 1729.6799999999998,
+        "text": "platform."
+    },
+    {
+        "start": 1729.6799999999998,
+        "end": 1732.0,
+        "text": "Then right it's going to be some"
+    },
+    {
+        "start": 1733.04,
+        "end": 1736.2399999999998,
+        "text": "then right and count information to the person."
+    },
+    {
+        "start": 1737.12,
+        "end": 1739.6799999999998,
+        "text": "And there's a lot of time,"
+    },
+    {
+        "start": 1739.8400000000001,
+        "end": 1743.04,
+        "text": "let me just take this using this data trade fund by"
+    },
+    {
+        "start": 1743.04,
+        "end": 1747.04,
+        "text": "topic wonder ID and prepare for data frame to"
+    },
+    {
+        "start": 1747.04,
+        "end": 1750.48,
+        "text": "cof the string as we did in the previous section by saying"
+    },
+    {
+        "start": 1750.48,
+        "end": 1754.88,
+        "text": "that our volume column will decal and our key cover will be wonder ID."
+    },
+    {
+        "start": 1755.76,
+        "end": 1757.76,
+        "text": "And send this as a name,"
+    },
+    {
+        "start": 1759.44,
+        "end": 1761.2,
+        "text": "send this as a messaging day,"
+    },
+    {
+        "start": 1761.2,
+        "end": 1762.48,
+        "text": "name, half protected."
+    },
+    {
+        "start": 1763.6000000000001,
+        "end": 1767.8400000000001,
+        "text": "And all of them will be running as long as we start this application."
+    },
+    {
+        "start": 1768.48,
+        "end": 1770.3999999999999,
+        "text": "And let's"
+    },
+    {
+        "start": 1773.6,
+        "end": 1778.1599999999999,
+        "text": "we can do maybe later we can ask a need to do additional"
+    },
+    {
+        "start": 1778.1599999999999,
+        "end": 1781.12,
+        "text": "information in this specific topic."
+    },
+    {
+        "start": 1781.12,
+        "end": 1784.3999999999999,
+        "text": "And we can do some right to apply"
+    },
+    {
+        "start": 1784.3999999999999,
+        "end": 1786.1599999999999,
+        "text": "sync operations data."
+    },
+    {
+        "start": 1787.6,
+        "end": 1790.0,
+        "text": "It really the quantum network program needs."
+    },
+    {
+        "start": 1791.28,
+        "end": 1795.84,
+        "text": "And this spot is clear with any information ensure that"
+    },
+    {
+        "start": 1795.84,
+        "end": 1798.08,
+        "text": "our application keep waiting,"
+    },
+    {
+        "start": 1798.08,
+        "end": 1803.04,
+        "text": "new information messages as long as something happens and use topic"
+    },
+    {
+        "start": 1803.04,
+        "end": 1804.8799999999999,
+        "text": "in intentionally."
+    },
+    {
+        "start": 1808.0,
+        "end": 1808.56,
+        "text": "Let's"
+    },
+    {
+        "start": 1811.28,
+        "end": 1811.76,
+        "text": "edit."
+    },
+    {
+        "start": 1814.9599999999998,
+        "end": 1817.6,
+        "text": "One important thing that I want to mention is that"
+    },
+    {
+        "start": 1817.6,
+        "end": 1821.1999999999998,
+        "text": "whenever I'm running this streaming that time, I'm not using like"
+    },
+    {
+        "start": 1821.28,
+        "end": 1821.92,
+        "text": "Python tree."
+    },
+    {
+        "start": 1822.8,
+        "end": 1825.68,
+        "text": "Let's first do that and then I can show you the error."
+    },
+    {
+        "start": 1831.04,
+        "end": 1832.0,
+        "text": "That's fine."
+    },
+    {
+        "start": 1837.6000000000001,
+        "end": 1839.2,
+        "text": "It would try to do some"
+    },
+    {
+        "start": 1840.0,
+        "end": 1843.6000000000001,
+        "text": "access it, but it give it a very Python tree scene that"
+    },
+    {
+        "start": 1843.76,
+        "end": 1845.1999999999998,
+        "text": "is not"
+    },
+    {
+        "start": 1848.0,
+        "end": 1851.6,
+        "text": "suggested and is not matching with what is they suggested"
+    },
+    {
+        "start": 1852.48,
+        "end": 1855.76,
+        "text": "as object screening last topic integration."
+    },
+    {
+        "start": 1856.56,
+        "end": 1860.56,
+        "text": "That's why I agree to the spark submit and script."
+    },
+    {
+        "start": 1860.56,
+        "end": 1864.32,
+        "text": "Basically the script defines"
+    },
+    {
+        "start": 1865.1999999999998,
+        "end": 1869.1999999999998,
+        "text": "gets our Python job instead of sent this"
+    },
+    {
+        "start": 1870.16,
+        "end": 1873.04,
+        "text": "project job as a spark submit application"
+    },
+    {
+        "start": 1875.2,
+        "end": 1876.96,
+        "text": "by some specific parameters."
+    },
+    {
+        "start": 1876.96,
+        "end": 1880.16,
+        "text": "And this specific parameters are really important because"
+    },
+    {
+        "start": 1881.44,
+        "end": 1883.8400000000001,
+        "text": "it allows us to communicate with Kafka."
+    },
+    {
+        "start": 1883.8400000000001,
+        "end": 1885.6000000000001,
+        "text": "It allows us to express by"
+    },
+    {
+        "start": 1886.48,
+        "end": 1886.96,
+        "text": "yet"
+    },
+    {
+        "start": 1888.0800000000002,
+        "end": 1889.6000000000001,
+        "text": "schema registry access."
+    },
+    {
+        "start": 1890.16,
+        "end": 1891.04,
+        "text": "And it's also"
+    },
+    {
+        "start": 1891.92,
+        "end": 1893.6000000000001,
+        "text": "important for schema."
+    },
+    {
+        "start": 1893.6000000000001,
+        "end": 1894.4,
+        "text": "Kafka"
+    },
+    {
+        "start": 1894.4,
+        "end": 1895.3600000000001,
+        "text": "communication."
+    },
+    {
+        "start": 1895.9199999999998,
+        "end": 1899.4399999999998,
+        "text": "That's why we are not running as Python tree"
+    },
+    {
+        "start": 1899.4399999999998,
+        "end": 1901.6799999999998,
+        "text": "instead that we needed to run it as"
+    },
+    {
+        "start": 1905.6,
+        "end": 1906.08,
+        "text": "I was"
+    },
+    {
+        "start": 1906.08,
+        "end": 1906.4799999999998,
+        "text": "it."
+    },
+    {
+        "start": 1907.52,
+        "end": 1908.4799999999998,
+        "text": "Scott submit."
+    },
+    {
+        "start": 1911.4399999999998,
+        "end": 1913.4399999999998,
+        "text": "Let's see the outcome and"
+    },
+    {
+        "start": 1914.24,
+        "end": 1919.84,
+        "text": "afterwards we can also re-caver any other producer and we can see the output"
+    },
+    {
+        "start": 1919.84,
+        "end": 1920.7199999999998,
+        "text": "outputs are"
+    },
+    {
+        "start": 1921.1200000000001,
+        "end": 1922.72,
+        "text": "good to go as your"
+    },
+    {
+        "start": 1922.72,
+        "end": 1924.0,
+        "text": "configurations are triggered."
+    },
+    {
+        "start": 1924.0,
+        "end": 1924.96,
+        "text": "And as you see here,"
+    },
+    {
+        "start": 1927.68,
+        "end": 1930.32,
+        "text": "the spark installs some of the"
+    },
+    {
+        "start": 1930.56,
+        "end": 1932.64,
+        "text": "jar files that we have specified"
+    },
+    {
+        "start": 1933.3600000000001,
+        "end": 1936.32,
+        "text": "before getting started around the application."
+    },
+    {
+        "start": 1937.3600000000001,
+        "end": 1939.1200000000001,
+        "text": "And for example, here this is the first"
+    },
+    {
+        "start": 1939.1200000000001,
+        "end": 1940.56,
+        "text": "single version that's just"
+    },
+    {
+        "start": 1941.3600000000001,
+        "end": 1942.56,
+        "text": "prints out the"
+    },
+    {
+        "start": 1945.04,
+        "end": 1947.76,
+        "text": "data frame that we get from the Kafka."
+    },
+    {
+        "start": 1947.76,
+        "end": 1949.28,
+        "text": "And then this is after we"
+    },
+    {
+        "start": 1949.44,
+        "end": 1951.28,
+        "text": "specified our"
+    },
+    {
+        "start": 1952.08,
+        "end": 1952.96,
+        "text": "files method."
+    },
+    {
+        "start": 1957.44,
+        "end": 1959.52,
+        "text": "Okay, let's fail."
+    },
+    {
+        "start": 1961.44,
+        "end": 1961.92,
+        "text": "Listen."
+    },
+    {
+        "start": 1963.04,
+        "end": 1964.24,
+        "text": "I think any of"
+    },
+    {
+        "start": 1964.24,
+        "end": 1964.72,
+        "text": "any of"
+    },
+    {
+        "start": 1964.72,
+        "end": 1964.8799999999999,
+        "text": "any of"
+    },
+    {
+        "start": 1964.8799999999999,
+        "end": 1965.44,
+        "text": "any of us"
+    },
+    {
+        "start": 1965.44,
+        "end": 1966.08,
+        "text": "a target"
+    },
+    {
+        "start": 1966.08,
+        "end": 1966.72,
+        "text": "a routine."
+    },
+    {
+        "start": 1967.44,
+        "end": 1968.08,
+        "text": "Let me"
+    },
+    {
+        "start": 1968.08,
+        "end": 1969.12,
+        "text": "let this check"
+    },
+    {
+        "start": 1969.12,
+        "end": 1970.08,
+        "text": "find"
+    },
+    {
+        "start": 1970.08,
+        "end": 1970.48,
+        "text": "any of us."
+    },
+    {
+        "start": 1970.48,
+        "end": 1970.8799999999999,
+        "text": "Okay."
+    },
+    {
+        "start": 1970.88,
+        "end": 1972.88,
+        "text": "Okay."
+    },
+    {
+        "start": 1983.68,
+        "end": 1984.24,
+        "text": "Just"
+    },
+    {
+        "start": 1984.24,
+        "end": 1986.24,
+        "text": "already run couple of times."
+    },
+    {
+        "start": 1986.24,
+        "end": 1988.72,
+        "text": "This example, it was trying to find the different"
+    },
+    {
+        "start": 1989.68,
+        "end": 1991.0400000000002,
+        "text": "different"
+    },
+    {
+        "start": 1991.0400000000002,
+        "end": 1992.4,
+        "text": "probably the"
+    },
+    {
+        "start": 1994.0800000000002,
+        "end": 1995.1200000000001,
+        "text": "assets and stuff."
+    },
+    {
+        "start": 1996.3200000000002,
+        "end": 1996.8000000000002,
+        "text": "Let's see."
+    },
+    {
+        "start": 2000.88,
+        "end": 2002.88,
+        "text": "Okay."
+    },
+    {
+        "start": 2015.44,
+        "end": 2017.92,
+        "text": "First, just to simply complete that."
+    },
+    {
+        "start": 2019.0400000000002,
+        "end": 2020.88,
+        "text": "And now we are expecting to"
+    },
+    {
+        "start": 2023.8400000000001,
+        "end": 2026.0,
+        "text": "think to think operation on the"
+    },
+    {
+        "start": 2026.0,
+        "end": 2027.7600000000002,
+        "text": "vendor file and drive it."
+    },
+    {
+        "start": 2027.92,
+        "end": 2029.92,
+        "text": "Okay."
+    },
+    {
+        "start": 2029.92,
+        "end": 2030.4,
+        "text": "That's it."
+    },
+    {
+        "start": 2030.4,
+        "end": 2040.4,
+        "text": "Just about this point."
+    },
+    {
+        "start": 2057.84,
+        "end": 2059.36,
+        "text": "It also produced this one."
+    },
+    {
+        "start": 2060.0,
+        "end": 2060.32,
+        "text": "Let's"
+    },
+    {
+        "start": 2062.6400000000003,
+        "end": 2065.1200000000003,
+        "text": "we introduce the producer."
+    },
+    {
+        "start": 2065.84,
+        "end": 2067.6800000000003,
+        "text": "And we will now get more"
+    },
+    {
+        "start": 2067.6800000000003,
+        "end": 2069.6000000000004,
+        "text": "set of information and also"
+    },
+    {
+        "start": 2069.6000000000004,
+        "end": 2072.0800000000004,
+        "text": "this new touch of these two"
+    },
+    {
+        "start": 2072.0800000000004,
+        "end": 2074.0800000000004,
+        "text": "syncopations."
+    },
+    {
+        "start": 2083.28,
+        "end": 2084.0800000000004,
+        "text": "Okay."
+    },
+    {
+        "start": 2084.0800000000004,
+        "end": 2085.6800000000003,
+        "text": "Because we use the"
+    },
+    {
+        "start": 2085.8399999999997,
+        "end": 2086.96,
+        "text": "app format."
+    },
+    {
+        "start": 2086.96,
+        "end": 2087.9199999999996,
+        "text": "We just get this"
+    },
+    {
+        "start": 2087.9199999999996,
+        "end": 2088.96,
+        "text": "but remove"
+    },
+    {
+        "start": 2089.8399999999997,
+        "end": 2092.56,
+        "text": "the code so that we are getting complete set."
+    },
+    {
+        "start": 2094.0,
+        "end": 2095.04,
+        "text": "And now"
+    },
+    {
+        "start": 2095.8399999999997,
+        "end": 2096.96,
+        "text": "when the ID count"
+    },
+    {
+        "start": 2096.96,
+        "end": 2099.3599999999997,
+        "text": "value should be updated because"
+    },
+    {
+        "start": 2099.3599999999997,
+        "end": 2100.8799999999997,
+        "text": "we created new set."
+    },
+    {
+        "start": 2100.8799999999997,
+        "end": 2102.08,
+        "text": "Yeah, it's a good data."
+    },
+    {
+        "start": 2102.08,
+        "end": 2103.12,
+        "text": "We got a set."
+    },
+    {
+        "start": 2108.96,
+        "end": 2112.0,
+        "text": "I think we can end the session."
+    },
+    {
+        "start": 2113.04,
+        "end": 2114.96,
+        "text": "Hope this session helps you to"
+    },
+    {
+        "start": 2114.96,
+        "end": 2116.2400000000002,
+        "text": "understand"
+    },
+    {
+        "start": 2116.2400000000002,
+        "end": 2117.76,
+        "text": "how Kafka and"
+    },
+    {
+        "start": 2117.76,
+        "end": 2118.96,
+        "text": "Puzz Park screening"
+    },
+    {
+        "start": 2119.68,
+        "end": 2121.12,
+        "text": "works together."
+    },
+    {
+        "start": 2121.12,
+        "end": 2123.04,
+        "text": "And if you can"
+    },
+    {
+        "start": 2123.04,
+        "end": 2126.16,
+        "text": "use it in your final project in the"
+    },
+    {
+        "start": 2126.16,
+        "end": 2127.04,
+        "text": "data engineering."
+    },
+    {
+        "start": 2128.0,
+        "end": 2128.8,
+        "text": "See you later."
+    },
+    {
+        "start": 2128.8,
+        "end": 2129.76,
+        "text": "Bye bye."
+    }
+]

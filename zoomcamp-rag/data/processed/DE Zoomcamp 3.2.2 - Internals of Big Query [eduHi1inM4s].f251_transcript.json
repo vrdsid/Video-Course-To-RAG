@@ -1,0 +1,472 @@
+[
+    {
+        "start": 0.0,
+        "end": 4.0,
+        "text": "Welcome back to V3, Data Warehouse and BigQuery."
+    },
+    {
+        "start": 4.0,
+        "end": 8.92,
+        "text": "In this video, we are going to talk about internals of BigQuery."
+    },
+    {
+        "start": 8.92,
+        "end": 12.16,
+        "text": "You generally don't have to know the internals of BigQuery"
+    },
+    {
+        "start": 12.16,
+        "end": 13.44,
+        "text": "to use it."
+    },
+    {
+        "start": 13.44,
+        "end": 17.240000000000002,
+        "text": "If you know the best practices, clustering, and partitioning,"
+    },
+    {
+        "start": 17.240000000000002,
+        "end": 21.96,
+        "text": "you can very well use BigQuery without its internal knowledge."
+    },
+    {
+        "start": 21.96,
+        "end": 25.52,
+        "text": "Although it might help you in building a data product"
+    },
+    {
+        "start": 25.52,
+        "end": 29.76,
+        "text": "in the future, if you understand the internals of all."
+    },
+    {
+        "start": 29.76,
+        "end": 34.44,
+        "text": "The offer data warehouse solution such as BigQuery."
+    },
+    {
+        "start": 34.44,
+        "end": 39.6,
+        "text": "BigQuery stores our data into a separate storage called colossus."
+    },
+    {
+        "start": 43.44,
+        "end": 46.08,
+        "text": "Colossus is generally a cheap storage"
+    },
+    {
+        "start": 46.08,
+        "end": 48.36,
+        "text": "which stores the data in a column of format."
+    },
+    {
+        "start": 51.040000000000006,
+        "end": 54.52,
+        "text": "This has a big advantage because BigQuery"
+    },
+    {
+        "start": 54.52,
+        "end": 57.92,
+        "text": "has separated the storage from compute."
+    },
+    {
+        "start": 57.92,
+        "end": 61.32,
+        "text": "It has significantly less cost."
+    },
+    {
+        "start": 61.32,
+        "end": 63.68,
+        "text": "If your data size increases tomorrow,"
+    },
+    {
+        "start": 63.68,
+        "end": 68.04,
+        "text": "you generally only have to pay for the storage in colossus,"
+    },
+    {
+        "start": 68.04,
+        "end": 71.52,
+        "text": "which is generally very cheap."
+    },
+    {
+        "start": 71.52,
+        "end": 76.76,
+        "text": "You, the most cost-occurred is while reading the data"
+    },
+    {
+        "start": 76.76,
+        "end": 81.12,
+        "text": "or running the queries itself, which is basically compute."
+    },
+    {
+        "start": 81.12,
+        "end": 83.56,
+        "text": "And thus, by separating these two parts,"
+    },
+    {
+        "start": 83.56,
+        "end": 86.68,
+        "text": "has a lot of advantages for BigQuery."
+    },
+    {
+        "start": 86.68,
+        "end": 90.44000000000001,
+        "text": "But this brings a big question."
+    },
+    {
+        "start": 90.44000000000001,
+        "end": 97.2,
+        "text": "Because the compute and storage are on different hardware,"
+    },
+    {
+        "start": 97.2,
+        "end": 99.56,
+        "text": "how do they communicate with each other?"
+    },
+    {
+        "start": 99.56,
+        "end": 105.84,
+        "text": "If the network is very bad, it will result in high query time."
+    },
+    {
+        "start": 105.84,
+        "end": 108.52000000000001,
+        "text": "This can be a very big disadvantage."
+    },
+    {
+        "start": 108.52000000000001,
+        "end": 113.88000000000001,
+        "text": "And that's where Jupyter Network comes into place for BigQuery."
+    },
+    {
+        "start": 113.88,
+        "end": 119.83999999999999,
+        "text": "The Jupyter Network is inside BigQuery data centers"
+    },
+    {
+        "start": 119.83999999999999,
+        "end": 123.67999999999999,
+        "text": "and provides approximately one terabyte per second"
+    },
+    {
+        "start": 123.67999999999999,
+        "end": 126.36,
+        "text": "network speed."
+    },
+    {
+        "start": 126.36,
+        "end": 128.12,
+        "text": "This has a huge advantage now."
+    },
+    {
+        "start": 128.12,
+        "end": 133.04,
+        "text": "Because now you can actually have compute and your storage"
+    },
+    {
+        "start": 133.04,
+        "end": 135.0,
+        "text": "on a separate hardware altogether."
+    },
+    {
+        "start": 135.0,
+        "end": 138.76,
+        "text": "And you can easily talk without any delays"
+    },
+    {
+        "start": 138.76,
+        "end": 142.0,
+        "text": "over the Jupyter Network."
+    },
+    {
+        "start": 142.0,
+        "end": 148.0,
+        "text": "The third part of BigQuery internal is tremol."
+    },
+    {
+        "start": 148.0,
+        "end": 151.96,
+        "text": "This is the query execution engine."
+    },
+    {
+        "start": 151.96,
+        "end": 156.16,
+        "text": "It generally divides your query into a tree structure"
+    },
+    {
+        "start": 156.16,
+        "end": 159.72,
+        "text": "and separates your query in such a way"
+    },
+    {
+        "start": 159.72,
+        "end": 166.72,
+        "text": "that each node can execute an individual subset of the query."
+    },
+    {
+        "start": 166.72,
+        "end": 169.0,
+        "text": "But before moving ahead, let's first"
+    },
+    {
+        "start": 169.0,
+        "end": 173.56,
+        "text": "look into columnar and record oriented storage."
+    },
+    {
+        "start": 173.56,
+        "end": 175.84,
+        "text": "So as you can see on the left hand side,"
+    },
+    {
+        "start": 175.84,
+        "end": 177.6,
+        "text": "this is our record oriented storage,"
+    },
+    {
+        "start": 177.6,
+        "end": 181.36,
+        "text": "which we can with row R1 and R2."
+    },
+    {
+        "start": 181.36,
+        "end": 184.08,
+        "text": "This is very similar to structure, something similar"
+    },
+    {
+        "start": 184.08,
+        "end": 188.08,
+        "text": "to structures like CSV."
+    },
+    {
+        "start": 188.08,
+        "end": 190.04,
+        "text": "And they're easy to process and understand."
+    },
+    {
+        "start": 192.76,
+        "end": 195.4,
+        "text": "On the right hand side, you can see the column oriented"
+    },
+    {
+        "start": 196.36,
+        "end": 199.08,
+        "text": "structure in which row R1 and R2 can be seen"
+    },
+    {
+        "start": 199.08,
+        "end": 204.16,
+        "text": "in multiple places with respect to the column C, D, N, A."
+    },
+    {
+        "start": 204.16,
+        "end": 207.44,
+        "text": "BigQuery uses column oriented structure."
+    },
+    {
+        "start": 207.44,
+        "end": 210.96,
+        "text": "This actually provides a huge key."
+    },
+    {
+        "start": 210.96,
+        "end": 214.32,
+        "text": "Column oriented storage actually helps us"
+    },
+    {
+        "start": 214.32,
+        "end": 218.32,
+        "text": "to provide better aggregations or columns."
+    },
+    {
+        "start": 218.32,
+        "end": 223.64000000000001,
+        "text": "And generally, when we are using BigQuery or data warehouse"
+    },
+    {
+        "start": 224.48,
+        "end": 228.92,
+        "text": "we do not query all the columns at one time."
+    },
+    {
+        "start": 228.92,
+        "end": 232.83999999999997,
+        "text": "The general requirement is to query a few columns"
+    },
+    {
+        "start": 232.83999999999997,
+        "end": 234.95999999999998,
+        "text": "and filter and aggregate on different ones."
+    },
+    {
+        "start": 237.83999999999997,
+        "end": 241.88,
+        "text": "Let's look into how Dremel actually works."
+    },
+    {
+        "start": 241.88,
+        "end": 246.27999999999997,
+        "text": "Let's assume you have a query select A, count B,"
+    },
+    {
+        "start": 246.27999999999997,
+        "end": 251.56,
+        "text": "from your table T when you are grouping by column A."
+    },
+    {
+        "start": 251.56,
+        "end": 254.8,
+        "text": "When BigQuery roots, it receives this query."
+    },
+    {
+        "start": 254.8,
+        "end": 258.8,
+        "text": "It understands it and knows how to divide it"
+    },
+    {
+        "start": 258.8,
+        "end": 261.92,
+        "text": "into smaller submodules."
+    },
+    {
+        "start": 261.92,
+        "end": 266.52,
+        "text": "So in our case, the select A, count B, query becomes select A,"
+    },
+    {
+        "start": 266.52,
+        "end": 272.4,
+        "text": "some C. And it divides the query further into R1 to R1N."
+    },
+    {
+        "start": 275.32,
+        "end": 278.72,
+        "text": "As you can see in the next step, the mixers generally"
+    },
+    {
+        "start": 278.72,
+        "end": 282.84000000000003,
+        "text": "get the modified query, which is then further divided"
+    },
+    {
+        "start": 282.84000000000003,
+        "end": 287.12,
+        "text": "into other subquaries or other subset of queries"
+    },
+    {
+        "start": 287.12,
+        "end": 289.40000000000003,
+        "text": "and given to leaf nodes."
+    },
+    {
+        "start": 289.40000000000003,
+        "end": 293.08000000000004,
+        "text": "The leaf nodes are the one which actually query or actually"
+    },
+    {
+        "start": 293.08000000000004,
+        "end": 300.64000000000004,
+        "text": "talk to the Colossus database, fetches the data, executes"
+    },
+    {
+        "start": 300.64000000000004,
+        "end": 302.88000000000005,
+        "text": "appropriate operations on top of that,"
+    },
+    {
+        "start": 302.88000000000005,
+        "end": 306.76000000000005,
+        "text": "and returns the data back to mixers,"
+    },
+    {
+        "start": 306.76,
+        "end": 311.03999999999996,
+        "text": "which then in return to root servers"
+    },
+    {
+        "start": 311.03999999999996,
+        "end": 314.8,
+        "text": "and the data is aggregated and returned as a result."
+    },
+    {
+        "start": 314.8,
+        "end": 318.52,
+        "text": "The distribution of workers here actually"
+    },
+    {
+        "start": 318.52,
+        "end": 321.2,
+        "text": "is the reason why BigQuery is so fast."
+    },
+    {
+        "start": 324.2,
+        "end": 327.2,
+        "text": "If this was not done, if all the work"
+    },
+    {
+        "start": 327.2,
+        "end": 329.96,
+        "text": "had to be done on a particular node,"
+    },
+    {
+        "start": 329.96,
+        "end": 332.68,
+        "text": "it will have a very accurate time with respect"
+    },
+    {
+        "start": 332.68,
+        "end": 334.84,
+        "text": "to increase in data sizes."
+    },
+    {
+        "start": 334.84,
+        "end": 338.64,
+        "text": "Because BigQuery is smart enough to divide the query"
+    },
+    {
+        "start": 338.64,
+        "end": 343.08,
+        "text": "into smaller chunks and propagate them to the leaf nodes"
+    },
+    {
+        "start": 343.08,
+        "end": 347.2,
+        "text": "is one of the biggest reasons that BigQuery is so fast."
+    },
+    {
+        "start": 347.2,
+        "end": 349.59999999999997,
+        "text": "I have also attached a couple of references"
+    },
+    {
+        "start": 349.59999999999997,
+        "end": 353.0,
+        "text": "to BigQuery documentation and papers."
+    },
+    {
+        "start": 353.0,
+        "end": 354.91999999999996,
+        "text": "I would have had you to read them."
+    },
+    {
+        "start": 354.91999999999996,
+        "end": 357.2,
+        "text": "Some of them talk about Dremel internals."
+    },
+    {
+        "start": 357.2,
+        "end": 361.08,
+        "text": "Some of them talk about BigQuery internals in general."
+    },
+    {
+        "start": 361.08,
+        "end": 363.23999999999995,
+        "text": "And it might be very interesting for you"
+    },
+    {
+        "start": 363.24,
+        "end": 365.48,
+        "text": "to take a look into it."
+    }
+]

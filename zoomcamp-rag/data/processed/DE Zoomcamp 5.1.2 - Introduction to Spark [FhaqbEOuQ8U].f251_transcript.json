@@ -1,0 +1,707 @@
+[
+    {
+        "start": 0.0,
+        "end": 4.1,
+        "text": "This is video 2 of Data Engineering Zoom Camp week 5."
+    },
+    {
+        "start": 4.1,
+        "end": 7.2,
+        "text": "And in this video we will talk about Apache Spark."
+    },
+    {
+        "start": 7.2,
+        "end": 9.96,
+        "text": "Previously we talked about batch processing"
+    },
+    {
+        "start": 9.96,
+        "end": 12.36,
+        "text": "and we talked about different type of technologies"
+    },
+    {
+        "start": 12.36,
+        "end": 14.76,
+        "text": "we can use for executing batch drops."
+    },
+    {
+        "start": 14.76,
+        "end": 17.48,
+        "text": "We talked about Python scripts, we talked about SQL"
+    },
+    {
+        "start": 17.48,
+        "end": 18.56,
+        "text": "and we talked about Spark."
+    },
+    {
+        "start": 18.56,
+        "end": 21.8,
+        "text": "So in this video we will spend more time talking about Spark,"
+    },
+    {
+        "start": 21.8,
+        "end": 23.8,
+        "text": "what Spark is and why do we need it."
+    },
+    {
+        "start": 23.8,
+        "end": 27.04,
+        "text": "If I go to Google and type in Apache Spark,"
+    },
+    {
+        "start": 27.119999999999997,
+        "end": 30.32,
+        "text": "what we will see in the results is that"
+    },
+    {
+        "start": 30.32,
+        "end": 33.68,
+        "text": "this kind of overloaded sentence is a multi-language engine"
+    },
+    {
+        "start": 33.68,
+        "end": 36.12,
+        "text": "for executing data engineering, data science and machinery"
+    },
+    {
+        "start": 36.12,
+        "end": 38.16,
+        "text": "on single node machines or clusters."
+    },
+    {
+        "start": 38.16,
+        "end": 40.44,
+        "text": "Probably this one is better."
+    },
+    {
+        "start": 40.44,
+        "end": 43.120000000000005,
+        "text": "So the part about large scale data processing."
+    },
+    {
+        "start": 43.120000000000005,
+        "end": 46.120000000000005,
+        "text": "So this is exactly what Spark is doing."
+    },
+    {
+        "start": 46.120000000000005,
+        "end": 49.36,
+        "text": "So this is an engine, something that executes,"
+    },
+    {
+        "start": 49.36,
+        "end": 51.32,
+        "text": "maybe let me take a note."
+    },
+    {
+        "start": 52.56,
+        "end": 55.76,
+        "text": "Engine here is an important word because Spark,"
+    },
+    {
+        "start": 56.64,
+        "end": 59.8,
+        "text": "let's say we have some data in our database,"
+    },
+    {
+        "start": 59.8,
+        "end": 64.0,
+        "text": "the data lake Spark pulls this data to its machines,"
+    },
+    {
+        "start": 64.0,
+        "end": 67.75999999999999,
+        "text": "to its executors, then it does something with this data"
+    },
+    {
+        "start": 67.75999999999999,
+        "end": 72.75999999999999,
+        "text": "and then outputs it to again, data lake or data warehouse."
+    },
+    {
+        "start": 72.75999999999999,
+        "end": 75.08,
+        "text": "So the processing happens in Spark,"
+    },
+    {
+        "start": 75.08,
+        "end": 77.68,
+        "text": "that's why it's an engine and it is distributed"
+    },
+    {
+        "start": 77.68,
+        "end": 80.68,
+        "text": "so we can have a cluster and in this cluster"
+    },
+    {
+        "start": 80.68,
+        "end": 83.96,
+        "text": "we can have tens or thousands of machines"
+    },
+    {
+        "start": 83.96,
+        "end": 85.96,
+        "text": "and all of them pull this data,"
+    },
+    {
+        "start": 85.96,
+        "end": 88.83999999999999,
+        "text": "do something with this data and then save it somewhere."
+    },
+    {
+        "start": 88.83999999999999,
+        "end": 93.11999999999999,
+        "text": "And then the other word we saw that this is a multi-language engine."
+    },
+    {
+        "start": 93.11999999999999,
+        "end": 98.11999999999999,
+        "text": "So this is actually the case because we can use Java and Scala."
+    },
+    {
+        "start": 98.6,
+        "end": 100.39999999999999,
+        "text": "Spark is actually written in Scala."
+    },
+    {
+        "start": 100.39999999999999,
+        "end": 105.28,
+        "text": "So Scala is the sort of native way of communicating with Spark"
+    },
+    {
+        "start": 105.28,
+        "end": 108.96,
+        "text": "but then there are rappers around Spark for Python."
+    },
+    {
+        "start": 108.96,
+        "end": 112.44,
+        "text": "I think there is a rapper for R, I don't know if it's popular,"
+    },
+    {
+        "start": 112.44,
+        "end": 114.67999999999999,
+        "text": "if people use it but I know it exists."
+    },
+    {
+        "start": 114.67999999999999,
+        "end": 117.96,
+        "text": "Probably there are also rappers for other environments"
+    },
+    {
+        "start": 117.96,
+        "end": 121.03999999999999,
+        "text": "but the one for Python is pretty popular,"
+    },
+    {
+        "start": 121.03999999999999,
+        "end": 126.12,
+        "text": "so it's called PySparc and as I know in many companies"
+    },
+    {
+        "start": 126.12,
+        "end": 129.48,
+        "text": "this is usually the preferred way of writing Spark jobs."
+    },
+    {
+        "start": 129.48,
+        "end": 131.88,
+        "text": "They're engineers write Python code"
+    },
+    {
+        "start": 131.88,
+        "end": 136.92,
+        "text": "and sometimes when you need to be a little bit more flexible"
+    },
+    {
+        "start": 136.92,
+        "end": 140.28,
+        "text": "then they write parts of the code in Scala."
+    },
+    {
+        "start": 140.32,
+        "end": 142.32,
+        "text": "Well in some companies they use only Scala"
+    },
+    {
+        "start": 142.32,
+        "end": 144.84,
+        "text": "and some companies they're engineers use only Java"
+    },
+    {
+        "start": 144.84,
+        "end": 147.56,
+        "text": "but PySparc is quite popular."
+    },
+    {
+        "start": 147.56,
+        "end": 151.04,
+        "text": "Spark is used for executing batch jobs"
+    },
+    {
+        "start": 152.08,
+        "end": 155.72,
+        "text": "but it can also be used for streaming."
+    },
+    {
+        "start": 155.72,
+        "end": 157.64,
+        "text": "So we will not cover streaming here."
+    },
+    {
+        "start": 157.64,
+        "end": 159.44,
+        "text": "We will only talk about batch jobs."
+    },
+    {
+        "start": 159.44,
+        "end": 163.88,
+        "text": "And what they do here with streaming is you can see a stream of data"
+    },
+    {
+        "start": 163.88,
+        "end": 166.12,
+        "text": "as a sequence of small batches"
+    },
+    {
+        "start": 166.12,
+        "end": 168.32,
+        "text": "and then you apply similar techniques"
+    },
+    {
+        "start": 168.32,
+        "end": 171.48,
+        "text": "for processing this stream as you would do with batches"
+    },
+    {
+        "start": 171.48,
+        "end": 174.92,
+        "text": "but we will not cover it here, we'll focus on batch jobs."
+    },
+    {
+        "start": 174.92,
+        "end": 178.56,
+        "text": "Maybe now you have a rough idea what Spark is."
+    },
+    {
+        "start": 178.56,
+        "end": 182.44,
+        "text": "Now let's talk about when we can use it."
+    },
+    {
+        "start": 182.44,
+        "end": 186.88,
+        "text": "So typically Spark is used when your data is in a data lake."
+    },
+    {
+        "start": 186.88,
+        "end": 190.48,
+        "text": "Use a blue one for a lake because water is blue, right?"
+    },
+    {
+        "start": 190.48,
+        "end": 195.28,
+        "text": "So we have data lake and usually this is just some location"
+    },
+    {
+        "start": 195.28,
+        "end": 198.12,
+        "text": "in S3 or Google Cloud Storage"
+    },
+    {
+        "start": 198.12,
+        "end": 201.36,
+        "text": "and then we have a bunch of packet files there."
+    },
+    {
+        "start": 201.36,
+        "end": 204.0,
+        "text": "Spark would pull this data from a data lake,"
+    },
+    {
+        "start": 204.0,
+        "end": 209.08,
+        "text": "do some processing and then put this data back to a data lake."
+    },
+    {
+        "start": 209.08,
+        "end": 212.24,
+        "text": "And you would typically use for the same things"
+    },
+    {
+        "start": 212.24,
+        "end": 213.84,
+        "text": "where you would use SQL"
+    },
+    {
+        "start": 213.84,
+        "end": 216.04,
+        "text": "because we have a data lake here."
+    },
+    {
+        "start": 216.04,
+        "end": 217.6,
+        "text": "So it's not a data warehouse."
+    },
+    {
+        "start": 217.6,
+        "end": 221.4,
+        "text": "In a data warehouse we would just go with BigQuery and use SQL"
+    },
+    {
+        "start": 221.4,
+        "end": 225.56,
+        "text": "but when you just have a bunch of files lying in your S3"
+    },
+    {
+        "start": 225.56,
+        "end": 228.84,
+        "text": "or Google Cloud Storage, then using SQL is not always easy."
+    },
+    {
+        "start": 228.84,
+        "end": 231.04000000000002,
+        "text": "Then you would go with Spark."
+    },
+    {
+        "start": 231.04000000000002,
+        "end": 235.20000000000002,
+        "text": "Although these days you can actually run SQL"
+    },
+    {
+        "start": 235.20000000000002,
+        "end": 239.48000000000002,
+        "text": "on your data lake using things like Hive or Presto,"
+    },
+    {
+        "start": 239.48000000000002,
+        "end": 242.32,
+        "text": "well Spark as well or in AWS."
+    },
+    {
+        "start": 242.32,
+        "end": 245.12,
+        "text": "There is a managed version of Presto called Athena."
+    },
+    {
+        "start": 245.12,
+        "end": 247.96,
+        "text": "Then you can actually also use these things"
+    },
+    {
+        "start": 247.96,
+        "end": 252.16,
+        "text": "to execute SQL on your data in a data lake"
+    },
+    {
+        "start": 252.16,
+        "end": 255.16,
+        "text": "and then write them back to a data lake as well."
+    },
+    {
+        "start": 255.16,
+        "end": 258.88,
+        "text": "I would say if you can express your job as a SQL query,"
+    },
+    {
+        "start": 258.88,
+        "end": 261.36,
+        "text": "then you should go with Presto or Athena"
+    },
+    {
+        "start": 261.36,
+        "end": 266.68,
+        "text": "or thinking BigQuery can also do this with external tables, right?"
+    },
+    {
+        "start": 266.68,
+        "end": 269.52,
+        "text": "But sometimes you cannot express your jobs with SQL."
+    },
+    {
+        "start": 269.52,
+        "end": 271.12,
+        "text": "Sometimes you need more flexibility."
+    },
+    {
+        "start": 271.12,
+        "end": 274.40000000000003,
+        "text": "Sometimes maybe your call becomes too difficult to manage"
+    },
+    {
+        "start": 274.40000000000003,
+        "end": 277.56,
+        "text": "and then you want to put them in different modules."
+    },
+    {
+        "start": 277.56,
+        "end": 279.88,
+        "text": "You want to have a lot of unit tests."
+    },
+    {
+        "start": 279.88,
+        "end": 283.0,
+        "text": "Maybe you have some functionality that is just not possible"
+    },
+    {
+        "start": 283.0,
+        "end": 284.52,
+        "text": "to put inside SQL."
+    },
+    {
+        "start": 284.52,
+        "end": 287.68,
+        "text": "And then this is exactly when you want to use Spark."
+    },
+    {
+        "start": 287.68,
+        "end": 290.48,
+        "text": "And from my personal experience,"
+    },
+    {
+        "start": 290.48,
+        "end": 293.68,
+        "text": "so I work as a data scientist, usually things"
+    },
+    {
+        "start": 293.68,
+        "end": 296.48,
+        "text": "I cannot express with SQL are things"
+    },
+    {
+        "start": 296.48,
+        "end": 298.04,
+        "text": "that are related to machine learning,"
+    },
+    {
+        "start": 298.04,
+        "end": 299.92,
+        "text": "which is both training and machine learning model"
+    },
+    {
+        "start": 299.92,
+        "end": 301.76,
+        "text": "and then using this machine learning model,"
+    },
+    {
+        "start": 301.76,
+        "end": 304.44,
+        "text": "I often use Spark for some of these things."
+    },
+    {
+        "start": 304.44,
+        "end": 307.16,
+        "text": "And a typical workflow I would have at work"
+    },
+    {
+        "start": 307.16,
+        "end": 309.08000000000004,
+        "text": "is we have some row data."
+    },
+    {
+        "start": 309.08000000000004,
+        "end": 313.64000000000004,
+        "text": "And then this row data gets on a data lake."
+    },
+    {
+        "start": 313.64000000000004,
+        "end": 316.92,
+        "text": "And then we would execute a bunch of transformations."
+    },
+    {
+        "start": 316.92,
+        "end": 319.96000000000004,
+        "text": "We would transform this data already sitting in a lake."
+    },
+    {
+        "start": 319.96000000000004,
+        "end": 322.92,
+        "text": "We will maybe do some aggregations and things like this."
+    },
+    {
+        "start": 322.92,
+        "end": 326.16,
+        "text": "Maybe join and then we will use SQL for that."
+    },
+    {
+        "start": 326.16,
+        "end": 329.24,
+        "text": "So like Athena, for example, or Presto."
+    },
+    {
+        "start": 329.24,
+        "end": 330.6,
+        "text": "Then the data is prepared."
+    },
+    {
+        "start": 330.6,
+        "end": 332.28000000000003,
+        "text": "We did some transformation,"
+    },
+    {
+        "start": 332.28000000000003,
+        "end": 334.0,
+        "text": "but we need something more complex,"
+    },
+    {
+        "start": 334.0,
+        "end": 335.96000000000004,
+        "text": "something that we cannot express with SQL."
+    },
+    {
+        "start": 335.96,
+        "end": 339.28,
+        "text": "And then we have another step where we use Spark."
+    },
+    {
+        "start": 339.28,
+        "end": 342.47999999999996,
+        "text": "And then we can have a Python job"
+    },
+    {
+        "start": 342.47999999999996,
+        "end": 344.56,
+        "text": "for training a machine learning model."
+    },
+    {
+        "start": 344.56,
+        "end": 345.52,
+        "text": "That's one flow."
+    },
+    {
+        "start": 345.52,
+        "end": 347.2,
+        "text": "And then there could be another flow"
+    },
+    {
+        "start": 347.2,
+        "end": 349.56,
+        "text": "for actually using a machine learning model."
+    },
+    {
+        "start": 349.56,
+        "end": 351.64,
+        "text": "For example, here from this,"
+    },
+    {
+        "start": 351.64,
+        "end": 353.32,
+        "text": "we can have another Spark job"
+    },
+    {
+        "start": 353.32,
+        "end": 355.35999999999996,
+        "text": "for taking a model that we trained here."
+    },
+    {
+        "start": 355.35999999999996,
+        "end": 357.32,
+        "text": "So this thing, I'll put some model,"
+    },
+    {
+        "start": 357.32,
+        "end": 360.44,
+        "text": "can take this model that our Python script created"
+    },
+    {
+        "start": 360.44,
+        "end": 363.84,
+        "text": "and then use Spark to actually apply the model."
+    },
+    {
+        "start": 363.84,
+        "end": 366.4,
+        "text": "And then the result would go, for example,"
+    },
+    {
+        "start": 366.4,
+        "end": 368.47999999999996,
+        "text": "to our data lake."
+    },
+    {
+        "start": 368.47999999999996,
+        "end": 371.03999999999996,
+        "text": "And then from this lake, it can go to a data warehouse"
+    },
+    {
+        "start": 371.03999999999996,
+        "end": 372.03999999999996,
+        "text": "or somewhere."
+    },
+    {
+        "start": 372.03999999999996,
+        "end": 373.96,
+        "text": "This is a pretty typical situation"
+    },
+    {
+        "start": 373.96,
+        "end": 376.64,
+        "text": "where we would have a lot of different components."
+    },
+    {
+        "start": 376.64,
+        "end": 380.12,
+        "text": "And most of the preprocessing is happening here"
+    },
+    {
+        "start": 380.12,
+        "end": 381.12,
+        "text": "in this case."
+    },
+    {
+        "start": 381.12,
+        "end": 383.76,
+        "text": "So that's why my recommendation would be"
+    },
+    {
+        "start": 383.76,
+        "end": 385.67999999999995,
+        "text": "if you can express something with SQL,"
+    },
+    {
+        "start": 385.67999999999995,
+        "end": 387.12,
+        "text": "you should go with SQL,"
+    },
+    {
+        "start": 387.12,
+        "end": 389.84,
+        "text": "but for cases when you cannot, you should go with Spark."
+    },
+    {
+        "start": 389.84,
+        "end": 391.67999999999995,
+        "text": "And I think this is enough talking."
+    },
+    {
+        "start": 391.76,
+        "end": 394.76,
+        "text": "So in the next video, we will use Spark locally."
+    },
+    {
+        "start": 394.76,
+        "end": 397.32,
+        "text": "And I want to show you how to install Spark"
+    },
+    {
+        "start": 397.32,
+        "end": 398.6,
+        "text": "on your local computer."
+    },
+    {
+        "start": 398.6,
+        "end": 401.48,
+        "text": "And then we will use it for doing some experiments"
+    },
+    {
+        "start": 401.48,
+        "end": 405.68,
+        "text": "before we write a Spark job and deploy it to a Spark cluster."
+    },
+    {
+        "start": 405.68,
+        "end": 406.68,
+        "text": "So see you soon."
+    }
+]

@@ -1,0 +1,347 @@
+[
+    {
+        "start": 0.0,
+        "end": 5.12,
+        "text": "In last video, we have seen how to create a partition in Clustering table."
+    },
+    {
+        "start": 6.48,
+        "end": 10.24,
+        "text": "In this video, we want to talk in detail about partitioning and Clustering."
+    },
+    {
+        "start": 12.24,
+        "end": 18.72,
+        "text": "So in BigQuery, when you create a partition table, you can choose between a time unit column,"
+    },
+    {
+        "start": 18.72,
+        "end": 21.44,
+        "text": "ingestion time, or an integer range partitioning."
+    },
+    {
+        "start": 23.44,
+        "end": 27.84,
+        "text": "When using a time unit or ingestion time, you can select between daily,"
+    },
+    {
+        "start": 27.84,
+        "end": 34.4,
+        "text": "hourly, monthly, or yearly. January daily is a default, one, and it's a good way to start."
+    },
+    {
+        "start": 35.92,
+        "end": 41.519999999999996,
+        "text": "The data is generally medium-sized and it's distributed evenly across different days."
+    },
+    {
+        "start": 44.08,
+        "end": 50.16,
+        "text": "You will choose an hourly partition. In case you have a huge amount of data coming in,"
+    },
+    {
+        "start": 50.8,
+        "end": 55.839999999999996,
+        "text": "and you want to process your data based upon each hour."
+    },
+    {
+        "start": 57.599999999999994,
+        "end": 63.67999999999999,
+        "text": "When you are using hourly partition, you might want to consider the number of partitions"
+    },
+    {
+        "start": 63.67999999999999,
+        "end": 70.08,
+        "text": "which will be created. BigQuery limits us to create number of partitions till 4000."
+    },
+    {
+        "start": 71.19999999999999,
+        "end": 76.88,
+        "text": "So in case you are using an hourly partition, you might want to have an expire partitioning"
+    },
+    {
+        "start": 76.88,
+        "end": 85.11999999999999,
+        "text": "strategy. When using monthly or yearly partition, you will generally have small amount of data,"
+    },
+    {
+        "start": 85.75999999999999,
+        "end": 90.0,
+        "text": "and part these data is across different ranges."
+    },
+    {
+        "start": 96.39999999999999,
+        "end": 102.64,
+        "text": "When doing Clustering in BigQuery, the columns you specify to cluster are collocated."
+    },
+    {
+        "start": 102.88,
+        "end": 109.6,
+        "text": "The order of the column is really important, because this is the order which specifies the"
+    },
+    {
+        "start": 109.6,
+        "end": 117.44,
+        "text": "sort order of the data. For example, if you are clustering on column A, B, C, the sort order would"
+    },
+    {
+        "start": 117.44,
+        "end": 123.36,
+        "text": "be starting from column A, so your table would be sorted first on column A, then on column B,"
+    },
+    {
+        "start": 123.36,
+        "end": 129.52,
+        "text": "and then on column C. Clustering generally improves your filter and aggregate queries,"
+    },
+    {
+        "start": 130.08,
+        "end": 135.20000000000002,
+        "text": "especially if you are using the filter or aggregate on the columns which you have clustering."
+    },
+    {
+        "start": 137.36,
+        "end": 141.52,
+        "text": "Obviously, if your data size is less, let's assume less than 1 gigabyte,"
+    },
+    {
+        "start": 142.48000000000002,
+        "end": 147.52,
+        "text": "partitioning and clustering both don't really show any improvements in your query performance."
+    },
+    {
+        "start": 147.52,
+        "end": 155.84,
+        "text": "Actually, they add significant cost because partitioning and clustering tables incur metadata reads"
+    },
+    {
+        "start": 155.84,
+        "end": 162.56,
+        "text": "and metadata maintenance. So it would be, it may make more sense to have no clustering or partitioning"
+    },
+    {
+        "start": 162.56,
+        "end": 171.12,
+        "text": "for tables with less amount of data. In your clustering table, you can specify up to four clustering"
+    },
+    {
+        "start": 171.12,
+        "end": 181.36,
+        "text": "columns. The clustering columns must be top level and non-repeated columns. You can choose between"
+    },
+    {
+        "start": 181.44000000000003,
+        "end": 188.0,
+        "text": "these types for your clustering columns. So it can be of date, boolean, geography, int, numeric,"
+    },
+    {
+        "start": 188.64000000000001,
+        "end": 196.48000000000002,
+        "text": "string and date types. Now let's compare between partitioning and clustering."
+    },
+    {
+        "start": 198.0,
+        "end": 203.20000000000002,
+        "text": "There might be scenarios when you might want to choose between one of them or choose both of them."
+    },
+    {
+        "start": 203.76000000000002,
+        "end": 209.20000000000002,
+        "text": "So it's important to know what are the different criteria for choosing clustering and"
+    },
+    {
+        "start": 209.2,
+        "end": 214.88,
+        "text": "partitioning and when clustering might be a better option than partitioning. So in clustering,"
+    },
+    {
+        "start": 214.88,
+        "end": 220.64,
+        "text": "the cost benefits are unknown. Whereas in partitioning, the cost benefits are known up front."
+    },
+    {
+        "start": 220.64,
+        "end": 228.39999999999998,
+        "text": "So if it's really important for you to maintain your queries in a particular amount of cost,"
+    },
+    {
+        "start": 228.39999999999998,
+        "end": 233.6,
+        "text": "then partitioning becomes really important. While running queries in BigQuery, you can specify that"
+    },
+    {
+        "start": 233.6,
+        "end": 238.39999999999998,
+        "text": "if your cost exceeds X amount for this particular query, they do not execute it."
+    },
+    {
+        "start": 239.67999999999998,
+        "end": 244.64,
+        "text": "These kind of things would not be possible if you just cluster your table. You would have to use"
+    },
+    {
+        "start": 244.64,
+        "end": 251.28,
+        "text": "partitioning to know these up front costs. A clustering is better to use when you need more granularity,"
+    },
+    {
+        "start": 251.28,
+        "end": 257.12,
+        "text": "which partitioning cannot really provide. In partitioning, you can do partition level management,"
+    },
+    {
+        "start": 257.12,
+        "end": 264.15999999999997,
+        "text": "for example, deleting partitions or creating new partitions or moving partitions between storage,"
+    },
+    {
+        "start": 264.16,
+        "end": 270.72,
+        "text": "and these things are not possible in clustering. Generally in clustering, you will query or filter"
+    },
+    {
+        "start": 270.72,
+        "end": 276.64000000000004,
+        "text": "your data or aggregate your data based upon multiple columns. Whereas in partitioning,"
+    },
+    {
+        "start": 276.64000000000004,
+        "end": 281.44000000000005,
+        "text": "you generally filter or aggregate on the single column because partitioning is only possible on one"
+    },
+    {
+        "start": 281.44000000000005,
+        "end": 288.0,
+        "text": "column. You will also use clustering when the cardinality of the number of values in a column or"
+    },
+    {
+        "start": 288.0,
+        "end": 294.24,
+        "text": "group of columns is large. This becomes a hindrance in partitioning because there is a limitation"
+    },
+    {
+        "start": 294.24,
+        "end": 303.2,
+        "text": "of 4000 partitions per table. Now let's look into when will you choose clustering over partitioning."
+    },
+    {
+        "start": 304.64,
+        "end": 309.76,
+        "text": "You will use clustering when the partition results into a small amount of data per partition,"
+    },
+    {
+        "start": 310.88,
+        "end": 316.4,
+        "text": "approximately less than 1GB. So if your partitions are really small or your column has a high"
+    },
+    {
+        "start": 316.4,
+        "end": 325.52,
+        "text": "amount of granularity, then using clustering makes more sense. Obviously clustering would be used"
+    },
+    {
+        "start": 325.52,
+        "end": 329.84,
+        "text": "if partitioning results in large number of partitions beyond the limit of the partition table,"
+    },
+    {
+        "start": 329.84,
+        "end": 339.67999999999995,
+        "text": "which is 4000. Obviously if you will also use clustering, if your partitioning results in a lot"
+    },
+    {
+        "start": 339.68,
+        "end": 346.72,
+        "text": "of modifications of a lot of partitions in the table and those and that do at a very frequent"
+    },
+    {
+        "start": 346.72,
+        "end": 352.72,
+        "text": "rate. So for example, if you are querying every hour or you are writing data to your"
+    },
+    {
+        "start": 352.72,
+        "end": 360.64,
+        "text": "BigQuery table every hour and that modifies all your partitions, then that might not be a good idea."
+    },
+    {
+        "start": 362.32,
+        "end": 367.68,
+        "text": "Now let's take a look on automatically clustering by BigQuery and this is a very important feature."
+    },
+    {
+        "start": 368.64,
+        "end": 373.6,
+        "text": "As the data is added to your clustered table, generally the newly inserted data"
+    },
+    {
+        "start": 374.48,
+        "end": 381.36,
+        "text": "are written into different blocks, which obviously does not overlap with your clustering strategy."
+    },
+    {
+        "start": 383.28000000000003,
+        "end": 387.44,
+        "text": "These overlapping key ranges generally weaken the short property of the table."
+    },
+    {
+        "start": 388.64,
+        "end": 395.52,
+        "text": "Can increase your query type. To maintain the performance characteristic of a clustered table,"
+    },
+    {
+        "start": 396.15999999999997,
+        "end": 401.76,
+        "text": "BigQuery performs auto-reclustering. This is done in the background, so you generally don't realize"
+    },
+    {
+        "start": 401.76,
+        "end": 407.44,
+        "text": "this and it does not impact your query performance. And for partition table clustering is maintained"
+    },
+    {
+        "start": 407.44,
+        "end": 411.59999999999997,
+        "text": "for data within the scope of each partition and this is also handled in the automatically clustering."
+    },
+    {
+        "start": 412.4,
+        "end": 417.59999999999997,
+        "text": "And another very important part of automatically clustering is that it doesn't cost the end user"
+    },
+    {
+        "start": 417.59999999999997,
+        "end": 424.4,
+        "text": "anything. It's done in the background by BigQuery itself and it has no cost at all. In this video,"
+    },
+    {
+        "start": 424.4,
+        "end": 430.08,
+        "text": "we have seen partitioning and clustering. We have learned about when to use clustering over"
+    },
+    {
+        "start": 430.08,
+        "end": 436.64,
+        "text": "partitioning or partitioning over clustering. What are the different criteria for choosing clustering"
+    },
+    {
+        "start": 436.64,
+        "end": 444.79999999999995,
+        "text": "or partitioning? And what is automatic reclustering? I guess this is a good stop to think about partitioning"
+    },
+    {
+        "start": 444.79999999999995,
+        "end": 451.59999999999997,
+        "text": "and clustering based upon the taxi dataset. Let's all take a minute to think about different"
+    },
+    {
+        "start": 451.6,
+        "end": 456.88,
+        "text": "partitioning and clustering columns. Why don't you put that into the comment section with the"
+    },
+    {
+        "start": 456.88,
+        "end": 467.52000000000004,
+        "text": "use case you are tackling and what kind of partitioning and clustering columns video use?"
+    }
+]

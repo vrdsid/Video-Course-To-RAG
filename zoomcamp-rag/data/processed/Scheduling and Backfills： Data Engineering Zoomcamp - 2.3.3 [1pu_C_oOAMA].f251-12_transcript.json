@@ -1,0 +1,407 @@
+[
+    {
+        "start": 0.0,
+        "end": 3.8000000000000003,
+        "text": "Welcome to the next part of the data engineering zoom camp."
+    },
+    {
+        "start": 3.8000000000000003,
+        "end": 7.4,
+        "text": "Now today we're going to have a look at scheduling and back fills."
+    },
+    {
+        "start": 7.4,
+        "end": 10.36,
+        "text": "So far we've built our data engineering pipeline."
+    },
+    {
+        "start": 10.36,
+        "end": 16.12,
+        "text": "It's able to load our data directly into our postgres database."
+    },
+    {
+        "start": 16.12,
+        "end": 19.0,
+        "text": "But at the moment it requires us to run it manually."
+    },
+    {
+        "start": 19.0,
+        "end": 22.400000000000002,
+        "text": "Today we're going to look at how we can set this up on a schedule to run monthly,"
+    },
+    {
+        "start": 22.400000000000002,
+        "end": 26.2,
+        "text": "but also allow us to run back fills so we can go back to previous months"
+    },
+    {
+        "start": 26.2,
+        "end": 29.52,
+        "text": "and fetch data for those in an automated fashion."
+    },
+    {
+        "start": 29.52,
+        "end": 33.519999999999996,
+        "text": "Now jumping into Kestra I've already gone and modified our existing workflow."
+    },
+    {
+        "start": 33.519999999999996,
+        "end": 36.12,
+        "text": "So let me walk you through a couple of the changes we'll need to make"
+    },
+    {
+        "start": 36.12,
+        "end": 38.32,
+        "text": "to be able to get this to work on a schedule."
+    },
+    {
+        "start": 38.32,
+        "end": 43.519999999999996,
+        "text": "Now previously we had to have inputs here to specify whether we want to run it on the yellow or green taxi."
+    },
+    {
+        "start": 43.519999999999996,
+        "end": 46.4,
+        "text": "What year we wanted it to run on as well as the month."
+    },
+    {
+        "start": 46.4,
+        "end": 50.92,
+        "text": "Whereas the year and month inputs are going to be removed and replaced with our schedule."
+    },
+    {
+        "start": 50.92,
+        "end": 56.120000000000005,
+        "text": "Now we've only got the input for taxi and the rest is going to be handled from our trigger."
+    },
+    {
+        "start": 56.12,
+        "end": 58.919999999999995,
+        "text": "And we can actually see this by looking at the variables here"
+    },
+    {
+        "start": 58.919999999999995,
+        "end": 65.72,
+        "text": "where the expression is now using trigger.date rather than using the inputs to understand what the file should be."
+    },
+    {
+        "start": 65.72,
+        "end": 69.72,
+        "text": "If we go all the way to the bottom of our workflow, we'll be able to see our triggers."
+    },
+    {
+        "start": 69.72,
+        "end": 72.72,
+        "text": "Now we can also see these in the topology view here at the top."
+    },
+    {
+        "start": 72.72,
+        "end": 75.72,
+        "text": "But the key thing is we've got a trigger for each of the data sets."
+    },
+    {
+        "start": 75.72,
+        "end": 78.52,
+        "text": "So we can tell these to run at different times."
+    },
+    {
+        "start": 78.52,
+        "end": 82.32,
+        "text": "Specifically we're telling it to run once a month on the first of the month."
+    },
+    {
+        "start": 82.32,
+        "end": 87.32,
+        "text": "This one at 9am and the yellow at 10am, which means that they won't clash with each other."
+    },
+    {
+        "start": 87.32,
+        "end": 90.91999999999999,
+        "text": "And here was specifying which of those inputs it should use."
+    },
+    {
+        "start": 90.91999999999999,
+        "end": 94.32,
+        "text": "As we can see, we've got the green for the green and the yellow for the yellow."
+    },
+    {
+        "start": 94.32,
+        "end": 98.91999999999999,
+        "text": "Now if we want, we can actually go to triggers and have a look at this in more detail."
+    },
+    {
+        "start": 98.91999999999999,
+        "end": 102.32,
+        "text": "If we want, we can see exactly when that next execution date will be."
+    },
+    {
+        "start": 102.32,
+        "end": 106.91999999999999,
+        "text": "And we can see that that is going to be the first of January 2026 at 9am for the green."
+    },
+    {
+        "start": 106.91999999999999,
+        "end": 108.72,
+        "text": "And then 10am for the yellow."
+    },
+    {
+        "start": 108.72,
+        "end": 111.11999999999999,
+        "text": "For context, this video was recorded in December."
+    },
+    {
+        "start": 111.32000000000001,
+        "end": 115.12,
+        "text": "So with these couple of changes where we've just replaced our expression here"
+    },
+    {
+        "start": 115.12,
+        "end": 120.52000000000001,
+        "text": "from inputs to using the trigger and we've got a format here that will match the file format."
+    },
+    {
+        "start": 120.52000000000001,
+        "end": 121.92,
+        "text": "This workflow is ready to go."
+    },
+    {
+        "start": 121.92,
+        "end": 124.32000000000001,
+        "text": "We can see the next execution date is ready to go."
+    },
+    {
+        "start": 124.32000000000001,
+        "end": 127.52000000000001,
+        "text": "All we need to do now is wait for the first of January."
+    },
+    {
+        "start": 127.52000000000001,
+        "end": 129.72,
+        "text": "But where's the fun in that?"
+    },
+    {
+        "start": 129.72,
+        "end": 133.32,
+        "text": "Instead what we're going to do is have a look at back fills where we can run this for"
+    },
+    {
+        "start": 133.32,
+        "end": 137.92000000000002,
+        "text": "previous months that have happened and fetch that data in real time."
+    },
+    {
+        "start": 137.92,
+        "end": 143.11999999999998,
+        "text": "Now if we have a look back at the original workflow where we had to manually select the dates."
+    },
+    {
+        "start": 143.11999999999998,
+        "end": 145.92,
+        "text": "We were using dates in 2019 and 2020."
+    },
+    {
+        "start": 145.92,
+        "end": 149.51999999999998,
+        "text": "So I think what we should do here is run a backfill for the green schedule,"
+    },
+    {
+        "start": 149.51999999999998,
+        "end": 150.72,
+        "text": "which I can click here."
+    },
+    {
+        "start": 150.72,
+        "end": 154.51999999999998,
+        "text": "And I'm going to select dates for January and February of 2019."
+    },
+    {
+        "start": 154.51999999999998,
+        "end": 160.11999999999998,
+        "text": "Now the key thing to mention here is you've got to make sure that your backfill duration"
+    },
+    {
+        "start": 160.11999999999998,
+        "end": 163.11999999999998,
+        "text": "does actually include when the trigger would have done."
+    },
+    {
+        "start": 163.11999999999998,
+        "end": 167.11999999999998,
+        "text": "Now one key thing to mention here is you need to make sure that the date range"
+    },
+    {
+        "start": 167.12,
+        "end": 172.92000000000002,
+        "text": "that you have for your trigger backfill actually covers when the trigger would have been executed."
+    },
+    {
+        "start": 172.92000000000002,
+        "end": 176.52,
+        "text": "So if the context I'm executing this trigger at 9am on the first of each month."
+    },
+    {
+        "start": 176.52,
+        "end": 179.32,
+        "text": "So I need to make sure if I wanted to run for two months,"
+    },
+    {
+        "start": 179.32,
+        "end": 182.52,
+        "text": "I need to make sure it covers 9am both of those times."
+    },
+    {
+        "start": 182.52,
+        "end": 186.12,
+        "text": "So to make sure that I get February, I'm selecting the second of February."
+    },
+    {
+        "start": 186.12,
+        "end": 188.32,
+        "text": "But if I ended up just selecting the first at midnight,"
+    },
+    {
+        "start": 188.32,
+        "end": 190.92000000000002,
+        "text": "it's not actually going to reach 9am so it won't run February."
+    },
+    {
+        "start": 190.92000000000002,
+        "end": 194.32,
+        "text": "So just bear that in mind when you're running your back fills."
+    },
+    {
+        "start": 194.51999999999998,
+        "end": 197.92,
+        "text": "Now I've selected the first of January to the second of February."
+    },
+    {
+        "start": 197.92,
+        "end": 203.12,
+        "text": "Let's click execute backfill and what we'll see here is it's created an execution for us here."
+    },
+    {
+        "start": 203.12,
+        "end": 206.51999999999998,
+        "text": "We can see that it's starting to run that execution as we would expect."
+    },
+    {
+        "start": 206.51999999999998,
+        "end": 211.92,
+        "text": "And it's copying that green data straight into our database just like we would expect."
+    },
+    {
+        "start": 211.92,
+        "end": 216.92,
+        "text": "And just like that, we can see under overview that it is running it for 2019,"
+    },
+    {
+        "start": 216.92,
+        "end": 217.92,
+        "text": "01."
+    },
+    {
+        "start": 217.92,
+        "end": 221.51999999999998,
+        "text": "And if we go to the database, we should be able to see if I could just refresh"
+    },
+    {
+        "start": 221.92000000000002,
+        "end": 224.72,
+        "text": "and we can do a little view here."
+    },
+    {
+        "start": 224.72,
+        "end": 225.92000000000002,
+        "text": "We go new data."
+    },
+    {
+        "start": 225.92000000000002,
+        "end": 227.52,
+        "text": "We'll see it's going to query it."
+    },
+    {
+        "start": 227.52,
+        "end": 229.52,
+        "text": "But also if we go back to executions,"
+    },
+    {
+        "start": 229.52,
+        "end": 231.52,
+        "text": "we'll see that it's now running it again,"
+    },
+    {
+        "start": 231.52,
+        "end": 233.92000000000002,
+        "text": "but this time it's running it for February."
+    },
+    {
+        "start": 233.92000000000002,
+        "end": 236.92000000000002,
+        "text": "So we can see there was two executions here, which is what we want to see."
+    },
+    {
+        "start": 236.92000000000002,
+        "end": 238.92000000000002,
+        "text": "And we can see that they were both back fills."
+    },
+    {
+        "start": 238.92000000000002,
+        "end": 242.92000000000002,
+        "text": "And as we can see here inside of the table where all the data been merged,"
+    },
+    {
+        "start": 242.92000000000002,
+        "end": 246.52,
+        "text": "we can actually see that there are is data for February in here."
+    },
+    {
+        "start": 246.52,
+        "end": 248.12,
+        "text": "So that is what we want to see."
+    },
+    {
+        "start": 248.12,
+        "end": 251.32000000000002,
+        "text": "And we can also see that is also data for January."
+    },
+    {
+        "start": 251.32,
+        "end": 253.51999999999998,
+        "text": "So it has successfully gone back."
+    },
+    {
+        "start": 253.51999999999998,
+        "end": 256.32,
+        "text": "It is run when the schedule would have run."
+    },
+    {
+        "start": 256.32,
+        "end": 258.52,
+        "text": "And it's been able to collect that data for us."
+    },
+    {
+        "start": 258.52,
+        "end": 261.52,
+        "text": "So hopefully that has given you an insight into setting up schedules"
+    },
+    {
+        "start": 261.52,
+        "end": 264.92,
+        "text": "for your workflows as well as being able to run back fills"
+    },
+    {
+        "start": 264.92,
+        "end": 268.62,
+        "text": "on previous schedules that may have been missed or maybe where before"
+    },
+    {
+        "start": 268.62,
+        "end": 271.32,
+        "text": "your workflow even existed like in our scenario."
+    },
+    {
+        "start": 271.32,
+        "end": 275.12,
+        "text": "Let me know in the comments below how you're going to use this to build your data pipelines."
+    }
+]

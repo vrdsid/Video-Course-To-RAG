@@ -1,0 +1,832 @@
+[
+    {
+        "start": 0.0,
+        "end": 4.16,
+        "text": "Welcome to the next part of the Data Engineering Zing Camping Module 2."
+    },
+    {
+        "start": 4.16,
+        "end": 10.48,
+        "text": "Now today we're actually going to build our very first ETL pipeline using a Postgres database."
+    },
+    {
+        "start": 10.48,
+        "end": 15.200000000000001,
+        "text": "Now the data we're going to use today is going to use the New York Taxi data which is split into"
+    },
+    {
+        "start": 15.200000000000001,
+        "end": 21.04,
+        "text": "mums and we're going to combine it together using SQL queries to create one unified table."
+    },
+    {
+        "start": 21.04,
+        "end": 25.36,
+        "text": "Now if you've only just joined us don't threat. I'd recommend checking out the earlier videos"
+    },
+    {
+        "start": 25.36,
+        "end": 32.0,
+        "text": "where we covered Kestra concepts so you can build your workflows as well as data engineering concepts."
+    },
+    {
+        "start": 32.0,
+        "end": 36.64,
+        "text": "Now if you've only just joined us don't threat. I'd recommend jumping back to a few earlier"
+    },
+    {
+        "start": 36.64,
+        "end": 41.44,
+        "text": "videos where you can learn how to build workflows using Kestra, the orchestrator that we're going"
+    },
+    {
+        "start": 41.44,
+        "end": 46.32,
+        "text": "to use for this course. Once you've done that you'll be well equipped to be able to build your"
+    },
+    {
+        "start": 46.32,
+        "end": 52.08,
+        "text": "own data pipeline with Kestra. Without further ado let's jump in and start building."
+    },
+    {
+        "start": 52.16,
+        "end": 57.04,
+        "text": "So begin with I've got an empty workflow here it's got one task in it for a lock task."
+    },
+    {
+        "start": 57.04,
+        "end": 61.76,
+        "text": "Now there's a few different steps that we're going to take here to build this workflow but before"
+    },
+    {
+        "start": 61.76,
+        "end": 66.4,
+        "text": "we build it I just want to let you know that the workflow is available inside the GitHub repository"
+    },
+    {
+        "start": 66.4,
+        "end": 71.52,
+        "text": "so you don't have to copy and paste it based on the video you can get the full example here and then"
+    },
+    {
+        "start": 71.52,
+        "end": 76.88,
+        "text": "add that to the video but I'm going to build this workflow step by step so you can understand exactly"
+    },
+    {
+        "start": 76.88,
+        "end": 81.68,
+        "text": "what each part does but if you don't care about what it does you can just go ahead and run this"
+    },
+    {
+        "start": 81.68,
+        "end": 86.4,
+        "text": "and play around with it in real time. Now for us to be able to build a workflow we need to understand"
+    },
+    {
+        "start": 86.4,
+        "end": 91.92,
+        "text": "what we're working with first. Now the data we're working with can be found here in GitHub and we've"
+    },
+    {
+        "start": 91.92,
+        "end": 97.68,
+        "text": "got two different types of data. We've got yellow New York taxi data and we've also got green New York"
+    },
+    {
+        "start": 97.68,
+        "end": 105.28,
+        "text": "taxi data and we can see all the assets here as compressed CSV files and these are split by month"
+    },
+    {
+        "start": 105.28,
+        "end": 111.12,
+        "text": "we've got 2019 and 2020 data and I believe 2021 data up to July as well and now we can access this"
+    },
+    {
+        "start": 111.12,
+        "end": 116.0,
+        "text": "all directly but we're going to be using this GitHub repository for this example. Now with this in"
+    },
+    {
+        "start": 116.0,
+        "end": 121.28,
+        "text": "mind that means we need to be able to have a number of options we need to be able to decide which"
+    },
+    {
+        "start": 121.28,
+        "end": 126.64,
+        "text": "month we want this workflow to process we also need to figure out which year it's processing"
+    },
+    {
+        "start": 126.64,
+        "end": 131.92000000000002,
+        "text": "and which dataset is it processing yellow or is it processing green. Now this is where input is a"
+    },
+    {
+        "start": 131.92000000000002,
+        "end": 137.84,
+        "text": "fantastic choice to allow us to be able to create these decisions before the execution start so"
+    },
+    {
+        "start": 137.84,
+        "end": 143.28,
+        "text": "let's begin by adding three inputs to our workflow one for the yellow or green dataset one for"
+    },
+    {
+        "start": 143.28,
+        "end": 148.72,
+        "text": "the year and one for the month so let's do that and then we can start adding tasks. So here I've"
+    },
+    {
+        "start": 148.72,
+        "end": 154.32,
+        "text": "used the number of select inputs this allows us to be able to when I press execute select the"
+    },
+    {
+        "start": 154.32,
+        "end": 159.84,
+        "text": "option whether it's yellow or green or select the month in this case 0 1 to 12 we've also got"
+    },
+    {
+        "start": 159.84,
+        "end": 165.2,
+        "text": "the two different years I'm leaving 2021 off for now as that is just bonus if you want to look at"
+    },
+    {
+        "start": 165.35999999999999,
+        "end": 169.67999999999998,
+        "text": "that now we've also select default values I'm actually going to set the default value for this"
+    },
+    {
+        "start": 169.67999999999998,
+        "end": 174.95999999999998,
+        "text": "workflow to be green because green is a smaller dataset so the workflows will run a little bit quicker"
+    },
+    {
+        "start": 174.95999999999998,
+        "end": 180.0,
+        "text": "at yellow will be helpful in part four of this module where we start looking at using the cloud"
+    },
+    {
+        "start": 180.0,
+        "end": 185.12,
+        "text": "and then we've got our year and month again very similar to what we saw with the yellow and green"
+    },
+    {
+        "start": 185.12,
+        "end": 190.72,
+        "text": "and now we can then use expressions to add these into our tasks now I'm actually going to use"
+    },
+    {
+        "start": 190.88,
+        "end": 195.92,
+        "text": "variables to a bit like we did in part two of this module where we were learning Kestra"
+    },
+    {
+        "start": 195.92,
+        "end": 201.6,
+        "text": "fundamentals we're going to use these to be able to create repeatable variables that we can use"
+    },
+    {
+        "start": 201.6,
+        "end": 207.44,
+        "text": "for our for example those CSV files here right they've got a number of different things made up of"
+    },
+    {
+        "start": 207.44,
+        "end": 214.88,
+        "text": "them it says yellow trip data 2019 0 1 dot CSV so why don't we make a variable here that gets the"
+    },
+    {
+        "start": 214.88,
+        "end": 222.07999999999998,
+        "text": "taxi input the year input and the month input to form one string here that has that full CSV file"
+    },
+    {
+        "start": 222.07999999999998,
+        "end": 227.68,
+        "text": "file name which we can then pass into tasks to the news for extraction we can use the same concept"
+    },
+    {
+        "start": 227.68,
+        "end": 232.64,
+        "text": "with our staging table where we're going to be able to load in that month's worth of data"
+    },
+    {
+        "start": 232.64,
+        "end": 238.4,
+        "text": "and then the data that's going to have all the data together as well so this means when we've got"
+    },
+    {
+        "start": 238.4,
+        "end": 243.6,
+        "text": "yellow data and green data they will have their own separate tables and it knows where to put them"
+    },
+    {
+        "start": 243.68,
+        "end": 247.84,
+        "text": "rather than having to write this all out multiple times because we're going to reference these"
+    },
+    {
+        "start": 247.84,
+        "end": 252.64,
+        "text": "tables in multiple tasks and we've also got a data variable here that we haven't quite built yet"
+    },
+    {
+        "start": 252.64,
+        "end": 257.2,
+        "text": "more to come on that in a minute there's going to take an output for our extraction task the task"
+    },
+    {
+        "start": 257.2,
+        "end": 264.24,
+        "text": "that's going to download this data and then it's going to use information to get that CSV file to be"
+    },
+    {
+        "start": 264.24,
+        "end": 270.0,
+        "text": "able to then mean that we've got an easily accessible variable just vars.data to access the"
+    },
+    {
+        "start": 270.0,
+        "end": 275.28,
+        "text": "downloaded CSV file that's already been extracted otherwise we have to put this expression every time"
+    },
+    {
+        "start": 275.28,
+        "end": 280.48,
+        "text": "we want to be able to access that CSV file bit annoying so that's where the variable here comes in"
+    },
+    {
+        "start": 280.48,
+        "end": 286.32,
+        "text": "handy now I'm going to add a set labels task as our first task here what this means is that when"
+    },
+    {
+        "start": 286.32,
+        "end": 292.0,
+        "text": "we execute workflows it's going to add a little label to the execution this is really helpful"
+    },
+    {
+        "start": 292.0,
+        "end": 297.2,
+        "text": "because when we've got multiple executions we'll be able to see at a glimpse what whether it was a"
+    },
+    {
+        "start": 297.2,
+        "end": 302.64,
+        "text": "yellow data set whether it was for 2019 and which month and we can see all of that information"
+    },
+    {
+        "start": 302.64,
+        "end": 308.08,
+        "text": "without having to go and dig into the logs of the execution makes it a lot easier and just easy"
+    },
+    {
+        "start": 308.08,
+        "end": 313.68,
+        "text": "for us to figure out why things might have gone wrong now the first part of an ETL pipeline is the"
+    },
+    {
+        "start": 313.68,
+        "end": 320.0,
+        "text": "e which stands for extraction now what we're going to do here is use a shell commands task to be able"
+    },
+    {
+        "start": 320.0,
+        "end": 326.56,
+        "text": "to run a few shell commands on this CSV file and we're just going to use wget here to download that file"
+    },
+    {
+        "start": 326.56,
+        "end": 331.2,
+        "text": "directly from github and then we can unzip the file now to make this a little bit easier we are"
+    },
+    {
+        "start": 331.2,
+        "end": 335.76,
+        "text": "going to use some of those variables and inputs to be able to create the file path that we need"
+    },
+    {
+        "start": 335.76,
+        "end": 340.88,
+        "text": "for this URL and then we can unzip it and because we're using output files here we'll be able to"
+    },
+    {
+        "start": 340.88,
+        "end": 345.44,
+        "text": "access that as a CSV file we're also running this on the process task run out just because there's"
+    },
+    {
+        "start": 345.44,
+        "end": 349.76,
+        "text": "no need to spin up a whole container to do this process it's just going to add extra overhead and"
+    },
+    {
+        "start": 349.76,
+        "end": 354.16,
+        "text": "slow down the workflow now I haven't mentioned the render use here we talked about this a little bit"
+    },
+    {
+        "start": 354.16,
+        "end": 359.92,
+        "text": "in part two but because there are expressions within these variables we need to tell it to recursively"
+    },
+    {
+        "start": 359.92,
+        "end": 366.8,
+        "text": "render these expressions before it then renders the expression for vast file so in this case it"
+    },
+    {
+        "start": 366.8,
+        "end": 371.6,
+        "text": "means it will get the full string and instead this means it will get the full string with these all"
+    },
+    {
+        "start": 371.6,
+        "end": 376.16,
+        "text": "rendered out rather than giving us the expressions as part of the string because that's not usually"
+    },
+    {
+        "start": 376.16,
+        "end": 381.6,
+        "text": "helpful and so you'll see the use of render pop up multiple times because these variables all have"
+    },
+    {
+        "start": 381.68,
+        "end": 387.92,
+        "text": "expressions in them now next up is to start adding some postgres tasks now the first step here is"
+    },
+    {
+        "start": 387.92,
+        "end": 393.28000000000003,
+        "text": "to create a table for our data now the first up here is actually create that final table that we're"
+    },
+    {
+        "start": 393.28000000000003,
+        "end": 397.52000000000004,
+        "text": "going to combine all the data together and store in postgres and we're going to add a number of"
+    },
+    {
+        "start": 397.52000000000004,
+        "end": 403.04,
+        "text": "different columns to it now if we were to go open up one of those CSV files the columns we would see"
+    },
+    {
+        "start": 403.04,
+        "end": 409.52000000000004,
+        "text": "include vendor ID, LPET pickup time etc we'd see a lot of this information but we actually want"
+    },
+    {
+        "start": 409.59999999999997,
+        "end": 415.03999999999996,
+        "text": "to add a couple of extra fields we want to add a unique row ID to help us prevent any duplicates"
+    },
+    {
+        "start": 415.03999999999996,
+        "end": 419.35999999999996,
+        "text": "and we also want to add a file name to help us figure out where this data came from in the first"
+    },
+    {
+        "start": 419.35999999999996,
+        "end": 424.32,
+        "text": "place but also we're going to use that to help create the unique ID because we're going to do a lot"
+    },
+    {
+        "start": 424.32,
+        "end": 430.0,
+        "text": "of postgres tasks we're going to add a plugin defaults for the postgres task so that it knows which"
+    },
+    {
+        "start": 430.0,
+        "end": 435.76,
+        "text": "database address to go to and what the login details are we can add that at the bottom of our workflow"
+    },
+    {
+        "start": 435.84,
+        "end": 441.36,
+        "text": "like so where we've got the URL value like so and as you may remember from our Docker Compose file"
+    },
+    {
+        "start": 441.36,
+        "end": 447.92,
+        "text": "we're going to be accessing the PG database on port 5432 and the name of the database is New York"
+    },
+    {
+        "start": 447.92,
+        "end": 453.12,
+        "text": "underscore taxi the username and password is just route and route now I don't recommend putting"
+    },
+    {
+        "start": 453.12,
+        "end": 458.56,
+        "text": "this in as a string I instead you could add this as a secret or in the key value store but because"
+    },
+    {
+        "start": 458.56,
+        "end": 464.15999999999997,
+        "text": "this database is just running locally we can keep this as is for now but we will not be doing this"
+    },
+    {
+        "start": 464.16,
+        "end": 469.68,
+        "text": "when we move on to the later modules so I think this is a great place to stop execute this workflow"
+    },
+    {
+        "start": 469.68,
+        "end": 476.40000000000003,
+        "text": "for the green data set in 2019 and in January so if we execute this now what we'll see is it's"
+    },
+    {
+        "start": 476.40000000000003,
+        "end": 481.92,
+        "text": "going to extract that data and create a table we can now go to PG admin where we can log in and we"
+    },
+    {
+        "start": 481.92,
+        "end": 488.40000000000003,
+        "text": "can then go to servers and actually register a new server now I'm just going to call this dv we know"
+    },
+    {
+        "start": 488.4,
+        "end": 496.15999999999997,
+        "text": "that the host name is PG database we know that the database itself is called New York taxi and the"
+    },
+    {
+        "start": 496.15999999999997,
+        "end": 503.2,
+        "text": "password is route and route like so if I press save now we can see that it's going to connect and we"
+    },
+    {
+        "start": 503.2,
+        "end": 508.08,
+        "text": "can go under databases and we'll see New York taxi comes up under schemas and public we'll be"
+    },
+    {
+        "start": 508.08,
+        "end": 513.6,
+        "text": "able to go to tables and we'll see that we have a new table that is set up for the green data"
+    },
+    {
+        "start": 513.6800000000001,
+        "end": 519.44,
+        "text": "and we can see that it's got all those columns set up like we expected but there is in fact no data"
+    },
+    {
+        "start": 519.44,
+        "end": 523.84,
+        "text": "in it which makes sense because if we look at the workflow all we've done is create a table for the"
+    },
+    {
+        "start": 523.84,
+        "end": 528.72,
+        "text": "green data set which you can see here now let's do the same thing for the staging table we're going"
+    },
+    {
+        "start": 528.72,
+        "end": 534.08,
+        "text": "to create one of those as well we can add that task in like so the staging table looks quite similar"
+    },
+    {
+        "start": 534.08,
+        "end": 538.48,
+        "text": "where it's going to have a lot of those same columns because we want to be able to merge these tables"
+    },
+    {
+        "start": 538.96,
+        "end": 544.96,
+        "text": "so same thing but instead we're using the staging table variable here rather than table now for"
+    },
+    {
+        "start": 544.96,
+        "end": 549.44,
+        "text": "our staging table to be successful we need to make sure that we truncate it which means basically"
+    },
+    {
+        "start": 549.44,
+        "end": 555.12,
+        "text": "removing all the rows from that table before we start adding new data because the whole idea is"
+    },
+    {
+        "start": 555.12,
+        "end": 560.24,
+        "text": "to staging tables only going to have data in it when we're running this workflow so that we only"
+    },
+    {
+        "start": 560.24,
+        "end": 565.36,
+        "text": "have that month we load in we can add the unique idea of file name and then we can do a merge"
+    },
+    {
+        "start": 565.36,
+        "end": 570.72,
+        "text": "between our staging table and the final table now that we've got our tables set up and we know"
+    },
+    {
+        "start": 570.72,
+        "end": 576.24,
+        "text": "that there's no data in them now we can use the copy in task to take that CSV file and load it"
+    },
+    {
+        "start": 576.24,
+        "end": 582.64,
+        "text": "into the database so what we can see here is we've told it what columns the CSV file has we've"
+    },
+    {
+        "start": 582.64,
+        "end": 589.52,
+        "text": "passed in an expression here with that CSV file and we've told it which table to target it knows"
+    },
+    {
+        "start": 589.68,
+        "end": 595.84,
+        "text": "it's a CSV format but we could also use other formats such as parquet or Jason so now if I execute"
+    },
+    {
+        "start": 595.84,
+        "end": 602.16,
+        "text": "this workflow for the 2019 January what we'll see here is it's able to copy that data in and if I"
+    },
+    {
+        "start": 602.16,
+        "end": 608.4,
+        "text": "now go into here and we just give this a refresh we'll see that there are now two tables and we can"
+    },
+    {
+        "start": 608.4,
+        "end": 613.84,
+        "text": "now also view the staging table we can see it's added a load of data now and the CSV file is now"
+    },
+    {
+        "start": 613.9200000000001,
+        "end": 619.9200000000001,
+        "text": "stored inside of our Postgres database but you'll notice a key thing unique row ID and file name"
+    },
+    {
+        "start": 619.9200000000001,
+        "end": 625.6800000000001,
+        "text": "are null because they weren't in the CSV file and if we have a look at the workflow what we did"
+    },
+    {
+        "start": 625.6800000000001,
+        "end": 630.88,
+        "text": "here was we didn't we didn't specify what to do for those columns because well they didn't exist"
+    },
+    {
+        "start": 630.88,
+        "end": 636.64,
+        "text": "so it's mapped the columns appropriately to the database from the CSV file but it's left those"
+    },
+    {
+        "start": 636.64,
+        "end": 642.32,
+        "text": "null so now we need to add a task to add those in based on the information in the database and"
+    },
+    {
+        "start": 642.32,
+        "end": 648.4000000000001,
+        "text": "this is the transformation step so now we've got a queries task we're going to run a number of"
+    },
+    {
+        "start": 648.4000000000001,
+        "end": 654.32,
+        "text": "SQL queries we're specifying they were updating our staging table and then here we're creating a"
+    },
+    {
+        "start": 654.32,
+        "end": 660.48,
+        "text": "unique ID that uses all of these different properties and basically makes an MD5 hash off of them"
+    },
+    {
+        "start": 660.48,
+        "end": 666.5600000000001,
+        "text": "which means it will be unique with these properties and then the file name is just the file name that"
+    },
+    {
+        "start": 667.28,
+        "end": 672.3199999999999,
+        "text": "we used which we have conveniently stored as a variable so now if I execute this workflow what we'll"
+    },
+    {
+        "start": 672.3199999999999,
+        "end": 678.4799999999999,
+        "text": "see is in PG admin if I will run that query again to get all this data which I can do by clicking"
+    },
+    {
+        "start": 678.4799999999999,
+        "end": 683.4399999999999,
+        "text": "execute script we can see we now have a unique row ID and a file name which match up to what we"
+    },
+    {
+        "start": 683.4399999999999,
+        "end": 688.4799999999999,
+        "text": "expect this now means we've done the extraction and the transformation step and all we've got to do"
+    },
+    {
+        "start": 688.4799999999999,
+        "end": 694.56,
+        "text": "now is load that data into our final table in Postgres which we're going to do using a merge"
+    },
+    {
+        "start": 694.56,
+        "end": 699.76,
+        "text": "so here we're going to merge into the main table using the staging table and then what we're going"
+    },
+    {
+        "start": 699.76,
+        "end": 706.9599999999999,
+        "text": "to do is specify how it should merge those tables together we can tell it which columns we wanted to"
+    },
+    {
+        "start": 706.9599999999999,
+        "end": 713.92,
+        "text": "insert with what values from the staging table so now if I execute this workflow we'll see this"
+    },
+    {
+        "start": 713.92,
+        "end": 719.1999999999999,
+        "text": "happen so now if I execute this workflow we'll see that it's going to be able to create data inside"
+    },
+    {
+        "start": 719.2800000000001,
+        "end": 725.0400000000001,
+        "text": "of the final table which we can see it hasn't done just yet but once that workflow has finished"
+    },
+    {
+        "start": 725.0400000000001,
+        "end": 730.32,
+        "text": "which it has now we can see it's merged all that data in but if I execute this again but now select"
+    },
+    {
+        "start": 730.32,
+        "end": 735.12,
+        "text": "the month as February we will see that it's going to do it again but the number of rows will get"
+    },
+    {
+        "start": 735.12,
+        "end": 741.0400000000001,
+        "text": "longer so here we've got about 630,000 rows but once our workflow has finished and I run this again"
+    },
+    {
+        "start": 741.0400000000001,
+        "end": 745.44,
+        "text": "we'll see that it's now going to have nearly double that because it's got two months worth of"
+    },
+    {
+        "start": 745.44,
+        "end": 750.08,
+        "text": "data here and we can actually see if I go to the last one we can see that these are from the"
+    },
+    {
+        "start": 750.08,
+        "end": 756.08,
+        "text": "February file and these ones are from the January file so we've created a data pipeline we've got"
+    },
+    {
+        "start": 756.08,
+        "end": 760.72,
+        "text": "the green data where we're able to run this for every month and combine it all together"
+    },
+    {
+        "start": 761.2800000000001,
+        "end": 766.8800000000001,
+        "text": "but we can only do it for the green data because annoyingly the yellow data doesn't quite follow"
+    },
+    {
+        "start": 766.8800000000001,
+        "end": 772.1600000000001,
+        "text": "the same structure as the green data so if we were to select yellow here it's going to fail"
+    },
+    {
+        "start": 772.24,
+        "end": 777.8399999999999,
+        "text": "and you'll see why because the columns that we're putting in the database don't exist in the CSV"
+    },
+    {
+        "start": 777.8399999999999,
+        "end": 782.64,
+        "text": "file now as you can see it didn't quite work as expected because it created all our tables it"
+    },
+    {
+        "start": 782.64,
+        "end": 787.4399999999999,
+        "text": "truncated them but then when you try to actually copy the data in it ran into an issue where"
+    },
+    {
+        "start": 788.0,
+        "end": 793.12,
+        "text": "the columns didn't exist it didn't know what data to put in trip time because those CSV files"
+    },
+    {
+        "start": 793.12,
+        "end": 798.9599999999999,
+        "text": "are structured differently so now we need to modify our workflow to do different things depending"
+    },
+    {
+        "start": 798.96,
+        "end": 804.0,
+        "text": "on whether green or yellow are selected and that's where the wonderful if task comes in so now"
+    },
+    {
+        "start": 804.0,
+        "end": 810.72,
+        "text": "if I go to the topology view I've got two sets of tasks I've got an if statement here that is going"
+    },
+    {
+        "start": 810.72,
+        "end": 816.32,
+        "text": "to take the data if yellow and do exactly the same stuff but for the structure of the yellow data"
+    },
+    {
+        "start": 816.32,
+        "end": 821.6,
+        "text": "and then the same for the green these tasks are very very similar in how they are structured as"
+    },
+    {
+        "start": 821.6,
+        "end": 826.8000000000001,
+        "text": "you'll see we can see here that the yellow table has a few different properties it has tpep rather"
+    },
+    {
+        "start": 827.76,
+        "end": 831.92,
+        "text": "so it's just a little bit different how it's structured but it fundamentally is doing the same"
+    },
+    {
+        "start": 831.92,
+        "end": 837.5999999999999,
+        "text": "stuff are creating a staging table it's going to truncate it load the data in and then it's going"
+    },
+    {
+        "start": 837.5999999999999,
+        "end": 842.4,
+        "text": "to add the unique IDs and then merge it all together I've also added one last task here called"
+    },
+    {
+        "start": 842.4,
+        "end": 848.0799999999999,
+        "text": "purge files because every time we run this workflow it's downloading a CSV file and then storing"
+    },
+    {
+        "start": 848.0799999999999,
+        "end": 853.1999999999999,
+        "text": "that in the execution history which means the more times we run this and the more we play around with"
+    },
+    {
+        "start": 853.6,
+        "end": 859.5200000000001,
+        "text": "the more it's storing this large CSV file so instead what we can do here is just purge this at the"
+    },
+    {
+        "start": 859.5200000000001,
+        "end": 863.6800000000001,
+        "text": "end of each execution rather than dealing with this again something else we can add as well is"
+    },
+    {
+        "start": 863.6800000000001,
+        "end": 868.6400000000001,
+        "text": "task cache to enabled which means every time it downloads the file if it's already got the file"
+    },
+    {
+        "start": 868.6400000000001,
+        "end": 874.48,
+        "text": "it will just use that again so here I can run for the green data set and we can see here that when"
+    },
+    {
+        "start": 874.48,
+        "end": 879.84,
+        "text": "it extracts it's able to just use the cache from previously so you could decide to purge your files"
+    },
+    {
+        "start": 879.84,
+        "end": 884.96,
+        "text": "or you could decide to enable cache up to you but as you can see it allows the workflow to run"
+    },
+    {
+        "start": 884.96,
+        "end": 890.48,
+        "text": "really really quickly when you have that option enabled so hopefully you've built your very first"
+    },
+    {
+        "start": 890.48,
+        "end": 896.1600000000001,
+        "text": "ETL pipeline using a Postgres database in the next video we're going to learn how we can automate"
+    },
+    {
+        "start": 896.1600000000001,
+        "end": 901.6,
+        "text": "that process so when a new month of data turns up we can automatically process it and merge it into"
+    },
+    {
+        "start": 901.6,
+        "end": 907.84,
+        "text": "that final table using processes such as scheduling and backfills and then afterwards we're going to"
+    },
+    {
+        "start": 907.84,
+        "end": 912.96,
+        "text": "look at how we can then automate it further by utilizing the cloud to take it a step further"
+    }
+]

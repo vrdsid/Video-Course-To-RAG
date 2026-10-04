@@ -1,0 +1,147 @@
+[
+    {
+        "start": 0.0,
+        "end": 6.72,
+        "text": "What is Kestra? Now Kestra is an open source infinitely scalable orchestration platform that enables"
+    },
+    {
+        "start": 6.72,
+        "end": 11.84,
+        "text": "all types of engineers to manage business critical workflows. Now why Kestra is a great choice for"
+    },
+    {
+        "start": 11.84,
+        "end": 17.6,
+        "text": "workflow orchestration is because you can build your workflows as code, no code or with AI."
+    },
+    {
+        "start": 17.6,
+        "end": 21.76,
+        "text": "And you can do all three of these things interchangeably. You can start by building your workflow"
+    },
+    {
+        "start": 21.76,
+        "end": 26.96,
+        "text": "in flow code. You can then transition to editing it with the no code editor. And then if you're not"
+    },
+    {
+        "start": 26.96,
+        "end": 31.92,
+        "text": "sure about adding an extra bit of functionality at the end, you can go and ask the AI co-pilot to"
+    },
+    {
+        "start": 31.92,
+        "end": 37.68,
+        "text": "add it for you. Kestra also has a humongous plugin library. When I say humongous, I mean over a"
+    },
+    {
+        "start": 37.68,
+        "end": 42.88,
+        "text": "thousand dedicated plugins, which means you can connect Kestra to all of your favorite tools."
+    },
+    {
+        "start": 42.88,
+        "end": 48.24,
+        "text": "In this case, we're going to be connecting to things like Postgres, Google Cloud, as well as Python."
+    },
+    {
+        "start": 48.24,
+        "end": 53.68,
+        "text": "And on the topic of Python, Kestra is actually language agnostic. Some orchestration platforms are"
+    },
+    {
+        "start": 53.68,
+        "end": 59.12,
+        "text": "only able to run Python, which is a great choice for a lot of use cases, but doesn't necessarily"
+    },
+    {
+        "start": 59.12,
+        "end": 65.03999999999999,
+        "text": "mean it's always the right tool for the job. Being language agnostic means if you need performance,"
+    },
+    {
+        "start": 65.03999999999999,
+        "end": 68.88,
+        "text": "you could use a language like Go or C. Whereas if you need something that's maybe quicker to be"
+    },
+    {
+        "start": 68.88,
+        "end": 74.08,
+        "text": "able to write something together, then Python might be a good choice. And so having that option to"
+    },
+    {
+        "start": 74.08,
+        "end": 78.48,
+        "text": "pick a language that's good for the job, rather than the one that your orchestration uses,"
+    },
+    {
+        "start": 78.48,
+        "end": 83.44,
+        "text": "gives you a lot of options. And on top of all of this, Kestra gives you full visibility into your"
+    },
+    {
+        "start": 83.44,
+        "end": 88.88,
+        "text": "workflows. With detailed logging, you can easily see what's going on in your workflows. You can set"
+    },
+    {
+        "start": 88.88,
+        "end": 94.48,
+        "text": "up error-alerting too to notify you when things do go wrong, so you can jump in and fix them when"
+    },
+    {
+        "start": 94.48,
+        "end": 100.0,
+        "text": "needed. And lastly, an orchestrator wouldn't be an orchestrator without the ability to manage how"
+    },
+    {
+        "start": 100.0,
+        "end": 105.52,
+        "text": "your executions of your workflows start. Kestra has support for both schedule and event-based triggers,"
+    },
+    {
+        "start": 105.52,
+        "end": 109.75999999999999,
+        "text": "which means you have the option to decide how these workflows start. Whether that's a nightly job"
+    },
+    {
+        "start": 109.84,
+        "end": 116.16000000000001,
+        "text": "running overnight, or you have it set up where data arrives in your data lake or storage bucket,"
+    },
+    {
+        "start": 116.16000000000001,
+        "end": 120.88000000000001,
+        "text": "and you can automatically start your workflows based on that. So with all of this combined,"
+    },
+    {
+        "start": 120.88000000000001,
+        "end": 125.52000000000001,
+        "text": "this is what makes Kestra a fantastic choice for building data pipelines. And why we're going to"
+    },
+    {
+        "start": 125.52000000000001,
+        "end": 130.48000000000002,
+        "text": "be using it for this module to build our very own ETL pipeline. Hopefully this has helped you"
+    },
+    {
+        "start": 130.48000000000002,
+        "end": 136.0,
+        "text": "understand what makes Kestra different from other orchestration tools, or even just a traditional"
+    },
+    {
+        "start": 136.0,
+        "end": 140.72,
+        "text": "cron job. In the next video inside of part two, I'm going to walk you through the various concepts"
+    },
+    {
+        "start": 140.72,
+        "end": 146.08,
+        "text": "to build your own workflows inside of Kestra. So I'd make sure you check that out, and then we can"
+    },
+    {
+        "start": 146.08,
+        "end": 148.8,
+        "text": "build our very first ETL pipeline."
+    }
+]

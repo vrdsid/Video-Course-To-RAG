@@ -1,0 +1,6752 @@
+[
+    {
+        "start": 0.0,
+        "end": 9.6,
+        "text": "And now, hi everyone, welcome to our course lunch of the Data Engineering Zoom Cam 2026."
+    },
+    {
+        "start": 9.6,
+        "end": 14.56,
+        "text": "For me, it's always exciting because this is our most popular course."
+    },
+    {
+        "start": 14.56,
+        "end": 17.28,
+        "text": "And it's always crazy right now."
+    },
+    {
+        "start": 17.28,
+        "end": 21.04,
+        "text": "It's 1,300 people joining life."
+    },
+    {
+        "start": 21.04,
+        "end": 26.44,
+        "text": "So we usually don't get so much attention in our other courses."
+    },
+    {
+        "start": 26.44,
+        "end": 30.040000000000003,
+        "text": "So for me, it's very pleasant, but also like I'm a bit nervous."
+    },
+    {
+        "start": 30.040000000000003,
+        "end": 31.8,
+        "text": "So it's a lot of attention."
+    },
+    {
+        "start": 31.8,
+        "end": 35.56,
+        "text": "So the plan for the day is actually I prepared some slides."
+    },
+    {
+        "start": 35.56,
+        "end": 44.6,
+        "text": "But typically the session slide today, what we do is I spend most of the time talking about the course."
+    },
+    {
+        "start": 44.6,
+        "end": 48.040000000000006,
+        "text": "But this year I decided to take a slightly different approach."
+    },
+    {
+        "start": 48.040000000000006,
+        "end": 55.040000000000006,
+        "text": "So this year, what I want to do is I want to, I prepared most of the things that I'm talking about usually."
+    },
+    {
+        "start": 55.04,
+        "end": 59.68,
+        "text": "So actually today, this lounge is going to be the fifth edition."
+    },
+    {
+        "start": 59.68,
+        "end": 65.28,
+        "text": "So it's in the sorts anniversary edition of sorts."
+    },
+    {
+        "start": 65.28,
+        "end": 69.72,
+        "text": "I've been doing this for quite a few years, also,"
+    },
+    {
+        "start": 69.72,
+        "end": 71.96000000000001,
+        "text": "around launching other courses."
+    },
+    {
+        "start": 71.96000000000001,
+        "end": 73.56,
+        "text": "So it feels a bit repetitive."
+    },
+    {
+        "start": 73.56,
+        "end": 78.2,
+        "text": "But what I really enjoy about this sessions is the Q&A session attempt,"
+    },
+    {
+        "start": 78.2,
+        "end": 82.16,
+        "text": "where you get to ask me things and I answer these things."
+    },
+    {
+        "start": 82.16,
+        "end": 85.28,
+        "text": "So what we are going to do today is I'll briefly go through the slides,"
+    },
+    {
+        "start": 85.28,
+        "end": 89.0,
+        "text": "but I will not spend as much time as I usually do on them."
+    },
+    {
+        "start": 89.0,
+        "end": 96.28,
+        "text": "But instead, what this year, what we have this year is this documentation."
+    },
+    {
+        "start": 96.28,
+        "end": 102.24,
+        "text": "So in this documentation, everything I typically cover in the course lounge is already included."
+    },
+    {
+        "start": 102.24,
+        "end": 104.96,
+        "text": "So I'm going to add it here."
+    },
+    {
+        "start": 104.96,
+        "end": 107.08,
+        "text": "So I'm going to put it in the live chat."
+    },
+    {
+        "start": 107.08,
+        "end": 110.12,
+        "text": "And I'm also going to, if you're watching this in the recording,"
+    },
+    {
+        "start": 110.12,
+        "end": 114.04,
+        "text": "you will find this in the description to the video."
+    },
+    {
+        "start": 114.04,
+        "end": 119.08000000000001,
+        "text": "So I have also links.com."
+    },
+    {
+        "start": 121.88000000000001,
+        "end": 127.96000000000001,
+        "text": "So most of the stuff I usually talk about on this stream"
+    },
+    {
+        "start": 127.96000000000001,
+        "end": 129.36,
+        "text": "is going to be in this recommendation."
+    },
+    {
+        "start": 129.36,
+        "end": 136.56,
+        "text": "So we will spend most of the time actually answering your question."
+    },
+    {
+        "start": 136.56,
+        "end": 138.72,
+        "text": "You cannot hear me."
+    },
+    {
+        "start": 138.72,
+        "end": 140.44,
+        "text": "I hope others can hear me."
+    },
+    {
+        "start": 140.44,
+        "end": 143.35999999999999,
+        "text": "Can you please confirm that the sound works?"
+    },
+    {
+        "start": 143.35999999999999,
+        "end": 144.16,
+        "text": "Awesome."
+    },
+    {
+        "start": 146.36,
+        "end": 148.56,
+        "text": "OK, but let's start with the slides."
+    },
+    {
+        "start": 148.56,
+        "end": 153.2,
+        "text": "So I have some slides and we'll go through the slides,"
+    },
+    {
+        "start": 153.2,
+        "end": 157.52,
+        "text": "but I also want to go through this documentation platform or the recommendation"
+    },
+    {
+        "start": 157.52,
+        "end": 159.04,
+        "text": "or call website, whatever."
+    },
+    {
+        "start": 159.04,
+        "end": 163.07999999999998,
+        "text": "Where most of the documentation, most of the things you need for this course,"
+    },
+    {
+        "start": 163.07999999999998,
+        "end": 164.68,
+        "text": "this is where it is."
+    },
+    {
+        "start": 165.20000000000002,
+        "end": 168.72,
+        "text": "But anyways, well, welcome to this edition of the course."
+    },
+    {
+        "start": 168.72,
+        "end": 171.16,
+        "text": "It's the fifth edition."
+    },
+    {
+        "start": 171.16,
+        "end": 174.12,
+        "text": "And the plan for the day is we'll talk about the course."
+    },
+    {
+        "start": 174.12,
+        "end": 175.64000000000001,
+        "text": "We'll talk about the course team."
+    },
+    {
+        "start": 175.64000000000001,
+        "end": 176.96,
+        "text": "And this is huge."
+    },
+    {
+        "start": 176.96,
+        "end": 180.24,
+        "text": "There are so many people who have been involved in the course"
+    },
+    {
+        "start": 180.24,
+        "end": 181.96,
+        "text": "when I was preparing the slides today."
+    },
+    {
+        "start": 181.96,
+        "end": 184.96,
+        "text": "Slides today I was really amazed."
+    },
+    {
+        "start": 184.96,
+        "end": 187.16,
+        "text": "Then we'll talk about logistics."
+    },
+    {
+        "start": 187.16,
+        "end": 189.36,
+        "text": "And then most of the stuff, most of the time,"
+    },
+    {
+        "start": 189.36,
+        "end": 190.84,
+        "text": "we'll spend on questions."
+    },
+    {
+        "start": 190.84,
+        "end": 193.88,
+        "text": "So I want to start with the current course team."
+    },
+    {
+        "start": 193.88,
+        "end": 196.44,
+        "text": "So these are the people you see."
+    },
+    {
+        "start": 196.44,
+        "end": 204.56,
+        "text": "And there are links in the course repository."
+    },
+    {
+        "start": 204.56,
+        "end": 206.92,
+        "text": "You can read more about us."
+    },
+    {
+        "start": 206.92,
+        "end": 214.56,
+        "text": "I don't want to spend too much time, but I want to assure you that we are all professional"
+    },
+    {
+        "start": 214.56,
+        "end": 215.68,
+        "text": "educators."
+    },
+    {
+        "start": 215.68,
+        "end": 221.4,
+        "text": "And I'll just briefly describe everyone who you see here."
+    },
+    {
+        "start": 221.4,
+        "end": 228.64000000000001,
+        "text": "So Michael has been a very active contributor to the course since day one."
+    },
+    {
+        "start": 228.64000000000001,
+        "end": 232.48000000000002,
+        "text": "So he took the first edition of the course as a student."
+    },
+    {
+        "start": 232.48000000000002,
+        "end": 237.24,
+        "text": "And then he stayed to support the course."
+    },
+    {
+        "start": 237.24,
+        "end": 238.24,
+        "text": "So thanks a lot."
+    },
+    {
+        "start": 238.24,
+        "end": 240.8,
+        "text": "I don't know if Michael you're listening to this right now."
+    },
+    {
+        "start": 240.8,
+        "end": 242.76,
+        "text": "Thanks a lot for all your contributions."
+    },
+    {
+        "start": 242.76,
+        "end": 245.24,
+        "text": "Then you see me."
+    },
+    {
+        "start": 245.24,
+        "end": 247.68,
+        "text": "I'm the founder of the data.slub."
+    },
+    {
+        "start": 247.68,
+        "end": 251.84,
+        "text": "Also they lead an instructor for this course and for many other courses."
+    },
+    {
+        "start": 251.84,
+        "end": 254.6,
+        "text": "And then we see will and Anna."
+    },
+    {
+        "start": 254.6,
+        "end": 261.76,
+        "text": "So we'll and Anna they are going to take care of the."
+    },
+    {
+        "start": 261.76,
+        "end": 264.68,
+        "text": "They're going to take care of the work for station model."
+    },
+    {
+        "start": 264.68,
+        "end": 270.16,
+        "text": "And then who on and the Anna they are going to take care of the analytics engineering"
+    },
+    {
+        "start": 270.16,
+        "end": 271.76,
+        "text": "module."
+    },
+    {
+        "start": 271.76,
+        "end": 276.92,
+        "text": "And there are so many people who took part as course instructors, as course supporters,"
+    },
+    {
+        "start": 276.92,
+        "end": 278.92,
+        "text": "teaching assistants in the past."
+    },
+    {
+        "start": 278.92,
+        "end": 285.08000000000004,
+        "text": "You see all the faces here and I want to start with Victoria and Coushe and C\u00e9gelle."
+    },
+    {
+        "start": 285.08000000000004,
+        "end": 288.24,
+        "text": "So this was the."
+    },
+    {
+        "start": 288.24,
+        "end": 290.24,
+        "text": "First edition core team."
+    },
+    {
+        "start": 290.24,
+        "end": 293.44,
+        "text": "So this are the people who started the course."
+    },
+    {
+        "start": 293.44,
+        "end": 299.6,
+        "text": "So thanks to these three people we're all right now here talking."
+    },
+    {
+        "start": 299.6,
+        "end": 306.40000000000003,
+        "text": "And then which he was also like Michael the student of the first cohort Bruno was the student"
+    },
+    {
+        "start": 306.4,
+        "end": 311.2,
+        "text": "of the second and third cohort and then he helped as a teaching assistant."
+    },
+    {
+        "start": 311.2,
+        "end": 316.64,
+        "text": "Irem she was a student at the first edition and then she helped as an instructor and then"
+    },
+    {
+        "start": 316.64,
+        "end": 319.59999999999997,
+        "text": "Zach took part last year."
+    },
+    {
+        "start": 319.59999999999997,
+        "end": 325.2,
+        "text": "But this is just this is my nominance and extensive list of people."
+    },
+    {
+        "start": 325.2,
+        "end": 328.2,
+        "text": "So there are more people who contributed."
+    },
+    {
+        "start": 328.2,
+        "end": 330.84,
+        "text": "You will see them in commit history."
+    },
+    {
+        "start": 330.84,
+        "end": 334.67999999999995,
+        "text": "You may see some of them in the past videos."
+    },
+    {
+        "start": 334.68,
+        "end": 341.76,
+        "text": "If you're going to take a look at the past editions and I want to say thanks to all everyone"
+    },
+    {
+        "start": 341.76,
+        "end": 344.96,
+        "text": "who wasn't involved in this."
+    },
+    {
+        "start": 344.96,
+        "end": 347.2,
+        "text": "Yeah, so that's the course team."
+    },
+    {
+        "start": 347.2,
+        "end": 348.92,
+        "text": "Thanks everyone."
+    },
+    {
+        "start": 348.92,
+        "end": 356.76,
+        "text": "And the next thing I want to cover is the course itself and I want to start with the prequests."
+    },
+    {
+        "start": 356.76,
+        "end": 359.56,
+        "text": "And prequests are."
+    },
+    {
+        "start": 359.56,
+        "end": 362.16,
+        "text": "So you basically need to be comfortable with programming."
+    },
+    {
+        "start": 362.16,
+        "end": 363.64,
+        "text": "That's the main."
+    },
+    {
+        "start": 363.64,
+        "end": 371.64,
+        "text": "So you need to know how to use the comment line to you need to know basic constructs language"
+    },
+    {
+        "start": 371.64,
+        "end": 378.03999999999996,
+        "text": "programming language constructs like conditions conditional statements for loops while loops things"
+    },
+    {
+        "start": 378.03999999999996,
+        "end": 379.03999999999996,
+        "text": "like that."
+    },
+    {
+        "start": 379.03999999999996,
+        "end": 381.47999999999996,
+        "text": "It doesn't have to be Python."
+    },
+    {
+        "start": 381.47999999999996,
+        "end": 386.64,
+        "text": "But typically if you're an experienced programmer in one of the language picking up Python quickly"
+    },
+    {
+        "start": 386.64,
+        "end": 389.08,
+        "text": "is not a problem."
+    },
+    {
+        "start": 389.08,
+        "end": 392.47999999999996,
+        "text": "But probably most of you already know Python or shoot."
+    },
+    {
+        "start": 392.48,
+        "end": 396.88,
+        "text": "And then we also expected you know some SQL so that it's not you're not starting completely"
+    },
+    {
+        "start": 396.88,
+        "end": 399.44,
+        "text": "from scratch."
+    },
+    {
+        "start": 399.44,
+        "end": 403.76,
+        "text": "We will have a unit about SQL which we call SQL refresher."
+    },
+    {
+        "start": 403.76,
+        "end": 408.24,
+        "text": "If you don't know SQL, maybe it'd be difficult for you."
+    },
+    {
+        "start": 408.24,
+        "end": 415.04,
+        "text": "But yeah, with chat to be here and other AI systems, I think you manage if you are willing"
+    },
+    {
+        "start": 415.04,
+        "end": 416.28000000000003,
+        "text": "to put enough time."
+    },
+    {
+        "start": 416.28000000000003,
+        "end": 417.52000000000004,
+        "text": "But these are the prequests."
+    },
+    {
+        "start": 417.52,
+        "end": 423.68,
+        "text": "So if some of these things are missing or absent and it's still okay to take the course,"
+    },
+    {
+        "start": 423.68,
+        "end": 426.68,
+        "text": "but be prepared to for it to be difficult."
+    },
+    {
+        "start": 426.68,
+        "end": 427.68,
+        "text": "Right."
+    },
+    {
+        "start": 427.68,
+        "end": 428.68,
+        "text": "It's not an easy course."
+    },
+    {
+        "start": 428.68,
+        "end": 431.47999999999996,
+        "text": "It's not a completely beginner friendly course."
+    },
+    {
+        "start": 431.47999999999996,
+        "end": 433.76,
+        "text": "We expect you to know some things."
+    },
+    {
+        "start": 433.76,
+        "end": 434.76,
+        "text": "Right."
+    },
+    {
+        "start": 434.76,
+        "end": 439.88,
+        "text": "So and for you, a good test would be the first module."
+    },
+    {
+        "start": 439.88,
+        "end": 444.35999999999996,
+        "text": "So if you can go through the Docker session and things work, then you're ready for the"
+    },
+    {
+        "start": 444.35999999999996,
+        "end": 445.35999999999996,
+        "text": "course."
+    },
+    {
+        "start": 445.36,
+        "end": 451.12,
+        "text": "But things don't work, but you are able to figure this out like debug things with"
+    },
+    {
+        "start": 451.12,
+        "end": 454.24,
+        "text": "Chagy with he used Google to look up things."
+    },
+    {
+        "start": 454.24,
+        "end": 456.0,
+        "text": "Then you're also ready for the course."
+    },
+    {
+        "start": 456.0,
+        "end": 461.96000000000004,
+        "text": "But if you get stuck and you don't know what to do and you ask for help and people reply,"
+    },
+    {
+        "start": 461.96000000000004,
+        "end": 467.72,
+        "text": "people help, but still does make sense, then probably you need to take a year off to study"
+    },
+    {
+        "start": 467.72,
+        "end": 471.96000000000004,
+        "text": "fundamentals and then come back next year."
+    },
+    {
+        "start": 471.96,
+        "end": 474.71999999999997,
+        "text": "And of course, we don't require any experience with that engineering."
+    },
+    {
+        "start": 474.71999999999997,
+        "end": 477.96,
+        "text": "This is what we will learn here."
+    },
+    {
+        "start": 477.96,
+        "end": 478.96,
+        "text": "Okay."
+    },
+    {
+        "start": 478.96,
+        "end": 483.96,
+        "text": "And what you see here is the most important page that you will see."
+    },
+    {
+        "start": 483.96,
+        "end": 485.71999999999997,
+        "text": "So this is our GitHub repo."
+    },
+    {
+        "start": 485.71999999999997,
+        "end": 489.52,
+        "text": "I'm going to send the link now to this repo."
+    },
+    {
+        "start": 489.52,
+        "end": 491.76,
+        "text": "So this is where all the content is."
+    },
+    {
+        "start": 491.76,
+        "end": 497.56,
+        "text": "So this is like the main out, say gateway to the course content in a way."
+    },
+    {
+        "start": 497.56,
+        "end": 499.47999999999996,
+        "text": "I put the link here."
+    },
+    {
+        "start": 499.48,
+        "end": 501.48,
+        "text": "It doesn't appear yet."
+    },
+    {
+        "start": 501.48,
+        "end": 504.68,
+        "text": "I need to do it one more time."
+    },
+    {
+        "start": 504.68,
+        "end": 511.16,
+        "text": "I don't know why it's not appearing, but I will also put it in here in the description."
+    },
+    {
+        "start": 511.16,
+        "end": 519.24,
+        "text": "So here if you click here, you will see or here."
+    },
+    {
+        "start": 519.24,
+        "end": 520.28,
+        "text": "Okay."
+    },
+    {
+        "start": 520.28,
+        "end": 527.28,
+        "text": "So this is one."
+    },
+    {
+        "start": 528.28,
+        "end": 530.28,
+        "text": "Okay."
+    },
+    {
+        "start": 530.28,
+        "end": 533.4399999999999,
+        "text": "So this is our GitHub page."
+    },
+    {
+        "start": 533.4399999999999,
+        "end": 541.12,
+        "text": "And the first thing I want to ask you is everyone 100, 1,700 people who are watching"
+    },
+    {
+        "start": 541.12,
+        "end": 542.8399999999999,
+        "text": "it right now."
+    },
+    {
+        "start": 542.8399999999999,
+        "end": 547.1999999999999,
+        "text": "Please click on this link and then there is this star button."
+    },
+    {
+        "start": 547.1999999999999,
+        "end": 555.1999999999999,
+        "text": "So I want to ask you all to log in with your GitHub if you haven't logged in and give"
+    },
+    {
+        "start": 555.1999999999999,
+        "end": 557.04,
+        "text": "us star."
+    },
+    {
+        "start": 557.28,
+        "end": 563.8399999999999,
+        "text": "I want to explain why it's an important thing because when everyone does this, the course"
+    },
+    {
+        "start": 563.8399999999999,
+        "end": 568.04,
+        "text": "will get into GitHub trending and other people will discover it."
+    },
+    {
+        "start": 568.04,
+        "end": 569.04,
+        "text": "The course is free."
+    },
+    {
+        "start": 569.04,
+        "end": 570.04,
+        "text": "It's very valuable."
+    },
+    {
+        "start": 570.04,
+        "end": 572.12,
+        "text": "Many people found it very useful."
+    },
+    {
+        "start": 572.12,
+        "end": 578.68,
+        "text": "So I want you to ask you to help us promote the course."
+    },
+    {
+        "start": 578.68,
+        "end": 582.4,
+        "text": "And the simple thing you can do is click the star."
+    },
+    {
+        "start": 582.4,
+        "end": 584.7199999999999,
+        "text": "The star button, you'll start it."
+    },
+    {
+        "start": 584.72,
+        "end": 590.1600000000001,
+        "text": "It's also useful bookmark, but it will get into GitHub trends and other people will know"
+    },
+    {
+        "start": 590.1600000000001,
+        "end": 591.36,
+        "text": "about this."
+    },
+    {
+        "start": 591.36,
+        "end": 596.5600000000001,
+        "text": "So I'll give you 10 seconds."
+    },
+    {
+        "start": 596.5600000000001,
+        "end": 602.5600000000001,
+        "text": "Please do it."
+    },
+    {
+        "start": 602.5600000000001,
+        "end": 605.5600000000001,
+        "text": "And then we will continue."
+    },
+    {
+        "start": 605.5600000000001,
+        "end": 609.84,
+        "text": "Yeah."
+    },
+    {
+        "start": 609.84,
+        "end": 613.32,
+        "text": "Thank you everyone for starting it."
+    },
+    {
+        "start": 613.32,
+        "end": 620.32,
+        "text": "So when I refresh, I expect to see 36,000 what?"
+    },
+    {
+        "start": 620.32,
+        "end": 625.32,
+        "text": "500."
+    },
+    {
+        "start": 625.32,
+        "end": 629.6400000000001,
+        "text": "You're like 1000 is missing."
+    },
+    {
+        "start": 629.6400000000001,
+        "end": 633.4000000000001,
+        "text": "So please do this."
+    },
+    {
+        "start": 633.4000000000001,
+        "end": 637.4000000000001,
+        "text": "It's going to really help the course."
+    },
+    {
+        "start": 637.4000000000001,
+        "end": 640.4000000000001,
+        "text": "Okay."
+    },
+    {
+        "start": 641.4,
+        "end": 649.56,
+        "text": "Anyways, while you're all busy giving the stars, I will continue with this repo."
+    },
+    {
+        "start": 649.56,
+        "end": 654.56,
+        "text": "So what you see in this repo is, well, you immediately see the structure."
+    },
+    {
+        "start": 654.56,
+        "end": 658.68,
+        "text": "So these are our modules from 1 to 6."
+    },
+    {
+        "start": 658.68,
+        "end": 660.88,
+        "text": "And you also see some navigation here."
+    },
+    {
+        "start": 660.88,
+        "end": 661.88,
+        "text": "Right?"
+    },
+    {
+        "start": 661.88,
+        "end": 665.68,
+        "text": "So if you scroll down, you'll see modules, module number 1, 2."
+    },
+    {
+        "start": 665.68,
+        "end": 670.4399999999999,
+        "text": "Also have a workshop, module number 3, 4, 5, 6, and projects."
+    },
+    {
+        "start": 670.4399999999999,
+        "end": 674.4399999999999,
+        "text": "So this is the basic structure, but you also see it here in folders."
+    },
+    {
+        "start": 674.4399999999999,
+        "end": 679.4399999999999,
+        "text": "And the way it works is the content or the modules is inside this folder."
+    },
+    {
+        "start": 679.4399999999999,
+        "end": 685.64,
+        "text": "So right now we are on week one, which means that you click on this 0, 1 folder."
+    },
+    {
+        "start": 685.64,
+        "end": 687.8399999999999,
+        "text": "And then you simply go through the readme."
+    },
+    {
+        "start": 687.8399999999999,
+        "end": 689.8399999999999,
+        "text": "So the readme has everything you need."
+    },
+    {
+        "start": 689.84,
+        "end": 697.48,
+        "text": "It has links to other resources, other pages within either GitHub repo or somewhere else."
+    },
+    {
+        "start": 697.48,
+        "end": 702.4,
+        "text": "So each page, each readme in each module contains everything you need."
+    },
+    {
+        "start": 702.4,
+        "end": 706.44,
+        "text": "So it has all the links to all the videos."
+    },
+    {
+        "start": 706.44,
+        "end": 709.64,
+        "text": "So here you will see the workshop."
+    },
+    {
+        "start": 709.64,
+        "end": 715.76,
+        "text": "This is, I would say like 60, 70% of module number 1, where we talk about Docker."
+    },
+    {
+        "start": 715.76,
+        "end": 721.68,
+        "text": "Now we have some SQL refresher introduction to Google Cloud Platform, Terraform."
+    },
+    {
+        "start": 721.68,
+        "end": 723.0,
+        "text": "I saw Michael here."
+    },
+    {
+        "start": 723.0,
+        "end": 726.68,
+        "text": "So Michael is the author of this module."
+    },
+    {
+        "start": 726.68,
+        "end": 730.68,
+        "text": "So yeah, so this is the content and you just go through the content."
+    },
+    {
+        "start": 730.68,
+        "end": 732.88,
+        "text": "And then at the end, there are two things."
+    },
+    {
+        "start": 732.88,
+        "end": 735.24,
+        "text": "First of all, community notes."
+    },
+    {
+        "start": 735.24,
+        "end": 739.0,
+        "text": "It's so many notes that I made it collapsible."
+    },
+    {
+        "start": 739.0,
+        "end": 743.36,
+        "text": "These are the notes taken by the students of previous editions."
+    },
+    {
+        "start": 743.36,
+        "end": 752.5600000000001,
+        "text": "So yeah, if you need some help, if you feel like you are getting stuck, check."
+    },
+    {
+        "start": 752.5600000000001,
+        "end": 759.5600000000001,
+        "text": "But also since we are updating the module contents, for example, this one is freshly recorded"
+    },
+    {
+        "start": 759.5600000000001,
+        "end": 765.2,
+        "text": "so some of the notes may be maybe outdated, but we also encourage you to contribute here"
+    },
+    {
+        "start": 765.2,
+        "end": 767.24,
+        "text": "or own notes."
+    },
+    {
+        "start": 767.24,
+        "end": 775.6,
+        "text": "And then this homework, this is where you'll find homework for this module."
+    },
+    {
+        "start": 775.6,
+        "end": 776.6,
+        "text": "And this is important."
+    },
+    {
+        "start": 776.6,
+        "end": 782.2,
+        "text": "So this homework, as you can see, the link directs you to this page, which is state engine"
+    },
+    {
+        "start": 782.2,
+        "end": 787.88,
+        "text": "zoom camp cohorts 2026, then Docker Terraform homework."
+    },
+    {
+        "start": 787.88,
+        "end": 790.8,
+        "text": "And I want to show you."
+    },
+    {
+        "start": 790.8,
+        "end": 794.6800000000001,
+        "text": "So here cohorts 2026."
+    },
+    {
+        "start": 795.68,
+        "end": 803.4399999999999,
+        "text": "012, so this is very important because materials that are specific to this cohort are going"
+    },
+    {
+        "start": 803.4399999999999,
+        "end": 805.4399999999999,
+        "text": "to be stored in this folder."
+    },
+    {
+        "start": 805.4399999999999,
+        "end": 812.16,
+        "text": "So all the homework, like all the streams, like for example, we already had a pre-launch"
+    },
+    {
+        "start": 812.16,
+        "end": 815.5999999999999,
+        "text": "Q&A stream, this launch stream, this is what we have today."
+    },
+    {
+        "start": 815.5999999999999,
+        "end": 821.28,
+        "text": "I'll put the link here, FAQ, everything that is important for this cohort is going to"
+    },
+    {
+        "start": 821.28,
+        "end": 822.28,
+        "text": "be here."
+    },
+    {
+        "start": 822.28,
+        "end": 826.8,
+        "text": "So remember this, so the top of the repo, important."
+    },
+    {
+        "start": 826.8,
+        "end": 829.88,
+        "text": "And then this 2026, also important."
+    },
+    {
+        "start": 829.88,
+        "end": 835.0799999999999,
+        "text": "And then like when it comes to homework, there are some instructions, you go through these"
+    },
+    {
+        "start": 835.0799999999999,
+        "end": 841.72,
+        "text": "instructions, you pick the right question and then the end there is a link to submit."
+    },
+    {
+        "start": 841.72,
+        "end": 847.6,
+        "text": "These questions and then it's multiple choice usually."
+    },
+    {
+        "start": 847.6,
+        "end": 853.32,
+        "text": "You just select the options and then at the end you click submit."
+    },
+    {
+        "start": 853.32,
+        "end": 856.76,
+        "text": "So there are some other things we will talk about, these other things."
+    },
+    {
+        "start": 856.76,
+        "end": 862.0400000000001,
+        "text": "Also homework URL, the form will not let you submit without the URL."
+    },
+    {
+        "start": 862.0400000000001,
+        "end": 869.88,
+        "text": "So you put it on GitHub, you create a repo for discourse and then the folder, the first"
+    },
+    {
+        "start": 869.88,
+        "end": 877.5600000000001,
+        "text": "folder will be the first unit and then you put the link to this folder here."
+    },
+    {
+        "start": 877.56,
+        "end": 887.4,
+        "text": "Okay, back to, I hope everyone took their time to give the slides, to give the star."
+    },
+    {
+        "start": 887.4,
+        "end": 890.5999999999999,
+        "text": "And then we have, as you saw, we have six modules there."
+    },
+    {
+        "start": 890.5999999999999,
+        "end": 895.4799999999999,
+        "text": "I don't want to go into details about these modules, you can check them yourselves, you"
+    },
+    {
+        "start": 895.4799999999999,
+        "end": 898.56,
+        "text": "probably saw this already in announcement."
+    },
+    {
+        "start": 898.56,
+        "end": 907.52,
+        "text": "So we'll do Docker, we'll do DataVarie housing, we will do whatever it is."
+    },
+    {
+        "start": 908.0,
+        "end": 911.36,
+        "text": "But basically, okay, let me actually do this."
+    },
+    {
+        "start": 911.36,
+        "end": 916.84,
+        "text": "Docker, workflow, station, dataVarie housing and the Dixing, here we will do a DBT, batch"
+    },
+    {
+        "start": 916.84,
+        "end": 917.84,
+        "text": "and streaming."
+    },
+    {
+        "start": 917.84,
+        "end": 924.64,
+        "text": "So you can just go through this or go through this to see what we are going to cover."
+    },
+    {
+        "start": 924.64,
+        "end": 927.12,
+        "text": "So I don't want to spend a lot of time on that."
+    },
+    {
+        "start": 927.12,
+        "end": 933.48,
+        "text": "But what I want to say is that during these modules we are going to use the taxi data"
+    },
+    {
+        "start": 933.48,
+        "end": 936.1999999999999,
+        "text": "set, New York taxi data set."
+    },
+    {
+        "start": 936.2,
+        "end": 942.96,
+        "text": "This is a pretty good data set because it's really, it's very real life."
+    },
+    {
+        "start": 942.96,
+        "end": 948.88,
+        "text": "So there are a lot of outliers, missing data, things like that, things like, we in data"
+    },
+    {
+        "start": 948.88,
+        "end": 949.88,
+        "text": "have to deal with."
+    },
+    {
+        "start": 949.88,
+        "end": 953.6,
+        "text": "Right, so this is a really good data set and we are going to use this data set throughout"
+    },
+    {
+        "start": 953.6,
+        "end": 954.6,
+        "text": "the course."
+    },
+    {
+        "start": 954.6,
+        "end": 959.36,
+        "text": "You'll see it in videos, in lectures you'll see this in homework."
+    },
+    {
+        "start": 959.36,
+        "end": 965.84,
+        "text": "And also when the first edition of the course was recorded, this data set used to be in"
+    },
+    {
+        "start": 965.84,
+        "end": 968.76,
+        "text": "CSV format, right now it's parquet."
+    },
+    {
+        "start": 968.76,
+        "end": 973.76,
+        "text": "They switched to parquet, but we kept the original CSV files because we sometimes use them"
+    },
+    {
+        "start": 973.76,
+        "end": 976.1600000000001,
+        "text": "in the course."
+    },
+    {
+        "start": 976.1600000000001,
+        "end": 982.24,
+        "text": "You will see all the links in the documentation, but for you just to know when you see CSV,"
+    },
+    {
+        "start": 982.24,
+        "end": 984.84,
+        "text": "you need to go to our backup."
+    },
+    {
+        "start": 984.84,
+        "end": 989.44,
+        "text": "And if you see a parquet, then you can fetch it from the main website."
+    },
+    {
+        "start": 989.44,
+        "end": 992.44,
+        "text": "All the links will be in the materials, don't worry."
+    },
+    {
+        "start": 992.44,
+        "end": 998.1600000000001,
+        "text": "This is just for you to give some understanding of what is inside."
+    },
+    {
+        "start": 998.1600000000001,
+        "end": 1002.9200000000001,
+        "text": "Right, and then as I said, I don't want to spend a lot of time on that."
+    },
+    {
+        "start": 1002.9200000000001,
+        "end": 1006.96,
+        "text": "I want to spend some time on the logistics."
+    },
+    {
+        "start": 1006.96,
+        "end": 1012.0400000000001,
+        "text": "But right now what I'm going to do is I'm going to open this page."
+    },
+    {
+        "start": 1012.0400000000001,
+        "end": 1013.96,
+        "text": "So how do you find it?"
+    },
+    {
+        "start": 1013.96,
+        "end": 1018.44,
+        "text": "So you go to data.sclap slash docs."
+    },
+    {
+        "start": 1018.44,
+        "end": 1023.7600000000001,
+        "text": "And then you see things here, and then you see courses."
+    },
+    {
+        "start": 1023.7600000000001,
+        "end": 1027.2,
+        "text": "And then one of the things here in courses is data engineering zoom camp."
+    },
+    {
+        "start": 1027.2,
+        "end": 1032.96,
+        "text": "You click on it and it has all the documentation for the course."
+    },
+    {
+        "start": 1032.96,
+        "end": 1035.96,
+        "text": "I already included the link in here."
+    },
+    {
+        "start": 1035.96,
+        "end": 1039.16,
+        "text": "This is the first link."
+    },
+    {
+        "start": 1039.16,
+        "end": 1045.48,
+        "text": "And here you see what we typically cover in these livestreams."
+    },
+    {
+        "start": 1045.48,
+        "end": 1046.96,
+        "text": "So you start with clear clear."
+    },
+    {
+        "start": 1046.96,
+        "end": 1050.84,
+        "text": "You just go one by one through all the pages."
+    },
+    {
+        "start": 1050.84,
+        "end": 1051.84,
+        "text": "This is important."
+    },
+    {
+        "start": 1051.84,
+        "end": 1058.64,
+        "text": "Go through every page and try to read what is there."
+    },
+    {
+        "start": 1058.64,
+        "end": 1060.2,
+        "text": "Then get it started like this."
+    },
+    {
+        "start": 1060.2,
+        "end": 1063.76,
+        "text": "The things you need to do."
+    },
+    {
+        "start": 1063.76,
+        "end": 1065.8,
+        "text": "Resources."
+    },
+    {
+        "start": 1065.8,
+        "end": 1067.52,
+        "text": "So resources GitHub repo."
+    },
+    {
+        "start": 1067.52,
+        "end": 1071.3600000000001,
+        "text": "I already told you about it."
+    },
+    {
+        "start": 1071.3600000000001,
+        "end": 1073.56,
+        "text": "I think this is an old version."
+    },
+    {
+        "start": 1073.56,
+        "end": 1075.48,
+        "text": "I don't know why it wasn't deleted."
+    },
+    {
+        "start": 1075.48,
+        "end": 1078.84,
+        "text": "I need to commit a newer one."
+    },
+    {
+        "start": 1078.84,
+        "end": 1080.0,
+        "text": "But you get the idea."
+    },
+    {
+        "start": 1080.0,
+        "end": 1082.08,
+        "text": "So after the session, I'll commit."
+    },
+    {
+        "start": 1082.08,
+        "end": 1086.32,
+        "text": "You'll see actually see pictures."
+    },
+    {
+        "start": 1086.32,
+        "end": 1090.8799999999999,
+        "text": "But all the materials are here."
+    },
+    {
+        "start": 1090.8799999999999,
+        "end": 1095.48,
+        "text": "And this is not what I wanted to show."
+    },
+    {
+        "start": 1095.48,
+        "end": 1100.9199999999998,
+        "text": "But yeah, so I'll commit it after you go through this."
+    },
+    {
+        "start": 1100.92,
+        "end": 1106.6000000000001,
+        "text": "And so here, maybe I have a local version that I can show."
+    },
+    {
+        "start": 1110.2,
+        "end": 1111.28,
+        "text": "Yeah, this should be better."
+    },
+    {
+        "start": 1119.68,
+        "end": 1122.5600000000002,
+        "text": "So this is how it will look like."
+    },
+    {
+        "start": 1122.5600000000002,
+        "end": 1124.72,
+        "text": "We'll have prerequisites getting started with resources."
+    },
+    {
+        "start": 1124.72,
+        "end": 1129.64,
+        "text": "Resources where we talk about GitHub, our course management"
+    },
+    {
+        "start": 1129.64,
+        "end": 1133.96,
+        "text": "platform, this thing where I showed you where you submit homework."
+    },
+    {
+        "start": 1133.96,
+        "end": 1140.24,
+        "text": "Then our YouTube channel, here I explain, we explain how to find the playlist with the"
+    },
+    {
+        "start": 1140.24,
+        "end": 1143.5600000000002,
+        "text": "content, how to find the playlist from the other cohorts."
+    },
+    {
+        "start": 1143.5600000000002,
+        "end": 1145.24,
+        "text": "Then I also talk about the data sets."
+    },
+    {
+        "start": 1145.24,
+        "end": 1149.48,
+        "text": "So you have the links to the New York Taxi Tips data set."
+    },
+    {
+        "start": 1149.48,
+        "end": 1156.1200000000001,
+        "text": "You also have a link to this backup repo with CSV files."
+    },
+    {
+        "start": 1156.12,
+        "end": 1160.9199999999998,
+        "text": "And then this logistics is what we are going to cover right now."
+    },
+    {
+        "start": 1160.9199999999998,
+        "end": 1167.32,
+        "text": "So this is how our course is organized design and things like this."
+    },
+    {
+        "start": 1167.32,
+        "end": 1169.1599999999999,
+        "text": "So each model has a homework."
+    },
+    {
+        "start": 1169.1599999999999,
+        "end": 1171.28,
+        "text": "You already saw this."
+    },
+    {
+        "start": 1171.28,
+        "end": 1172.84,
+        "text": "So these homeworks are optional."
+    },
+    {
+        "start": 1172.84,
+        "end": 1174.4399999999998,
+        "text": "So you don't have to do them."
+    },
+    {
+        "start": 1174.4399999999998,
+        "end": 1176.3999999999999,
+        "text": "At the end of the course, there is a certificate."
+    },
+    {
+        "start": 1176.3999999999999,
+        "end": 1180.76,
+        "text": "But to get the certificate, you don't need to complete the homework."
+    },
+    {
+        "start": 1180.76,
+        "end": 1182.1999999999998,
+        "text": "So homework is optional."
+    },
+    {
+        "start": 1182.1999999999998,
+        "end": 1183.84,
+        "text": "This is just for you to test your knowledge."
+    },
+    {
+        "start": 1183.84,
+        "end": 1189.84,
+        "text": "But even though it's optional, you still get some points for completing each of the"
+    },
+    {
+        "start": 1189.84,
+        "end": 1190.84,
+        "text": "questions."
+    },
+    {
+        "start": 1190.84,
+        "end": 1193.4399999999998,
+        "text": "So if you get the questions right, you get one point."
+    },
+    {
+        "start": 1193.4399999999998,
+        "end": 1196.28,
+        "text": "If the question is not right, you get zero points."
+    },
+    {
+        "start": 1196.28,
+        "end": 1200.9599999999998,
+        "text": "So you get points for questions and you get the points for learning public."
+    },
+    {
+        "start": 1200.9599999999998,
+        "end": 1204.9199999999998,
+        "text": "I'll talk about this and you get points for contributing to FAQ."
+    },
+    {
+        "start": 1204.9199999999998,
+        "end": 1206.08,
+        "text": "I'll talk about this too."
+    },
+    {
+        "start": 1206.08,
+        "end": 1209.76,
+        "text": "Right, and at the end, everything is put on the leaderboard."
+    },
+    {
+        "start": 1209.76,
+        "end": 1214.32,
+        "text": "You can read about all these things later here."
+    },
+    {
+        "start": 1214.32,
+        "end": 1215.84,
+        "text": "And the leaderboard looks like that."
+    },
+    {
+        "start": 1215.84,
+        "end": 1222.24,
+        "text": "So I think what will help if I just show you the leaderboard from the last year."
+    },
+    {
+        "start": 1222.24,
+        "end": 1226.24,
+        "text": "Of course, the leaderboard."
+    },
+    {
+        "start": 1226.24,
+        "end": 1228.96,
+        "text": "And then you see that there are some scores."
+    },
+    {
+        "start": 1228.96,
+        "end": 1234.68,
+        "text": "So this course are to motivate you to do homework, to do other things."
+    },
+    {
+        "start": 1234.68,
+        "end": 1238.16,
+        "text": "As I said, homework is optional."
+    },
+    {
+        "start": 1238.16,
+        "end": 1241.2,
+        "text": "This learning in public and contribution to FAQ is optional."
+    },
+    {
+        "start": 1241.2,
+        "end": 1244.3600000000001,
+        "text": "The only thing that is not optional is doing a project."
+    },
+    {
+        "start": 1244.3600000000001,
+        "end": 1247.04,
+        "text": "So the end of the course will have a project."
+    },
+    {
+        "start": 1247.04,
+        "end": 1248.04,
+        "text": "You do the project."
+    },
+    {
+        "start": 1248.04,
+        "end": 1250.96,
+        "text": "Also, as a part of the project, there are two phases."
+    },
+    {
+        "start": 1250.96,
+        "end": 1259.92,
+        "text": "You work on the project and the second phase is submitting the project."
+    },
+    {
+        "start": 1259.92,
+        "end": 1262.64,
+        "text": "So you have a project."
+    },
+    {
+        "start": 1262.64,
+        "end": 1266.92,
+        "text": "And then you also need to peer review."
+    },
+    {
+        "start": 1266.92,
+        "end": 1271.8400000000001,
+        "text": "And then at the end, after this, you pass the course and you get a certificate."
+    },
+    {
+        "start": 1271.8400000000001,
+        "end": 1273.3200000000002,
+        "text": "So this part is not optional."
+    },
+    {
+        "start": 1273.3200000000002,
+        "end": 1277.3600000000001,
+        "text": "If you want to get certificate, a certificate, but there is the optional."
+    },
+    {
+        "start": 1277.3600000000001,
+        "end": 1282.2,
+        "text": "Okay, so you'll find more information here."
+    },
+    {
+        "start": 1282.2,
+        "end": 1285.6000000000001,
+        "text": "The headlines are in our course management platform."
+    },
+    {
+        "start": 1285.6000000000001,
+        "end": 1287.3600000000001,
+        "text": "So what is learning in public?"
+    },
+    {
+        "start": 1287.36,
+        "end": 1295.9599999999998,
+        "text": "So learning in public is an attitude, I would say."
+    },
+    {
+        "start": 1295.9599999999998,
+        "end": 1299.32,
+        "text": "So when you learn something new, you share about it."
+    },
+    {
+        "start": 1299.32,
+        "end": 1302.0,
+        "text": "You say, okay, this is what I learned today."
+    },
+    {
+        "start": 1302.0,
+        "end": 1305.76,
+        "text": "And you make a post on LinkedIn, you make a post on Twitter, you make a post anywhere"
+    },
+    {
+        "start": 1305.76,
+        "end": 1307.76,
+        "text": "you want."
+    },
+    {
+        "start": 1307.76,
+        "end": 1314.9599999999998,
+        "text": "And we want to encourage you to actually do this."
+    },
+    {
+        "start": 1314.96,
+        "end": 1317.68,
+        "text": "That's why we give you extra points for doing this."
+    },
+    {
+        "start": 1317.68,
+        "end": 1325.52,
+        "text": "So when let's say we click here, we see that this person for homework number one, got 13"
+    },
+    {
+        "start": 1325.52,
+        "end": 1326.52,
+        "text": "points."
+    },
+    {
+        "start": 1326.52,
+        "end": 1329.28,
+        "text": "So they got six questions correctly."
+    },
+    {
+        "start": 1329.28,
+        "end": 1331.0,
+        "text": "They contributed to FAQ."
+    },
+    {
+        "start": 1331.0,
+        "end": 1337.56,
+        "text": "And they also did six, share six links for learning in public."
+    },
+    {
+        "start": 1337.56,
+        "end": 1344.0,
+        "text": "And then we can see what they learned, what they published, the links and the links look"
+    },
+    {
+        "start": 1344.0,
+        "end": 1347.64,
+        "text": "like that."
+    },
+    {
+        "start": 1347.64,
+        "end": 1353.92,
+        "text": "So basically this person is just describing what they learned."
+    },
+    {
+        "start": 1353.92,
+        "end": 1356.96,
+        "text": "So you're getting these points for you."
+    },
+    {
+        "start": 1356.96,
+        "end": 1358.52,
+        "text": "You are choosing yourself."
+    },
+    {
+        "start": 1358.52,
+        "end": 1366.0,
+        "text": "If you want to care about the leader board or if you don't want to care, it's up to you,"
+    },
+    {
+        "start": 1366.0,
+        "end": 1371.48,
+        "text": "but just or there is no surprise for you."
+    },
+    {
+        "start": 1371.48,
+        "end": 1377.36,
+        "text": "And like after usually when we score the first homework, people look, people notice the leader"
+    },
+    {
+        "start": 1377.36,
+        "end": 1381.88,
+        "text": "board and they see that some people get more scores than others and they start asking"
+    },
+    {
+        "start": 1381.88,
+        "end": 1384.48,
+        "text": "why and usually the reason is learning in public."
+    },
+    {
+        "start": 1384.48,
+        "end": 1388.08,
+        "text": "So it's not the, I'm telling you this, it's not a surprise for you."
+    },
+    {
+        "start": 1388.08,
+        "end": 1393.64,
+        "text": "The reason you are not seeing the logistics tab right now is because I am showing you"
+    },
+    {
+        "start": 1393.64,
+        "end": 1394.64,
+        "text": "local host."
+    },
+    {
+        "start": 1394.96,
+        "end": 1396.0400000000002,
+        "text": "And you see it's local host."
+    },
+    {
+        "start": 1396.0400000000002,
+        "end": 1397.92,
+        "text": "This is something I did not commit."
+    },
+    {
+        "start": 1397.92,
+        "end": 1400.3200000000002,
+        "text": "Right after the session, I will commit it."
+    },
+    {
+        "start": 1400.3200000000002,
+        "end": 1405.0400000000002,
+        "text": "So probably I needed to do some cool, something before committing."
+    },
+    {
+        "start": 1405.0400000000002,
+        "end": 1407.8400000000001,
+        "text": "I'll commit it right now and you'll see this after the session."
+    },
+    {
+        "start": 1407.8400000000001,
+        "end": 1409.8400000000001,
+        "text": "So I promise."
+    },
+    {
+        "start": 1409.8400000000001,
+        "end": 1411.44,
+        "text": "Right now this is how it looks."
+    },
+    {
+        "start": 1411.44,
+        "end": 1417.0800000000002,
+        "text": "There is no logistics and it's a little outdated."
+    },
+    {
+        "start": 1417.08,
+        "end": 1421.08,
+        "text": "So yeah, I'll commit them."
+    },
+    {
+        "start": 1421.08,
+        "end": 1426.4399999999998,
+        "text": "Most update think the session."
+    },
+    {
+        "start": 1426.4399999999998,
+        "end": 1429.28,
+        "text": "Okay, I think I told you about learning public."
+    },
+    {
+        "start": 1429.28,
+        "end": 1433.36,
+        "text": "I don't know why we have two FAQs here."
+    },
+    {
+        "start": 1433.36,
+        "end": 1436.4399999999998,
+        "text": "But FAQ is another thing."
+    },
+    {
+        "start": 1436.4399999999998,
+        "end": 1439.12,
+        "text": "So this is the website."
+    },
+    {
+        "start": 1439.12,
+        "end": 1446.3999999999999,
+        "text": "The looks of FAQ where you see frequently asked questions from other from different courses."
+    },
+    {
+        "start": 1447.4,
+        "end": 1450.0,
+        "text": "And this is the section you are interested in."
+    },
+    {
+        "start": 1450.0,
+        "end": 1452.3200000000002,
+        "text": "So there are a lot of questions."
+    },
+    {
+        "start": 1452.3200000000002,
+        "end": 1456.0,
+        "text": "As you can see, it takes a bit of time to load."
+    },
+    {
+        "start": 1456.0,
+        "end": 1466.8400000000001,
+        "text": "And then you can probably, if you have a problem, it's very likely 95% probability that you"
+    },
+    {
+        "start": 1466.8400000000001,
+        "end": 1470.4,
+        "text": "will find a solution to your problem here in this list."
+    },
+    {
+        "start": 1470.4,
+        "end": 1472.76,
+        "text": "So keep an eye on this."
+    },
+    {
+        "start": 1472.76,
+        "end": 1475.68,
+        "text": "But also you can contribute to this."
+    },
+    {
+        "start": 1475.68,
+        "end": 1482.3200000000002,
+        "text": "So one way you can contribute is you see a question and answer."
+    },
+    {
+        "start": 1482.3200000000002,
+        "end": 1483.92,
+        "text": "And you think you can improve the answer."
+    },
+    {
+        "start": 1483.92,
+        "end": 1487.04,
+        "text": "So then you click edit on GitHub."
+    },
+    {
+        "start": 1487.04,
+        "end": 1490.3200000000002,
+        "text": "And yeah, you click edit and then it will create a pull request."
+    },
+    {
+        "start": 1490.3200000000002,
+        "end": 1495.1200000000001,
+        "text": "And then I'm monitoring this pull request and my acceptor check data."
+    },
+    {
+        "start": 1495.1200000000001,
+        "end": 1496.1200000000001,
+        "text": "Right."
+    },
+    {
+        "start": 1496.1200000000001,
+        "end": 1501.0800000000002,
+        "text": "Another way you can contribute is you can create a new issue."
+    },
+    {
+        "start": 1501.0800000000002,
+        "end": 1503.4,
+        "text": "So we can learn here."
+    },
+    {
+        "start": 1503.4,
+        "end": 1507.3600000000001,
+        "text": "This link, it describes what you can do, but I can quickly show you."
+    },
+    {
+        "start": 1507.3600000000001,
+        "end": 1511.0400000000002,
+        "text": "So you create an issue."
+    },
+    {
+        "start": 1511.0400000000002,
+        "end": 1516.3200000000002,
+        "text": "So here it's a FAQ proposal."
+    },
+    {
+        "start": 1516.3200000000002,
+        "end": 1519.3200000000002,
+        "text": "And then you basically just follow this thing."
+    },
+    {
+        "start": 1519.3200000000002,
+        "end": 1520.3200000000002,
+        "text": "So select the course."
+    },
+    {
+        "start": 1520.3200000000002,
+        "end": 1521.3200000000002,
+        "text": "The engine is income."
+    },
+    {
+        "start": 1521.3200000000002,
+        "end": 1522.64,
+        "text": "You write the question."
+    },
+    {
+        "start": 1522.64,
+        "end": 1526.16,
+        "text": "You write the answer."
+    },
+    {
+        "start": 1526.16,
+        "end": 1529.96,
+        "text": "Please go through the checklist to make sure that it's not a duplicate."
+    },
+    {
+        "start": 1529.96,
+        "end": 1530.96,
+        "text": "Right."
+    },
+    {
+        "start": 1530.96,
+        "end": 1531.96,
+        "text": "And then you create it."
+    },
+    {
+        "start": 1531.96,
+        "end": 1534.88,
+        "text": "The label should be FAQ proposal."
+    },
+    {
+        "start": 1534.88,
+        "end": 1540.52,
+        "text": "And then there is a job that creates pull requests."
+    },
+    {
+        "start": 1540.52,
+        "end": 1546.4,
+        "text": "We have an agent that is analyzing your submission."
+    },
+    {
+        "start": 1546.4,
+        "end": 1549.1200000000001,
+        "text": "Then it makes sure that this is something new."
+    },
+    {
+        "start": 1549.1200000000001,
+        "end": 1553.2,
+        "text": "And then it creates or updates and existing M3."
+    },
+    {
+        "start": 1553.2,
+        "end": 1554.8,
+        "text": "And then it creates pull requests."
+    },
+    {
+        "start": 1554.8,
+        "end": 1559.32,
+        "text": "So that's how you submit a FAQ."
+    },
+    {
+        "start": 1559.32,
+        "end": 1565.96,
+        "text": "And I'll have to finish reporting it."
+    },
+    {
+        "start": 1565.96,
+        "end": 1568.12,
+        "text": "And then we use this course management platform."
+    },
+    {
+        "start": 1568.12,
+        "end": 1572.6,
+        "text": "So all the information about this platform you can find here."
+    },
+    {
+        "start": 1572.6,
+        "end": 1577.84,
+        "text": "This course management platform tab under the engineering."
+    },
+    {
+        "start": 1577.84,
+        "end": 1580.24,
+        "text": "So I think that's the most important thing."
+    },
+    {
+        "start": 1580.24,
+        "end": 1582.24,
+        "text": "So let me check the slides."
+    },
+    {
+        "start": 1582.24,
+        "end": 1583.24,
+        "text": "Yeah."
+    },
+    {
+        "start": 1583.24,
+        "end": 1584.24,
+        "text": "Okay."
+    },
+    {
+        "start": 1584.24,
+        "end": 1595.8,
+        "text": "So, and I see that we've been already talking about this for half an hour."
+    },
+    {
+        "start": 1595.8,
+        "end": 1600.08,
+        "text": "So I see you have a lot of questions."
+    },
+    {
+        "start": 1600.08,
+        "end": 1601.92,
+        "text": "So we'll come to these questions."
+    },
+    {
+        "start": 1601.92,
+        "end": 1603.4,
+        "text": "But please use the link."
+    },
+    {
+        "start": 1603.4,
+        "end": 1608.56,
+        "text": "Right now what I'm going to do is I'm going to the link in the live chat."
+    },
+    {
+        "start": 1609.56,
+        "end": 1614.32,
+        "text": "I don't know if I have done this yet."
+    },
+    {
+        "start": 1614.32,
+        "end": 1616.8799999999999,
+        "text": "So I want to pin it."
+    },
+    {
+        "start": 1616.8799999999999,
+        "end": 1619.36,
+        "text": "So please use this link for asking questions."
+    },
+    {
+        "start": 1619.36,
+        "end": 1622.8799999999999,
+        "text": "Because right now I'm going to finish my presentation."
+    },
+    {
+        "start": 1622.8799999999999,
+        "end": 1627.9199999999998,
+        "text": "And we will start covering the questions."
+    },
+    {
+        "start": 1627.9199999999998,
+        "end": 1633.1599999999999,
+        "text": "So I want to think so that some of you were saying, hey, this course is free."
+    },
+    {
+        "start": 1633.1599999999999,
+        "end": 1634.1599999999999,
+        "text": "How cool is that?"
+    },
+    {
+        "start": 1634.1599999999999,
+        "end": 1636.04,
+        "text": "It's all possible."
+    },
+    {
+        "start": 1636.04,
+        "end": 1637.56,
+        "text": "Thanks to our sponsors."
+    },
+    {
+        "start": 1637.56,
+        "end": 1641.84,
+        "text": "So because of these sponsors, we can do these courses for free."
+    },
+    {
+        "start": 1641.84,
+        "end": 1646.6799999999998,
+        "text": "And the sponsors, we have three sponsors for this cohort."
+    },
+    {
+        "start": 1646.6799999999998,
+        "end": 1648.24,
+        "text": "So the first one is Kestra."
+    },
+    {
+        "start": 1648.24,
+        "end": 1650.76,
+        "text": "You learn Kestra in module number two."
+    },
+    {
+        "start": 1650.76,
+        "end": 1651.76,
+        "text": "Workflow registration."
+    },
+    {
+        "start": 1651.76,
+        "end": 1654.6,
+        "text": "It's an amazing work for a administrator tool."
+    },
+    {
+        "start": 1654.6,
+        "end": 1658.8,
+        "text": "So you'll and you'll meet with Anna who work at Kestra."
+    },
+    {
+        "start": 1658.8,
+        "end": 1660.96,
+        "text": "Then brewing is a data platform."
+    },
+    {
+        "start": 1660.96,
+        "end": 1663.72,
+        "text": "You will also learn about."
+    },
+    {
+        "start": 1663.72,
+        "end": 1667.3999999999999,
+        "text": "So in the modules that we have."
+    },
+    {
+        "start": 1667.4,
+        "end": 1669.96,
+        "text": "We learn about transformation."
+    },
+    {
+        "start": 1669.96,
+        "end": 1672.96,
+        "text": "We learn about."
+    },
+    {
+        "start": 1672.96,
+        "end": 1674.24,
+        "text": "Data warehousing."
+    },
+    {
+        "start": 1674.24,
+        "end": 1676.3200000000002,
+        "text": "We learn about other things."
+    },
+    {
+        "start": 1676.3200000000002,
+        "end": 1680.64,
+        "text": "But with data platforms, we can put everything together under one roof."
+    },
+    {
+        "start": 1680.64,
+        "end": 1682.6000000000001,
+        "text": "And this is what brewing is providing."
+    },
+    {
+        "start": 1682.6000000000001,
+        "end": 1683.8000000000002,
+        "text": "And then deal T."
+    },
+    {
+        "start": 1683.8000000000002,
+        "end": 1687.1200000000001,
+        "text": "DLT is a tool for transforming data."
+    },
+    {
+        "start": 1687.1200000000001,
+        "end": 1688.92,
+        "text": "It's called data load tool."
+    },
+    {
+        "start": 1688.92,
+        "end": 1691.1200000000001,
+        "text": "So we will also have a workshop about this."
+    },
+    {
+        "start": 1691.1200000000001,
+        "end": 1696.8000000000002,
+        "text": "So thanks to these sponsors, we can enjoy this content for free."
+    },
+    {
+        "start": 1697.5600000000002,
+        "end": 1703.8400000000001,
+        "text": "But also, so all these people, they happen to be in Berlin, which is amazing."
+    },
+    {
+        "start": 1703.8400000000001,
+        "end": 1708.0400000000002,
+        "text": "At least Anna, so we was based in the UK."
+    },
+    {
+        "start": 1708.0400000000002,
+        "end": 1713.76,
+        "text": "So I also have personal connection with people working at these companies."
+    },
+    {
+        "start": 1713.76,
+        "end": 1718.76,
+        "text": "And it's really amazing that they are supporting what we do."
+    },
+    {
+        "start": 1718.76,
+        "end": 1723.24,
+        "text": "I'm really thankful for the support and the work."
+    },
+    {
+        "start": 1723.28,
+        "end": 1729.08,
+        "text": "But also if you want to, you want to personally, to support me personally."
+    },
+    {
+        "start": 1729.08,
+        "end": 1734.8,
+        "text": "Me as Alexey, you can do this using this link."
+    },
+    {
+        "start": 1734.8,
+        "end": 1737.96,
+        "text": "So I'm going to share this link here."
+    },
+    {
+        "start": 1740.96,
+        "end": 1742.68,
+        "text": "And I also included here."
+    },
+    {
+        "start": 1742.68,
+        "end": 1752.08,
+        "text": "So if you want, if you want to support me, you can do it using this link."
+    },
+    {
+        "start": 1752.08,
+        "end": 1756.4399999999998,
+        "text": "And you can do it now, or you can do it after you took the course."
+    },
+    {
+        "start": 1756.4399999999998,
+        "end": 1760.48,
+        "text": "And then at that, you think, OK, this course is very valuable."
+    },
+    {
+        "start": 1760.48,
+        "end": 1765.4399999999998,
+        "text": "And you can make the nation proportional to the value you received from this course."
+    },
+    {
+        "start": 1768.32,
+        "end": 1770.36,
+        "text": "OK, do I have anything else?"
+    },
+    {
+        "start": 1770.36,
+        "end": 1771.96,
+        "text": "Yes, time for questions."
+    },
+    {
+        "start": 1771.96,
+        "end": 1779.24,
+        "text": "OK, so usually I take a lot more time going through the slides."
+    },
+    {
+        "start": 1779.24,
+        "end": 1782.0,
+        "text": "I think there is still some room for improvement."
+    },
+    {
+        "start": 1782.0,
+        "end": 1787.8,
+        "text": "Because at that, what I want to have is all information you need is in this documentation."
+    },
+    {
+        "start": 1787.8,
+        "end": 1789.04,
+        "text": "I still need to work on this."
+    },
+    {
+        "start": 1789.04,
+        "end": 1790.04,
+        "text": "I still need to improve it."
+    },
+    {
+        "start": 1790.04,
+        "end": 1794.0,
+        "text": "I have been working on it maybe for a couple of days."
+    },
+    {
+        "start": 1794.0,
+        "end": 1799.44,
+        "text": "So hopefully next time we run the course, which is go through the documentation."
+    },
+    {
+        "start": 1799.44,
+        "end": 1802.36,
+        "text": "I show you where the important things are."
+    },
+    {
+        "start": 1802.36,
+        "end": 1806.24,
+        "text": "And then we go to Q&A."
+    },
+    {
+        "start": 1806.24,
+        "end": 1815.24,
+        "text": "But I see when I got a job, when I'll get a job, then I'll support."
+    },
+    {
+        "start": 1815.24,
+        "end": 1818.96,
+        "text": "So actually some students what they do is they find a job."
+    },
+    {
+        "start": 1818.96,
+        "end": 1822.8,
+        "text": "And they find out that in they work, there is learning budget."
+    },
+    {
+        "start": 1822.8,
+        "end": 1827.84,
+        "text": "And you can actually use this learning budget to support data docs."
+    },
+    {
+        "start": 1827.84,
+        "end": 1828.64,
+        "text": "Slap."
+    },
+    {
+        "start": 1828.64,
+        "end": 1835.6,
+        "text": "So if this is the case, and you want to donate your learning budget,"
+    },
+    {
+        "start": 1835.6,
+        "end": 1837.04,
+        "text": "all it will not be a nation."
+    },
+    {
+        "start": 1837.04,
+        "end": 1842.12,
+        "text": "But if you want to share this learning budget with us, with Data.Sklapp as a company,"
+    },
+    {
+        "start": 1842.12,
+        "end": 1847.1999999999998,
+        "text": "you can reach out to me in Slack and then we can discuss it."
+    },
+    {
+        "start": 1847.1999999999998,
+        "end": 1849.7199999999998,
+        "text": "But of course this is totally optional."
+    },
+    {
+        "start": 1849.7199999999998,
+        "end": 1855.08,
+        "text": "But if you feel like this course is helping you, so many people found jobs because of this course,"
+    },
+    {
+        "start": 1855.08,
+        "end": 1861.24,
+        "text": "if you're one of them and if you want to say thank you, I will not say no to that."
+    },
+    {
+        "start": 1861.24,
+        "end": 1864.6799999999998,
+        "text": "OK, so let's start with your questions."
+    },
+    {
+        "start": 1864.68,
+        "end": 1867.3600000000001,
+        "text": "I know Python for the Benels, but coding fluency is my gap."
+    },
+    {
+        "start": 1867.3600000000001,
+        "end": 1871.76,
+        "text": "How much AI assistance is healthy to use while training to become a strong data engineer?"
+    },
+    {
+        "start": 1871.76,
+        "end": 1875.0,
+        "text": "OK, so coding fluency is my gap too."
+    },
+    {
+        "start": 1875.0,
+        "end": 1884.16,
+        "text": "So at that point I was fairly efficient, fairly fluent at coding, but then I became a tech"
+    },
+    {
+        "start": 1884.16,
+        "end": 1890.88,
+        "text": "lead and then I was a manager, so lost my proficiency, proficiency fluency."
+    },
+    {
+        "start": 1890.88,
+        "end": 1895.68,
+        "text": "But because of AI assistance, now I can program quite quickly."
+    },
+    {
+        "start": 1895.68,
+        "end": 1902.5600000000002,
+        "text": "I'm not always satisfied with the code quality, but the speed is where there I analyze the code,"
+    },
+    {
+        "start": 1902.5600000000002,
+        "end": 1905.1200000000001,
+        "text": "I correct the assistant."
+    },
+    {
+        "start": 1905.1200000000001,
+        "end": 1912.4,
+        "text": "So I don't see anything wrong in using AI assistance to code."
+    },
+    {
+        "start": 1912.4,
+        "end": 1917.8400000000001,
+        "text": "And like frankly, I don't really care if you do the entire course with AI assistance or"
+    },
+    {
+        "start": 1917.84,
+        "end": 1921.36,
+        "text": "not or you write everything by hand."
+    },
+    {
+        "start": 1921.36,
+        "end": 1924.4399999999998,
+        "text": "At the end, the important thing is you understand what is happening, right?"
+    },
+    {
+        "start": 1924.4399999999998,
+        "end": 1930.3999999999999,
+        "text": "So if you just tell the assistant to solve the homework for you and you blindly submit,"
+    },
+    {
+        "start": 1930.3999999999999,
+        "end": 1934.12,
+        "text": "OK, yes, you'll get some points for the homework, but what's the point?"
+    },
+    {
+        "start": 1934.12,
+        "end": 1936.04,
+        "text": "The point is for you to learn."
+    },
+    {
+        "start": 1936.04,
+        "end": 1943.56,
+        "text": "So instead of doing that, I would recommend actually using AI assistance is fine, but"
+    },
+    {
+        "start": 1943.56,
+        "end": 1947.4399999999998,
+        "text": "I would recommend you to understand everything that is happening."
+    },
+    {
+        "start": 1947.44,
+        "end": 1953.04,
+        "text": "So each line of code, everything that it created at the beginning, maybe it's because this"
+    },
+    {
+        "start": 1953.04,
+        "end": 1956.56,
+        "text": "is a new thing, you want to make sure you understand every single line."
+    },
+    {
+        "start": 1956.56,
+        "end": 1961.0800000000002,
+        "text": "So then later you'll just, you look at piece of code and everything is clear, then you"
+    },
+    {
+        "start": 1961.0800000000002,
+        "end": 1962.4,
+        "text": "can just move faster, right?"
+    },
+    {
+        "start": 1962.4,
+        "end": 1965.68,
+        "text": "At least this is how I would recommend approaching it."
+    },
+    {
+        "start": 1965.68,
+        "end": 1971.04,
+        "text": "So use AI assistance because they are here to help and I found them very useful."
+    },
+    {
+        "start": 1971.04,
+        "end": 1972.68,
+        "text": "And I don't see a reason not to use them."
+    },
+    {
+        "start": 1972.68,
+        "end": 1976.24,
+        "text": "So I recommend actually taking advantage of them."
+    },
+    {
+        "start": 1976.24,
+        "end": 1980.08,
+        "text": "Let me make sure you understand every single line of the code and you understand your code"
+    },
+    {
+        "start": 1980.08,
+        "end": 1987.32,
+        "text": "base because it's very easy to get carried away with things like code or other AI systems"
+    },
+    {
+        "start": 1987.32,
+        "end": 1989.16,
+        "text": "because they create a lot of code."
+    },
+    {
+        "start": 1989.16,
+        "end": 1993.08,
+        "text": "And then what you may end up with is the code base you don't understand."
+    },
+    {
+        "start": 1993.08,
+        "end": 1995.2,
+        "text": "You don't want to end up in this situation, right?"
+    },
+    {
+        "start": 1995.2,
+        "end": 1997.04,
+        "text": "So make sure you understand everything."
+    },
+    {
+        "start": 1997.04,
+        "end": 1999.1200000000001,
+        "text": "You know where things are."
+    },
+    {
+        "start": 1999.1200000000001,
+        "end": 2005.32,
+        "text": "And with that, yeah, it's totally fine in my opinion to rely on AI systems."
+    },
+    {
+        "start": 2005.32,
+        "end": 2008.6799999999998,
+        "text": "I'm a civil engineer, 33 years old, living in Turkey."
+    },
+    {
+        "start": 2008.6799999999998,
+        "end": 2011.8799999999999,
+        "text": "I have some basic knowledge in Python and SQL."
+    },
+    {
+        "start": 2011.8799999999999,
+        "end": 2014.0,
+        "text": "Do you think it's doable to make a career change?"
+    },
+    {
+        "start": 2014.0,
+        "end": 2017.36,
+        "text": "So well, I don't know your specifics."
+    },
+    {
+        "start": 2017.36,
+        "end": 2022.8799999999999,
+        "text": "To be like, for me, no matter what your background is, if you ask me if it's doable to make a career"
+    },
+    {
+        "start": 2022.8799999999999,
+        "end": 2024.56,
+        "text": "change, I say yes, right?"
+    },
+    {
+        "start": 2024.56,
+        "end": 2026.6799999999998,
+        "text": "It all depends on your motivation."
+    },
+    {
+        "start": 2026.6799999999998,
+        "end": 2031.4399999999998,
+        "text": "So here you don't mention your motivation, but this is a very, very, very, very, very"
+    },
+    {
+        "start": 2031.44,
+        "end": 2033.56,
+        "text": "requisite, a strong prerequisite to have the motivation."
+    },
+    {
+        "start": 2033.56,
+        "end": 2036.04,
+        "text": "If you have it, you'll get it."
+    },
+    {
+        "start": 2036.04,
+        "end": 2040.2,
+        "text": "But you mentioned you have some basic knowledge on Python and SQL."
+    },
+    {
+        "start": 2040.2,
+        "end": 2042.56,
+        "text": "This is definitely enough to take the course."
+    },
+    {
+        "start": 2042.56,
+        "end": 2047.92,
+        "text": "And with the things you will learn from the course, it's enough to get a job as a data"
+    },
+    {
+        "start": 2047.92,
+        "end": 2048.92,
+        "text": "engineer."
+    },
+    {
+        "start": 2048.92,
+        "end": 2055.68,
+        "text": "So from what I see now with this knowledge, you take the course after four months, you"
+    },
+    {
+        "start": 2055.68,
+        "end": 2060.96,
+        "text": "do a few projects, and we did a command actually doing multiple not just one."
+    },
+    {
+        "start": 2060.96,
+        "end": 2063.7200000000003,
+        "text": "You do some projects outside of that, and then you're ready."
+    },
+    {
+        "start": 2063.7200000000003,
+        "end": 2066.68,
+        "text": "But you also don't need to wait till you complete all these projects."
+    },
+    {
+        "start": 2066.68,
+        "end": 2071.36,
+        "text": "You can start a plan for job server just to see what is required."
+    },
+    {
+        "start": 2071.36,
+        "end": 2074.4,
+        "text": "Like do you even pass the CV screening?"
+    },
+    {
+        "start": 2074.4,
+        "end": 2079.16,
+        "text": "If they invite you to the interview, what do they ask?"
+    },
+    {
+        "start": 2079.16,
+        "end": 2084.84,
+        "text": "So then you, when you're ready, you already know what to expect from the interviews."
+    },
+    {
+        "start": 2084.84,
+        "end": 2090.2400000000002,
+        "text": "And maybe by the time, because frankly, frankly, you're never 100% ready, right?"
+    },
+    {
+        "start": 2090.24,
+        "end": 2097.16,
+        "text": "So I would suggest try to apply for jobs now, and at the same time, do the course."
+    },
+    {
+        "start": 2097.16,
+        "end": 2102.3199999999997,
+        "text": "And then, yeah, iterate."
+    },
+    {
+        "start": 2102.3199999999997,
+        "end": 2104.3999999999996,
+        "text": "Is the problem if I use air flow?"
+    },
+    {
+        "start": 2104.3999999999996,
+        "end": 2105.3999999999996,
+        "text": "It's not a problem."
+    },
+    {
+        "start": 2105.3999999999996,
+        "end": 2107.24,
+        "text": "You can use whatever tool you want."
+    },
+    {
+        "start": 2107.24,
+        "end": 2111.3199999999997,
+        "text": "So here we don't focus on tools, we focus on concepts."
+    },
+    {
+        "start": 2111.3199999999997,
+        "end": 2113.3599999999997,
+        "text": "But we illustrate these concepts with tools, right?"
+    },
+    {
+        "start": 2113.3599999999997,
+        "end": 2115.3599999999997,
+        "text": "So at the end, yes, we do tools."
+    },
+    {
+        "start": 2115.3599999999997,
+        "end": 2116.3599999999997,
+        "text": "We use tools."
+    },
+    {
+        "start": 2116.3599999999997,
+        "end": 2119.3999999999996,
+        "text": "Like, for example, work for registration, we use castra, right?"
+    },
+    {
+        "start": 2119.4,
+        "end": 2124.7200000000003,
+        "text": "But once you understand the concept, the concept applies to any work for registration."
+    },
+    {
+        "start": 2124.7200000000003,
+        "end": 2129.32,
+        "text": "Because at the end, what a work for a extractor is doing is there is one job."
+    },
+    {
+        "start": 2129.32,
+        "end": 2131.1600000000003,
+        "text": "It waits till this job is done."
+    },
+    {
+        "start": 2131.1600000000003,
+        "end": 2134.88,
+        "text": "If this job fails, it can restart it."
+    },
+    {
+        "start": 2134.88,
+        "end": 2137.56,
+        "text": "And then once the job is done, it triggers another job, right?"
+    },
+    {
+        "start": 2137.56,
+        "end": 2140.6800000000003,
+        "text": "So that's what the essence of work for a extractor is."
+    },
+    {
+        "start": 2140.6800000000003,
+        "end": 2145.36,
+        "text": "And if you understand this concept, you can use any work for a extractor, right?"
+    },
+    {
+        "start": 2145.36,
+        "end": 2152.48,
+        "text": "So we don't force you to use any tool that we use here in the course."
+    },
+    {
+        "start": 2152.48,
+        "end": 2153.48,
+        "text": "Same with GCP."
+    },
+    {
+        "start": 2153.48,
+        "end": 2154.48,
+        "text": "You don't have to use GCP."
+    },
+    {
+        "start": 2154.48,
+        "end": 2158.92,
+        "text": "You can go with Azure, you can go with AWS, you can go with on-premise."
+    },
+    {
+        "start": 2158.92,
+        "end": 2160.88,
+        "text": "You can run everything locally up to you."
+    },
+    {
+        "start": 2160.88,
+        "end": 2165.48,
+        "text": "So the choice of technology is up to you."
+    },
+    {
+        "start": 2165.48,
+        "end": 2171.36,
+        "text": "You will not be able to use air flow for doing the second homework, but you can use air flow"
+    },
+    {
+        "start": 2171.36,
+        "end": 2174.92,
+        "text": "for your project if you want to do this."
+    },
+    {
+        "start": 2174.92,
+        "end": 2181.16,
+        "text": "I have to note that we do not provide support for technologies outside of the stack of the course."
+    },
+    {
+        "start": 2181.16,
+        "end": 2189.04,
+        "text": "So if you choose to use air flow and you will stack and you don't know how to proceed,"
+    },
+    {
+        "start": 2189.04,
+        "end": 2190.32,
+        "text": "will not be able to help you."
+    },
+    {
+        "start": 2190.32,
+        "end": 2192.76,
+        "text": "So that's one thing you need to keep in mind."
+    },
+    {
+        "start": 2192.76,
+        "end": 2195.4,
+        "text": "But I was talking about AI systems, right?"
+    },
+    {
+        "start": 2195.4,
+        "end": 2200.6,
+        "text": "So I'm pretty sure if you use something like code code or GCPT or whatever, they will"
+    },
+    {
+        "start": 2200.6,
+        "end": 2206.3199999999997,
+        "text": "help you figure things out."
+    },
+    {
+        "start": 2206.3199999999997,
+        "end": 2208.44,
+        "text": "Google gives you pre-created for 90 days only."
+    },
+    {
+        "start": 2208.44,
+        "end": 2212.3199999999997,
+        "text": "The second project will be a problem."
+    },
+    {
+        "start": 2212.3199999999997,
+        "end": 2218.0,
+        "text": "Well, you better aim for the first project then."
+    },
+    {
+        "start": 2218.0,
+        "end": 2225.44,
+        "text": "I don't have a solution for that, but what you can do is you can just create a new account."
+    },
+    {
+        "start": 2225.44,
+        "end": 2229.96,
+        "text": "You usually when you create an account, you need to have a credit card."
+    },
+    {
+        "start": 2230.0,
+        "end": 2234.0,
+        "text": "So this is how they check a bank card, not credit debit, whatever."
+    },
+    {
+        "start": 2234.0,
+        "end": 2237.7200000000003,
+        "text": "So this is how they verify that you are real human."
+    },
+    {
+        "start": 2237.7200000000003,
+        "end": 2243.92,
+        "text": "So you add your card to your billing and then you use three months for free, right?"
+    },
+    {
+        "start": 2243.92,
+        "end": 2248.2,
+        "text": "And then at the end of three months, your trial period is over."
+    },
+    {
+        "start": 2248.2,
+        "end": 2253.8,
+        "text": "So what you do is you delete your credit card from your profile, from your Google account,"
+    },
+    {
+        "start": 2253.8,
+        "end": 2255.7200000000003,
+        "text": "from your Google Cloud account."
+    },
+    {
+        "start": 2255.72,
+        "end": 2262.72,
+        "text": "And then you create a new email and then you create a new Google Cloud platform account."
+    },
+    {
+        "start": 2262.72,
+        "end": 2267.6,
+        "text": "And then you use the card, the bank card that you already collected from the previous account"
+    },
+    {
+        "start": 2267.6,
+        "end": 2268.9199999999996,
+        "text": "in the new account."
+    },
+    {
+        "start": 2268.9199999999996,
+        "end": 2269.9199999999996,
+        "text": "So this works."
+    },
+    {
+        "start": 2269.9199999999996,
+        "end": 2272.24,
+        "text": "I've tested it myself many times."
+    },
+    {
+        "start": 2272.24,
+        "end": 2276.24,
+        "text": "So yeah."
+    },
+    {
+        "start": 2276.24,
+        "end": 2281.04,
+        "text": "So that's what you can do."
+    },
+    {
+        "start": 2281.04,
+        "end": 2284.12,
+        "text": "The data engineering has transitioned quickly."
+    },
+    {
+        "start": 2284.12,
+        "end": 2289.68,
+        "text": "Think traditional BI SSIS to now more modern techniques like Spark."
+    },
+    {
+        "start": 2289.68,
+        "end": 2292.04,
+        "text": "We'll see more shifts in the future."
+    },
+    {
+        "start": 2292.04,
+        "end": 2292.56,
+        "text": "Yes."
+    },
+    {
+        "start": 2292.56,
+        "end": 2304.44,
+        "text": "So I remember the times with traditional BI SSIS in Romatic, this visual pipeline builders."
+    },
+    {
+        "start": 2304.44,
+        "end": 2308.44,
+        "text": "Then modern techniques like Spark, I wouldn't call them that modern."
+    },
+    {
+        "start": 2308.44,
+        "end": 2310.84,
+        "text": "So Spark is 10 years old already."
+    },
+    {
+        "start": 2310.84,
+        "end": 2312.1200000000003,
+        "text": "No, 15."
+    },
+    {
+        "start": 2312.1200000000003,
+        "end": 2314.1200000000003,
+        "text": "It's pretty old."
+    },
+    {
+        "start": 2314.1200000000003,
+        "end": 2320.2400000000002,
+        "text": "So what I see is not actually a lot of companies use Spark because they have it as an existing"
+    },
+    {
+        "start": 2320.2400000000002,
+        "end": 2322.76,
+        "text": "technology, existing dependencies."
+    },
+    {
+        "start": 2322.76,
+        "end": 2328.32,
+        "text": "But typically if you start a new project unless you are on Databricks, you don't really use"
+    },
+    {
+        "start": 2328.32,
+        "end": 2329.32,
+        "text": "Spark, right?"
+    },
+    {
+        "start": 2329.32,
+        "end": 2332.0,
+        "text": "So there are definitely shifts."
+    },
+    {
+        "start": 2332.0,
+        "end": 2334.08,
+        "text": "And the shifts will keep happening."
+    },
+    {
+        "start": 2334.08,
+        "end": 2335.88,
+        "text": "It's normal."
+    },
+    {
+        "start": 2335.88,
+        "end": 2338.8,
+        "text": "So I won't worry about that too much."
+    },
+    {
+        "start": 2338.8,
+        "end": 2343.7200000000003,
+        "text": "Just like when you find a job, just learn the tools, the technologies they use on the job"
+    },
+    {
+        "start": 2343.7200000000003,
+        "end": 2346.6,
+        "text": "learn on the concepts."
+    },
+    {
+        "start": 2346.6,
+        "end": 2353.36,
+        "text": "And it can also, what I do is to keep myself fresh is I implement small projects."
+    },
+    {
+        "start": 2353.36,
+        "end": 2359.8,
+        "text": "So I try to, let's say I want to use a new technology, I time box it to 10 hours and"
+    },
+    {
+        "start": 2359.8,
+        "end": 2362.96,
+        "text": "everything I can do to do it is still an hour."
+    },
+    {
+        "start": 2363.2,
+        "end": 2366.7200000000003,
+        "text": "And then I write some sort of summary and then it's it."
+    },
+    {
+        "start": 2366.7200000000003,
+        "end": 2369.0,
+        "text": "So this is how I learn."
+    },
+    {
+        "start": 2369.0,
+        "end": 2369.96,
+        "text": "So you can do that."
+    },
+    {
+        "start": 2369.96,
+        "end": 2382.84,
+        "text": "Yeah, but I would focus on learning, doing, knowing tech that you have at work really well."
+    },
+    {
+        "start": 2382.84,
+        "end": 2384.48,
+        "text": "And then focusing on concepts."
+    },
+    {
+        "start": 2384.48,
+        "end": 2388.36,
+        "text": "And then tools are, I would say secondary."
+    },
+    {
+        "start": 2388.36,
+        "end": 2392.96,
+        "text": "I know Java and can read basic Python, but I don't have much hands on experience."
+    },
+    {
+        "start": 2392.96,
+        "end": 2395.2000000000003,
+        "text": "What resources do you recommend for learning Python?"
+    },
+    {
+        "start": 2395.2000000000003,
+        "end": 2400.2400000000002,
+        "text": "I would recommend chatty beauty."
+    },
+    {
+        "start": 2400.2400000000002,
+        "end": 2404.6,
+        "text": "I don't know if I need to expand on that, but like you just ask whatever and then it gives"
+    },
+    {
+        "start": 2404.6,
+        "end": 2406.96,
+        "text": "you a code and you try to understand the code."
+    },
+    {
+        "start": 2406.96,
+        "end": 2410.1200000000003,
+        "text": "I don't think you need, it's as interactive as it can get."
+    },
+    {
+        "start": 2410.1200000000003,
+        "end": 2413.36,
+        "text": "Like I do think you need anything else for that."
+    },
+    {
+        "start": 2413.36,
+        "end": 2416.08,
+        "text": "What are the chances of landing data in the job without prior experiences?"
+    },
+    {
+        "start": 2416.08,
+        "end": 2421.16,
+        "text": "Data only scientists given the lack of junior roles and internships."
+    },
+    {
+        "start": 2421.16,
+        "end": 2424.3199999999997,
+        "text": "I mean, I will not sugar code it."
+    },
+    {
+        "start": 2424.3199999999997,
+        "end": 2431.16,
+        "text": "Lim, but like in general, like if you don't have any prior experience in anything, getting"
+    },
+    {
+        "start": 2431.16,
+        "end": 2434.92,
+        "text": "a job as anything is going to be not easy."
+    },
+    {
+        "start": 2434.92,
+        "end": 2438.64,
+        "text": "But it's not impossible."
+    },
+    {
+        "start": 2438.64,
+        "end": 2439.64,
+        "text": "We'll have done it."
+    },
+    {
+        "start": 2439.64,
+        "end": 2442.04,
+        "text": "You will do this too."
+    },
+    {
+        "start": 2442.04,
+        "end": 2446.68,
+        "text": "But like for data engineering, because data engineers, data engineers are typically already"
+    },
+    {
+        "start": 2446.68,
+        "end": 2448.12,
+        "text": "experienced engineers."
+    },
+    {
+        "start": 2448.12,
+        "end": 2450.68,
+        "text": "Yes, there are junior data engineers."
+    },
+    {
+        "start": 2450.68,
+        "end": 2457.6,
+        "text": "Some yes, there are people who started their careers being data engineers, but maybe first"
+    },
+    {
+        "start": 2457.6,
+        "end": 2464.52,
+        "text": "getting general software engineering experience might be helpful and also easier to get into."
+    },
+    {
+        "start": 2464.52,
+        "end": 2469.12,
+        "text": "Because there are more open positions for backend or software engineering than to just"
+    },
+    {
+        "start": 2469.12,
+        "end": 2470.4,
+        "text": "data engineering."
+    },
+    {
+        "start": 2470.4,
+        "end": 2475.92,
+        "text": "But then the skills you use as a backend engineer, they are very similar to data engineer."
+    },
+    {
+        "start": 2475.92,
+        "end": 2480.7599999999998,
+        "text": "The tent, it's, you know, SQL database and stuff."
+    },
+    {
+        "start": 2480.7599999999998,
+        "end": 2482.8399999999997,
+        "text": "Will there be a hackathon or competition?"
+    },
+    {
+        "start": 2482.8399999999997,
+        "end": 2489.16,
+        "text": "We have not planned anything, but if you have some ideas, we can talk about that in Slack."
+    },
+    {
+        "start": 2489.16,
+        "end": 2491.68,
+        "text": "As a beginner in Python and SQL, I don't have much coding experience."
+    },
+    {
+        "start": 2491.68,
+        "end": 2495.3199999999997,
+        "text": "Can we use the code from the course videos?"
+    },
+    {
+        "start": 2495.32,
+        "end": 2505.6800000000003,
+        "text": "Some code, yes, it's fine to use, but I'm just thinking, you'll still have to modify."
+    },
+    {
+        "start": 2505.6800000000003,
+        "end": 2512.38,
+        "text": "So you will not be able to, for the projects, you will not be able to use the New York"
+    },
+    {
+        "start": 2512.38,
+        "end": 2513.88,
+        "text": "Taxi Data Set, right?"
+    },
+    {
+        "start": 2513.88,
+        "end": 2519.6400000000003,
+        "text": "So because we use this in lectures, it's not allowed to use it for the projects."
+    },
+    {
+        "start": 2519.6400000000003,
+        "end": 2524.1200000000003,
+        "text": "So because you'll have to use a different data set, you'll have to write different code."
+    },
+    {
+        "start": 2524.12,
+        "end": 2529.12,
+        "text": "So some things you can copy, but at the end, most of the code will be new."
+    },
+    {
+        "start": 2529.12,
+        "end": 2535.8399999999997,
+        "text": "Anyways, how to obtain the certificate, submit all homeworks and final projects."
+    },
+    {
+        "start": 2535.8399999999997,
+        "end": 2539.16,
+        "text": "So homeworks, as I said, are optional."
+    },
+    {
+        "start": 2539.16,
+        "end": 2543.8399999999997,
+        "text": "Final project is, so you submit final project and you review three peers."
+    },
+    {
+        "start": 2543.8399999999997,
+        "end": 2550.04,
+        "text": "So after you submit the project, when we close the form, you will get assigned, you will"
+    },
+    {
+        "start": 2550.04,
+        "end": 2552.3199999999997,
+        "text": "be assigned three projects to the view."
+    },
+    {
+        "start": 2552.32,
+        "end": 2558.32,
+        "text": "You review these projects and then if you ask, then you'll get the certificate."
+    },
+    {
+        "start": 2558.32,
+        "end": 2560.6400000000003,
+        "text": "That's how it works."
+    },
+    {
+        "start": 2560.6400000000003,
+        "end": 2565.04,
+        "text": "In Egypt to get a GCP free trial, you need to create a card with a USD."
+    },
+    {
+        "start": 2565.04,
+        "end": 2568.52,
+        "text": "This is difficult for students."
+    },
+    {
+        "start": 2568.52,
+        "end": 2570.6800000000003,
+        "text": "So the other solution is do everything locally."
+    },
+    {
+        "start": 2570.6800000000003,
+        "end": 2571.6800000000003,
+        "text": "It's also possible."
+    },
+    {
+        "start": 2571.6800000000003,
+        "end": 2579.1600000000003,
+        "text": "You'll have to skip Terraform, but apart from that, most of the content we have here in"
+    },
+    {
+        "start": 2579.1600000000003,
+        "end": 2581.96,
+        "text": "the course can be done locally."
+    },
+    {
+        "start": 2582.48,
+        "end": 2586.48,
+        "text": "And this was the idea we had at the very beginning."
+    },
+    {
+        "start": 2586.48,
+        "end": 2591.12,
+        "text": "So we know that not everyone can or want to use cloud."
+    },
+    {
+        "start": 2591.12,
+        "end": 2592.2,
+        "text": "And it's okay."
+    },
+    {
+        "start": 2592.2,
+        "end": 2597.36,
+        "text": "So there is always a local alternative."
+    },
+    {
+        "start": 2597.36,
+        "end": 2601.04,
+        "text": "You will, your project will not get some points at the end for the cloud."
+    },
+    {
+        "start": 2601.04,
+        "end": 2607.16,
+        "text": "So one of the criteria, one of the evaluation criteria for the project is using the cloud."
+    },
+    {
+        "start": 2607.16,
+        "end": 2614.3999999999996,
+        "text": "So your project will not get these points, but in order to pass the project, you don't"
+    },
+    {
+        "start": 2614.3999999999996,
+        "end": 2616.16,
+        "text": "really need to have a lot of points."
+    },
+    {
+        "start": 2616.16,
+        "end": 2625.12,
+        "text": "So it will not be difficult for you to pass the project even without these cloud points."
+    },
+    {
+        "start": 2625.12,
+        "end": 2629.7999999999997,
+        "text": "Will we have another life meeting or this will be the only one?"
+    },
+    {
+        "start": 2629.7999999999997,
+        "end": 2632.6,
+        "text": "So we will have some life meetings."
+    },
+    {
+        "start": 2632.6,
+        "end": 2641.6,
+        "text": "So we'll have office hours for workflow orchestration and we'll also have a workshop with"
+    },
+    {
+        "start": 2641.6,
+        "end": 2647.44,
+        "text": "DLT and we'll also have office hours with brewing about data platform."
+    },
+    {
+        "start": 2647.44,
+        "end": 2649.44,
+        "text": "So these are the office hours we are going to have."
+    },
+    {
+        "start": 2649.44,
+        "end": 2651.8399999999997,
+        "text": "So these are going to be live sessions."
+    },
+    {
+        "start": 2651.8399999999997,
+        "end": 2656.24,
+        "text": "We will make separate announcements about them."
+    },
+    {
+        "start": 2656.24,
+        "end": 2659.36,
+        "text": "But yeah, so the classes, every minute is pre-recorded."
+    },
+    {
+        "start": 2659.36,
+        "end": 2664.28,
+        "text": "All the videos are in the course, in the course repo."
+    },
+    {
+        "start": 2664.28,
+        "end": 2671.1200000000003,
+        "text": "So apart from this life meeting, we don't really have anything else and the videos I mentioned,"
+    },
+    {
+        "start": 2671.1200000000003,
+        "end": 2674.2400000000002,
+        "text": "I think it's a stream."
+    },
+    {
+        "start": 2674.2400000000002,
+        "end": 2676.6400000000003,
+        "text": "What is the schedule of the data engine?"
+    },
+    {
+        "start": 2676.6400000000003,
+        "end": 2679.56,
+        "text": "Zoom count for people joining the live cohort."
+    },
+    {
+        "start": 2679.56,
+        "end": 2681.48,
+        "text": "I think I just answered that."
+    },
+    {
+        "start": 2681.48,
+        "end": 2686.7200000000003,
+        "text": "So the main schedule is here."
+    },
+    {
+        "start": 2686.72,
+        "end": 2691.64,
+        "text": "So this schedule is for homeworks, you can see."
+    },
+    {
+        "start": 2691.64,
+        "end": 2694.4399999999996,
+        "text": "So we'll open the homework, you do it."
+    },
+    {
+        "start": 2694.4399999999996,
+        "end": 2699.52,
+        "text": "You, I don't care when you watch the videos or if you watch them at all, up to you."
+    },
+    {
+        "start": 2699.52,
+        "end": 2703.48,
+        "text": "You choose whatever is convenient."
+    },
+    {
+        "start": 2703.48,
+        "end": 2706.2799999999997,
+        "text": "You can also, we have some texts."
+    },
+    {
+        "start": 2706.2799999999997,
+        "end": 2710.68,
+        "text": "We have some notes from the students you don't even have to watch the videos."
+    },
+    {
+        "start": 2710.68,
+        "end": 2713.3199999999997,
+        "text": "Or maybe you prefer to use some other materials."
+    },
+    {
+        "start": 2713.32,
+        "end": 2714.8,
+        "text": "But then I don't really care."
+    },
+    {
+        "start": 2714.8,
+        "end": 2717.28,
+        "text": "Like here's homework, you submit."
+    },
+    {
+        "start": 2717.28,
+        "end": 2725.0,
+        "text": "And that's the only schedule we have."
+    },
+    {
+        "start": 2725.0,
+        "end": 2726.32,
+        "text": "This homeworks."
+    },
+    {
+        "start": 2726.32,
+        "end": 2729.1600000000003,
+        "text": "So everyone is doing it at the same time."
+    },
+    {
+        "start": 2729.1600000000003,
+        "end": 2731.52,
+        "text": "So everyone is doing the same module at the same time."
+    },
+    {
+        "start": 2731.52,
+        "end": 2737.88,
+        "text": "So then we can help each other if you get stuck in some things."
+    },
+    {
+        "start": 2737.88,
+        "end": 2738.88,
+        "text": "OK."
+    },
+    {
+        "start": 2738.88,
+        "end": 2745.2400000000002,
+        "text": "We would be beneficial to learn back end development to have a holistic understanding"
+    },
+    {
+        "start": 2745.2400000000002,
+        "end": 2748.4,
+        "text": "of how the engine works."
+    },
+    {
+        "start": 2748.4,
+        "end": 2751.52,
+        "text": "I mean, in general, yes, but also it's beneficial to learn analytics."
+    },
+    {
+        "start": 2751.52,
+        "end": 2753.6,
+        "text": "It's also beneficial to learn data science."
+    },
+    {
+        "start": 2753.6,
+        "end": 2756.52,
+        "text": "It's also beneficial to learn to many other things."
+    },
+    {
+        "start": 2756.52,
+        "end": 2758.96,
+        "text": "At the end, it's not really possible to learn everything."
+    },
+    {
+        "start": 2758.96,
+        "end": 2767.4,
+        "text": "So depending on what your goal is, right, you can see what you learn."
+    },
+    {
+        "start": 2767.4,
+        "end": 2773.2400000000002,
+        "text": "But in general, back end development is quite useful for data engineering."
+    },
+    {
+        "start": 2773.2400000000002,
+        "end": 2776.48,
+        "text": "Because sometimes you might need to create a web service."
+    },
+    {
+        "start": 2776.48,
+        "end": 2779.76,
+        "text": "And you want to know how to do this."
+    },
+    {
+        "start": 2779.76,
+        "end": 2782.2400000000002,
+        "text": "From this point of view, yes, it's going to be useful."
+    },
+    {
+        "start": 2782.2400000000002,
+        "end": 2786.04,
+        "text": "But also, if you don't have this experience and you're coming from more analytics"
+    },
+    {
+        "start": 2786.04,
+        "end": 2788.56,
+        "text": "background, it's also fine."
+    },
+    {
+        "start": 2788.56,
+        "end": 2794.2000000000003,
+        "text": "So there are different data engineers, data engineers that have different backgrounds."
+    },
+    {
+        "start": 2794.2000000000003,
+        "end": 2795.84,
+        "text": "Some of them come from data science backgrounds."
+    },
+    {
+        "start": 2795.84,
+        "end": 2797.52,
+        "text": "Some of them come from data analytics background."
+    },
+    {
+        "start": 2797.52,
+        "end": 2807.32,
+        "text": "Some of them come from back end development or from any other background."
+    },
+    {
+        "start": 2807.32,
+        "end": 2812.56,
+        "text": "What are your estimations about demand for data engineering compared to software engineers?"
+    },
+    {
+        "start": 2812.56,
+        "end": 2815.96,
+        "text": "General software engineers will always be in more demand."
+    },
+    {
+        "start": 2815.96,
+        "end": 2821.2400000000002,
+        "text": "And the reason for that, the reason I think so is to me, data engineering is a subset"
+    },
+    {
+        "start": 2821.2400000000002,
+        "end": 2823.04,
+        "text": "of software engineering."
+    },
+    {
+        "start": 2823.04,
+        "end": 2824.52,
+        "text": "So we have software engineers, right?"
+    },
+    {
+        "start": 2824.52,
+        "end": 2832.2,
+        "text": "And then we can split software engineers into back end engineers, front end engineers,"
+    },
+    {
+        "start": 2832.2,
+        "end": 2834.8,
+        "text": "data engineers, ML engineers, AI engineers."
+    },
+    {
+        "start": 2834.8,
+        "end": 2836.2,
+        "text": "But at the end, they are all engineers."
+    },
+    {
+        "start": 2836.2,
+        "end": 2838.04,
+        "text": "They are also two engineers, right?"
+    },
+    {
+        "start": 2838.04,
+        "end": 2840.28,
+        "text": "They're just having different focus."
+    },
+    {
+        "start": 2840.28,
+        "end": 2846.04,
+        "text": "So data engineering is one of the sites, how to say, niches."
+    },
+    {
+        "start": 2846.04,
+        "end": 2853.92,
+        "text": "So and given that, of course, software engineering is bigger because it's like a whole thing."
+    },
+    {
+        "start": 2853.92,
+        "end": 2856.56,
+        "text": "And data engineering is only part of that, right?"
+    },
+    {
+        "start": 2856.56,
+        "end": 2863.16,
+        "text": "So of course, there will be more, the general purpose, like how to say, generalists or"
+    },
+    {
+        "start": 2863.16,
+        "end": 2867.16,
+        "text": "software engineers in general will be more in more demand."
+    },
+    {
+        "start": 2867.16,
+        "end": 2871.4,
+        "text": "But also, like I guess your question is, yes, we have positions that are software engineers,"
+    },
+    {
+        "start": 2871.4,
+        "end": 2873.56,
+        "text": "we have positions that are data engineers."
+    },
+    {
+        "start": 2873.56,
+        "end": 2876.2400000000002,
+        "text": "So here, software engineers are generally stride."
+    },
+    {
+        "start": 2876.2400000000002,
+        "end": 2879.36,
+        "text": "So people who can do everything."
+    },
+    {
+        "start": 2879.36,
+        "end": 2881.52,
+        "text": "And usually there is more demand for that."
+    },
+    {
+        "start": 2881.52,
+        "end": 2887.4,
+        "text": "Like, I don't know if you just open anything like Amazon, for example, you'll see many"
+    },
+    {
+        "start": 2887.4,
+        "end": 2890.8,
+        "text": "data, many software engineers have few data engineers."
+    },
+    {
+        "start": 2890.8,
+        "end": 2894.0,
+        "text": "Well, it doesn't mean you shouldn't learn data engineering."
+    },
+    {
+        "start": 2894.0,
+        "end": 2897.7599999999998,
+        "text": "So they always will be demand for data engineers."
+    },
+    {
+        "start": 2897.7599999999998,
+        "end": 2902.52,
+        "text": "Because now these days, we all talk about you AI, right?"
+    },
+    {
+        "start": 2902.52,
+        "end": 2907.24,
+        "text": "But or AI in order to make AI work, we need data, right?"
+    },
+    {
+        "start": 2907.24,
+        "end": 2912.2,
+        "text": "Because something or somebody needs to pump data into the AI."
+    },
+    {
+        "start": 2912.2,
+        "end": 2915.16,
+        "text": "So we need to create all these pipelines."
+    },
+    {
+        "start": 2915.16,
+        "end": 2919.4399999999996,
+        "text": "So the demand for data engineers will always be there."
+    },
+    {
+        "start": 2919.4399999999996,
+        "end": 2925.8799999999997,
+        "text": "How to achieve your expectation in this Zoom camp?"
+    },
+    {
+        "start": 2925.8799999999997,
+        "end": 2928.64,
+        "text": "Is there any specific achievement?"
+    },
+    {
+        "start": 2928.64,
+        "end": 2932.6,
+        "text": "I don't know what you mean by that."
+    },
+    {
+        "start": 2932.6,
+        "end": 2935.7999999999997,
+        "text": "Like to me, I'm happy that you all show up."
+    },
+    {
+        "start": 2935.8,
+        "end": 2937.8,
+        "text": "So for me, it's already an achievement."
+    },
+    {
+        "start": 2937.8,
+        "end": 2940.6000000000004,
+        "text": "At some point, right now it's 1,400."
+    },
+    {
+        "start": 2940.6000000000004,
+        "end": 2943.4,
+        "text": "It was 1,700."
+    },
+    {
+        "start": 2943.4,
+        "end": 2944.92,
+        "text": "And for me, it is already an achievement."
+    },
+    {
+        "start": 2944.92,
+        "end": 2950.52,
+        "text": "I don't remember such a popular livestream."
+    },
+    {
+        "start": 2950.52,
+        "end": 2953.1200000000003,
+        "text": "I think last year, it was more than 1,000."
+    },
+    {
+        "start": 2953.1200000000003,
+        "end": 2954.1200000000003,
+        "text": "But I don't remember."
+    },
+    {
+        "start": 2954.1200000000003,
+        "end": 2958.4,
+        "text": "It was 1,700."
+    },
+    {
+        "start": 2958.4,
+        "end": 2961.44,
+        "text": "So this is already an achievement."
+    },
+    {
+        "start": 2962.4,
+        "end": 2968.28,
+        "text": "You probably mean what I expect from students, right?"
+    },
+    {
+        "start": 2968.28,
+        "end": 2971.2400000000002,
+        "text": "So if you can complete the project, I don't really"
+    },
+    {
+        "start": 2971.2400000000002,
+        "end": 2973.08,
+        "text": "care about your homework and stuff."
+    },
+    {
+        "start": 2973.08,
+        "end": 2977.96,
+        "text": "But if you finish the project, then of course,"
+    },
+    {
+        "start": 2977.96,
+        "end": 2980.32,
+        "text": "you learn something."
+    },
+    {
+        "start": 2980.32,
+        "end": 2981.96,
+        "text": "I think this is the most important thing, right?"
+    },
+    {
+        "start": 2981.96,
+        "end": 2982.7200000000003,
+        "text": "If you learn something."
+    },
+    {
+        "start": 2982.7200000000003,
+        "end": 2985.36,
+        "text": "So then if you learn something, and then you get to apply"
+    },
+    {
+        "start": 2985.36,
+        "end": 2988.0,
+        "text": "the skills somewhere, I think my job is done."
+    },
+    {
+        "start": 2988.0,
+        "end": 2990.12,
+        "text": "If you finish with project, awesome."
+    },
+    {
+        "start": 2990.12,
+        "end": 2993.7999999999997,
+        "text": "I'm really happy when you finish it with a project."
+    },
+    {
+        "start": 2993.7999999999997,
+        "end": 2995.48,
+        "text": "You share it on LinkedIn."
+    },
+    {
+        "start": 2995.48,
+        "end": 2997.88,
+        "text": "You say, something's about the course."
+    },
+    {
+        "start": 2997.88,
+        "end": 3000.0,
+        "text": "I am also very happy about that."
+    },
+    {
+        "start": 3000.0,
+        "end": 3002.7999999999997,
+        "text": "But then on that, as long as you're taking something"
+    },
+    {
+        "start": 3002.7999999999997,
+        "end": 3006.3199999999997,
+        "text": "from the course and you're benefiting from this, it's good."
+    },
+    {
+        "start": 3006.3199999999997,
+        "end": 3012.8399999999997,
+        "text": "But try to finish it with a certificate event."
+    },
+    {
+        "start": 3012.8399999999997,
+        "end": 3014.44,
+        "text": "Can I use snowflake?"
+    },
+    {
+        "start": 3014.44,
+        "end": 3015.52,
+        "text": "Yes."
+    },
+    {
+        "start": 3015.52,
+        "end": 3017.08,
+        "text": "As I said, you can use any tech instead"
+    },
+    {
+        "start": 3017.08,
+        "end": 3019.16,
+        "text": "of what we use in the course."
+    },
+    {
+        "start": 3020.52,
+        "end": 3021.7999999999997,
+        "text": "Do you have any suggestions to how"
+    },
+    {
+        "start": 3021.7999999999997,
+        "end": 3026.96,
+        "text": "finally good final project we have data sets here?"
+    },
+    {
+        "start": 3030.92,
+        "end": 3034.2799999999997,
+        "text": "So here, oh no, this is different."
+    },
+    {
+        "start": 3034.2799999999997,
+        "end": 3037.48,
+        "text": "Sorry, projects."
+    },
+    {
+        "start": 3037.48,
+        "end": 3039.4,
+        "text": "Data sets."
+    },
+    {
+        "start": 3039.4,
+        "end": 3043.0,
+        "text": "So here you see some links."
+    },
+    {
+        "start": 3043.0,
+        "end": 3047.7999999999997,
+        "text": "But then what you can do is you can just talk to a GPT,"
+    },
+    {
+        "start": 3047.7999999999997,
+        "end": 3049.68,
+        "text": "especially research models that are very helpful."
+    },
+    {
+        "start": 3049.68,
+        "end": 3051.8399999999997,
+        "text": "You describe what you are interested in."
+    },
+    {
+        "start": 3051.8399999999997,
+        "end": 3055.16,
+        "text": "And judge a GPT will find you a good data set."
+    },
+    {
+        "start": 3055.16,
+        "end": 3057.24,
+        "text": "You can also brainstorm with AI."
+    },
+    {
+        "start": 3057.24,
+        "end": 3061.2799999999997,
+        "text": "Like if you don't know what to work on,"
+    },
+    {
+        "start": 3061.2799999999997,
+        "end": 3063.8799999999997,
+        "text": "but you think you have some interest somewhere,"
+    },
+    {
+        "start": 3063.8799999999997,
+        "end": 3068.52,
+        "text": "you can brainstorm with AI to find out what you want to do."
+    },
+    {
+        "start": 3068.52,
+        "end": 3071.56,
+        "text": "And then at the end, also it's possible that maybe you don't"
+    },
+    {
+        "start": 3071.56,
+        "end": 3074.16,
+        "text": "find an open data set about the problem you have,"
+    },
+    {
+        "start": 3074.16,
+        "end": 3077.16,
+        "text": "about the project you want to build."
+    },
+    {
+        "start": 3077.16,
+        "end": 3080.3999999999996,
+        "text": "That happened, but then you can also generate a data set,"
+    },
+    {
+        "start": 3080.3999999999996,
+        "end": 3083.3599999999997,
+        "text": "or you can scrape a data set, and there are many options."
+    },
+    {
+        "start": 3083.3599999999997,
+        "end": 3086.72,
+        "text": "I wouldn't recommend going actually with that road scraping"
+    },
+    {
+        "start": 3086.72,
+        "end": 3092.64,
+        "text": "for the final project, because it adds on top of,"
+    },
+    {
+        "start": 3092.64,
+        "end": 3094.08,
+        "text": "because you'll have only two weeks, right?"
+    },
+    {
+        "start": 3094.08,
+        "end": 3095.6,
+        "text": "So it's not a lot of time."
+    },
+    {
+        "start": 3095.6,
+        "end": 3098.64,
+        "text": "So I would focus on the core things,"
+    },
+    {
+        "start": 3098.64,
+        "end": 3101.6,
+        "text": "and just get any data set that is OK for you,"
+    },
+    {
+        "start": 3101.6,
+        "end": 3106.16,
+        "text": "and focus on preparing all the transformations,"
+    },
+    {
+        "start": 3106.16,
+        "end": 3108.08,
+        "text": "what are the good things in the data warehouse,"
+    },
+    {
+        "start": 3108.08,
+        "end": 3109.56,
+        "text": "and then building dashboard."
+    },
+    {
+        "start": 3112.48,
+        "end": 3114.44,
+        "text": "What after completing the course,"
+    },
+    {
+        "start": 3114.44,
+        "end": 3117.8799999999997,
+        "text": "how do I find job openings?"
+    },
+    {
+        "start": 3117.8799999999997,
+        "end": 3120.2,
+        "text": "Well, after completing the course,"
+    },
+    {
+        "start": 3120.2,
+        "end": 3121.48,
+        "text": "how do you find job openings?"
+    },
+    {
+        "start": 3121.48,
+        "end": 3123.04,
+        "text": "You open LinkedIn."
+    },
+    {
+        "start": 3123.04,
+        "end": 3124.6,
+        "text": "How about remote opportunities?"
+    },
+    {
+        "start": 3124.6,
+        "end": 3128.44,
+        "text": "So in LinkedIn, you write remote in your search."
+    },
+    {
+        "start": 3128.44,
+        "end": 3129.7599999999998,
+        "text": "How to prepare for interviews."
+    },
+    {
+        "start": 3129.7599999999998,
+        "end": 3131.8799999999997,
+        "text": "So the best way to prepare for an interview"
+    },
+    {
+        "start": 3131.88,
+        "end": 3137.12,
+        "text": "is to go for interviews, see what people ask,"
+    },
+    {
+        "start": 3137.12,
+        "end": 3140.0,
+        "text": "and next time you become more prepared."
+    },
+    {
+        "start": 3140.0,
+        "end": 3143.08,
+        "text": "Short answer, but I don't have a better one."
+    },
+    {
+        "start": 3143.08,
+        "end": 3146.52,
+        "text": "Of course, you can also Google things, you can research,"
+    },
+    {
+        "start": 3146.52,
+        "end": 3149.92,
+        "text": "but the best way to prepare for an interview"
+    },
+    {
+        "start": 3149.92,
+        "end": 3152.76,
+        "text": "is to take interviews."
+    },
+    {
+        "start": 3152.76,
+        "end": 3155.2400000000002,
+        "text": "And then, of course, on the first interview,"
+    },
+    {
+        "start": 3155.2400000000002,
+        "end": 3158.2400000000002,
+        "text": "you will not really be prepared."
+    },
+    {
+        "start": 3158.24,
+        "end": 3164.16,
+        "text": "But you at least understand what are the areas you need"
+    },
+    {
+        "start": 3164.16,
+        "end": 3166.68,
+        "text": "to work on to improve, right?"
+    },
+    {
+        "start": 3166.68,
+        "end": 3170.3599999999997,
+        "text": "So then, with time, it will get easier and easier."
+    },
+    {
+        "start": 3170.3599999999997,
+        "end": 3172.68,
+        "text": "So it will take some time, but this"
+    },
+    {
+        "start": 3172.68,
+        "end": 3176.24,
+        "text": "is the best way, in my opinion, to approach that."
+    },
+    {
+        "start": 3176.24,
+        "end": 3178.3599999999997,
+        "text": "How can I get my first data engineering job,"
+    },
+    {
+        "start": 3178.3599999999997,
+        "end": 3181.3999999999996,
+        "text": "giving that most positions require one or two years of experience?"
+    },
+    {
+        "start": 3181.3999999999996,
+        "end": 3184.16,
+        "text": "Yeah, that's tough."
+    },
+    {
+        "start": 3184.16,
+        "end": 3185.3999999999996,
+        "text": "So you focus on projects."
+    },
+    {
+        "start": 3185.4,
+        "end": 3188.0,
+        "text": "And I think this is what I already"
+    },
+    {
+        "start": 3188.0,
+        "end": 3194.4,
+        "text": "answered in the Q&A stream that we had before New Year."
+    },
+    {
+        "start": 3194.4,
+        "end": 3198.48,
+        "text": "So you need to focus on projects, right?"
+    },
+    {
+        "start": 3198.48,
+        "end": 3201.28,
+        "text": "And then the way you pick projects is also important."
+    },
+    {
+        "start": 3201.28,
+        "end": 3203.92,
+        "text": "So first, you pick the main in which you want to work."
+    },
+    {
+        "start": 3203.92,
+        "end": 3207.44,
+        "text": "Let's say it's health care or e-commerce or whatever."
+    },
+    {
+        "start": 3207.44,
+        "end": 3209.04,
+        "text": "And then you pick up a few companies"
+    },
+    {
+        "start": 3209.04,
+        "end": 3211.2400000000002,
+        "text": "that you think that are doing good job."
+    },
+    {
+        "start": 3211.2400000000002,
+        "end": 3214.48,
+        "text": "And then you try to read their blog posts"
+    },
+    {
+        "start": 3214.48,
+        "end": 3216.44,
+        "text": "and see what kind of problems they have."
+    },
+    {
+        "start": 3216.44,
+        "end": 3218.56,
+        "text": "And then you build small projects that try"
+    },
+    {
+        "start": 3218.56,
+        "end": 3220.48,
+        "text": "to reproduce these problems."
+    },
+    {
+        "start": 3220.48,
+        "end": 3223.0,
+        "text": "And then you try to interview with them."
+    },
+    {
+        "start": 3223.0,
+        "end": 3226.16,
+        "text": "You mentioned this in your CV that you"
+    },
+    {
+        "start": 3226.16,
+        "end": 3230.08,
+        "text": "have interest in this domain that you"
+    },
+    {
+        "start": 3230.08,
+        "end": 3231.64,
+        "text": "learn about what they do."
+    },
+    {
+        "start": 3231.64,
+        "end": 3235.96,
+        "text": "And you implement a few projects that are relevant to what they do."
+    },
+    {
+        "start": 3235.96,
+        "end": 3238.12,
+        "text": "And this is how you pick up their interests."
+    },
+    {
+        "start": 3238.12,
+        "end": 3242.76,
+        "text": "Then another aspect is networking."
+    },
+    {
+        "start": 3242.76,
+        "end": 3245.8,
+        "text": "Because in the first place, yes, you, in the first thing"
+    },
+    {
+        "start": 3245.8,
+        "end": 3247.92,
+        "text": "I mentioned, yes, you can do all that."
+    },
+    {
+        "start": 3247.92,
+        "end": 3251.0800000000004,
+        "text": "But at the end, if there are, I don't know,"
+    },
+    {
+        "start": 3251.0800000000004,
+        "end": 3253.6000000000004,
+        "text": "100,000 applicants for the position,"
+    },
+    {
+        "start": 3253.6000000000004,
+        "end": 3255.5600000000004,
+        "text": "your cover letter will not be noticed."
+    },
+    {
+        "start": 3255.5600000000004,
+        "end": 3260.6800000000003,
+        "text": "So another way to, a way to deal with this is networking."
+    },
+    {
+        "start": 3260.6800000000003,
+        "end": 3265.32,
+        "text": "So you go to meetups, local meetups, you talk to people."
+    },
+    {
+        "start": 3265.32,
+        "end": 3269.1600000000003,
+        "text": "Then you ask them where they work."
+    },
+    {
+        "start": 3269.1600000000003,
+        "end": 3271.1600000000003,
+        "text": "And then you take it from there, right?"
+    },
+    {
+        "start": 3271.16,
+        "end": 3274.04,
+        "text": "So then when you know people that can refer you"
+    },
+    {
+        "start": 3274.04,
+        "end": 3277.0,
+        "text": "to some positions, then you're already"
+    },
+    {
+        "start": 3277.0,
+        "end": 3279.12,
+        "text": "ahead of most candidates who are just"
+    },
+    {
+        "start": 3279.12,
+        "end": 3280.64,
+        "text": "applying without any referrals."
+    },
+    {
+        "start": 3284.3199999999997,
+        "end": 3287.48,
+        "text": "How many projects I need to land a date in general?"
+    },
+    {
+        "start": 3287.48,
+        "end": 3288.12,
+        "text": "Zero."
+    },
+    {
+        "start": 3288.12,
+        "end": 3291.52,
+        "text": "You don't need any projects to land a date in general."
+    },
+    {
+        "start": 3291.52,
+        "end": 3293.3199999999997,
+        "text": "But projects are helpful."
+    },
+    {
+        "start": 3293.3199999999997,
+        "end": 3296.16,
+        "text": "Because projects give you experience, projects give you"
+    },
+    {
+        "start": 3296.16,
+        "end": 3300.96,
+        "text": "portfolio, projects give you materials to talk about on the interview."
+    },
+    {
+        "start": 3300.96,
+        "end": 3303.68,
+        "text": "But strictly speaking, you don't need any projects."
+    },
+    {
+        "start": 3303.68,
+        "end": 3305.96,
+        "text": "But projects is a way to get attention."
+    },
+    {
+        "start": 3305.96,
+        "end": 3309.08,
+        "text": "Project is a way to learn something new."
+    },
+    {
+        "start": 3309.08,
+        "end": 3312.56,
+        "text": "Projects is a way to share something on social media,"
+    },
+    {
+        "start": 3312.56,
+        "end": 3314.0,
+        "text": "get new connections."
+    },
+    {
+        "start": 3314.0,
+        "end": 3319.12,
+        "text": "And we talked a little about learning in public."
+    },
+    {
+        "start": 3319.12,
+        "end": 3321.7200000000003,
+        "text": "But maybe for me, it's actually a good way"
+    },
+    {
+        "start": 3321.7200000000003,
+        "end": 3326.32,
+        "text": "to now do a shameless plug about my sub-stack."
+    },
+    {
+        "start": 3326.32,
+        "end": 3329.7200000000003,
+        "text": "So I had a post recently about learning in public."
+    },
+    {
+        "start": 3329.72,
+        "end": 3331.3199999999997,
+        "text": "So I'm going to share it."
+    },
+    {
+        "start": 3331.3199999999997,
+        "end": 3336.7999999999997,
+        "text": "And by the way, and don't forget to subscribe to my sub-stack."
+    },
+    {
+        "start": 3336.7999999999997,
+        "end": 3341.56,
+        "text": "But here, so here I talk about benefits of learning in public."
+    },
+    {
+        "start": 3341.56,
+        "end": 3343.3599999999997,
+        "text": "You can go through this."
+    },
+    {
+        "start": 3343.3599999999997,
+        "end": 3345.52,
+        "text": "But also, when you work on something"
+    },
+    {
+        "start": 3345.52,
+        "end": 3348.4399999999996,
+        "text": "and when you share something you learned,"
+    },
+    {
+        "start": 3348.4399999999996,
+        "end": 3349.48,
+        "text": "this could be a project, right?"
+    },
+    {
+        "start": 3349.48,
+        "end": 3351.7599999999998,
+        "text": "So then some people notice you."
+    },
+    {
+        "start": 3351.7599999999998,
+        "end": 3357.0,
+        "text": "And the more you share, the more people notice you."
+    },
+    {
+        "start": 3357.0,
+        "end": 3361.36,
+        "text": "So yeah, so zero."
+    },
+    {
+        "start": 3361.36,
+        "end": 3364.4,
+        "text": "Yes, if you have some experience."
+    },
+    {
+        "start": 3364.4,
+        "end": 3367.52,
+        "text": "More, I would say two, three should be enough."
+    },
+    {
+        "start": 3367.52,
+        "end": 3369.56,
+        "text": "But one is better than nothing, right?"
+    },
+    {
+        "start": 3369.56,
+        "end": 3371.0,
+        "text": "So if you have one, it's already good."
+    },
+    {
+        "start": 3376.96,
+        "end": 3380.12,
+        "text": "OK, working on Linux is preferable or Windows is OK."
+    },
+    {
+        "start": 3380.12,
+        "end": 3382.24,
+        "text": "Windows is OK, but working on Linux is preferable."
+    },
+    {
+        "start": 3384.92,
+        "end": 3386.92,
+        "text": "I don't know if I need to expand on that."
+    },
+    {
+        "start": 3386.92,
+        "end": 3388.16,
+        "text": "It's obvious."
+    },
+    {
+        "start": 3388.16,
+        "end": 3390.76,
+        "text": "But if you use code spaces, it has Linux."
+    },
+    {
+        "start": 3390.76,
+        "end": 3393.44,
+        "text": "So I would recommend using code spaces."
+    },
+    {
+        "start": 3393.44,
+        "end": 3397.04,
+        "text": "Is the final project also about that actually the set?"
+    },
+    {
+        "start": 3397.04,
+        "end": 3400.04,
+        "text": "No, you have to use something else."
+    },
+    {
+        "start": 3400.04,
+        "end": 3402.48,
+        "text": "Would you advise to do this project with Vedic?"
+    },
+    {
+        "start": 3402.48,
+        "end": 3405.08,
+        "text": "Yeah, it's not a bad idea."
+    },
+    {
+        "start": 3405.08,
+        "end": 3408.48,
+        "text": "Like if you already look at the project requirements"
+    },
+    {
+        "start": 3408.48,
+        "end": 3410.52,
+        "text": "and you pick a data set from the very beginning"
+    },
+    {
+        "start": 3410.52,
+        "end": 3415.2000000000003,
+        "text": "and you do it with Vedic, then it will be way easier"
+    },
+    {
+        "start": 3415.2,
+        "end": 3416.6,
+        "text": "for you to attend."
+    },
+    {
+        "start": 3416.6,
+        "end": 3419.56,
+        "text": "And last two weeks when it's the project time,"
+    },
+    {
+        "start": 3419.56,
+        "end": 3422.24,
+        "text": "you will just spend time polishing things instead"
+    },
+    {
+        "start": 3422.24,
+        "end": 3423.9199999999996,
+        "text": "of hiring through things."
+    },
+    {
+        "start": 3423.9199999999996,
+        "end": 3426.9199999999996,
+        "text": "So this is definitely a good approach."
+    },
+    {
+        "start": 3426.9199999999996,
+        "end": 3429.96,
+        "text": "I answered it already."
+    },
+    {
+        "start": 3429.96,
+        "end": 3432.96,
+        "text": "Do you know if Snowpeg free trial offer is enough"
+    },
+    {
+        "start": 3432.96,
+        "end": 3434.16,
+        "text": "for what this course covers?"
+    },
+    {
+        "start": 3434.16,
+        "end": 3437.3599999999997,
+        "text": "I don't know, but probably it is."
+    },
+    {
+        "start": 3437.3599999999997,
+        "end": 3438.8399999999997,
+        "text": "I see extremely few junior, junior,"
+    },
+    {
+        "start": 3438.8399999999997,
+        "end": 3440.3599999999997,
+        "text": "junior, junior, junior, junior, junior, junior,"
+    },
+    {
+        "start": 3440.3599999999997,
+        "end": 3441.04,
+        "text": "positions."
+    },
+    {
+        "start": 3441.04,
+        "end": 3441.96,
+        "text": "Yeah, that's true."
+    },
+    {
+        "start": 3441.96,
+        "end": 3444.2799999999997,
+        "text": "There are not so many of them."
+    },
+    {
+        "start": 3444.36,
+        "end": 3446.96,
+        "text": "Because as I said, data engineers typically"
+    },
+    {
+        "start": 3446.96,
+        "end": 3450.0400000000004,
+        "text": "and experienced engineers."
+    },
+    {
+        "start": 3450.0400000000004,
+        "end": 3455.1600000000003,
+        "text": "So a data engineer is not a junior usually."
+    },
+    {
+        "start": 3455.1600000000003,
+        "end": 3458.32,
+        "text": "So it's somebody who worked in analytics or backend"
+    },
+    {
+        "start": 3458.32,
+        "end": 3463.0800000000004,
+        "text": "or data science and want to focus on building pipelines."
+    },
+    {
+        "start": 3463.0800000000004,
+        "end": 3465.4,
+        "text": "So they already have the backend,"
+    },
+    {
+        "start": 3465.4,
+        "end": 3468.76,
+        "text": "the test of two engineering experience, the background."
+    },
+    {
+        "start": 3471.32,
+        "end": 3473.92,
+        "text": "Or in case of analysts, they would need to work on that."
+    },
+    {
+        "start": 3473.92,
+        "end": 3475.88,
+        "text": "But typically they already have some experience."
+    },
+    {
+        "start": 3475.88,
+        "end": 3479.28,
+        "text": "The panelists are very strong at data analyzing,"
+    },
+    {
+        "start": 3479.28,
+        "end": 3481.2400000000002,
+        "text": "and stuff, right?"
+    },
+    {
+        "start": 3481.2400000000002,
+        "end": 3486.2400000000002,
+        "text": "So that's why the engineers and not engineers."
+    },
+    {
+        "start": 3486.96,
+        "end": 3489.28,
+        "text": "That's that there are still a few positions."
+    },
+    {
+        "start": 3490.28,
+        "end": 3493.0,
+        "text": "It's still not impossible to get them."
+    },
+    {
+        "start": 3493.0,
+        "end": 3496.48,
+        "text": "But as I said, maybe if you're super fresh out of college"
+    },
+    {
+        "start": 3496.48,
+        "end": 3501.16,
+        "text": "or whatever, still try, still try to go for them."
+    },
+    {
+        "start": 3501.16,
+        "end": 3503.96,
+        "text": "But maybe you need to choose a different path,"
+    },
+    {
+        "start": 3503.96,
+        "end": 3508.08,
+        "text": "depending on availability of junior or data engineering"
+    },
+    {
+        "start": 3508.08,
+        "end": 3509.44,
+        "text": "positions in your area."
+    },
+    {
+        "start": 3512.6,
+        "end": 3517.04,
+        "text": "Will 2025 batch, you probably mean 2026, right?"
+    },
+    {
+        "start": 3517.04,
+        "end": 3520.7599999999998,
+        "text": "Provide resources for beginners to learn task step by step"
+    },
+    {
+        "start": 3520.7599999999998,
+        "end": 3524.3599999999997,
+        "text": "because some of the courses so difficult for me"
+    },
+    {
+        "start": 3524.3599999999997,
+        "end": 3526.52,
+        "text": "is a student of 2024 batch."
+    },
+    {
+        "start": 3527.56,
+        "end": 3528.3999999999996,
+        "text": "So."
+    },
+    {
+        "start": 3532.16,
+        "end": 3534.52,
+        "text": "Yeah, I don't know how to answer this question to be honest."
+    },
+    {
+        "start": 3534.52,
+        "end": 3537.16,
+        "text": "Like if you find our course difficult."
+    },
+    {
+        "start": 3537.16,
+        "end": 3540.16,
+        "text": "So, okay, from what you's right here,"
+    },
+    {
+        "start": 3540.16,
+        "end": 3543.08,
+        "text": "I am assuming that you try to take this course one."
+    },
+    {
+        "start": 3543.08,
+        "end": 3544.08,
+        "text": "Here you go."
+    },
+    {
+        "start": 3544.08,
+        "end": 3545.72,
+        "text": "And it was difficult for you."
+    },
+    {
+        "start": 3545.72,
+        "end": 3547.6,
+        "text": "But then my question to you is,"
+    },
+    {
+        "start": 3547.6,
+        "end": 3549.52,
+        "text": "what have you been doing this year?"
+    },
+    {
+        "start": 3550.6,
+        "end": 3554.0,
+        "text": "Have you tried to upskill yourself in the prequises"
+    },
+    {
+        "start": 3554.0,
+        "end": 3555.3599999999997,
+        "text": "that you were lacking?"
+    },
+    {
+        "start": 3556.2,
+        "end": 3558.64,
+        "text": "Like if the Docker, so typically many people"
+    },
+    {
+        "start": 3559.0,
+        "end": 3562.44,
+        "text": "will find the first module about Docker difficult."
+    },
+    {
+        "start": 3562.44,
+        "end": 3565.08,
+        "text": "Like you try to figure out what was difficult."
+    },
+    {
+        "start": 3565.08,
+        "end": 3566.64,
+        "text": "Like have you tried to fill the gaps?"
+    },
+    {
+        "start": 3568.6,
+        "end": 3569.72,
+        "text": "Or not?"
+    },
+    {
+        "start": 3569.72,
+        "end": 3571.2,
+        "text": "So this is my question to you."
+    },
+    {
+        "start": 3571.2,
+        "end": 3575.0,
+        "text": "So we're not going to make the course easier"
+    },
+    {
+        "start": 3575.0,
+        "end": 3577.8399999999997,
+        "text": "because for us, the target audience"
+    },
+    {
+        "start": 3577.8399999999997,
+        "end": 3579.96,
+        "text": "are people who meet the prequises."
+    },
+    {
+        "start": 3579.96,
+        "end": 3581.7599999999998,
+        "text": "So people who can program,"
+    },
+    {
+        "start": 3581.7599999999998,
+        "end": 3584.0,
+        "text": "already have some programming experience,"
+    },
+    {
+        "start": 3584.0,
+        "end": 3585.56,
+        "text": "people who know SQL,"
+    },
+    {
+        "start": 3585.64,
+        "end": 3588.7599999999998,
+        "text": "and we are not going to lower the,"
+    },
+    {
+        "start": 3588.7599999999998,
+        "end": 3590.24,
+        "text": "I wanna say entry by area."
+    },
+    {
+        "start": 3592.24,
+        "end": 3593.92,
+        "text": "Well, you, I'm sorry to say that,"
+    },
+    {
+        "start": 3593.92,
+        "end": 3597.84,
+        "text": "but yeah, my point is,"
+    },
+    {
+        "start": 3597.84,
+        "end": 3599.7999999999997,
+        "text": "if you find the course difficult,"
+    },
+    {
+        "start": 3599.7999999999997,
+        "end": 3601.2,
+        "text": "try to upskill yourself."
+    },
+    {
+        "start": 3601.2,
+        "end": 3604.64,
+        "text": "So then in a year, you will be able to take it."
+    },
+    {
+        "start": 3604.64,
+        "end": 3609.88,
+        "text": "But if this year you didn't do anything to learn,"
+    },
+    {
+        "start": 3609.88,
+        "end": 3612.2,
+        "text": "you think, then the course is still going to be difficult."
+    },
+    {
+        "start": 3612.2,
+        "end": 3614.68,
+        "text": "So we are not going to simplify things for you."
+    },
+    {
+        "start": 3614.68,
+        "end": 3615.52,
+        "text": "I'm sorry."
+    },
+    {
+        "start": 3619.12,
+        "end": 3621.3999999999996,
+        "text": "Which platform are we going to build?"
+    },
+    {
+        "start": 3621.3999999999996,
+        "end": 3623.24,
+        "text": "It's going to be DCP."
+    },
+    {
+        "start": 3624.48,
+        "end": 3626.56,
+        "text": "How many hours a week do you think is sufficient"
+    },
+    {
+        "start": 3626.56,
+        "end": 3627.48,
+        "text": "to complete the course?"
+    },
+    {
+        "start": 3627.48,
+        "end": 3628.7599999999998,
+        "text": "Depends on your background."
+    },
+    {
+        "start": 3630.04,
+        "end": 3632.8399999999997,
+        "text": "But what I would recommend checking is,"
+    },
+    {
+        "start": 3634.24,
+        "end": 3637.2799999999997,
+        "text": "previous cohorts, when I go to Data Engineering Zoom Cam,"
+    },
+    {
+        "start": 3637.2799999999997,
+        "end": 3638.8799999999997,
+        "text": "the course dashboard,"
+    },
+    {
+        "start": 3638.8799999999997,
+        "end": 3641.64,
+        "text": "you can see how many people spend time,"
+    },
+    {
+        "start": 3641.64,
+        "end": 3644.7999999999997,
+        "text": "how much time they spend on different modules."
+    },
+    {
+        "start": 3644.7999999999997,
+        "end": 3648.08,
+        "text": "So the first module was the most difficult,"
+    },
+    {
+        "start": 3648.08,
+        "end": 3650.68,
+        "text": "I guess, on this one is more difficult."
+    },
+    {
+        "start": 3650.68,
+        "end": 3652.72,
+        "text": "But yeah, you can see this."
+    },
+    {
+        "start": 3652.72,
+        "end": 3656.3599999999997,
+        "text": "And for this module, we actually have two weeks, right?"
+    },
+    {
+        "start": 3656.3599999999997,
+        "end": 3658.64,
+        "text": "So I know why Docker is so difficult."
+    },
+    {
+        "start": 3658.64,
+        "end": 3661.12,
+        "text": "Maybe there's just a lot of materials."
+    },
+    {
+        "start": 3661.12,
+        "end": 3664.0,
+        "text": "Like if you use, if you actually use code spaces,"
+    },
+    {
+        "start": 3664.0,
+        "end": 3666.92,
+        "text": "it should be quite smooth for most of the things."
+    },
+    {
+        "start": 3668.8799999999997,
+        "end": 3671.52,
+        "text": "And we see that somebody started as a junior data"
+    },
+    {
+        "start": 3671.52,
+        "end": 3672.84,
+        "text": "engineer two years ago."
+    },
+    {
+        "start": 3672.84,
+        "end": 3676.32,
+        "text": "So yeah, it's not impossible to get a junior data engineering"
+    },
+    {
+        "start": 3676.32,
+        "end": 3677.16,
+        "text": "position."
+    },
+    {
+        "start": 3678.16,
+        "end": 3680.04,
+        "text": "But I would say it's pretty rare."
+    },
+    {
+        "start": 3683.2,
+        "end": 3688.2,
+        "text": "What careers we can work to make our road to get,"
+    },
+    {
+        "start": 3689.28,
+        "end": 3693.4,
+        "text": "what careers we can work to make our road to get our first job"
+    },
+    {
+        "start": 3693.4,
+        "end": 3695.7599999999998,
+        "text": "for data engineer easier."
+    },
+    {
+        "start": 3695.7599999999998,
+        "end": 3698.44,
+        "text": "I would say general software engineering, right?"
+    },
+    {
+        "start": 3699.44,
+        "end": 3702.2000000000003,
+        "text": "Also, if we talk about data scientists,"
+    },
+    {
+        "start": 3704.4,
+        "end": 3708.04,
+        "text": "yeah, also this is, there are junior years here."
+    },
+    {
+        "start": 3708.04,
+        "end": 3710.6,
+        "text": "But I think like general software engineering is good."
+    },
+    {
+        "start": 3710.6,
+        "end": 3712.36,
+        "text": "Like I might be biased"
+    },
+    {
+        "start": 3712.36,
+        "end": 3715.52,
+        "text": "because I started my career as a software engineer."
+    },
+    {
+        "start": 3715.52,
+        "end": 3719.36,
+        "text": "But I think just being a generalist teaches you"
+    },
+    {
+        "start": 3719.36,
+        "end": 3720.36,
+        "text": "many things."
+    },
+    {
+        "start": 3720.36,
+        "end": 3723.36,
+        "text": "You learn how to work with databases,"
+    },
+    {
+        "start": 3723.36,
+        "end": 3726.7200000000003,
+        "text": "you learn how to work with back end,"
+    },
+    {
+        "start": 3726.8399999999997,
+        "end": 3728.72,
+        "text": "like with web servers,"
+    },
+    {
+        "start": 3728.72,
+        "end": 3733.2,
+        "text": "you learn about testing, you learn about software engineering"
+    },
+    {
+        "start": 3733.2,
+        "end": 3734.68,
+        "text": "best practices."
+    },
+    {
+        "start": 3734.68,
+        "end": 3737.8399999999997,
+        "text": "And these things, these skills they transfer across,"
+    },
+    {
+        "start": 3739.08,
+        "end": 3742.3199999999997,
+        "text": "across engineering, I mean, just let's say,"
+    },
+    {
+        "start": 3742.3199999999997,
+        "end": 3744.52,
+        "text": "engineering specialties."
+    },
+    {
+        "start": 3744.52,
+        "end": 3747.04,
+        "text": "So you can then stay okay."
+    },
+    {
+        "start": 3748.9199999999996,
+        "end": 3751.24,
+        "text": "I've been doing back end for quite some time."
+    },
+    {
+        "start": 3751.24,
+        "end": 3753.24,
+        "text": "Now I wanna focus on data engineering."
+    },
+    {
+        "start": 3753.24,
+        "end": 3755.3599999999997,
+        "text": "So for me, I think back end engineering"
+    },
+    {
+        "start": 3755.36,
+        "end": 3757.04,
+        "text": "is the way to go."
+    },
+    {
+        "start": 3760.04,
+        "end": 3763.84,
+        "text": "But also why not try to start with data engineering, right?"
+    },
+    {
+        "start": 3763.84,
+        "end": 3766.84,
+        "text": "You don't have to actually go through something else."
+    },
+    {
+        "start": 3766.84,
+        "end": 3769.56,
+        "text": "If for you, it's possible to go to data engineer directly."
+    },
+    {
+        "start": 3769.56,
+        "end": 3770.7200000000003,
+        "text": "So you need to test."
+    },
+    {
+        "start": 3773.6400000000003,
+        "end": 3775.06,
+        "text": "I think of course focuses on building"
+    },
+    {
+        "start": 3775.06,
+        "end": 3776.1600000000003,
+        "text": "an easy help pipelines."
+    },
+    {
+        "start": 3776.1600000000003,
+        "end": 3778.7200000000003,
+        "text": "We would cover also ELT pipelines,"
+    },
+    {
+        "start": 3778.7200000000003,
+        "end": 3780.44,
+        "text": "data lakes, data lake houses."
+    },
+    {
+        "start": 3780.44,
+        "end": 3782.28,
+        "text": "So we do cover data lakes."
+    },
+    {
+        "start": 3783.2000000000003,
+        "end": 3788.0400000000004,
+        "text": "I mean, for me, this difference between ETL and ELT,"
+    },
+    {
+        "start": 3788.0400000000004,
+        "end": 3793.0400000000004,
+        "text": "like it's not really worth time arguing about,"
+    },
+    {
+        "start": 3794.2400000000002,
+        "end": 3797.28,
+        "text": "what is important is you can extract,"
+    },
+    {
+        "start": 3797.28,
+        "end": 3799.76,
+        "text": "you can transform your data and you can load your data"
+    },
+    {
+        "start": 3799.76,
+        "end": 3803.0800000000004,
+        "text": "in which order you do it doesn't matter, attend."
+    },
+    {
+        "start": 3803.0800000000004,
+        "end": 3805.6400000000003,
+        "text": "So yes, we have data lakes, we talk about data lakes,"
+    },
+    {
+        "start": 3805.6400000000003,
+        "end": 3808.96,
+        "text": "and this is actually the recommended architecture."
+    },
+    {
+        "start": 3808.96,
+        "end": 3810.96,
+        "text": "So you have a data lake, and then from this data lake,"
+    },
+    {
+        "start": 3810.96,
+        "end": 3813.8,
+        "text": "you apply some transformation to load the data into your"
+    },
+    {
+        "start": 3813.8,
+        "end": 3815.68,
+        "text": "data warehouse."
+    },
+    {
+        "start": 3815.68,
+        "end": 3818.76,
+        "text": "But then it's just semantics."
+    },
+    {
+        "start": 3818.76,
+        "end": 3820.8,
+        "text": "So you want to have a working pipeline,"
+    },
+    {
+        "start": 3820.8,
+        "end": 3822.76,
+        "text": "and you want to have a working dashboard"
+    },
+    {
+        "start": 3822.76,
+        "end": 3825.36,
+        "text": "and then the way you go to this dashboard is up to you."
+    },
+    {
+        "start": 3828.6,
+        "end": 3830.68,
+        "text": "What is the difference between data engineer"
+    },
+    {
+        "start": 3830.68,
+        "end": 3834.28,
+        "text": "and AI engineer for someone with basic skill"
+    },
+    {
+        "start": 3834.28,
+        "end": 3836.52,
+        "text": "and Python skills, which is better?"
+    },
+    {
+        "start": 3836.52,
+        "end": 3838.52,
+        "text": "Which is better only you can decide."
+    },
+    {
+        "start": 3838.52,
+        "end": 3843.08,
+        "text": "So I would ask myself, what do I like doing more?"
+    },
+    {
+        "start": 3843.08,
+        "end": 3845.24,
+        "text": "Because if you don't like the job,"
+    },
+    {
+        "start": 3845.24,
+        "end": 3849.68,
+        "text": "like you will not have the motivation to actually learn things,"
+    },
+    {
+        "start": 3849.68,
+        "end": 3852.96,
+        "text": "you will not have the motivation to look for a job."
+    },
+    {
+        "start": 3852.96,
+        "end": 3855.8,
+        "text": "But if you have the motivation, if you like something,"
+    },
+    {
+        "start": 3855.8,
+        "end": 3860.68,
+        "text": "you will have pet projects, you will have portfolio projects,"
+    },
+    {
+        "start": 3860.68,
+        "end": 3863.72,
+        "text": "even before you start working in this position,"
+    },
+    {
+        "start": 3863.72,
+        "end": 3866.04,
+        "text": "you already will be doing something,"
+    },
+    {
+        "start": 3866.04,
+        "end": 3869.16,
+        "text": "because you really like these things."
+    },
+    {
+        "start": 3869.16,
+        "end": 3870.7599999999998,
+        "text": "You are really motivated."
+    },
+    {
+        "start": 3870.7599999999998,
+        "end": 3875.12,
+        "text": "And then for you, it's easy to decide."
+    },
+    {
+        "start": 3875.12,
+        "end": 3879.04,
+        "text": "So then ask yourself what you like and then focus on that."
+    },
+    {
+        "start": 3879.04,
+        "end": 3881.48,
+        "text": "And then you'll find a job in this area,"
+    },
+    {
+        "start": 3881.48,
+        "end": 3884.96,
+        "text": "because both data engineering and AI engineers"
+    },
+    {
+        "start": 3884.96,
+        "end": 3887.52,
+        "text": "are in demand."
+    },
+    {
+        "start": 3887.52,
+        "end": 3891.8,
+        "text": "And then your first part is what is the difference"
+    },
+    {
+        "start": 3891.8,
+        "end": 3893.88,
+        "text": "between a data engineer and AI engineer."
+    },
+    {
+        "start": 3894.56,
+        "end": 3898.76,
+        "text": "So the data engineer focuses on data,"
+    },
+    {
+        "start": 3898.76,
+        "end": 3901.32,
+        "text": "and engineer focuses on AI."
+    },
+    {
+        "start": 3901.32,
+        "end": 3903.52,
+        "text": "So I guess the answer is kind of obvious."
+    },
+    {
+        "start": 3903.52,
+        "end": 3905.52,
+        "text": "Of course, the data is in the details."
+    },
+    {
+        "start": 3907.6400000000003,
+        "end": 3911.2400000000002,
+        "text": "So let's say there is a team,"
+    },
+    {
+        "start": 3911.2400000000002,
+        "end": 3913.08,
+        "text": "and they work on AI product."
+    },
+    {
+        "start": 3913.08,
+        "end": 3915.28,
+        "text": "In this team, you can have an AI engineer"
+    },
+    {
+        "start": 3915.28,
+        "end": 3916.8,
+        "text": "and you have a data engineer,"
+    },
+    {
+        "start": 3916.8,
+        "end": 3918.6,
+        "text": "and maybe you have a machine learning engineer,"
+    },
+    {
+        "start": 3918.6,
+        "end": 3921.6,
+        "text": "maybe you have also data scientist data all this."
+    },
+    {
+        "start": 3921.64,
+        "end": 3925.8399999999997,
+        "text": "So if we talk about one team who is building an AI product,"
+    },
+    {
+        "start": 3925.8399999999997,
+        "end": 3929.24,
+        "text": "they would focus on different things."
+    },
+    {
+        "start": 3929.24,
+        "end": 3933.3199999999997,
+        "text": "So data engineer would focus on making sure"
+    },
+    {
+        "start": 3933.3199999999997,
+        "end": 3937.12,
+        "text": "all the data is captured, and it's ready for analysis."
+    },
+    {
+        "start": 3937.12,
+        "end": 3941.7999999999997,
+        "text": "It's available, it's reliable, it's clean, things like that."
+    },
+    {
+        "start": 3941.7999999999997,
+        "end": 3945.44,
+        "text": "So then an analyst can use it, AI engineers can use it,"
+    },
+    {
+        "start": 3945.44,
+        "end": 3946.7599999999998,
+        "text": "everyone can use it."
+    },
+    {
+        "start": 3946.7599999999998,
+        "end": 3949.96,
+        "text": "So that would be the job of the data engineer."
+    },
+    {
+        "start": 3950.0,
+        "end": 3953.36,
+        "text": "Making this data available, making this data useful."
+    },
+    {
+        "start": 3953.36,
+        "end": 3956.68,
+        "text": "They can also work with AI engineer to..."
+    },
+    {
+        "start": 3959.28,
+        "end": 3962.56,
+        "text": "So AI engineer would work on the AI product,"
+    },
+    {
+        "start": 3962.56,
+        "end": 3965.64,
+        "text": "like the AI aspect of the product,"
+    },
+    {
+        "start": 3965.64,
+        "end": 3969.6,
+        "text": "I don't know, using OpenAI is the simplest example,"
+    },
+    {
+        "start": 3969.6,
+        "end": 3972.32,
+        "text": "so you use OpenAI to make some queries."
+    },
+    {
+        "start": 3972.32,
+        "end": 3975.68,
+        "text": "You test this, you do prompt tuning,"
+    },
+    {
+        "start": 3975.68,
+        "end": 3977.92,
+        "text": "you test that your approach works,"
+    },
+    {
+        "start": 3977.92,
+        "end": 3979.36,
+        "text": "you evaluate your model,"
+    },
+    {
+        "start": 3981.08,
+        "end": 3983.76,
+        "text": "then you might need to have some database."
+    },
+    {
+        "start": 3985.36,
+        "end": 3988.96,
+        "text": "I'm trying to think if it should go into more details about this,"
+    },
+    {
+        "start": 3988.96,
+        "end": 3993.96,
+        "text": "but the idea is yes, AI engineers work more with AI,"
+    },
+    {
+        "start": 3995.2000000000003,
+        "end": 3999.76,
+        "text": "data engineers work more with making data available,"
+    },
+    {
+        "start": 3999.76,
+        "end": 4001.2000000000003,
+        "text": "and of course there's some intersection,"
+    },
+    {
+        "start": 4001.2000000000003,
+        "end": 4004.36,
+        "text": "because AI engineers may need a database,"
+    },
+    {
+        "start": 4004.36,
+        "end": 4006.44,
+        "text": "this is where data engineers can support."
+    },
+    {
+        "start": 4008.52,
+        "end": 4012.12,
+        "text": "I'm currently doing an ML zoom camp,"
+    },
+    {
+        "start": 4012.12,
+        "end": 4014.16,
+        "text": "which they pick next, data engineer or ML ops."
+    },
+    {
+        "start": 4014.16,
+        "end": 4018.12,
+        "text": "I want to learn anything that can let me job as a..."
+    },
+    {
+        "start": 4018.12,
+        "end": 4020.4,
+        "text": "as... as up as soon as possible."
+    },
+    {
+        "start": 4021.2000000000003,
+        "end": 4022.2000000000003,
+        "text": "Okay, so..."
+    },
+    {
+        "start": 4024.2000000000003,
+        "end": 4029.2000000000003,
+        "text": "Data engineer and ML engineering are different things."
+    },
+    {
+        "start": 4029.2000000000003,
+        "end": 4032.28,
+        "text": "So, like in the same way as AI engineering,"
+    },
+    {
+        "start": 4032.28,
+        "end": 4034.0,
+        "text": "it's different from data engineering in the same way,"
+    },
+    {
+        "start": 4034.0,
+        "end": 4036.7200000000003,
+        "text": "ML engineering is different from data engineering."
+    },
+    {
+        "start": 4036.72,
+        "end": 4039.0,
+        "text": "This here already doing a ML zoom camp."
+    },
+    {
+        "start": 4040.04,
+        "end": 4044.2799999999997,
+        "text": "For you, what would help more if you want to get a job"
+    },
+    {
+        "start": 4044.2799999999997,
+        "end": 4047.04,
+        "text": "is doubling down on that."
+    },
+    {
+        "start": 4047.04,
+        "end": 4049.2,
+        "text": "So, instead of trying different things, just say,"
+    },
+    {
+        "start": 4049.2,
+        "end": 4052.6,
+        "text": "okay, like I am one of focus on the ML engineering,"
+    },
+    {
+        "start": 4052.6,
+        "end": 4054.52,
+        "text": "I want to do more projects in this,"
+    },
+    {
+        "start": 4054.52,
+        "end": 4056.56,
+        "text": "I want to continue learning things in that,"
+    },
+    {
+        "start": 4056.56,
+        "end": 4059.64,
+        "text": "and I'm going to apply for positions in this area."
+    },
+    {
+        "start": 4059.64,
+        "end": 4060.72,
+        "text": "I hope you've been doing,"
+    },
+    {
+        "start": 4060.72,
+        "end": 4064.7999999999997,
+        "text": "you've been already actively applying for jobs, right?"
+    },
+    {
+        "start": 4064.84,
+        "end": 4068.2000000000003,
+        "text": "So, you continue applying, you continue building projects,"
+    },
+    {
+        "start": 4068.2000000000003,
+        "end": 4071.1600000000003,
+        "text": "you continue upskilling yourself in this particular area."
+    },
+    {
+        "start": 4071.1600000000003,
+        "end": 4073.84,
+        "text": "So, you stay focused, you don't try to jump around."
+    },
+    {
+        "start": 4073.84,
+        "end": 4078.1600000000003,
+        "text": "And in this case, ML ops is a more natural progression"
+    },
+    {
+        "start": 4078.1600000000003,
+        "end": 4082.52,
+        "text": "because ML ops is more like advanced ML engineering."
+    },
+    {
+        "start": 4082.52,
+        "end": 4085.1600000000003,
+        "text": "So, ML engineering is introduction,"
+    },
+    {
+        "start": 4085.1600000000003,
+        "end": 4087.6400000000003,
+        "text": "ML zoom camp is introduction to ML engineering,"
+    },
+    {
+        "start": 4087.6400000000003,
+        "end": 4092.6400000000003,
+        "text": "and ML ops is like on or two level course, let's say."
+    },
+    {
+        "start": 4093.16,
+        "end": 4096.32,
+        "text": "So, it's more like intermediate ML engineering."
+    },
+    {
+        "start": 4096.32,
+        "end": 4099.639999999999,
+        "text": "So, in this sense, continue applying,"
+    },
+    {
+        "start": 4099.639999999999,
+        "end": 4100.84,
+        "text": "continue applying for positions,"
+    },
+    {
+        "start": 4100.84,
+        "end": 4103.28,
+        "text": "continue building projects in ML engineering,"
+    },
+    {
+        "start": 4103.28,
+        "end": 4104.72,
+        "text": "and also taking ML ops course,"
+    },
+    {
+        "start": 4104.72,
+        "end": 4109.44,
+        "text": "and also introducing some things you learn in ML ops"
+    },
+    {
+        "start": 4109.44,
+        "end": 4113.32,
+        "text": "to your ML projects would really be better"
+    },
+    {
+        "start": 4113.32,
+        "end": 4116.68,
+        "text": "because you stay focused instead of jumping around."
+    },
+    {
+        "start": 4116.68,
+        "end": 4119.88,
+        "text": "So, I would not recommend taking data engineering course"
+    },
+    {
+        "start": 4119.88,
+        "end": 4121.92,
+        "text": "if you want to focus on getting a job."
+    },
+    {
+        "start": 4123.52,
+        "end": 4126.52,
+        "text": "But also, for ML engineers,"
+    },
+    {
+        "start": 4126.52,
+        "end": 4128.96,
+        "text": "I think it's useful to know data engineering,"
+    },
+    {
+        "start": 4128.96,
+        "end": 4132.4400000000005,
+        "text": "but since your focus is getting a job,"
+    },
+    {
+        "start": 4132.4400000000005,
+        "end": 4135.320000000001,
+        "text": "so I would focus on really doubling down"
+    },
+    {
+        "start": 4135.320000000001,
+        "end": 4136.68,
+        "text": "on what you already have."
+    },
+    {
+        "start": 4138.4400000000005,
+        "end": 4139.68,
+        "text": "Our realistic is getting a career"
+    },
+    {
+        "start": 4139.68,
+        "end": 4141.96,
+        "text": "and data engineering starting from nothing."
+    },
+    {
+        "start": 4144.52,
+        "end": 4146.0,
+        "text": "Yeah, it is realistic."
+    },
+    {
+        "start": 4146.0,
+        "end": 4148.240000000001,
+        "text": "Like I said, as long as you have motivation,"
+    },
+    {
+        "start": 4148.240000000001,
+        "end": 4149.68,
+        "text": "everything is possible."
+    },
+    {
+        "start": 4150.68,
+        "end": 4152.72,
+        "text": "How can I prepare myself for the Zoom camp?"
+    },
+    {
+        "start": 4152.72,
+        "end": 4156.04,
+        "text": "I need more specifics about your background."
+    },
+    {
+        "start": 4156.04,
+        "end": 4157.92,
+        "text": "But like, if you meet a prerequisite,"
+    },
+    {
+        "start": 4157.92,
+        "end": 4159.320000000001,
+        "text": "you don't need to prepare."
+    },
+    {
+        "start": 4159.320000000001,
+        "end": 4160.88,
+        "text": "If you don't meet some prerequisites,"
+    },
+    {
+        "start": 4160.88,
+        "end": 4162.88,
+        "text": "then you know what you need to work on."
+    },
+    {
+        "start": 4163.88,
+        "end": 4165.68,
+        "text": "I'm a fresher, and everyone says"
+    },
+    {
+        "start": 4165.68,
+        "end": 4167.68,
+        "text": "that data engineering is for experienced people"
+    },
+    {
+        "start": 4167.68,
+        "end": 4169.68,
+        "text": "and I have to do data analytics first."
+    },
+    {
+        "start": 4169.68,
+        "end": 4171.200000000001,
+        "text": "What should they do now?"
+    },
+    {
+        "start": 4171.200000000001,
+        "end": 4172.280000000001,
+        "text": "I think we talked about this."
+    },
+    {
+        "start": 4172.280000000001,
+        "end": 4175.12,
+        "text": "So, you try to find data engineering,"
+    },
+    {
+        "start": 4175.12,
+        "end": 4176.64,
+        "text": "junior data engineering positions"
+    },
+    {
+        "start": 4176.64,
+        "end": 4178.64,
+        "text": "or training data engineering positions"
+    },
+    {
+        "start": 4178.72,
+        "end": 4179.56,
+        "text": "if you can."
+    },
+    {
+        "start": 4181.8,
+        "end": 4184.280000000001,
+        "text": "You apply to them, but you also decide"
+    },
+    {
+        "start": 4184.280000000001,
+        "end": 4186.08,
+        "text": "what is your plan B?"
+    },
+    {
+        "start": 4186.08,
+        "end": 4189.76,
+        "text": "Do you want to focus more on engineering"
+    },
+    {
+        "start": 4189.76,
+        "end": 4191.88,
+        "text": "or maybe analytics, right?"
+    },
+    {
+        "start": 4191.88,
+        "end": 4194.360000000001,
+        "text": "And then depending on what your answer is,"
+    },
+    {
+        "start": 4195.240000000001,
+        "end": 4198.4800000000005,
+        "text": "you choose, but you also continue"
+    },
+    {
+        "start": 4198.4800000000005,
+        "end": 4200.64,
+        "text": "upskilling yourself in data engineering, right?"
+    },
+    {
+        "start": 4201.64,
+        "end": 4204.4800000000005,
+        "text": "And you also continue applying to data engineering positions."
+    },
+    {
+        "start": 4205.56,
+        "end": 4207.12,
+        "text": "Just a few minutes ago, I was saying"
+    },
+    {
+        "start": 4207.12,
+        "end": 4208.4400000000005,
+        "text": "you need to focus on something."
+    },
+    {
+        "start": 4208.44,
+        "end": 4210.36,
+        "text": "You need to double down on something."
+    },
+    {
+        "start": 4210.36,
+        "end": 4212.32,
+        "text": "But in this case, if in your area,"
+    },
+    {
+        "start": 4212.32,
+        "end": 4214.28,
+        "text": "you don't have any junior data engineering positions"
+    },
+    {
+        "start": 4214.28,
+        "end": 4215.5199999999995,
+        "text": "going to be tough for you."
+    },
+    {
+        "start": 4215.5199999999995,
+        "end": 4217.599999999999,
+        "text": "Like you can focus all you want,"
+    },
+    {
+        "start": 4217.599999999999,
+        "end": 4220.799999999999,
+        "text": "but if there are no junior data engineering positions,"
+    },
+    {
+        "start": 4220.799999999999,
+        "end": 4223.08,
+        "text": "people might not simply hire you"
+    },
+    {
+        "start": 4223.08,
+        "end": 4227.36,
+        "text": "for this for more senior positions, right?"
+    },
+    {
+        "start": 4227.36,
+        "end": 4229.48,
+        "text": "So then you need to have a plan B."
+    },
+    {
+        "start": 4229.48,
+        "end": 4232.879999999999,
+        "text": "So I would recommend thinking what your plan B is"
+    },
+    {
+        "start": 4232.879999999999,
+        "end": 4235.24,
+        "text": "and then thinking how you can implement this plan."
+    },
+    {
+        "start": 4236.24,
+        "end": 4240.24,
+        "text": "Can you tell us more about PVV how it will be conducted?"
+    },
+    {
+        "start": 4240.24,
+        "end": 4243.8,
+        "text": "So we will use our course management platform."
+    },
+    {
+        "start": 4243.8,
+        "end": 4245.96,
+        "text": "Do you have some screenshots here?"
+    },
+    {
+        "start": 4245.96,
+        "end": 4250.24,
+        "text": "I don't have screenshots here, but then I basically"
+    },
+    {
+        "start": 4250.24,
+        "end": 4251.84,
+        "text": "use a media project."
+    },
+    {
+        "start": 4253.84,
+        "end": 4257.48,
+        "text": "So this is how on the forum, I think I can go to"
+    },
+    {
+        "start": 4257.48,
+        "end": 4260.5599999999995,
+        "text": "our course management platform."
+    },
+    {
+        "start": 4260.5599999999995,
+        "end": 4264.48,
+        "text": "So there is an active forum right now in ML,"
+    },
+    {
+        "start": 4264.48,
+        "end": 4265.879999999999,
+        "text": "ML engineering."
+    },
+    {
+        "start": 4268.2,
+        "end": 4271.24,
+        "text": "So you work on the project, you submit some links here,"
+    },
+    {
+        "start": 4271.24,
+        "end": 4272.919999999999,
+        "text": "right, you submit."
+    },
+    {
+        "start": 4272.919999999999,
+        "end": 4274.959999999999,
+        "text": "And then at some point,"
+    },
+    {
+        "start": 4274.959999999999,
+        "end": 4278.16,
+        "text": "so this forum will be closed in seven days."
+    },
+    {
+        "start": 4278.16,
+        "end": 4280.0,
+        "text": "So after this forum is closed,"
+    },
+    {
+        "start": 4280.0,
+        "end": 4282.0,
+        "text": "everyone who submitted their projects"
+    },
+    {
+        "start": 4283.28,
+        "end": 4285.5199999999995,
+        "text": "will see a different forum."
+    },
+    {
+        "start": 4285.5199999999995,
+        "end": 4289.44,
+        "text": "So I cannot show it because I did not submit a project here,"
+    },
+    {
+        "start": 4289.44,
+        "end": 4292.4,
+        "text": "but what they will see or what people"
+    },
+    {
+        "start": 4292.4,
+        "end": 4295.32,
+        "text": "who submitted their project here,"
+    },
+    {
+        "start": 4295.32,
+        "end": 4297.5599999999995,
+        "text": "what they will see is three assignments."
+    },
+    {
+        "start": 4297.5599999999995,
+        "end": 4299.719999999999,
+        "text": "And then they click on these assignments,"
+    },
+    {
+        "start": 4299.719999999999,
+        "end": 4303.28,
+        "text": "they see the link, the submitted link,"
+    },
+    {
+        "start": 4303.28,
+        "end": 4306.639999999999,
+        "text": "so when I submit a link, so they will see this link."
+    },
+    {
+        "start": 4306.639999999999,
+        "end": 4309.719999999999,
+        "text": "And they will need to evaluate the project"
+    },
+    {
+        "start": 4309.719999999999,
+        "end": 4310.879999999999,
+        "text": "according to some criteria."
+    },
+    {
+        "start": 4310.879999999999,
+        "end": 4314.2,
+        "text": "So this criteria for our particular course,"
+    },
+    {
+        "start": 4314.2,
+        "end": 4316.799999999999,
+        "text": "you can find here in the realme,"
+    },
+    {
+        "start": 4317.8,
+        "end": 4321.2,
+        "text": "a relation criteria."
+    },
+    {
+        "start": 4321.2,
+        "end": 4324.08,
+        "text": "So there are multiple dimensions,"
+    },
+    {
+        "start": 4324.08,
+        "end": 4328.08,
+        "text": "and then you evaluate the project according to these dimensions."
+    },
+    {
+        "start": 4328.08,
+        "end": 4329.56,
+        "text": "And then you click submit,"
+    },
+    {
+        "start": 4329.56,
+        "end": 4331.320000000001,
+        "text": "and then you evaluate three of them,"
+    },
+    {
+        "start": 4331.320000000001,
+        "end": 4334.0,
+        "text": "and that's how it's going to happen."
+    },
+    {
+        "start": 4335.6,
+        "end": 4338.52,
+        "text": "I must have thrown engineer with the 4.5 years of experience"
+    },
+    {
+        "start": 4338.52,
+        "end": 4340.0,
+        "text": "and laid off six months back,"
+    },
+    {
+        "start": 4340.0,
+        "end": 4341.92,
+        "text": "how can I become top-notch data engineer?"
+    },
+    {
+        "start": 4347.64,
+        "end": 4350.16,
+        "text": "Yeah, you work on projects."
+    },
+    {
+        "start": 4351.12,
+        "end": 4355.76,
+        "text": "I'm just thinking in order to become a top-notch data engineer,"
+    },
+    {
+        "start": 4355.76,
+        "end": 4357.4800000000005,
+        "text": "working on project is not enough,"
+    },
+    {
+        "start": 4357.4800000000005,
+        "end": 4362.28,
+        "text": "but you need to get into a position"
+    },
+    {
+        "start": 4362.28,
+        "end": 4364.56,
+        "text": "where you can work on really,"
+    },
+    {
+        "start": 4365.96,
+        "end": 4368.16,
+        "text": "how to say, on valuable things."
+    },
+    {
+        "start": 4368.16,
+        "end": 4372.400000000001,
+        "text": "So typically alone, when you're not working as a part of company,"
+    },
+    {
+        "start": 4372.400000000001,
+        "end": 4374.24,
+        "text": "it's very difficult to become top-notch"
+    },
+    {
+        "start": 4374.24,
+        "end": 4378.76,
+        "text": "because the problems you have are of very different scale."
+    },
+    {
+        "start": 4378.76,
+        "end": 4381.16,
+        "text": "So maybe you download a dataset from Kaggle,"
+    },
+    {
+        "start": 4381.16,
+        "end": 4382.679999999999,
+        "text": "but this dataset is already cleaned,"
+    },
+    {
+        "start": 4382.679999999999,
+        "end": 4384.12,
+        "text": "you build a dashboard, good."
+    },
+    {
+        "start": 4385.12,
+        "end": 4387.639999999999,
+        "text": "And this is enough to actually get a job, right?"
+    },
+    {
+        "start": 4387.639999999999,
+        "end": 4390.92,
+        "text": "But then you become a top-notch data engineer on the job."
+    },
+    {
+        "start": 4390.92,
+        "end": 4392.639999999999,
+        "text": "So you deal with production issues,"
+    },
+    {
+        "start": 4392.639999999999,
+        "end": 4395.8,
+        "text": "you deal with messy data,"
+    },
+    {
+        "start": 4395.8,
+        "end": 4397.12,
+        "text": "you deal with,"
+    },
+    {
+        "start": 4399.08,
+        "end": 4400.24,
+        "text": "dashboard's being broken,"
+    },
+    {
+        "start": 4400.24,
+        "end": 4402.08,
+        "text": "you deal with stakeholders,"
+    },
+    {
+        "start": 4402.08,
+        "end": 4404.48,
+        "text": "and you learn how to deal with this,"
+    },
+    {
+        "start": 4404.48,
+        "end": 4407.48,
+        "text": "you learn how to avoid having problems like that,"
+    },
+    {
+        "start": 4407.48,
+        "end": 4411.44,
+        "text": "and this is how you become a top-notch data engineer."
+    },
+    {
+        "start": 4411.44,
+        "end": 4413.76,
+        "text": "So by doing your work as a data engineer,"
+    },
+    {
+        "start": 4415.44,
+        "end": 4417.76,
+        "text": "yeah, but first you need to get a job."
+    },
+    {
+        "start": 4417.76,
+        "end": 4421.24,
+        "text": "And to get a job, you work on projects, you do this course,"
+    },
+    {
+        "start": 4421.24,
+        "end": 4424.2,
+        "text": "right, and then you get your food in the door,"
+    },
+    {
+        "start": 4424.2,
+        "end": 4426.72,
+        "text": "and then there you become a top-notch data engineer."
+    },
+    {
+        "start": 4426.72,
+        "end": 4428.96,
+        "text": "So this course is not enough to get"
+    },
+    {
+        "start": 4428.96,
+        "end": 4431.08,
+        "text": "to become a top-notch data engineer."
+    },
+    {
+        "start": 4431.8,
+        "end": 4433.88,
+        "text": "Of course, but we need to start somewhere."
+    },
+    {
+        "start": 4436.2,
+        "end": 4441.2,
+        "text": "I think I'll maybe answer these three questions,"
+    },
+    {
+        "start": 4441.84,
+        "end": 4443.76,
+        "text": "or whatever three questions we have here,"
+    },
+    {
+        "start": 4443.76,
+        "end": 4444.72,
+        "text": "and call it today,"
+    },
+    {
+        "start": 4444.72,
+        "end": 4446.36,
+        "text": "because we are already over time."
+    },
+    {
+        "start": 4448.48,
+        "end": 4450.32,
+        "text": "Some of them edit on a list, proficient in Excel,"
+    },
+    {
+        "start": 4450.32,
+        "end": 4452.28,
+        "text": "or BI and basics of Python and SQL,"
+    },
+    {
+        "start": 4452.28,
+        "end": 4455.84,
+        "text": "is data engineer really promising to transition?"
+    },
+    {
+        "start": 4456.68,
+        "end": 4460.84,
+        "text": "So your question is, if it's worth translating to data engineer,"
+    },
+    {
+        "start": 4460.84,
+        "end": 4464.32,
+        "text": "you decide, I don't know, I cannot answer this question."
+    },
+    {
+        "start": 4464.32,
+        "end": 4466.72,
+        "text": "I like the engineer, but if you like it, I don't know."
+    },
+    {
+        "start": 4466.72,
+        "end": 4469.12,
+        "text": "You're sharing my course notes on GitHub"
+    },
+    {
+        "start": 4469.12,
+        "end": 4474.2,
+        "text": "considered as public learning, yes, but ask yourself,"
+    },
+    {
+        "start": 4474.2,
+        "end": 4475.4400000000005,
+        "text": "why you do this?"
+    },
+    {
+        "start": 4475.4400000000005,
+        "end": 4477.4400000000005,
+        "text": "Do you want people to see it?"
+    },
+    {
+        "start": 4477.4400000000005,
+        "end": 4479.84,
+        "text": "And if you just share on GitHub,"
+    },
+    {
+        "start": 4479.84,
+        "end": 4481.4400000000005,
+        "text": "how many people will see it?"
+    },
+    {
+        "start": 4481.4400000000005,
+        "end": 4483.68,
+        "text": "Versus if you first share it, you don't get"
+    },
+    {
+        "start": 4483.84,
+        "end": 4485.92,
+        "text": "it happened and then share it on social media,"
+    },
+    {
+        "start": 4485.92,
+        "end": 4488.280000000001,
+        "text": "how many people will see it in this case?"
+    },
+    {
+        "start": 4488.280000000001,
+        "end": 4490.88,
+        "text": "So your goal is to be noticed."
+    },
+    {
+        "start": 4490.88,
+        "end": 4495.360000000001,
+        "text": "So think if just posting on GitHub alone is enough for that or not."
+    },
+    {
+        "start": 4495.360000000001,
+        "end": 4500.360000000001,
+        "text": "I would say no, but we will give you,"
+    },
+    {
+        "start": 4501.0,
+        "end": 4504.200000000001,
+        "text": "you will get points for the little board, that's yes, right?"
+    },
+    {
+        "start": 4504.200000000001,
+        "end": 4506.88,
+        "text": "But then at the end, yeah, you'll have this little board points,"
+    },
+    {
+        "start": 4506.88,
+        "end": 4508.72,
+        "text": "well, what's the point?"
+    },
+    {
+        "start": 4508.72,
+        "end": 4512.56,
+        "text": "So the point for you is, again, here,"
+    },
+    {
+        "start": 4512.56,
+        "end": 4516.400000000001,
+        "text": "I talked about these benefits of learning in public."
+    },
+    {
+        "start": 4516.400000000001,
+        "end": 4519.400000000001,
+        "text": "So the first benefit is visibility and career opportunities."
+    },
+    {
+        "start": 4519.400000000001,
+        "end": 4523.280000000001,
+        "text": "So if you just put it on GitHub, how much visibility you have?"
+    },
+    {
+        "start": 4523.280000000001,
+        "end": 4523.88,
+        "text": "I don't know."
+    },
+    {
+        "start": 4524.84,
+        "end": 4528.120000000001,
+        "text": "Like, yes, faster skill development, yes."
+    },
+    {
+        "start": 4528.120000000001,
+        "end": 4530.88,
+        "text": "Feedback and peer learning, maybe not so much."
+    },
+    {
+        "start": 4530.88,
+        "end": 4533.8,
+        "text": "Credibility over time, yes, partially."
+    },
+    {
+        "start": 4533.8,
+        "end": 4536.72,
+        "text": "Accountability and abbreviation also partially."
+    },
+    {
+        "start": 4536.72,
+        "end": 4541.52,
+        "text": "So learning in public, so there is the learning component"
+    },
+    {
+        "start": 4541.52,
+        "end": 4543.320000000001,
+        "text": "and in public component."
+    },
+    {
+        "start": 4543.320000000001,
+        "end": 4545.92,
+        "text": "And GitHub is only partially public, right?"
+    },
+    {
+        "start": 4545.92,
+        "end": 4548.4400000000005,
+        "text": "Because we have not many people will see."
+    },
+    {
+        "start": 4548.4400000000005,
+        "end": 4551.0,
+        "text": "And the point is to actually get in front of people."
+    },
+    {
+        "start": 4551.0,
+        "end": 4554.240000000001,
+        "text": "Right? So you decide if you want."
+    },
+    {
+        "start": 4554.240000000001,
+        "end": 4555.88,
+        "text": "It's definitely a good step."
+    },
+    {
+        "start": 4555.88,
+        "end": 4557.320000000001,
+        "text": "You need to start somewhere."
+    },
+    {
+        "start": 4557.320000000001,
+        "end": 4561.6,
+        "text": "And for many people learning in public is difficult."
+    },
+    {
+        "start": 4562.64,
+        "end": 4567.76,
+        "text": "Because you need to, I don't know, make a post and then you think,"
+    },
+    {
+        "start": 4567.76,
+        "end": 4570.120000000001,
+        "text": "oh, what people will think about me?"
+    },
+    {
+        "start": 4570.120000000001,
+        "end": 4570.64,
+        "text": "Right?"
+    },
+    {
+        "start": 4570.68,
+        "end": 4573.72,
+        "text": "So then at the beginning, maybe just start simple,"
+    },
+    {
+        "start": 4573.72,
+        "end": 4575.360000000001,
+        "text": "start with GitHub posts."
+    },
+    {
+        "start": 4575.360000000001,
+        "end": 4578.4800000000005,
+        "text": "And then eventually you can make maybe try it on Twitter."
+    },
+    {
+        "start": 4578.4800000000005,
+        "end": 4580.96,
+        "text": "You see that nothing better happens."
+    },
+    {
+        "start": 4580.96,
+        "end": 4582.240000000001,
+        "text": "And then you continue."
+    },
+    {
+        "start": 4584.72,
+        "end": 4587.4400000000005,
+        "text": "Or one is fresh."
+    },
+    {
+        "start": 4588.52,
+        "end": 4590.240000000001,
+        "text": "For people who are fresh in data,"
+    },
+    {
+        "start": 4590.240000000001,
+        "end": 4593.280000000001,
+        "text": "engineering was kills make me pass and intermediate data,"
+    },
+    {
+        "start": 4593.280000000001,
+        "end": 4595.12,
+        "text": "data positions, engineering positions."
+    },
+    {
+        "start": 4598.68,
+        "end": 4600.0,
+        "text": "Okay."
+    },
+    {
+        "start": 4600.0,
+        "end": 4602.8,
+        "text": "I mean, technically it's the same skills as we teach,"
+    },
+    {
+        "start": 4602.8,
+        "end": 4604.56,
+        "text": "but there could be more things, right?"
+    },
+    {
+        "start": 4604.56,
+        "end": 4615.04,
+        "text": "So I, the best way to approach this question is to actually start"
+    },
+    {
+        "start": 4615.04,
+        "end": 4618.52,
+        "text": "interviewing as intermediate data positions and see what they ask."
+    },
+    {
+        "start": 4618.52,
+        "end": 4619.36,
+        "text": "Right?"
+    },
+    {
+        "start": 4619.36,
+        "end": 4625.04,
+        "text": "So I can think of something, but I don't know how applicable it will be"
+    },
+    {
+        "start": 4625.04,
+        "end": 4629.72,
+        "text": "in your area where you live, where you interview"
+    },
+    {
+        "start": 4629.72,
+        "end": 4631.64,
+        "text": "for remote positions for other positions."
+    },
+    {
+        "start": 4633.84,
+        "end": 4639.360000000001,
+        "text": "So I would say that what we cover here is more or less sufficient,"
+    },
+    {
+        "start": 4639.360000000001,
+        "end": 4644.280000000001,
+        "text": "but you might need other things and the other things that you will need"
+    },
+    {
+        "start": 4644.280000000001,
+        "end": 4648.280000000001,
+        "text": "to find out by, you know, interviewing, you need to find a,"
+    },
+    {
+        "start": 4648.280000000001,
+        "end": 4651.96,
+        "text": "you know, by checking the job postings, looking at what people"
+    },
+    {
+        "start": 4651.96,
+        "end": 4656.56,
+        "text": "and the companies are looking for and trying to understand"
+    },
+    {
+        "start": 4656.6,
+        "end": 4660.84,
+        "text": "and see if you have any gaps and see how you can fill these gaps."
+    },
+    {
+        "start": 4663.76,
+        "end": 4664.280000000001,
+        "text": "Okay."
+    },
+    {
+        "start": 4664.280000000001,
+        "end": 4665.4800000000005,
+        "text": "I think that's it."
+    },
+    {
+        "start": 4665.4800000000005,
+        "end": 4667.68,
+        "text": "I am tired of speaking."
+    },
+    {
+        "start": 4670.160000000001,
+        "end": 4673.0,
+        "text": "Some reasons I'm tired, very tired of speaking."
+    },
+    {
+        "start": 4673.0,
+        "end": 4674.52,
+        "text": "I hope you like the session."
+    },
+    {
+        "start": 4676.4800000000005,
+        "end": 4678.72,
+        "text": "So a few important things."
+    },
+    {
+        "start": 4679.76,
+        "end": 4683.8,
+        "text": "GitHub is this is where you get all the information about the course."
+    },
+    {
+        "start": 4684.320000000001,
+        "end": 4686.84,
+        "text": "We also have the site of the website with notes."
+    },
+    {
+        "start": 4686.84,
+        "end": 4691.24,
+        "text": "So this is where the most important information about the logistics"
+    },
+    {
+        "start": 4691.24,
+        "end": 4693.16,
+        "text": "of the course and how the courses organized."
+    },
+    {
+        "start": 4693.16,
+        "end": 4694.28,
+        "text": "This is where you will find it."
+    },
+    {
+        "start": 4695.320000000001,
+        "end": 4699.16,
+        "text": "And the rest of the courses was mostly Q&A."
+    },
+    {
+        "start": 4700.16,
+        "end": 4704.360000000001,
+        "text": "What I also want to do with this Q&A is somehow repurpose it."
+    },
+    {
+        "start": 4704.360000000001,
+        "end": 4708.6,
+        "text": "So maybe you'll see some of this content appearing in docs or"
+    },
+    {
+        "start": 4709.04,
+        "end": 4711.04,
+        "text": "LinkedIn or somewhere."
+    },
+    {
+        "start": 4711.96,
+        "end": 4719.04,
+        "text": "But with that, so GitHub, docs, and then you start with module number one."
+    },
+    {
+        "start": 4721.240000000001,
+        "end": 4721.96,
+        "text": "Yeah, I have fun."
+    },
+    {
+        "start": 4721.96,
+        "end": 4722.8,
+        "text": "Enjoy learning."
+    },
+    {
+        "start": 4722.8,
+        "end": 4725.4800000000005,
+        "text": "So for the module number one, we have two weeks."
+    },
+    {
+        "start": 4726.52,
+        "end": 4728.280000000001,
+        "text": "It's enough time to prepare the environment."
+    },
+    {
+        "start": 4728.280000000001,
+        "end": 4732.0,
+        "text": "It's enough time to figure out all the problems you have."
+    },
+    {
+        "start": 4732.6,
+        "end": 4737.320000000001,
+        "text": "If you have some problems and you cannot solve it, try GPD, try a Slack."
+    },
+    {
+        "start": 4738.04,
+        "end": 4740.28,
+        "text": "And yeah, have fun."
+    },
+    {
+        "start": 4741.24,
+        "end": 4742.28,
+        "text": "And enjoy learning."
+    },
+    {
+        "start": 4742.28,
+        "end": 4744.28,
+        "text": "And yeah, see you around."
+    },
+    {
+        "start": 4744.599999999999,
+        "end": 4745.4,
+        "text": "Bye, everyone."
+    },
+    {
+        "start": 4746.36,
+        "end": 4748.44,
+        "text": "Was very nice seeing you all today."
+    },
+    {
+        "start": 4749.08,
+        "end": 4750.04,
+        "text": "So many people."
+    },
+    {
+        "start": 4750.04,
+        "end": 4751.24,
+        "text": "So bye."
+    }
+]

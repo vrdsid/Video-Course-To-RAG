@@ -1,0 +1,392 @@
+[
+    {
+        "start": 0.0,
+        "end": 8.040000000000001,
+        "text": "Hello everyone and welcome to this section on Terraform. So if you've heard the"
+    },
+    {
+        "start": 8.040000000000001,
+        "end": 14.84,
+        "text": "term Terraform, not the software, you've probably heard of it in terms of"
+    },
+    {
+        "start": 14.84,
+        "end": 21.04,
+        "text": "terraforming planets and people talk about one day maybe terraforming Mars. So"
+    },
+    {
+        "start": 21.04,
+        "end": 27.84,
+        "text": "what does that mean? So if you have a dead planet that's inhospitable to life,"
+    },
+    {
+        "start": 27.84,
+        "end": 34.6,
+        "text": "doesn't have water, an atmosphere, plant life of course, anything that would be"
+    },
+    {
+        "start": 34.6,
+        "end": 38.96,
+        "text": "able to sustain life and terraforming is just the process of creating those"
+    },
+    {
+        "start": 38.96,
+        "end": 46.620000000000005,
+        "text": "conditions where life can survive. So the software terraform from HashaCorp is"
+    },
+    {
+        "start": 46.620000000000005,
+        "end": 54.8,
+        "text": "kind of in the same spirit where you take a cloud platform like AWS or GCP or"
+    },
+    {
+        "start": 54.8,
+        "end": 62.8,
+        "text": "even a local platform like V-Sphere and you set up infrastructure, places where"
+    },
+    {
+        "start": 62.8,
+        "end": 68.8,
+        "text": "your code can live and your software can run. So to get started let's start with"
+    },
+    {
+        "start": 68.8,
+        "end": 75.44,
+        "text": "the definition from HashaCorp. So they say it is an infrastructure as code tool"
+    },
+    {
+        "start": 75.44,
+        "end": 80.56,
+        "text": "that lets you define both cloud and on-prem resources and human readable"
+    },
+    {
+        "start": 80.56,
+        "end": 85.32000000000001,
+        "text": "configuration files that you can version reuse and share. You can then use a"
+    },
+    {
+        "start": 85.32000000000001,
+        "end": 90.04,
+        "text": "consistent workflow to provision and manage all of your infrastructure"
+    },
+    {
+        "start": 90.04,
+        "end": 98.12,
+        "text": "throughout its life cycle. So there's quite a bit done pack there but really it"
+    },
+    {
+        "start": 98.12,
+        "end": 106.56,
+        "text": "comes down to just infrastructure as code. So why use Terraform? Well simplicity"
+    },
+    {
+        "start": 106.56,
+        "end": 112.56,
+        "text": "and keeping track of your infrastructure. By defining it in a file you can read it,"
+    },
+    {
+        "start": 112.56,
+        "end": 118.44,
+        "text": "you can see what's going to be made, what the parameters are, what size your"
+    },
+    {
+        "start": 118.44,
+        "end": 127.56,
+        "text": "disks and types of storage, just little things like that that you can tweak and"
+    },
+    {
+        "start": 127.56,
+        "end": 135.28,
+        "text": "just see all in one place. Easier collaboration because it is a file you can"
+    },
+    {
+        "start": 135.28,
+        "end": 141.28,
+        "text": "push it to a repository like GitHub. You can have other people look at it, review it,"
+    },
+    {
+        "start": 141.28,
+        "end": 147.24,
+        "text": "make their additions, corrections and then push those changes and once everyone"
+    },
+    {
+        "start": 147.24,
+        "end": 156.96,
+        "text": "agrees you can then deploy that infrastructure. Reproduceability. So say you want"
+    },
+    {
+        "start": 156.96,
+        "end": 164.96,
+        "text": "to launch application and it's going to require several resources. You can build"
+    },
+    {
+        "start": 164.96,
+        "end": 170.88,
+        "text": "those in, say, Dev environment and then once it's working okay you can update"
+    },
+    {
+        "start": 170.88,
+        "end": 176.08,
+        "text": "certain parameters and then deploy it in production or say you have a friend"
+    },
+    {
+        "start": 176.08,
+        "end": 181.88,
+        "text": "who has a neat project they wanted to share with you and you wanted to recreate it."
+    },
+    {
+        "start": 182.12,
+        "end": 189.64,
+        "text": "Well they can just pass you a Terraform file, you make a project or what have you update the parameters"
+    },
+    {
+        "start": 189.64,
+        "end": 196.84,
+        "text": "and then you can recreate that easily. And my favorite, ensure resources are removed."
+    },
+    {
+        "start": 197.64,
+        "end": 205.07999999999998,
+        "text": "I am definitely not the most tidy person. So once you're done and you don't want to keep being"
+    },
+    {
+        "start": 205.08,
+        "end": 211.8,
+        "text": "charged for resources it's really great to not have to remember everything you built or everything"
+    },
+    {
+        "start": 211.8,
+        "end": 219.0,
+        "text": "you tested out. You can just run a quick command with Terraform and ensure all of those resources"
+    },
+    {
+        "start": 219.0,
+        "end": 226.76000000000002,
+        "text": "are brought down so you do not continue to be charged for that. So what Terraform is not,"
+    },
+    {
+        "start": 227.64000000000001,
+        "end": 234.68,
+        "text": "it does not manage an update code on infrastructure. It is not made to deploy software,"
+    },
+    {
+        "start": 234.68,
+        "end": 241.8,
+        "text": "update software, there are other tools for that. It does not give you the ability to change"
+    },
+    {
+        "start": 241.8,
+        "end": 250.52,
+        "text": "immutable resources. So say you want to change your virtual machine type. Well you can't do that"
+    },
+    {
+        "start": 250.52,
+        "end": 258.04,
+        "text": "with Terraform because that would be actually destroying a virtual machine and then you would have"
+    },
+    {
+        "start": 258.04,
+        "end": 265.40000000000003,
+        "text": "to recreate it with that machine type. That also applies to Google Cloud Storage if you want to change"
+    },
+    {
+        "start": 265.40000000000003,
+        "end": 274.52000000000004,
+        "text": "its location. You would need to copy that data out, destroy the bucket and then well actually"
+    },
+    {
+        "start": 274.52000000000004,
+        "end": 280.52000000000004,
+        "text": "you'd have to create a new bucket, copy the data over and then destroy the old bucket. I got a"
+    },
+    {
+        "start": 280.52000000000004,
+        "end": 285.88,
+        "text": "little confused there. It's not used to manage resources not defined in your Terraform files."
+    },
+    {
+        "start": 286.52,
+        "end": 293.08,
+        "text": "So it is not meant to you deploy resources and then outside of your Terraform file"
+    },
+    {
+        "start": 294.2,
+        "end": 301.71999999999997,
+        "text": "you create say a Kubernetes cluster Terraform is not going to manage that because it's not in the files."
+    },
+    {
+        "start": 303.0,
+        "end": 309.71999999999997,
+        "text": "So to deploy that you would create that in your Terraform file and then apply that and it would"
+    },
+    {
+        "start": 309.72,
+        "end": 319.08000000000004,
+        "text": "update that for you. So what Terraform is, its infrastructure is code. I know that's short"
+    },
+    {
+        "start": 319.64000000000004,
+        "end": 327.48,
+        "text": "but that is very powerful because they do one thing and one thing very well and that is allow you"
+    },
+    {
+        "start": 327.48,
+        "end": 338.84000000000003,
+        "text": "to make resources with code files. Okay what these videos are not. They're not a full course in Terraform."
+    },
+    {
+        "start": 339.08,
+        "end": 345.32,
+        "text": "There are plenty of those out there on YouTube, a quick search. I'll bring you some videos that are"
+    },
+    {
+        "start": 345.32,
+        "end": 351.47999999999996,
+        "text": "several hours in length get very in depth. Some very complex configurations they set up."
+    },
+    {
+        "start": 352.28,
+        "end": 356.84,
+        "text": "Really really need to go through but that's not what these videos are."
+    },
+    {
+        "start": 359.08,
+        "end": 368.12,
+        "text": "So what these videos are. A very slight introduction to Terraform. It'll be enough to get you going."
+    },
+    {
+        "start": 369.56,
+        "end": 376.76,
+        "text": "Standing up infrastructure and for the purposes of this course allow you to make some resources for"
+    },
+    {
+        "start": 377.56,
+        "end": 385.08,
+        "text": "your final project or projects as you go along. And it is enough to make you dangerous"
+    },
+    {
+        "start": 385.96,
+        "end": 391.79999999999995,
+        "text": "because you are making resources depending on the cloud provider and the resource they can be"
+    },
+    {
+        "start": 391.8,
+        "end": 401.40000000000003,
+        "text": "quite expensive. So I will caution you and caution you be very sure of what you are deploying before"
+    },
+    {
+        "start": 401.40000000000003,
+        "end": 410.84000000000003,
+        "text": "you deploy it. There are many things that are fairly safe but depending on what you're trying to"
+    },
+    {
+        "start": 410.91999999999996,
+        "end": 422.2,
+        "text": "create that could get a little bit dangerous. So here's a rough diagram of how Terraform works. So"
+    },
+    {
+        "start": 422.2,
+        "end": 429.32,
+        "text": "you've got your local machine here and you've downloaded Terraform. So that software is running"
+    },
+    {
+        "start": 429.32,
+        "end": 437.79999999999995,
+        "text": "on your local machine. You get what is called a provider and a provider allows you to communicate with"
+    },
+    {
+        "start": 438.2,
+        "end": 448.44,
+        "text": "different services that allow you to bring up infrastructure. So say I want to use the AWS provider."
+    },
+    {
+        "start": 449.24,
+        "end": 456.68,
+        "text": "I'll define that in my Terraform file and then that'll reach out here to Terraform or wherever it"
+    },
+    {
+        "start": 456.68,
+        "end": 466.6,
+        "text": "pulls it from. And then Terraform will use that provider and connect with AWS or whatever provider"
+    },
+    {
+        "start": 467.08000000000004,
+        "end": 477.56,
+        "text": "I've chosen. And you will need some way of authorizing your access. So whether that's a service"
+    },
+    {
+        "start": 477.56,
+        "end": 487.88,
+        "text": "account access token there's a bunch out there but we'll get into that. So what are providers?"
+    },
+    {
+        "start": 487.88,
+        "end": 496.04,
+        "text": "It's simply the code that allows you or allows Terraform to communicate to manage resources on"
+    },
+    {
+        "start": 496.68,
+        "end": 505.0,
+        "text": "and I have a few here AWS Azure GCP Kubernetes VSphere, Ali Baba Cloud, Oracle Cloud Infrastructure"
+    },
+    {
+        "start": 505.0,
+        "end": 512.2,
+        "text": "Active Directory. And actually if you just go out and Google Terraform providers,"
+    },
+    {
+        "start": 514.36,
+        "end": 525.48,
+        "text": "these are all the providers they have up to page 74. So these are just pieces of code that nice people"
+    },
+    {
+        "start": 525.48,
+        "end": 531.72,
+        "text": "or organizations have created that allow Terraform to communicate with all these different"
+    },
+    {
+        "start": 532.9200000000001,
+        "end": 544.36,
+        "text": "services. I guess you'd call them platforms. Okay. So some key Terraform commands that you're"
+    },
+    {
+        "start": 544.36,
+        "end": 555.0,
+        "text": "going to want to know, init, which when you have defined your provider and let me put that back"
+    },
+    {
+        "start": 555.0,
+        "end": 561.4,
+        "text": "into slideshow. Once you've defined your provider, when you run init, it's going to go out,"
+    },
+    {
+        "start": 561.4,
+        "end": 569.08,
+        "text": "get that code, bring it down to your local machine. Once you've defined some resources, you can run"
+    },
+    {
+        "start": 569.08,
+        "end": 576.5200000000001,
+        "text": "Terraform plan and that's kind of what I'm about to do. It's going to show you the resources"
+    },
+    {
+        "start": 576.5200000000001,
+        "end": 589.48,
+        "text": "that will be created. And apply. Do what is in the tf.tf for Terraform files. So go out and build"
+    },
+    {
+        "start": 589.5600000000001,
+        "end": 597.96,
+        "text": "that infrastructure and do what I've told you to do in these code files. And again,"
+    },
+    {
+        "start": 598.6800000000001,
+        "end": 606.04,
+        "text": "possibly my favorite Terraform destroy. So that will go out and everything in your Terraform files"
+    },
+    {
+        "start": 606.6,
+        "end": 609.88,
+        "text": "that's out there as far as infrastructure, it'll bring it down."
+    }
+]

@@ -1,0 +1,477 @@
+[
+    {
+        "start": 0.0,
+        "end": 7.76,
+        "text": "So the assets are basically, you can think of them as a very basic level."
+    },
+    {
+        "start": 7.76,
+        "end": 8.92,
+        "text": "They are just a single file."
+    },
+    {
+        "start": 8.92,
+        "end": 11.0,
+        "text": "So a single asset is a single file."
+    },
+    {
+        "start": 11.0,
+        "end": 13.32,
+        "text": "And inside that file, you have two things."
+    },
+    {
+        "start": 13.32,
+        "end": 17.52,
+        "text": "You will have your definition and you will have your content."
+    },
+    {
+        "start": 17.52,
+        "end": 19.84,
+        "text": "And actually, let me just quickly fix this here."
+    },
+    {
+        "start": 19.84,
+        "end": 22.64,
+        "text": "So you have your definition and you have your content."
+    },
+    {
+        "start": 22.64,
+        "end": 27.240000000000002,
+        "text": "In another way, you can think of it as the configurations and the actual code itself."
+    },
+    {
+        "start": 27.24,
+        "end": 31.84,
+        "text": "These can be anything from SQL, Python or our assets."
+    },
+    {
+        "start": 31.84,
+        "end": 36.519999999999996,
+        "text": "And they are essentially what actually is executed and the code that is actually running when"
+    },
+    {
+        "start": 36.519999999999996,
+        "end": 39.0,
+        "text": "you create a new run."
+    },
+    {
+        "start": 39.0,
+        "end": 44.92,
+        "text": "So if we go ahead and take a look at this example that we have here and I'll show you an example."
+    },
+    {
+        "start": 44.92,
+        "end": 47.519999999999996,
+        "text": "I'll show you three different types of examples."
+    },
+    {
+        "start": 47.519999999999996,
+        "end": 50.16,
+        "text": "So we have a Python asset."
+    },
+    {
+        "start": 50.16,
+        "end": 51.28,
+        "text": "This is an ingestion asset."
+    },
+    {
+        "start": 51.28,
+        "end": 53.12,
+        "text": "So it is connecting to an API."
+    },
+    {
+        "start": 53.12,
+        "end": 56.28,
+        "text": "It is making some requests and getting the data."
+    },
+    {
+        "start": 56.28,
+        "end": 60.68,
+        "text": "And it is returning a data frame which then run with the materialization strategies which"
+    },
+    {
+        "start": 60.68,
+        "end": 63.0,
+        "text": "we won't cover in this video here."
+    },
+    {
+        "start": 63.0,
+        "end": 64.72,
+        "text": "But it essentially takes the results."
+    },
+    {
+        "start": 64.72,
+        "end": 68.44,
+        "text": "It takes that data frame and creates a table inside the database."
+    },
+    {
+        "start": 68.44,
+        "end": 71.96000000000001,
+        "text": "So in this first section here, this is the definition."
+    },
+    {
+        "start": 71.96000000000001,
+        "end": 74.64,
+        "text": "This is the asset definition or the asset configuration."
+    },
+    {
+        "start": 74.64,
+        "end": 80.96000000000001,
+        "text": "So in this top part of every file is where you find the asset definitions."
+    },
+    {
+        "start": 80.96000000000001,
+        "end": 85.24000000000001,
+        "text": "In here, you can define the name of the assets and the name of the asset."
+    },
+    {
+        "start": 85.24,
+        "end": 89.56,
+        "text": "You can define it explicitly by giving it whatever name you want."
+    },
+    {
+        "start": 89.56,
+        "end": 93.39999999999999,
+        "text": "Or if you didn't want to give it a name, you can just remove that and it will be inferred"
+    },
+    {
+        "start": 93.39999999999999,
+        "end": 95.36,
+        "text": "by the path of the file."
+    },
+    {
+        "start": 95.36,
+        "end": 101.44,
+        "text": "So in here under the assets folder, we have a folder named raw and the file name is Trips"
+    },
+    {
+        "start": 101.44,
+        "end": 102.44,
+        "text": "raw."
+    },
+    {
+        "start": 102.44,
+        "end": 107.11999999999999,
+        "text": "So by default, that would actually be inferred as the same thing as raw."
+    },
+    {
+        "start": 107.11999999999999,
+        "end": 108.11999999999999,
+        "text": "The name of the asset."
+    },
+    {
+        "start": 108.11999999999999,
+        "end": 114.52,
+        "text": "So you can think of it as like the subfolder.asset name essentially."
+    },
+    {
+        "start": 114.52,
+        "end": 120.44,
+        "text": "And the reason for this is that normally you want to have your assets grouped together"
+    },
+    {
+        "start": 120.44,
+        "end": 124.92,
+        "text": "by the schema or the data set in the database and the destination database."
+    },
+    {
+        "start": 124.92,
+        "end": 130.32,
+        "text": "So in this case, in my database here, I have a schema or data sets depending on the database"
+    },
+    {
+        "start": 130.32,
+        "end": 131.51999999999998,
+        "text": "on their name, different things."
+    },
+    {
+        "start": 131.51999999999998,
+        "end": 140.0,
+        "text": "But I have a data set named raw and under that data set, I have a table named Trips raw."
+    },
+    {
+        "start": 140.0,
+        "end": 147.92,
+        "text": "So by default, the results of this asset, this code will be pushed into that table."
+    },
+    {
+        "start": 147.92,
+        "end": 154.48,
+        "text": "And that brings me to the other part of kind of like a different way of looking at an"
+    },
+    {
+        "start": 154.48,
+        "end": 162.68,
+        "text": "asset is that an asset is essentially a data model or a data, something that is related"
+    },
+    {
+        "start": 162.68,
+        "end": 167.88,
+        "text": "to a specific table or a view or some type of data action that you want to actually complete."
+    },
+    {
+        "start": 167.88,
+        "end": 171.04,
+        "text": "So the classic example of this is a SQL asset."
+    },
+    {
+        "start": 171.04,
+        "end": 176.44,
+        "text": "So if we go ahead and take a look at one of the SQL assets that we have here."
+    },
+    {
+        "start": 176.44,
+        "end": 181.64,
+        "text": "So essentially the SQL asset at the very top again, we have our blurr and decorators"
+    },
+    {
+        "start": 181.64,
+        "end": 182.64,
+        "text": "inside of this."
+    },
+    {
+        "start": 182.64,
+        "end": 185.96,
+        "text": "We have the definition of the asset, the name, the type, the connection that we want to"
+    },
+    {
+        "start": 185.96,
+        "end": 189.64,
+        "text": "use, some metadata such as description and columns."
+    },
+    {
+        "start": 189.64,
+        "end": 191.92,
+        "text": "And you can have your quality checks as well."
+    },
+    {
+        "start": 191.92,
+        "end": 196.24,
+        "text": "And for SQL, we have our materialization here where we say it's a table."
+    },
+    {
+        "start": 196.24,
+        "end": 199.8,
+        "text": "And we have some additional parameters here as well."
+    },
+    {
+        "start": 199.8,
+        "end": 205.96,
+        "text": "But essentially what this asset will do is that it will run the query and the results"
+    },
+    {
+        "start": 205.96,
+        "end": 210.44,
+        "text": "of the query will be saved inside this table that we define here."
+    },
+    {
+        "start": 210.44,
+        "end": 216.64000000000001,
+        "text": "So in this staging, Trips summary table is where the result of this query will be inserted"
+    },
+    {
+        "start": 216.64000000000001,
+        "end": 217.64000000000001,
+        "text": "into."
+    },
+    {
+        "start": 217.64000000000001,
+        "end": 222.36,
+        "text": "And whether it's inserted into or completely recreate the table and stuff really depends"
+    },
+    {
+        "start": 222.36,
+        "end": 224.52,
+        "text": "on the materialization strategy."
+    },
+    {
+        "start": 224.52,
+        "end": 229.52,
+        "text": "But we won't go into different types of materialization strategy in this video."
+    },
+    {
+        "start": 229.52,
+        "end": 235.60000000000002,
+        "text": "So again, just to recap, you can think of a fun asset as a single file that does a single"
+    },
+    {
+        "start": 235.60000000000002,
+        "end": 236.60000000000002,
+        "text": "task."
+    },
+    {
+        "start": 236.60000000000002,
+        "end": 241.72000000000003,
+        "text": "And that task is almost always related to a specific table or view inside the database"
+    },
+    {
+        "start": 241.72000000000003,
+        "end": 243.04000000000002,
+        "text": "that you have."
+    },
+    {
+        "start": 243.04000000000002,
+        "end": 248.48000000000002,
+        "text": "And you define like, for example, in here where I'm reading this table from this, sorry,"
+    },
+    {
+        "start": 248.48000000000002,
+        "end": 250.44000000000003,
+        "text": "where this query is reading from."
+    },
+    {
+        "start": 250.44,
+        "end": 253.24,
+        "text": "And in my case here, I'm reading from this table here."
+    },
+    {
+        "start": 253.24,
+        "end": 257.28,
+        "text": "And also I am then joining it with two other tables."
+    },
+    {
+        "start": 257.28,
+        "end": 260.68,
+        "text": "And that's where the relationship and the lineage comes from as well."
+    },
+    {
+        "start": 260.68,
+        "end": 267.0,
+        "text": "So because this query is reading from three different tables, we define their dependency"
+    },
+    {
+        "start": 267.0,
+        "end": 269.48,
+        "text": "to those assets in here."
+    },
+    {
+        "start": 269.48,
+        "end": 274.42,
+        "text": "And that basically creates our dependency within the pipeline so that when you create a"
+    },
+    {
+        "start": 274.42,
+        "end": 279.48,
+        "text": "pipeline run and say run, for example, trips raw with everything downstream, it will run"
+    },
+    {
+        "start": 279.48,
+        "end": 280.48,
+        "text": "trips raw."
+    },
+    {
+        "start": 280.48,
+        "end": 284.40000000000003,
+        "text": "And then once that's completed, it will trigger this SQL asset to run."
+    },
+    {
+        "start": 284.40000000000003,
+        "end": 291.68,
+        "text": "And that's how the dependencies and lineages within a pipeline are managed during execution"
+    },
+    {
+        "start": 291.68,
+        "end": 292.68,
+        "text": "time."
+    },
+    {
+        "start": 292.68,
+        "end": 298.24,
+        "text": "And you can always take a look at the lineage through the VS Code extension."
+    },
+    {
+        "start": 298.24,
+        "end": 303.68,
+        "text": "And this is basically we have three different assets that are upstream in this case."
+    },
+    {
+        "start": 303.68,
+        "end": 307.8,
+        "text": "And once they are completed, this asset is triggered."
+    },
+    {
+        "start": 308.32,
+        "end": 308.84000000000003,
+        "text": "All right."
+    },
+    {
+        "start": 308.84000000000003,
+        "end": 317.08,
+        "text": "So going back to our overall project within the assets folder, which under each pipeline,"
+    },
+    {
+        "start": 317.08,
+        "end": 320.32,
+        "text": "you will have an assets folder similar to the other ones as well."
+    },
+    {
+        "start": 320.32,
+        "end": 321.8,
+        "text": "They have an assets folder."
+    },
+    {
+        "start": 321.8,
+        "end": 324.72,
+        "text": "Under that assets folder, you will have your asset files."
+    },
+    {
+        "start": 324.72,
+        "end": 330.92,
+        "text": "Each asset file is going to be directly creating or updating a single table or view inside"
+    },
+    {
+        "start": 330.92,
+        "end": 332.92,
+        "text": "the destination database."
+    },
+    {
+        "start": 332.92,
+        "end": 337.72,
+        "text": "And these assets can be SQL, they can be YAML, they can be Python or R."
+    },
+    {
+        "start": 337.8,
+        "end": 343.64000000000004,
+        "text": "One more example I will show you of a YAML asset is in this case, it's a seed asset,"
+    },
+    {
+        "start": 343.64000000000004,
+        "end": 349.72,
+        "text": "which means that basically takes a local file and creates a, creates a table in our destination"
+    },
+    {
+        "start": 349.72,
+        "end": 351.12,
+        "text": "using that local file."
+    },
+    {
+        "start": 351.12,
+        "end": 354.72,
+        "text": "In this case, there is no code or there is no query."
+    },
+    {
+        "start": 354.72,
+        "end": 357.16,
+        "text": "We are just giving it some basic parameters."
+    },
+    {
+        "start": 357.16,
+        "end": 358.84000000000003,
+        "text": "So in this case, I say the path."
+    },
+    {
+        "start": 358.84000000000003,
+        "end": 361.72,
+        "text": "So the file that we want is this CSV file."
+    },
+    {
+        "start": 361.72,
+        "end": 366.6,
+        "text": "And based on the name of the asset, Brynn knows to go and create this table inside the"
+    },
+    {
+        "start": 366.6,
+        "end": 368.20000000000005,
+        "text": "destination database."
+    }
+]

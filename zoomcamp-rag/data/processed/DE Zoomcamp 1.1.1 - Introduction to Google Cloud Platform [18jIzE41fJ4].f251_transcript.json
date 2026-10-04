@@ -1,0 +1,122 @@
+[
+    {
+        "start": 0.0,
+        "end": 7.44,
+        "text": "Hello all, welcome to a new video. In this video we are going to talk about Google Cloud Platform,"
+    },
+    {
+        "start": 7.44,
+        "end": 16.16,
+        "text": "some of its basic and navigate its UI. Let's start with what is Google Cloud Platform."
+    },
+    {
+        "start": 16.16,
+        "end": 20.56,
+        "text": "Google Cloud Platform is a service offered by Google. It's a cloud computing service. It"
+    },
+    {
+        "start": 20.56,
+        "end": 26.88,
+        "text": "includes a range of hosted services like Compute, Storage and Application Devlinem,"
+    },
+    {
+        "start": 26.88,
+        "end": 33.92,
+        "text": "which runs on Google's hardware. This hardware is what Google use internally also to run its own"
+    },
+    {
+        "start": 33.92,
+        "end": 40.8,
+        "text": "services like Google Search and AdWords. Google Cloud services can be divided into the following"
+    },
+    {
+        "start": 40.8,
+        "end": 49.84,
+        "text": "categories like Compute, Management, Networking, Storage, Databases, Big Data, Identity and Security"
+    },
+    {
+        "start": 49.84,
+        "end": 57.52,
+        "text": "and Machine Learning. For our course we are going to talk majorly about Big Data and Storage and"
+    },
+    {
+        "start": 57.52,
+        "end": 67.2,
+        "text": "Database. So now let's navigate to the UI and let's learn a bit more how to navigate in the"
+    },
+    {
+        "start": 67.2,
+        "end": 76.64,
+        "text": "space of Google Cloud Platform. If you have created a free account you would see 300 dollars or 300"
+    },
+    {
+        "start": 76.64,
+        "end": 83.04,
+        "text": "euros credit here and you would be navigated at this page. Google Cloud Platform generally works"
+    },
+    {
+        "start": 83.04,
+        "end": 89.6,
+        "text": "in terms of projects. You could create a new project here or use an existing project which comes as"
+    },
+    {
+        "start": 89.6,
+        "end": 97.84,
+        "text": "default. To navigate Google Cloud Platform we have different methods. One way can be through the"
+    },
+    {
+        "start": 97.84,
+        "end": 103.36,
+        "text": "drop down here where we will see all the services grouped into different categories like Compute,"
+    },
+    {
+        "start": 103.36,
+        "end": 110.56,
+        "text": "Serverless, Storage, Frava use case. Let's go into Cloud Storage and let's look at some of its content."
+    },
+    {
+        "start": 116.16,
+        "end": 123.2,
+        "text": "In our Cloud Storage we have created a bucket called NYCTL data which contains all the data which we"
+    },
+    {
+        "start": 123.2,
+        "end": 132.96,
+        "text": "are entrusted in for the New York taxidites. The bucket or the Cloud Storage is similar to what you"
+    },
+    {
+        "start": 132.96,
+        "end": 142.0,
+        "text": "have in AWS S3. So as we see we have some number of files in our bucket and this is a very easy"
+    },
+    {
+        "start": 142.0,
+        "end": 148.48000000000002,
+        "text": "way to navigate to our Cloud Storage. Another important and interesting way to navigate is to use"
+    },
+    {
+        "start": 148.48000000000002,
+        "end": 156.96,
+        "text": "the search bar. As I have typed BigQuery here we can see a navigate to BigQuery. For our use case"
+    },
+    {
+        "start": 157.12,
+        "end": 163.44,
+        "text": "we have created a data set called Taxidites NY and we have a couple of data sets inside it."
+    },
+    {
+        "start": 165.68,
+        "end": 172.48000000000002,
+        "text": "For this we have created two tables called Green Trip Data 2019 and Yellow Trip Data 2019."
+    },
+    {
+        "start": 174.48000000000002,
+        "end": 180.72,
+        "text": "Maybe when you navigate to your BigQuery you might not see these tables generated for you."
+    },
+    {
+        "start": 180.72,
+        "end": 188.88,
+        "text": "As we progress in the course we will generate these tables with you and then you can see a similar structure."
+    }
+]

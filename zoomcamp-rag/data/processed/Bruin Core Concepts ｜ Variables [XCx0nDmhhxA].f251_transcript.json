@@ -1,0 +1,217 @@
+[
+    {
+        "start": 0.0,
+        "end": 10.0,
+        "text": "So we have now variables. Variables are something that they spin up every time you create a new execution of a pipeline."
+    },
+    {
+        "start": 10.0,
+        "end": 19.0,
+        "text": "So when you start a new run, these variables are initialized and provided to you as a variable they can inject inside your code."
+    },
+    {
+        "start": 19.0,
+        "end": 27.0,
+        "text": "And in reality, what that looks like is two types. So you actually have built-in variables and you have custom variables."
+    },
+    {
+        "start": 27.0,
+        "end": 34.0,
+        "text": "Built-in variables are always initialized and provided when there's a new pipeline run."
+    },
+    {
+        "start": 34.0,
+        "end": 43.0,
+        "text": "So in our example over here, for example, in this SQL asset, you will notice that we have, we scroll down here."
+    },
+    {
+        "start": 43.0,
+        "end": 49.0,
+        "text": "So we have a ginger formatted way of injecting our variable."
+    },
+    {
+        "start": 49.0,
+        "end": 55.0,
+        "text": "One of the key variables built-in variables of a pipeline run is the start and end date."
+    },
+    {
+        "start": 55.0,
+        "end": 60.0,
+        "text": "The start and end date depends on the pipeline schedule. So in this case, this pipeline is monthly."
+    },
+    {
+        "start": 60.0,
+        "end": 64.0,
+        "text": "So the start date will be the beginning of the month and the end date will be the end of the month."
+    },
+    {
+        "start": 64.0,
+        "end": 68.0,
+        "text": "So every time you run this, these start and end dates are provided as a variable."
+    },
+    {
+        "start": 68.0,
+        "end": 72.0,
+        "text": "And when it comes to SQL assets, they are injected in a ginger format."
+    },
+    {
+        "start": 72.0,
+        "end": 75.0,
+        "text": "And you can take a look at what this actually looks like when it's compiled."
+    },
+    {
+        "start": 75.0,
+        "end": 81.0,
+        "text": "You open the run render panel and scroll down to take a look at the query itself here."
+    },
+    {
+        "start": 81.0,
+        "end": 90.0,
+        "text": "Let me make this a little bit bigger. And we see that the start and end date were injected here and compiled and parsed inside our query."
+    },
+    {
+        "start": 90.0,
+        "end": 94.0,
+        "text": "You have your start and end date right now is just defaulted to something."
+    },
+    {
+        "start": 94.0,
+        "end": 98.0,
+        "text": "But if we click the refresh button here, it will default to the previous interval."
+    },
+    {
+        "start": 98.0,
+        "end": 104.0,
+        "text": "So right now we are in February. So the last interval, but I've been from the beginning of January to the end date."
+    },
+    {
+        "start": 104.0,
+        "end": 111.0,
+        "text": "January to the first day of February. So that basically gets inserted in here."
+    },
+    {
+        "start": 111.0,
+        "end": 117.0,
+        "text": "And in this case, it's not the first day of February because it is we have selected exclusive end date."
+    },
+    {
+        "start": 117.0,
+        "end": 120.0,
+        "text": "So it will be until the end of January 31st."
+    },
+    {
+        "start": 120.0,
+        "end": 128.0,
+        "text": "This is a very powerful component of the variables because a lot of times you want to based on the interval that you're running the pipeline."
+    },
+    {
+        "start": 128.0,
+        "end": 133.0,
+        "text": "You want to do something specific. So let's take a look at the Python assets where we can."
+    },
+    {
+        "start": 133.0,
+        "end": 144.0,
+        "text": "Actually better understand how these variables can be used. So in this Python ingestion assets, I am extracting data for each month."
+    },
+    {
+        "start": 144.0,
+        "end": 150.0,
+        "text": "And I need the dates of that month in order for me to extract the data for that specific month."
+    },
+    {
+        "start": 150.0,
+        "end": 158.0,
+        "text": "And how I'm doing it here is by using the OS library to get the environment variables for start date and end date."
+    },
+    {
+        "start": 158.0,
+        "end": 168.0,
+        "text": "And I set those and then I loop through those specific months in order to get the specific files and extract those files from the API endpoint."
+    },
+    {
+        "start": 168.0,
+        "end": 175.0,
+        "text": "And when it comes to Python assets, the way that the brand variables are provided is through the environment variables."
+    },
+    {
+        "start": 175.0,
+        "end": 187.0,
+        "text": "So unlike SQL, we're in SQL. It's provided and you injected in a ginger format. When it comes to Python assets, you will just get them from the environment variable."
+    },
+    {
+        "start": 187.0,
+        "end": 196.0,
+        "text": "And now that brings us to the second way that you can use variables is by setting custom variables."
+    },
+    {
+        "start": 196.0,
+        "end": 205.0,
+        "text": "So these are variables that are not by default, provided by Bruin. But rather they are created by you defined by you and you set them at the pipeline level."
+    },
+    {
+        "start": 205.0,
+        "end": 213.0,
+        "text": "So if we look at our pipeline, YAML file, you can see here where we have defined a new custom variable named taxi types."
+    },
+    {
+        "start": 213.0,
+        "end": 228.0,
+        "text": "We've given it a type of array and we also define a default. So this default means that whenever you run the pipeline by default, it will provide in this example an array of strings and only includes one string, which is yellow."
+    },
+    {
+        "start": 228.0,
+        "end": 235.0,
+        "text": "However, you can at runtime, you can set an override tag in order for you to pass a different variable."
+    },
+    {
+        "start": 235.0,
+        "end": 250.0,
+        "text": "This is important when you, for example, let's say, want to have regular runs that use a specific variable, but you have some ad hoc runs sometimes that you want to run for different type of variable, different customer segment, for example, or different,"
+    },
+    {
+        "start": 250.0,
+        "end": 259.0,
+        "text": "different ID or something like that. And in those cases, you can pass, you can override the variable during runtime."
+    },
+    {
+        "start": 259.0,
+        "end": 274.0,
+        "text": "Now let's take a look at an example Python asset that I have here. It's a very, very simple Python assets that will essentially this is an example of an asset that is not actually tied to a specific table or view or anything like that."
+    },
+    {
+        "start": 274.0,
+        "end": 285.0,
+        "text": "In this case, it's really just some Python code running just to print our variables here. So I will actually go ahead and so print used to as well."
+    },
+    {
+        "start": 285.0,
+        "end": 300.0,
+        "text": "So from the extension panel, let's go ahead and create a run of this and I want to demonstrate how the variables look like. So during runtime, we have right now start dates of February 18th and end date of February 19th."
+    },
+    {
+        "start": 300.0,
+        "end": 314.0,
+        "text": "So when we ran it, we print the start and end date there, both February 18th again, because since the exclusive end date was selected here, it's actually going to the end date will be February 18th at the admit night."
+    },
+    {
+        "start": 314.0,
+        "end": 327.0,
+        "text": "Essentially, so if we remove the exclusive end date and run it again, we see that it'll be the 19th. And on the other hand, you have your taxi types, which are also retrieved from the environment's variables."
+    },
+    {
+        "start": 327.0,
+        "end": 336.0,
+        "text": "They are provided as brilliant bars and then from there, you can get your specific variable. So in this case, we got the taxi types and how to set an override for them."
+    },
+    {
+        "start": 336.0,
+        "end": 351.0,
+        "text": "If you want to do it from the from the extension panel over here, you will select the variable override and you will give it a new name. So for example, let's say we want to have a new list of variables like this."
+    },
+    {
+        "start": 351.0,
+        "end": 360.0,
+        "text": "So if we save that and now run this this time, we see that our taxi types are now blue and gray. So they override it, the default, which was yellow."
+    }
+]

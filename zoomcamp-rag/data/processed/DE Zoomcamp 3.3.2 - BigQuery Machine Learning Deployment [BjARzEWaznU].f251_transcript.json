@@ -1,0 +1,272 @@
+[
+    {
+        "start": 0.0,
+        "end": 2.56,
+        "text": "Hello all, welcome to week three,"
+    },
+    {
+        "start": 2.56,
+        "end": 5.12,
+        "text": "data warehouse and BigQuery."
+    },
+    {
+        "start": 5.12,
+        "end": 8.4,
+        "text": "In this video, we are going to export the machine learning"
+    },
+    {
+        "start": 8.4,
+        "end": 14.200000000000001,
+        "text": "model we have made and check the prediction by deploying it"
+    },
+    {
+        "start": 14.200000000000001,
+        "end": 15.32,
+        "text": "to a Docker image."
+    },
+    {
+        "start": 18.32,
+        "end": 24.2,
+        "text": "So I have attached a readme to extract model."
+    },
+    {
+        "start": 24.2,
+        "end": 26.64,
+        "text": "You would need to do a G Cloud Auth login."
+    },
+    {
+        "start": 26.64,
+        "end": 29.8,
+        "text": "I have already done that, so I would not do this step."
+    },
+    {
+        "start": 29.8,
+        "end": 35.4,
+        "text": "But after that, you can basically follow the guidelines."
+    },
+    {
+        "start": 35.4,
+        "end": 40.0,
+        "text": "So in the first step, we are going to export the project"
+    },
+    {
+        "start": 40.0,
+        "end": 43.120000000000005,
+        "text": "into our Google Cloud Storage."
+    },
+    {
+        "start": 43.120000000000005,
+        "end": 44.120000000000005,
+        "text": "Let's run this query."
+    },
+    {
+        "start": 52.16,
+        "end": 56.760000000000005,
+        "text": "So now we can see that we do not have anything in our bucket."
+    },
+    {
+        "start": 56.76,
+        "end": 64.03999999999999,
+        "text": "But once this step is over, once this step is over,"
+    },
+    {
+        "start": 64.03999999999999,
+        "end": 67.4,
+        "text": "we should be able to see something."
+    },
+    {
+        "start": 70.08,
+        "end": 74.92,
+        "text": "So this step is over, and let's refresh this."
+    },
+    {
+        "start": 74.92,
+        "end": 78.0,
+        "text": "And we see that we have the model exported."
+    },
+    {
+        "start": 81.12,
+        "end": 85.2,
+        "text": "Next, let's make a directory."
+    },
+    {
+        "start": 86.76,
+        "end": 94.32000000000001,
+        "text": "Let's remove it."
+    },
+    {
+        "start": 94.32000000000001,
+        "end": 98.88000000000001,
+        "text": "Let's make anyone and use the GSU tool."
+    },
+    {
+        "start": 98.88000000000001,
+        "end": 102.36,
+        "text": "We copy our drip model into our model,"
+    },
+    {
+        "start": 102.36,
+        "end": 103.44,
+        "text": "and the m3 model directory."
+    },
+    {
+        "start": 103.44,
+        "end": 122.92,
+        "text": "So we can see that our drip model has been imported here."
+    },
+    {
+        "start": 122.92,
+        "end": 125.92,
+        "text": "The next step is to make a serving directory."
+    },
+    {
+        "start": 125.92,
+        "end": 128.24,
+        "text": "I will do this in the project itself."
+    },
+    {
+        "start": 128.24,
+        "end": 129.32,
+        "text": "It's up to you."
+    },
+    {
+        "start": 129.32,
+        "end": 131.6,
+        "text": "You can also do this in the time directory."
+    },
+    {
+        "start": 131.6,
+        "end": 134.0,
+        "text": "So for the beginning, I will first remove everything."
+    },
+    {
+        "start": 134.0,
+        "end": 135.79999999999998,
+        "text": "I have there."
+    },
+    {
+        "start": 135.79999999999998,
+        "end": 140.4,
+        "text": "I will create a serving directory tip model version 1."
+    },
+    {
+        "start": 140.4,
+        "end": 146.16,
+        "text": "I will copy all the tip model data into my directory."
+    },
+    {
+        "start": 146.16,
+        "end": 152.24,
+        "text": "And you can already see that the data is now available in the folder."
+    },
+    {
+        "start": 152.24,
+        "end": 156.2,
+        "text": "Next step would be to pull our TensorFlow serving Docker image."
+    },
+    {
+        "start": 162.6,
+        "end": 167.6,
+        "text": "Right, then let's run our Docker image."
+    },
+    {
+        "start": 167.6,
+        "end": 171.6,
+        "text": "Our Docker run image."
+    },
+    {
+        "start": 171.6,
+        "end": 176.6,
+        "text": "So we can now check if it's running."
+    },
+    {
+        "start": 176.6,
+        "end": 181.6,
+        "text": "And we can see that our data is running."
+    },
+    {
+        "start": 181.6,
+        "end": 186.6,
+        "text": "So I'm going to use postman to make some HTTP requests."
+    },
+    {
+        "start": 186.6,
+        "end": 189.6,
+        "text": "So first of all, let's take a look into the version."
+    },
+    {
+        "start": 190.0,
+        "end": 196.32,
+        "text": "We can see that the tip model, tip model version 1 is available."
+    },
+    {
+        "start": 196.32,
+        "end": 199.95999999999998,
+        "text": "There is no error and everything is good."
+    },
+    {
+        "start": 199.95999999999998,
+        "end": 205.24,
+        "text": "In our second API, we can make a request for the prediction."
+    },
+    {
+        "start": 205.24,
+        "end": 208.48,
+        "text": "We can make a post request."
+    },
+    {
+        "start": 208.48,
+        "end": 218.92,
+        "text": "We can make a post request to the port 8501, version 1 models."
+    },
+    {
+        "start": 218.92,
+        "end": 222.0,
+        "text": "The tip model and we'll predict."
+    },
+    {
+        "start": 222.0,
+        "end": 227.48,
+        "text": "We're going to pass the parameters for prediction."
+    },
+    {
+        "start": 227.48,
+        "end": 233.0,
+        "text": "So in our use case, we had columns like passenger count, trip data, trip distance,"
+    },
+    {
+        "start": 233.0,
+        "end": 238.0,
+        "text": "pick up location ID, drop of location ID, payment type, fair amount, 12 amount."
+    },
+    {
+        "start": 238.0,
+        "end": 239.48,
+        "text": "So let's take a look."
+    },
+    {
+        "start": 239.48,
+        "end": 246.0,
+        "text": "So based upon our input sets, the prediction is around $3.2."
+    },
+    {
+        "start": 246.0,
+        "end": 249.32,
+        "text": "And let's change our predict payment type to 2."
+    },
+    {
+        "start": 249.32,
+        "end": 254.84,
+        "text": "In this case, we can see that the tip amount has gone drastically down."
+    },
+    {
+        "start": 254.84,
+        "end": 259.36,
+        "text": "So these are the steps you can follow to deploy your machine learning,"
+    },
+    {
+        "start": 259.36,
+        "end": 263.4,
+        "text": "your BigQuery machine learning model, which you have made on TensorFlow."
+    }
+]

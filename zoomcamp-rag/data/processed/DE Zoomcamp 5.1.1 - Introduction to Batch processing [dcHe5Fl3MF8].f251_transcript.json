@@ -1,0 +1,447 @@
+[
+    {
+        "start": 0.0,
+        "end": 5.84,
+        "text": "Hello, welcome to week 5 of Data Engineering Zoom Camp and in this week we will talk about"
+    },
+    {
+        "start": 5.84,
+        "end": 11.92,
+        "text": "batch processing. I want to quickly first talk about what exactly we are going to cover in this week."
+    },
+    {
+        "start": 11.92,
+        "end": 18.240000000000002,
+        "text": "So we will first talk what batch processing is and one of the tools that we can use for"
+    },
+    {
+        "start": 18.240000000000002,
+        "end": 24.48,
+        "text": "batch processing is Spark and we will spend most of the time this week talking about Spark."
+    },
+    {
+        "start": 24.48,
+        "end": 30.560000000000002,
+        "text": "So we will talk what Spark is, why do we need it and then we will install Spark on Linux. So I will"
+    },
+    {
+        "start": 30.560000000000002,
+        "end": 37.120000000000005,
+        "text": "use a virtual machine from Google Cloud Platform and I will show you how to install Spark there."
+    },
+    {
+        "start": 37.120000000000005,
+        "end": 42.08,
+        "text": "After that we will take a first look at Spark, we will use Spice Park for that meaning we will use"
+    },
+    {
+        "start": 42.08,
+        "end": 46.96,
+        "text": "Python, we will not use Scala and we will then look at different features of Spark."
+    },
+    {
+        "start": 46.96,
+        "end": 53.68,
+        "text": "Like data frames, SQL, how we do joins in Spark and then we will talk about relatively old concept"
+    },
+    {
+        "start": 53.68,
+        "end": 58.96,
+        "text": "from Spark called RGDs. I think it's easily and distributed data sets. So what they are, what is"
+    },
+    {
+        "start": 58.96,
+        "end": 63.04,
+        "text": "the difference between data frames and the reviews. And we will spend some time talking about"
+    },
+    {
+        "start": 63.04,
+        "end": 68.72,
+        "text": "internals and then how we can use Docker to run Spark jobs. All that we will do locally but then"
+    },
+    {
+        "start": 68.72,
+        "end": 74.48,
+        "text": "at the end the last two lessons we will talk about deploying actually going to the cloud and then"
+    },
+    {
+        "start": 74.48,
+        "end": 79.6,
+        "text": "running Spark jobs there and then connecting these to a data warehouse. So that's roughly the"
+    },
+    {
+        "start": 79.6,
+        "end": 87.11999999999999,
+        "text": "plan for the week. Let's start with introduction to batch processing. So okay, what is batch processing?"
+    },
+    {
+        "start": 87.11999999999999,
+        "end": 93.6,
+        "text": "For, I answer that. I want to talk about different types of processing data. There are multiple ways"
+    },
+    {
+        "start": 93.6,
+        "end": 102.32,
+        "text": "of processing data. One is called batch and the other one is called streaming. So this week we will"
+    },
+    {
+        "start": 102.32,
+        "end": 108.72,
+        "text": "actually focus on this and next week week six we will spend time talking about streaming. Let me give"
+    },
+    {
+        "start": 108.72,
+        "end": 114.32,
+        "text": "you a little bit of intuition what is batch and what is streaming. So batches, let's say you have"
+    },
+    {
+        "start": 114.96,
+        "end": 122.63999999999999,
+        "text": "a database and this is our taxi trips data data set and then we have some data for January 15, for"
+    },
+    {
+        "start": 122.63999999999999,
+        "end": 128.32,
+        "text": "example. Then we take the entire data set, all the data we have for January 15 and then there is"
+    },
+    {
+        "start": 128.32,
+        "end": 134.95999999999998,
+        "text": "one single job that takes all this data for January 15 and then it produces something else, some"
+    },
+    {
+        "start": 134.95999999999998,
+        "end": 143.2,
+        "text": "other data set. So this particular job reads the data for the entire day from 0, 0 January 15 to"
+    },
+    {
+        "start": 143.84,
+        "end": 151.2,
+        "text": "23, 59 January 15, takes all the data and processes that something. Then the other thing,"
+    },
+    {
+        "start": 151.28,
+        "end": 158.0,
+        "text": "streaming one is imagine we are in New York, that's me, and I want to hire a taxi. So I"
+    },
+    {
+        "start": 158.95999999999998,
+        "end": 168.0,
+        "text": "wave and then a taxi driver sees me, it's yellow taxi. So they see me, they come, so I hop on a right"
+    },
+    {
+        "start": 168.0,
+        "end": 174.07999999999998,
+        "text": "and then the driver and they probably have a mobile phone or some device. This device sends an event"
+    },
+    {
+        "start": 174.07999999999998,
+        "end": 180.72,
+        "text": "saying that right starts and then some other information about this right and then this event is sent"
+    },
+    {
+        "start": 180.72,
+        "end": 187.44,
+        "text": "to a data stream and then there is something that is processing data from this stream, a processor"
+    },
+    {
+        "start": 188.32,
+        "end": 195.36,
+        "text": "and then it puts that process data to another data stream. This happens on the fly, so the moment I"
+    },
+    {
+        "start": 195.36,
+        "end": 201.76,
+        "text": "hop in in a taxi, they device inside that taxi sends an event and then this thing processes this"
+    },
+    {
+        "start": 201.76,
+        "end": 206.72,
+        "text": "event and puts the results somewhere in real time. So this week we will not talk about this, this is"
+    },
+    {
+        "start": 206.72,
+        "end": 214.56,
+        "text": "again week 6 and this week we will focus on things that process huge chunks of data in one go."
+    },
+    {
+        "start": 215.52,
+        "end": 222.0,
+        "text": "So we have batch jobs that run weekly, they process data for the entire week, daily is probably the"
+    },
+    {
+        "start": 222.0,
+        "end": 227.12,
+        "text": "most common, so you accumulate some data for the entire day and once the day is over you process"
+    },
+    {
+        "start": 227.12,
+        "end": 232.64,
+        "text": "everything you collected from me yesterday, that's a batch job. Then hourly, pretty common and then"
+    },
+    {
+        "start": 232.79999999999998,
+        "end": 240.07999999999998,
+        "text": "for batch jobs, yeah you can go to smaller click granularity three times per hour or I don't know"
+    },
+    {
+        "start": 240.07999999999998,
+        "end": 247.04,
+        "text": "maybe every five minutes but these are less typical. So I think the most typical ones are daily and"
+    },
+    {
+        "start": 247.04,
+        "end": 252.95999999999998,
+        "text": "hourly meaning that once an hour is over you process everything that happened in the previous hour"
+    },
+    {
+        "start": 252.95999999999998,
+        "end": 258.56,
+        "text": "and the same with the day and then the technologies that we use for these kind of jobs are often"
+    },
+    {
+        "start": 259.12,
+        "end": 266.8,
+        "text": "Python scripts, remember the data pipeline we wrote in week one, so it was about getting a CSV file"
+    },
+    {
+        "start": 266.8,
+        "end": 272.56,
+        "text": "and then ingesting this to a database, this was a batch script and we used Python to do this"
+    },
+    {
+        "start": 272.56,
+        "end": 278.88,
+        "text": "and we run it with monthly intervals, so for each month we would execute this script, then"
+    },
+    {
+        "start": 278.88,
+        "end": 284.48,
+        "text": "SQL is pretty common, then SQL you can define all these transformations and this is what we saw"
+    },
+    {
+        "start": 284.48,
+        "end": 290.56,
+        "text": "in week four using SQL to transform data, so all these things are also batch jobs because we get"
+    },
+    {
+        "start": 290.56,
+        "end": 296.24,
+        "text": "a huge chunk of data and we process it in one go and SQL is pretty popular for that because it's"
+    },
+    {
+        "start": 296.24,
+        "end": 303.04,
+        "text": "convenient people note and then this is something we will cover in this week spark, this is a pretty"
+    },
+    {
+        "start": 303.04,
+        "end": 309.84000000000003,
+        "text": "popular technology for batch jobs and then there are others like fling and others and maybe it's worth"
+    },
+    {
+        "start": 309.91999999999996,
+        "end": 316.64,
+        "text": "mentioning, so these Python scripts can be run anywhere, we can run them in Kubernetes, we can"
+    },
+    {
+        "start": 316.64,
+        "end": 322.71999999999997,
+        "text": "run them in I don't know, AWS batch and what we typically use for orchestrating all these"
+    },
+    {
+        "start": 323.52,
+        "end": 331.59999999999997,
+        "text": "batch jobs is airfo, so a typical workflow could be for example you have some data in your data lake"
+    },
+    {
+        "start": 331.59999999999997,
+        "end": 338.23999999999995,
+        "text": "could be let's say CSV files, then you have some Python job that takes these CSV files and does"
+    },
+    {
+        "start": 338.24,
+        "end": 344.96000000000004,
+        "text": "something puts them to I don't know, a date per house and then maybe you have a SQL job, you might"
+    },
+    {
+        "start": 344.96000000000004,
+        "end": 352.32,
+        "text": "use dbt or some other tools for that and then you did some data preparation and then maybe you run"
+    },
+    {
+        "start": 352.32,
+        "end": 358.72,
+        "text": "spark and then maybe you run again Python, all these steps are batch jobs, they will use different"
+    },
+    {
+        "start": 358.72,
+        "end": 364.96000000000004,
+        "text": "technologies and for orchestrating this workflow, this pipeline, we use tools like airfo."
+    },
+    {
+        "start": 365.03999999999996,
+        "end": 370.08,
+        "text": "In this video I also want to spend a bit of time talking about advantages of"
+    },
+    {
+        "start": 370.08,
+        "end": 376.08,
+        "text": "batch jobs, batch jobs are pretty convenient, they are easy to manage, meaning that we have"
+    },
+    {
+        "start": 376.08,
+        "end": 382.32,
+        "text": "these workflow tools that let us define all these steps, then let us parameterize this script,"
+    },
+    {
+        "start": 382.32,
+        "end": 390.64,
+        "text": "let us easily retry this, so maybe I can also and this retry, so this workflow has a parameter that"
+    },
+    {
+        "start": 390.64,
+        "end": 395.68,
+        "text": "it's executed for a particular time interval and then if something happens we can just"
+    },
+    {
+        "start": 395.68,
+        "end": 400.71999999999997,
+        "text": "re-execute it, which is easy to manage, it's not happening in real time, that's why"
+    },
+    {
+        "start": 400.71999999999997,
+        "end": 407.44,
+        "text": "the trial is quite safe and then it's also easier to scale, so for example here if something happens"
+    },
+    {
+        "start": 407.44,
+        "end": 413.44,
+        "text": "to our Python script, maybe there is a bigger file, we can just get a bigger machine or if something"
+    },
+    {
+        "start": 413.44,
+        "end": 419.36,
+        "text": "happens with our spark, then maybe we get a bigger cluster or add more machines to the existing cluster,"
+    },
+    {
+        "start": 419.36,
+        "end": 425.92,
+        "text": "so this gives us this flexibility of scaling up and down things when we need to process things"
+    },
+    {
+        "start": 425.92,
+        "end": 432.72,
+        "text": "on the fly, in stream then all these things become more difficult and the main disadvantage here"
+    },
+    {
+        "start": 432.72,
+        "end": 438.72,
+        "text": "is delay because we run things in regular intervals, then we know if we want to see some data from"
+    },
+    {
+        "start": 438.72,
+        "end": 444.88,
+        "text": "the previous hour, we need to wait for one hour and then this workflow executing this might take"
+    },
+    {
+        "start": 445.36,
+        "end": 449.84,
+        "text": "some time, for example we need to have five minutes to execute this one, maybe another five"
+    },
+    {
+        "start": 449.84,
+        "end": 454.8,
+        "text": "minutes to execute this one, another five minutes to execute this one and then maybe three minutes"
+    },
+    {
+        "start": 454.8,
+        "end": 462.56,
+        "text": "here and then in total it's 20 minutes and then it means that if we need some data from previous hour,"
+    },
+    {
+        "start": 462.56,
+        "end": 469.92,
+        "text": "so the hour is over, only now when the hour is over we can start executing this and it will take"
+    },
+    {
+        "start": 470.0,
+        "end": 476.16,
+        "text": "20 minutes to execute this and only now the data is ready, it means that we will need to wait,"
+    },
+    {
+        "start": 476.16,
+        "end": 482.16,
+        "text": "let's say, 90 minutes before we can do something with the data that we saw at the beginning of"
+    },
+    {
+        "start": 482.16,
+        "end": 488.40000000000003,
+        "text": "the previous hour, so this is the main disadvantage of batch processing, which you can solve with streaming,"
+    },
+    {
+        "start": 488.40000000000003,
+        "end": 495.84000000000003,
+        "text": "but oftentimes you actually don't need to react that fast, in many cases it's fine to wait for one hour"
+    },
+    {
+        "start": 495.84,
+        "end": 501.35999999999996,
+        "text": "or for one day or even for one week before you can process the data and before you can put this"
+    },
+    {
+        "start": 501.35999999999996,
+        "end": 506.32,
+        "text": "data to some dashboard, there are some metrics that are not super-time sensitive and it's okay to"
+    },
+    {
+        "start": 506.32,
+        "end": 512.3199999999999,
+        "text": "wait one day before you can put this metric to your dashboard, the advantages we get from batch"
+    },
+    {
+        "start": 512.3199999999999,
+        "end": 518.3199999999999,
+        "text": "they are pretty convenient, so that's why the majority of data processing jobs, at least in my"
+    },
+    {
+        "start": 518.3199999999999,
+        "end": 524.8,
+        "text": "company and in other companies where I worked, the majority let's say 80% if not more they are in"
+    },
+    {
+        "start": 524.8,
+        "end": 532.0799999999999,
+        "text": "batch because of these advantages, maybe this is misleading, I will move to this slide, so let's say"
+    },
+    {
+        "start": 532.0799999999999,
+        "end": 539.92,
+        "text": "we have 80% of cases here and remaining 20, maybe even less maybe 10% for streaming and 90% for"
+    },
+    {
+        "start": 539.92,
+        "end": 546.64,
+        "text": "batch, but I would say in my personal experience most of the jobs that I saw they are here, I probably"
+    },
+    {
+        "start": 546.64,
+        "end": 554.3199999999999,
+        "text": "convinced you by now that batch is important and what we will do in the next video is we will spend"
+    },
+    {
+        "start": 554.32,
+        "end": 561.5200000000001,
+        "text": "some time talking about this because we already saw how to do batch transformations with SQL,"
+    },
+    {
+        "start": 561.5200000000001,
+        "end": 568.08,
+        "text": "in the previous week we also patched a bit Python scripts in week one, so here we will spend time"
+    },
+    {
+        "start": 568.08,
+        "end": 578.08,
+        "text": "talking about Spark, so see you soon."
+    }
+]

@@ -1,0 +1,412 @@
+[
+    {
+        "start": 0.0,
+        "end": 2.72,
+        "text": "Welcome back to the data engineering zoom camp."
+    },
+    {
+        "start": 2.72,
+        "end": 4.96,
+        "text": "Today we're gonna look at adding a schedule"
+    },
+    {
+        "start": 4.96,
+        "end": 9.200000000000001,
+        "text": "as well as back fills to our big query ELT pipeline."
+    },
+    {
+        "start": 9.200000000000001,
+        "end": 12.040000000000001,
+        "text": "Now this is very similar to what we did with Postgres,"
+    },
+    {
+        "start": 12.040000000000001,
+        "end": 14.52,
+        "text": "but let's have a look to see what differences there are."
+    },
+    {
+        "start": 14.52,
+        "end": 16.76,
+        "text": "Now jumping straight in, we can see at the top here,"
+    },
+    {
+        "start": 16.76,
+        "end": 20.68,
+        "text": "I have again two different schedules for our workflow."
+    },
+    {
+        "start": 20.68,
+        "end": 23.240000000000002,
+        "text": "In this scenario, I wanna be able to run the green data set"
+    },
+    {
+        "start": 23.240000000000002,
+        "end": 25.68,
+        "text": "again every month at 9 AM and the yellow one"
+    },
+    {
+        "start": 25.68,
+        "end": 27.68,
+        "text": "an hour later at 10 AM to make sure"
+    },
+    {
+        "start": 27.68,
+        "end": 29.080000000000002,
+        "text": "that they don't clash with each other."
+    },
+    {
+        "start": 29.08,
+        "end": 31.279999999999998,
+        "text": "Now similar to the Postgres example,"
+    },
+    {
+        "start": 31.279999999999998,
+        "end": 33.6,
+        "text": "we've removed the inputs for month and year"
+    },
+    {
+        "start": 33.6,
+        "end": 35.08,
+        "text": "and instead changed those to use"
+    },
+    {
+        "start": 35.08,
+        "end": 36.6,
+        "text": "in the trigger expression here,"
+    },
+    {
+        "start": 36.6,
+        "end": 38.28,
+        "text": "there's gonna put them in the correct format"
+    },
+    {
+        "start": 38.28,
+        "end": 39.44,
+        "text": "to match our file."
+    },
+    {
+        "start": 39.44,
+        "end": 41.44,
+        "text": "And at the bottom here, we can see those triggers"
+    },
+    {
+        "start": 41.44,
+        "end": 43.8,
+        "text": "and we can see again, they are passing in the inputs"
+    },
+    {
+        "start": 43.8,
+        "end": 46.72,
+        "text": "for which taxi data set they want to use."
+    },
+    {
+        "start": 46.72,
+        "end": 49.84,
+        "text": "So now this is gonna work entirely on its own."
+    },
+    {
+        "start": 49.84,
+        "end": 53.480000000000004,
+        "text": "Now let's run a back fill for the yellow data set."
+    },
+    {
+        "start": 53.480000000000004,
+        "end": 56.519999999999996,
+        "text": "I'm gonna tell it to run a back fill again for 2019"
+    },
+    {
+        "start": 56.519999999999996,
+        "end": 58.12,
+        "text": "like we did for Postgres,"
+    },
+    {
+        "start": 58.12,
+        "end": 61.68,
+        "text": "but I'm gonna tell it to run it for February to March."
+    },
+    {
+        "start": 61.68,
+        "end": 63.48,
+        "text": "So we're gonna do the first to February"
+    },
+    {
+        "start": 63.48,
+        "end": 65.12,
+        "text": "to the second at March."
+    },
+    {
+        "start": 65.12,
+        "end": 68.12,
+        "text": "Like I said in the previous video about back fills,"
+    },
+    {
+        "start": 68.12,
+        "end": 70.8,
+        "text": "make sure the range of where you want it"
+    },
+    {
+        "start": 70.8,
+        "end": 73.92,
+        "text": "to run that back fill actually covers all of the dates"
+    },
+    {
+        "start": 73.92,
+        "end": 75.44,
+        "text": "that trigger would have scheduled."
+    },
+    {
+        "start": 75.44,
+        "end": 77.12,
+        "text": "Just because I want this trigger to schedule"
+    },
+    {
+        "start": 77.12,
+        "end": 78.67999999999999,
+        "text": "on the first of the month,"
+    },
+    {
+        "start": 78.67999999999999,
+        "end": 80.44,
+        "text": "I need to make sure this back fill"
+    },
+    {
+        "start": 80.44,
+        "end": 84.44,
+        "text": "actually goes past the time it would have executed."
+    },
+    {
+        "start": 84.44,
+        "end": 86.6,
+        "text": "So that's why I'm running it on the second of March,"
+    },
+    {
+        "start": 86.6,
+        "end": 89.44,
+        "text": "just to make sure it definitely covers the first of March."
+    },
+    {
+        "start": 89.44,
+        "end": 91.24,
+        "text": "But if I was to select the first of March at midnight,"
+    },
+    {
+        "start": 91.24,
+        "end": 93.72,
+        "text": "it's never gonna reach 9am or 10am,"
+    },
+    {
+        "start": 93.72,
+        "end": 95.08,
+        "text": "which is when this would have run."
+    },
+    {
+        "start": 95.08,
+        "end": 96.72,
+        "text": "Now when we press execute here,"
+    },
+    {
+        "start": 96.72,
+        "end": 98.03999999999999,
+        "text": "we'll see at the bottom here,"
+    },
+    {
+        "start": 98.03999999999999,
+        "end": 100.0,
+        "text": "it's now executing our back fills."
+    },
+    {
+        "start": 100.0,
+        "end": 101.47999999999999,
+        "text": "We'll be able to go over to executions"
+    },
+    {
+        "start": 101.47999999999999,
+        "end": 102.75999999999999,
+        "text": "and see that it's already running"
+    },
+    {
+        "start": 102.75999999999999,
+        "end": 104.63999999999999,
+        "text": "one of those executions for us."
+    },
+    {
+        "start": 104.63999999999999,
+        "end": 106.8,
+        "text": "And so now we just need to sit back"
+    },
+    {
+        "start": 106.8,
+        "end": 108.0,
+        "text": "and wait for it to work."
+    },
+    {
+        "start": 108.0,
+        "end": 110.08,
+        "text": "We can see that it successfully run the first part"
+    },
+    {
+        "start": 110.08,
+        "end": 111.72,
+        "text": "of the back fill and it's now running March."
+    },
+    {
+        "start": 111.72,
+        "end": 113.6,
+        "text": "So it is running as we would expect."
+    },
+    {
+        "start": 113.6,
+        "end": 115.08,
+        "text": "We can see under triggers here,"
+    },
+    {
+        "start": 115.08,
+        "end": 117.39999999999999,
+        "text": "if I just minimise this green schedule,"
+    },
+    {
+        "start": 117.39999999999999,
+        "end": 119.92,
+        "text": "we can see that it has finished the back fill successfully"
+    },
+    {
+        "start": 119.92,
+        "end": 122.72,
+        "text": "because it started all the executions we asked it to."
+    },
+    {
+        "start": 122.72,
+        "end": 124.12,
+        "text": "So now we just got away for it to work."
+    },
+    {
+        "start": 124.12,
+        "end": 126.72,
+        "text": "So now we can see both of these workflows have finished."
+    },
+    {
+        "start": 126.72,
+        "end": 127.92,
+        "text": "Let's hop over to BigQuery"
+    },
+    {
+        "start": 127.92,
+        "end": 130.36,
+        "text": "and see what on earth is going on here."
+    },
+    {
+        "start": 130.36,
+        "end": 132.88,
+        "text": "So what we can see here is we now have February and March"
+    },
+    {
+        "start": 132.88,
+        "end": 134.12,
+        "text": "in that data set."
+    },
+    {
+        "start": 134.12,
+        "end": 137.2,
+        "text": "And if I actually click on to yellow and click details,"
+    },
+    {
+        "start": 137.2,
+        "end": 140.36,
+        "text": "we can see that there is 22 million rows,"
+    },
+    {
+        "start": 140.36,
+        "end": 141.92,
+        "text": "just a small number."
+    },
+    {
+        "start": 141.92,
+        "end": 144.2,
+        "text": "So we can see this has successfully been able to take"
+    },
+    {
+        "start": 144.2,
+        "end": 146.39999999999998,
+        "text": "the data from those three different tables"
+    },
+    {
+        "start": 146.39999999999998,
+        "end": 150.32,
+        "text": "and merge it all into one thanks to the power BigQuery."
+    },
+    {
+        "start": 150.32,
+        "end": 152.11999999999998,
+        "text": "So hopefully this has given you a bit of an insight"
+    },
+    {
+        "start": 152.11999999999998,
+        "end": 156.11999999999998,
+        "text": "into both ELT pipelines, but also how you can fully automate"
+    },
+    {
+        "start": 156.11999999999998,
+        "end": 159.07999999999998,
+        "text": "it with a schedule and back fills to fetch executions"
+    },
+    {
+        "start": 159.07999999999998,
+        "end": 160.83999999999997,
+        "text": "before the workflow even existed."
+    },
+    {
+        "start": 160.83999999999997,
+        "end": 162.88,
+        "text": "Let me know what you thought of this episode."
+    },
+    {
+        "start": 162.88,
+        "end": 165.64,
+        "text": "In the next part of the Data Engineering Zoom Camp,"
+    },
+    {
+        "start": 165.64,
+        "end": 168.16,
+        "text": "we're going to be looking at how you can introduce AI"
+    },
+    {
+        "start": 168.16,
+        "end": 171.0,
+        "text": "to your data engineering and how it can help you improve"
+    },
+    {
+        "start": 171.0,
+        "end": 173.76,
+        "text": "your efficiency and help you build your pipelines."
+    },
+    {
+        "start": 174.29999999999998,
+        "end": 175.2,
+        "text": "I'm going to say 2 people."
+    },
+    {
+        "start": 175.72,
+        "end": 176.7,
+        "text": "Move\u0437\u044b."
+    },
+    {
+        "start": 177.2,
+        "end": 179.95999999999998,
+        "text": "So if you're joining ainquir to join that name without"
+    },
+    {
+        "start": 179.95999999999998,
+        "end": 183.39999999999998,
+        "text": "visto supremely excited, then we're going to analyze that"
+    },
+    {
+        "start": 183.39999999999998,
+        "end": 195.16,
+        "text": "because it comes back to the problem that we're"
+    },
+    {
+        "start": 195.16,
+        "end": 202.07999999999998,
+        "text": "missing out on\u0438\u0432\u0430\u0442\u044c aqu\u00ed gewalt-vowows after Michelle"
+    }
+]

@@ -1,0 +1,952 @@
+[
+    {
+        "start": 0.0,
+        "end": 19.0,
+        "text": "All right, before we jump into code, we need to set up a way for Terraform on our local machine to be able to tell GCP that we are who we say we are and that we have access to create resources."
+    },
+    {
+        "start": 19.0,
+        "end": 24.0,
+        "text": "So to do that, we're going to create what's known as a service account."
+    },
+    {
+        "start": 24.0,
+        "end": 33.0,
+        "text": "A service account is kind of like a regular user account except for it's never meant to be logged into."
+    },
+    {
+        "start": 33.0,
+        "end": 44.0,
+        "text": "So your user account that you log into has permissions to do things like open up a Word document, run Python."
+    },
+    {
+        "start": 44.0,
+        "end": 58.0,
+        "text": "So the service account is the same idea, but it's going to be used by software to run tasks, run programs, things like that."
+    },
+    {
+        "start": 58.0,
+        "end": 60.0,
+        "text": "So let's set that up."
+    },
+    {
+        "start": 60.0,
+        "end": 72.0,
+        "text": "So here I am on the dashboard of my project and I'm just going to go to I am an admin and service accounts."
+    },
+    {
+        "start": 72.0,
+        "end": 85.0,
+        "text": "And I'm going to create a service account and I'm just going to call this Terraform runner."
+    },
+    {
+        "start": 85.0,
+        "end": 90.0,
+        "text": "You can put a description if you'd like, not really necessary."
+    },
+    {
+        "start": 91.0,
+        "end": 101.0,
+        "text": "And here we need to say what permissions, what services here we want it to have access to."
+    },
+    {
+        "start": 101.0,
+        "end": 106.0,
+        "text": "So we are going to be making a GCP bucket."
+    },
+    {
+        "start": 106.0,
+        "end": 119.0,
+        "text": "So I want cloud storage and storage admin."
+    },
+    {
+        "start": 119.0,
+        "end": 126.0,
+        "text": "And we are going to be making a BigQuery data set."
+    },
+    {
+        "start": 126.0,
+        "end": 130.0,
+        "text": "So I'll do BigQuery admin."
+    },
+    {
+        "start": 130.0,
+        "end": 135.0,
+        "text": "And in the real world, you would want to limit these permissions."
+    },
+    {
+        "start": 135.0,
+        "end": 148.0,
+        "text": "These are broad roles that give you all kinds of access to put objects into the bucket, retrieve objects from it, delete objects in the bucket."
+    },
+    {
+        "start": 148.0,
+        "end": 153.0,
+        "text": "But with Terraform, we are just going to be setting up and taking down resources."
+    },
+    {
+        "start": 153.0,
+        "end": 161.0,
+        "text": "So for cloud storage, we would really only need bucket creator and the ability to destroy the buckets."
+    },
+    {
+        "start": 161.0,
+        "end": 171.0,
+        "text": "BigQuery, we would only want to be able to create a data set and then destroy the data set."
+    },
+    {
+        "start": 171.0,
+        "end": 176.0,
+        "text": "And I'll actually go ahead and continue here."
+    },
+    {
+        "start": 176.0,
+        "end": 183.0,
+        "text": "There is one more that I want, one more permission, but I'll show you how to do that just in case."
+    },
+    {
+        "start": 183.0,
+        "end": 193.0,
+        "text": "Say you're working on a project and you didn't need to be able to create and destroy a certain resource when you started out."
+    },
+    {
+        "start": 193.0,
+        "end": 197.0,
+        "text": "But then, oh darn, you want that in your project."
+    },
+    {
+        "start": 197.0,
+        "end": 216.0,
+        "text": "So rather than destroying the service account, creating a new service account with those permissions from here, you can just go to IAM and go down to your service account, edit principle and add another role."
+    },
+    {
+        "start": 216.0,
+        "end": 232.0,
+        "text": "And in our case, we want compute engine, compute admin, and we can save that."
+    },
+    {
+        "start": 233.0,
+        "end": 246.0,
+        "text": "Alright, so we have the service account, but now we need a way to say we indeed have permissions to run as that service account."
+    },
+    {
+        "start": 246.0,
+        "end": 255.0,
+        "text": "So we are here on service counts, click the little ellipse and we're going to manage keys."
+    },
+    {
+        "start": 255.0,
+        "end": 264.0,
+        "text": "We're going to create a new key and we will do JSON."
+    },
+    {
+        "start": 264.0,
+        "end": 274.0,
+        "text": "And this right here is one huge no no. I am showing the credentials for my service account. So why is that bad?"
+    },
+    {
+        "start": 274.0,
+        "end": 281.0,
+        "text": "Well, with these permissions being as broad as they are, a lot of bad horrible things could happen."
+    },
+    {
+        "start": 281.0,
+        "end": 288.0,
+        "text": "This service account will be destroyed before this video goes anywhere near the internet."
+    },
+    {
+        "start": 288.0,
+        "end": 300.0,
+        "text": "If someone has this service account, they could create VM instances, think of ones that cost thousands of dollars an hour and mine Bitcoin."
+    },
+    {
+        "start": 300.0,
+        "end": 308.0,
+        "text": "They could take very large files and upload it to storage and just run up my bill."
+    },
+    {
+        "start": 308.0,
+        "end": 313.0,
+        "text": "They can make command and control servers for botnets."
+    },
+    {
+        "start": 313.0,
+        "end": 327.0,
+        "text": "Really use your imagination. But with things like an access token for an API, SSH key, especially an SSH key,"
+    },
+    {
+        "start": 327.0,
+        "end": 334.0,
+        "text": "or a key file for a service account, these things are very sensitive information."
+    },
+    {
+        "start": 334.0,
+        "end": 343.0,
+        "text": "Actually, there was just earlier this month, a very large company called Octa. Got hacked. How did that happen?"
+    },
+    {
+        "start": 343.0,
+        "end": 350.0,
+        "text": "Well, apparently they have my understanding is a login where you could run a service account."
+    },
+    {
+        "start": 350.0,
+        "end": 361.0,
+        "text": "And one of the employees logged into their Google account in general on their work laptop."
+    },
+    {
+        "start": 361.0,
+        "end": 368.0,
+        "text": "And then when they logged into that interface, well, Google being helpful as ever, saved that password."
+    },
+    {
+        "start": 368.0,
+        "end": 377.0,
+        "text": "That employees username and password were most likely in a password dump of a different hacked service."
+    },
+    {
+        "start": 378.0,
+        "end": 388.0,
+        "text": "The perpetrator then just simply logged into that Google account and hey, they could log into Octa because that password was saved."
+    },
+    {
+        "start": 388.0,
+        "end": 396.0,
+        "text": "So with things like this, even if you put them in your Google Drive, you should have very strong passwords if not a password manager."
+    },
+    {
+        "start": 396.0,
+        "end": 412.0,
+        "text": "But if your account is ever compromised, things in your Google Drive, key files like this, SSH keys, Bitcoin wallets, things like that, they are all open for them to grab."
+    },
+    {
+        "start": 412.0,
+        "end": 421.0,
+        "text": "Same thing, if you email it to yourself, delete that email once you have the information you need."
+    },
+    {
+        "start": 421.0,
+        "end": 431.0,
+        "text": "It is a scary world these days. So I don't mean to go down and rabbit hole, but just be very, very careful with your credentials."
+    },
+    {
+        "start": 431.0,
+        "end": 438.0,
+        "text": "So that being said, I'm just going to copy and paste this."
+    },
+    {
+        "start": 438.0,
+        "end": 442.0,
+        "text": "And I have a VM here."
+    },
+    {
+        "start": 442.0,
+        "end": 449.0,
+        "text": "And let me just log in real quick."
+    },
+    {
+        "start": 449.0,
+        "end": 455.0,
+        "text": "All right. See if I can make this a little bigger for us."
+    },
+    {
+        "start": 455.0,
+        "end": 472.0,
+        "text": "And I am going to make a directory called Terra demo that works."
+    },
+    {
+        "start": 472.0,
+        "end": 479.0,
+        "text": "And I'm also going to make a directory in here called keys."
+    },
+    {
+        "start": 479.0,
+        "end": 491.0,
+        "text": "Just where my keys can live. And once I change into that directory, I'm just going to call this file my creds.json."
+    },
+    {
+        "start": 491.0,
+        "end": 498.0,
+        "text": "So it helps if I actually use an editor like nano."
+    },
+    {
+        "start": 498.0,
+        "end": 512.0,
+        "text": "That looks like I lost my copy there."
+    },
+    {
+        "start": 512.0,
+        "end": 520.0,
+        "text": "There we go. All right."
+    },
+    {
+        "start": 520.0,
+        "end": 526.0,
+        "text": "Okay. So we have our service account credentials."
+    },
+    {
+        "start": 526.0,
+        "end": 535.0,
+        "text": "Let's go up one directory. And we can just go ahead and start visual studio code."
+    },
+    {
+        "start": 535.0,
+        "end": 541.0,
+        "text": "And something that will be very helpful that I already have installed."
+    },
+    {
+        "start": 541.0,
+        "end": 550.0,
+        "text": "If you go to extensions here, just look for Terraform."
+    },
+    {
+        "start": 550.0,
+        "end": 553.0,
+        "text": "And I did the one from HasherCorp."
+    },
+    {
+        "start": 553.0,
+        "end": 557.0,
+        "text": "It's nice, has syntax highlighting auto completion."
+    },
+    {
+        "start": 557.0,
+        "end": 563.0,
+        "text": "So as you'll see soon, when you're creating resources in a Terraform file,"
+    },
+    {
+        "start": 563.0,
+        "end": 576.0,
+        "text": "and you start typing one of the fields for that resource, helps with typos,"
+    },
+    {
+        "start": 576.0,
+        "end": 579.0,
+        "text": "so you can auto complete and all that good stuff."
+    },
+    {
+        "start": 579.0,
+        "end": 589.0,
+        "text": "Okay. So we're just going to make our main.tf4 Terraform file."
+    },
+    {
+        "start": 589.0,
+        "end": 595.0,
+        "text": "And we are going to be using Google."
+    },
+    {
+        "start": 595.0,
+        "end": 604.0,
+        "text": "So we just need to head out and look for Terraform."
+    },
+    {
+        "start": 604.0,
+        "end": 612.0,
+        "text": "Google Provider."
+    },
+    {
+        "start": 612.0,
+        "end": 617.0,
+        "text": "And this is the HasherCorp website."
+    },
+    {
+        "start": 617.0,
+        "end": 623.0,
+        "text": "Typical Provider configuration will look something like this."
+    },
+    {
+        "start": 623.0,
+        "end": 629.0,
+        "text": "And I'm going to copy that."
+    },
+    {
+        "start": 629.0,
+        "end": 632.0,
+        "text": "And paste it here."
+    },
+    {
+        "start": 632.0,
+        "end": 637.0,
+        "text": "Okay. And it wants our configuration options."
+    },
+    {
+        "start": 637.0,
+        "end": 641.0,
+        "text": "Well, let's see right here."
+    },
+    {
+        "start": 641.0,
+        "end": 650.0,
+        "text": "We just need those."
+    },
+    {
+        "start": 650.0,
+        "end": 657.0,
+        "text": "And there is a command I might as well mention now that is very nice Terraform."
+    },
+    {
+        "start": 657.0,
+        "end": 661.0,
+        "text": "FMT for format."
+    },
+    {
+        "start": 661.0,
+        "end": 666.0,
+        "text": "I probably need to save that, control us."
+    },
+    {
+        "start": 666.0,
+        "end": 669.0,
+        "text": "And let's see if that works."
+    },
+    {
+        "start": 669.0,
+        "end": 674.0,
+        "text": "All right. Notice it just lined everything up real nice."
+    },
+    {
+        "start": 674.0,
+        "end": 679.0,
+        "text": "Sometimes I'm not the needless type or so. That is very helpful."
+    },
+    {
+        "start": 679.0,
+        "end": 684.0,
+        "text": "And let's see here. We need our project ID."
+    },
+    {
+        "start": 684.0,
+        "end": 688.0,
+        "text": "Not your friendly name up here. We want to go to dashboard."
+    },
+    {
+        "start": 688.0,
+        "end": 693.0,
+        "text": "Grab our project ID."
+    },
+    {
+        "start": 693.0,
+        "end": 698.0,
+        "text": "And let me make this actually a little bit bigger."
+    },
+    {
+        "start": 698.0,
+        "end": 700.0,
+        "text": "Just so we can see what's going on."
+    },
+    {
+        "start": 700.0,
+        "end": 704.0,
+        "text": "US Central One works for me. I'm not sure if that's dynamically set."
+    },
+    {
+        "start": 704.0,
+        "end": 713.0,
+        "text": "Depending on where you are, you might want to set it somewhere closer to home."
+    },
+    {
+        "start": 713.0,
+        "end": 716.0,
+        "text": "Okay. So everything looks good."
+    },
+    {
+        "start": 716.0,
+        "end": 724.0,
+        "text": "If we look over here, we just have our keys directory with my credentials and the main.tf file."
+    },
+    {
+        "start": 724.0,
+        "end": 733.0,
+        "text": "Now we need some way for Terraform to know to use this credential."
+    },
+    {
+        "start": 733.0,
+        "end": 738.0,
+        "text": "By default, I just happen to know it's going to look for something called Google Credentials."
+    },
+    {
+        "start": 738.0,
+        "end": 742.0,
+        "text": "But you can actually hard code the path."
+    },
+    {
+        "start": 742.0,
+        "end": 753.0,
+        "text": "In this case, it would be the current directory, which is dot by convention keys and my creds."
+    },
+    {
+        "start": 753.0,
+        "end": 764.0,
+        "text": "Json. I think that once double quotes."
+    },
+    {
+        "start": 764.0,
+        "end": 768.0,
+        "text": "Okay. I do not like hard coding it like that."
+    },
+    {
+        "start": 768.0,
+        "end": 771.0,
+        "text": "But that is one way of able to."
+    },
+    {
+        "start": 771.0,
+        "end": 780.0,
+        "text": "Another way would be G Cloud. If you have the Google Cloud SDK installed, you could do G Cloud."
+    },
+    {
+        "start": 780.0,
+        "end": 790.0,
+        "text": "I believe it's default off login. I think it gives you a link and you can just authenticate like that."
+    },
+    {
+        "start": 790.0,
+        "end": 801.0,
+        "text": "But I believe in that case, it's going to most likely use your main service count, which is you, which of course you will have permissions."
+    },
+    {
+        "start": 801.0,
+        "end": 810.0,
+        "text": "In my case, I'm going to export Google Credentials."
+    },
+    {
+        "start": 810.0,
+        "end": 818.0,
+        "text": "And I just happen to know that this is in my home directory. The user is Gary."
+    },
+    {
+        "start": 818.0,
+        "end": 835.0,
+        "text": "It is a demo and one more directory keys and my creds.json."
+    },
+    {
+        "start": 835.0,
+        "end": 845.0,
+        "text": "It enter and we can test that by equing that out."
+    },
+    {
+        "start": 845.0,
+        "end": 849.0,
+        "text": "All right. So that all looks good."
+    },
+    {
+        "start": 849.0,
+        "end": 854.0,
+        "text": "Before we create a resource, let's run Terraform and knit to get the provider."
+    },
+    {
+        "start": 854.0,
+        "end": 862.0,
+        "text": "The provider being the piece of code that Terraform is going to use to talk to GCP."
+    },
+    {
+        "start": 862.0,
+        "end": 872.0,
+        "text": "So if our Json credential files are what give us access to the key or access to the resources,"
+    },
+    {
+        "start": 872.0,
+        "end": 877.0,
+        "text": "I guess you can think of it as the provider is going to be the path."
+    },
+    {
+        "start": 877.0,
+        "end": 890.0,
+        "text": "So the provider lets us go to the door and the credential file is the key that lets us open the door."
+    },
+    {
+        "start": 890.0,
+        "end": 898.0,
+        "text": "All right. And we have some nice friendly output here finding the version that matches."
+    },
+    {
+        "start": 898.0,
+        "end": 903.0,
+        "text": "And we did get a few things here. So the provider code is code."
+    },
+    {
+        "start": 903.0,
+        "end": 907.0,
+        "text": "So not human readable. You do not need to mess with this."
+    },
+    {
+        "start": 907.0,
+        "end": 915.0,
+        "text": "It was smart enough to know that I am on Linux and I am running AMD and it is 64 bit."
+    },
+    {
+        "start": 915.0,
+        "end": 927.0,
+        "text": "We have a Terraform lock file. So this is just taking, I believe, hashes of the provider just so it ensures that"
+    },
+    {
+        "start": 927.0,
+        "end": 934.0,
+        "text": "you do have the correct version running."
+    },
+    {
+        "start": 934.0,
+        "end": 939.0,
+        "text": "All right. Let's make a bucket real quick."
+    },
+    {
+        "start": 939.0,
+        "end": 949.0,
+        "text": "So if I go back here to my dashboard, I should be able to go to Cloud Storage Buckets."
+    },
+    {
+        "start": 950.0,
+        "end": 956.0,
+        "text": "And if I scroll down, I have no buckets."
+    },
+    {
+        "start": 956.0,
+        "end": 973.0,
+        "text": "So let's go out here and we will look for Terraform Google Cloud Storage Bucket."
+    },
+    {
+        "start": 974.0,
+        "end": 983.0,
+        "text": "And just as it heads up, you will hear me say GCS Bucket for Google Cloud Storage Bucket and GCP Bucket interchangeably."
+    },
+    {
+        "start": 983.0,
+        "end": 990.0,
+        "text": "I have not decided on a term to use for years. So sorry if that's confusing."
+    },
+    {
+        "start": 990.0,
+        "end": 995.0,
+        "text": "But whenever I use any of these terms, I am referring to the same thing."
+    },
+    {
+        "start": 995.0,
+        "end": 1000.0,
+        "text": "All right. We have a nice little example here."
+    },
+    {
+        "start": 1000.0,
+        "end": 1013.0,
+        "text": "And copy. And actually before I do that, you see we have these blocks in here as part of the definition."
+    },
+    {
+        "start": 1013.0,
+        "end": 1021.0,
+        "text": "If you go ahead and just copy that and we will control F to find it in the page."
+    },
+    {
+        "start": 1022.0,
+        "end": 1033.0,
+        "text": "Down here at the bottom, the bucket's lifecycle rules, multiple blocks of this type are permitted, says documented below."
+    },
+    {
+        "start": 1033.0,
+        "end": 1039.0,
+        "text": "Okay. Life cycle rule, action condition."
+    },
+    {
+        "start": 1039.0,
+        "end": 1046.0,
+        "text": "If you poke around in here, it will show you what all of these are."
+    },
+    {
+        "start": 1046.0,
+        "end": 1049.0,
+        "text": "So just be aware, the documentation is pretty good."
+    },
+    {
+        "start": 1049.0,
+        "end": 1057.0,
+        "text": "A lot of times also I like to just kind of look at other people's projects, see what they've done."
+    },
+    {
+        "start": 1057.0,
+        "end": 1061.0,
+        "text": "I do a lot of copy and paste."
+    },
+    {
+        "start": 1061.0,
+        "end": 1070.0,
+        "text": "I'm sad to say, but you know, if something looks good, it works. That's good enough for me."
+    },
+    {
+        "start": 1070.0,
+        "end": 1078.0,
+        "text": "All right. So we see we're defining a resource. And then this name is important to terraform."
+    },
+    {
+        "start": 1078.0,
+        "end": 1082.0,
+        "text": "This is saying what kind of resource we want to create."
+    },
+    {
+        "start": 1082.0,
+        "end": 1088.0,
+        "text": "In this case, we want to create a Google storage bucket."
+    },
+    {
+        "start": 1088.0,
+        "end": 1095.0,
+        "text": "And this name is important to us. That is a variable name local."
+    },
+    {
+        "start": 1095.0,
+        "end": 1109.0,
+        "text": "So say you have several buckets and I can't think of a good example, but you want to perform some action on them in a different block."
+    },
+    {
+        "start": 1109.0,
+        "end": 1120.0,
+        "text": "You would access that with Google Cloud or Google storage bucket dot and then this name as that variable."
+    },
+    {
+        "start": 1120.0,
+        "end": 1125.0,
+        "text": "And I'm just going to call this demo bucket because again, this is local."
+    },
+    {
+        "start": 1125.0,
+        "end": 1135.0,
+        "text": "It doesn't need to be globally unique, but this does because this has to be globally unique across all of GCP."
+    },
+    {
+        "start": 1135.0,
+        "end": 1140.0,
+        "text": "And something tells me someone has used demo bucket before."
+    },
+    {
+        "start": 1140.0,
+        "end": 1151.0,
+        "text": "There are some functions and kind of some variables people get clever with to name their buckets to make sure they're unique."
+    },
+    {
+        "start": 1151.0,
+        "end": 1156.0,
+        "text": "Usually works for me if I just take the project name because that's globally unique."
+    },
+    {
+        "start": 1156.0,
+        "end": 1163.0,
+        "text": "And I'm just going to call this terra bucket location, US. That's fine for me."
+    },
+    {
+        "start": 1163.0,
+        "end": 1166.0,
+        "text": "Force destroy is true."
+    },
+    {
+        "start": 1166.0,
+        "end": 1183.0,
+        "text": "Life cycle rule, the condition is age three. Well, that's going to be days. I'm sure that's in the documentation here somewhere."
+    },
+    {
+        "start": 1183.0,
+        "end": 1190.0,
+        "text": "Life cycle configuration."
+    },
+    {
+        "start": 1190.0,
+        "end": 1204.0,
+        "text": "We can see we have some storage classes and agent days. Sorry, that was a bit of digging just to find."
+    },
+    {
+        "start": 1204.0,
+        "end": 1209.0,
+        "text": "Oh, yes, that is days."
+    },
+    {
+        "start": 1209.0,
+        "end": 1219.0,
+        "text": "But you know what? I do not want to delete. And again, it's nice because when I click here near the curly bracket, it's saying, hey, that matches with this."
+    },
+    {
+        "start": 1219.0,
+        "end": 1230.0,
+        "text": "So I can just get rid of that. Another life cycle rule for an age condition of one day action, a board incomplete multi part upload."
+    },
+    {
+        "start": 1230.0,
+        "end": 1251.0,
+        "text": "So if you're uploading things to Google cloud storage bucket and it's a very large file, you can do a kind of a multi part parallel upload where it'll bust the file into multiple chunks and then processes can upload it to make it quite a bit faster."
+    },
+    {
+        "start": 1251.0,
+        "end": 1260.0,
+        "text": "But sometimes if that shuts down on its incomplete, you just kind of got unusable data in your bucket. So that's probably a good thing for us to have."
+    },
+    {
+        "start": 1260.0,
+        "end": 1272.0,
+        "text": "If it hasn't finished today, you know what? Go ahead and clean that up. All right. That was a lot of talking. So let's see if this works."
+    },
+    {
+        "start": 1272.0,
+        "end": 1284.0,
+        "text": "We are going to run a terraform plan plan. Again, I always forget to control S to save."
+    },
+    {
+        "start": 1284.0,
+        "end": 1296.0,
+        "text": "And up arrow. There we go. And I'll make this a little bit bigger here. Okay. So we can see."
+    },
+    {
+        "start": 1296.0,
+        "end": 1312.0,
+        "text": "Yeah. Force destroys true. A lot of these are known after apply. So after it's applied, it will know location is US. And also notice we could have set the storage class."
+    },
+    {
+        "start": 1312.0,
+        "end": 1330.0,
+        "text": "Standard is good. But that's kind of the power with terraform plan is sometimes if you have trouble tracking something down in the documentation of what the default that's going to be used if it's not specified."
+    },
+    {
+        "start": 1330.0,
+        "end": 1348.0,
+        "text": "Just put terraform plan. No harm. No foul. It's not going to create any resources. But then you can go through the plan like this. And just kind of, okay, what's really going to happen? I think I know what's going to happen. But surprises do happen."
+    },
+    {
+        "start": 1348.0,
+        "end": 1357.0,
+        "text": "And terraform plan might save you some headaches and heart aches if you make good use of it. Okay."
+    },
+    {
+        "start": 1357.0,
+        "end": 1375.0,
+        "text": "So now I want to go ahead and deploy this. So I am going to do a terraform apply. And actually, I'm going to say no."
+    },
+    {
+        "start": 1375.0,
+        "end": 1390.0,
+        "text": "Because if you saw, there's a state file that popped up. Just want to draw your attention to that. This was our provider. This is our lock file. We've got our keys here. But the only other file is main.TF."
+    },
+    {
+        "start": 1390.0,
+        "end": 1398.0,
+        "text": "So let me run that now. And notice we have our state file."
+    },
+    {
+        "start": 1398.0,
+        "end": 1408.0,
+        "text": "And I'm going to go ahead and apply that. And it's creating the bucket. And what do we have here? Okay."
+    },
+    {
+        "start": 1408.0,
+        "end": 1424.0,
+        "text": "Serial one version for stuff that doesn't really mean a whole lot to me, except for, hey, we now have a bucket for us here in terraform. It's known as demo bucket."
+    },
+    {
+        "start": 1424.0,
+        "end": 1439.0,
+        "text": "We see the ID that that's going to be created on GCP. And then more information that looks familiar from terraform plan. We have the URL."
+    },
+    {
+        "start": 1439.0,
+        "end": 1452.0,
+        "text": "If we go ahead and spin back over to our buckets here, there we go. All right. So we're in the same project."
+    },
+    {
+        "start": 1452.0,
+        "end": 1461.0,
+        "text": "And there we have terraform demo bucket, terra buckets. All right."
+    },
+    {
+        "start": 1461.0,
+        "end": 1473.0,
+        "text": "So we've used this in a project. We use it for whatever purpose we were going to use it for. And now we're ready to get rid of this."
+    },
+    {
+        "start": 1473.0,
+        "end": 1483.0,
+        "text": "So again, we just need to run a terraform destroy. This is going to go through here."
+    },
+    {
+        "start": 1483.0,
+        "end": 1498.0,
+        "text": "It's going to look at the state file and say, okay, what changes do I need to make to get rid of these resources?"
+    },
+    {
+        "start": 1498.0,
+        "end": 1509.0,
+        "text": "And again, we could always just say no and back out of this operation. So big red here, destroy."
+    },
+    {
+        "start": 1509.0,
+        "end": 1524.0,
+        "text": "So it's going to destroy what? It's going to destroy this bucket. And I'm going to type yes to confirm."
+    },
+    {
+        "start": 1524.0,
+        "end": 1537.0,
+        "text": "Now it drags over just fine. Okay. And we see our bucket here. Go ahead and hit refresh. And indeed that is destroyed."
+    },
+    {
+        "start": 1537.0,
+        "end": 1559.0,
+        "text": "And if we look at our TF state file, serial three, but notice our resources are not currently deployed. So there is nothing there at the moment."
+    },
+    {
+        "start": 1559.0,
+        "end": 1579.0,
+        "text": "And if we look here, we do have a backup. And I'm not super familiar with this, but I believe that the lineage lines up here so that it knows the configuration history."
+    },
+    {
+        "start": 1579.0,
+        "end": 1592.0,
+        "text": "So that is a very simplistic demo of how to get going with terraform, how to create a resource, how to use terraform plan to kind of peek at what changes are going to be done."
+    },
+    {
+        "start": 1592.0,
+        "end": 1601.0,
+        "text": "And then once you are done, it is a very powerful and useful operation to use terraform destroy."
+    },
+    {
+        "start": 1602.0,
+        "end": 1624.0,
+        "text": "And in a subsequent video, we will go into how to build this out into a larger project, as well as kind of abstract some of these values that we're coding in here as we will use them in multiple blocks and reusing them from a variable file will just make our lives easier."
+    },
+    {
+        "start": 1624.0,
+        "end": 1646.0,
+        "text": "One thing, again, as a word of caution before we go, if you are going to be pushing this to GitHub, stop and think you will want a terraform, get ignore."
+    },
+    {
+        "start": 1646.0,
+        "end": 1667.0,
+        "text": "It is usually pretty easy to come out here and Google terraform get ignore. And in here, we want dot get ignore. If you're not familiar, get ignore defines what will not be pushed to GitHub."
+    },
+    {
+        "start": 1668.0,
+        "end": 1674.0,
+        "text": "So depending on what kind of project you're working on."
+    },
+    {
+        "start": 1676.0,
+        "end": 1689.0,
+        "text": "And I would say also make sure make sure because even with this, if you go ahead and push this, your service account key is going to be pushed to GitHub."
+    },
+    {
+        "start": 1690.0,
+        "end": 1705.0,
+        "text": "GitHub actually has a lot of mechanisms these days to help companies audit, look for access tokens, service account files, but I don't know if that runs on your individual account."
+    },
+    {
+        "start": 1705.0,
+        "end": 1712.0,
+        "text": "And if you just do get ignore all JSON files."
+    },
+    {
+        "start": 1720.0,
+        "end": 1734.0,
+        "text": "Start.json should do that. And I'm 99% certain that's what I've done in the past. But what I would do is I would go ahead and make this a private repository."
+    },
+    {
+        "start": 1734.0,
+        "end": 1747.0,
+        "text": "Go ahead and test out, excuse me, you're getting ignore. Make sure you're not pushing any sensitive information and just take very slow incremental steps, especially with security."
+    },
+    {
+        "start": 1747.0,
+        "end": 1752.0,
+        "text": "So that's all I have for this video and I will see you in the next one."
+    }
+]

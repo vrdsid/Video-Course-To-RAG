@@ -1,0 +1,1712 @@
+[
+    {
+        "start": 0.0,
+        "end": 11.0,
+        "text": "Hello everyone. This is the first part of streaming week with Kafka and Python examples."
+    },
+    {
+        "start": 11.0,
+        "end": 17.0,
+        "text": "I know, I know, I know, I already knew lots of information about how streaming concepts works."
+    },
+    {
+        "start": 17.0,
+        "end": 20.0,
+        "text": "How we can implement things in the Java."
+    },
+    {
+        "start": 20.0,
+        "end": 29.0,
+        "text": "But in this session, I will be doing similar kind of producer consumer stuff by using Python libraries."
+    },
+    {
+        "start": 29.0,
+        "end": 38.0,
+        "text": "For this one, I tried to make it as much as aligned with each other examples that's already shown."
+    },
+    {
+        "start": 38.0,
+        "end": 43.0,
+        "text": "And I will cover that up during this session."
+    },
+    {
+        "start": 43.0,
+        "end": 51.0,
+        "text": "And as a difference from the what's uncushed it, he was using confluent cloud."
+    },
+    {
+        "start": 51.0,
+        "end": 62.0,
+        "text": "And I will be using darker and we will be running service Kafka specific services in our local container, rather than using an extra confluent cloud."
+    },
+    {
+        "start": 62.0,
+        "end": 67.0,
+        "text": "So let's start."
+    },
+    {
+        "start": 67.0,
+        "end": 76.0,
+        "text": "As I said, we will be using a darker for the running examples in this tutorial."
+    },
+    {
+        "start": 76.0,
+        "end": 82.0,
+        "text": "And for this purpose, I created a darker folder, which has Kafka and Spark underneath."
+    },
+    {
+        "start": 82.0,
+        "end": 92.0,
+        "text": "For this first part of this tutorial, streaming with Python, we only need Kafka services upon running."
+    },
+    {
+        "start": 92.0,
+        "end": 102.0,
+        "text": "Therefore, let's go and check what kind of services we have in the darker compose and what kind of configurations we need in our system."
+    },
+    {
+        "start": 102.0,
+        "end": 112.0,
+        "text": "As you see in services, we have darker, we have schema registry, we have two people and control center and we have some carcass."
+    },
+    {
+        "start": 112.0,
+        "end": 131.0,
+        "text": "The first four services are necessary to able to run Kafka is successfully and without only problem, but Kafka is kind of an option service, which allows us to communicate with Kafka broker using the rest APH."
+    },
+    {
+        "start": 131.0,
+        "end": 146.0,
+        "text": "I just added it because sometimes it whenever we are debugging the messages or whenever we need to understand if some everything is going correctly, you may need to access it through rest API."
+    },
+    {
+        "start": 147.0,
+        "end": 172.0,
+        "text": "To able to find this start everything, the only thing we need is to have this specific network configuration exist because I normally we don't need industry to have specific network, but let's stick to creating the network as well because this network you will need it on for the next story."
+    },
+    {
+        "start": 172.0,
+        "end": 178.0,
+        "text": "Then we try to communicate with Spark at Spark at Kafka."
+    },
+    {
+        "start": 178.0,
+        "end": 201.0,
+        "text": "Therefore, I would suggest you to go to read me and create the network as described here in the second part and create this Kafka Spark network and after you run this, you should have a focus setup, not good Spark network available as a bridge."
+    },
+    {
+        "start": 201.0,
+        "end": 212.0,
+        "text": "After you have it, what we can do is I will also do just go into the Kafka folder and just from the current folder."
+    },
+    {
+        "start": 212.0,
+        "end": 225.0,
+        "text": "I will run in the document, just I don't want to see the logs or intermediate logs, but if you're interested, we can check out."
+    },
+    {
+        "start": 226.0,
+        "end": 239.0,
+        "text": "Now let me go to the local piece and now I will provide Kafka services."
+    },
+    {
+        "start": 240.0,
+        "end": 253.0,
+        "text": "The first one you can today call Python examples, I also want to highlight a couple of parameters that we have set up in our broker, which are important for us to understand."
+    },
+    {
+        "start": 254.0,
+        "end": 262.0,
+        "text": "Whenever we specify broker, we need to define some cut code listeners and Kafka get our classes."
+    },
+    {
+        "start": 263.0,
+        "end": 279.0,
+        "text": "Inside the parameters that we define for considering how Kafka communicate with within the Docker and how we can access broker outside of the Docker."
+    },
+    {
+        "start": 280.0,
+        "end": 291.0,
+        "text": "The plain text is just and defines, okay, this is how Kafka communicate within the inter broker recently, as we said, setup as a plain text."
+    },
+    {
+        "start": 291.0,
+        "end": 301.0,
+        "text": "And this is the code that was used within the inter communication within the Kafka cluster."
+    },
+    {
+        "start": 302.0,
+        "end": 311.0,
+        "text": "The plain text first represents how we can access to the Kafka cluster outside the cluster itself."
+    },
+    {
+        "start": 311.0,
+        "end": 328.0,
+        "text": "And now it's represented in 1992 and here you can see we set it up Kafka header, as the owner of a local cluster, in which means I should be able to access my Kafka cluster, Kafka broker by using local custom 1990."
+    },
+    {
+        "start": 328.0,
+        "end": 356.0,
+        "text": "These parameters are quite important, I would highly suggest to search through it and understand why we need two different post definitions, but I just want to highlight before we start it because in our code, when we set up our Python examples, we will be using cross 1992 to connect our Kafka."
+    },
+    {
+        "start": 359.0,
+        "end": 361.0,
+        "text": "All right."
+    },
+    {
+        "start": 361.0,
+        "end": 367.0,
+        "text": "Let's start with the Jason example."
+    },
+    {
+        "start": 367.0,
+        "end": 374.0,
+        "text": "And before jumping in, yeah, I just want to mention it."
+    },
+    {
+        "start": 374.0,
+        "end": 387.0,
+        "text": "I try to keep it as generic as possible, like as you see, our example has consumer producer and settings and also couple of right record and die to coffee with objects that we will use."
+    },
+    {
+        "start": 387.0,
+        "end": 396.0,
+        "text": "And likewise Jason example also has consumer producer and object that we are going to use and also some text that."
+    },
+    {
+        "start": 397.0,
+        "end": 419.0,
+        "text": "And this way, I just want to make it easy, how I just want to try to make it easy, what kind of things we are changing in between like parsing as adjacent and our and give you an idea of what kind of things are the most important parts of this setup."
+    },
+    {
+        "start": 420.0,
+        "end": 442.0,
+        "text": "Let's start with the Jason producer and within Jason producer, our aim is to read CSV file and create a producer, read CSV file, that is in our local machine, substantially resources."
+    },
+    {
+        "start": 443.0,
+        "end": 460.0,
+        "text": "Right, stop CSV and publish, publish each of the role into a specific copy of the using the Kafka producer, which is rights under scorer Jason."
+    },
+    {
+        "start": 461.0,
+        "end": 476.0,
+        "text": "And the logic is simple, we create Jason producer, we send really good course and then we publish the rights and the course that we bring from CSV to the Kafka."
+    },
+    {
+        "start": 477.0,
+        "end": 502.0,
+        "text": "But what is important here is the configuration because Jason producer is a class that we just read as a wrapper around the Kafka producer, which is part of Kafka library and it expects a set of parameters that we need to pass one of them as bootstrap servers, which steps service has to be as I mentioned local horse 1992."
+    },
+    {
+        "start": 503.0,
+        "end": 516.0,
+        "text": "Which is available because we are as a local horse in our top and we need to specify our RG and values has to be serialized."
+    },
+    {
+        "start": 517.0,
+        "end": 533.0,
+        "text": "It is important here, for example, in here, for example, RG is available here, integer value, that's why I'm first converting them to a string and then encoding that."
+    },
+    {
+        "start": 533.0,
+        "end": 543.0,
+        "text": "While we are encoded values is because Kafka chocolate is expecting messages in buying a format, that's why we needed to handle this encoded."
+    },
+    {
+        "start": 543.0,
+        "end": 562.0,
+        "text": "It's co working for a message, the first thing to Kafka in a core format and life is for Jason, they are sending our object as a dictionary, but it's Jason dumps we are first converting it to a string and then we are converting it to a binary."
+    },
+    {
+        "start": 562.0,
+        "end": 582.0,
+        "text": "This serialization we needed to keep in mind because we will need to revert it back in the same order in actually a reverse order and we are the encostomer key disaralization and value disaralization."
+    },
+    {
+        "start": 583.0,
+        "end": 611.0,
+        "text": "All right, let's create a producer with set of parameters which steps service key release, realize your end value, so the message and then we have a course in our records in format of right and write object expects an error and parts to area in section format that we can access it as an object and specific fields."
+    },
+    {
+        "start": 611.0,
+        "end": 636.0,
+        "text": "And I'll describe that has a second initialization method from dictionary basically it gets dictionary and it's basically the process and it creates an array of array part of this dictionary and create the right object part of it."
+    },
+    {
+        "start": 637.0,
+        "end": 664.0,
+        "text": "And finally, our represent I as specific specifying represent method because I want you to see for debugging purpose, I want you to see our messages are sent through and read through correctly that's why I whenever we want to print out our right class right object, it will first print out the cross name right and then it will print out the object as a dictionary."
+    },
+    {
+        "start": 664.0,
+        "end": 674.0,
+        "text": "This is that's why we just that's why we can easily see which messages is passed through and which ones are successfully sent to the Kafka topic."
+    },
+    {
+        "start": 675.0,
+        "end": 693.0,
+        "text": "Right and and in the public in the last step, the publisher has published rights and it has a topic messages and this messages are sent to the producer through sent message."
+    },
+    {
+        "start": 694.0,
+        "end": 707.0,
+        "text": "And this is specifying key on this specifier right key location value is peer location ID is is integer value."
+    },
+    {
+        "start": 707.0,
+        "end": 710.0,
+        "text": "We will."
+    },
+    {
+        "start": 710.0,
+        "end": 720.0,
+        "text": "location ID is integer that is the reason when we are saying serialization we firstly need to come out of the spring and."
+    },
+    {
+        "start": 721.0,
+        "end": 743.0,
+        "text": "Our value is the complete right object that's why we don't we are passing as a Jason person was an object actually and this object is converted to dictionary is here and this then this dictionary don't don't to a string and we encoded after which."
+    },
+    {
+        "start": 744.0,
+        "end": 760.0,
+        "text": "And as I just just as a debugging purpose from just thinking about our report that if we pass it successfully in the past state and print out to print out the report successfully versus."
+    },
+    {
+        "start": 761.0,
+        "end": 763.0,
+        "text": "Let's try."
+    },
+    {
+        "start": 763.0,
+        "end": 771.0,
+        "text": "I'm on the pattern just an example folder and I will give a temporary producer."
+    },
+    {
+        "start": 771.0,
+        "end": 777.0,
+        "text": "And as you see it's probably record and."
+    },
+    {
+        "start": 777.0,
+        "end": 788.0,
+        "text": "And the location ID is successful to assess the offset the new order of our and we didn't have any exception."
+    },
+    {
+        "start": 788.0,
+        "end": 794.0,
+        "text": "That's why we know all of our must have just passed to record correct copy."
+    },
+    {
+        "start": 794.0,
+        "end": 796.0,
+        "text": "That's good."
+    },
+    {
+        "start": 796.0,
+        "end": 802.0,
+        "text": "Let's see how our consumer look like because we passed this empty here customer."
+    },
+    {
+        "start": 802.0,
+        "end": 809.0,
+        "text": "Copycat or big and now our consumer should be able to access it and created."
+    },
+    {
+        "start": 809.0,
+        "end": 812.0,
+        "text": "Okay."
+    },
+    {
+        "start": 813.0,
+        "end": 830.0,
+        "text": "And the customer logic is also we are just creating the Jason consumer and our Jason customer constant constant from a specific set of copycat or this copycat or big says exactly the same copycat or big that we have used in."
+    },
+    {
+        "start": 830.0,
+        "end": 839.0,
+        "text": "In our published rights message and this you can see in the subject stuff by rights for this project."
+    },
+    {
+        "start": 840.0,
+        "end": 847.0,
+        "text": "The couple of parameters that we are starting to our Jason consumer again, which that serves."
+    },
+    {
+        "start": 847.0,
+        "end": 861.0,
+        "text": "We are setting up how we will read how our customer will read the topic example we always read the earliest possible to go to."
+    },
+    {
+        "start": 862.0,
+        "end": 871.0,
+        "text": "For example, if you are only interested in latest messages, we may be to set up as a latest latest in the different set up by the way."
+    },
+    {
+        "start": 871.0,
+        "end": 878.0,
+        "text": "And then we needed to define key disserzer and the need to service it."
+    },
+    {
+        "start": 878.0,
+        "end": 889.0,
+        "text": "And here the important part is because now we are getting message from recent message, but then binary the handle this realization and sending as a binary."
+    },
+    {
+        "start": 889.0,
+        "end": 899.0,
+        "text": "Now copycat stores this data as a binary format and now we needed to to be able to read it as a human reason for much."
+    },
+    {
+        "start": 899.0,
+        "end": 913.0,
+        "text": "We needed to set it back to that in that time we needed to decode it and then we need to for example convert to integer because we initially the data was integer."
+    },
+    {
+        "start": 914.0,
+        "end": 924.0,
+        "text": "And likewise we first needed to decode it for the value and then we loaded as Jason and pre-pub dictionary out of it."
+    },
+    {
+        "start": 924.0,
+        "end": 937.0,
+        "text": "And here for example the object group parameter which automatically say, okay, I get dictionary and this object group parameter of ancient."
+    },
+    {
+        "start": 938.0,
+        "end": 941.0,
+        "text": "My object will be able to write."
+    },
+    {
+        "start": 943.0,
+        "end": 947.0,
+        "text": "Write not because I thought it was specified from addiction right object."
+    },
+    {
+        "start": 947.0,
+        "end": 957.0,
+        "text": "Or it was from dictionary and return that last get dictionary and return that right plus this is how it is."
+    },
+    {
+        "start": 958.0,
+        "end": 977.0,
+        "text": "Again, in the joint consumer we are passing the products combinations that we have talked about as a customer and cover consumer needed to in the consumer function needs to subscribe topics that we have this."
+    },
+    {
+        "start": 978.0,
+        "end": 989.0,
+        "text": "And then it need to start pulling the messages from the copycat topic that the customer is already subscribing."
+    },
+    {
+        "start": 989.0,
+        "end": 996.0,
+        "text": "Whenever we put a message like the message is not now or the message is not empty."
+    },
+    {
+        "start": 996.0,
+        "end": 1001.0,
+        "text": "We will have message key and message value from the message."
+    },
+    {
+        "start": 1002.0,
+        "end": 1019.0,
+        "text": "We can do for example, we can write them in a file again or we can do another processing of field just because it's a cover consumer and producer example and just about how we can get this."
+    },
+    {
+        "start": 1019.0,
+        "end": 1027.0,
+        "text": "How we can really get in our console just just as a department purpose basically."
+    },
+    {
+        "start": 1028.0,
+        "end": 1044.0,
+        "text": "Because I already created the data now whenever I want to consume it should be able to consume the available messages in the traffic."
+    },
+    {
+        "start": 1045.0,
+        "end": 1048.0,
+        "text": "Let me."
+    },
+    {
+        "start": 1048.0,
+        "end": 1059.0,
+        "text": "And see what I want to say that I tried to read because it's creeping out lots of stuff but let's stick to one of them for example."
+    },
+    {
+        "start": 1060.0,
+        "end": 1065.0,
+        "text": "This 100 100 in church seven."
+    },
+    {
+        "start": 1065.0,
+        "end": 1076.0,
+        "text": "This the two of them messages which can be the PID that we will be part in the producer basically the key location either."
+    },
+    {
+        "start": 1076.0,
+        "end": 1080.0,
+        "text": "And then we are printing the message as a value message."
+    },
+    {
+        "start": 1081.0,
+        "end": 1084.0,
+        "text": "And you see it right."
+    },
+    {
+        "start": 1084.0,
+        "end": 1096.0,
+        "text": "And bunch of parameters are the parameters that right object has in addition from we are getting it because I did this message value and the message."
+    },
+    {
+        "start": 1097.0,
+        "end": 1107.0,
+        "text": "And then we are going to see there's a value that value is basically a right object and we decide on to print out this object as a processing and dictionary."
+    },
+    {
+        "start": 1107.0,
+        "end": 1114.0,
+        "text": "That's why we are seeing it in this product."
+    },
+    {
+        "start": 1114.0,
+        "end": 1120.04,
+        "text": "And maybe right now, for example, the consumer already"
+    },
+    {
+        "start": 1120.04,
+        "end": 1123.44,
+        "text": "consumed all of the message that we have sent."
+    },
+    {
+        "start": 1123.44,
+        "end": 1133.16,
+        "text": "Let's see if that is how our consumer and producer is"
+    },
+    {
+        "start": 1133.16,
+        "end": 1135.92,
+        "text": "working together with the management of the running."
+    },
+    {
+        "start": 1135.92,
+        "end": 1139.16,
+        "text": "Because our consumer is right now active and continues"
+    },
+    {
+        "start": 1139.16,
+        "end": 1143.88,
+        "text": "to listen to the specific Kafka topic and subscribe"
+    },
+    {
+        "start": 1143.88,
+        "end": 1148.88,
+        "text": "to the F."
+    },
+    {
+        "start": 1148.88,
+        "end": 1151.0800000000002,
+        "text": "As you see,"
+    },
+    {
+        "start": 1151.0800000000002,
+        "end": 1154.1200000000001,
+        "text": "the consumer channels are consumer starts"
+    },
+    {
+        "start": 1154.1200000000001,
+        "end": 1157.4,
+        "text": "to meet new messages as well as we define."
+    },
+    {
+        "start": 1157.4,
+        "end": 1159.5600000000002,
+        "text": "And all of them happen in a JSON format"
+    },
+    {
+        "start": 1159.5600000000002,
+        "end": 1161.92,
+        "text": "and the only thing that we need to specify"
+    },
+    {
+        "start": 1161.92,
+        "end": 1165.24,
+        "text": "is how the civilization and the running"
+    },
+    {
+        "start": 1165.24,
+        "end": 1166.96,
+        "text": "civilization work together."
+    },
+    {
+        "start": 1166.96,
+        "end": 1171.24,
+        "text": "And we need to decide that."
+    },
+    {
+        "start": 1172.24,
+        "end": 1178.24,
+        "text": "But in this setup, we don't have any specific schema."
+    },
+    {
+        "start": 1178.24,
+        "end": 1182.24,
+        "text": "For example, if I decide to the producer and decide,"
+    },
+    {
+        "start": 1182.24,
+        "end": 1187.24,
+        "text": "OK, now I want to have data,"
+    },
+    {
+        "start": 1187.24,
+        "end": 1190.24,
+        "text": "but I don't want to, for example,"
+    },
+    {
+        "start": 1190.24,
+        "end": 1192.24,
+        "text": "I would like to change."
+    },
+    {
+        "start": 1192.24,
+        "end": 1194.24,
+        "text": "I would like to still sample the JSON,"
+    },
+    {
+        "start": 1194.24,
+        "end": 1196.24,
+        "text": "but I change my life plus."
+    },
+    {
+        "start": 1196.24,
+        "end": 1200.24,
+        "text": "And my life plus isn't no longer has a variety."
+    },
+    {
+        "start": 1200.24,
+        "end": 1202.24,
+        "text": "And I would just skip it."
+    },
+    {
+        "start": 1202.24,
+        "end": 1205.24,
+        "text": "It would be printing out exactly the same way"
+    },
+    {
+        "start": 1205.24,
+        "end": 1210.24,
+        "text": "without any issue because."
+    },
+    {
+        "start": 1210.24,
+        "end": 1214.24,
+        "text": "Because we didn't specify any schema in our system."
+    },
+    {
+        "start": 1214.24,
+        "end": 1216.24,
+        "text": "It will be taking JSON file."
+    },
+    {
+        "start": 1216.24,
+        "end": 1223.24,
+        "text": "It will be producing right plus out of it."
+    },
+    {
+        "start": 1223.24,
+        "end": 1225.24,
+        "text": "But it makes cause and problems,"
+    },
+    {
+        "start": 1225.24,
+        "end": 1229.24,
+        "text": "especially when we are working on the production systems."
+    },
+    {
+        "start": 1229.24,
+        "end": 1234.24,
+        "text": "And we want to make it our right plus is an right plus."
+    },
+    {
+        "start": 1234.24,
+        "end": 1238.24,
+        "text": "And our messages are consistent and also backward."
+    },
+    {
+        "start": 1238.24,
+        "end": 1244.24,
+        "text": "We don't want to break any follow up or listening systems"
+    },
+    {
+        "start": 1244.24,
+        "end": 1249.24,
+        "text": "that trust our message, trust the messages"
+    },
+    {
+        "start": 1249.24,
+        "end": 1251.24,
+        "text": "that we are sending out."
+    },
+    {
+        "start": 1251.24,
+        "end": 1254.24,
+        "text": "As far as it's important to specify,"
+    },
+    {
+        "start": 1254.24,
+        "end": 1259.24,
+        "text": "trust and use our concept and our working with Kafka streaming."
+    },
+    {
+        "start": 1259.24,
+        "end": 1264.24,
+        "text": "This schema confidence to confidence,"
+    },
+    {
+        "start": 1264.24,
+        "end": 1266.24,
+        "text": "which may change us in our system."
+    },
+    {
+        "start": 1266.24,
+        "end": 1273.24,
+        "text": "Now, truly and also more controlled manner."
+    },
+    {
+        "start": 1273.24,
+        "end": 1277.24,
+        "text": "And let me close all of them."
+    },
+    {
+        "start": 1277.24,
+        "end": 1282.24,
+        "text": "And let's move to the our example."
+    },
+    {
+        "start": 1282.24,
+        "end": 1285.24,
+        "text": "I have a producer."
+    },
+    {
+        "start": 1285.24,
+        "end": 1287.24,
+        "text": "I'm looking at the structure."
+    },
+    {
+        "start": 1287.24,
+        "end": 1294.24,
+        "text": "It's running good."
+    },
+    {
+        "start": 1294.24,
+        "end": 1299.24,
+        "text": "Okay."
+    },
+    {
+        "start": 1299.24,
+        "end": 1303.24,
+        "text": "Now we are running in our example."
+    },
+    {
+        "start": 1303.24,
+        "end": 1308.24,
+        "text": "In our example, we will be using the different library."
+    },
+    {
+        "start": 1308.24,
+        "end": 1314.24,
+        "text": "Kafka producer and Kafka consumer classes."
+    },
+    {
+        "start": 1314.24,
+        "end": 1316.24,
+        "text": "But now for our example,"
+    },
+    {
+        "start": 1316.24,
+        "end": 1318.24,
+        "text": "I will be using constant customer."
+    },
+    {
+        "start": 1318.24,
+        "end": 1323.24,
+        "text": "Because I've got this anymore stable and structure."
+    },
+    {
+        "start": 1323.24,
+        "end": 1329.24,
+        "text": "And stable working with schema registry and our classes,"
+    },
+    {
+        "start": 1329.24,
+        "end": 1334.24,
+        "text": "which that's why I don't ever mean some differences in the."
+    },
+    {
+        "start": 1334.24,
+        "end": 1340.24,
+        "text": "And the third is configuration parameters that we are sending around."
+    },
+    {
+        "start": 1340.24,
+        "end": 1342.24,
+        "text": "So, I've got the Kafka,"
+    },
+    {
+        "start": 1342.24,
+        "end": 1345.24,
+        "text": "we will be using producer class."
+    },
+    {
+        "start": 1345.24,
+        "end": 1349.24,
+        "text": "And let's go and check what we have."
+    },
+    {
+        "start": 1349.24,
+        "end": 1351.24,
+        "text": "The load of the screen,"
+    },
+    {
+        "start": 1351.24,
+        "end": 1353.24,
+        "text": "we have our right, our producer."
+    },
+    {
+        "start": 1353.24,
+        "end": 1357.24,
+        "text": "We are reading and of course from this recipe data pad."
+    },
+    {
+        "start": 1357.24,
+        "end": 1359.24,
+        "text": "And then we are publishing it."
+    },
+    {
+        "start": 1359.24,
+        "end": 1361.24,
+        "text": "This part is always same."
+    },
+    {
+        "start": 1361.24,
+        "end": 1364.24,
+        "text": "So, we are using our different, our example,"
+    },
+    {
+        "start": 1364.24,
+        "end": 1367.24,
+        "text": "Jason and sample."
+    },
+    {
+        "start": 1367.24,
+        "end": 1370.24,
+        "text": "But parameters that we are sending around is changing a bit."
+    },
+    {
+        "start": 1370.24,
+        "end": 1375.24,
+        "text": "For example, here we are against setting up the first draft servers."
+    },
+    {
+        "start": 1375.24,
+        "end": 1378.24,
+        "text": "But we also need this best for schema registry."
+    },
+    {
+        "start": 1378.24,
+        "end": 1381.24,
+        "text": "Because now we are working with our."
+    },
+    {
+        "start": 1381.24,
+        "end": 1386.24,
+        "text": "And our schema should be stored in the schema registry."
+    },
+    {
+        "start": 1386.24,
+        "end": 1389.24,
+        "text": "And our Kafka should be able to."
+    },
+    {
+        "start": 1389.24,
+        "end": 1395.24,
+        "text": "Access schema registry whenever we need data comes in or whenever we want to."
+    },
+    {
+        "start": 1395.24,
+        "end": 1397.24,
+        "text": "Access this messages."
+    },
+    {
+        "start": 1397.24,
+        "end": 1400.24,
+        "text": "They need to know they needed to communicate between each mother."
+    },
+    {
+        "start": 1400.24,
+        "end": 1403.24,
+        "text": "And decide if schema is correct."
+    },
+    {
+        "start": 1403.24,
+        "end": 1407.24,
+        "text": "If I can really parse in this world or not."
+    },
+    {
+        "start": 1407.24,
+        "end": 1408.24,
+        "text": "Right."
+    },
+    {
+        "start": 1408.24,
+        "end": 1410.24,
+        "text": "And let's also go to the settings,"
+    },
+    {
+        "start": 1410.24,
+        "end": 1415.24,
+        "text": "which is these parameters are the point when the settings."
+    },
+    {
+        "start": 1415.24,
+        "end": 1420.24,
+        "text": "Input data pad is same rights CSP file."
+    },
+    {
+        "start": 1420.24,
+        "end": 1426.24,
+        "text": "We define and write key schema pad and write that is schema pad."
+    },
+    {
+        "start": 1426.24,
+        "end": 1432.24,
+        "text": "I will show it after I put through this step."
+    },
+    {
+        "start": 1432.24,
+        "end": 1437.24,
+        "text": "And schema registry is no compressed data."
+    },
+    {
+        "start": 1437.24,
+        "end": 1443.24,
+        "text": "This is daily code that we are running our schema registry."
+    },
+    {
+        "start": 1443.24,
+        "end": 1447.24,
+        "text": "And here is an element 881."
+    },
+    {
+        "start": 1447.24,
+        "end": 1454.24,
+        "text": "And which not so, as I say, it's pointing out our."
+    },
+    {
+        "start": 1454.24,
+        "end": 1459.24,
+        "text": "And our Kafka type it inspire will be rights underscore our."
+    },
+    {
+        "start": 1459.24,
+        "end": 1463.24,
+        "text": "Right."
+    },
+    {
+        "start": 1463.24,
+        "end": 1465.24,
+        "text": "Let me also show these key."
+    },
+    {
+        "start": 1465.24,
+        "end": 1468.24,
+        "text": "For example, the taxi ride fee."
+    },
+    {
+        "start": 1468.24,
+        "end": 1471.24,
+        "text": "For example, this example RG will be vendor ID."
+    },
+    {
+        "start": 1471.24,
+        "end": 1478.24,
+        "text": "We will be integer value from the outside by."
+    },
+    {
+        "start": 1478.24,
+        "end": 1481.24,
+        "text": "Lender ID will be integer and my."
+    },
+    {
+        "start": 1481.24,
+        "end": 1483.24,
+        "text": "It's attached to record."
+    },
+    {
+        "start": 1483.24,
+        "end": 1485.24,
+        "text": "Right record."
+    },
+    {
+        "start": 1485.24,
+        "end": 1486.24,
+        "text": "And."
+    },
+    {
+        "start": 1486.24,
+        "end": 1488.24,
+        "text": "And I record it."
+    },
+    {
+        "start": 1488.24,
+        "end": 1490.24,
+        "text": "Which is the point here."
+    },
+    {
+        "start": 1490.24,
+        "end": 1491.24,
+        "text": "Sorry."
+    },
+    {
+        "start": 1491.24,
+        "end": 1493.24,
+        "text": "Here."
+    },
+    {
+        "start": 1493.24,
+        "end": 1495.24,
+        "text": "It has a render ID."
+    },
+    {
+        "start": 1495.24,
+        "end": 1500.24,
+        "text": "And it again, for the funded another secondary."
+    },
+    {
+        "start": 1500.24,
+        "end": 1503.24,
+        "text": "Initial with class."
+    },
+    {
+        "start": 1503.24,
+        "end": 1507.24,
+        "text": "It's basically creating the same right record."
+    },
+    {
+        "start": 1507.24,
+        "end": 1508.24,
+        "text": "From the picture."
+    },
+    {
+        "start": 1508.24,
+        "end": 1517.24,
+        "text": "And also similar class name and dictionary presentation of it was a fish of the class."
+    },
+    {
+        "start": 1517.24,
+        "end": 1519.24,
+        "text": "Right."
+    },
+    {
+        "start": 1519.24,
+        "end": 1521.24,
+        "text": "And our right."
+    },
+    {
+        "start": 1521.24,
+        "end": 1523.24,
+        "text": "Right record."
+    },
+    {
+        "start": 1523.24,
+        "end": 1526.24,
+        "text": "It has vendor ID passenger."
+    },
+    {
+        "start": 1526.24,
+        "end": 1530.24,
+        "text": "And."
+    },
+    {
+        "start": 1530.24,
+        "end": 1534.24,
+        "text": "And."
+    },
+    {
+        "start": 1534.24,
+        "end": 1545.84,
+        "text": "Which forms cela have in"
+    },
+    {
+        "start": 1545.84,
+        "end": 1550.8799999999999,
+        "text": "values has to be matching when the idea is included, a passenger can't even enter"
+    },
+    {
+        "start": 1550.8799999999999,
+        "end": 1557.52,
+        "text": "to do about the two distances defined as four. These types are in place of important"
+    },
+    {
+        "start": 1557.52,
+        "end": 1561.52,
+        "text": "when you are trying to pass with emergency, ensuring the"
+    },
+    {
+        "start": 1564.3999999999999,
+        "end": 1571.28,
+        "text": "ensuring two services kind of contract between two services, but when one of them is called"
+    },
+    {
+        "start": 1571.28,
+        "end": 1574.6399999999999,
+        "text": "producing the messages and the other one is consuming the messages."
+    },
+    {
+        "start": 1577.76,
+        "end": 1584.24,
+        "text": "In our example, the producer of customers are redefined, but it's most of the time in"
+    },
+    {
+        "start": 1584.24,
+        "end": 1586.8799999999999,
+        "text": "production. It's the other way on."
+    },
+    {
+        "start": 1592.72,
+        "end": 1598.32,
+        "text": "Now let me, okay, let's go to the strike or producer."
+    },
+    {
+        "start": 1599.28,
+        "end": 1605.4399999999998,
+        "text": "Okay, because we've just passed that and we already have schema. We made the"
+    },
+    {
+        "start": 1605.4399999999998,
+        "end": 1615.76,
+        "text": "two pairs with our schemas based on the formulas schema, ABCs, ABC,"
+    },
+    {
+        "start": 1615.76,
+        "end": 1625.2,
+        "text": "ABC files, and let them keep them as a string. And we need to define schema"
+    },
+    {
+        "start": 1625.28,
+        "end": 1630.4,
+        "text": "register products, basically, except that you are out to the set as a local cost 8 to 1."
+    },
+    {
+        "start": 1631.1200000000001,
+        "end": 1636.32,
+        "text": "And we need the great schema register clients, the register clients, against from the same"
+    },
+    {
+        "start": 1636.32,
+        "end": 1643.2,
+        "text": "constant Kafka library. And then we needed to define our key serializer and values serializer."
+    },
+    {
+        "start": 1643.2,
+        "end": 1647.92,
+        "text": "In here, both, because if some, our example, I use both of them as an"
+    },
+    {
+        "start": 1647.92,
+        "end": 1652.8,
+        "text": "our serializer, but you can make some much, for example, I think our key serializer"
+    },
+    {
+        "start": 1652.8799999999999,
+        "end": 1660.3999999999999,
+        "text": "also can be something like integer serializer, because it's only contain a"
+    },
+    {
+        "start": 1660.3999999999999,
+        "end": 1667.9199999999998,
+        "text": "consists of one parameter and variety, but I just, because it's some our example,"
+    },
+    {
+        "start": 1667.9199999999998,
+        "end": 1675.84,
+        "text": "I just keep it similar between each other. And both of them are using schema, same schema,"
+    },
+    {
+        "start": 1675.9199999999998,
+        "end": 1688.48,
+        "text": "register client, different schemas, equally, and schema strings. And they use different"
+    },
+    {
+        "start": 1689.76,
+        "end": 1698.9599999999998,
+        "text": "functions to be able to convert them back to the object format. Let's go to, let me explain"
+    },
+    {
+        "start": 1699.04,
+        "end": 1707.44,
+        "text": "what I meant. This, I always serialize it, you know, just to define schema as a string,"
+    },
+    {
+        "start": 1707.44,
+        "end": 1713.92,
+        "text": "and predict functional, the predict functionality is optional. But I think it's helpful,"
+    },
+    {
+        "start": 1713.92,
+        "end": 1723.8400000000001,
+        "text": "especially if you want to convert your messages from directly from being"
+    },
+    {
+        "start": 1724.48,
+        "end": 1731.12,
+        "text": "objective, you don't need to parse yourself, you have to define a function in your class,"
+    },
+    {
+        "start": 1731.12,
+        "end": 1738.1599999999999,
+        "text": "and this class, this function is automatically parsed message into JSON format, for example,"
+    },
+    {
+        "start": 1738.9599999999998,
+        "end": 1747.52,
+        "text": "write record, has, I record the dick instance, it may just calling the write record object"
+    },
+    {
+        "start": 1747.76,
+        "end": 1758.96,
+        "text": "to add dictionary, for example, just, it's easy to handle when you're working with objects,"
+    },
+    {
+        "start": 1758.96,
+        "end": 1770.08,
+        "text": "specifically, and it's also a pinnacle in the cart base. And as the last step, this is the schema"
+    },
+    {
+        "start": 1770.08,
+        "end": 1775.92,
+        "text": "registry and serializer configurations, and then we have a producer configuration, which"
+    },
+    {
+        "start": 1775.92,
+        "end": 1790.48,
+        "text": "is the same way that we specify in the previous exam, and it's probably a pass to the producer."
+    },
+    {
+        "start": 1796.88,
+        "end": 1801.92,
+        "text": "Yeah, in the, in the image class, we call them schema, it's basically converting the,"
+    },
+    {
+        "start": 1802.88,
+        "end": 1809.52,
+        "text": "rating the schema definition from a certain place, and then we're drawing as a string,"
+    },
+    {
+        "start": 1810.3200000000002,
+        "end": 1819.2,
+        "text": "and I will come to the deliverable code afterwards, but let's see what our static"
+    },
+    {
+        "start": 1819.2,
+        "end": 1825.28,
+        "text": "right-wing code function is doing. It's basically working the all-round with CSV file,"
+    },
+    {
+        "start": 1826.24,
+        "end": 1837.92,
+        "text": "and we write records and write keys out of each of the row, each of the line that we are"
+    },
+    {
+        "start": 1837.92,
+        "end": 1847.04,
+        "text": "reading in CSV, and we turn these write keys and write records as an intermediate values, basically."
+    },
+    {
+        "start": 1847.68,
+        "end": 1859.84,
+        "text": "And this is the place that we basically get the right datasets in our system, and now we are"
+    },
+    {
+        "start": 1859.84,
+        "end": 1874.56,
+        "text": "writing to publish them as an intray Kafka text. Now in our published class, we are getting"
+    },
+    {
+        "start": 1875.12,
+        "end": 1882.3999999999999,
+        "text": "key and value, but it's important, like when we are reading that we make it, all of them"
+    },
+    {
+        "start": 1882.3999999999999,
+        "end": 1888.96,
+        "text": "was being the right record and the right record key structure. That's why for example, when we"
+    },
+    {
+        "start": 1888.96,
+        "end": 1897.76,
+        "text": "specify a specific, it's the specify producer produced, we specify it, if it's a file team. Our team"
+    },
+    {
+        "start": 1897.76,
+        "end": 1905.68,
+        "text": "is right now is directly 14, and our value is right record object."
+    },
+    {
+        "start": 1907.68,
+        "end": 1915.84,
+        "text": "And value and piece realizing is ever that, and they already know how to convert this"
+    },
+    {
+        "start": 1916.48,
+        "end": 1925.6,
+        "text": "objects directly to an expected format that Kafka expects. For example, they already know"
+    },
+    {
+        "start": 1926.3999999999999,
+        "end": 1934.8799999999999,
+        "text": "at the top, they already know how to convert them from object to dictionary first, because we"
+    },
+    {
+        "start": 1934.8799999999999,
+        "end": 1946.56,
+        "text": "defined the right record to date and the key to date functionalities, and later on this dictionary"
+    },
+    {
+        "start": 1947.28,
+        "end": 1955.4399999999998,
+        "text": "functions also need to be passed to listen to keys, schema, and release them up to the string"
+    },
+    {
+        "start": 1955.52,
+        "end": 1961.52,
+        "text": "and then later, but obviously serialize them up to a final so much."
+    },
+    {
+        "start": 1964.16,
+        "end": 1970.96,
+        "text": "But here we don't need to worry about downloading back and forth in the final form, because"
+    },
+    {
+        "start": 1970.96,
+        "end": 1982.3200000000002,
+        "text": "I'm serializing already does it first. And on delivery, parameter is example this"
+    },
+    {
+        "start": 1983.28,
+        "end": 1991.4399999999998,
+        "text": "obtained Kafka producer has is defined for example, whenever we try to produce,"
+    },
+    {
+        "start": 1991.4399999999998,
+        "end": 2002.48,
+        "text": "depending on if our message passed or failed, let's go to this kitchen. It's either error or"
+    },
+    {
+        "start": 2003.84,
+        "end": 2010.96,
+        "text": "this record is successful, it's similar logic that we have printed out for loading, but it's"
+    },
+    {
+        "start": 2010.96,
+        "end": 2019.3600000000001,
+        "text": "more internal confirmation from the Kafka side that say that I get this message, or I didn't get"
+    },
+    {
+        "start": 2019.3600000000001,
+        "end": 2026.64,
+        "text": "the message or I'm making this message kind of better than I'm costing my Python function,"
+    },
+    {
+        "start": 2026.64,
+        "end": 2029.68,
+        "text": "didn't get a kitchen error also."
+    },
+    {
+        "start": 2030.3200000000002,
+        "end": 2044.64,
+        "text": "And then we are producer flush, we ensure this method, we ensure that ensures us to send the data"
+    },
+    {
+        "start": 2045.76,
+        "end": 2053.76,
+        "text": "to the specific Kafka topic and also and let's run it and we will see something interesting"
+    },
+    {
+        "start": 2053.84,
+        "end": 2057.28,
+        "text": "in the error example and we are trying to produce it."
+    },
+    {
+        "start": 2061.92,
+        "end": 2069.2000000000003,
+        "text": "Now I'm in the Python folder again, but this time I'm using the error example and I'm trying to produce some messages."
+    },
+    {
+        "start": 2072.5600000000004,
+        "end": 2079.6800000000003,
+        "text": "Okay, again, I get some kind of information, but as you see, I'm definitely applying a message."
+    },
+    {
+        "start": 2079.7599999999998,
+        "end": 2088.48,
+        "text": "This is the reason, this is the confirmation that we are getting the data to be filled,"
+    },
+    {
+        "start": 2088.48,
+        "end": 2095.6,
+        "text": "directed from the Kafka side because it says my decrotation is only the binary format. I didn't do"
+    },
+    {
+        "start": 2095.6,
+        "end": 2107.68,
+        "text": "anything about converting or streamed or integer to a binary format, but I will serialize"
+    },
+    {
+        "start": 2107.8399999999997,
+        "end": 2116.7999999999997,
+        "text": "already digitized and whenever the get confirmation from the Kafka cluster is all"
+    },
+    {
+        "start": 2116.7999999999997,
+        "end": 2124.56,
+        "text": "dissonning us as a binary as well, it's quite hard to understand, okay, which messages be saved,"
+    },
+    {
+        "start": 2124.56,
+        "end": 2130.3999999999996,
+        "text": "but on the other hand, we also have offsets, it says the giving some kind of confidence as for"
+    },
+    {
+        "start": 2131.36,
+        "end": 2135.12,
+        "text": "our offsets are incremental, was by we don't use any messages."
+    },
+    {
+        "start": 2138.56,
+        "end": 2146.8,
+        "text": "This is the main difference between JSON example and this example, by using this"
+    },
+    {
+        "start": 2146.8,
+        "end": 2153.36,
+        "text": "ours to realize your class, you don't need to worry about expected format that Kafka"
+    },
+    {
+        "start": 2154.0,
+        "end": 2164.56,
+        "text": "bokeh experts, but we don't know how we should pass, what kind of information we should pass,"
+    },
+    {
+        "start": 2164.56,
+        "end": 2172.08,
+        "text": "so it's a kind of an abstraction or a serialization."
+    },
+    {
+        "start": 2172.88,
+        "end": 2184.24,
+        "text": "Okay, let me run it again with one touch and let's move to the customer."
+    },
+    {
+        "start": 2188.3199999999997,
+        "end": 2192.24,
+        "text": "Likewise, in customer, I'm using this main confluent Kafka and"
+    },
+    {
+        "start": 2192.8799999999997,
+        "end": 2201.6,
+        "text": "it's a continuous Kafka library, but this time I'm using consumer, and again, I'm expecting to"
+    },
+    {
+        "start": 2201.6,
+        "end": 2206.72,
+        "text": "I'm sending good spread servers to the registry and schema."
+    },
+    {
+        "start": 2206.72,
+        "end": 2213.2799999999997,
+        "text": "In fact, it is the same as the test, let's end at the end, we need to display our"
+    },
+    {
+        "start": 2213.2799999999997,
+        "end": 2218.8799999999997,
+        "text": "our consumer to say, okay, please consider messages from this specific topic."
+    },
+    {
+        "start": 2219.52,
+        "end": 2222.7200000000003,
+        "text": "But let's go to the right hour consumer."
+    },
+    {
+        "start": 2224.0,
+        "end": 2229.84,
+        "text": "Again, we are reading and talking about schema, the story, I think this schema is a"
+    },
+    {
+        "start": 2229.84,
+        "end": 2235.12,
+        "text": "spring for key and value, but here what we are using is our discerralizer."
+    },
+    {
+        "start": 2235.12,
+        "end": 2243.52,
+        "text": "Okay, this is one different class, exactly same box, exactly the same way our serializer"
+    },
+    {
+        "start": 2244.16,
+        "end": 2253.6,
+        "text": "but do reverse the process of getting the binary and converting into the expected format that we"
+    },
+    {
+        "start": 2253.6,
+        "end": 2264.48,
+        "text": "are wanting in the consumer side. In this part, for example, because we send what we do in the"
+    },
+    {
+        "start": 2264.56,
+        "end": 2275.52,
+        "text": "producer is we send binary at the final Kafka, but before binary, which is abstracted by our serializer,"
+    },
+    {
+        "start": 2275.52,
+        "end": 2284.72,
+        "text": "we send it as a dictionary and we send our message as a dictionary."
+    },
+    {
+        "start": 2284.72,
+        "end": 2291.12,
+        "text": "And now, whenever our discerralizer gets the message, it needs to revert it back to the"
+    },
+    {
+        "start": 2291.3599999999997,
+        "end": 2302.24,
+        "text": "right record or right record inside. This is Victor right record, Victor right record,"
+    },
+    {
+        "start": 2302.24,
+        "end": 2311.44,
+        "text": "this does that work as part of the serialization process. Basically, it gets an object as a dictionary"
+    },
+    {
+        "start": 2311.44,
+        "end": 2317.68,
+        "text": "and it's trying to build right record for this dictionary and just from the not only basically"
+    },
+    {
+        "start": 2318.64,
+        "end": 2321.2799999999997,
+        "text": "secondary in it function."
+    },
+    {
+        "start": 2329.3599999999997,
+        "end": 2336.8799999999997,
+        "text": "And here we are specifying the structure, whereas again, we are here specifying group ID because"
+    },
+    {
+        "start": 2336.8799999999997,
+        "end": 2342.08,
+        "text": "even though right now we have a midterm, darker and more not, Kafka node is up and running"
+    },
+    {
+        "start": 2343.04,
+        "end": 2348.72,
+        "text": "in real world. We may need to help multiple Kafka topics that is running that also"
+    },
+    {
+        "start": 2349.7599999999998,
+        "end": 2354.72,
+        "text": "to keep our Kafka topics resume and even up and running all the time."
+    },
+    {
+        "start": 2357.52,
+        "end": 2363.6,
+        "text": "Also, Kafka posting what it's been in the previous, beginning the same setup that we have in"
+    },
+    {
+        "start": 2363.68,
+        "end": 2372.64,
+        "text": "JSON example. And this is for today, we are constantly, our customer objects,"
+    },
+    {
+        "start": 2372.64,
+        "end": 2378.48,
+        "text": "subscripts, specifying topics, basically, isotropic, this time intense spreads over."
+    },
+    {
+        "start": 2382.48,
+        "end": 2390.72,
+        "text": "And this time using the our key discerralizer and our valid surrvisor exactly to say,"
+    },
+    {
+        "start": 2390.72,
+        "end": 2395.9199999999996,
+        "text": "may and we are thinking about this course. Now, even though we, for example,"
+    },
+    {
+        "start": 2395.9199999999996,
+        "end": 2403.2799999999997,
+        "text": "here we see binary out of, but whenever we consume the data, we will see the real object values"
+    },
+    {
+        "start": 2403.2799999999997,
+        "end": 2408.3199999999997,
+        "text": "that we have first in the first place created the messages."
+    },
+    {
+        "start": 2408.32,
+        "end": 2419.6800000000003,
+        "text": "And so we see"
+    },
+    {
+        "start": 2424.88,
+        "end": 2434.2400000000002,
+        "text": "and within Silicon Valley and three instructing and it's bringing out one writing and the other"
+    },
+    {
+        "start": 2434.24,
+        "end": 2440.24,
+        "text": "what you can try to get there and it's speaking out the project."
+    },
+    {
+        "start": 2440.24,
+        "end": 2444.24,
+        "text": "This is our ensures"
+    },
+    {
+        "start": 2444.24,
+        "end": 2450.24,
+        "text": "civilization and visualization logic"
+    },
+    {
+        "start": 2450.24,
+        "end": 2453.2,
+        "text": "and also like rights but not really very"
+    },
+    {
+        "start": 2453.2,
+        "end": 2456.24,
+        "text": "the purpose of see how to do this"
+    },
+    {
+        "start": 2456.24,
+        "end": 2462.24,
+        "text": "message as well."
+    },
+    {
+        "start": 2462.24,
+        "end": 2466.24,
+        "text": "As you can see the difference between this"
+    },
+    {
+        "start": 2466.24,
+        "end": 2470.24,
+        "text": "JSON and our example is just how we define"
+    },
+    {
+        "start": 2470.24,
+        "end": 2472.24,
+        "text": "civilization and visualization and"
+    },
+    {
+        "start": 2472.24,
+        "end": 2476.24,
+        "text": "rapp level of visualization and visualization"
+    },
+    {
+        "start": 2476.24,
+        "end": 2478.24,
+        "text": "we needed to earn in our court base."
+    },
+    {
+        "start": 2478.24,
+        "end": 2482.24,
+        "text": "Our visualization really ensures the"
+    },
+    {
+        "start": 2482.24,
+        "end": 2484.24,
+        "text": "contract between different services."
+    },
+    {
+        "start": 2484.24,
+        "end": 2490.24,
+        "text": "For example, the your team is building the messages"
+    },
+    {
+        "start": 2490.24,
+        "end": 2494.24,
+        "text": "and some other team is getting"
+    },
+    {
+        "start": 2494.24,
+        "end": 2498.24,
+        "text": "this messages as a and reading as a"
+    },
+    {
+        "start": 2498.24,
+        "end": 2502.24,
+        "text": "consumer and we need to get some kind of contract"
+    },
+    {
+        "start": 2502.24,
+        "end": 2506.24,
+        "text": "and we always need to follow some kind of schema."
+    },
+    {
+        "start": 2506.24,
+        "end": 2510.24,
+        "text": "And this our schema definition allows that one."
+    },
+    {
+        "start": 2510.24,
+        "end": 2514.24,
+        "text": "Yeah, I think that's it from myself."
+    },
+    {
+        "start": 2514.24,
+        "end": 2518.24,
+        "text": "In the in this session we just talk about how to produce"
+    },
+    {
+        "start": 2518.24,
+        "end": 2522.24,
+        "text": "and cost you messages to you."
+    },
+    {
+        "start": 2522.24,
+        "end": 2526.24,
+        "text": "Carthag and Carthag libraries but in the not session"
+    },
+    {
+        "start": 2526.24,
+        "end": 2530.24,
+        "text": "we will be also talking about some"
+    },
+    {
+        "start": 2530.24,
+        "end": 2536.24,
+        "text": "password structure streaming and how we can handle."
+    },
+    {
+        "start": 2536.24,
+        "end": 2542.24,
+        "text": "How we can handle stream data as a password data frame."
+    },
+    {
+        "start": 2542.24,
+        "end": 2546.24,
+        "text": "Contemplate and reading call out this."
+    },
+    {
+        "start": 2546.24,
+        "end": 2552.24,
+        "text": "And with you and hope to see you soon or the next."
+    },
+    {
+        "start": 2552.24,
+        "end": 2556.24,
+        "text": "Bye bye."
+    }
+]

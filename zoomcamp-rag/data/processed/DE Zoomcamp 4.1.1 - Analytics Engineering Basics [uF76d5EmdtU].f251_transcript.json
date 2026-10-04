@@ -1,0 +1,497 @@
+[
+    {
+        "start": 0.0,
+        "end": 5.44,
+        "text": "Hello everyone and welcome to week four of the Data Engineering Zoom Comp."
+    },
+    {
+        "start": 5.44,
+        "end": 9.6,
+        "text": "This week we're going to be talking about analytics engineering."
+    },
+    {
+        "start": 9.6,
+        "end": 13.76,
+        "text": "To get us started, what is analytics engineering?"
+    },
+    {
+        "start": 13.76,
+        "end": 16.32,
+        "text": "In order to answer this question,"
+    },
+    {
+        "start": 16.32,
+        "end": 21.44,
+        "text": "we need to look back a few years to the latest developments in the data domain."
+    },
+    {
+        "start": 21.44,
+        "end": 24.32,
+        "text": "Within how Cloud Data Warehouse says like,"
+    },
+    {
+        "start": 24.32,
+        "end": 26.92,
+        "text": "BigQuery is now like a redshift,"
+    },
+    {
+        "start": 26.92,
+        "end": 29.52,
+        "text": "they lower the cost of distortion computing,"
+    },
+    {
+        "start": 29.759999999999998,
+        "end": 34.48,
+        "text": "how tools like 5Tran or Stitch simplify the ETL process,"
+    },
+    {
+        "start": 34.48,
+        "end": 40.16,
+        "text": "how SQL first tools like Lucer that also introduced version control systems"
+    },
+    {
+        "start": 40.16,
+        "end": 42.4,
+        "text": "to the data workflow,"
+    },
+    {
+        "start": 42.4,
+        "end": 45.519999999999996,
+        "text": "and that along with other BI tools like mode,"
+    },
+    {
+        "start": 45.519999999999996,
+        "end": 48.08,
+        "text": "they enable self-service analytics,"
+    },
+    {
+        "start": 48.08,
+        "end": 50.239999999999995,
+        "text": "and lastly, data governance,"
+    },
+    {
+        "start": 50.239999999999995,
+        "end": 53.2,
+        "text": "they changed the way the data team fluid work in,"
+    },
+    {
+        "start": 53.2,
+        "end": 56.96,
+        "text": "but also the way the stakeholders were consuming that data."
+    },
+    {
+        "start": 57.92,
+        "end": 61.28,
+        "text": "And this left a gap in the roles that we had in the data team."
+    },
+    {
+        "start": 61.28,
+        "end": 65.04,
+        "text": "So if we think about a traditional data team,"
+    },
+    {
+        "start": 65.04,
+        "end": 68.24,
+        "text": "we're going to recognize here the data engineer,"
+    },
+    {
+        "start": 68.24,
+        "end": 71.84,
+        "text": "the data analyst, and here we can also mention the data scientist."
+    },
+    {
+        "start": 71.84,
+        "end": 76.64,
+        "text": "The data engineer is going to be preparing and maintaining the infrastructure"
+    },
+    {
+        "start": 76.64,
+        "end": 78.32,
+        "text": "that the data team will need,"
+    },
+    {
+        "start": 78.32,
+        "end": 81.28,
+        "text": "where the data analyst is going to be used in the data,"
+    },
+    {
+        "start": 81.28,
+        "end": 86.32,
+        "text": "hosting it in that infrastructure to answer questions and solve the problems."
+    },
+    {
+        "start": 86.8,
+        "end": 90.0,
+        "text": "With the latest developments that I mentioned before,"
+    },
+    {
+        "start": 90.0,
+        "end": 94.0,
+        "text": "we've seen how nowadays data scientists in an analyst"
+    },
+    {
+        "start": 94.0,
+        "end": 95.91999999999999,
+        "text": "are writing more and more code,"
+    },
+    {
+        "start": 95.91999999999999,
+        "end": 99.11999999999999,
+        "text": "but they are not meant to be software engineers."
+    },
+    {
+        "start": 99.11999999999999,
+        "end": 101.11999999999999,
+        "text": "They haven't been trained for that,"
+    },
+    {
+        "start": 101.11999999999999,
+        "end": 103.91999999999999,
+        "text": "and this is also not going to be the first priority."
+    },
+    {
+        "start": 103.91999999999999,
+        "end": 108.32,
+        "text": "And we see something similar with the data engineers."
+    },
+    {
+        "start": 108.32,
+        "end": 110.32,
+        "text": "They are great software engineers,"
+    },
+    {
+        "start": 110.32,
+        "end": 115.11999999999999,
+        "text": "but they don't have the training in how the data is actually going to be used"
+    },
+    {
+        "start": 115.92,
+        "end": 117.28,
+        "text": "by the business users."
+    },
+    {
+        "start": 118.56,
+        "end": 122.4,
+        "text": "And this is the gap that the analyst's engineer is trying to feel."
+    },
+    {
+        "start": 123.44,
+        "end": 125.28,
+        "text": "We're going to be talking about a role."
+    },
+    {
+        "start": 125.28,
+        "end": 127.52000000000001,
+        "text": "They have a little bit of both of this,"
+    },
+    {
+        "start": 128.48000000000002,
+        "end": 130.64000000000001,
+        "text": "data engineer and data analyst,"
+    },
+    {
+        "start": 130.64000000000001,
+        "end": 134.56,
+        "text": "because it's going to introduce the good software engineer practices"
+    },
+    {
+        "start": 134.56,
+        "end": 139.20000000000002,
+        "text": "from the data engineers to the efforts of the data analyst and the data scientist."
+    },
+    {
+        "start": 141.04000000000002,
+        "end": 143.28,
+        "text": "And here is a little bit of the tools"
+    },
+    {
+        "start": 143.28,
+        "end": 145.84,
+        "text": "that the analytics engineer may be exposed to."
+    },
+    {
+        "start": 146.88,
+        "end": 150.4,
+        "text": "It can be data loading tools like Type-Term or a stage,"
+    },
+    {
+        "start": 150.4,
+        "end": 154.8,
+        "text": "or it could also be here the part of the data engineer like you've seen in week two."
+    },
+    {
+        "start": 156.24,
+        "end": 158.0,
+        "text": "The same goes with data storming."
+    },
+    {
+        "start": 158.0,
+        "end": 160.8,
+        "text": "They could be managing tools like Live Data Warehouse says,"
+    },
+    {
+        "start": 161.44,
+        "end": 166.32,
+        "text": "or this could also be some of the tasks shared with data engineers as you've seen in week three."
+    },
+    {
+        "start": 168.08,
+        "end": 171.92000000000002,
+        "text": "They're going to be taking care of the data modeling practices"
+    },
+    {
+        "start": 171.92,
+        "end": 173.83999999999997,
+        "text": "with tools like DBT or Data Forum."
+    },
+    {
+        "start": 174.88,
+        "end": 179.28,
+        "text": "And lastly, the data presentation would be a tools like Google Data Studio."
+    },
+    {
+        "start": 179.83999999999997,
+        "end": 183.76,
+        "text": "And these last two parts are the ones that we're going to be focusing on this week."
+    },
+    {
+        "start": 185.92,
+        "end": 190.23999999999998,
+        "text": "Let's now review some of the data modeling concepts that we will be referring to."
+    },
+    {
+        "start": 191.83999999999997,
+        "end": 195.27999999999997,
+        "text": "Let's recap on the difference between ETL and ELT."
+    },
+    {
+        "start": 196.64,
+        "end": 199.35999999999999,
+        "text": "In ETL, we're going to be extracting the sources,"
+    },
+    {
+        "start": 200.24,
+        "end": 203.28,
+        "text": "then transform it and load it to a data warehouse."
+    },
+    {
+        "start": 203.28,
+        "end": 206.48000000000002,
+        "text": "Where in ELT, we're going to transform the data"
+    },
+    {
+        "start": 207.36,
+        "end": 209.36,
+        "text": "once it is in the data warehouse."
+    },
+    {
+        "start": 210.24,
+        "end": 214.8,
+        "text": "The first approach, it's going to take longer to implement because we first"
+    },
+    {
+        "start": 214.8,
+        "end": 217.04000000000002,
+        "text": "have to transform that data."
+    },
+    {
+        "start": 217.04000000000002,
+        "end": 221.60000000000002,
+        "text": "But this is going to also mean that we're going to have more stable and compliant data"
+    },
+    {
+        "start": 221.60000000000002,
+        "end": 222.48000000000002,
+        "text": "because it's clean."
+    },
+    {
+        "start": 223.44000000000003,
+        "end": 224.96,
+        "text": "We're on the other hand, the ELT."
+    },
+    {
+        "start": 225.20000000000002,
+        "end": 230.56,
+        "text": "It's going to be faster and more flexible because we already have that data loaded here."
+    },
+    {
+        "start": 231.52,
+        "end": 236.16,
+        "text": "Does this also take an advantage of the cloud data warehouse in the lower the cost of"
+    },
+    {
+        "start": 236.16,
+        "end": 237.20000000000002,
+        "text": "storage and compute?"
+    },
+    {
+        "start": 237.20000000000002,
+        "end": 239.12,
+        "text": "We now don't have that restriction."
+    },
+    {
+        "start": 239.12,
+        "end": 244.56,
+        "text": "So we can't afford loading all of our data and then transform it in the same data warehouse."
+    },
+    {
+        "start": 246.0,
+        "end": 249.76000000000002,
+        "text": "We are now going to dive more and more in this transformation step."
+    },
+    {
+        "start": 250.16,
+        "end": 257.52,
+        "text": "Let's review some of the concepts around Kimbles Dimension of Modeling."
+    },
+    {
+        "start": 259.12,
+        "end": 264.88,
+        "text": "The objective here is to deliver data that is understandable to the business user,"
+    },
+    {
+        "start": 265.92,
+        "end": 269.2,
+        "text": "but also trying to deliver fast query performance."
+    },
+    {
+        "start": 270.4,
+        "end": 274.64,
+        "text": "And like the third or fourth, here with Kimbles Dimension of Modeling,"
+    },
+    {
+        "start": 274.71999999999997,
+        "end": 280.8,
+        "text": "we're not going to be prioritizing the fact that data masks only appear once."
+    },
+    {
+        "start": 281.28,
+        "end": 288.47999999999996,
+        "text": "So we are not going to take care of that much on making sure that data is not redundant."
+    },
+    {
+        "start": 288.47999999999996,
+        "end": 293.84,
+        "text": "We're going to prioritize user understandability of this data and also query performance."
+    },
+    {
+        "start": 295.12,
+        "end": 301.03999999999996,
+        "text": "Other approaches that could be interesting if you want to dive in more in this topic could be"
+    },
+    {
+        "start": 301.03999999999996,
+        "end": 302.56,
+        "text": "built in one and data vault."
+    },
+    {
+        "start": 305.52,
+        "end": 307.91999999999996,
+        "text": "Let's see the elements of Dimensional Modeling."
+    },
+    {
+        "start": 308.64,
+        "end": 311.76,
+        "text": "We're going to be talking mainly about two types of tables."
+    },
+    {
+        "start": 312.47999999999996,
+        "end": 316.96,
+        "text": "Fact tables and Dimensional tables. This is also known as the Staris Keema."
+    },
+    {
+        "start": 317.76,
+        "end": 322.96,
+        "text": "Fact tables are going to be measurements metrics or just facts about our business."
+    },
+    {
+        "start": 323.68,
+        "end": 328.0,
+        "text": "They correspond to a business process and we can think about them a little bit more"
+    },
+    {
+        "start": 328.48,
+        "end": 333.12,
+        "text": "like verbs. So we're here. We're going to be talking about sales or orders."
+    },
+    {
+        "start": 334.0,
+        "end": 338.0,
+        "text": "Where did I mention? They're going to provide context to this fact tables."
+    },
+    {
+        "start": 339.28,
+        "end": 343.92,
+        "text": "They're going to correspond to business identity and we could think about them a little bit"
+    },
+    {
+        "start": 343.92,
+        "end": 347.36,
+        "text": "like names, so like customer, for example, or product."
+    },
+    {
+        "start": 351.04,
+        "end": 356.88,
+        "text": "Another nice analogy that is presented in Kimbles Dimensional Modeling is the kitchen"
+    },
+    {
+        "start": 356.88,
+        "end": 364.88,
+        "text": "and allushing. And the book compares how the data warehouse in the ETL process"
+    },
+    {
+        "start": 365.6,
+        "end": 370.96,
+        "text": "could be compared with a restaurant. We're going to have in a stage area where we're going to have"
+    },
+    {
+        "start": 370.96,
+        "end": 376.08,
+        "text": "the raw data. This is not meant to be exposed to everyone. This is only meant to be exposed to"
+    },
+    {
+        "start": 376.08,
+        "end": 383.04,
+        "text": "the people that will know how to use that raw data in the case of the restaurant, the food,"
+    },
+    {
+        "start": 383.36,
+        "end": 389.44,
+        "text": "in order to process it and make food out of it. We then are going to also identify the"
+    },
+    {
+        "start": 389.44,
+        "end": 394.8,
+        "text": "processing area. This would be the kitchen in a restaurant. Here we're going to take that raw"
+    },
+    {
+        "start": 394.8,
+        "end": 400.88,
+        "text": "data and we're going to make data models out of it. This is limited again to only people that"
+    },
+    {
+        "start": 400.88,
+        "end": 408.32000000000005,
+        "text": "know how to do that, the cookers. And here they'll be focusing on efficiency and making sure that"
+    },
+    {
+        "start": 408.32,
+        "end": 414.08,
+        "text": "there are standards being followed. And lastly, we have the presentation area, which is the dining"
+    },
+    {
+        "start": 414.08,
+        "end": 420.48,
+        "text": "hole. And it's the final presentation of that data. This is where we have the exposure to the"
+    },
+    {
+        "start": 420.48,
+        "end": 425.76,
+        "text": "business estate holders. We're going to see how in our project, we're going to be doing this"
+    },
+    {
+        "start": 425.76,
+        "end": 435.2,
+        "text": "exact as steps as well with our data term formation."
+    }
+]

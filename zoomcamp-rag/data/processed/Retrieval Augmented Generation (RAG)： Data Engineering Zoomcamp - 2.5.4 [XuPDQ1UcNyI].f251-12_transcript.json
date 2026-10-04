@@ -1,0 +1,382 @@
+[
+    {
+        "start": 0.0,
+        "end": 3.4,
+        "text": "Welcome to the next part of the Data Engineering Zoom Camp."
+    },
+    {
+        "start": 3.4,
+        "end": 7.04,
+        "text": "Now, so far in part five, using AI with Data Engineering,"
+    },
+    {
+        "start": 7.04,
+        "end": 8.88,
+        "text": "we've covered context engineering,"
+    },
+    {
+        "start": 8.88,
+        "end": 11.200000000000001,
+        "text": "and we've also covered using the Keshtra AI co-pilot"
+    },
+    {
+        "start": 11.200000000000001,
+        "end": 13.68,
+        "text": "to help you build your data pipelines."
+    },
+    {
+        "start": 13.68,
+        "end": 17.16,
+        "text": "Now, one extra bonus topic I'd love to discuss is RAG,"
+    },
+    {
+        "start": 17.16,
+        "end": 20.84,
+        "text": "which stands for Retrieval Augmented Generation."
+    },
+    {
+        "start": 20.84,
+        "end": 25.240000000000002,
+        "text": "Now, this allows you to add even more context to your problems"
+    },
+    {
+        "start": 25.240000000000002,
+        "end": 27.76,
+        "text": "by allowing your AI agent or chatbot"
+    },
+    {
+        "start": 27.76,
+        "end": 31.8,
+        "text": "to be able to pull information from directly from a source"
+    },
+    {
+        "start": 31.8,
+        "end": 33.52,
+        "text": "where that information will exist,"
+    },
+    {
+        "start": 33.52,
+        "end": 36.24,
+        "text": "rather than necessarily having to search the web or guessing."
+    },
+    {
+        "start": 36.24,
+        "end": 40.160000000000004,
+        "text": "What we can do is actually feed information into our system"
+    },
+    {
+        "start": 40.160000000000004,
+        "end": 43.760000000000005,
+        "text": "so that when we ask our AI assistant for information,"
+    },
+    {
+        "start": 43.760000000000005,
+        "end": 46.72,
+        "text": "it has that context, such as ingesting a document."
+    },
+    {
+        "start": 46.72,
+        "end": 49.72,
+        "text": "It will then create embeddings based off that information,"
+    },
+    {
+        "start": 49.72,
+        "end": 51.08,
+        "text": "and it will find similar embeddings"
+    },
+    {
+        "start": 51.08,
+        "end": 52.96,
+        "text": "that it can then match that information to."
+    },
+    {
+        "start": 52.96,
+        "end": 54.36,
+        "text": "Let's have a look at a few examples"
+    },
+    {
+        "start": 54.36,
+        "end": 56.160000000000004,
+        "text": "where this should hopefully make more sense."
+    },
+    {
+        "start": 56.16,
+        "end": 59.31999999999999,
+        "text": "Now, here is a chat completion task"
+    },
+    {
+        "start": 59.31999999999999,
+        "end": 61.08,
+        "text": "using the Keshtra AI agent,"
+    },
+    {
+        "start": 61.08,
+        "end": 62.76,
+        "text": "where I haven't given it any context,"
+    },
+    {
+        "start": 62.76,
+        "end": 66.47999999999999,
+        "text": "but I have asked it to list out the features in Keshtra 1.1."
+    },
+    {
+        "start": 66.47999999999999,
+        "end": 68.36,
+        "text": "So if I execute this workflow now,"
+    },
+    {
+        "start": 68.36,
+        "end": 70.32,
+        "text": "we'll see what it can come up with."
+    },
+    {
+        "start": 70.32,
+        "end": 71.24,
+        "text": "Shall we have a look?"
+    },
+    {
+        "start": 71.24,
+        "end": 73.64,
+        "text": "So it's generated a response for us."
+    },
+    {
+        "start": 74.6,
+        "end": 76.84,
+        "text": "Let's have a quick skin through,"
+    },
+    {
+        "start": 76.84,
+        "end": 78.32,
+        "text": "from a high level, I can tell you"
+    },
+    {
+        "start": 78.32,
+        "end": 83.32,
+        "text": "that this is not what we had as highlights for 1.1."
+    },
+    {
+        "start": 83.6,
+        "end": 85.03999999999999,
+        "text": "Some of these things may be true,"
+    },
+    {
+        "start": 85.04,
+        "end": 86.16000000000001,
+        "text": "but this is not."
+    },
+    {
+        "start": 87.12,
+        "end": 89.4,
+        "text": "It says we brought native integration"
+    },
+    {
+        "start": 89.4,
+        "end": 92.36000000000001,
+        "text": "for conditional flows, such as if our statements."
+    },
+    {
+        "start": 92.36000000000001,
+        "end": 93.96000000000001,
+        "text": "They've been in Keshtra for ages,"
+    },
+    {
+        "start": 93.96000000000001,
+        "end": 95.64,
+        "text": "so I'm not sure what happened there."
+    },
+    {
+        "start": 95.64,
+        "end": 97.68,
+        "text": "Now, let's have a look at the same example,"
+    },
+    {
+        "start": 97.68,
+        "end": 100.68,
+        "text": "but this time we're going to introduce RAC."
+    },
+    {
+        "start": 100.68,
+        "end": 103.4,
+        "text": "So what we're going to do is we're going to give it"
+    },
+    {
+        "start": 103.4,
+        "end": 104.56,
+        "text": "the release notes."
+    },
+    {
+        "start": 104.56,
+        "end": 106.88000000000001,
+        "text": "So it has exactly what was released,"
+    },
+    {
+        "start": 106.88000000000001,
+        "end": 109.0,
+        "text": "and we're going to add those as an embedding"
+    },
+    {
+        "start": 109.0,
+        "end": 111.08000000000001,
+        "text": "to the Keshtra key value store,"
+    },
+    {
+        "start": 111.08000000000001,
+        "end": 113.0,
+        "text": "which we're using as our embedding store."
+    },
+    {
+        "start": 113.0,
+        "end": 115.24,
+        "text": "Now, when we get over to our AI agent here,"
+    },
+    {
+        "start": 115.24,
+        "end": 117.04,
+        "text": "which is the chat completion task,"
+    },
+    {
+        "start": 117.04,
+        "end": 120.04,
+        "text": "you can see we're giving access to our embedding."
+    },
+    {
+        "start": 120.04,
+        "end": 123.52,
+        "text": "So it knows that it can go and access that information,"
+    },
+    {
+        "start": 123.52,
+        "end": 126.56,
+        "text": "and it's got access to the same embedding area as well."
+    },
+    {
+        "start": 126.56,
+        "end": 128.52,
+        "text": "So it's going to use the same information"
+    },
+    {
+        "start": 128.52,
+        "end": 129.84,
+        "text": "where we ingested the document,"
+    },
+    {
+        "start": 129.84,
+        "end": 132.48,
+        "text": "and now it can go ahead and figure out"
+    },
+    {
+        "start": 132.48,
+        "end": 133.84,
+        "text": "if this is useful to us."
+    },
+    {
+        "start": 133.84,
+        "end": 135.6,
+        "text": "So let's execute that again and see"
+    },
+    {
+        "start": 135.6,
+        "end": 138.64,
+        "text": "if the response is any more helpful to us."
+    },
+    {
+        "start": 138.64,
+        "end": 140.48,
+        "text": "So now we can see new filters."
+    },
+    {
+        "start": 140.48,
+        "end": 143.2,
+        "text": "That was one of the key things for 1.1."
+    },
+    {
+        "start": 143.2,
+        "end": 146.95999999999998,
+        "text": "No code dashboard, human task, multi-agent AI systems."
+    },
+    {
+        "start": 146.95999999999998,
+        "end": 148.83999999999997,
+        "text": "These are all exactly that,"
+    },
+    {
+        "start": 148.83999999999997,
+        "end": 150.95999999999998,
+        "text": "and that's because it had access to the context."
+    },
+    {
+        "start": 150.95999999999998,
+        "end": 154.67999999999998,
+        "text": "So it shows you how powerful AI agents can be"
+    },
+    {
+        "start": 154.67999999999998,
+        "end": 156.39999999999998,
+        "text": "when they are given context."
+    },
+    {
+        "start": 156.39999999999998,
+        "end": 157.64,
+        "text": "It's just like a human."
+    },
+    {
+        "start": 157.64,
+        "end": 159.04,
+        "text": "If you are someone who's never heard of Keshtra"
+    },
+    {
+        "start": 159.04,
+        "end": 160.39999999999998,
+        "text": "or what came out in 1.1,"
+    },
+    {
+        "start": 160.39999999999998,
+        "end": 162.04,
+        "text": "they're either going to tell you they don't know,"
+    },
+    {
+        "start": 162.04,
+        "end": 163.44,
+        "text": "or they're going to make it up."
+    },
+    {
+        "start": 163.44,
+        "end": 164.56,
+        "text": "AI is just the same."
+    },
+    {
+        "start": 164.56,
+        "end": 166.0,
+        "text": "So hopefully that's giving you a taste"
+    },
+    {
+        "start": 166.0,
+        "end": 170.0,
+        "text": "of how you can introduce AI into your data engineering."
+    },
+    {
+        "start": 170.0,
+        "end": 172.52,
+        "text": "Let me know in the comments below how you're going to use AI."
+    },
+    {
+        "start": 172.52,
+        "end": 173.84,
+        "text": "I'd love to hear from you."
+    },
+    {
+        "start": 173.84,
+        "end": 176.2,
+        "text": "And make sure to subscribe to the Keshtra YouTube channel"
+    },
+    {
+        "start": 176.2,
+        "end": 177.44,
+        "text": "for more videos like this,"
+    },
+    {
+        "start": 177.44,
+        "end": 180.12,
+        "text": "where you can learn data engineering best practices."
+    }
+]

@@ -1,0 +1,1317 @@
+[
+    {
+        "start": 0.0,
+        "end": 3.4,
+        "text": "Welcome to the next part of the data engineering zoom camp."
+    },
+    {
+        "start": 3.4,
+        "end": 4.88,
+        "text": "In this part, we're going to talk about"
+    },
+    {
+        "start": 4.88,
+        "end": 7.08,
+        "text": "Kestra concepts and what you need to know"
+    },
+    {
+        "start": 7.08,
+        "end": 9.52,
+        "text": "to be able to build your own pipelines."
+    },
+    {
+        "start": 9.52,
+        "end": 10.96,
+        "text": "Let's have a look at an example."
+    },
+    {
+        "start": 10.96,
+        "end": 12.280000000000001,
+        "text": "Now inside of the Git repository,"
+    },
+    {
+        "start": 12.280000000000001,
+        "end": 13.76,
+        "text": "we actually have a folder called flows"
+    },
+    {
+        "start": 13.76,
+        "end": 16.04,
+        "text": "with all the examples we're going to use."
+    },
+    {
+        "start": 16.04,
+        "end": 18.0,
+        "text": "Now I'm going to take that example,"
+    },
+    {
+        "start": 18.0,
+        "end": 19.36,
+        "text": "I'm going to create a new workflow"
+    },
+    {
+        "start": 19.36,
+        "end": 21.56,
+        "text": "and paste it straight into Kestra"
+    },
+    {
+        "start": 21.56,
+        "end": 23.16,
+        "text": "so we can start having a look."
+    },
+    {
+        "start": 23.16,
+        "end": 24.400000000000002,
+        "text": "I'm going to open the topology view"
+    },
+    {
+        "start": 24.400000000000002,
+        "end": 26.52,
+        "text": "so we can visualize what is going on here"
+    },
+    {
+        "start": 26.52,
+        "end": 27.84,
+        "text": "and then press save."
+    },
+    {
+        "start": 27.84,
+        "end": 30.84,
+        "text": "And now we have our first workflow inside of Kestra."
+    },
+    {
+        "start": 30.84,
+        "end": 33.0,
+        "text": "Now there are a lot of different things going on here"
+    },
+    {
+        "start": 33.0,
+        "end": 34.84,
+        "text": "so let's step through it one at a time."
+    },
+    {
+        "start": 34.84,
+        "end": 38.480000000000004,
+        "text": "Now every workflow has an ID and a name space."
+    },
+    {
+        "start": 38.480000000000004,
+        "end": 39.68,
+        "text": "Once you've pressed save,"
+    },
+    {
+        "start": 39.68,
+        "end": 41.44,
+        "text": "you will not be able to change these."
+    },
+    {
+        "start": 41.44,
+        "end": 44.120000000000005,
+        "text": "These are now fixed in space as you can see here."
+    },
+    {
+        "start": 44.120000000000005,
+        "end": 44.96,
+        "text": "If you need to change these,"
+    },
+    {
+        "start": 44.96,
+        "end": 46.8,
+        "text": "you're going to need to create a new workflow,"
+    },
+    {
+        "start": 46.8,
+        "end": 48.64,
+        "text": "copy and paste the YAML like so"
+    },
+    {
+        "start": 48.64,
+        "end": 50.56,
+        "text": "and then change it before you press save."
+    },
+    {
+        "start": 50.56,
+        "end": 53.400000000000006,
+        "text": "Now workflows contain tasks as well."
+    },
+    {
+        "start": 53.400000000000006,
+        "end": 55.32,
+        "text": "These are also required."
+    },
+    {
+        "start": 55.32,
+        "end": 56.519999999999996,
+        "text": "These can be changed though"
+    },
+    {
+        "start": 56.56,
+        "end": 58.28,
+        "text": "throughout multiple iterations"
+    },
+    {
+        "start": 58.28,
+        "end": 61.120000000000005,
+        "text": "so don't worry about making these changes"
+    },
+    {
+        "start": 61.120000000000005,
+        "end": 61.96,
+        "text": "and clicking save."
+    },
+    {
+        "start": 61.96,
+        "end": 64.16,
+        "text": "We can change this as many times as we like."
+    },
+    {
+        "start": 64.16,
+        "end": 66.96000000000001,
+        "text": "Now tasks themselves also have an ID,"
+    },
+    {
+        "start": 66.96000000000001,
+        "end": 69.36,
+        "text": "which again, you can change however you like"
+    },
+    {
+        "start": 69.36,
+        "end": 70.68,
+        "text": "and they also have a type"
+    },
+    {
+        "start": 70.68,
+        "end": 73.88,
+        "text": "which defines what type of task we're going to be using."
+    },
+    {
+        "start": 73.88,
+        "end": 75.24000000000001,
+        "text": "Now in this workflow,"
+    },
+    {
+        "start": 75.24000000000001,
+        "end": 77.16,
+        "text": "I've got a few different types of tasks."
+    },
+    {
+        "start": 77.16,
+        "end": 78.84,
+        "text": "I've got myself a log task here"
+    },
+    {
+        "start": 78.84,
+        "end": 81.0,
+        "text": "for just being able to send a message to the logs."
+    },
+    {
+        "start": 81.0,
+        "end": 82.36,
+        "text": "I've got a return task here"
+    },
+    {
+        "start": 82.36,
+        "end": 83.84,
+        "text": "that's going to generate an output"
+    },
+    {
+        "start": 83.84,
+        "end": 85.36,
+        "text": "more on that in a minute."
+    },
+    {
+        "start": 85.36,
+        "end": 87.2,
+        "text": "A sleep task that's going to pause the workflow"
+    },
+    {
+        "start": 87.2,
+        "end": 88.32,
+        "text": "for a 15 seconds,"
+    },
+    {
+        "start": 88.32,
+        "end": 90.0,
+        "text": "according to the duration here,"
+    },
+    {
+        "start": 90.0,
+        "end": 91.76,
+        "text": "and a couple of more log tasks."
+    },
+    {
+        "start": 91.76,
+        "end": 95.28,
+        "text": "Now each of these tasks also have their own defined properties."
+    },
+    {
+        "start": 95.28,
+        "end": 97.32,
+        "text": "Some of these will be required for that task"
+    },
+    {
+        "start": 97.32,
+        "end": 98.72,
+        "text": "and some of them will be optional."
+    },
+    {
+        "start": 98.72,
+        "end": 100.56,
+        "text": "Now the best way to navigate this"
+    },
+    {
+        "start": 100.56,
+        "end": 102.64,
+        "text": "is by clicking documentation."
+    },
+    {
+        "start": 102.64,
+        "end": 104.03999999999999,
+        "text": "I can just put that in the panel here"
+    },
+    {
+        "start": 104.03999999999999,
+        "end": 106.52,
+        "text": "so that we can see a little bit more of the screen at once."
+    },
+    {
+        "start": 106.52,
+        "end": 108.8,
+        "text": "And here I've got examples of logs"
+    },
+    {
+        "start": 108.8,
+        "end": 111.16,
+        "text": "so I can see different types of log messages."
+    },
+    {
+        "start": 111.16,
+        "end": 113.24,
+        "text": "But also we've got the property"
+    },
+    {
+        "start": 113.24,
+        "end": 115.52,
+        "text": "so I can see that message is a required property"
+    },
+    {
+        "start": 115.52,
+        "end": 117.72,
+        "text": "because it wouldn't be a log without a message."
+    },
+    {
+        "start": 117.72,
+        "end": 119.28,
+        "text": "But I can also set the level"
+    },
+    {
+        "start": 119.28,
+        "end": 121.03999999999999,
+        "text": "and it tells me what's the default value"
+    },
+    {
+        "start": 121.03999999999999,
+        "end": 123.91999999999999,
+        "text": "but it also tells me what possible values are too."
+    },
+    {
+        "start": 123.91999999999999,
+        "end": 125.72,
+        "text": "So it helps you understand"
+    },
+    {
+        "start": 125.72,
+        "end": 127.16,
+        "text": "how you can build these workflows"
+    },
+    {
+        "start": 127.16,
+        "end": 129.48,
+        "text": "without having to leave Kestra."
+    },
+    {
+        "start": 129.48,
+        "end": 132.76,
+        "text": "And the best bit is as soon as you click on other different tasks,"
+    },
+    {
+        "start": 132.76,
+        "end": 135.44,
+        "text": "it will switch to that plugins documentation."
+    },
+    {
+        "start": 135.44,
+        "end": 138.48,
+        "text": "So I can see examples for the return."
+    },
+    {
+        "start": 138.48,
+        "end": 140.68,
+        "text": "I can see examples for sleep"
+    },
+    {
+        "start": 140.68,
+        "end": 142.72,
+        "text": "and properties for sleep."
+    },
+    {
+        "start": 142.72,
+        "end": 145.88,
+        "text": "And so I can navigate this with quite a lot of ease"
+    },
+    {
+        "start": 145.88,
+        "end": 148.88,
+        "text": "without having to be an expert in these tasks."
+    },
+    {
+        "start": 148.88,
+        "end": 151.0,
+        "text": "And I must say the examples are a big help"
+    },
+    {
+        "start": 151.0,
+        "end": 152.88,
+        "text": "and I'd 100% recommend using them."
+    },
+    {
+        "start": 152.88,
+        "end": 154.32,
+        "text": "Now we've covered tasks."
+    },
+    {
+        "start": 154.32,
+        "end": 156.64,
+        "text": "Let's discuss some of these other properties."
+    },
+    {
+        "start": 156.64,
+        "end": 158.72,
+        "text": "Now at the top here we have inputs."
+    },
+    {
+        "start": 158.72,
+        "end": 161.72,
+        "text": "Now inputs are a great way for being able to pass data"
+    },
+    {
+        "start": 161.72,
+        "end": 164.72,
+        "text": "into your workflow at the start of an execution."
+    },
+    {
+        "start": 164.72,
+        "end": 167.28,
+        "text": "This means when you press the execute button,"
+    },
+    {
+        "start": 167.28,
+        "end": 170.16,
+        "text": "you'll be prompted to fill out those inputs."
+    },
+    {
+        "start": 170.16,
+        "end": 172.0,
+        "text": "This is great if your workflow requires you"
+    },
+    {
+        "start": 172.08,
+        "end": 175.24,
+        "text": "to upload a file or maybe select a date and time"
+    },
+    {
+        "start": 175.24,
+        "end": 178.2,
+        "text": "or maybe just to select some different options."
+    },
+    {
+        "start": 178.2,
+        "end": 180.48,
+        "text": "Now there are tons of different types of inputs."
+    },
+    {
+        "start": 180.48,
+        "end": 183.32,
+        "text": "And you can see that here if I was to press"
+    },
+    {
+        "start": 183.32,
+        "end": 184.92,
+        "text": "the also complete here, you can see"
+    },
+    {
+        "start": 184.92,
+        "end": 186.24,
+        "text": "there are tons of different types."
+    },
+    {
+        "start": 186.24,
+        "end": 188.64,
+        "text": "So you can really set your workflow up to receive"
+    },
+    {
+        "start": 188.64,
+        "end": 192.6,
+        "text": "whatever inputs you need to be able to work as you expect."
+    },
+    {
+        "start": 192.6,
+        "end": 195.36,
+        "text": "Now in this case, I've set it up with a string input"
+    },
+    {
+        "start": 195.36,
+        "end": 197.88,
+        "text": "called name and I've given it a default value."
+    },
+    {
+        "start": 197.88,
+        "end": 201.04,
+        "text": "So when I press execute, it's got that automatically built in."
+    },
+    {
+        "start": 201.04,
+        "end": 203.4,
+        "text": "I don't have to go in there and change that."
+    },
+    {
+        "start": 203.4,
+        "end": 206.44,
+        "text": "We can then use that input using an expression."
+    },
+    {
+        "start": 206.44,
+        "end": 208.51999999999998,
+        "text": "This is where we can then dynamically pass"
+    },
+    {
+        "start": 208.51999999999998,
+        "end": 211.0,
+        "text": "that information around the workflow."
+    },
+    {
+        "start": 211.0,
+        "end": 214.56,
+        "text": "In this case, we're using that inside of a variable here,"
+    },
+    {
+        "start": 214.56,
+        "end": 216.07999999999998,
+        "text": "which is similar to an input."
+    },
+    {
+        "start": 216.07999999999998,
+        "end": 219.07999999999998,
+        "text": "And as you can see here, I'm able to pass that input"
+    },
+    {
+        "start": 219.07999999999998,
+        "end": 222.04,
+        "text": "directly into the variable so that when we run this,"
+    },
+    {
+        "start": 222.04,
+        "end": 225.48,
+        "text": "it will say hello will rather than just hello"
+    },
+    {
+        "start": 225.48,
+        "end": 227.39999999999998,
+        "text": "and then of this expression."
+    },
+    {
+        "start": 227.39999999999998,
+        "end": 230.23999999999998,
+        "text": "So this is a nice way of being able to sort of"
+    },
+    {
+        "start": 230.24,
+        "end": 233.72,
+        "text": "chain an input together with existing information."
+    },
+    {
+        "start": 233.72,
+        "end": 236.04000000000002,
+        "text": "This could be useful for things like a URL"
+    },
+    {
+        "start": 236.04000000000002,
+        "end": 238.36,
+        "text": "where the, you know, the main bit of the URL"
+    },
+    {
+        "start": 238.36,
+        "end": 241.16,
+        "text": "might not change, but you might be changing a path at the end."
+    },
+    {
+        "start": 241.16,
+        "end": 243.56,
+        "text": "You can use the input to change that path"
+    },
+    {
+        "start": 243.56,
+        "end": 246.04000000000002,
+        "text": "and then have the variable construct the full thing."
+    },
+    {
+        "start": 246.04000000000002,
+        "end": 248.8,
+        "text": "Now variables are key value pairs."
+    },
+    {
+        "start": 248.8,
+        "end": 250.44,
+        "text": "You can define as many of these as you like"
+    },
+    {
+        "start": 250.44,
+        "end": 252.44,
+        "text": "and they're a great way for being able to define things"
+    },
+    {
+        "start": 252.44,
+        "end": 255.28,
+        "text": "you might use multiple times in a workflow"
+    },
+    {
+        "start": 255.28,
+        "end": 258.28000000000003,
+        "text": "or if you want to be able to chain them together like so."
+    },
+    {
+        "start": 258.28,
+        "end": 261.0,
+        "text": "So let's say maybe you're making an API request"
+    },
+    {
+        "start": 261.0,
+        "end": 263.76,
+        "text": "and you're making the same request multiple times."
+    },
+    {
+        "start": 263.76,
+        "end": 265.79999999999995,
+        "text": "You can set that up as a variable at the top here"
+    },
+    {
+        "start": 265.79999999999995,
+        "end": 268.23999999999995,
+        "text": "and then reference that by doing vars."
+    },
+    {
+        "start": 268.23999999999995,
+        "end": 272.28,
+        "text": "Whatever the key is for your key value pair under variables."
+    },
+    {
+        "start": 272.28,
+        "end": 273.91999999999996,
+        "text": "As you can see here in the log task,"
+    },
+    {
+        "start": 273.91999999999996,
+        "end": 277.08,
+        "text": "we have another expression here to access that variable,"
+    },
+    {
+        "start": 277.08,
+        "end": 278.96,
+        "text": "but we've wrapped it in render."
+    },
+    {
+        "start": 278.96,
+        "end": 281.11999999999995,
+        "text": "And what that allows us to do is make sure"
+    },
+    {
+        "start": 281.11999999999995,
+        "end": 284.32,
+        "text": "that this input here gets rendered it out."
+    },
+    {
+        "start": 284.32,
+        "end": 285.79999999999995,
+        "text": "So in this case, it will say will,"
+    },
+    {
+        "start": 285.79999999999995,
+        "end": 287.55999999999995,
+        "text": "what the input value is."
+    },
+    {
+        "start": 287.56,
+        "end": 290.2,
+        "text": "Before it renders the variable,"
+    },
+    {
+        "start": 290.2,
+        "end": 293.52,
+        "text": "because otherwise it will render just this string"
+    },
+    {
+        "start": 293.52,
+        "end": 295.8,
+        "text": "and it will keep this expression in."
+    },
+    {
+        "start": 295.8,
+        "end": 296.92,
+        "text": "So we don't want that."
+    },
+    {
+        "start": 296.92,
+        "end": 299.8,
+        "text": "So wrapping it in render means it will now recursively"
+    },
+    {
+        "start": 299.8,
+        "end": 301.24,
+        "text": "render all the expressions."
+    },
+    {
+        "start": 301.24,
+        "end": 303.24,
+        "text": "It will render this expression,"
+    },
+    {
+        "start": 303.24,
+        "end": 305.4,
+        "text": "but then it will also render this expression,"
+    },
+    {
+        "start": 305.4,
+        "end": 308.8,
+        "text": "meaning the final answer will say hello will"
+    },
+    {
+        "start": 308.8,
+        "end": 310.6,
+        "text": "rather than helloinput.name."
+    },
+    {
+        "start": 310.6,
+        "end": 313.12,
+        "text": "Inputs and variables are great ways for defining data"
+    },
+    {
+        "start": 313.12,
+        "end": 316.36,
+        "text": "before the workflow starts or as the workflow's about to start,"
+    },
+    {
+        "start": 316.36,
+        "end": 318.64,
+        "text": "but we also have a concept called output"
+    },
+    {
+        "start": 318.64,
+        "end": 321.6,
+        "text": "where tasks themselves can generate data."
+    },
+    {
+        "start": 321.6,
+        "end": 325.12,
+        "text": "And then we can use that data in other tasks later on."
+    },
+    {
+        "start": 325.12,
+        "end": 327.96000000000004,
+        "text": "Now in this example, we're using a return task here,"
+    },
+    {
+        "start": 327.96000000000004,
+        "end": 330.96000000000004,
+        "text": "where any data under the format will be generated"
+    },
+    {
+        "start": 330.96000000000004,
+        "end": 333.96000000000004,
+        "text": "as an output, which we can then access later on."
+    },
+    {
+        "start": 333.96000000000004,
+        "end": 335.96000000000004,
+        "text": "Now to view what tasks have outputs,"
+    },
+    {
+        "start": 335.96000000000004,
+        "end": 338.16,
+        "text": "we can again use that documentation."
+    },
+    {
+        "start": 338.16,
+        "end": 340.32,
+        "text": "If we scroll down, we'll see there's an output section"
+    },
+    {
+        "start": 340.32,
+        "end": 341.28000000000003,
+        "text": "for this task."
+    },
+    {
+        "start": 341.28000000000003,
+        "end": 344.32,
+        "text": "And I can see it's going to give me an output called value."
+    },
+    {
+        "start": 344.32,
+        "end": 346.48,
+        "text": "And if we actually scroll down, we can see here"
+    },
+    {
+        "start": 346.48,
+        "end": 349.44,
+        "text": "that we can do outputs dot the ID of the task,"
+    },
+    {
+        "start": 349.44,
+        "end": 352.68,
+        "text": "in this case, generate output, dot, and then the output name."
+    },
+    {
+        "start": 352.68,
+        "end": 354.12,
+        "text": "In this case, that's value."
+    },
+    {
+        "start": 354.12,
+        "end": 356.36,
+        "text": "And so when we run this workflow in a little bit,"
+    },
+    {
+        "start": 356.36,
+        "end": 358.2,
+        "text": "you'll see that it will say, this is an output,"
+    },
+    {
+        "start": 358.2,
+        "end": 360.68,
+        "text": "and it will return this output."
+    },
+    {
+        "start": 360.68,
+        "end": 362.8,
+        "text": "Now this is especially useful if you're doing things"
+    },
+    {
+        "start": 362.8,
+        "end": 365.48,
+        "text": "like HTTP requests where you might get a body of data"
+    },
+    {
+        "start": 365.48,
+        "end": 368.36,
+        "text": "such as adjacent, or as you're going to see in one of our"
+    },
+    {
+        "start": 368.36,
+        "end": 371.52,
+        "text": "examples later, we're going to extract a CSV file."
+    },
+    {
+        "start": 371.52,
+        "end": 374.44,
+        "text": "And then we want to pass that CSV file over to Python"
+    },
+    {
+        "start": 374.44,
+        "end": 376.35999999999996,
+        "text": "so that we can then transform it."
+    },
+    {
+        "start": 376.35999999999996,
+        "end": 379.56,
+        "text": "Now another concept that we have is plug-in defaults."
+    },
+    {
+        "start": 379.56,
+        "end": 381.96,
+        "text": "Similar to variables where you might be repeating yourself"
+    },
+    {
+        "start": 381.96,
+        "end": 384.2,
+        "text": "throughout your code, this allows you to define"
+    },
+    {
+        "start": 384.2,
+        "end": 387.12,
+        "text": "some of those properties for tasks in one place"
+    },
+    {
+        "start": 387.12,
+        "end": 390.0,
+        "text": "if you're using that task type multiple times."
+    },
+    {
+        "start": 390.0,
+        "end": 392.28,
+        "text": "Now, as you could probably see from the topology view,"
+    },
+    {
+        "start": 392.28,
+        "end": 394.2,
+        "text": "we have three log tasks."
+    },
+    {
+        "start": 394.2,
+        "end": 397.44,
+        "text": "And I want them to all report with the error log level"
+    },
+    {
+        "start": 397.44,
+        "end": 400.4,
+        "text": "rather than the default one being info."
+    },
+    {
+        "start": 400.4,
+        "end": 403.03999999999996,
+        "text": "So this allows me to define that property once,"
+    },
+    {
+        "start": 403.03999999999996,
+        "end": 405.79999999999995,
+        "text": "rather than having to define it for each of those tasks."
+    },
+    {
+        "start": 405.79999999999995,
+        "end": 407.23999999999995,
+        "text": "Now we're going to use this later on"
+    },
+    {
+        "start": 407.23999999999995,
+        "end": 410.52,
+        "text": "for being able to define our Postgres database log in detail"
+    },
+    {
+        "start": 410.52,
+        "end": 412.84,
+        "text": "so we don't have to keep authenticating"
+    },
+    {
+        "start": 412.84,
+        "end": 414.79999999999995,
+        "text": "with each time we want to make a query."
+    },
+    {
+        "start": 414.79999999999995,
+        "end": 416.96,
+        "text": "Now in our next concept is a trigger."
+    },
+    {
+        "start": 416.96,
+        "end": 419.2,
+        "text": "It wouldn't be a workflow if there wasn't a way"
+    },
+    {
+        "start": 419.2,
+        "end": 421.23999999999995,
+        "text": "to trigger how it starts."
+    },
+    {
+        "start": 421.23999999999995,
+        "end": 423.67999999999995,
+        "text": "Now in this case, it's very similar to task"
+    },
+    {
+        "start": 423.67999999999995,
+        "end": 425.52,
+        "text": "where you have an ID and a type."
+    },
+    {
+        "start": 425.52,
+        "end": 427.91999999999996,
+        "text": "And then you also have a number of different properties."
+    },
+    {
+        "start": 427.92,
+        "end": 431.04,
+        "text": "Now in this scenario, I'm using the schedule trigger,"
+    },
+    {
+        "start": 431.04,
+        "end": 433.56,
+        "text": "but we could use an event based one if we wanted to."
+    },
+    {
+        "start": 433.56,
+        "end": 435.84000000000003,
+        "text": "Just like tasks, we can go to documentation"
+    },
+    {
+        "start": 435.84000000000003,
+        "end": 438.56,
+        "text": "and again see examples of how this works,"
+    },
+    {
+        "start": 438.56,
+        "end": 440.84000000000003,
+        "text": "properties and outputs it will generate."
+    },
+    {
+        "start": 440.84000000000003,
+        "end": 443.20000000000005,
+        "text": "So we can easily be able to configure this"
+    },
+    {
+        "start": 443.20000000000005,
+        "end": 444.68,
+        "text": "exactly how we need."
+    },
+    {
+        "start": 444.68,
+        "end": 446.64,
+        "text": "Now it is worth noting all tasks and triggers"
+    },
+    {
+        "start": 446.64,
+        "end": 448.04,
+        "text": "support this disabled property,"
+    },
+    {
+        "start": 448.04,
+        "end": 450.52000000000004,
+        "text": "which is a great way for me to stop your workflow"
+    },
+    {
+        "start": 450.52000000000004,
+        "end": 451.76,
+        "text": "automatically running."
+    },
+    {
+        "start": 451.76,
+        "end": 453.88,
+        "text": "I've set this to disabled just so it doesn't keep running"
+    },
+    {
+        "start": 453.88,
+        "end": 454.76,
+        "text": "in the background."
+    },
+    {
+        "start": 454.76,
+        "end": 456.6,
+        "text": "Now the last concept which some of you might have noticed"
+    },
+    {
+        "start": 456.6,
+        "end": 458.24,
+        "text": "is concurrency here."
+    },
+    {
+        "start": 458.24,
+        "end": 461.52000000000004,
+        "text": "This allows us to define how many of this type of workflow"
+    },
+    {
+        "start": 461.52000000000004,
+        "end": 464.72,
+        "text": "can run at the same time and what it should do"
+    },
+    {
+        "start": 464.72,
+        "end": 466.76000000000005,
+        "text": "if multiple of them are running."
+    },
+    {
+        "start": 466.76000000000005,
+        "end": 469.24,
+        "text": "Now I've said if more than two executions"
+    },
+    {
+        "start": 469.24,
+        "end": 472.12,
+        "text": "are running at the same time, it should fail it."
+    },
+    {
+        "start": 472.12,
+        "end": 474.24,
+        "text": "Now the reason this is important is I want to make sure"
+    },
+    {
+        "start": 474.24,
+        "end": 477.48,
+        "text": "that we're not writing to our Postgres database"
+    },
+    {
+        "start": 477.48,
+        "end": 479.76000000000005,
+        "text": "with different workflow executions at the same time,"
+    },
+    {
+        "start": 479.76000000000005,
+        "end": 481.48,
+        "text": "just to prevent any issues."
+    },
+    {
+        "start": 481.48,
+        "end": 485.20000000000005,
+        "text": "So this will just allow us to only have one workflow running"
+    },
+    {
+        "start": 485.47999999999996,
+        "end": 486.03999999999996,
+        "text": "at that time."
+    },
+    {
+        "start": 486.03999999999996,
+        "end": 487.32,
+        "text": "In this case I've set this to two."
+    },
+    {
+        "start": 487.32,
+        "end": 489.76,
+        "text": "So I think it's now time to execute this workflow"
+    },
+    {
+        "start": 489.76,
+        "end": 491.88,
+        "text": "where we can one see all of this happen in real time"
+    },
+    {
+        "start": 491.88,
+        "end": 494.64,
+        "text": "but also experiment with this concurrency feature."
+    },
+    {
+        "start": 494.64,
+        "end": 496.96,
+        "text": "Now I'm going to execute this three times"
+    },
+    {
+        "start": 496.96,
+        "end": 498.08,
+        "text": "so we can see it fail."
+    },
+    {
+        "start": 498.08,
+        "end": 500.24,
+        "text": "Now as we can see I've actually got two workflows"
+    },
+    {
+        "start": 500.24,
+        "end": 502.64,
+        "text": "running here and when I run the third one it failed"
+    },
+    {
+        "start": 502.64,
+        "end": 503.8,
+        "text": "because of that concurrency."
+    },
+    {
+        "start": 503.8,
+        "end": 505.68,
+        "text": "And we can actually see here the concurrency"
+    },
+    {
+        "start": 505.68,
+        "end": 509.28,
+        "text": "has two active slots and so if anything else gets"
+    },
+    {
+        "start": 509.28,
+        "end": 511.15999999999997,
+        "text": "added it will automatically fail."
+    },
+    {
+        "start": 511.15999999999997,
+        "end": 512.8,
+        "text": "But soon as those executions do finish"
+    },
+    {
+        "start": 512.8,
+        "end": 514.56,
+        "text": "we'll see these slots will open up again."
+    },
+    {
+        "start": 514.7199999999999,
+        "end": 516.8,
+        "text": "Now if we jump into one of those successful executions"
+    },
+    {
+        "start": 516.8,
+        "end": 519.2399999999999,
+        "text": "we'll see we get this beautiful gant view"
+    },
+    {
+        "start": 519.2399999999999,
+        "end": 521.92,
+        "text": "that helps us visualize what's happening"
+    },
+    {
+        "start": 521.92,
+        "end": 524.4399999999999,
+        "text": "when the execution runs and we can see the longest task"
+    },
+    {
+        "start": 524.4399999999999,
+        "end": 526.8399999999999,
+        "text": "was that sleep because we told it to take 15 seconds"
+    },
+    {
+        "start": 526.8399999999999,
+        "end": 528.4,
+        "text": "but we also can see the log task too."
+    },
+    {
+        "start": 528.4,
+        "end": 530.88,
+        "text": "Now if I click into these I can actually see"
+    },
+    {
+        "start": 530.88,
+        "end": 533.0,
+        "text": "the log message themselves and I can see"
+    },
+    {
+        "start": 533.0,
+        "end": 535.52,
+        "text": "that it gave us hello will which is what we wanted to see"
+    },
+    {
+        "start": 535.52,
+        "end": 539.0,
+        "text": "with the variable rendered out and the input rendered out."
+    },
+    {
+        "start": 539.0,
+        "end": 541.1199999999999,
+        "text": "We can see that the plugin default works"
+    },
+    {
+        "start": 541.1199999999999,
+        "end": 543.1199999999999,
+        "text": "because it set the level here to error"
+    },
+    {
+        "start": 543.12,
+        "end": 545.16,
+        "text": "and we can see it did that for other ones as well."
+    },
+    {
+        "start": 545.16,
+        "end": 548.16,
+        "text": "So here's another log task and the last one here too."
+    },
+    {
+        "start": 548.16,
+        "end": 550.04,
+        "text": "And then the last thing we can see as well"
+    },
+    {
+        "start": 550.04,
+        "end": 550.96,
+        "text": "is the output."
+    },
+    {
+        "start": 550.96,
+        "end": 553.6,
+        "text": "Now if we actually go to outputs we can visualize this"
+    },
+    {
+        "start": 553.6,
+        "end": 555.88,
+        "text": "in this wonderful view here where we can see"
+    },
+    {
+        "start": 555.88,
+        "end": 557.96,
+        "text": "I was generated during this workflow"
+    },
+    {
+        "start": 557.96,
+        "end": 561.2,
+        "text": "and then if we go to logs we can see that it was in fact"
+    },
+    {
+        "start": 561.2,
+        "end": 564.12,
+        "text": "this is an output I was generated during this workflow."
+    },
+    {
+        "start": 564.12,
+        "end": 566.5600000000001,
+        "text": "So we can see the output was accessed by another task"
+    },
+    {
+        "start": 566.5600000000001,
+        "end": 568.2,
+        "text": "and then rendered out too."
+    },
+    {
+        "start": 568.2,
+        "end": 569.48,
+        "text": "We can also view the topology view"
+    },
+    {
+        "start": 569.48,
+        "end": 573.08,
+        "text": "if we want to go through and see how long each task took"
+    },
+    {
+        "start": 573.5200000000001,
+        "end": 576.2,
+        "text": "if some failed, if some were skipped et cetera"
+    },
+    {
+        "start": 576.2,
+        "end": 578.12,
+        "text": "which we will have a look at later on"
+    },
+    {
+        "start": 578.12,
+        "end": 579.4000000000001,
+        "text": "when we get to our pipelines."
+    },
+    {
+        "start": 579.4000000000001,
+        "end": 581.88,
+        "text": "But hopefully this gives you a good view"
+    },
+    {
+        "start": 581.88,
+        "end": 585.0,
+        "text": "of how a workflow might look inside the Kestra."
+    },
+    {
+        "start": 585.0,
+        "end": 587.36,
+        "text": "So that covers some of the concepts we're going to cover"
+    },
+    {
+        "start": 587.36,
+        "end": 589.6,
+        "text": "later on it might seem like a lot now"
+    },
+    {
+        "start": 589.6,
+        "end": 592.76,
+        "text": "but the key one to remember is a workflow has a number of tasks"
+    },
+    {
+        "start": 592.76,
+        "end": 595.64,
+        "text": "we can define how these tasks work using properties"
+    },
+    {
+        "start": 595.64,
+        "end": 598.76,
+        "text": "and we can pass data between them using outputs."
+    },
+    {
+        "start": 598.76,
+        "end": 600.8000000000001,
+        "text": "We're going to use that to build our own data pipeline"
+    },
+    {
+        "start": 600.8000000000001,
+        "end": 602.48,
+        "text": "in the next step where I'm going to show you how you can"
+    },
+    {
+        "start": 602.48,
+        "end": 605.48,
+        "text": "orchestrate Python code inside of your workflows."
+    }
+]

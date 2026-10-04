@@ -1,0 +1,1067 @@
+[
+    {
+        "start": 0.0,
+        "end": 3.2,
+        "text": "Hello and welcome."
+    },
+    {
+        "start": 3.2,
+        "end": 6.2,
+        "text": "In this section, we're going to talk about Bruin MCPs,"
+    },
+    {
+        "start": 6.2,
+        "end": 9.96,
+        "text": "how to use them, how to integrate them into our AI agents,"
+    },
+    {
+        "start": 9.96,
+        "end": 12.56,
+        "text": "and fully utilize an AI data engineer."
+    },
+    {
+        "start": 12.56,
+        "end": 15.84,
+        "text": "An MCP at its core is a model context protocol,"
+    },
+    {
+        "start": 15.84,
+        "end": 18.8,
+        "text": "so it's essentially a way for AI agents"
+    },
+    {
+        "start": 18.8,
+        "end": 22.44,
+        "text": "to add additional context when they're being prompted."
+    },
+    {
+        "start": 22.44,
+        "end": 25.8,
+        "text": "So think of Bruin MCP as just a way for the agents"
+    },
+    {
+        "start": 25.8,
+        "end": 28.8,
+        "text": "to communicate with Bruin to ask its documentation"
+    },
+    {
+        "start": 28.8,
+        "end": 31.28,
+        "text": "about different concepts, different features,"
+    },
+    {
+        "start": 31.28,
+        "end": 34.8,
+        "text": "and be able to actually run some commands on your behalf,"
+    },
+    {
+        "start": 34.8,
+        "end": 37.64,
+        "text": "and also be able to go through your code,"
+    },
+    {
+        "start": 37.64,
+        "end": 39.96,
+        "text": "troubleshoot it, understand what's going on,"
+    },
+    {
+        "start": 39.96,
+        "end": 42.6,
+        "text": "help you debug things, as well as run queries"
+    },
+    {
+        "start": 42.6,
+        "end": 44.44,
+        "text": "and analyze data for you as well."
+    },
+    {
+        "start": 44.44,
+        "end": 46.92,
+        "text": "There are a few different ways of installing the MCP,"
+    },
+    {
+        "start": 46.92,
+        "end": 49.519999999999996,
+        "text": "depending on the type of agent that you're using."
+    },
+    {
+        "start": 49.519999999999996,
+        "end": 53.2,
+        "text": "We have integrations with cursor, cloud, and different agents."
+    },
+    {
+        "start": 53.2,
+        "end": 55.0,
+        "text": "So you can take a look at our documentation"
+    },
+    {
+        "start": 55.0,
+        "end": 56.88,
+        "text": "to learn about how to integrate it,"
+    },
+    {
+        "start": 56.88,
+        "end": 59.92,
+        "text": "but in this tutorial, I will show you how to add it to cursor,"
+    },
+    {
+        "start": 59.92,
+        "end": 61.400000000000006,
+        "text": "and we're going to go ahead and use it"
+    },
+    {
+        "start": 61.400000000000006,
+        "end": 63.32,
+        "text": "and build the pipeline together."
+    },
+    {
+        "start": 63.32,
+        "end": 65.4,
+        "text": "With the Bruin MCP and an agent,"
+    },
+    {
+        "start": 65.4,
+        "end": 68.44,
+        "text": "you can go ahead and write code, write documentation,"
+    },
+    {
+        "start": 68.44,
+        "end": 70.64,
+        "text": "troubleshoot things, analyze data,"
+    },
+    {
+        "start": 70.64,
+        "end": 73.52000000000001,
+        "text": "and have an AI data engineer next to you"
+    },
+    {
+        "start": 73.52000000000001,
+        "end": 75.04,
+        "text": "as your development is."
+    },
+    {
+        "start": 75.04,
+        "end": 80.2,
+        "text": "All right, so to install the Bruin MCP on cursor or VS code,"
+    },
+    {
+        "start": 80.2,
+        "end": 83.76,
+        "text": "all you have to really do is go to your IDE settings."
+    },
+    {
+        "start": 83.76,
+        "end": 86.12,
+        "text": "In my case, I'm going to cursor settings"
+    },
+    {
+        "start": 86.12,
+        "end": 88.16000000000001,
+        "text": "under the tools and MCP."
+    },
+    {
+        "start": 88.16000000000001,
+        "end": 91.04,
+        "text": "To add Bruin, you go to new MCPs."
+    },
+    {
+        "start": 91.04,
+        "end": 92.88000000000001,
+        "text": "If you go to our documentation,"
+    },
+    {
+        "start": 92.88000000000001,
+        "end": 95.2,
+        "text": "you'll see the instructions for cursor,"
+    },
+    {
+        "start": 95.2,
+        "end": 98.72,
+        "text": "and you want to just copy, go to your MCP JSON"
+    },
+    {
+        "start": 98.72,
+        "end": 100.92,
+        "text": "and paste it over here."
+    },
+    {
+        "start": 100.92,
+        "end": 104.4,
+        "text": "So once you have added that here, if you close this,"
+    },
+    {
+        "start": 104.4,
+        "end": 107.4,
+        "text": "you would be able to see MCP installed here."
+    },
+    {
+        "start": 107.4,
+        "end": 110.64,
+        "text": "Sometimes it might show a failure or an error."
+    },
+    {
+        "start": 110.64,
+        "end": 114.60000000000001,
+        "text": "All you really have to do is close your IDE and reopen it,"
+    },
+    {
+        "start": 114.6,
+        "end": 116.67999999999999,
+        "text": "and you will see Bruin enabled."
+    },
+    {
+        "start": 116.67999999999999,
+        "end": 118.55999999999999,
+        "text": "All right, so now let's go ahead"
+    },
+    {
+        "start": 118.55999999999999,
+        "end": 121.44,
+        "text": "and do the entire project using the MCP."
+    },
+    {
+        "start": 121.44,
+        "end": 126.44,
+        "text": "So let's start off with initializing our template."
+    },
+    {
+        "start": 126.44,
+        "end": 128.12,
+        "text": "Now that it's created our pipeline,"
+    },
+    {
+        "start": 128.12,
+        "end": 130.24,
+        "text": "if you go to the ReadMe file,"
+    },
+    {
+        "start": 130.24,
+        "end": 134.72,
+        "text": "you will see that we have given you an example prompt"
+    },
+    {
+        "start": 134.72,
+        "end": 136.51999999999998,
+        "text": "that you can give to the agent"
+    },
+    {
+        "start": 136.51999999999998,
+        "end": 139.6,
+        "text": "that will create the entire pipeline and to end for you."
+    },
+    {
+        "start": 139.6,
+        "end": 143.64,
+        "text": "So let's go ahead, copy that over to our agent."
+    },
+    {
+        "start": 143.64,
+        "end": 145.16,
+        "text": "I'm not going to add anything else."
+    },
+    {
+        "start": 145.16,
+        "end": 146.88,
+        "text": "So now let's just wait a few minutes"
+    },
+    {
+        "start": 146.88,
+        "end": 149.32,
+        "text": "for it to go through the whole thing,"
+    },
+    {
+        "start": 149.32,
+        "end": 151.95999999999998,
+        "text": "create our entire project, and then we will review it."
+    },
+    {
+        "start": 151.95999999999998,
+        "end": 154.23999999999998,
+        "text": "So in this case, we're giving it a huge prompt"
+    },
+    {
+        "start": 154.23999999999998,
+        "end": 157.55999999999997,
+        "text": "to just go ahead and build the pipeline and to end"
+    },
+    {
+        "start": 157.55999999999997,
+        "end": 160.44,
+        "text": "and test everything, run it, validate the data."
+    },
+    {
+        "start": 160.44,
+        "end": 163.07999999999998,
+        "text": "In a normal process, you might not want to do this,"
+    },
+    {
+        "start": 163.07999999999998,
+        "end": 166.44,
+        "text": "and you will most likely want to go asset by asset,"
+    },
+    {
+        "start": 166.44,
+        "end": 169.07999999999998,
+        "text": "or even pieces of code at a time,"
+    },
+    {
+        "start": 169.07999999999998,
+        "end": 171.04,
+        "text": "in order for you to use the agent"
+    },
+    {
+        "start": 171.04,
+        "end": 173.07999999999998,
+        "text": "to help you generate some of the code,"
+    },
+    {
+        "start": 173.08,
+        "end": 175.44000000000003,
+        "text": "help you configure the brand assets"
+    },
+    {
+        "start": 175.44000000000003,
+        "end": 178.56,
+        "text": "so that you're involved in every single design choice"
+    },
+    {
+        "start": 178.56,
+        "end": 180.60000000000002,
+        "text": "and decisions made about the code."
+    },
+    {
+        "start": 180.60000000000002,
+        "end": 181.88000000000002,
+        "text": "All right, so it's gone ahead"
+    },
+    {
+        "start": 181.88000000000002,
+        "end": 184.16000000000003,
+        "text": "and created the entire pipeline for us now."
+    },
+    {
+        "start": 184.16000000000003,
+        "end": 186.84,
+        "text": "In the prompt, we instructed it to validate"
+    },
+    {
+        "start": 186.84,
+        "end": 188.8,
+        "text": "and run everything and to end,"
+    },
+    {
+        "start": 188.8,
+        "end": 190.8,
+        "text": "and also run the custom checks"
+    },
+    {
+        "start": 190.8,
+        "end": 194.60000000000002,
+        "text": "in order to validate the logic of the queries as well."
+    },
+    {
+        "start": 194.60000000000002,
+        "end": 199.04000000000002,
+        "text": "So at first glance, I can see that it has made one small error"
+    },
+    {
+        "start": 199.04000000000002,
+        "end": 202.12,
+        "text": "by creating the brand pipeline again,"
+    },
+    {
+        "start": 202.12,
+        "end": 205.0,
+        "text": "but we can just go ahead and clean that up."
+    },
+    {
+        "start": 205.0,
+        "end": 207.84,
+        "text": "So as instructed, it ran the entire pipeline"
+    },
+    {
+        "start": 207.84,
+        "end": 210.64000000000001,
+        "text": "and processed only a single month of data,"
+    },
+    {
+        "start": 210.64000000000001,
+        "end": 212.28,
+        "text": "just for testing,"
+    },
+    {
+        "start": 212.28,
+        "end": 214.56,
+        "text": "and it has also ran some queries"
+    },
+    {
+        "start": 214.56,
+        "end": 216.76,
+        "text": "using the Bruin query command,"
+    },
+    {
+        "start": 216.76,
+        "end": 219.20000000000002,
+        "text": "and it has verified some of the data"
+    },
+    {
+        "start": 219.20000000000002,
+        "end": 221.68,
+        "text": "by doing some basic checks as well."
+    },
+    {
+        "start": 221.68,
+        "end": 224.04000000000002,
+        "text": "This is in addition to the quality checks added"
+    },
+    {
+        "start": 224.04000000000002,
+        "end": 225.48000000000002,
+        "text": "inside the assets as well."
+    },
+    {
+        "start": 225.48000000000002,
+        "end": 227.48000000000002,
+        "text": "All right, so let's go ahead and take a look"
+    },
+    {
+        "start": 227.48000000000002,
+        "end": 229.92000000000002,
+        "text": "at the assets created, starting off"
+    },
+    {
+        "start": 229.92000000000002,
+        "end": 231.68,
+        "text": "with the ingestion assets."
+    },
+    {
+        "start": 231.68,
+        "end": 234.52,
+        "text": "In this Python asset, let's just accept the changes."
+    },
+    {
+        "start": 234.52,
+        "end": 237.12,
+        "text": "So looking at the Python ingestion asset,"
+    },
+    {
+        "start": 237.12,
+        "end": 240.12,
+        "text": "we can see that it has configured the asset correctly."
+    },
+    {
+        "start": 240.12,
+        "end": 242.6,
+        "text": "It has given it the name, the type, image,"
+    },
+    {
+        "start": 242.6,
+        "end": 245.72,
+        "text": "and it has set up the materialization as a table"
+    },
+    {
+        "start": 245.72,
+        "end": 247.20000000000002,
+        "text": "with append strategy,"
+    },
+    {
+        "start": 247.20000000000002,
+        "end": 250.08,
+        "text": "so any new data will get appended to the table."
+    },
+    {
+        "start": 250.08,
+        "end": 253.28,
+        "text": "And it has also generated some of the column metadata"
+    },
+    {
+        "start": 253.28,
+        "end": 254.56,
+        "text": "as well for us."
+    },
+    {
+        "start": 254.56,
+        "end": 257.36,
+        "text": "All right, looking at the Python code itself,"
+    },
+    {
+        "start": 257.36,
+        "end": 258.48,
+        "text": "it looks like in this case,"
+    },
+    {
+        "start": 258.48,
+        "end": 260.88,
+        "text": "it has put everything inside a single function."
+    },
+    {
+        "start": 260.88,
+        "end": 262.52,
+        "text": "It is the materialized function,"
+    },
+    {
+        "start": 262.52,
+        "end": 265.12,
+        "text": "which the Bruin Python materialization strategy"
+    },
+    {
+        "start": 265.12,
+        "end": 267.36,
+        "text": "requires in order to get the data frame"
+    },
+    {
+        "start": 267.36,
+        "end": 270.08,
+        "text": "and created inside the destination database."
+    },
+    {
+        "start": 270.08,
+        "end": 272.4,
+        "text": "It has set our environment variable,"
+    },
+    {
+        "start": 272.4,
+        "end": 274.36,
+        "text": "so the Bruin start and end dates"
+    },
+    {
+        "start": 274.36,
+        "end": 278.88,
+        "text": "and the taxi types from variables set up the base URL."
+    },
+    {
+        "start": 278.88,
+        "end": 281.28,
+        "text": "And it looks like it is creating a list"
+    },
+    {
+        "start": 281.28,
+        "end": 283.71999999999997,
+        "text": "of all the data frames in order to append them"
+    },
+    {
+        "start": 283.71999999999997,
+        "end": 285.08,
+        "text": "all together later."
+    },
+    {
+        "start": 285.08,
+        "end": 289.4,
+        "text": "And it is doing a loop where it's going month by month"
+    },
+    {
+        "start": 289.4,
+        "end": 291.76,
+        "text": "using the Bruin start and end dates"
+    },
+    {
+        "start": 291.76,
+        "end": 295.71999999999997,
+        "text": "to generate the URL and fetch the parquet files"
+    },
+    {
+        "start": 295.71999999999997,
+        "end": 297.59999999999997,
+        "text": "and put them inside a data frame"
+    },
+    {
+        "start": 297.59999999999997,
+        "end": 301.12,
+        "text": "and add that data frame to the all frames list."
+    },
+    {
+        "start": 301.12,
+        "end": 304.23999999999995,
+        "text": "And it is also doing some normalization,"
+    },
+    {
+        "start": 304.23999999999995,
+        "end": 307.03999999999996,
+        "text": "so different taxi types, the green and yellow"
+    },
+    {
+        "start": 307.03999999999996,
+        "end": 308.4,
+        "text": "have different columns,"
+    },
+    {
+        "start": 308.4,
+        "end": 312.08,
+        "text": "so it is unifying them by creating the pickup"
+    },
+    {
+        "start": 312.08,
+        "end": 314.08,
+        "text": "and drop off daytime for us."
+    },
+    {
+        "start": 314.08,
+        "end": 316.0,
+        "text": "And it is also adding the taxi type"
+    },
+    {
+        "start": 316.0,
+        "end": 317.15999999999997,
+        "text": "and the extract at a time,"
+    },
+    {
+        "start": 317.16,
+        "end": 319.56,
+        "text": "which are not already in the table itself."
+    },
+    {
+        "start": 319.56,
+        "end": 322.04,
+        "text": "It depends the data frame to our list."
+    },
+    {
+        "start": 322.04,
+        "end": 324.6,
+        "text": "It is a check to make sure that the list is not empty,"
+    },
+    {
+        "start": 324.6,
+        "end": 327.84000000000003,
+        "text": "and if it's not, it concats all of the data frames together"
+    },
+    {
+        "start": 327.84000000000003,
+        "end": 329.64000000000004,
+        "text": "and returns the final data frame."
+    },
+    {
+        "start": 329.64000000000004,
+        "end": 331.16,
+        "text": "For our Python ingestion,"
+    },
+    {
+        "start": 331.16,
+        "end": 334.20000000000005,
+        "text": "it has also created the requirements file for us."
+    },
+    {
+        "start": 334.20000000000005,
+        "end": 336.72,
+        "text": "All right, so quickly looking at the other assets"
+    },
+    {
+        "start": 336.72,
+        "end": 340.04,
+        "text": "it has created, it has created the seed asset as well,"
+    },
+    {
+        "start": 340.04,
+        "end": 342.88,
+        "text": "given the CSV file that we have there."
+    },
+    {
+        "start": 342.88,
+        "end": 346.96000000000004,
+        "text": "It has configured it correctly as a duct-db seed asset."
+    },
+    {
+        "start": 346.96,
+        "end": 350.35999999999996,
+        "text": "All right, now moving on to the staging assets,"
+    },
+    {
+        "start": 350.35999999999996,
+        "end": 353.2,
+        "text": "it has created the duct-db SQL asset,"
+    },
+    {
+        "start": 353.2,
+        "end": 355.52,
+        "text": "it has set the dependencies correctly"
+    },
+    {
+        "start": 355.52,
+        "end": 357.03999999999996,
+        "text": "to the ingestion assets,"
+    },
+    {
+        "start": 357.03999999999996,
+        "end": 360.68,
+        "text": "and I set the materialization as time interval strategy,"
+    },
+    {
+        "start": 360.68,
+        "end": 364.35999999999996,
+        "text": "so that means that it will essentially delete the data"
+    },
+    {
+        "start": 364.35999999999996,
+        "end": 367.96,
+        "text": "previously in the table based on the incremental key,"
+    },
+    {
+        "start": 367.96,
+        "end": 369.79999999999995,
+        "text": "which is the pickup daytime here,"
+    },
+    {
+        "start": 369.79999999999995,
+        "end": 372.28,
+        "text": "and for that specific time interval,"
+    },
+    {
+        "start": 372.28,
+        "end": 374.4,
+        "text": "so using the green start and end date,"
+    },
+    {
+        "start": 374.4,
+        "end": 376.79999999999995,
+        "text": "it will delete data where the pickup daytime"
+    },
+    {
+        "start": 376.8,
+        "end": 378.28000000000003,
+        "text": "is in between that interval"
+    },
+    {
+        "start": 378.28000000000003,
+        "end": 380.72,
+        "text": "and re-inserts that for that time frame."
+    },
+    {
+        "start": 380.72,
+        "end": 384.44,
+        "text": "It has also generated the full list of columns"
+    },
+    {
+        "start": 384.44,
+        "end": 385.84000000000003,
+        "text": "with some validity checks,"
+    },
+    {
+        "start": 385.84000000000003,
+        "end": 389.04,
+        "text": "as well as a custom check to make sure that there's no duplicates,"
+    },
+    {
+        "start": 389.04,
+        "end": 391.56,
+        "text": "given the aggregation level of this table."
+    },
+    {
+        "start": 391.56,
+        "end": 394.16,
+        "text": "One thing to keep in mind about the time interval strategy"
+    },
+    {
+        "start": 394.16,
+        "end": 396.52,
+        "text": "is that the way that Brent will compile"
+    },
+    {
+        "start": 396.52,
+        "end": 400.6,
+        "text": "and parse this query is that if we take a look at the panel"
+    },
+    {
+        "start": 400.6,
+        "end": 403.32,
+        "text": "and look at the preview of the query,"
+    },
+    {
+        "start": 403.32,
+        "end": 405.40000000000003,
+        "text": "we can see that it begins a transaction,"
+    },
+    {
+        "start": 405.4,
+        "end": 408.71999999999997,
+        "text": "it deletes from our table where the pickup daytime,"
+    },
+    {
+        "start": 408.71999999999997,
+        "end": 410.44,
+        "text": "so that's the incremental key,"
+    },
+    {
+        "start": 410.44,
+        "end": 412.84,
+        "text": "is between the start and end date"
+    },
+    {
+        "start": 412.84,
+        "end": 415.23999999999995,
+        "text": "that is chosen for that specific run,"
+    },
+    {
+        "start": 415.23999999999995,
+        "end": 418.52,
+        "text": "and then it will insert data given the query"
+    },
+    {
+        "start": 418.52,
+        "end": 419.59999999999997,
+        "text": "that we have provided."
+    },
+    {
+        "start": 419.59999999999997,
+        "end": 423.03999999999996,
+        "text": "So the result of this query will essentially get inserted"
+    },
+    {
+        "start": 423.03999999999996,
+        "end": 423.91999999999996,
+        "text": "into our table,"
+    },
+    {
+        "start": 423.91999999999996,
+        "end": 427.2,
+        "text": "and that is why it's important for us to always filter"
+    },
+    {
+        "start": 427.2,
+        "end": 430.56,
+        "text": "our data given the green start and end date,"
+    },
+    {
+        "start": 430.56,
+        "end": 434.12,
+        "text": "and you have to add this as a filter inside your query,"
+    },
+    {
+        "start": 434.12,
+        "end": 436.44,
+        "text": "using the same incremental key as well."
+    },
+    {
+        "start": 436.44,
+        "end": 438.4,
+        "text": "All right, looking at the final report again,"
+    },
+    {
+        "start": 438.4,
+        "end": 441.0,
+        "text": "it has set up our materialization strategy,"
+    },
+    {
+        "start": 441.0,
+        "end": 443.44,
+        "text": "set up the dependencies correctly as well,"
+    },
+    {
+        "start": 443.44,
+        "end": 445.2,
+        "text": "and our column metadata,"
+    },
+    {
+        "start": 445.2,
+        "end": 447.08,
+        "text": "and it has done a simple aggregation"
+    },
+    {
+        "start": 447.08,
+        "end": 450.64,
+        "text": "at the trip date, taxi type, and payment type level,"
+    },
+    {
+        "start": 450.64,
+        "end": 453.32,
+        "text": "and it has also correctly filtered the incremental key"
+    },
+    {
+        "start": 453.32,
+        "end": 455.48,
+        "text": "using the Brent start and end date."
+    },
+    {
+        "start": 455.48,
+        "end": 457.64,
+        "text": "Now taking a look at our lineage here,"
+    },
+    {
+        "start": 457.64,
+        "end": 459.92,
+        "text": "we can see that we have the full pipeline,"
+    },
+    {
+        "start": 459.92,
+        "end": 462.04,
+        "text": "all the dependencies created."
+    },
+    {
+        "start": 462.28000000000003,
+        "end": 465.0,
+        "text": "So let me show you one more cool thing"
+    },
+    {
+        "start": 465.0,
+        "end": 467.84000000000003,
+        "text": "that we can do with agents with the MCP,"
+    },
+    {
+        "start": 467.84000000000003,
+        "end": 469.8,
+        "text": "is that you can have a conversation with it,"
+    },
+    {
+        "start": 469.8,
+        "end": 472.52000000000004,
+        "text": "and this is really helpful when you want to query the data,"
+    },
+    {
+        "start": 472.52000000000004,
+        "end": 474.08000000000004,
+        "text": "or you want to troubleshoot something."
+    },
+    {
+        "start": 474.08000000000004,
+        "end": 477.44,
+        "text": "So let's go ahead and let's say query the staging table"
+    },
+    {
+        "start": 477.44,
+        "end": 480.48,
+        "text": "and tell me how many days of data we have."
+    },
+    {
+        "start": 480.48,
+        "end": 482.40000000000003,
+        "text": "So it ran the query for us,"
+    },
+    {
+        "start": 482.40000000000003,
+        "end": 485.20000000000005,
+        "text": "and it's telling us we have 31 days of data,"
+    },
+    {
+        "start": 485.20000000000005,
+        "end": 486.04,
+        "text": "which is correct,"
+    },
+    {
+        "start": 486.04,
+        "end": 488.48,
+        "text": "because we only process data for one month."
+    },
+    {
+        "start": 488.48,
+        "end": 490.84000000000003,
+        "text": "Now let's ask it another question."
+    },
+    {
+        "start": 490.84,
+        "end": 493.79999999999995,
+        "text": "For example, which day had the highest number of trips"
+    },
+    {
+        "start": 493.79999999999995,
+        "end": 494.91999999999996,
+        "text": "and total fare?"
+    },
+    {
+        "start": 495.96,
+        "end": 497.76,
+        "text": "So it understands the context."
+    },
+    {
+        "start": 497.76,
+        "end": 500.4,
+        "text": "It knows how to query the table and it went ahead"
+    },
+    {
+        "start": 500.4,
+        "end": 505.2,
+        "text": "and did it by doing some and a group by and a limit"
+    },
+    {
+        "start": 505.2,
+        "end": 506.64,
+        "text": "to get the top five."
+    },
+    {
+        "start": 506.64,
+        "end": 508.28,
+        "text": "And you can also ask it questions"
+    },
+    {
+        "start": 508.28,
+        "end": 509.76,
+        "text": "about the pipeline itself."
+    },
+    {
+        "start": 509.76,
+        "end": 512.1999999999999,
+        "text": "So this is really helpful for data engineers,"
+    },
+    {
+        "start": 512.1999999999999,
+        "end": 514.6,
+        "text": "or anyone else that wants to understand the pipeline,"
+    },
+    {
+        "start": 514.6,
+        "end": 517.4399999999999,
+        "text": "wants to ask it questions about the logic of the pipeline."
+    },
+    {
+        "start": 517.4399999999999,
+        "end": 520.16,
+        "text": "So let's go ahead, for example, and ask"
+    },
+    {
+        "start": 520.16,
+        "end": 523.36,
+        "text": "in which asset are we aggregating data?"
+    },
+    {
+        "start": 523.36,
+        "end": 526.4399999999999,
+        "text": "It is correctly saying that in the reports asset,"
+    },
+    {
+        "start": 526.4399999999999,
+        "end": 528.88,
+        "text": "that's where we are aggregating the table,"
+    },
+    {
+        "start": 528.88,
+        "end": 531.68,
+        "text": "aggregating the data to the trip date,"
+    },
+    {
+        "start": 531.68,
+        "end": 533.6,
+        "text": "taxi type, and payment type level."
+    },
+    {
+        "start": 533.6,
+        "end": 537.28,
+        "text": "All right, so that's an overview of how to use the MCP"
+    },
+    {
+        "start": 537.28,
+        "end": 541.04,
+        "text": "to generate your pipelines, ask it questions about breund,"
+    },
+    {
+        "start": 541.04,
+        "end": 543.16,
+        "text": "about your pipeline, about the data,"
+    },
+    {
+        "start": 543.16,
+        "end": 546.8399999999999,
+        "text": "and be able to just run queries using natural language,"
+    },
+    {
+        "start": 546.8399999999999,
+        "end": 549.04,
+        "text": "instead of having to write the queries yourself,"
+    },
+    {
+        "start": 549.04,
+        "end": 551.9599999999999,
+        "text": "for these types of ad hoc analysis or troubleshooting."
+    },
+    {
+        "start": 551.96,
+        "end": 553.64,
+        "text": "Um."
+    }
+]

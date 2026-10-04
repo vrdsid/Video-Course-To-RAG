@@ -1,0 +1,432 @@
+[
+    {
+        "start": 0.0,
+        "end": 2.2,
+        "text": "Hello, everyone."
+    },
+    {
+        "start": 2.2,
+        "end": 3.08,
+        "text": "Welcome again."
+    },
+    {
+        "start": 3.08,
+        "end": 6.16,
+        "text": "In this video, I'm going to show you Brin Cloud."
+    },
+    {
+        "start": 6.16,
+        "end": 8.56,
+        "text": "We're going to go over the registration process,"
+    },
+    {
+        "start": 8.56,
+        "end": 11.6,
+        "text": "how to connect your repo, set up your connections,"
+    },
+    {
+        "start": 11.6,
+        "end": 13.08,
+        "text": "and deploy your pipelines."
+    },
+    {
+        "start": 13.08,
+        "end": 16.4,
+        "text": "Brin Cloud is powered by the same open source CLI tool"
+    },
+    {
+        "start": 16.4,
+        "end": 19.52,
+        "text": "that you've been using to develop your pipelines,"
+    },
+    {
+        "start": 19.52,
+        "end": 23.44,
+        "text": "orchestrate everything, and monitor your executions."
+    },
+    {
+        "start": 23.44,
+        "end": 25.68,
+        "text": "Brin Cloud is a fully managed infrastructure"
+    },
+    {
+        "start": 25.68,
+        "end": 28.240000000000002,
+        "text": "for your data pipelines where all the ingestions,"
+    },
+    {
+        "start": 28.24,
+        "end": 31.2,
+        "text": "transformations, quality checks, everything"
+    },
+    {
+        "start": 31.2,
+        "end": 32.4,
+        "text": "lives in the same place."
+    },
+    {
+        "start": 32.4,
+        "end": 34.68,
+        "text": "You can check the lineage, all your metadata,"
+    },
+    {
+        "start": 34.68,
+        "end": 36.64,
+        "text": "all the data governance as well."
+    },
+    {
+        "start": 36.64,
+        "end": 39.36,
+        "text": "There is AI-powered features, such as generating"
+    },
+    {
+        "start": 39.36,
+        "end": 43.239999999999995,
+        "text": "your metadata automatically, or speaking with an AI agent"
+    },
+    {
+        "start": 43.239999999999995,
+        "end": 46.64,
+        "text": "where you can analyze your data, ask about data pipelines,"
+    },
+    {
+        "start": 46.64,
+        "end": 49.16,
+        "text": "or talk about your metadata."
+    },
+    {
+        "start": 49.16,
+        "end": 51.56,
+        "text": "All right, so let's get started."
+    },
+    {
+        "start": 51.56,
+        "end": 53.84,
+        "text": "Basically, when you get into the first page,"
+    },
+    {
+        "start": 53.84,
+        "end": 56.28,
+        "text": "go ahead and fill out your information here,"
+    },
+    {
+        "start": 56.28,
+        "end": 58.68,
+        "text": "give it your name, your email address,"
+    },
+    {
+        "start": 58.68,
+        "end": 60.36,
+        "text": "and set a strong password."
+    },
+    {
+        "start": 60.36,
+        "end": 62.800000000000004,
+        "text": "You will receive a verification email,"
+    },
+    {
+        "start": 62.800000000000004,
+        "end": 65.6,
+        "text": "so go ahead and click the link that you received"
+    },
+    {
+        "start": 65.6,
+        "end": 66.56,
+        "text": "in your email."
+    },
+    {
+        "start": 66.56,
+        "end": 69.88,
+        "text": "All right, now you have the option of joining"
+    },
+    {
+        "start": 69.88,
+        "end": 73.2,
+        "text": "an existing team or creating a new organization."
+    },
+    {
+        "start": 73.2,
+        "end": 76.12,
+        "text": "So let's go ahead and create a new organization here."
+    },
+    {
+        "start": 76.12,
+        "end": 79.04,
+        "text": "You can give your organization name anything that you want."
+    },
+    {
+        "start": 79.04,
+        "end": 81.6,
+        "text": "So let's go ahead and give it a name."
+    },
+    {
+        "start": 81.6,
+        "end": 84.76,
+        "text": "All right, so you will have the option to choose between"
+    },
+    {
+        "start": 84.76,
+        "end": 87.56,
+        "text": "if you want to connect directly with GitHub"
+    },
+    {
+        "start": 87.56,
+        "end": 91.04,
+        "text": "or provide a personal access token."
+    },
+    {
+        "start": 91.04,
+        "end": 93.24000000000001,
+        "text": "Because I've connected my GitHub before,"
+    },
+    {
+        "start": 93.24000000000001,
+        "end": 96.60000000000001,
+        "text": "I'm going to just go ahead and use a personal access token."
+    },
+    {
+        "start": 96.60000000000001,
+        "end": 101.68,
+        "text": "And next thing, you need to give it your GitHub repo link."
+    },
+    {
+        "start": 101.68,
+        "end": 103.68,
+        "text": "And again, this would be much easier"
+    },
+    {
+        "start": 103.68,
+        "end": 105.48,
+        "text": "if you directly connect your GitHub"
+    },
+    {
+        "start": 105.48,
+        "end": 108.32000000000001,
+        "text": "and you can from the dropdown select your repo."
+    },
+    {
+        "start": 108.32000000000001,
+        "end": 111.32000000000001,
+        "text": "All right, so now that it's created our workspace,"
+    },
+    {
+        "start": 111.32000000000001,
+        "end": 114.12,
+        "text": "we can go ahead and add our connections."
+    },
+    {
+        "start": 114.12,
+        "end": 116.08,
+        "text": "So these connections are essentially"
+    },
+    {
+        "start": 116.08,
+        "end": 119.84,
+        "text": "the same connections and secrets that you set up locally"
+    },
+    {
+        "start": 119.84,
+        "end": 121.28,
+        "text": "in your Brune Yamal file."
+    },
+    {
+        "start": 121.28,
+        "end": 124.80000000000001,
+        "text": "Here, you just want to go ahead and set them up again."
+    },
+    {
+        "start": 124.80000000000001,
+        "end": 127.16000000000001,
+        "text": "All right, in order to set up a connection,"
+    },
+    {
+        "start": 127.16000000000001,
+        "end": 129.8,
+        "text": "and this is fully secure, you can read our documentation"
+    },
+    {
+        "start": 129.8,
+        "end": 133.68,
+        "text": "about how we keep your secret."
+    },
+    {
+        "start": 133.68,
+        "end": 135.8,
+        "text": "You can go ahead and select the connection type."
+    },
+    {
+        "start": 135.8,
+        "end": 139.08,
+        "text": "In my case, I'm using MotherDoc for my data warehouse."
+    },
+    {
+        "start": 139.08,
+        "end": 141.68,
+        "text": "You might be using BigQuery, Redshift, or another thing."
+    },
+    {
+        "start": 141.68,
+        "end": 144.0,
+        "text": "So go ahead and select your connection type,"
+    },
+    {
+        "start": 144.0,
+        "end": 147.24,
+        "text": "give it the connection name that you use locally as well."
+    },
+    {
+        "start": 147.24,
+        "end": 150.0,
+        "text": "And in my case, I need to give it the service token,"
+    },
+    {
+        "start": 150.0,
+        "end": 151.8,
+        "text": "so I'm setting that up."
+    },
+    {
+        "start": 151.8,
+        "end": 155.4,
+        "text": "And I have an optional database name, which I will provide here."
+    },
+    {
+        "start": 155.4,
+        "end": 157.28,
+        "text": "And it will be validated and tested"
+    },
+    {
+        "start": 157.28,
+        "end": 159.08,
+        "text": "behind the scenes as well."
+    },
+    {
+        "start": 159.08,
+        "end": 162.16,
+        "text": "If you select without validation, it will test the connection."
+    },
+    {
+        "start": 162.16,
+        "end": 163.96,
+        "text": "So if we go to the dashboard page,"
+    },
+    {
+        "start": 163.96,
+        "end": 166.96,
+        "text": "we will be greeted with a few instructions"
+    },
+    {
+        "start": 166.96,
+        "end": 170.48,
+        "text": "that navigate to our pipelines page, where you will be able"
+    },
+    {
+        "start": 170.48,
+        "end": 174.2,
+        "text": "to find the list of pipelines from your repository."
+    },
+    {
+        "start": 174.2,
+        "end": 176.11999999999998,
+        "text": "And I have this one pipeline."
+    },
+    {
+        "start": 176.11999999999998,
+        "end": 178.79999999999998,
+        "text": "It's still waiting to initialize the pipeline."
+    },
+    {
+        "start": 178.79999999999998,
+        "end": 182.64,
+        "text": "This will take some time for Brune to validate every asset"
+    },
+    {
+        "start": 182.64,
+        "end": 185.92,
+        "text": "and make sure that the lineage and the connections work."
+    },
+    {
+        "start": 185.92,
+        "end": 188.23999999999998,
+        "text": "All right, so now our pipeline is ready."
+    },
+    {
+        "start": 188.23999999999998,
+        "end": 190.64,
+        "text": "We can go ahead and enable that pipeline."
+    },
+    {
+        "start": 190.64,
+        "end": 193.72,
+        "text": "And something to note is that when you enable your pipeline,"
+    },
+    {
+        "start": 193.72,
+        "end": 195.48,
+        "text": "if there's a schedule for your pipeline,"
+    },
+    {
+        "start": 195.48,
+        "end": 197.83999999999997,
+        "text": "it will automatically create a new run that"
+    },
+    {
+        "start": 197.84,
+        "end": 200.48,
+        "text": "will be processing the last interval."
+    },
+    {
+        "start": 200.48,
+        "end": 203.28,
+        "text": "So in our case, our pipeline is monthly."
+    },
+    {
+        "start": 203.28,
+        "end": 207.56,
+        "text": "So as you see, the interval will also be monthly as well."
+    },
+    {
+        "start": 207.56,
+        "end": 209.92000000000002,
+        "text": "All right, now our pipeline has run"
+    },
+    {
+        "start": 209.92000000000002,
+        "end": 213.4,
+        "text": "and all the assets have been successful"
+    },
+    {
+        "start": 213.4,
+        "end": 215.24,
+        "text": "or quality checks have passed."
+    },
+    {
+        "start": 215.24,
+        "end": 217.88,
+        "text": "All right, so that's an overview of Brune Cloud."
+    },
+    {
+        "start": 217.88,
+        "end": 221.24,
+        "text": "Feel free to reach out to us in our Slack community."
+    },
+    {
+        "start": 221.24,
+        "end": 223.92000000000002,
+        "text": "If you have any questions, feature requests,"
+    },
+    {
+        "start": 223.92000000000002,
+        "end": 225.64000000000001,
+        "text": "where you can go ahead on our GitHub"
+    },
+    {
+        "start": 225.64000000000001,
+        "end": 227.52,
+        "text": "and submit issues as well."
+    },
+    {
+        "start": 227.52,
+        "end": 229.68,
+        "text": "Thank you for watching until next time."
+    }
+]

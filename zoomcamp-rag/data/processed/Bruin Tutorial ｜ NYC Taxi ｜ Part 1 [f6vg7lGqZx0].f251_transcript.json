@@ -1,0 +1,352 @@
+[
+    {
+        "start": 0.0,
+        "end": 3.8000000000000003,
+        "text": "Hello everyone, my name is RC."
+    },
+    {
+        "start": 3.8000000000000003,
+        "end": 6.2,
+        "text": "Welcome to the new series of tutorials"
+    },
+    {
+        "start": 6.2,
+        "end": 8.84,
+        "text": "about Bruin Data Platform. Follow me."
+    },
+    {
+        "start": 9.84,
+        "end": 12.08,
+        "text": "So I'll be explaining what Bruin is,"
+    },
+    {
+        "start": 12.08,
+        "end": 13.96,
+        "text": "what a data platform is,"
+    },
+    {
+        "start": 13.96,
+        "end": 17.52,
+        "text": "and why do you need to have to use five different tools"
+    },
+    {
+        "start": 17.52,
+        "end": 20.0,
+        "text": "to achieve the same thing that you can do"
+    },
+    {
+        "start": 20.0,
+        "end": 21.44,
+        "text": "with just using Bruin?"
+    },
+    {
+        "start": 21.44,
+        "end": 23.2,
+        "text": "It's an end-to-end data platform"
+    },
+    {
+        "start": 23.2,
+        "end": 25.12,
+        "text": "that helps you with the ingestion,"
+    },
+    {
+        "start": 25.12,
+        "end": 28.44,
+        "text": "all the transformations, orchestrate everything,"
+    },
+    {
+        "start": 28.44,
+        "end": 30.28,
+        "text": "set your data quality checks,"
+    },
+    {
+        "start": 30.28,
+        "end": 33.0,
+        "text": "manage your metadata, lineage, everything,"
+    },
+    {
+        "start": 33.0,
+        "end": 35.04,
+        "text": "all in the single platform."
+    },
+    {
+        "start": 35.04,
+        "end": 37.72,
+        "text": "We will be going through a project"
+    },
+    {
+        "start": 37.72,
+        "end": 41.8,
+        "text": "where we will extract data from the New York City taxi database."
+    },
+    {
+        "start": 41.8,
+        "end": 43.04,
+        "text": "Now, follow me."
+    },
+    {
+        "start": 43.04,
+        "end": 45.72,
+        "text": "We will go to the next tutorial where we will get started."
+    },
+    {
+        "start": 45.72,
+        "end": 48.040000000000006,
+        "text": "Welcome again. Now we can get started"
+    },
+    {
+        "start": 48.040000000000006,
+        "end": 51.28,
+        "text": "with our planning goals for this tutorial."
+    },
+    {
+        "start": 51.28,
+        "end": 54.36,
+        "text": "We're going to go over the Bruin project structure."
+    },
+    {
+        "start": 54.36,
+        "end": 56.2,
+        "text": "What is a pipeline? What are assets?"
+    },
+    {
+        "start": 56.2,
+        "end": 58.28,
+        "text": "How do we configure our pipelines?"
+    },
+    {
+        "start": 58.28,
+        "end": 61.04,
+        "text": "And throughout this whole tutorial,"
+    },
+    {
+        "start": 61.04,
+        "end": 63.32,
+        "text": "you will learn about material strategies"
+    },
+    {
+        "start": 63.32,
+        "end": 65.04,
+        "text": "that are supported by Bruin."
+    },
+    {
+        "start": 65.04,
+        "end": 66.72,
+        "text": "You will understand the Bruin lineage"
+    },
+    {
+        "start": 66.72,
+        "end": 69.56,
+        "text": "and how to build dependencies between your assets."
+    },
+    {
+        "start": 69.56,
+        "end": 71.44,
+        "text": "And we will take a look at the metadata"
+    },
+    {
+        "start": 71.44,
+        "end": 74.72,
+        "text": "that is created automatically as well as manually."
+    },
+    {
+        "start": 74.72,
+        "end": 78.16,
+        "text": "And we will also learn how to parameterize our pipelines"
+    },
+    {
+        "start": 78.16,
+        "end": 80.16,
+        "text": "by adding custom variables."
+    },
+    {
+        "start": 80.16,
+        "end": 84.4,
+        "text": "So let's go ahead with some overview of"
+    },
+    {
+        "start": 84.4,
+        "end": 86.08,
+        "text": "what is a modern data stack."
+    },
+    {
+        "start": 86.08,
+        "end": 88.72,
+        "text": "So as you might already be familiar with,"
+    },
+    {
+        "start": 88.72,
+        "end": 91.67999999999999,
+        "text": "we have our ETL, ELT processes."
+    },
+    {
+        "start": 91.67999999999999,
+        "end": 93.88,
+        "text": "So you want to extract some data ingested"
+    },
+    {
+        "start": 93.88,
+        "end": 98.12,
+        "text": "from third-party sources or some databases that you have."
+    },
+    {
+        "start": 98.12,
+        "end": 100.96,
+        "text": "And you want to bring them into your data warehouse"
+    },
+    {
+        "start": 100.96,
+        "end": 102.24,
+        "text": "or your data lake."
+    },
+    {
+        "start": 102.24,
+        "end": 105.0,
+        "text": "And you want to run some transformations, clean them."
+    },
+    {
+        "start": 105.0,
+        "end": 106.92,
+        "text": "It creates some reports from them."
+    },
+    {
+        "start": 106.92,
+        "end": 109.75999999999999,
+        "text": "And push them again, either to a data warehouse,"
+    },
+    {
+        "start": 109.75999999999999,
+        "end": 112.88,
+        "text": "a data lake, a third-party application."
+    },
+    {
+        "start": 112.88,
+        "end": 115.0,
+        "text": "And when you have these different scripts,"
+    },
+    {
+        "start": 115.0,
+        "end": 117.96,
+        "text": "these different services running, extracting,"
+    },
+    {
+        "start": 117.96,
+        "end": 121.8,
+        "text": "transforming, making API calls, doing different things,"
+    },
+    {
+        "start": 121.8,
+        "end": 124.24,
+        "text": "you need an orchestrator to essentially tell them,"
+    },
+    {
+        "start": 124.24,
+        "end": 128.56,
+        "text": "when to do what, how to do it, how to speak to other services,"
+    },
+    {
+        "start": 128.56,
+        "end": 130.28,
+        "text": "other parts of your code."
+    },
+    {
+        "start": 130.28,
+        "end": 133.48,
+        "text": "And that's the orchestration part that also"
+    },
+    {
+        "start": 133.48,
+        "end": 135.6,
+        "text": "the Bruin orchestrator helps with."
+    },
+    {
+        "start": 135.6,
+        "end": 139.28,
+        "text": "And then lastly, you want to have your metadata."
+    },
+    {
+        "start": 139.28,
+        "end": 142.32,
+        "text": "You want to be able to create some data governance."
+    },
+    {
+        "start": 142.32,
+        "end": 145.28,
+        "text": "And as part of that, you want to have some data quality checks"
+    },
+    {
+        "start": 145.28,
+        "end": 147.4,
+        "text": "where you want to ensure accuracy."
+    },
+    {
+        "start": 147.4,
+        "end": 149.16,
+        "text": "You want to make sure completeness."
+    },
+    {
+        "start": 149.16,
+        "end": 151.32,
+        "text": "You want to ensure consistency of your data"
+    },
+    {
+        "start": 151.32,
+        "end": 154.12,
+        "text": "before you actually deliver that data"
+    },
+    {
+        "start": 154.12,
+        "end": 159.51999999999998,
+        "text": "into the final database or to your data consumers."
+    },
+    {
+        "start": 159.51999999999998,
+        "end": 162.24,
+        "text": "Where Bruin fits here is really bringing in"
+    },
+    {
+        "start": 162.24,
+        "end": 165.48,
+        "text": "all of these tools together so you can avoid using five,"
+    },
+    {
+        "start": 165.48,
+        "end": 168.48,
+        "text": "six different tools having to configure them separately."
+    },
+    {
+        "start": 168.48,
+        "end": 173.0,
+        "text": "You don't need to be a DevOps person and a data infrastructure"
+    },
+    {
+        "start": 173.0,
+        "end": 176.72,
+        "text": "person and a data architect in order to just build a pipeline."
+    },
+    {
+        "start": 176.72,
+        "end": 179.67999999999998,
+        "text": "So that's really what Bruin wants to help you achieve"
+    },
+    {
+        "start": 179.67999999999998,
+        "end": 183.32,
+        "text": "is to bring all of these together into a single project"
+    },
+    {
+        "start": 183.32,
+        "end": 186.83999999999997,
+        "text": "and for you to have your logic of your code,"
+    },
+    {
+        "start": 186.83999999999997,
+        "end": 190.72,
+        "text": "the configurations, the dependencies, the quality checks,"
+    },
+    {
+        "start": 190.72,
+        "end": 192.64,
+        "text": "everything all in the same place."
+    }
+]

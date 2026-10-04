@@ -1,0 +1,4397 @@
+[
+    {
+        "start": 0.0,
+        "end": 4.64,
+        "text": "Let's start now with the deviloment of those DVT models."
+    },
+    {
+        "start": 4.64,
+        "end": 9.040000000000001,
+        "text": "If we go back to the initial lessons,"
+    },
+    {
+        "start": 9.040000000000001,
+        "end": 11.72,
+        "text": "DVT sits on top of our platform,"
+    },
+    {
+        "start": 11.72,
+        "end": 13.16,
+        "text": "BigQuery, or Postgres,"
+    },
+    {
+        "start": 13.16,
+        "end": 15.72,
+        "text": "depending on how you're doing the queries."
+    },
+    {
+        "start": 15.72,
+        "end": 19.52,
+        "text": "We loaded already this for data as the troops data"
+    },
+    {
+        "start": 19.52,
+        "end": 23.52,
+        "text": "all we have, the green data, yellow data as well."
+    },
+    {
+        "start": 23.52,
+        "end": 26.68,
+        "text": "Now we're going to do the deviloment and the testing"
+    },
+    {
+        "start": 26.68,
+        "end": 27.72,
+        "text": "under-cumentation."
+    },
+    {
+        "start": 27.72,
+        "end": 29.88,
+        "text": "So we're going to do this two layers in something"
+    },
+    {
+        "start": 29.88,
+        "end": 31.48,
+        "text": "like a sandbox."
+    },
+    {
+        "start": 31.48,
+        "end": 34.76,
+        "text": "And then, at the Burian Lift this lessons,"
+    },
+    {
+        "start": 34.76,
+        "end": 37.519999999999996,
+        "text": "we are going to deploy that interproduction"
+    },
+    {
+        "start": 37.519999999999996,
+        "end": 43.96,
+        "text": "in order to use those transformations in our BI tools."
+    },
+    {
+        "start": 43.96,
+        "end": 46.599999999999994,
+        "text": "Something that we need to understand to get started,"
+    },
+    {
+        "start": 46.599999999999994,
+        "end": 51.120000000000005,
+        "text": "we're going to be using a modular data modeling approach."
+    },
+    {
+        "start": 51.120000000000005,
+        "end": 54.76,
+        "text": "As we saw in the first lessons,"
+    },
+    {
+        "start": 54.76,
+        "end": 57.76,
+        "text": "we are going to be doing something like fact tables,"
+    },
+    {
+        "start": 57.76,
+        "end": 60.08,
+        "text": "dimensional tables."
+    },
+    {
+        "start": 60.08,
+        "end": 63.16,
+        "text": "And the way this is going to look in our duty project"
+    },
+    {
+        "start": 63.16,
+        "end": 67.32,
+        "text": "is following the structure similar like this."
+    },
+    {
+        "start": 67.32,
+        "end": 70.8,
+        "text": "We're going to first have those tables that we loaded,"
+    },
+    {
+        "start": 70.8,
+        "end": 75.12,
+        "text": "that would be the troops data, all of this, our sources."
+    },
+    {
+        "start": 75.12,
+        "end": 77.32,
+        "text": "And then we're going to start building"
+    },
+    {
+        "start": 77.32,
+        "end": 82.92,
+        "text": "this SQL scripts that we're going to call models in DVT"
+    },
+    {
+        "start": 82.92,
+        "end": 85.84,
+        "text": "that are going to be doing transformations."
+    },
+    {
+        "start": 85.84,
+        "end": 90.04,
+        "text": "So let's say we pick up that data, and then at the Burian"
+    },
+    {
+        "start": 90.04,
+        "end": 92.68,
+        "text": "end we're going to have, and as great work,"
+    },
+    {
+        "start": 92.68,
+        "end": 94.0,
+        "text": "we're going to clean that data."
+    },
+    {
+        "start": 94.0,
+        "end": 97.96000000000001,
+        "text": "We're going to duplicate, we're going to rename it,"
+    },
+    {
+        "start": 97.96000000000001,
+        "end": 99.48,
+        "text": "typecast it as well."
+    },
+    {
+        "start": 99.48,
+        "end": 101.48,
+        "text": "And then we're going to have another saying"
+    },
+    {
+        "start": 101.48,
+        "end": 103.04,
+        "text": "that supply and the business logic."
+    },
+    {
+        "start": 103.04,
+        "end": 107.08,
+        "text": "So let's say making those fact and deemed tables."
+    },
+    {
+        "start": 107.08,
+        "end": 110.16,
+        "text": "And we're going to later on make something like a data"
+    },
+    {
+        "start": 110.16,
+        "end": 114.2,
+        "text": "mark, aggregate the data to serve to our SD holders."
+    },
+    {
+        "start": 114.2,
+        "end": 119.52,
+        "text": "How is that going to look like in each SQL file?"
+    },
+    {
+        "start": 119.52,
+        "end": 122.56,
+        "text": "So let's think about the anatomy of a DVT model."
+    },
+    {
+        "start": 122.56,
+        "end": 126.0,
+        "text": "As I said, these models are SQL scripts."
+    },
+    {
+        "start": 126.0,
+        "end": 129.8,
+        "text": "So we're, of course, going to be always working with a file"
+    },
+    {
+        "start": 129.8,
+        "end": 133.35999999999999,
+        "text": "that has the name of the model, that's the name of the file,"
+    },
+    {
+        "start": 133.35999999999999,
+        "end": 135.2,
+        "text": "and it's a SQL file."
+    },
+    {
+        "start": 135.2,
+        "end": 139.51999999999998,
+        "text": "And in there, we're going to be writing our SQL statement."
+    },
+    {
+        "start": 139.52,
+        "end": 141.20000000000002,
+        "text": "What we're actually going to be writing"
+    },
+    {
+        "start": 141.20000000000002,
+        "end": 143.56,
+        "text": "is this select the statement because DVT"
+    },
+    {
+        "start": 143.56,
+        "end": 146.48000000000002,
+        "text": "is going to be doing that DDL and DML for us."
+    },
+    {
+        "start": 146.48000000000002,
+        "end": 150.48000000000002,
+        "text": "But we have to tell DVT how to create that DDL and DML."
+    },
+    {
+        "start": 150.48000000000002,
+        "end": 153.88,
+        "text": "And for that, we're going to be using something like this."
+    },
+    {
+        "start": 153.88,
+        "end": 157.44,
+        "text": "So if you see here, I'm telling DVT that this"
+    },
+    {
+        "start": 157.44,
+        "end": 161.56,
+        "text": "my model, that SQL, has to be materialized as a table"
+    },
+    {
+        "start": 161.56,
+        "end": 163.04000000000002,
+        "text": "into the database."
+    },
+    {
+        "start": 163.04000000000002,
+        "end": 167.36,
+        "text": "This is going to tell DVT how I want to compile that code."
+    },
+    {
+        "start": 167.36,
+        "end": 169.8,
+        "text": "So when I do a DVT run, what it's going to do"
+    },
+    {
+        "start": 169.8,
+        "end": 175.20000000000002,
+        "text": "is going to pick up all the SQL files that are within my project."
+    },
+    {
+        "start": 175.20000000000002,
+        "end": 177.04000000000002,
+        "text": "And it's going to compile that code,"
+    },
+    {
+        "start": 177.04000000000002,
+        "end": 179.16000000000003,
+        "text": "and it's going to look something like this."
+    },
+    {
+        "start": 179.16000000000003,
+        "end": 182.76000000000002,
+        "text": "Create table, and there are my schema,"
+    },
+    {
+        "start": 182.76000000000002,
+        "end": 186.12,
+        "text": "my model, name of the file, asks, and then the same"
+    },
+    {
+        "start": 186.12,
+        "end": 188.64000000000001,
+        "text": "solid statement."
+    },
+    {
+        "start": 188.64000000000001,
+        "end": 190.04000000000002,
+        "text": "There are different materializations"
+    },
+    {
+        "start": 190.04000000000002,
+        "end": 192.28000000000003,
+        "text": "that we're going to be able to use."
+    },
+    {
+        "start": 192.28000000000003,
+        "end": 194.28000000000003,
+        "text": "This is something that we're going to be seeing"
+    },
+    {
+        "start": 194.28000000000003,
+        "end": 196.68,
+        "text": "as we create those models."
+    },
+    {
+        "start": 196.68,
+        "end": 199.8,
+        "text": "But you should know that there are mainly four types."
+    },
+    {
+        "start": 199.8,
+        "end": 201.96,
+        "text": "The first one, and this is a female."
+    },
+    {
+        "start": 201.96,
+        "end": 204.96,
+        "text": "Those are not models that do not really materialize"
+    },
+    {
+        "start": 204.96,
+        "end": 206.6,
+        "text": "in a physical storage."
+    },
+    {
+        "start": 206.6,
+        "end": 209.48000000000002,
+        "text": "That means it's a model that can only really"
+    },
+    {
+        "start": 209.48000000000002,
+        "end": 213.0,
+        "text": "leave within other models, something similar like a CTE,"
+    },
+    {
+        "start": 213.0,
+        "end": 217.20000000000002,
+        "text": "if you're very used to write SQL."
+    },
+    {
+        "start": 217.20000000000002,
+        "end": 218.36,
+        "text": "Then there's a view."
+    },
+    {
+        "start": 218.36,
+        "end": 222.20000000000002,
+        "text": "A view is going to materialize in the database as a view."
+    },
+    {
+        "start": 222.20000000000002,
+        "end": 225.24,
+        "text": "Every time I do a DVT run, it's going to create an alter."
+    },
+    {
+        "start": 225.24,
+        "end": 230.48000000000002,
+        "text": "That view asks a statement that is within our file."
+    },
+    {
+        "start": 230.48000000000002,
+        "end": 234.28,
+        "text": "Then there's a table, which is materializes us a table"
+    },
+    {
+        "start": 234.28,
+        "end": 236.24,
+        "text": "in the physical database."
+    },
+    {
+        "start": 236.24,
+        "end": 239.52,
+        "text": "And every time we run it, it's going to drop the table"
+    },
+    {
+        "start": 239.52,
+        "end": 240.76000000000002,
+        "text": "and recreate it."
+    },
+    {
+        "start": 240.76000000000002,
+        "end": 245.12,
+        "text": "Create tables select us as we saw in the previous slide."
+    },
+    {
+        "start": 245.12,
+        "end": 248.72,
+        "text": "And the last one, very interesting, a little bit more advanced"
+    },
+    {
+        "start": 248.72,
+        "end": 250.44,
+        "text": "usage as incremental."
+    },
+    {
+        "start": 250.44,
+        "end": 253.48000000000002,
+        "text": "Incremental is going to be materializes a table within the"
+    },
+    {
+        "start": 253.48,
+        "end": 254.95999999999998,
+        "text": "physical storage."
+    },
+    {
+        "start": 254.95999999999998,
+        "end": 258.71999999999997,
+        "text": "But every time we run it, they're going to be two ways"
+    },
+    {
+        "start": 258.71999999999997,
+        "end": 259.64,
+        "text": "of running it."
+    },
+    {
+        "start": 259.64,
+        "end": 263.15999999999997,
+        "text": "One is create the table, drop the table,"
+    },
+    {
+        "start": 263.15999999999997,
+        "end": 265.12,
+        "text": "create the table with the search statement."
+    },
+    {
+        "start": 265.12,
+        "end": 270.88,
+        "text": "And the second one is insert only the new data into the table."
+    },
+    {
+        "start": 270.88,
+        "end": 275.68,
+        "text": "So how is all of this going to look like in our project"
+    },
+    {
+        "start": 275.68,
+        "end": 277.28,
+        "text": "specifically?"
+    },
+    {
+        "start": 277.28,
+        "end": 281.48,
+        "text": "As a side, we initially have those tables that already exist"
+    },
+    {
+        "start": 281.48,
+        "end": 283.92,
+        "text": "from outside of our DVT project."
+    },
+    {
+        "start": 283.92,
+        "end": 285.36,
+        "text": "And those are the data."
+    },
+    {
+        "start": 285.36,
+        "end": 287.52000000000004,
+        "text": "Those have the data that we're going to use."
+    },
+    {
+        "start": 287.52000000000004,
+        "end": 290.36,
+        "text": "So we're going to define those as sources."
+    },
+    {
+        "start": 290.36,
+        "end": 294.40000000000003,
+        "text": "We also can are going to use a file, which"
+    },
+    {
+        "start": 294.40000000000003,
+        "end": 296.56,
+        "text": "is going to be taxes on loopup as well,"
+    },
+    {
+        "start": 296.56,
+        "end": 299.68,
+        "text": "that we're going to use to create a table that we then"
+    },
+    {
+        "start": 299.68,
+        "end": 302.32,
+        "text": "are going to use for our term formations."
+    },
+    {
+        "start": 302.32,
+        "end": 308.40000000000003,
+        "text": "So we first are going to select from sources."
+    },
+    {
+        "start": 308.40000000000003,
+        "end": 310.92,
+        "text": "This is the data that we loaded and ready."
+    },
+    {
+        "start": 310.92,
+        "end": 315.2,
+        "text": "And we are going to define it in a YAML file, where"
+    },
+    {
+        "start": 315.2,
+        "end": 318.92,
+        "text": "we're going to tell the DVT where to go find that source."
+    },
+    {
+        "start": 318.92,
+        "end": 323.12,
+        "text": "This allows us to define those that location only once,"
+    },
+    {
+        "start": 323.12,
+        "end": 325.88,
+        "text": "and then be able to define all of the tables that are within"
+    },
+    {
+        "start": 325.88,
+        "end": 329.84000000000003,
+        "text": "that location under that definition."
+    },
+    {
+        "start": 329.84000000000003,
+        "end": 333.20000000000005,
+        "text": "This also allows us to abstract a little bit the complexity"
+    },
+    {
+        "start": 333.20000000000005,
+        "end": 337.48,
+        "text": "of where is that source physically storing,"
+    },
+    {
+        "start": 337.48,
+        "end": 339.92,
+        "text": "because we only define it once."
+    },
+    {
+        "start": 339.92,
+        "end": 343.44,
+        "text": "And then every time we call it with something like this,"
+    },
+    {
+        "start": 343.44,
+        "end": 347.2,
+        "text": "it's a source, the function, and then the name that we put"
+    },
+    {
+        "start": 347.2,
+        "end": 351.56,
+        "text": "to the source definition, and then the name of our source"
+    },
+    {
+        "start": 351.56,
+        "end": 356.28000000000003,
+        "text": "table, this is going to then be compiled to the location"
+    },
+    {
+        "start": 356.28000000000003,
+        "end": 357.6,
+        "text": "that we have defined here."
+    },
+    {
+        "start": 357.6,
+        "end": 361.28000000000003,
+        "text": "It's going to use this database, and this is KEMA."
+    },
+    {
+        "start": 361.28000000000003,
+        "end": 362.92,
+        "text": "Let's move this here."
+    },
+    {
+        "start": 362.92,
+        "end": 366.56,
+        "text": "And something also nice that we can do with DT"
+    },
+    {
+        "start": 366.56,
+        "end": 369.40000000000003,
+        "text": "is that when we use sources, then"
+    },
+    {
+        "start": 369.4,
+        "end": 373.71999999999997,
+        "text": "we also open the possibility of doing a lot of testing within"
+    },
+    {
+        "start": 373.71999999999997,
+        "end": 374.91999999999996,
+        "text": "those sources."
+    },
+    {
+        "start": 374.91999999999996,
+        "end": 377.59999999999997,
+        "text": "One very important that we're going to get started with"
+    },
+    {
+        "start": 377.59999999999997,
+        "end": 378.67999999999995,
+        "text": "is freshness."
+    },
+    {
+        "start": 378.67999999999995,
+        "end": 381.56,
+        "text": "So we can define something like a trash hold"
+    },
+    {
+        "start": 381.56,
+        "end": 384.32,
+        "text": "to test the freshness of our source."
+    },
+    {
+        "start": 384.32,
+        "end": 387.64,
+        "text": "This is going to be very convenient when we have a pipeline,"
+    },
+    {
+        "start": 387.64,
+        "end": 390.2,
+        "text": "and I'm going pipeline in production,"
+    },
+    {
+        "start": 390.2,
+        "end": 391.79999999999995,
+        "text": "when we are working in a company."
+    },
+    {
+        "start": 391.79999999999995,
+        "end": 395.2,
+        "text": "It's very important to know, before it is the holder,"
+    },
+    {
+        "start": 395.2,
+        "end": 397.71999999999997,
+        "text": "still is, that our data is not fresh."
+    },
+    {
+        "start": 397.72,
+        "end": 400.24,
+        "text": "With source freshness, we would define the threshold"
+    },
+    {
+        "start": 400.24,
+        "end": 406.24,
+        "text": "that we're willing to let it be, which is OK and acceptable,"
+    },
+    {
+        "start": 406.24,
+        "end": 410.8,
+        "text": "and alert us if the data is older than that threshold."
+    },
+    {
+        "start": 410.8,
+        "end": 416.16,
+        "text": "This can also allow us to use things like selection."
+    },
+    {
+        "start": 416.16,
+        "end": 420.32000000000005,
+        "text": "So we could potentially select only the DBT models"
+    },
+    {
+        "start": 420.32000000000005,
+        "end": 423.44000000000005,
+        "text": "that depend on fresher data as well."
+    },
+    {
+        "start": 423.44000000000005,
+        "end": 425.96000000000004,
+        "text": "We're going to also see, as we see tests,"
+    },
+    {
+        "start": 425.96,
+        "end": 430.15999999999997,
+        "text": "and we're going to be able to apply a lot of this DBT concepts"
+    },
+    {
+        "start": 430.15999999999997,
+        "end": 431.79999999999995,
+        "text": "also to sources."
+    },
+    {
+        "start": 431.79999999999995,
+        "end": 436.4,
+        "text": "So all of that is going to allow us to have a better data quality"
+    },
+    {
+        "start": 436.4,
+        "end": 440.56,
+        "text": "in our models, because we're checking those sources."
+    },
+    {
+        "start": 440.56,
+        "end": 444.64,
+        "text": "The second thing we're going to select from are seats."
+    },
+    {
+        "start": 444.64,
+        "end": 449.59999999999997,
+        "text": "Since I see CSV files that are stored in our repository,"
+    },
+    {
+        "start": 449.59999999999997,
+        "end": 453.91999999999996,
+        "text": "if you are familiar with SQL, what DBT is going to do"
+    },
+    {
+        "start": 453.92,
+        "end": 456.52000000000004,
+        "text": "when you do a DBT run of a seed?"
+    },
+    {
+        "start": 456.52000000000004,
+        "end": 460.72,
+        "text": "Is there something similar to a copy into command?"
+    },
+    {
+        "start": 460.72,
+        "end": 463.68,
+        "text": "The benefit, if you send a seed we'd in DBT,"
+    },
+    {
+        "start": 463.68,
+        "end": 465.84000000000003,
+        "text": "is that it's going to lie in a repository,"
+    },
+    {
+        "start": 465.84000000000003,
+        "end": 470.48,
+        "text": "along with every other file that confirms your DBT project."
+    },
+    {
+        "start": 470.48,
+        "end": 472.48,
+        "text": "And that means that it brings a lot of the benefits"
+    },
+    {
+        "start": 472.48,
+        "end": 474.12,
+        "text": "that DBT projects have."
+    },
+    {
+        "start": 474.12,
+        "end": 476.8,
+        "text": "So it's going to be your version control."
+    },
+    {
+        "start": 476.8,
+        "end": 482.16,
+        "text": "You're going to have it in one single repository shared."
+    },
+    {
+        "start": 482.16,
+        "end": 485.08000000000004,
+        "text": "You can document it and you can test it as well."
+    },
+    {
+        "start": 485.08000000000004,
+        "end": 488.44,
+        "text": "And you can run it along with your code project."
+    },
+    {
+        "start": 488.44,
+        "end": 491.36,
+        "text": "This is recommended usually for data that doesn't change"
+    },
+    {
+        "start": 491.36,
+        "end": 491.96000000000004,
+        "text": "frequently."
+    },
+    {
+        "start": 491.96000000000004,
+        "end": 494.48,
+        "text": "We're going to use it for a master data table,"
+    },
+    {
+        "start": 494.48,
+        "end": 497.64000000000004,
+        "text": "Texas sound loop, it sounds like that it's not huge."
+    },
+    {
+        "start": 497.64000000000004,
+        "end": 502.6,
+        "text": "So it's nice to have it in there and be"
+    },
+    {
+        "start": 502.6,
+        "end": 507.28000000000003,
+        "text": "enabled to benefit from the version controlling."
+    },
+    {
+        "start": 507.28000000000003,
+        "end": 509.8,
+        "text": "The other thing that we can select from,"
+    },
+    {
+        "start": 509.8,
+        "end": 512.12,
+        "text": "if we go back to the modular, let's say,"
+    },
+    {
+        "start": 512.12,
+        "end": 514.64,
+        "text": "we have the sources and then we create it,"
+    },
+    {
+        "start": 514.64,
+        "end": 516.84,
+        "text": "something that cleans the green troop data,"
+    },
+    {
+        "start": 516.84,
+        "end": 519.32,
+        "text": "something that cleans the yellow troop data."
+    },
+    {
+        "start": 519.32,
+        "end": 523.16,
+        "text": "And then we're finally ready to do those fact models"
+    },
+    {
+        "start": 523.16,
+        "end": 525.12,
+        "text": "or dimensional models."
+    },
+    {
+        "start": 525.12,
+        "end": 527.96,
+        "text": "In those cases, we're going to be selecting"
+    },
+    {
+        "start": 527.96,
+        "end": 530.44,
+        "text": "two DBT models."
+    },
+    {
+        "start": 530.44,
+        "end": 534.52,
+        "text": "So in that case, we're going to use this ref function."
+    },
+    {
+        "start": 534.52,
+        "end": 538.52,
+        "text": "And this is going to allow us to reference to those"
+    },
+    {
+        "start": 538.52,
+        "end": 539.44,
+        "text": "underlying tables."
+    },
+    {
+        "start": 539.6,
+        "end": 542.48,
+        "text": "And if you see a chest bit here, the name of the model"
+    },
+    {
+        "start": 542.48,
+        "end": 547.2,
+        "text": "that I want to work with, and it is going to compile this"
+    },
+    {
+        "start": 547.2,
+        "end": 550.32,
+        "text": "into the location where it's going to go."
+    },
+    {
+        "start": 550.32,
+        "end": 555.24,
+        "text": "This allows us to run the same code within any environment."
+    },
+    {
+        "start": 555.24,
+        "end": 557.08,
+        "text": "This means when I'm working on this,"
+    },
+    {
+        "start": 557.08,
+        "end": 558.8000000000001,
+        "text": "this is going to my name."
+    },
+    {
+        "start": 558.8000000000001,
+        "end": 561.36,
+        "text": "So DBT and there's core Victoria."
+    },
+    {
+        "start": 561.36,
+        "end": 566.0400000000001,
+        "text": "It's schema, but when we are writing this in production,"
+    },
+    {
+        "start": 566.04,
+        "end": 569.8399999999999,
+        "text": "this is going to go to something like production."
+    },
+    {
+        "start": 569.8399999999999,
+        "end": 572.36,
+        "text": "And duty abstracts all of that complexity"
+    },
+    {
+        "start": 572.36,
+        "end": 575.7199999999999,
+        "text": "from our responsibilities and allows us"
+    },
+    {
+        "start": 575.7199999999999,
+        "end": 578.9599999999999,
+        "text": "to just run the same code everywhere."
+    },
+    {
+        "start": 578.9599999999999,
+        "end": 581.88,
+        "text": "This ref is also going to bring us a second benefit,"
+    },
+    {
+        "start": 581.88,
+        "end": 584.88,
+        "text": "which means it's going to build automatically"
+    },
+    {
+        "start": 584.88,
+        "end": 586.36,
+        "text": "that it dependencies, because now it"
+    },
+    {
+        "start": 586.36,
+        "end": 588.5999999999999,
+        "text": "knows that the second DBT model depends"
+    },
+    {
+        "start": 588.5999999999999,
+        "end": 590.0,
+        "text": "on a station green troop data."
+    },
+    {
+        "start": 590.0,
+        "end": 592.8,
+        "text": "And that is going to help us a lot along the development."
+    },
+    {
+        "start": 597.0,
+        "end": 600.52,
+        "text": "Let's go and try to the IDE."
+    },
+    {
+        "start": 600.52,
+        "end": 606.36,
+        "text": "And let's go to our project, which is new and ready to start."
+    },
+    {
+        "start": 606.36,
+        "end": 610.92,
+        "text": "We have here our project."
+    },
+    {
+        "start": 610.92,
+        "end": 613.88,
+        "text": "Here is the folder."
+    },
+    {
+        "start": 613.88,
+        "end": 616.48,
+        "text": "Here is the project YML."
+    },
+    {
+        "start": 616.48,
+        "end": 620.0,
+        "text": "We change the name to taxi."
+    },
+    {
+        "start": 620.0,
+        "end": 623.5999999999999,
+        "text": "And we are ready to start."
+    },
+    {
+        "start": 623.6800000000001,
+        "end": 628.4,
+        "text": "Let's go and define under the models."
+    },
+    {
+        "start": 628.4,
+        "end": 631.6,
+        "text": "Let's create a folder station."
+    },
+    {
+        "start": 631.6,
+        "end": 637.5600000000001,
+        "text": "That's how we are going to name at that initial layer"
+    },
+    {
+        "start": 637.5600000000001,
+        "end": 640.16,
+        "text": "of models that are clean in the source data."
+    },
+    {
+        "start": 640.16,
+        "end": 643.8000000000001,
+        "text": "And on the station, let's create a file."
+    },
+    {
+        "start": 643.8000000000001,
+        "end": 646.44,
+        "text": "Let's put sources.yml."
+    },
+    {
+        "start": 649.4,
+        "end": 652.48,
+        "text": "We're going to be doing this by the way, this project."
+    },
+    {
+        "start": 652.48,
+        "end": 655.52,
+        "text": "So you can follow along the station."
+    },
+    {
+        "start": 655.52,
+        "end": 657.52,
+        "text": "Actually, this is key on it, YML."
+    },
+    {
+        "start": 657.52,
+        "end": 660.08,
+        "text": "And we're going to be following all of this code."
+    },
+    {
+        "start": 660.08,
+        "end": 664.72,
+        "text": "So you can also copy paste for in this places."
+    },
+    {
+        "start": 664.72,
+        "end": 666.2,
+        "text": "That's key on it, YML."
+    },
+    {
+        "start": 669.2,
+        "end": 671.6800000000001,
+        "text": "Let's do that."
+    },
+    {
+        "start": 671.6800000000001,
+        "end": 675.64,
+        "text": "Every YML starts with this version, too,"
+    },
+    {
+        "start": 675.64,
+        "end": 677.4,
+        "text": "so then DBT can compile it."
+    },
+    {
+        "start": 677.4,
+        "end": 681.08,
+        "text": "And what we're going to do here is define sources."
+    },
+    {
+        "start": 681.08,
+        "end": 683.6800000000001,
+        "text": "If you see it's out of completed, the IDE is out of"
+    },
+    {
+        "start": 683.6800000000001,
+        "end": 686.5600000000001,
+        "text": "completed, and a lot of the stuff that I need to do."
+    },
+    {
+        "start": 686.5600000000001,
+        "end": 689.6,
+        "text": "We're going to name the sources station."
+    },
+    {
+        "start": 693.08,
+        "end": 698.84,
+        "text": "And what we actually need to define is the database,"
+    },
+    {
+        "start": 698.84,
+        "end": 701.36,
+        "text": "where it is coming from, and this schema."
+    },
+    {
+        "start": 701.36,
+        "end": 703.5200000000001,
+        "text": "You're going to be able to define this here."
+    },
+    {
+        "start": 703.5200000000001,
+        "end": 706.0,
+        "text": "So this is the database."
+    },
+    {
+        "start": 706.0,
+        "end": 709.72,
+        "text": "Note that this, because I saw that this was confusing."
+    },
+    {
+        "start": 709.72,
+        "end": 714.12,
+        "text": "And it is because this is normally called a database for"
+    },
+    {
+        "start": 714.12,
+        "end": 718.8000000000001,
+        "text": "every other data work hard, the data platform."
+    },
+    {
+        "start": 718.8000000000001,
+        "end": 722.8000000000001,
+        "text": "But BigQuery calls this data set."
+    },
+    {
+        "start": 722.8000000000001,
+        "end": 727.28,
+        "text": "So we're using the same config that DBT has for every platform."
+    },
+    {
+        "start": 727.28,
+        "end": 729.64,
+        "text": "But there's a bit of a mismatch in there."
+    },
+    {
+        "start": 729.64,
+        "end": 731.96,
+        "text": "So know that when we talk about data vases,"
+    },
+    {
+        "start": 731.96,
+        "end": 735.72,
+        "text": "we're actually in DUT, we're actually talking about data sets"
+    },
+    {
+        "start": 735.72,
+        "end": 736.88,
+        "text": "and BigQuery."
+    },
+    {
+        "start": 736.88,
+        "end": 742.32,
+        "text": "But in reals, it's databases and every other replaceable BigQuery."
+    },
+    {
+        "start": 742.32,
+        "end": 746.2,
+        "text": "So this is my database."
+    },
+    {
+        "start": 746.2,
+        "end": 748.36,
+        "text": "I hope that was too confusing."
+    },
+    {
+        "start": 754.4,
+        "end": 755.76,
+        "text": "That's the name."
+    },
+    {
+        "start": 755.76,
+        "end": 758.4,
+        "text": "Let's go schema."
+    },
+    {
+        "start": 758.4,
+        "end": 761.84,
+        "text": "Let's schema this one, where I have my data."
+    },
+    {
+        "start": 761.84,
+        "end": 763.72,
+        "text": "So it trips on this core data all."
+    },
+    {
+        "start": 767.6,
+        "end": 773.24,
+        "text": "And then what we're going to define is the tables."
+    },
+    {
+        "start": 773.24,
+        "end": 777.6,
+        "text": "So the tables that I want to use are green troop data, yellow troop data."
+    },
+    {
+        "start": 784.6,
+        "end": 787.8,
+        "text": "Oh, yellow troop data."
+    },
+    {
+        "start": 790.8,
+        "end": 793.52,
+        "text": "It's already that it's telling me to generate a model."
+    },
+    {
+        "start": 793.52,
+        "end": 795.24,
+        "text": "So we're actually going to use that."
+    },
+    {
+        "start": 795.24,
+        "end": 797.84,
+        "text": "We're trying to try it out."
+    },
+    {
+        "start": 797.84,
+        "end": 801.24,
+        "text": "This already also gave me a start to build this lineage."
+    },
+    {
+        "start": 801.24,
+        "end": 804.48,
+        "text": "If those two tables say assources, that means"
+    },
+    {
+        "start": 804.48,
+        "end": 807.76,
+        "text": "that I can use them in models in DUT."
+    },
+    {
+        "start": 807.76,
+        "end": 810.08,
+        "text": "Let's we're going to be working with the green."
+    },
+    {
+        "start": 810.08,
+        "end": 813.6800000000001,
+        "text": "So let's start with the green."
+    },
+    {
+        "start": 813.6800000000001,
+        "end": 814.6,
+        "text": "Good."
+    },
+    {
+        "start": 814.6,
+        "end": 820.6800000000001,
+        "text": "So it's under created under models, a station, a station,"
+    },
+    {
+        "start": 820.6800000000001,
+        "end": 822.12,
+        "text": "a station, green troop data."
+    },
+    {
+        "start": 822.12,
+        "end": 824.12,
+        "text": "We're going to change that once we save it."
+    },
+    {
+        "start": 824.12,
+        "end": 827.96,
+        "text": "I want to ensure that we follow the same per sheet as we have."
+    },
+    {
+        "start": 827.96,
+        "end": 829.84,
+        "text": "But let's see what is this doing."
+    },
+    {
+        "start": 829.84,
+        "end": 831.16,
+        "text": "So this is a way to statement."
+    },
+    {
+        "start": 831.16,
+        "end": 834.08,
+        "text": "So it starts as a select, no DD on the ML."
+    },
+    {
+        "start": 834.08,
+        "end": 835.12,
+        "text": "Good."
+    },
+    {
+        "start": 835.12,
+        "end": 839.92,
+        "text": "And it tests us everything from and it's using here the source."
+    },
+    {
+        "start": 839.92,
+        "end": 843.64,
+        "text": "And it's correctly calling a station, which is the name"
+    },
+    {
+        "start": 843.64,
+        "end": 845.76,
+        "text": "that I define here."
+    },
+    {
+        "start": 845.76,
+        "end": 850.0,
+        "text": "And green troop data, which is the name of the table."
+    },
+    {
+        "start": 850.0,
+        "end": 853.6800000000001,
+        "text": "I want to clarify what I briefly mentioned during this light"
+    },
+    {
+        "start": 853.68,
+        "end": 854.68,
+        "text": "as well."
+    },
+    {
+        "start": 854.68,
+        "end": 858.52,
+        "text": "So the important here is that because here I'm using a name,"
+    },
+    {
+        "start": 858.52,
+        "end": 861.16,
+        "text": "I could actually change this."
+    },
+    {
+        "start": 861.16,
+        "end": 865.1999999999999,
+        "text": "Let's say I could now switch to POSCORES and just change the name"
+    },
+    {
+        "start": 865.1999999999999,
+        "end": 868.4799999999999,
+        "text": "to the one I'm using POSCORES and change this schema."
+    },
+    {
+        "start": 868.4799999999999,
+        "end": 872.8399999999999,
+        "text": "And this is going to affect all of the models that are used"
+    },
+    {
+        "start": 872.8399999999999,
+        "end": 875.52,
+        "text": "in like this, but I do not have to change that code."
+    },
+    {
+        "start": 875.52,
+        "end": 877.28,
+        "text": "I only change it here."
+    },
+    {
+        "start": 877.28,
+        "end": 878.28,
+        "text": "So this is very cool."
+    },
+    {
+        "start": 878.28,
+        "end": 882.1999999999999,
+        "text": "This is the do not repeat yourself concept, right?"
+    },
+    {
+        "start": 883.2,
+        "end": 885.44,
+        "text": "Right now it's only really one file,"
+    },
+    {
+        "start": 885.44,
+        "end": 887.72,
+        "text": "but you can imagine that I could use this source in many,"
+    },
+    {
+        "start": 887.72,
+        "end": 891.5200000000001,
+        "text": "many places and that would and many, many tables as well."
+    },
+    {
+        "start": 891.5200000000001,
+        "end": 892.5200000000001,
+        "text": "Right?"
+    },
+    {
+        "start": 892.5200000000001,
+        "end": 895.5600000000001,
+        "text": "I could have another source, which is kind of real life projects"
+    },
+    {
+        "start": 895.5600000000001,
+        "end": 897.0,
+        "text": "look like."
+    },
+    {
+        "start": 897.0,
+        "end": 902.2800000000001,
+        "text": "So it disinflifies a lot and a lot of the refactoring,"
+    },
+    {
+        "start": 902.2800000000001,
+        "end": 904.96,
+        "text": "whenever you're changing platforms, your change is chemo"
+    },
+    {
+        "start": 904.96,
+        "end": 907.6400000000001,
+        "text": "and naming conventions."
+    },
+    {
+        "start": 907.6400000000001,
+        "end": 908.24,
+        "text": "Cool."
+    },
+    {
+        "start": 908.24,
+        "end": 912.1600000000001,
+        "text": "So now that we have this, let's save this."
+    },
+    {
+        "start": 912.56,
+        "end": 917.16,
+        "text": "And let's try to use the same."
+    },
+    {
+        "start": 917.16,
+        "end": 919.68,
+        "text": "I'll show you what I'm doing."
+    },
+    {
+        "start": 919.68,
+        "end": 922.68,
+        "text": "That's I want to have everything under that is station."
+    },
+    {
+        "start": 925.4,
+        "end": 927.56,
+        "text": "Does this travel shooting in the,"
+    },
+    {
+        "start": 927.56,
+        "end": 930.6,
+        "text": "and I want to make sure that I rename in this"
+    },
+    {
+        "start": 930.6,
+        "end": 932.24,
+        "text": "as the same here."
+    },
+    {
+        "start": 932.24,
+        "end": 934.9599999999999,
+        "text": "So I want to make sure that it's called like this station"
+    },
+    {
+        "start": 934.9599999999999,
+        "end": 936.1999999999999,
+        "text": "green-trip data."
+    },
+    {
+        "start": 937.0400000000001,
+        "end": 939.88,
+        "text": "Uh, rename station."
+    },
+    {
+        "start": 941.9200000000001,
+        "end": 943.24,
+        "text": "Green-trip data."
+    },
+    {
+        "start": 944.44,
+        "end": 946.84,
+        "text": "Okay, we're ready to go."
+    },
+    {
+        "start": 946.84,
+        "end": 950.2800000000001,
+        "text": "And what it's going to do afterwards is select"
+    },
+    {
+        "start": 950.2800000000001,
+        "end": 955.2800000000001,
+        "text": "for this source select everything for a rename."
+    },
+    {
+        "start": 955.5200000000001,
+        "end": 959.2800000000001,
+        "text": "So we're going to be changing some of that stuff,"
+    },
+    {
+        "start": 959.2800000000001,
+        "end": 960.6800000000001,
+        "text": "but let's just build."
+    },
+    {
+        "start": 960.6800000000001,
+        "end": 962.32,
+        "text": "Let's actually just build the whole project."
+    },
+    {
+        "start": 962.32,
+        "end": 965.0400000000001,
+        "text": "So I could feel from here, but let's try to build"
+    },
+    {
+        "start": 965.04,
+        "end": 968.1999999999999,
+        "text": "the whole project because I know we still have the examples."
+    },
+    {
+        "start": 968.1999999999999,
+        "end": 971.68,
+        "text": "So I want to show you what's going to happen though."
+    },
+    {
+        "start": 971.68,
+        "end": 976.52,
+        "text": "Um, BVT when it's doing build is picking up all of the models,"
+    },
+    {
+        "start": 976.52,
+        "end": 978.9599999999999,
+        "text": "all of the tests, everything that I have defined."
+    },
+    {
+        "start": 978.9599999999999,
+        "end": 984.68,
+        "text": "We did my project and it's going to execute those things in order."
+    },
+    {
+        "start": 984.68,
+        "end": 987.88,
+        "text": "So we see here that it picked up seven things."
+    },
+    {
+        "start": 987.88,
+        "end": 991.12,
+        "text": "It's this and one is my first DBT model."
+    },
+    {
+        "start": 991.12,
+        "end": 994.36,
+        "text": "The other one is my new model,"
+    },
+    {
+        "start": 994.36,
+        "end": 997.0,
+        "text": "but I just created it, which is a view."
+    },
+    {
+        "start": 997.0,
+        "end": 1000.24,
+        "text": "And it's under my schema due to Victoria."
+    },
+    {
+        "start": 1000.24,
+        "end": 1004.28,
+        "text": "Call with the name of my model."
+    },
+    {
+        "start": 1004.28,
+        "end": 1007.2,
+        "text": "And then it's taking other stuff is taking a test,"
+    },
+    {
+        "start": 1007.2,
+        "end": 1008.44,
+        "text": "which is failing."
+    },
+    {
+        "start": 1008.44,
+        "end": 1011.2,
+        "text": "So then it's just keeping because it failed."
+    },
+    {
+        "start": 1011.2,
+        "end": 1015.72,
+        "text": "It's just keeping the others that depend on my first model."
+    },
+    {
+        "start": 1015.72,
+        "end": 1018.48,
+        "text": "So it's just keeping my second duty model."
+    },
+    {
+        "start": 1018.48,
+        "end": 1020.8,
+        "text": "We're now going to cover by those because we're going to delete"
+    },
+    {
+        "start": 1020.8,
+        "end": 1025.68,
+        "text": "them, but I want to show you how I start thinking about how DBT"
+    },
+    {
+        "start": 1025.68,
+        "end": 1027.6399999999999,
+        "text": "executes those models."
+    },
+    {
+        "start": 1027.6399999999999,
+        "end": 1033.44,
+        "text": "Um, in fact, let's delete those now."
+    },
+    {
+        "start": 1033.44,
+        "end": 1037.9199999999998,
+        "text": "Just like some balls and let's continue."
+    },
+    {
+        "start": 1037.9199999999998,
+        "end": 1047.44,
+        "text": "Um, what we're going to do now is learn a little bit about my"
+    },
+    {
+        "start": 1047.44,
+        "end": 1048.44,
+        "text": "great."
+    },
+    {
+        "start": 1048.44,
+        "end": 1052.24,
+        "text": "And then we're going to start it to notice that I've been using"
+    },
+    {
+        "start": 1052.24,
+        "end": 1057.68,
+        "text": "within a lot of places this things with two curly brackets."
+    },
+    {
+        "start": 1057.68,
+        "end": 1058.68,
+        "text": "Like this, right?"
+    },
+    {
+        "start": 1058.68,
+        "end": 1059.68,
+        "text": "Like sores."
+    },
+    {
+        "start": 1059.68,
+        "end": 1061.68,
+        "text": "We saw it in the ref as well."
+    },
+    {
+        "start": 1061.68,
+        "end": 1066.52,
+        "text": "We saw it when we were talking about material stations."
+    },
+    {
+        "start": 1066.52,
+        "end": 1070.52,
+        "text": "That means that we are using here a macro."
+    },
+    {
+        "start": 1070.52,
+        "end": 1073.1200000000001,
+        "text": "And in fact, there are different things."
+    },
+    {
+        "start": 1073.1200000000001,
+        "end": 1075.52,
+        "text": "How we can use those curly brackets."
+    },
+    {
+        "start": 1075.52,
+        "end": 1077.52,
+        "text": "We could use them like this."
+    },
+    {
+        "start": 1077.52,
+        "end": 1080.0,
+        "text": "One on curly bracket only and then one symbol."
+    },
+    {
+        "start": 1080.0,
+        "end": 1081.68,
+        "text": "See, here's a different symbol."
+    },
+    {
+        "start": 1081.68,
+        "end": 1084.16,
+        "text": "Oh, we can use two curly brackets."
+    },
+    {
+        "start": 1084.16,
+        "end": 1088.0,
+        "text": "All of that that we're going to use within the curly brackets."
+    },
+    {
+        "start": 1088.0,
+        "end": 1089.92,
+        "text": "That's Shin-shah."
+    },
+    {
+        "start": 1089.92,
+        "end": 1092.2,
+        "text": "Shin-shah is a templating language."
+    },
+    {
+        "start": 1092.2,
+        "end": 1097.2,
+        "text": "Um, it's similar to Python in terms of how it's read in."
+    },
+    {
+        "start": 1097.2,
+        "end": 1101.08,
+        "text": "And it's going to allow us to tell DBT how to compile the code,"
+    },
+    {
+        "start": 1101.08,
+        "end": 1102.24,
+        "text": "as I said before."
+    },
+    {
+        "start": 1102.24,
+        "end": 1105.28,
+        "text": "So with Shin-shah, we're going to create macros."
+    },
+    {
+        "start": 1105.28,
+        "end": 1110.84,
+        "text": "Macros are like function functions that are going to allow us"
+    },
+    {
+        "start": 1110.84,
+        "end": 1113.6,
+        "text": "to generate code."
+    },
+    {
+        "start": 1113.6,
+        "end": 1117.68,
+        "text": "So unlike the functions that we saw before in Python"
+    },
+    {
+        "start": 1117.68,
+        "end": 1121.72,
+        "text": "and Java's created or even in SQL, the difference here"
+    },
+    {
+        "start": 1121.72,
+        "end": 1126.28,
+        "text": "with the macros is they do not really have an input and an output."
+    },
+    {
+        "start": 1126.28,
+        "end": 1132.48,
+        "text": "They have an input and they do come now put, but that generates code."
+    },
+    {
+        "start": 1132.48,
+        "end": 1135.44,
+        "text": "They are going to be very helpful for us."
+    },
+    {
+        "start": 1135.44,
+        "end": 1139.1200000000001,
+        "text": "A lot of those are already part of DBT."
+    },
+    {
+        "start": 1139.1200000000001,
+        "end": 1141.04,
+        "text": "Things like the source and the ref."
+    },
+    {
+        "start": 1141.04,
+        "end": 1144.8,
+        "text": "There's Shin-shah behind that you can see because it's open source."
+    },
+    {
+        "start": 1144.8,
+        "end": 1148.52,
+        "text": "But it's also going to allow us to create our own macros."
+    },
+    {
+        "start": 1148.52,
+        "end": 1152.4,
+        "text": "And that is going to simplify help us a lot to simplify the code."
+    },
+    {
+        "start": 1152.4,
+        "end": 1155.52,
+        "text": "Because first of all, we could abstract pieces of code."
+    },
+    {
+        "start": 1155.52,
+        "end": 1158.72,
+        "text": "We use in multiple places."
+    },
+    {
+        "start": 1158.72,
+        "end": 1162.1200000000001,
+        "text": "Allow us us to use the do not repeat yourself concept"
+    },
+    {
+        "start": 1162.1599999999999,
+        "end": 1166.56,
+        "text": "again, but it's also going to allow us to generate a dynamic code."
+    },
+    {
+        "start": 1166.56,
+        "end": 1169.0,
+        "text": "So think about using a for loop, for example,"
+    },
+    {
+        "start": 1169.0,
+        "end": 1171.04,
+        "text": "to generate a case assignment."
+    },
+    {
+        "start": 1171.04,
+        "end": 1172.8,
+        "text": "We're going to use something simpler."
+    },
+    {
+        "start": 1172.8,
+        "end": 1176.7199999999998,
+        "text": "For now, we're going to create a macro that we're going to call"
+    },
+    {
+        "start": 1176.7199999999998,
+        "end": 1178.7199999999998,
+        "text": "get fame and type description."
+    },
+    {
+        "start": 1178.7199999999998,
+        "end": 1184.08,
+        "text": "And if you see it's very similar how you define a function in Python."
+    },
+    {
+        "start": 1184.08,
+        "end": 1188.9599999999998,
+        "text": "Because think about this is like the death function."
+    },
+    {
+        "start": 1188.9599999999998,
+        "end": 1191.6,
+        "text": "Here is the name and here is the variable."
+    },
+    {
+        "start": 1191.6399999999999,
+        "end": 1195.28,
+        "text": "And then inside here, we're going to put the code that we want to get out."
+    },
+    {
+        "start": 1195.28,
+        "end": 1197.36,
+        "text": "Take out from from the macro."
+    },
+    {
+        "start": 1197.36,
+        "end": 1199.1999999999998,
+        "text": "And if you see here, I have the payment type,"
+    },
+    {
+        "start": 1199.1999999999998,
+        "end": 1202.04,
+        "text": "which is the input variable, the parameter."
+    },
+    {
+        "start": 1202.04,
+        "end": 1204.24,
+        "text": "And then here I'm calling the parameters."
+    },
+    {
+        "start": 1204.24,
+        "end": 1210.76,
+        "text": "So when I'm really going to do Shows, take that code out and put it in a macro."
+    },
+    {
+        "start": 1210.76,
+        "end": 1213.08,
+        "text": "I said, then I can reuse it in multiple places."
+    },
+    {
+        "start": 1213.08,
+        "end": 1216.1999999999998,
+        "text": "And then this is really a case of statement."
+    },
+    {
+        "start": 1216.1999999999998,
+        "end": 1219.7199999999998,
+        "text": "And then we're going to call it like this, get payment types description,"
+    },
+    {
+        "start": 1219.72,
+        "end": 1221.48,
+        "text": "payment type."
+    },
+    {
+        "start": 1221.48,
+        "end": 1224.56,
+        "text": "And you see it's similar to function."
+    },
+    {
+        "start": 1224.56,
+        "end": 1225.6000000000001,
+        "text": "This is the parameter."
+    },
+    {
+        "start": 1225.6000000000001,
+        "end": 1230.44,
+        "text": "And then once we compile it, it's going to generate a case of statement for us."
+    },
+    {
+        "start": 1230.44,
+        "end": 1231.56,
+        "text": "So start to do that."
+    },
+    {
+        "start": 1233.56,
+        "end": 1235.8,
+        "text": "And I'll write E."
+    },
+    {
+        "start": 1235.8,
+        "end": 1243.84,
+        "text": "So we're going to go macros, create file, get payment type,"
+    },
+    {
+        "start": 1243.84,
+        "end": 1246.88,
+        "text": "this encryption, that SQL,"
+    },
+    {
+        "start": 1246.88,
+        "end": 1250.72,
+        "text": "and also SQL files as you see."
+    },
+    {
+        "start": 1250.72,
+        "end": 1253.3200000000002,
+        "text": "Or go and generate the macro."
+    },
+    {
+        "start": 1253.3200000000002,
+        "end": 1254.64,
+        "text": "Let's just copy the code."
+    },
+    {
+        "start": 1260.96,
+        "end": 1263.7600000000002,
+        "text": "Let's copy the code, but let's see then what is doing?"
+    },
+    {
+        "start": 1263.7600000000002,
+        "end": 1267.5200000000002,
+        "text": "So first of all, when I'm doing here, this is clearly a comment."
+    },
+    {
+        "start": 1267.5200000000002,
+        "end": 1269.2800000000002,
+        "text": "So I can put something."
+    },
+    {
+        "start": 1269.2800000000002,
+        "end": 1271.64,
+        "text": "This returns the description for payment type."
+    },
+    {
+        "start": 1271.64,
+        "end": 1276.8400000000001,
+        "text": "Then again, we write macro, the name of the macro, the parameter."
+    },
+    {
+        "start": 1276.8799999999999,
+        "end": 1281.28,
+        "text": "And then we just have this, this because it's the chain,"
+    },
+    {
+        "start": 1281.28,
+        "end": 1285.6399999999999,
+        "text": "the cheek or the brackets, it's going to print whatever we put in payment type."
+    },
+    {
+        "start": 1285.6399999999999,
+        "end": 1288.8799999999999,
+        "text": "This means here, I use payment type everywhere,"
+    },
+    {
+        "start": 1288.8799999999999,
+        "end": 1292.1599999999999,
+        "text": "but this means that I could use this in a different table,"
+    },
+    {
+        "start": 1292.1599999999999,
+        "end": 1296.4399999999998,
+        "text": "where the field for payment type, it's called banana."
+    },
+    {
+        "start": 1296.4399999999998,
+        "end": 1300.08,
+        "text": "And then I could just send banana here as a payment type parameter."
+    },
+    {
+        "start": 1300.08,
+        "end": 1303.56,
+        "text": "And then this would make the case of statement saying case, cast,"
+    },
+    {
+        "start": 1303.56,
+        "end": 1307.28,
+        "text": "banana as integral, and then put the case statement in there."
+    },
+    {
+        "start": 1307.28,
+        "end": 1309.32,
+        "text": "So that is pretty cool, right?"
+    },
+    {
+        "start": 1310.76,
+        "end": 1312.36,
+        "text": "Let's save this."
+    },
+    {
+        "start": 1312.36,
+        "end": 1315.96,
+        "text": "And let's actually try to use this on the restating,"
+    },
+    {
+        "start": 1315.96,
+        "end": 1317.6799999999998,
+        "text": "green treat data."
+    },
+    {
+        "start": 1317.6799999999998,
+        "end": 1319.48,
+        "text": "So here we have payment type."
+    },
+    {
+        "start": 1320.76,
+        "end": 1324.8,
+        "text": "Let's get payment type, this encryption, sorry, this is a macro."
+    },
+    {
+        "start": 1324.8,
+        "end": 1325.9199999999998,
+        "text": "So let's just,"
+    },
+    {
+        "start": 1326.5600000000002,
+        "end": 1327.5600000000002,
+        "text": "uh,"
+    },
+    {
+        "start": 1331.52,
+        "end": 1332.24,
+        "text": "there we go."
+    },
+    {
+        "start": 1332.24,
+        "end": 1334.1200000000001,
+        "text": "Get payment type, this encryption."
+    },
+    {
+        "start": 1335.16,
+        "end": 1338.96,
+        "text": "And let's just send payment type."
+    },
+    {
+        "start": 1341.28,
+        "end": 1346.76,
+        "text": "As in let's put a payment type, this crypt,"
+    },
+    {
+        "start": 1347.2,
+        "end": 1351.6000000000001,
+        "text": "for now, we're going to fix that afterwards, but I just want to show you how this works."
+    },
+    {
+        "start": 1352.64,
+        "end": 1355.52,
+        "text": "I'm going to build, I'm actually going to compile this."
+    },
+    {
+        "start": 1356.16,
+        "end": 1359.64,
+        "text": "When we compile, we get to see what beauty is going to run."
+    },
+    {
+        "start": 1359.88,
+        "end": 1365.8400000000001,
+        "text": "So what we do is we are avoiding wasting those credits and allows to see what it's going to run."
+    },
+    {
+        "start": 1366.72,
+        "end": 1370.8000000000002,
+        "text": "So here select from, we knew the smart right, tripto,"
+    },
+    {
+        "start": 1370.8000000000002,
+        "end": 1377.4,
+        "text": "that old and then in here, as you see, cast, oh, we're important."
+    },
+    {
+        "start": 1377.4,
+        "end": 1378.2,
+        "text": "That was a string."
+    },
+    {
+        "start": 1379.8000000000002,
+        "end": 1383.4,
+        "text": "Femant type, let's do the compilation again."
+    },
+    {
+        "start": 1384.16,
+        "end": 1387.52,
+        "text": "Bame and type ask integral."
+    },
+    {
+        "start": 1388.52,
+        "end": 1394.0800000000002,
+        "text": "And what it's going to do is, right, when it's one, two, three, four, five, six,"
+    },
+    {
+        "start": 1394.0800000000002,
+        "end": 1395.0800000000002,
+        "text": "it's going to do something."
+    },
+    {
+        "start": 1395.0800000000002,
+        "end": 1397.0400000000002,
+        "text": "It's not, it's going to give us empty."
+    },
+    {
+        "start": 1398.0400000000002,
+        "end": 1399.0400000000002,
+        "text": "Um, good."
+    },
+    {
+        "start": 1400.64,
+        "end": 1405.3200000000002,
+        "text": "The nice thing about macros as well is that, or, uh,"
+    },
+    {
+        "start": 1405.3200000000002,
+        "end": 1411.0800000000002,
+        "text": "Hensha is that similar to functions, if I define a function that I really want to use it a lot."
+    },
+    {
+        "start": 1411.08,
+        "end": 1416.96,
+        "text": "And I actually want to use outside in another projects, I can make a library in duty."
+    },
+    {
+        "start": 1416.96,
+        "end": 1420.76,
+        "text": "I can also do something like that and I can do a package."
+    },
+    {
+        "start": 1421.4399999999998,
+        "end": 1424.0,
+        "text": "So that's great."
+    },
+    {
+        "start": 1424.04,
+        "end": 1424.8,
+        "text": "Next one."
+    },
+    {
+        "start": 1425.1599999999999,
+        "end": 1426.6399999999999,
+        "text": "And I can write a package."
+    },
+    {
+        "start": 1427.48,
+        "end": 1430.76,
+        "text": "So this acts like libraries in other programming languages."
+    },
+    {
+        "start": 1431.04,
+        "end": 1437.84,
+        "text": "And this really shares dbt projects that have models that have macros that are, um,"
+    },
+    {
+        "start": 1438.84,
+        "end": 1442.8799999999999,
+        "text": "uh, helping us with that part of the code so we don't have to write it."
+    },
+    {
+        "start": 1443.36,
+        "end": 1450.08,
+        "text": "By adding a package to our project, we are able not to collect within all of our, um,"
+    },
+    {
+        "start": 1450.12,
+        "end": 1452.12,
+        "text": "all of our project in any place."
+    },
+    {
+        "start": 1452.36,
+        "end": 1459.36,
+        "text": "So we just need to go create this packages that YAML file and in there, we import it."
+    },
+    {
+        "start": 1459.84,
+        "end": 1462.32,
+        "text": "There's a lot we can use our own projects."
+    },
+    {
+        "start": 1462.32,
+        "end": 1467.8,
+        "text": "So we could just put here the GitHub, uh, or like the Git URL."
+    },
+    {
+        "start": 1468.32,
+        "end": 1472.8799999999999,
+        "text": "But like for us, there are a lot of packages that are already made and the package have."
+    },
+    {
+        "start": 1473.3999999999999,
+        "end": 1479.1599999999999,
+        "text": "And then one thing before we go there, the way I would call it is dt utls."
+    },
+    {
+        "start": 1479.1599999999999,
+        "end": 1481.8799999999999,
+        "text": "For example, here I'm importing right the ddu deals."
+    },
+    {
+        "start": 1482.36,
+        "end": 1483.72,
+        "text": "And then I just call it dtu."
+    },
+    {
+        "start": 1483.72,
+        "end": 1489.1599999999999,
+        "text": "Tills dot in the, the function macrote that I want to use for in there."
+    },
+    {
+        "start": 1489.76,
+        "end": 1494.6399999999999,
+        "text": "So we're going to see how to use packages for macros, but there are other things that we could use."
+    },
+    {
+        "start": 1494.64,
+        "end": 1498.1200000000001,
+        "text": "So know that there's a lot of things that are going to save a lot of your time."
+    },
+    {
+        "start": 1499.0,
+        "end": 1503.92,
+        "text": "So if we go to the package hub, have it here, open."
+    },
+    {
+        "start": 1505.0,
+        "end": 1505.8400000000001,
+        "text": "There are a lot of things."
+    },
+    {
+        "start": 1505.8400000000001,
+        "end": 1509.8000000000002,
+        "text": "There are also packages that are not necessarily published, because as I said,"
+    },
+    {
+        "start": 1510.0,
+        "end": 1516.0400000000002,
+        "text": "you could use something like an internal package for an internal dt project, ask your package."
+    },
+    {
+        "start": 1516.2,
+        "end": 1517.68,
+        "text": "So I'm actually in your company."
+    },
+    {
+        "start": 1517.88,
+        "end": 1521.88,
+        "text": "You should have read a lot of macros, a lot of this, uh, payment type."
+    },
+    {
+        "start": 1521.88,
+        "end": 1526.92,
+        "text": "For example, macro, this is something that it could help a lot of like other data teams as well."
+    },
+    {
+        "start": 1527.16,
+        "end": 1530.7600000000002,
+        "text": "So I could just abstract that and create a package internally."
+    },
+    {
+        "start": 1532.2,
+        "end": 1534.4,
+        "text": "Uh, we are going to use dt utls."
+    },
+    {
+        "start": 1534.4,
+        "end": 1537.0,
+        "text": "These are the most use packages."
+    },
+    {
+        "start": 1537.64,
+        "end": 1544.68,
+        "text": "And we're going to use dt utls, which has a lot of very interesting functions, macros, tests as well."
+    },
+    {
+        "start": 1545.16,
+        "end": 1547.3600000000001,
+        "text": "Uh, but there are a lot of this."
+    },
+    {
+        "start": 1547.4,
+        "end": 1552.6000000000001,
+        "text": "So think about, uh, for example, something for sources,"
+    },
+    {
+        "start": 1552.6000000000001,
+        "end": 1554.76,
+        "text": "five turn has a lot for different sources."
+    },
+    {
+        "start": 1554.76,
+        "end": 1560.64,
+        "text": "So if we're bringing data for an Instagram, maybe you want to import this package and this, uh,"
+    },
+    {
+        "start": 1560.64,
+        "end": 1563.88,
+        "text": "bills, uh, project already already started."
+    },
+    {
+        "start": 1563.88,
+        "end": 1567.72,
+        "text": "If you want to use the metadata from your dbt runs,"
+    },
+    {
+        "start": 1567.72,
+        "end": 1571.04,
+        "text": "then there are a lot of packages for doing that as well."
+    },
+    {
+        "start": 1571.3600000000001,
+        "end": 1573.3200000000002,
+        "text": "And that would help you a lot to get started."
+    },
+    {
+        "start": 1573.8799999999999,
+        "end": 1578.52,
+        "text": "Let's go to dbt utls and let's actually go to the repository."
+    },
+    {
+        "start": 1579.3999999999999,
+        "end": 1585.96,
+        "text": "I like going to that repository because then I always know they're like issues, pull requests, latest brochures."
+    },
+    {
+        "start": 1586.4399999999998,
+        "end": 1588.8,
+        "text": "You don't need to, you can also do that for in the app."
+    },
+    {
+        "start": 1589.1599999999999,
+        "end": 1593.1599999999999,
+        "text": "Um, but you can see actually from the cap, I wanted to show it one more thing."
+    },
+    {
+        "start": 1593.1599999999999,
+        "end": 1596.1599999999999,
+        "text": "In the hat, you know exactly how you would install it."
+    },
+    {
+        "start": 1596.1599999999999,
+        "end": 1597.28,
+        "text": "So we can take this."
+    },
+    {
+        "start": 1598.28,
+        "end": 1605.28,
+        "text": "Um, and here what it's nice for in the repository is that you get to see the actual code how it's been resolved."
+    },
+    {
+        "start": 1605.28,
+        "end": 1611.52,
+        "text": "So for example, we are going to use, um, there are a lot of like SQL generators."
+    },
+    {
+        "start": 1611.52,
+        "end": 1614.12,
+        "text": "We're going to use one that it's called sorority key."
+    },
+    {
+        "start": 1615.12,
+        "end": 1617.32,
+        "text": "Going to do this generate sorority key."
+    },
+    {
+        "start": 1617.92,
+        "end": 1621.96,
+        "text": "Uh, and you can, as I was saying, you can go to the actual code of the macro."
+    },
+    {
+        "start": 1621.96,
+        "end": 1626.48,
+        "text": "So you could even copy, paste the macro and generate a version of your own."
+    },
+    {
+        "start": 1626.48,
+        "end": 1630.04,
+        "text": "If this, let's go to the ID let's."
+    },
+    {
+        "start": 1630.96,
+        "end": 1635.32,
+        "text": "Um, yeah, let's create the packages that YAML."
+    },
+    {
+        "start": 1635.32,
+        "end": 1644.96,
+        "text": "Oh, here under the, um, under the main, uh, so, um, and they're like the home of the, of the duty project."
+    },
+    {
+        "start": 1644.96,
+        "end": 1645.2,
+        "text": "Right."
+    },
+    {
+        "start": 1645.2,
+        "end": 1651.08,
+        "text": "So it has to be at the same level as the project that YAML back is just the YAML."
+    },
+    {
+        "start": 1652.08,
+        "end": 1653.08,
+        "text": "Yeah."
+    },
+    {
+        "start": 1653.08,
+        "end": 1654.08,
+        "text": "Let's do that."
+    },
+    {
+        "start": 1655.08,
+        "end": 1656.08,
+        "text": "That's it."
+    },
+    {
+        "start": 1656.08,
+        "end": 1658.08,
+        "text": "Um, it should be triggering."
+    },
+    {
+        "start": 1658.08,
+        "end": 1664.08,
+        "text": "It didn't do it, but let's, let's find it ourselves."
+    },
+    {
+        "start": 1664.08,
+        "end": 1667.08,
+        "text": "Usually this is done automatically as soon as we log in."
+    },
+    {
+        "start": 1667.08,
+        "end": 1672.08,
+        "text": "So if I were to log out and we're to log in, this is usually running dbt depths."
+    },
+    {
+        "start": 1672.08,
+        "end": 1678.08,
+        "text": "What do you do to just do it is install into the dependencies, install in everything that we brought there."
+    },
+    {
+        "start": 1678.08,
+        "end": 1680.08,
+        "text": "From the packages that YAML."
+    },
+    {
+        "start": 1683.08,
+        "end": 1692.08,
+        "text": "We can see here, um, install dbt lots, dbt, dbt, dbt, dbt, dbt, uh, from this version. Nice."
+    },
+    {
+        "start": 1693.08,
+        "end": 1699.08,
+        "text": "We could even see here under dbt packages that it brought the packages, brought the macros and everything."
+    },
+    {
+        "start": 1699.08,
+        "end": 1705.08,
+        "text": "And as that, we're going to use that, um, surikki saying, uh, so we can see that the, uh,"
+    },
+    {
+        "start": 1705.08,
+        "end": 1707.08,
+        "text": "we can see here how it's used."
+    },
+    {
+        "start": 1707.08,
+        "end": 1708.08,
+        "text": "So I just call it like this."
+    },
+    {
+        "start": 1708.08,
+        "end": 1716.08,
+        "text": "And then in the middle, I can put which are the, uh, the fields that I want to use to be doing that surikki."
+    },
+    {
+        "start": 1716.08,
+        "end": 1720.08,
+        "text": "And what it's really doing at the end, we're going to see when we compile it,"
+    },
+    {
+        "start": 1720.08,
+        "end": 1723.08,
+        "text": "but it's going to do a hash of those files."
+    },
+    {
+        "start": 1723.08,
+        "end": 1724.08,
+        "text": "Let's go back here."
+    },
+    {
+        "start": 1724.08,
+        "end": 1726.08,
+        "text": "Let's go to green trip data."
+    },
+    {
+        "start": 1728.08,
+        "end": 1732.08,
+        "text": "Um, let's put that us to the beginning because the surikki is usually"
+    },
+    {
+        "start": 1732.08,
+        "end": 1737.08,
+        "text": "usually, you usually want to put the identifiers at the very beginning of your,"
+    },
+    {
+        "start": 1737.08,
+        "end": 1738.08,
+        "text": "off your table."
+    },
+    {
+        "start": 1738.08,
+        "end": 1745.08,
+        "text": "So don't you know at the very, when I open this, I know exactly what is the granularity of my table."
+    },
+    {
+        "start": 1745.08,
+        "end": 1747.08,
+        "text": "That's a good practice."
+    },
+    {
+        "start": 1748.08,
+        "end": 1754.08,
+        "text": "And we're going to do this, uh, surikki with, uh, vendor ID."
+    },
+    {
+        "start": 1755.08,
+        "end": 1760.08,
+        "text": "This is like the taxi and then the pickup data because it's vendor can only be doing that."
+    },
+    {
+        "start": 1760.08,
+        "end": 1763.08,
+        "text": "Because it's vendor can only pick up one person at the time."
+    },
+    {
+        "start": 1763.08,
+        "end": 1765.08,
+        "text": "So that's a good surikki."
+    },
+    {
+        "start": 1769.08,
+        "end": 1770.08,
+        "text": "That's it."
+    },
+    {
+        "start": 1770.08,
+        "end": 1771.08,
+        "text": "Okay."
+    },
+    {
+        "start": 1771.08,
+        "end": 1773.08,
+        "text": "And let's keep this a number."
+    },
+    {
+        "start": 1773.08,
+        "end": 1777.08,
+        "text": "Let's do this straight by D as a number."
+    },
+    {
+        "start": 1778.08,
+        "end": 1780.08,
+        "text": "And that's it."
+    },
+    {
+        "start": 1781.08,
+        "end": 1782.08,
+        "text": "Um,"
+    },
+    {
+        "start": 1784.08,
+        "end": 1786.08,
+        "text": "let's, we could compile this."
+    },
+    {
+        "start": 1786.08,
+        "end": 1788.08,
+        "text": "We could see exactly how it looks like."
+    },
+    {
+        "start": 1788.08,
+        "end": 1792.08,
+        "text": "See two hex and it's applying really an M. D."
+    },
+    {
+        "start": 1792.08,
+        "end": 1796.08,
+        "text": "Five of those two fields."
+    },
+    {
+        "start": 1796.08,
+        "end": 1800.08,
+        "text": "And M. D. Five here, that I'm using BigQuery, it can change depending on your platform."
+    },
+    {
+        "start": 1800.08,
+        "end": 1804.08,
+        "text": "That's also the nice thing about macros and the adapters that do T."
+    },
+    {
+        "start": 1804.08,
+        "end": 1810.08,
+        "text": "Susan is that it's going to be changing the code whenever I'm changing the adapter."
+    },
+    {
+        "start": 1810.08,
+        "end": 1814.08,
+        "text": "So now when I go to pass grows, this function will look slightly different."
+    },
+    {
+        "start": 1815.08,
+        "end": 1819.08,
+        "text": "Um, that's because right it's going to be adapting, but I don't really see the difference."
+    },
+    {
+        "start": 1819.08,
+        "end": 1821.08,
+        "text": "So it's abstracting that complex to for me."
+    },
+    {
+        "start": 1821.08,
+        "end": 1823.08,
+        "text": "Um, good."
+    },
+    {
+        "start": 1823.08,
+        "end": 1825.08,
+        "text": "Uh, do we want to build this?"
+    },
+    {
+        "start": 1825.08,
+        "end": 1829.08,
+        "text": "And I think after it is, we're pretty much ready to move on."
+    },
+    {
+        "start": 1836.08,
+        "end": 1837.08,
+        "text": "That same."
+    },
+    {
+        "start": 1837.08,
+        "end": 1838.08,
+        "text": "It went fine."
+    },
+    {
+        "start": 1838.08,
+        "end": 1841.08,
+        "text": "It created the view on their details."
+    },
+    {
+        "start": 1841.08,
+        "end": 1843.08,
+        "text": "You can also see create the view."
+    },
+    {
+        "start": 1844.08,
+        "end": 1850.08,
+        "text": "Um, as with my data, all of this."
+    },
+    {
+        "start": 1851.08,
+        "end": 1853.08,
+        "text": "All of this here."
+    },
+    {
+        "start": 1854.08,
+        "end": 1859.08,
+        "text": "You can also see all that code under target folder, by the way, and their compile."
+    },
+    {
+        "start": 1859.08,
+        "end": 1862.08,
+        "text": "You'll always be able to see what has been running."
+    },
+    {
+        "start": 1862.08,
+        "end": 1865.08,
+        "text": "This can be very helpful as you see."
+    },
+    {
+        "start": 1865.08,
+        "end": 1870.08,
+        "text": "I did already an example, but it's maintaining the information from my brands."
+    },
+    {
+        "start": 1870.08,
+        "end": 1872.08,
+        "text": "In this session in the ID."
+    },
+    {
+        "start": 1872.08,
+        "end": 1876.08,
+        "text": "So this can also be very helpful if you're having errors, troubleshoot."
+    },
+    {
+        "start": 1876.08,
+        "end": 1881.08,
+        "text": "Then you should come here, take that code, take it over that to your BigQuery, for example."
+    },
+    {
+        "start": 1881.08,
+        "end": 1885.08,
+        "text": "And talking about BigQuery, we're already being running a lot of things."
+    },
+    {
+        "start": 1886.08,
+        "end": 1890.08,
+        "text": "Uh, let's, let's refresh this."
+    },
+    {
+        "start": 1890.08,
+        "end": 1892.08,
+        "text": "And we should be able, yeah."
+    },
+    {
+        "start": 1893.08,
+        "end": 1898.08,
+        "text": "Well, this has some more stuff that I was trying, but this is really my model."
+    },
+    {
+        "start": 1898.08,
+        "end": 1902.08,
+        "text": "Station grid and trip data that we've been working with."
+    },
+    {
+        "start": 1902.08,
+        "end": 1904.08,
+        "text": "Has a trip ID."
+    },
+    {
+        "start": 1905.08,
+        "end": 1909.08,
+        "text": "Um, and this is what my brand just executed."
+    },
+    {
+        "start": 1911.08,
+        "end": 1914.08,
+        "text": "So I think we are not ready to."
+    },
+    {
+        "start": 1915.08,
+        "end": 1921.08,
+        "text": "Copy paste the code entirely from our repository."
+    },
+    {
+        "start": 1921.08,
+        "end": 1924.08,
+        "text": "And we're going to see what's different."
+    },
+    {
+        "start": 1925.08,
+        "end": 1928.08,
+        "text": "From here, because a lot of the things I've really should sick well."
+    },
+    {
+        "start": 1928.08,
+        "end": 1931.08,
+        "text": "So we're not going to talk about does."
+    },
+    {
+        "start": 1931.08,
+        "end": 1933.08,
+        "text": "But something we're going to talk about."
+    },
+    {
+        "start": 1933.08,
+        "end": 1937.08,
+        "text": "First of all, we find now that we have a config file."
+    },
+    {
+        "start": 1937.08,
+        "end": 1940.08,
+        "text": "Um, sorry, a config macro."
+    },
+    {
+        "start": 1940.08,
+        "end": 1943.08,
+        "text": "So this is something that could be interesting for you to know."
+    },
+    {
+        "start": 1943.08,
+        "end": 1945.08,
+        "text": "Let's delete that."
+    },
+    {
+        "start": 1945.08,
+        "end": 1947.08,
+        "text": "Whenever I'm trying to write my DVT model."
+    },
+    {
+        "start": 1947.08,
+        "end": 1950.08,
+        "text": "So if I do underscore and the score, this is going to help me."
+    },
+    {
+        "start": 1950.08,
+        "end": 1953.08,
+        "text": "And it's going to help us given the."
+    },
+    {
+        "start": 1953.08,
+        "end": 1954.08,
+        "text": "Sheen shelf locks."
+    },
+    {
+        "start": 1954.08,
+        "end": 1956.08,
+        "text": "Um, and let's put you here."
+    },
+    {
+        "start": 1956.08,
+        "end": 1960.08,
+        "text": "You may have noticed I didn't really have this before and it was working fine."
+    },
+    {
+        "start": 1960.08,
+        "end": 1961.08,
+        "text": "And it was making a view."
+    },
+    {
+        "start": 1961.08,
+        "end": 1963.08,
+        "text": "So why do we have this here?"
+    },
+    {
+        "start": 1963.08,
+        "end": 1965.08,
+        "text": "You don't need to have it by default."
+    },
+    {
+        "start": 1965.08,
+        "end": 1967.08,
+        "text": "Everything will be a view."
+    },
+    {
+        "start": 1967.08,
+        "end": 1969.08,
+        "text": "You could alter that default in the project."
+    },
+    {
+        "start": 1969.08,
+        "end": 1975.08,
+        "text": "Why am I so you could say make everything within my project materialized as a table."
+    },
+    {
+        "start": 1975.08,
+        "end": 1977.08,
+        "text": "Or you could even do that by fullers."
+    },
+    {
+        "start": 1977.08,
+        "end": 1980.08,
+        "text": "You could say make everything on the station of view."
+    },
+    {
+        "start": 1980.08,
+        "end": 1982.08,
+        "text": "Make everything on the core a table."
+    },
+    {
+        "start": 1982.08,
+        "end": 1984.08,
+        "text": "This is usually by default."
+    },
+    {
+        "start": 1984.08,
+        "end": 1988.08,
+        "text": "This is usually how this project looks like in production."
+    },
+    {
+        "start": 1988.08,
+        "end": 1994.08,
+        "text": "And whenever in a model I define a config, then this will override the default."
+    },
+    {
+        "start": 1994.08,
+        "end": 1999.08,
+        "text": "So let's just leave the view here."
+    },
+    {
+        "start": 1999.08,
+        "end": 2001.08,
+        "text": "I just know that sometimes it's nice to have this as well."
+    },
+    {
+        "start": 2001.08,
+        "end": 2006.08,
+        "text": "So then I know that actors basically choose this to be a view."
+    },
+    {
+        "start": 2007.08,
+        "end": 2009.08,
+        "text": "And let's see what else is doing."
+    },
+    {
+        "start": 2009.08,
+        "end": 2014.08,
+        "text": "So here in the first initial city where I'm selecting data from the source,"
+    },
+    {
+        "start": 2014.08,
+        "end": 2016.08,
+        "text": "it has an hour row number."
+    },
+    {
+        "start": 2016.08,
+        "end": 2021.08,
+        "text": "I am using the same two fields that I used to generate a server key,"
+    },
+    {
+        "start": 2021.08,
+        "end": 2028.08,
+        "text": "which means I'm trying to find duplicates of that primary key of rows that have the same primary key."
+    },
+    {
+        "start": 2028.08,
+        "end": 2033.08,
+        "text": "And then I can filter by those that have row number equal one."
+    },
+    {
+        "start": 2033.08,
+        "end": 2036.08,
+        "text": "So then I only maintain one auto duplicates."
+    },
+    {
+        "start": 2036.08,
+        "end": 2041.08,
+        "text": "Something else that happening here is that the Bender AD work clean in it."
+    },
+    {
+        "start": 2041.08,
+        "end": 2044.08,
+        "text": "To make sure that we don't bring any null data."
+    },
+    {
+        "start": 2044.08,
+        "end": 2050.08,
+        "text": "We have here our server key that we created it before I edit some comments as well."
+    },
+    {
+        "start": 2050.08,
+        "end": 2057.08,
+        "text": "To keep our code in order, there's some casting a lot of casting being done."
+    },
+    {
+        "start": 2057.08,
+        "end": 2060.08,
+        "text": "Some rename in here."
+    },
+    {
+        "start": 2061.08,
+        "end": 2063.08,
+        "text": "Of course, it's our payment type."
+    },
+    {
+        "start": 2063.08,
+        "end": 2066.08,
+        "text": "But now there's something else that we have here."
+    },
+    {
+        "start": 2066.08,
+        "end": 2069.08,
+        "text": "And this is what we're going to learn now."
+    },
+    {
+        "start": 2069.08,
+        "end": 2070.08,
+        "text": "This is variables."
+    },
+    {
+        "start": 2070.08,
+        "end": 2073.08,
+        "text": "The concept of variables is very similar."
+    },
+    {
+        "start": 2073.08,
+        "end": 2075.08,
+        "text": "It's the same as any programming language, right?"
+    },
+    {
+        "start": 2075.08,
+        "end": 2080.08,
+        "text": "So if you're not familiar with it, a variable can act similar as a bucket,"
+    },
+    {
+        "start": 2080.08,
+        "end": 2084.08,
+        "text": "where you put some value stores something that you want to use."
+    },
+    {
+        "start": 2084.08,
+        "end": 2085.08,
+        "text": "And then you can take it."
+    },
+    {
+        "start": 2085.08,
+        "end": 2089.08,
+        "text": "You always have it available to take it away from that bucket whenever you need it to use."
+    },
+    {
+        "start": 2090.08,
+        "end": 2095.08,
+        "text": "In DVD, we can define those variables at a project level."
+    },
+    {
+        "start": 2095.08,
+        "end": 2100.08,
+        "text": "We can define those variables within the project YML and then use it in different places."
+    },
+    {
+        "start": 2100.08,
+        "end": 2102.08,
+        "text": "So let's see here."
+    },
+    {
+        "start": 2102.08,
+        "end": 2106.08,
+        "text": "I have payment type values defined and I have a list of numbers."
+    },
+    {
+        "start": 2106.08,
+        "end": 2109.08,
+        "text": "So I could use this in different places."
+    },
+    {
+        "start": 2109.08,
+        "end": 2112.08,
+        "text": "For example, in the cases table, and I could do for loop."
+    },
+    {
+        "start": 2112.08,
+        "end": 2116.08,
+        "text": "That makes sure that it goes through this list to build a case."
+    },
+    {
+        "start": 2116.08,
+        "end": 2121.08,
+        "text": "Or I could even use to test it to compare against the actual values that again the table."
+    },
+    {
+        "start": 2121.08,
+        "end": 2124.08,
+        "text": "Are there a swedding the list or not?"
+    },
+    {
+        "start": 2124.08,
+        "end": 2129.08,
+        "text": "And another way could be using that variable."
+    },
+    {
+        "start": 2129.08,
+        "end": 2133.08,
+        "text": "Defining that variable with this macro, the bar."
+    },
+    {
+        "start": 2133.08,
+        "end": 2139.08,
+        "text": "Macra I could set dynamically a value within my macro, for example."
+    },
+    {
+        "start": 2139.08,
+        "end": 2144.08,
+        "text": "And another third way to use that is defining the value of that variable."
+    },
+    {
+        "start": 2144.08,
+        "end": 2146.08,
+        "text": "We didn't my execution."
+    },
+    {
+        "start": 2146.08,
+        "end": 2152.08,
+        "text": "So I can pass a value for that variable in the command that I'm running."
+    },
+    {
+        "start": 2152.08,
+        "end": 2155.08,
+        "text": "And I can always call that variable using the bar macro."
+    },
+    {
+        "start": 2155.08,
+        "end": 2158.08,
+        "text": "So here, let's go to the code."
+    },
+    {
+        "start": 2158.08,
+        "end": 2160.08,
+        "text": "Let's see if we're in there."
+    },
+    {
+        "start": 2160.08,
+        "end": 2163.08,
+        "text": "So here what I'll be doing is if."
+    },
+    {
+        "start": 2163.08,
+        "end": 2167.08,
+        "text": "So I have here a conditional execution."
+    },
+    {
+        "start": 2167.08,
+        "end": 2172.08,
+        "text": "If the variable."
+    },
+    {
+        "start": 2172.08,
+        "end": 2178.08,
+        "text": "And when I do if an a value that means if it's true, then do a limit 100."
+    },
+    {
+        "start": 2178.08,
+        "end": 2184.08,
+        "text": "If this is false, then do not send right exits the if because there is no else."
+    },
+    {
+        "start": 2184.08,
+        "end": 2187.08,
+        "text": "And let's look at this now, specifically."
+    },
+    {
+        "start": 2187.08,
+        "end": 2191.08,
+        "text": "So it's calling the variable is test run."
+    },
+    {
+        "start": 2191.08,
+        "end": 2195.08,
+        "text": "And it's adding a default value equal tree."
+    },
+    {
+        "start": 2195.08,
+        "end": 2201.08,
+        "text": "This means if I have a value for is test run,"
+    },
+    {
+        "start": 2201.08,
+        "end": 2203.08,
+        "text": "it's going to use that value."
+    },
+    {
+        "start": 2203.08,
+        "end": 2206.08,
+        "text": "That can be true or false because it's a Boolean."
+    },
+    {
+        "start": 2206.08,
+        "end": 2212.08,
+        "text": "But if there's no value for is test run, use true by default."
+    },
+    {
+        "start": 2212.08,
+        "end": 2217.08,
+        "text": "Meaning by default always add a limit 100 to our code."
+    },
+    {
+        "start": 2217.08,
+        "end": 2221.08,
+        "text": "And let's just run the code as it is."
+    },
+    {
+        "start": 2221.08,
+        "end": 2225.08,
+        "text": "And let's make sure we see that limit 100."
+    },
+    {
+        "start": 2225.08,
+        "end": 2228.08,
+        "text": "We could compile the code as well for here."
+    },
+    {
+        "start": 2228.08,
+        "end": 2232.08,
+        "text": "Let's do OK station trip data."
+    },
+    {
+        "start": 2232.08,
+        "end": 2234.08,
+        "text": "It's good to details."
+    },
+    {
+        "start": 2234.08,
+        "end": 2237.08,
+        "text": "And let's see here what it's doing."
+    },
+    {
+        "start": 2237.08,
+        "end": 2239.08,
+        "text": "Create over it applies my view."
+    },
+    {
+        "start": 2239.08,
+        "end": 2243.08,
+        "text": "All of the code are we already know because we've run this many times."
+    },
+    {
+        "start": 2243.08,
+        "end": 2247.08,
+        "text": "The macro resolve and then inside in the limit 100."
+    },
+    {
+        "start": 2247.08,
+        "end": 2251.08,
+        "text": "This is very important because a lot of people get confused with this with the homework."
+    },
+    {
+        "start": 2251.08,
+        "end": 2254.08,
+        "text": "So if you're still looking at watching out this video,"
+    },
+    {
+        "start": 2254.08,
+        "end": 2256.08,
+        "text": "now you know you won't be tricked."
+    },
+    {
+        "start": 2256.08,
+        "end": 2260.08,
+        "text": "And let's take this now."
+    },
+    {
+        "start": 2260.08,
+        "end": 2265.08,
+        "text": "And let's say I don't want to have a limit 100."
+    },
+    {
+        "start": 2265.08,
+        "end": 2274.08,
+        "text": "So let's do duty bill minus by a select station green treat data."
+    },
+    {
+        "start": 2274.08,
+        "end": 2277.08,
+        "text": "Bars and we're sending a dictionary."
+    },
+    {
+        "start": 2277.08,
+        "end": 2281.08,
+        "text": "So within those variables, we're sending those in a dictionary."
+    },
+    {
+        "start": 2281.08,
+        "end": 2283.08,
+        "text": "I can send my variables as ones to be used."
+    },
+    {
+        "start": 2283.08,
+        "end": 2289.08,
+        "text": "This is where my execution and I'm saying it's just run equals false."
+    },
+    {
+        "start": 2289.08,
+        "end": 2301.08,
+        "text": "So whenever I'm doing this, then what it's doing, what we expect this to be doing is to not add the limit 100."
+    },
+    {
+        "start": 2301.08,
+        "end": 2306.08,
+        "text": "And indeed, it did not add it added the comment, which is fine because it's a sequel comment."
+    },
+    {
+        "start": 2306.08,
+        "end": 2308.08,
+        "text": "It did not add the 100."
+    },
+    {
+        "start": 2308.08,
+        "end": 2312.08,
+        "text": "This is a very useful macro by the way."
+    },
+    {
+        "start": 2312.08,
+        "end": 2318.08,
+        "text": "Like you could build this as a macro and then or just copy paste this piece of code in your models."
+    },
+    {
+        "start": 2318.08,
+        "end": 2319.08,
+        "text": "This is very useful."
+    },
+    {
+        "start": 2319.08,
+        "end": 2321.08,
+        "text": "This is called dev limit."
+    },
+    {
+        "start": 2321.08,
+        "end": 2329.08,
+        "text": "I highly recommend it because this will allow us, but by default, we'll have cheaper queries because they'll be limited to 100."
+    },
+    {
+        "start": 2329.08,
+        "end": 2330.08,
+        "text": "It will be faster."
+    },
+    {
+        "start": 2330.08,
+        "end": 2336.08,
+        "text": "We'll be cheaper and when we actually want to use all the production data, most likely deployment."
+    },
+    {
+        "start": 2336.08,
+        "end": 2342.08,
+        "text": "This will actively, proactively put that instance run to false."
+    },
+    {
+        "start": 2342.08,
+        "end": 2343.08,
+        "text": "Good."
+    },
+    {
+        "start": 2343.08,
+        "end": 2348.08,
+        "text": "So we have now a lot of things done."
+    },
+    {
+        "start": 2348.08,
+        "end": 2352.08,
+        "text": "We are going to create the other."
+    },
+    {
+        "start": 2352.08,
+        "end": 2357.08,
+        "text": "We're going to create a remember that we want to do station."
+    },
+    {
+        "start": 2357.08,
+        "end": 2359.08,
+        "text": "Create a file."
+    },
+    {
+        "start": 2359.08,
+        "end": 2364.08,
+        "text": "This station yellow trip data."
+    },
+    {
+        "start": 2364.08,
+        "end": 2366.08,
+        "text": "This is more or less the same."
+    },
+    {
+        "start": 2366.08,
+        "end": 2370.08,
+        "text": "So we're not really going to see how that looks like."
+    },
+    {
+        "start": 2370.08,
+        "end": 2374.08,
+        "text": "I'm just going to copy my code and we'll follow."
+    },
+    {
+        "start": 2374.08,
+        "end": 2376.08,
+        "text": "It's very very similar."
+    },
+    {
+        "start": 2376.08,
+        "end": 2377.08,
+        "text": "The code."
+    },
+    {
+        "start": 2377.08,
+        "end": 2383.08,
+        "text": "It uses the same macro and has some difference because they're always a straight tail."
+    },
+    {
+        "start": 2383.08,
+        "end": 2389.08,
+        "text": "Then it doesn't really have the same variables, but code itself, sequel itself is pretty much the same."
+    },
+    {
+        "start": 2389.08,
+        "end": 2393.08,
+        "text": "And now we're going to move one layer."
+    },
+    {
+        "start": 2393.08,
+        "end": 2397.08,
+        "text": "Something that when we did that, right, it generated this lineage."
+    },
+    {
+        "start": 2397.08,
+        "end": 2402.08,
+        "text": "So so far our project, let's delete and see the whole project."
+    },
+    {
+        "start": 2402.08,
+        "end": 2404.08,
+        "text": "Our project looks something like this."
+    },
+    {
+        "start": 2404.08,
+        "end": 2407.08,
+        "text": "We have our two sources and we have a piece of models here."
+    },
+    {
+        "start": 2407.08,
+        "end": 2416.08,
+        "text": "And remember, we need to now create our fact and dimensional tables."
+    },
+    {
+        "start": 2416.08,
+        "end": 2418.08,
+        "text": "So we're going to come here."
+    },
+    {
+        "start": 2418.08,
+        "end": 2424.08,
+        "text": "We're going to create a core."
+    },
+    {
+        "start": 2424.08,
+        "end": 2430.08,
+        "text": "And we're going to go ahead and create that a deem zones."
+    },
+    {
+        "start": 2430.08,
+        "end": 2442.08,
+        "text": "Our problem is not a problem, but we want to make sure that we have as well when created deem zones is something like."
+    },
+    {
+        "start": 2442.08,
+        "end": 2446.08,
+        "text": "Something like a like a master data table."
+    },
+    {
+        "start": 2446.08,
+        "end": 2447.08,
+        "text": "Do it."
+    },
+    {
+        "start": 2447.08,
+        "end": 2453.08,
+        "text": "Deem zones that sequel."
+    },
+    {
+        "start": 2453.08,
+        "end": 2464.08,
+        "text": "What I want to have here in deem zones is all of the the zone data from the places where those taxes are moving."
+    },
+    {
+        "start": 2464.08,
+        "end": 2468.08,
+        "text": "So those taxes are always moving within a zone."
+    },
+    {
+        "start": 2468.08,
+        "end": 2473.08,
+        "text": "And we want to make sure that we have information regarding that."
+    },
+    {
+        "start": 2474.08,
+        "end": 2477.08,
+        "text": "For dad, we do not really have source data."
+    },
+    {
+        "start": 2477.08,
+        "end": 2481.08,
+        "text": "So we're going to use the seats that I mentioned in the past."
+    },
+    {
+        "start": 2481.08,
+        "end": 2484.08,
+        "text": "So we're going to have this taxes zone boot up."
+    },
+    {
+        "start": 2484.08,
+        "end": 2488.08,
+        "text": "This is perfect because it doesn't really have that many records."
+    },
+    {
+        "start": 2488.08,
+        "end": 2491.08,
+        "text": "It only has like a few hundred 266."
+    },
+    {
+        "start": 2491.08,
+        "end": 2494.08,
+        "text": "And it doesn't really have many columns."
+    },
+    {
+        "start": 2494.08,
+        "end": 2496.08,
+        "text": "There's something that won't change much."
+    },
+    {
+        "start": 2496.08,
+        "end": 2501.08,
+        "text": "It's very, very unlikely that a queen says not can you be called Queen anytime soon."
+    },
+    {
+        "start": 2501.08,
+        "end": 2508.08,
+        "text": "So at most wishes may add zones whenever the taxes are getting to more places."
+    },
+    {
+        "start": 2508.08,
+        "end": 2511.08,
+        "text": "I'll show you something how to copy this."
+    },
+    {
+        "start": 2511.08,
+        "end": 2513.08,
+        "text": "Go to row and that's it."
+    },
+    {
+        "start": 2513.08,
+        "end": 2516.08,
+        "text": "Let's let's take all of this."
+    },
+    {
+        "start": 2516.08,
+        "end": 2523.08,
+        "text": "And let's actually create this here."
+    },
+    {
+        "start": 2523.08,
+        "end": 2525.08,
+        "text": "And the receipts."
+    },
+    {
+        "start": 2526.08,
+        "end": 2528.08,
+        "text": "Creative file."
+    },
+    {
+        "start": 2528.08,
+        "end": 2531.08,
+        "text": "This is called."
+    },
+    {
+        "start": 2531.08,
+        "end": 2532.08,
+        "text": "How is this called?"
+    },
+    {
+        "start": 2532.08,
+        "end": 2536.08,
+        "text": "Taxi-SurnalCup CSV."
+    },
+    {
+        "start": 2536.08,
+        "end": 2539.08,
+        "text": "By the way, you could this is within the troop data."
+    },
+    {
+        "start": 2539.08,
+        "end": 2540.08,
+        "text": "This file."
+    },
+    {
+        "start": 2540.08,
+        "end": 2546.08,
+        "text": "So you could actually download this and port this in the get caught completely valid."
+    },
+    {
+        "start": 2546.08,
+        "end": 2548.08,
+        "text": "Let's create this."
+    },
+    {
+        "start": 2548.08,
+        "end": 2551.08,
+        "text": "Let's save this."
+    },
+    {
+        "start": 2551.08,
+        "end": 2553.08,
+        "text": "Not so sure about this."
+    },
+    {
+        "start": 2553.08,
+        "end": 2561.08,
+        "text": "Same as working correctly, but let's do this."
+    },
+    {
+        "start": 2561.08,
+        "end": 2565.08,
+        "text": "And if you see the seat has like a nice plant icon."
+    },
+    {
+        "start": 2565.08,
+        "end": 2567.08,
+        "text": "Okay, it work."
+    },
+    {
+        "start": 2567.08,
+        "end": 2573.08,
+        "text": "It created a seed file under DBT Victoria taxis and loop cop."
+    },
+    {
+        "start": 2573.08,
+        "end": 2578.08,
+        "text": "We could even find it here if we were to do refresh."
+    },
+    {
+        "start": 2578.08,
+        "end": 2581.08,
+        "text": "Under Victoria taxis and loop cop."
+    },
+    {
+        "start": 2581.08,
+        "end": 2584.08,
+        "text": "It's a table."
+    },
+    {
+        "start": 2584.08,
+        "end": 2588.08,
+        "text": "To prove you that data looks fine."
+    },
+    {
+        "start": 2588.08,
+        "end": 2590.08,
+        "text": "If you see here is the location ID."
+    },
+    {
+        "start": 2590.08,
+        "end": 2592.08,
+        "text": "If you remember, may not all good."
+    },
+    {
+        "start": 2592.08,
+        "end": 2596.08,
+        "text": "The location ID is within the green and the yellow troop data."
+    },
+    {
+        "start": 2596.08,
+        "end": 2602.08,
+        "text": "So what we're going to be doing is for other models encasing that data with this."
+    },
+    {
+        "start": 2602.08,
+        "end": 2604.08,
+        "text": "So what that location ID looks like."
+    },
+    {
+        "start": 2604.08,
+        "end": 2608.08,
+        "text": "So let's go back here and let's go under models again."
+    },
+    {
+        "start": 2608.08,
+        "end": 2613.08,
+        "text": "Let's go core and let's just copy paste the."
+    },
+    {
+        "start": 2613.08,
+        "end": 2615.08,
+        "text": "Deem sounds."
+    },
+    {
+        "start": 2615.08,
+        "end": 2620.08,
+        "text": "What this is going to do in the under the deem sounds ready."
+    },
+    {
+        "start": 2620.08,
+        "end": 2625.08,
+        "text": "Oh."
+    },
+    {
+        "start": 2625.08,
+        "end": 2629.08,
+        "text": "Well, we can also write this code out itself."
+    },
+    {
+        "start": 2629.08,
+        "end": 2633.08,
+        "text": "So let's just what this is doing is selecting."
+    },
+    {
+        "start": 2633.08,
+        "end": 2635.08,
+        "text": "From this could be a good example."
+    },
+    {
+        "start": 2635.08,
+        "end": 2641.08,
+        "text": "Anyways, from that taxi look up right taxis own look up."
+    },
+    {
+        "start": 2641.08,
+        "end": 2645.08,
+        "text": "And we could even do a preview of this."
+    },
+    {
+        "start": 2645.08,
+        "end": 2652.08,
+        "text": "And this will allow us to work with that project with that."
+    },
+    {
+        "start": 2652.08,
+        "end": 2656.08,
+        "text": "With that table and create those things start that we want to do."
+    },
+    {
+        "start": 2656.08,
+        "end": 2658.08,
+        "text": "We turn the names off."
+    },
+    {
+        "start": 2658.08,
+        "end": 2661.08,
+        "text": "So we want to do location of the."
+    },
+    {
+        "start": 2661.08,
+        "end": 2665.08,
+        "text": "So and then service zone and then."
+    },
+    {
+        "start": 2665.08,
+        "end": 2671.08,
+        "text": "Location ID."
+    },
+    {
+        "start": 2671.08,
+        "end": 2673.08,
+        "text": "All right."
+    },
+    {
+        "start": 2673.08,
+        "end": 2677.08,
+        "text": "So."
+    },
+    {
+        "start": 2677.08,
+        "end": 2679.08,
+        "text": "Service zone."
+    },
+    {
+        "start": 2679.08,
+        "end": 2683.08,
+        "text": "And something that we had is that within service zone."
+    },
+    {
+        "start": 2683.08,
+        "end": 2688.08,
+        "text": "There was a plot a problem where everything that was borrow was actually green."
+    },
+    {
+        "start": 2688.08,
+        "end": 2692.08,
+        "text": "So that's a that's a place where only the green taxes go."
+    },
+    {
+        "start": 2692.08,
+        "end": 2694.08,
+        "text": "So we're just going to rename it."
+    },
+    {
+        "start": 2694.08,
+        "end": 2696.08,
+        "text": "So then it's easier for our analytics."
+    },
+    {
+        "start": 2696.08,
+        "end": 2698.08,
+        "text": "So let's just do this."
+    },
+    {
+        "start": 2698.08,
+        "end": 2700.08,
+        "text": "Where we do a replacement."
+    },
+    {
+        "start": 2700.08,
+        "end": 2702.08,
+        "text": "We clean a lot about this data."
+    },
+    {
+        "start": 2702.08,
+        "end": 2704.08,
+        "text": "Let's save this."
+    },
+    {
+        "start": 2704.08,
+        "end": 2705.08,
+        "text": "And that's it."
+    },
+    {
+        "start": 2705.08,
+        "end": 2707.08,
+        "text": "We're ready."
+    },
+    {
+        "start": 2707.08,
+        "end": 2709.08,
+        "text": "With the deem sounds."
+    },
+    {
+        "start": 2709.08,
+        "end": 2715.08,
+        "text": "And what we're going to do now next is create a fact table a fact creeps table."
+    },
+    {
+        "start": 2715.08,
+        "end": 2717.08,
+        "text": "So let's just."
+    },
+    {
+        "start": 2717.08,
+        "end": 2720.08,
+        "text": "I create another type."
+    },
+    {
+        "start": 2720.08,
+        "end": 2722.08,
+        "text": "Let's do fact."
+    },
+    {
+        "start": 2722.08,
+        "end": 2727.08,
+        "text": "A trips that sequel."
+    },
+    {
+        "start": 2727.08,
+        "end": 2731.08,
+        "text": "And we want to and what we want to make sure we do here is."
+    },
+    {
+        "start": 2731.08,
+        "end": 2733.08,
+        "text": "Let's go back to the answer."
+    },
+    {
+        "start": 2733.08,
+        "end": 2734.08,
+        "text": "Let's do everything."
+    },
+    {
+        "start": 2734.08,
+        "end": 2741.08,
+        "text": "What we want to do and other fact trips is we want to make sure that we take the both the green and the yellow."
+    },
+    {
+        "start": 2741.08,
+        "end": 2748.08,
+        "text": "We put this that data together and we encase it using the sounds."
+    },
+    {
+        "start": 2748.08,
+        "end": 2752.08,
+        "text": "Data so we'll put all of that together under fact troops."
+    },
+    {
+        "start": 2752.08,
+        "end": 2755.08,
+        "text": "And if you saw a factor is 70s, who now it's like here alone."
+    },
+    {
+        "start": 2755.08,
+        "end": 2759.08,
+        "text": "But we'll add it here using those ref."
+    },
+    {
+        "start": 2759.08,
+        "end": 2764.08,
+        "text": "So something that we want to make sure is this is a table."
+    },
+    {
+        "start": 2764.08,
+        "end": 2767.08,
+        "text": "Because this is going to be a bigger table."
+    },
+    {
+        "start": 2767.08,
+        "end": 2774.08,
+        "text": "This is going to be a table that a model that's going to take longer to rhyme because it's union seeing since joining."
+    },
+    {
+        "start": 2774.08,
+        "end": 2777.08,
+        "text": "So by materialist in this as a table."
+    },
+    {
+        "start": 2777.08,
+        "end": 2787.08,
+        "text": "We are making our queries more efficient, but also more performance when we've both the closer we go to the VIs."
+    },
+    {
+        "start": 2787.08,
+        "end": 2790.08,
+        "text": "Something that you should know the closer we go to the VIT tool."
+    },
+    {
+        "start": 2790.08,
+        "end": 2796.08,
+        "text": "The more performance it should be we should make sure that we're making this persistent because the stakeholders are going to complain."
+    },
+    {
+        "start": 2796.08,
+        "end": 2799.08,
+        "text": "If it takes a long time."
+    },
+    {
+        "start": 2799.08,
+        "end": 2802.08,
+        "text": "Let's go here."
+    },
+    {
+        "start": 2802.08,
+        "end": 2808.08,
+        "text": "Let's do let's bring both green troop data and yellow troop data."
+    },
+    {
+        "start": 2808.08,
+        "end": 2810.08,
+        "text": "Select."
+    },
+    {
+        "start": 2810.08,
+        "end": 2817.08,
+        "text": "Let's take every thing from."
+    },
+    {
+        "start": 2817.08,
+        "end": 2821.08,
+        "text": "You can also do this as well as I show you before."
+    },
+    {
+        "start": 2821.08,
+        "end": 2826.08,
+        "text": "Rift and then because the data completes let's do this."
+    },
+    {
+        "start": 2826.08,
+        "end": 2828.08,
+        "text": "Yeah, staging curtain to data."
+    },
+    {
+        "start": 2828.08,
+        "end": 2837.08,
+        "text": "We also want to make sure that we add something to identify because we want to be able to identify green from yellow for our analytics."
+    },
+    {
+        "start": 2837.08,
+        "end": 2839.08,
+        "text": "So let's do."
+    },
+    {
+        "start": 2839.08,
+        "end": 2847.08,
+        "text": "Let's add a green as service type from."
+    },
+    {
+        "start": 2847.08,
+        "end": 2848.08,
+        "text": "Good."
+    },
+    {
+        "start": 2848.08,
+        "end": 2852.08,
+        "text": "We'll do the same with the yellow data."
+    },
+    {
+        "start": 2852.08,
+        "end": 2856.08,
+        "text": "Yellow troop data as same."
+    },
+    {
+        "start": 2856.08,
+        "end": 2868.08,
+        "text": "Select star, comma, yellow, as service type from."
+    },
+    {
+        "start": 2868.08,
+        "end": 2873.08,
+        "text": "Let's do the raft."
+    },
+    {
+        "start": 2873.08,
+        "end": 2874.08,
+        "text": "Yeah."
+    },
+    {
+        "start": 2874.08,
+        "end": 2877.08,
+        "text": "Good."
+    },
+    {
+        "start": 2877.08,
+        "end": 2880.08,
+        "text": "That's nicer."
+    },
+    {
+        "start": 2880.08,
+        "end": 2885.08,
+        "text": "And we're going to do next is union all of this."
+    },
+    {
+        "start": 2885.08,
+        "end": 2890.08,
+        "text": "So let's do a troops union."
+    },
+    {
+        "start": 2890.08,
+        "end": 2907.08,
+        "text": "And purposely both modules have the same structure."
+    },
+    {
+        "start": 2907.08,
+        "end": 2909.08,
+        "text": "That was part of the cleaning."
+    },
+    {
+        "start": 2909.08,
+        "end": 2916.08,
+        "text": "Remember that we did something like we did something like adding a one for example to add an extra field."
+    },
+    {
+        "start": 2916.08,
+        "end": 2921.08,
+        "text": "So this is going to work perfectly once we're in it."
+    },
+    {
+        "start": 2921.08,
+        "end": 2924.08,
+        "text": "Union."
+    },
+    {
+        "start": 2924.08,
+        "end": 2928.08,
+        "text": "All."
+    },
+    {
+        "start": 2928.08,
+        "end": 2930.08,
+        "text": "Feel free to."
+    },
+    {
+        "start": 2930.08,
+        "end": 2931.08,
+        "text": "Copies."
+    },
+    {
+        "start": 2931.08,
+        "end": 2932.08,
+        "text": "It's."
+    },
+    {
+        "start": 2932.08,
+        "end": 2944.08,
+        "text": "And what we want to make sure next is that we also add the songs."
+    },
+    {
+        "start": 2944.08,
+        "end": 2951.08,
+        "text": "As select from."
+    },
+    {
+        "start": 2951.08,
+        "end": 2954.08,
+        "text": "The sounds perfect."
+    },
+    {
+        "start": 2954.08,
+        "end": 2960.08,
+        "text": "Remember that there were a lot of if we were to do some let's do the preview."
+    },
+    {
+        "start": 2960.08,
+        "end": 2963.08,
+        "text": "And there were a lot of unknown zones."
+    },
+    {
+        "start": 2963.08,
+        "end": 2970.08,
+        "text": "We want to make sure we don't we don't take those like if it's unknown we don't want to know like whatever that's enshrined with them."
+    },
+    {
+        "start": 2970.08,
+        "end": 2974.08,
+        "text": "And then we'll be unknown as far as it concerns us."
+    },
+    {
+        "start": 2974.08,
+        "end": 2975.08,
+        "text": "So let's do."
+    },
+    {
+        "start": 2975.08,
+        "end": 2979.08,
+        "text": "Borg is not unknown."
+    },
+    {
+        "start": 2979.08,
+        "end": 2980.08,
+        "text": "Good."
+    },
+    {
+        "start": 2980.08,
+        "end": 2985.08,
+        "text": "Now we finally could join this all of this."
+    },
+    {
+        "start": 2985.08,
+        "end": 2989.08,
+        "text": "So let's do."
+    },
+    {
+        "start": 2989.08,
+        "end": 2991.08,
+        "text": "I'll copy paste the fields for now."
+    },
+    {
+        "start": 2991.08,
+        "end": 2994.08,
+        "text": "But let's do a select for now from."
+    },
+    {
+        "start": 2994.08,
+        "end": 2997.08,
+        "text": "So in the group."
+    },
+    {
+        "start": 2997.08,
+        "end": 3000.08,
+        "text": "So let's do a."
+    },
+    {
+        "start": 3000.08,
+        "end": 3002.08,
+        "text": "We want to."
+    },
+    {
+        "start": 3002.08,
+        "end": 3004.08,
+        "text": "We only keep."
+    },
+    {
+        "start": 3004.08,
+        "end": 3005.08,
+        "text": "That."
+    },
+    {
+        "start": 3005.08,
+        "end": 3006.08,
+        "text": "Have."
+    },
+    {
+        "start": 3006.08,
+        "end": 3007.08,
+        "text": "So in a show in."
+    },
+    {
+        "start": 3007.08,
+        "end": 3009.08,
+        "text": "So."
+    },
+    {
+        "start": 3009.08,
+        "end": 3011.08,
+        "text": "Let's rename this."
+    },
+    {
+        "start": 3011.08,
+        "end": 3014.08,
+        "text": "That's the pick up zone."
+    },
+    {
+        "start": 3014.08,
+        "end": 3015.08,
+        "text": "Because."
+    },
+    {
+        "start": 3015.08,
+        "end": 3017.08,
+        "text": "One thing."
+    },
+    {
+        "start": 3017.08,
+        "end": 3020.08,
+        "text": "Well we are in a station green tree."
+    },
+    {
+        "start": 3020.08,
+        "end": 3022.56,
+        "text": "And the same world happened with yellow."
+    },
+    {
+        "start": 3022.56,
+        "end": 3027.52,
+        "text": "We actually put to location ID one is the pickup and one is the drop off."
+    },
+    {
+        "start": 3027.52,
+        "end": 3037.52,
+        "text": "So we want both to be joined with theme zones in order to show for both pickup and drop off the name of the son ID."
+    },
+    {
+        "start": 3037.52,
+        "end": 3042.88,
+        "text": "So let's do inner shine theme zones of pickup zone on"
+    },
+    {
+        "start": 3043.52,
+        "end": 3057.92,
+        "text": "troops union died pickup location ID equals pickup zone location ID."
+    },
+    {
+        "start": 3058.88,
+        "end": 3063.84,
+        "text": "And then this is 3D the same. Let's do that twice."
+    },
+    {
+        "start": 3064.48,
+        "end": 3070.48,
+        "text": "troops unions let's do this drop off zone."
+    },
+    {
+        "start": 3078.8,
+        "end": 3086.4,
+        "text": "Good. Where this is going to also make is if a tree doesn't have a ballad"
+    },
+    {
+        "start": 3086.4,
+        "end": 3092.96,
+        "text": "zone that we don't know the name of is going to be lost right which is half all of"
+    },
+    {
+        "start": 3092.96,
+        "end": 3097.04,
+        "text": "this running. So let's try to build this and hopefully it works."
+    },
+    {
+        "start": 3102.48,
+        "end": 3110.64,
+        "text": "But because theme zones will have the same tree but D as this other two let's just go ahead and"
+    },
+    {
+        "start": 3113.04,
+        "end": 3118.32,
+        "text": "copy a factory up right here and let's just do a real select."
+    },
+    {
+        "start": 3122.96,
+        "end": 3130.48,
+        "text": "Let's not do this let's do all of this. Now we save and now we build something very cool as"
+    },
+    {
+        "start": 3130.48,
+        "end": 3137.44,
+        "text": "I we could do build let's go to the image actually. Let's see now it looks a lot of"
+    },
+    {
+        "start": 3137.44,
+        "end": 3140.32,
+        "text": "bit more like the modular that we were talking about before."
+    },
+    {
+        "start": 3140.32,
+        "end": 3143.92,
+        "text": "Modular data modeling that we were talking about before and now we see factory"
+    },
+    {
+        "start": 3143.92,
+        "end": 3151.2,
+        "text": "depends on all of this right. So something that's pretty cool here is that because dbt has identified"
+    },
+    {
+        "start": 3151.2,
+        "end": 3157.04,
+        "text": "all this poison all of this connections we could say run fox trips but first run all of the"
+    },
+    {
+        "start": 3158.08,
+        "end": 3164.3999999999996,
+        "text": "children all of the parents. So dbt would test the sources, reflections of for anything else will"
+    },
+    {
+        "start": 3165.8399999999997,
+        "end": 3171.52,
+        "text": "run all of the things that means refreshing or building them if they don't exist."
+    },
+    {
+        "start": 3171.52,
+        "end": 3178.24,
+        "text": "Oh can do and can do fox trips at the very end. So the way we can do that is using this plus."
+    },
+    {
+        "start": 3178.8799999999997,
+        "end": 3185.52,
+        "text": "So this will do build plus at the beginning plus at the end is everything. So parents and children"
+    },
+    {
+        "start": 3185.52,
+        "end": 3191.8399999999997,
+        "text": "in this case we don't have children yet but let's just do that and then"
+    },
+    {
+        "start": 3194.4799999999996,
+        "end": 3201.52,
+        "text": "there's only really one more model that we're going to do and then we'll be done. Good."
+    },
+    {
+        "start": 3201.84,
+        "end": 3210.64,
+        "text": "Run correctly, fox trips everything. Everything is here so we do have at first try to do station"
+    },
+    {
+        "start": 3210.64,
+        "end": 3216.48,
+        "text": "trip data, station yellow trip data, taxi look up then it does steam zones as well and then it does"
+    },
+    {
+        "start": 3216.48,
+        "end": 3223.92,
+        "text": "fox trips and that fact tricks created a table. See here that sell me that's processing 19.2"
+    },
+    {
+        "start": 3224.64,
+        "end": 3231.44,
+        "text": "and I have everything in here. By default I'm just doing 100. So this is exactly where"
+    },
+    {
+        "start": 3231.44,
+        "end": 3236.32,
+        "text": "we're trying to limit with those 100 to make sure that we're not picking up the whole amount of data."
+    },
+    {
+        "start": 3238.16,
+        "end": 3246.96,
+        "text": "So you understand and so if you want to do the whole thing with all the data in production as"
+    },
+    {
+        "start": 3246.96,
+        "end": 3254.8,
+        "text": "I said before we're borrowing port in for the homework then you'll have to do what's that bars"
+    },
+    {
+        "start": 3255.04,
+        "end": 3261.04,
+        "text": "is let's go to the"
+    },
+    {
+        "start": 3266.1600000000003,
+        "end": 3272.0800000000004,
+        "text": "let's go to the comment to see to trick this. Various is that's run false."
+    },
+    {
+        "start": 3272.16,
+        "end": 3274.08,
+        "text": "false"
+    },
+    {
+        "start": 3280.7999999999997,
+        "end": 3289.2,
+        "text": "two bonds false and this will run the whole project for everything before on false. So with all of"
+    },
+    {
+        "start": 3289.2,
+        "end": 3292.56,
+        "text": "that production data this is how we're going to do it in deployment by the way."
+    },
+    {
+        "start": 3293.04,
+        "end": 3306.96,
+        "text": "be good good and indeed no 100 and now the frontrix should be a little bit more than the 19"
+    },
+    {
+        "start": 3306.96,
+        "end": 3317.7599999999998,
+        "text": "sheikabites that we saw before. There it goes. Well I guess it's the same because it's cash-in."
+    },
+    {
+        "start": 3317.92,
+        "end": 3330.48,
+        "text": "but you can see here that here it only really has 197 and here we do have 60 to 0.7"
+    },
+    {
+        "start": 3330.48,
+        "end": 3340.7200000000003,
+        "text": "millions rows that are being processed to have this factor groups. So we're writing now to go"
+    },
+    {
+        "start": 3340.7200000000003,
+        "end": 3346.8,
+        "text": "and test this model. So make sure that when we deliver those 17 million rows those are"
+    },
+    {
+        "start": 3346.8,
+        "end": 3348.8,
+        "text": "correctly."
+    }
+]

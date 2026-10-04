@@ -1,0 +1,902 @@
+[
+    {
+        "start": 0.0,
+        "end": 8.040000000000001,
+        "text": "We have now our whole project, so it's time to take that into production and use that"
+    },
+    {
+        "start": 8.040000000000001,
+        "end": 12.64,
+        "text": "to analyze data and serve that data to our estate holders."
+    },
+    {
+        "start": 12.64,
+        "end": 18.16,
+        "text": "So if we remember what we learned about DVD at the very beginning, I said that it was"
+    },
+    {
+        "start": 18.16,
+        "end": 22.48,
+        "text": "going to introduce all this layers to our development."
+    },
+    {
+        "start": 22.48,
+        "end": 26.38,
+        "text": "And we saw already how we were able to do that the development, the testing and the"
+    },
+    {
+        "start": 26.38,
+        "end": 30.64,
+        "text": "documentation, all of this happened in our development environment."
+    },
+    {
+        "start": 30.64,
+        "end": 35.72,
+        "text": "And now if we want to take that into production, we're going to go through a process that"
+    },
+    {
+        "start": 35.72,
+        "end": 38.48,
+        "text": "it's called deployment."
+    },
+    {
+        "start": 38.48,
+        "end": 44.08,
+        "text": "What we're going to do is we're going to take all that code and we're going to open"
+    },
+    {
+        "start": 44.08,
+        "end": 49.68,
+        "text": "something like a pull request and we're going to, at the end, merge the code into the main"
+    },
+    {
+        "start": 49.68,
+        "end": 50.68,
+        "text": "branch."
+    },
+    {
+        "start": 50.68,
+        "end": 53.120000000000005,
+        "text": "That is going to affect our production environment."
+    },
+    {
+        "start": 53.12,
+        "end": 57.08,
+        "text": "In our production environment, we're going to be writing the models, but they're also"
+    },
+    {
+        "start": 57.08,
+        "end": 59.72,
+        "text": "going to be some differences."
+    },
+    {
+        "start": 59.72,
+        "end": 67.08,
+        "text": "For example, we saw how bide full during the development, we want to have limited the data,"
+    },
+    {
+        "start": 67.08,
+        "end": 69.47999999999999,
+        "text": "something in production we want to have, right?"
+    },
+    {
+        "start": 69.47999999999999,
+        "end": 73.84,
+        "text": "In production, we want to make sure we have all of the data, we don't have any limits."
+    },
+    {
+        "start": 73.84,
+        "end": 80.44,
+        "text": "But it's also very likely in a real life scenario and their production as well, not everyone"
+    },
+    {
+        "start": 80.44,
+        "end": 85.24,
+        "text": "will have the same accesses, not everyone will be able to write and read all of that"
+    },
+    {
+        "start": 85.24,
+        "end": 86.24,
+        "text": "data."
+    },
+    {
+        "start": 86.24,
+        "end": 90.2,
+        "text": "This is very likely to go into the indifferent database or this is the difference in"
+    },
+    {
+        "start": 90.2,
+        "end": 93.2,
+        "text": "schema with the different sets of rights."
+    },
+    {
+        "start": 93.2,
+        "end": 100.32,
+        "text": "So this deployment workflow, what it would look like is I will do my development in a custom"
+    },
+    {
+        "start": 100.32,
+        "end": 102.64,
+        "text": "branch in my development branch."
+    },
+    {
+        "start": 102.64,
+        "end": 108.12,
+        "text": "All of us, everyone in our team will be doing that in the development branch."
+    },
+    {
+        "start": 108.12,
+        "end": 111.96000000000001,
+        "text": "Well, at the same time, right in parallel, production keeps using the main branch."
+    },
+    {
+        "start": 111.96000000000001,
+        "end": 116.96000000000001,
+        "text": "That doesn't really know what's happening in all of this development branches."
+    },
+    {
+        "start": 116.96000000000001,
+        "end": 122.84,
+        "text": "Once one of those development branches is ready to go to production, we open this pool"
+    },
+    {
+        "start": 122.84,
+        "end": 123.84,
+        "text": "request."
+    },
+    {
+        "start": 123.84,
+        "end": 129.4,
+        "text": "Ideally, someone will check that that's correct, but we're also going to see a way to"
+    },
+    {
+        "start": 129.4,
+        "end": 131.52,
+        "text": "automate that."
+    },
+    {
+        "start": 131.52,
+        "end": 138.0,
+        "text": "And once that's ready to be merged, it goes into the main branch and we're going to run"
+    },
+    {
+        "start": 138.08,
+        "end": 140.36,
+        "text": "those models in production."
+    },
+    {
+        "start": 140.36,
+        "end": 144.92,
+        "text": "And we're going to see as well how we're going to schedule the running of those models"
+    },
+    {
+        "start": 144.92,
+        "end": 150.52,
+        "text": "because we want to make sure that that runs usually on a nightly, on a daily, hourly,"
+    },
+    {
+        "start": 150.52,
+        "end": 155.6,
+        "text": "by hourly basis to keep our data up to date."
+    },
+    {
+        "start": 155.6,
+        "end": 163.08,
+        "text": "So we're first going to do how we're going to run those projects in production."
+    },
+    {
+        "start": 163.08,
+        "end": 166.88000000000002,
+        "text": "I'm going to go here on their environments."
+    },
+    {
+        "start": 166.88000000000002,
+        "end": 170.60000000000002,
+        "text": "We have already a development environment that we've been using so far, but we'll create"
+    },
+    {
+        "start": 170.60000000000002,
+        "end": 171.60000000000002,
+        "text": "a new one."
+    },
+    {
+        "start": 171.60000000000002,
+        "end": 175.48000000000002,
+        "text": "That's called production."
+    },
+    {
+        "start": 175.48000000000002,
+        "end": 177.72000000000003,
+        "text": "It tells me that it's the deployment."
+    },
+    {
+        "start": 177.72000000000003,
+        "end": 180.92000000000002,
+        "text": "It goes under prod."
+    },
+    {
+        "start": 180.92000000000002,
+        "end": 187.72000000000003,
+        "text": "Let's just put a prod data set and let's save this."
+    },
+    {
+        "start": 187.72000000000003,
+        "end": 188.72000000000003,
+        "text": "That's it."
+    },
+    {
+        "start": 188.72000000000003,
+        "end": 191.04000000000002,
+        "text": "Now we're ready to create our first shop."
+    },
+    {
+        "start": 191.04,
+        "end": 198.79999999999998,
+        "text": "We're going to create a deploy shop that's going to let's say, go nightly."
+    },
+    {
+        "start": 198.79999999999998,
+        "end": 207.12,
+        "text": "This is where data hits production under our environment production."
+    },
+    {
+        "start": 207.12,
+        "end": 212.0,
+        "text": "And we see here that it comes already with a DVD build by default, but we can change"
+    },
+    {
+        "start": 212.0,
+        "end": 213.0,
+        "text": "that."
+    },
+    {
+        "start": 213.0,
+        "end": 214.0,
+        "text": "Right."
+    },
+    {
+        "start": 214.0,
+        "end": 221.0,
+        "text": "So this is an scheduler really where we can create all this DVD shops."
+    },
+    {
+        "start": 221.04,
+        "end": 224.76,
+        "text": "We can run all our DVD commands."
+    },
+    {
+        "start": 224.76,
+        "end": 227.84,
+        "text": "A single shop can run multiple of those commands."
+    },
+    {
+        "start": 227.84,
+        "end": 229.84,
+        "text": "We can have multiple steps."
+    },
+    {
+        "start": 229.84,
+        "end": 235.48,
+        "text": "We can have many times that DVD build, but we can also separate those DVD tests."
+    },
+    {
+        "start": 235.48,
+        "end": 240.28,
+        "text": "DVDs that seed, DVD source freshness."
+    },
+    {
+        "start": 240.28,
+        "end": 249.92000000000002,
+        "text": "If we wanted to, each of those runs, we'll be able to trigger manually on a schedule"
+    },
+    {
+        "start": 249.92,
+        "end": 254.79999999999998,
+        "text": "basis, something like a cross-cutter or trigger via an API."
+    },
+    {
+        "start": 254.79999999999998,
+        "end": 259.56,
+        "text": "And whenever this is running, it's going to generate a lot of metadata that will be"
+    },
+    {
+        "start": 259.56,
+        "end": 261.24,
+        "text": "able to use afterwards."
+    },
+    {
+        "start": 261.24,
+        "end": 266.88,
+        "text": "So most likely when we're working for a company in a real data team, we'll be able to use"
+    },
+    {
+        "start": 266.88,
+        "end": 273.47999999999996,
+        "text": "that data to both monitor and alert our data platform."
+    },
+    {
+        "start": 273.47999999999996,
+        "end": 276.56,
+        "text": "So we see here."
+    },
+    {
+        "start": 276.56,
+        "end": 277.56,
+        "text": "Let's go here."
+    },
+    {
+        "start": 277.56,
+        "end": 279.36,
+        "text": "Let's do a complete DVD build."
+    },
+    {
+        "start": 279.36,
+        "end": 285.76,
+        "text": "Let's try to run the docs because we want to make sure we generate those docs in production."
+    },
+    {
+        "start": 285.76,
+        "end": 290.44,
+        "text": "That will be the real documentation that everyone is going to use."
+    },
+    {
+        "start": 290.44,
+        "end": 293.68,
+        "text": "We can run our source freshness."
+    },
+    {
+        "start": 293.68,
+        "end": 303.12,
+        "text": "And we can here set, run this on a schedule and let's say we do every time at 12 every"
+    },
+    {
+        "start": 303.12,
+        "end": 305.96000000000004,
+        "text": "day, probably not inside your day."
+    },
+    {
+        "start": 305.96,
+        "end": 310.56,
+        "text": "We don't receive data on Saturday and Sunday."
+    },
+    {
+        "start": 310.56,
+        "end": 315.15999999999997,
+        "text": "There are some advanced settings like you could do timeout, timeout, threats, how many"
+    },
+    {
+        "start": 315.15999999999997,
+        "end": 317.32,
+        "text": "models do you want to run in parallel?"
+    },
+    {
+        "start": 317.32,
+        "end": 318.64,
+        "text": "Let's say this."
+    },
+    {
+        "start": 318.64,
+        "end": 323.4,
+        "text": "As I said as well, we can also run this on our hook basis."
+    },
+    {
+        "start": 323.4,
+        "end": 328.76,
+        "text": "So I already merged some of the code that we've been working on to make sure that we had"
+    },
+    {
+        "start": 328.76,
+        "end": 331.15999999999997,
+        "text": "some stuff to running here."
+    },
+    {
+        "start": 331.16,
+        "end": 337.12,
+        "text": "And this trigger already some run in the meantime, I'll show you the third way of triggering"
+    },
+    {
+        "start": 337.12,
+        "end": 339.28000000000003,
+        "text": "this which is via an API."
+    },
+    {
+        "start": 339.28000000000003,
+        "end": 344.48,
+        "text": "So this gives you all of the things that you need to trigger this via an API."
+    },
+    {
+        "start": 344.48,
+        "end": 346.76000000000005,
+        "text": "So this can be very helpful."
+    },
+    {
+        "start": 346.76000000000005,
+        "end": 354.56,
+        "text": "For example, you've set out airflow or prefect or made it for the previous weeks."
+    },
+    {
+        "start": 354.56,
+        "end": 360.84000000000003,
+        "text": "And you could do a pipeline that is loading the data, that it's retrieving the fresh"
+    },
+    {
+        "start": 360.84,
+        "end": 368.88,
+        "text": "data and it's loading it into your BigQuery and then it's triggering the DBT run."
+    },
+    {
+        "start": 368.88,
+        "end": 372.11999999999995,
+        "text": "For example, let's go to this."
+    },
+    {
+        "start": 372.11999999999995,
+        "end": 374.2,
+        "text": "This is probably almost done."
+    },
+    {
+        "start": 374.2,
+        "end": 376.64,
+        "text": "And let's see what we can see here."
+    },
+    {
+        "start": 376.64,
+        "end": 378.91999999999996,
+        "text": "We see how was the trigger."
+    },
+    {
+        "start": 378.91999999999996,
+        "end": 380.91999999999996,
+        "text": "We see the commit shop."
+    },
+    {
+        "start": 380.91999999999996,
+        "end": 388.15999999999997,
+        "text": "This is quite nice because this allows us to see exactly what can't change in the repository"
+    },
+    {
+        "start": 388.16,
+        "end": 391.20000000000005,
+        "text": "at the moment in time of the run."
+    },
+    {
+        "start": 391.20000000000005,
+        "end": 394.28000000000003,
+        "text": "We see how long it's running."
+    },
+    {
+        "start": 394.28000000000003,
+        "end": 397.56,
+        "text": "And this guy's it will be updated when it's finished."
+    },
+    {
+        "start": 397.56,
+        "end": 403.20000000000005,
+        "text": "And we're going to see that everyone of this has some steps additional to what we added."
+    },
+    {
+        "start": 403.20000000000005,
+        "end": 408.56,
+        "text": "It clones the repository to make sure that it always has the latest in the main branch."
+    },
+    {
+        "start": 408.56,
+        "end": 414.32000000000005,
+        "text": "It creates that connection to in this case BigQuery, but your data platform."
+    },
+    {
+        "start": 414.32,
+        "end": 415.32,
+        "text": "It runs DBT steps."
+    },
+    {
+        "start": 415.32,
+        "end": 417.92,
+        "text": "Remember, it is installed at packages."
+    },
+    {
+        "start": 417.92,
+        "end": 424.32,
+        "text": "It runs the source freshness because we added that we didn't have any fresh any sources"
+    },
+    {
+        "start": 424.32,
+        "end": 427.12,
+        "text": "actually to check."
+    },
+    {
+        "start": 427.12,
+        "end": 432.88,
+        "text": "It goes to the DBT build and we are very familiar with this by now."
+    },
+    {
+        "start": 432.88,
+        "end": 435.32,
+        "text": "We can also move around with here."
+    },
+    {
+        "start": 435.32,
+        "end": 439.12,
+        "text": "See the warning that we saw from before."
+    },
+    {
+        "start": 439.12,
+        "end": 444.56,
+        "text": "And at the very end, it generated the docs."
+    },
+    {
+        "start": 444.56,
+        "end": 451.64,
+        "text": "And what we can see as well is on the RDFox, we have also the catalog that Chasing and"
+    },
+    {
+        "start": 451.64,
+        "end": 455.56,
+        "text": "other Chasing files that have all of the advanced data that we need."
+    },
+    {
+        "start": 455.56,
+        "end": 461.76,
+        "text": "If we want to analyze that or host the docs in our own."
+    },
+    {
+        "start": 461.76,
+        "end": 468.04,
+        "text": "So if we go back here, we're going to have some information as well."
+    },
+    {
+        "start": 468.04,
+        "end": 472.48,
+        "text": "We see as well that we have that documentation and those sources."
+    },
+    {
+        "start": 472.48,
+        "end": 476.88,
+        "text": "But we want to make sure that we have this hosted here as well."
+    },
+    {
+        "start": 476.88,
+        "end": 479.56,
+        "text": "So what we can do is I'll go for an explorer."
+    },
+    {
+        "start": 479.56,
+        "end": 482.24,
+        "text": "I'll just go to settings."
+    },
+    {
+        "start": 482.24,
+        "end": 488.52000000000004,
+        "text": "And on the RDFox, I define which job I want to take the documentation from."
+    },
+    {
+        "start": 488.52000000000004,
+        "end": 492.04,
+        "text": "Yes, saved."
+    },
+    {
+        "start": 492.04,
+        "end": 496.64000000000004,
+        "text": "And now if I click here for the documentation, I can always find the documentation of my"
+    },
+    {
+        "start": 496.64,
+        "end": 499.32,
+        "text": "whole project in production."
+    },
+    {
+        "start": 499.32,
+        "end": 504.76,
+        "text": "This is very helpful when you're working in a team and then you can expose this."
+    },
+    {
+        "start": 504.76,
+        "end": 510.24,
+        "text": "But also we'll have data sources here that come, all of the information that come for"
+    },
+    {
+        "start": 510.24,
+        "end": 512.96,
+        "text": "in that run that we had."
+    },
+    {
+        "start": 512.96,
+        "end": 517.1999999999999,
+        "text": "And there's another thing that I mentioned that we could do."
+    },
+    {
+        "start": 517.1999999999999,
+        "end": 522.72,
+        "text": "And you may have noticed that when I did this, I have here create shop and it tells me"
+    },
+    {
+        "start": 522.72,
+        "end": 525.52,
+        "text": "to create a continuous integration shop."
+    },
+    {
+        "start": 525.52,
+        "end": 532.16,
+        "text": "So what is that when we are doing those full requests, I said that we want to make sure"
+    },
+    {
+        "start": 532.16,
+        "end": 534.84,
+        "text": "that we're to make as much as possible."
+    },
+    {
+        "start": 534.84,
+        "end": 540.92,
+        "text": "So there's a good software practice of our engineering practice that's called CICD, usually"
+    },
+    {
+        "start": 540.92,
+        "end": 541.92,
+        "text": "comes together."
+    },
+    {
+        "start": 541.92,
+        "end": 547.1999999999999,
+        "text": "CICD stands continuous integration and CID means continuous deployment."
+    },
+    {
+        "start": 547.1999999999999,
+        "end": 554.1999999999999,
+        "text": "And this is the practice of regularly merge those code, those branches into main."
+    },
+    {
+        "start": 554.2,
+        "end": 560.32,
+        "text": "We want to make sure that we don't hold all of the changes like we did and put all of"
+    },
+    {
+        "start": 560.32,
+        "end": 561.9200000000001,
+        "text": "in there at once."
+    },
+    {
+        "start": 561.9200000000001,
+        "end": 566.2800000000001,
+        "text": "And we automate those fields and those tests and those friends."
+    },
+    {
+        "start": 566.2800000000001,
+        "end": 572.24,
+        "text": "So we make sure that it's automated, the fact that it's not going to break production."
+    },
+    {
+        "start": 572.24,
+        "end": 577.72,
+        "text": "The goal here is exactly that, to reduce things to go, emerge into production and break"
+    },
+    {
+        "start": 577.72,
+        "end": 578.72,
+        "text": "that."
+    },
+    {
+        "start": 578.72,
+        "end": 582.32,
+        "text": "This is something that we can easily do with DT Cloud."
+    },
+    {
+        "start": 582.32,
+        "end": 595.24,
+        "text": "So if I were to go here, let's create this CICD checks, a void breaking production."
+    },
+    {
+        "start": 595.24,
+        "end": 597.72,
+        "text": "Sugar by pull request."
+    },
+    {
+        "start": 597.72,
+        "end": 604.2800000000001,
+        "text": "Notice that what this will do as well, it will create an schema called DT Cloud PR, the"
+    },
+    {
+        "start": 604.2800000000001,
+        "end": 605.96,
+        "text": "name of our PR."
+    },
+    {
+        "start": 605.96,
+        "end": 610.48,
+        "text": "It will run this and it will be dropped after the pull request is closed."
+    },
+    {
+        "start": 610.48,
+        "end": 614.64,
+        "text": "So this way we don't affect production, we don't affect development."
+    },
+    {
+        "start": 614.64,
+        "end": 618.0,
+        "text": "It comes by default with this command that we're going to use."
+    },
+    {
+        "start": 618.0,
+        "end": 623.52,
+        "text": "So run any saying that has to be modified and it's children."
+    },
+    {
+        "start": 623.52,
+        "end": 625.88,
+        "text": "We could of course, add our own."
+    },
+    {
+        "start": 625.88,
+        "end": 627.28,
+        "text": "So wouldn't it be nice?"
+    },
+    {
+        "start": 627.28,
+        "end": 637.2,
+        "text": "You run things like DVD test and you create a test that makes sure that fails if your"
+    },
+    {
+        "start": 637.2,
+        "end": 639.08,
+        "text": "models are not documented."
+    },
+    {
+        "start": 639.08,
+        "end": 646.36,
+        "text": "For example, or you could add to run the test, for example, only and not just the building."
+    },
+    {
+        "start": 646.36,
+        "end": 651.08,
+        "text": "We are going to compare everything against production in order to identify what has been"
+    },
+    {
+        "start": 651.08,
+        "end": 652.08,
+        "text": "modified."
+    },
+    {
+        "start": 652.08,
+        "end": 657.36,
+        "text": "And yeah, we're ready again here and there are events."
+    },
+    {
+        "start": 657.36,
+        "end": 664.96,
+        "text": "We can define how many threats if there's a timeout and we can save this."
+    },
+    {
+        "start": 664.96,
+        "end": 667.5200000000001,
+        "text": "There's another thing that we need to do here."
+    },
+    {
+        "start": 667.52,
+        "end": 668.72,
+        "text": "So there are two pull requests."
+    },
+    {
+        "start": 668.72,
+        "end": 674.6,
+        "text": "We're going to open a pull request and then it's going to take the CI."
+    },
+    {
+        "start": 674.6,
+        "end": 677.84,
+        "text": "This usually takes a little bit to impact."
+    },
+    {
+        "start": 677.84,
+        "end": 682.4,
+        "text": "So we're going to take that time to make a change."
+    },
+    {
+        "start": 682.4,
+        "end": 687.12,
+        "text": "There are something on their factoreaps that I identified that it's strong."
+    },
+    {
+        "start": 687.12,
+        "end": 690.3199999999999,
+        "text": "So we're going to use this opportunity."
+    },
+    {
+        "start": 690.3199999999999,
+        "end": 694.52,
+        "text": "So here it's this pick application and pick up location twice and this should actually"
+    },
+    {
+        "start": 694.52,
+        "end": 698.3199999999999,
+        "text": "have been drop off location."
+    },
+    {
+        "start": 698.3199999999999,
+        "end": 701.4,
+        "text": "So let's fix that."
+    },
+    {
+        "start": 701.4,
+        "end": 713.88,
+        "text": "Let's commit and let's open that pull request."
+    },
+    {
+        "start": 713.88,
+        "end": 721.8,
+        "text": "Create fix location."
+    },
+    {
+        "start": 722.12,
+        "end": 724.92,
+        "text": "That's it."
+    },
+    {
+        "start": 724.92,
+        "end": 727.24,
+        "text": "And it should there are guys."
+    },
+    {
+        "start": 727.24,
+        "end": 731.9599999999999,
+        "text": "So because the utility was already linked to this repository because it was linked to"
+    },
+    {
+        "start": 731.9599999999999,
+        "end": 733.64,
+        "text": "my project, it already knows."
+    },
+    {
+        "start": 733.64,
+        "end": 736.1999999999999,
+        "text": "And this is triggering that run."
+    },
+    {
+        "start": 736.1999999999999,
+        "end": 741.76,
+        "text": "And what this is going to do is as a set is going to change to compare to this nightly,"
+    },
+    {
+        "start": 741.76,
+        "end": 745.24,
+        "text": "it's going to identify whatever change in our case."
+    },
+    {
+        "start": 745.24,
+        "end": 747.28,
+        "text": "Sorry, let's go back to pull request."
+    },
+    {
+        "start": 747.28,
+        "end": 755.52,
+        "text": "In our case is the factoreaps and some smaller identity like the scripture here."
+    },
+    {
+        "start": 755.52,
+        "end": 762.1999999999999,
+        "text": "So it's going to run factoreaps and it's children which is the data mark that we had."
+    },
+    {
+        "start": 762.1999999999999,
+        "end": 767.12,
+        "text": "And only when that fix, then I'm able to run the pull to close the pull request."
+    },
+    {
+        "start": 767.12,
+        "end": 776.12,
+        "text": "So you can imagine that this builds a lot of trust, but also makes our shop much easier."
+    },
+    {
+        "start": 776.12,
+        "end": 777.5600000000001,
+        "text": "So everything went fine."
+    },
+    {
+        "start": 777.5600000000001,
+        "end": 782.4,
+        "text": "So it should be able there are guys to see the successful check."
+    },
+    {
+        "start": 782.4,
+        "end": 789.2,
+        "text": "So this is everything that we needed to do to transform that data correctly."
+    }
+]

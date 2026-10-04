@@ -1,0 +1,507 @@
+[
+    {
+        "start": 0.0,
+        "end": 9.3,
+        "text": "All right, so now that we have gone through essentially what is a project where you create"
+    },
+    {
+        "start": 9.3,
+        "end": 14.66,
+        "text": "your repo or your project, you set up the basic configurations and connections and environments,"
+    },
+    {
+        "start": 14.66,
+        "end": 19.66,
+        "text": "you create your pipeline and you configure your pipeline schedule connections variables"
+    },
+    {
+        "start": 19.66,
+        "end": 23.580000000000002,
+        "text": "and then you create your assets and now it's time to actually run the whole thing."
+    },
+    {
+        "start": 23.580000000000002,
+        "end": 29.26,
+        "text": "So when we speak of a run, basically means a single execution of the pipeline."
+    },
+    {
+        "start": 29.66,
+        "end": 34.74,
+        "text": "It's a single instance of that pipeline that is actually running and it can be either a single"
+    },
+    {
+        "start": 34.74,
+        "end": 39.980000000000004,
+        "text": "assets or all of the assets running or a single assets with only its upstreams or only its"
+    },
+    {
+        "start": 39.980000000000004,
+        "end": 41.74,
+        "text": "downstreams depending on the lineage."
+    },
+    {
+        "start": 42.480000000000004,
+        "end": 48.18000000000001,
+        "text": "And any version or any instance of these cases is called a run and how you can go ahead and do that"
+    },
+    {
+        "start": 48.18000000000001,
+        "end": 51.18000000000001,
+        "text": "is by running the command run run."
+    },
+    {
+        "start": 51.38,
+        "end": 52.82,
+        "text": "Let me actually clear here."
+    },
+    {
+        "start": 52.82,
+        "end": 56.260000000000005,
+        "text": "So run run and then you want to give it the name of the pipeline."
+    },
+    {
+        "start": 56.26,
+        "end": 63.46,
+        "text": "So in our case, we have my C taxi and if you run the YAML file, this will run the entire"
+    },
+    {
+        "start": 63.46,
+        "end": 67.74,
+        "text": "pipeline. So let's go ahead and do that and it's starting to run the entire pipeline."
+    },
+    {
+        "start": 67.98,
+        "end": 72.5,
+        "text": "I will close it right now because we don't want to actually run the pipeline and we run it"
+    },
+    {
+        "start": 72.5,
+        "end": 73.58,
+        "text": "for the wrong dates anyways."
+    },
+    {
+        "start": 73.58,
+        "end": 78.7,
+        "text": "It won't work, but at the very basic level, if you want to create a run of the entire"
+    },
+    {
+        "start": 78.7,
+        "end": 84.06,
+        "text": "pipeline, you just do a brunt run and give it the name of the pipeline and the pipeline YAML."
+    },
+    {
+        "start": 84.62,
+        "end": 87.26,
+        "text": "This is not defining any tags."
+    },
+    {
+        "start": 87.26,
+        "end": 89.7,
+        "text": "It's not saying which environment to use."
+    },
+    {
+        "start": 89.9,
+        "end": 93.54,
+        "text": "It's not saying if to do a full refresh or anything else."
+    },
+    {
+        "start": 93.54,
+        "end": 98.54,
+        "text": "So at the very like basic level, it's really just running run run with all the default"
+    },
+    {
+        "start": 98.54,
+        "end": 99.94,
+        "text": "configurations in here."
+    },
+    {
+        "start": 100.18,
+        "end": 104.7,
+        "text": "However, if you want to go and for example, you want to set the start and end date."
+    },
+    {
+        "start": 104.7,
+        "end": 107.7,
+        "text": "So in our case, let's just default this to the last interval."
+    },
+    {
+        "start": 107.9,
+        "end": 109.38,
+        "text": "Let's say we wanted to a full refresh."
+    },
+    {
+        "start": 109.38,
+        "end": 113.46000000000001,
+        "text": "We want the exclusive end dates and we only have one environment."
+    },
+    {
+        "start": 113.46,
+        "end": 116.38,
+        "text": "So we will leave that as it is and we also have the variable overweights."
+    },
+    {
+        "start": 116.61999999999999,
+        "end": 120.82,
+        "text": "So if I go and create a run now, we are on this asset."
+    },
+    {
+        "start": 120.82,
+        "end": 125.3,
+        "text": "So if I were to actually click this, it's just going to run this asset and it won't run"
+    },
+    {
+        "start": 125.3,
+        "end": 126.05999999999999,
+        "text": "the entire pipeline."
+    },
+    {
+        "start": 126.25999999999999,
+        "end": 131.82,
+        "text": "You can from here select from the drop down select to run the whole pipeline or you can"
+    },
+    {
+        "start": 131.82,
+        "end": 139.14,
+        "text": "run this pipeline with this asset with its downstream or you can select specific assets"
+    },
+    {
+        "start": 139.14,
+        "end": 139.94,
+        "text": "to run them as well."
+    },
+    {
+        "start": 140.94,
+        "end": 147.1,
+        "text": "In our case, let's go ahead and actually create a run for the entire pipeline and let's"
+    },
+    {
+        "start": 147.1,
+        "end": 154.82,
+        "text": "say full refresh, exclusive date and let's set the end date manually to also 2020 February."
+    },
+    {
+        "start": 155.18,
+        "end": 160.82,
+        "text": "And if I click run now, it will run the entire pipeline, which I will actually end in"
+    },
+    {
+        "start": 160.82,
+        "end": 161.42,
+        "text": "the meantime."
+    },
+    {
+        "start": 161.46,
+        "end": 163.82,
+        "text": "Let's go from the drop down here, copy the command."
+    },
+    {
+        "start": 163.94,
+        "end": 165.82,
+        "text": "So we can take a look at."
+    },
+    {
+        "start": 166.78,
+        "end": 173.14,
+        "text": "So we had a failure, but has to do with my connections, which is not relevant, but we will"
+    },
+    {
+        "start": 173.73999999999998,
+        "end": 178.62,
+        "text": "just want to go ahead one by one and look at these different tags included in this command"
+    },
+    {
+        "start": 178.62,
+        "end": 182.22,
+        "text": "here just to learn a little bit better what each command means."
+    },
+    {
+        "start": 182.22,
+        "end": 184.42,
+        "text": "So all right."
+    },
+    {
+        "start": 184.74,
+        "end": 188.78,
+        "text": "So we have our run run, which is creating a run instance and then we are setting our start"
+    },
+    {
+        "start": 188.78,
+        "end": 190.14,
+        "text": "dates and our end dates."
+    },
+    {
+        "start": 190.45999999999998,
+        "end": 194.85999999999999,
+        "text": "And we also pass the full refresh, which is important for materialization."
+    },
+    {
+        "start": 194.86,
+        "end": 199.58,
+        "text": "So if this was not here and let's say you have an asset where the materialization is"
+    },
+    {
+        "start": 199.58,
+        "end": 203.9,
+        "text": "insert only the result of a query will only be inserted."
+    },
+    {
+        "start": 204.06,
+        "end": 208.02,
+        "text": "However, when you pass a full refresh, it will drop the table, recreate it with the result"
+    },
+    {
+        "start": 208.02,
+        "end": 208.62,
+        "text": "of that query."
+    },
+    {
+        "start": 208.94000000000003,
+        "end": 213.54000000000002,
+        "text": "We have our variable tag here, which will override the variables that we defined previously"
+    },
+    {
+        "start": 214.22000000000003,
+        "end": 217.10000000000002,
+        "text": "with the ones that we are defining here."
+    },
+    {
+        "start": 217.54000000000002,
+        "end": 218.98000000000002,
+        "text": "And then you also set the environment."
+    },
+    {
+        "start": 218.98000000000002,
+        "end": 221.54000000000002,
+        "text": "So the environment is right now set to default."
+    },
+    {
+        "start": 221.73999999999998,
+        "end": 226.82,
+        "text": "So in this case here, the default was what we defined in the brain, YAML file,"
+    },
+    {
+        "start": 226.98,
+        "end": 230.57999999999998,
+        "text": "but normally you will have dev, product, sandbox and other types of environments."
+    },
+    {
+        "start": 230.98,
+        "end": 234.89999999999998,
+        "text": "And then lastly, you want to just give it the path of the specific pipeline that you want to run."
+    },
+    {
+        "start": 235.45999999999998,
+        "end": 240.34,
+        "text": "Relative path works most of the times, but it's always safer to give a full path to make sure that you're"
+    },
+    {
+        "start": 240.34,
+        "end": 241.89999999999998,
+        "text": "running the correct pipeline."
+    },
+    {
+        "start": 243.26,
+        "end": 243.73999999999998,
+        "text": "All right."
+    },
+    {
+        "start": 243.73999999999998,
+        "end": 249.94,
+        "text": "And lastly, we also have another run command that you will most likely want to get familiar with"
+    },
+    {
+        "start": 249.98,
+        "end": 251.22,
+        "text": "is run validate."
+    },
+    {
+        "start": 251.22,
+        "end": 257.22,
+        "text": "So run validate will go and assess the pipeline based on its lineage to make sure there's no,"
+    },
+    {
+        "start": 257.22,
+        "end": 263.54,
+        "text": "for example, circular dependencies or there's any wrong or broken dependencies to make sure that"
+    },
+    {
+        "start": 263.78,
+        "end": 268.02,
+        "text": "then configurations and the definitions of assets are correct to make sure that the connections"
+    },
+    {
+        "start": 268.02,
+        "end": 273.38,
+        "text": "defined in the pipeline and in the brewing YAML environments is correct and working."
+    },
+    {
+        "start": 273.58,
+        "end": 277.62,
+        "text": "So it goes ahead and kind of like validates everything to make sure that once you actually create a run,"
+    },
+    {
+        "start": 277.82,
+        "end": 278.98,
+        "text": "it will run and work."
+    },
+    {
+        "start": 279.14000000000004,
+        "end": 284.26,
+        "text": "So in our case, if we run the run validate, we see that we don't have any issues."
+    },
+    {
+        "start": 284.86,
+        "end": 288.94,
+        "text": "The previous issue that we saw when we ran the pipeline was not something ruin related."
+    },
+    {
+        "start": 288.94,
+        "end": 295.22,
+        "text": "It would have to do with the actual keys provided for the for our database."
+    },
+    {
+        "start": 295.22,
+        "end": 300.02000000000004,
+        "text": "So in this case, it failed because I'm not actually passing a real mother duck token."
+    },
+    {
+        "start": 300.02000000000004,
+        "end": 301.06,
+        "text": "So that's why it failed."
+    },
+    {
+        "start": 301.70000000000005,
+        "end": 304.46000000000004,
+        "text": "And there is a way to also test these."
+    },
+    {
+        "start": 304.46000000000004,
+        "end": 307.14000000000004,
+        "text": "There is a command for making sure that your connections are working."
+    },
+    {
+        "start": 307.7,
+        "end": 309.9,
+        "text": "But for now, we can skip over them."
+    },
+    {
+        "start": 310.78,
+        "end": 311.18,
+        "text": "All right."
+    },
+    {
+        "start": 311.18,
+        "end": 318.41999999999996,
+        "text": "So looking at the entire project, you have your project folder where you get initialize it."
+    },
+    {
+        "start": 318.41999999999996,
+        "end": 323.86,
+        "text": "You have your brewing YAML configurations and environments and secrets and connections set up."
+    },
+    {
+        "start": 324.06,
+        "end": 328.86,
+        "text": "And then you have your pipelines where you set up their schedules, the connections,"
+    },
+    {
+        "start": 328.86,
+        "end": 332.06,
+        "text": "the configurations variables, defaults, all the other things."
+    },
+    {
+        "start": 332.42,
+        "end": 337.54,
+        "text": "And then within your pipelines, you have a set of assets and inside each asset,"
+    },
+    {
+        "start": 337.54,
+        "end": 341.9,
+        "text": "you define the asset, you determine what it does, what type of asset it is,"
+    },
+    {
+        "start": 342.3,
+        "end": 345.26,
+        "text": "the metadata of the asset, and then you provide some content."
+    },
+    {
+        "start": 345.26,
+        "end": 348.86,
+        "text": "So whether it's a SQL query, whether it's a Python script,"
+    },
+    {
+        "start": 349.3,
+        "end": 351.46,
+        "text": "you define the actual code that you want it to execute."
+    },
+    {
+        "start": 351.82,
+        "end": 354.82,
+        "text": "Then you have some variables, whether they are built in or custom,"
+    },
+    {
+        "start": 354.94,
+        "end": 358.02,
+        "text": "that you can define and pass into your project."
+    },
+    {
+        "start": 359.02,
+        "end": 363.62,
+        "text": "And lastly, you have your commands, which are to run the pipeline, validate the pipeline,"
+    },
+    {
+        "start": 364.18,
+        "end": 366.58,
+        "text": "check out specific things."
+    },
+    {
+        "start": 366.58,
+        "end": 369.97999999999996,
+        "text": "For example, you can even query the pipeline, the query the tables,"
+    },
+    {
+        "start": 370.65999999999997,
+        "end": 373.9,
+        "text": "and a whole list of other commands that you can use as well."
+    },
+    {
+        "start": 374.06,
+        "end": 377.38,
+        "text": "But these commands are basically what the Bruins CLI tool provides."
+    },
+    {
+        "start": 377.65999999999997,
+        "end": 383.58,
+        "text": "And the pre, all the other things that we set up previously are essentially helping the commands"
+    },
+    {
+        "start": 383.78,
+        "end": 387.38,
+        "text": "understand what to do, where to go find your files, how to run them,"
+    },
+    {
+        "start": 387.38,
+        "end": 390.78,
+        "text": "and how to create the entire pipeline execution."
+    },
+    {
+        "start": 391.38,
+        "end": 393.65999999999997,
+        "text": "All right, so that concludes this video."
+    },
+    {
+        "start": 393.65999999999997,
+        "end": 398.38,
+        "text": "I hope you learned about the Bruin concepts and the basics about what a project looks like."
+    },
+    {
+        "start": 398.65999999999997,
+        "end": 403.02,
+        "text": "And what is a pipeline, what is an asset, and how to navigate your Bruin projects."
+    },
+    {
+        "start": 403.38,
+        "end": 403.78,
+        "text": "Thank you."
+    }
+]

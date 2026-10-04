@@ -1,0 +1,417 @@
+[
+    {
+        "start": 0.0,
+        "end": 10.6,
+        "text": "Hey, it's Vicky. I am trying to set up my account for recording some of the videos I'm going"
+    },
+    {
+        "start": 10.6,
+        "end": 16.92,
+        "text": "to update, some of the resources for the week 4. I saw it since I had to create a new account"
+    },
+    {
+        "start": 16.92,
+        "end": 22.72,
+        "text": "because I've run out of credits. Then I thought it would be interesting to record this, to"
+    },
+    {
+        "start": 22.72,
+        "end": 32.44,
+        "text": "hack my way, try to hack my way into the resources I need to start with for. I have here the repository,"
+    },
+    {
+        "start": 32.44,
+        "end": 43.72,
+        "text": "so let's see what is the we need. Let's try to load all the data. By week 4, ideally, you've"
+    },
+    {
+        "start": 43.72,
+        "end": 48.28,
+        "text": "already completed it with one, two, and three. This means that you already have all of this."
+    },
+    {
+        "start": 49.24,
+        "end": 56.28,
+        "text": "That means you have some kind of workers that it's running. That means BigQuery. In my case,"
+    },
+    {
+        "start": 56.28,
+        "end": 63.28,
+        "text": "this video is going to be BigQuery. I should have clarified that. Maybe you have Postgres,"
+    },
+    {
+        "start": 63.28,
+        "end": 71.28,
+        "text": "locally or in your virtual machine. What you also must have done is a set of running pipelines that"
+    },
+    {
+        "start": 71.28,
+        "end": 82.4,
+        "text": "are in Sheston, a lot of the data from the New York Taxis data into this data warehouse. What we"
+    },
+    {
+        "start": 82.4,
+        "end": 88.92,
+        "text": "are going to need is, so if you have already that set up, what you need to make sure is that you're"
+    },
+    {
+        "start": 88.92,
+        "end": 94.16,
+        "text": "in Sheston yellow, taxi data, green taxi data, and you're going to need this one as well for"
+    },
+    {
+        "start": 94.16,
+        "end": 99.96000000000001,
+        "text": "you to homework later on. This is for the lessons and then to follow what I'll be doing, and this is"
+    },
+    {
+        "start": 99.96,
+        "end": 107.8,
+        "text": "for the homework later. If you have already applied to Sheston, just make sure that you're loading this"
+    },
+    {
+        "start": 107.8,
+        "end": 116.03999999999999,
+        "text": "because you may not have all of this. Make sure that you do have this either. I am not going to"
+    },
+    {
+        "start": 116.03999999999999,
+        "end": 120.75999999999999,
+        "text": "be doing this. This is what I'm going to show you in the video. But I want to show you as well that"
+    },
+    {
+        "start": 120.75999999999999,
+        "end": 127.8,
+        "text": "there's another hack. One thing that you can do is you have already set up everything locally. That"
+    },
+    {
+        "start": 127.8,
+        "end": 135.32,
+        "text": "means that you can create to your Sheston B account. Then what you can do is use this Python's"
+    },
+    {
+        "start": 135.32,
+        "end": 139.0,
+        "text": "Crate and what is that with this data download the CSV files."
+    },
+    {
+        "start": 142.84,
+        "end": 148.28,
+        "text": "The input to CSV files for not from here actually, that should be updated from here."
+    },
+    {
+        "start": 149.24,
+        "end": 158.2,
+        "text": "You can download the CSV files and then load it into your buckets in the GCP."
+    },
+    {
+        "start": 160.12,
+        "end": 166.44,
+        "text": "Then you can query the Rackflot from BigQuery. What I'm going to show is how to load it with the"
+    },
+    {
+        "start": 166.44,
+        "end": 177.08,
+        "text": "Marketplace. This data that we're using exists within this Marketplace of Data that Google has."
+    },
+    {
+        "start": 177.56,
+        "end": 183.48000000000002,
+        "text": "As you see, it's very nice to create it all of my new trial and new account. I have here my BigQuery."
+    },
+    {
+        "start": 183.48000000000002,
+        "end": 188.60000000000002,
+        "text": "Once you do this, you do this data set. It opens it in your BigQuery account."
+    },
+    {
+        "start": 192.28,
+        "end": 198.60000000000002,
+        "text": "This is all part of the... This is cool as well to see because there's a lot of data that you can use."
+    },
+    {
+        "start": 198.60000000000002,
+        "end": 204.52,
+        "text": "This could give you this BigQuery public data. This could give you ideas for your project at the end."
+    },
+    {
+        "start": 204.52,
+        "end": 214.60000000000002,
+        "text": "Yeah, Madison, COVID-19, crypto. There's a lot of stuff here. We're going to use this."
+    },
+    {
+        "start": 214.60000000000002,
+        "end": 224.60000000000002,
+        "text": "We're going to use GreenTrip, YellowTrip data. 2019-2020. Then you should be doing this as well."
+    },
+    {
+        "start": 225.56,
+        "end": 235.64,
+        "text": "Let's just one and this one. Let's query this. See, make sure that this is fine."
+    },
+    {
+        "start": 236.92,
+        "end": 247.32,
+        "text": "We don't meet that much. Let's see. Okay, cool. This is working for sure. It's looking"
+    },
+    {
+        "start": 248.12,
+        "end": 258.04,
+        "text": "nice. Yeah. What's next? We have the table name. We have the..."
+    },
+    {
+        "start": 259.88,
+        "end": 268.28,
+        "text": "We have my current. This is my current. Here, we're going to create a data set that's going to be"
+    },
+    {
+        "start": 268.28,
+        "end": 275.96,
+        "text": "called. I'm actually going to take that at the front. The project. Because what it's"
+    },
+    {
+        "start": 275.96,
+        "end": 281.71999999999997,
+        "text": "happening, I could explain this. This is what we're going to build in week four. This is called"
+    },
+    {
+        "start": 281.71999999999997,
+        "end": 287.15999999999997,
+        "text": "project. So what we're doing right now is this part. We have all this troop data, yellow and green."
+    },
+    {
+        "start": 288.11999999999995,
+        "end": 293.23999999999995,
+        "text": "And we're going to transform it. We're loading it into BigQuery,"
+    },
+    {
+        "start": 293.24,
+        "end": 297.40000000000003,
+        "text": "a throughout data in order to afterwards to transform this data."
+    },
+    {
+        "start": 298.92,
+        "end": 303.8,
+        "text": "And I want to make sure that I'm using the correct names of app racing. So here is the"
+    },
+    {
+        "start": 303.8,
+        "end": 308.28000000000003,
+        "text": "definition of the source. This will be explained in courses afterwards. So you do not need to do"
+    },
+    {
+        "start": 308.28000000000003,
+        "end": 314.84000000000003,
+        "text": "this part. Okay, here it is. The data set is going to be called troops data. And"
+    },
+    {
+        "start": 315.0,
+        "end": 325.32,
+        "text": "troops data. I'm going to do multi-rition US because I believe my account is in the US."
+    },
+    {
+        "start": 326.2,
+        "end": 333.96,
+        "text": "But this brings a lot of... like version brings a lot of problems. So you can change it"
+    },
+    {
+        "start": 334.52,
+        "end": 339.55999999999995,
+        "text": "afterwards, which is be mindful of what you're putting in the regions."
+    },
+    {
+        "start": 340.28000000000003,
+        "end": 345.64,
+        "text": "Because then afterwards it brings a lot of problems. In fact, that's something that it was in the"
+    },
+    {
+        "start": 346.36,
+        "end": 353.48,
+        "text": "in the Britney. And there are troops data. Oh, I'm going to create a table because all of the"
+    },
+    {
+        "start": 353.48,
+        "end": 358.84000000000003,
+        "text": "green troop data goes in through a table called green troop data. All of the other ones goes into"
+    },
+    {
+        "start": 358.84000000000003,
+        "end": 368.04,
+        "text": "the yellow troop data. So we're going to create this tables. Create a table. MT table. In this data"
+    },
+    {
+        "start": 368.04,
+        "end": 375.24,
+        "text": "set it's a green troop data. Create table. I'll create just this one and then we'll see afterwards."
+    },
+    {
+        "start": 378.76000000000005,
+        "end": 388.04,
+        "text": "So what we're actually going to do here is insert into... What happens if I do that? Yeah, insert"
+    },
+    {
+        "start": 388.04,
+        "end": 399.40000000000003,
+        "text": "into and we did have the query. So let's do this. And we could do a new link here I guess for"
+    },
+    {
+        "start": 399.40000000000003,
+        "end": 404.44,
+        "text": "in Chiselsen and TNChiselsen 20. But I'm just wondering if this doesn't look good."
+    },
+    {
+        "start": 406.68,
+        "end": 413.56,
+        "text": "Right, it doesn't have any schema yet. So actually what I should have done is I should have done"
+    },
+    {
+        "start": 414.36,
+        "end": 424.12,
+        "text": "create table asks. What, let's delete this."
+    },
+    {
+        "start": 424.12,
+        "end": 443.88,
+        "text": "Create table asks and let's just do this. Sorry for the mistakes. As I said, I'm trying to crack my"
+    },
+    {
+        "start": 443.88,
+        "end": 452.76,
+        "text": "way into this which means could not work at the first time. Okay, look it is there. Let's"
+    },
+    {
+        "start": 454.36,
+        "end": 461.4,
+        "text": "look at it. Okay, looks good. This is nice. You can see the lineage here. Let's query this."
+    },
+    {
+        "start": 462.03999999999996,
+        "end": 475.88,
+        "text": "And cool. Yes, it looks like the other table. And what we could do here then is... So what you have"
+    },
+    {
+        "start": 475.88,
+        "end": 483.79999999999995,
+        "text": "to do now, right, is we need to insert Chiselsen 20 here as well, obviously. But we also need to,"
+    },
+    {
+        "start": 483.88,
+        "end": 494.44,
+        "text": "let's create this whole table. And we need to do all the troops data, all yellow troop data."
+    },
+    {
+        "start": 495.88,
+        "end": 501.32,
+        "text": "And I'll show you the ZumaSkalloy troop data as well."
+    },
+    {
+        "start": 504.36,
+        "end": 510.92,
+        "text": "Send us table maybe because it doesn't like that. It's like this. And let's just run this."
+    },
+    {
+        "start": 511.64000000000004,
+        "end": 524.9200000000001,
+        "text": "Let's work. Yeah, let's probably need to. It's still working. And there it is, yellow troop data."
+    },
+    {
+        "start": 524.9200000000001,
+        "end": 534.9200000000001,
+        "text": "Does it look like I brought the right data? Let's do this. Yes, it does. Okay."
+    },
+    {
+        "start": 535.88,
+        "end": 542.4399999999999,
+        "text": "So the only thing that we need to do is we do need to insert the other party."
+    },
+    {
+        "start": 544.4399999999999,
+        "end": 546.5999999999999,
+        "text": "So it's insert into..."
+    },
+    {
+        "start": 551.56,
+        "end": 560.04,
+        "text": "And this table, no us, select for him. And we do need the 20-20, right? Let's go here and..."
+    },
+    {
+        "start": 560.92,
+        "end": 571.64,
+        "text": "Yeah, Chiselsen 19 and 2020. And well, if I do this. And we're going to sorry to into..."
+    },
+    {
+        "start": 572.28,
+        "end": 585.3199999999999,
+        "text": "A T and a select for him, 2020. And that's it. And let's do this."
+    },
+    {
+        "start": 587.96,
+        "end": 597.88,
+        "text": "And let's do this. And that's it. You already just start. So you have a branding workhouse."
+    },
+    {
+        "start": 598.6,
+        "end": 606.92,
+        "text": "And you have your data, green data, yellow troop data. You'll have to do the FA2V for the homework"
+    },
+    {
+        "start": 606.92,
+        "end": 616.52,
+        "text": "afterwards. And probably what's needed as well next is what you'll have to do next is create"
+    },
+    {
+        "start": 616.52,
+        "end": 624.68,
+        "text": "iskimos. Not here, but you'll have to create iskimos for writing your development and your"
+    },
+    {
+        "start": 624.68,
+        "end": 631.3199999999999,
+        "text": "production. Yeah, you're all good to go. Create your free account, I guess. And do we take cloud?"
+    },
+    {
+        "start": 632.3599999999999,
+        "end": 640.76,
+        "text": "And good luck. So I came to realize when I started to work with the data that we just load"
+    },
+    {
+        "start": 640.76,
+        "end": 648.4399999999999,
+        "text": "it for in the public data set, that this kimos changes compared with the old set of data. So if"
+    },
+    {
+        "start": 648.44,
+        "end": 656.12,
+        "text": "you're using this one. So to make sure that we have the same source data, regardless of how"
+    },
+    {
+        "start": 656.12,
+        "end": 662.12,
+        "text": "it's been loaded, I left an alter table and here I actually left the whole query. What we saw"
+    },
+    {
+        "start": 662.12,
+        "end": 667.1600000000001,
+        "text": "before at the beginning of the video, so that create and the insert table with the correct, so it"
+    },
+    {
+        "start": 667.24,
+        "end": 677.3199999999999,
+        "text": "like you would actually have to change this part. And here is the alter table if everything"
+    },
+    {
+        "start": 678.12,
+        "end": 685.4,
+        "text": "for fixing the schema and that's it. Once you have this done, your source table is the same as if"
+    },
+    {
+        "start": 685.4,
+        "end": 693.0,
+        "text": "you would have a follow with one, two, and three and you'll be ready to use your DVT project as it is."
+    },
+    {
+        "start": 693.0,
+        "end": 695.0,
+        "text": "So good luck."
+    }
+]

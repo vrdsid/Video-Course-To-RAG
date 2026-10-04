@@ -1,0 +1,432 @@
+[
+    {
+        "start": 0.0,
+        "end": 10.5,
+        "text": "Welcome to the next section. We're going to now go ahead and build an end-to-end pipeline using real data from New York City's taxi database."
+    },
+    {
+        "start": 10.5,
+        "end": 17.0,
+        "text": "In this tutorial, we're going to use .db for our database, which will be a locally hosted database."
+    },
+    {
+        "start": 17.0,
+        "end": 23.0,
+        "text": "This way, we can quickly store our data there, run queries against it, and get our final results."
+    },
+    {
+        "start": 23.0,
+        "end": 30.0,
+        "text": "We're going to have a three-layered architecture or structure where we will have our ingestion layer, where we extract some data."
+    },
+    {
+        "start": 30.0,
+        "end": 37.0,
+        "text": "We store it in its raw format in our database, and we will have our staging where we pre-process the data."
+    },
+    {
+        "start": 37.0,
+        "end": 42.0,
+        "text": "We do our transformations, we do some of the cleaning, and also joining with some lookup tables."
+    },
+    {
+        "start": 42.0,
+        "end": 51.0,
+        "text": "And in the final layer, the report layer, we will actually build some reports and aggregate the data and do some calculations."
+    },
+    {
+        "start": 51.0,
+        "end": 60.0,
+        "text": "The assets that we're going to create in this pipeline across the ingestion, staging, and reports layer, they will all have dependencies, and that will create our data lineage."
+    },
+    {
+        "start": 60.0,
+        "end": 63.0,
+        "text": "The Bruin will use to orchestrate our pipeline."
+    },
+    {
+        "start": 63.0,
+        "end": 66.0,
+        "text": "Alright, now let's go ahead and get started."
+    },
+    {
+        "start": 66.0,
+        "end": 76.0,
+        "text": "Alright, now that we've completed the first part, where we learned about the basic Bruin concept, and we have learned how to set up our project and our pipelines."
+    },
+    {
+        "start": 76.0,
+        "end": 87.0,
+        "text": "Let's go ahead and initialize the project for the New York City Taxi data, and we have a template ready for you called ZoomCamp, so you can just do Bruin in its ZoomCamp."
+    },
+    {
+        "start": 87.0,
+        "end": 103.0,
+        "text": "And this will create the ZoomCamp pipeline for you, and it will have the pipeline, as well as under here, you will find a ReadMe file that will have the full instructions that you're probably following right now."
+    },
+    {
+        "start": 103.0,
+        "end": 109.0,
+        "text": "And then we have our pipeline with some folder structure already in place. It's a three tiered structure."
+    },
+    {
+        "start": 109.0,
+        "end": 125.0,
+        "text": "If you open everything from the pipeline YAML file to every single asset file, you will see that it includes a lot of information about what this file does, and a lot of to-dos in here for you to complete."
+    },
+    {
+        "start": 125.0,
+        "end": 129.0,
+        "text": "So let's go ahead one by one and complete this together."
+    },
+    {
+        "start": 129.0,
+        "end": 135.0,
+        "text": "So the first place that we want to start off with is let's make sure that in our Bruin YAML we have defined our connection."
+    },
+    {
+        "start": 135.0,
+        "end": 140.0,
+        "text": "So the main connection that we want for this first part is just the DuckDB connection."
+    },
+    {
+        "start": 140.0,
+        "end": 151.0,
+        "text": "So we have set up DuckDB default, and we have named it DuckDB default, and we have given it a path, so this DuckDB file over here."
+    },
+    {
+        "start": 151.0,
+        "end": 157.0,
+        "text": "And when we say DuckDB here, we're not automatically understands how to handle that."
+    },
+    {
+        "start": 157.0,
+        "end": 163.0,
+        "text": "So starting off with in our pipeline, we will open the pipeline YAML file, and as you see there's a lot of to-dos here."
+    },
+    {
+        "start": 163.0,
+        "end": 172.0,
+        "text": "But essentially you want to create a pipeline name for this pipeline that you have here, so in this case let's name it NYC Taxi."
+    },
+    {
+        "start": 173.0,
+        "end": 186.0,
+        "text": "And after that you have to set a schedule here, so you can add a CronString to it, or you can just go ahead and say for example Daily or Monthly or Hourly."
+    },
+    {
+        "start": 186.0,
+        "end": 189.0,
+        "text": "We will just give it Daily for now."
+    },
+    {
+        "start": 189.0,
+        "end": 201.0,
+        "text": "And then the StartDate essentially allows you to set a date that when you run a full refresh of a pipeline, it will essentially ingest data or process data starting that start date."
+    },
+    {
+        "start": 201.0,
+        "end": 213.0,
+        "text": "So in this case let's say we want to set it to 2022, so the default connection that we want to define here will be the DuckDB connection that we initially set up, so we go ahead and add that as well."
+    },
+    {
+        "start": 213.0,
+        "end": 222.0,
+        "text": "So the next thing we want to define here, and this is optional, but I think it really makes it much more powerful, is three to add custom variables in here."
+    },
+    {
+        "start": 222.0,
+        "end": 237.0,
+        "text": "In this case we can ingest data for yellow and green taxi. If you want you can set this as a variable, give it a default value, and if you want you can always during a run, say only run it for yellow, only run it for green or run it for both."
+    },
+    {
+        "start": 237.0,
+        "end": 252.0,
+        "text": "In this case let's go ahead and remove all the other information here. We will say, so in this case we will give it a array type, and you can check our documentation for the different types of custom variables that we support."
+    },
+    {
+        "start": 252.0,
+        "end": 262.0,
+        "text": "And let's go ahead and just to make the data set a little bit smaller, we will just give it yellow as the default."
+    },
+    {
+        "start": 262.0,
+        "end": 277.0,
+        "text": "So this is what our pipeline YAML looks like at the end of the day, where it will essentially define when the pipeline runs, how frequently runs, and we also define our default variables that we can inject within our script."
+    },
+    {
+        "start": 277.0,
+        "end": 298.0,
+        "text": "Now let's look at our ingestion layer, so we want to start off with actually a Python script that will connect to the API of the New York City taxi database, extract the data, and we will be getting the interval start and end dates, generating a list of dates for us to extract data for."
+    },
+    {
+        "start": 298.0,
+        "end": 315.0,
+        "text": "In this case, there will be months since the data comes in monthly, a list of months to extract data for, and also as we defined the custom variable for yellow taxis, we will only be ingesting yellow taxes by default, but it can also include green taxis as well."
+    },
+    {
+        "start": 315.0,
+        "end": 329.0,
+        "text": "So in here, I will walk through the green configurations, but for the Python script itself, I will ask cursor to help me with that, however you can develop that script yourself as well."
+    },
+    {
+        "start": 330.0,
+        "end": 352.0,
+        "text": "So we would want to give our asset a name, and here you might want to give it a specific data set name, and this way your data won't go into the default data set or the schema within your database, but we'll go into a custom one."
+    },
+    {
+        "start": 352.0,
+        "end": 373.0,
+        "text": "So in this case, I will want it to be within the data set name, my DB, and the type we want to define here is Python, since this is a Python asset, and the image here is not really necessary, since there's a default that it will use, but if you really want to define a specific Python image as well, you can define that here."
+    },
+    {
+        "start": 374.0,
+        "end": 396.0,
+        "text": "So for the materialization, it really depends on how you want to process data. So materialization essentially means how you want the data to be stored or saved in the destination, and for Python, you can manage this manually yourself by writing the data to your database, inserting it or creating a replacing or whatever type of strategy you want."
+    },
+    {
+        "start": 396.0,
+        "end": 407.0,
+        "text": "But in our case here, the demonstration I'm going to show you here is Bruins own built in Python materialization, which essentially means that you can set what you want it to be."
+    },
+    {
+        "start": 407.0,
+        "end": 418.0,
+        "text": "So in this case, I will choose a table, and for the strategy, I'm going to say a pen. So that means that every time this pipeline runs, it only inserts the data into our destination."
+    },
+    {
+        "start": 418.0,
+        "end": 431.5,
+        "text": "And what we have to do in our Python script down below is really have a final to realize function that returns a data frame and the rest, Bruin handles, it takes the data frame and it insert into our final database."
+    },
+    {
+        "start": 431.5,
+        "end": 439.0,
+        "text": "So you can also define your columns manually can give it the name of the columns, their type, give it a description. It's optional."
+    },
+    {
+        "start": 439.0,
+        "end": 458.5,
+        "text": "If you want to have full metadata of your database, in this case, I will leave it empty just to keep things simple, but it is best practice to include that or you can ask your agent to generate it for you, or you can also auto-generate it by using the fill from DB function that we have here."
+    },
+    {
+        "start": 458.5,
+        "end": 468.0,
+        "text": "So now I'm going to go ahead and give cursor the readme file as well, create the Python ingestion assets."
+    },
+    {
+        "start": 470.0,
+        "end": 483.0,
+        "text": "Alright, so now cursor has created our pipeline also added one more parameter here for the connection. And now let's go ahead and run that pipeline."
+    },
+    {
+        "start": 483.0,
+        "end": 498.0,
+        "text": "I will just select a single month for now for us to run it. So it's giving us some error messages because the other files are not initialized and the Bruin validation is kind of telling us that the other files have errors in them."
+    },
+    {
+        "start": 498.0,
+        "end": 508.0,
+        "text": "So I will just go ahead and remove those for now into a separate temp folder. So in here we will only have this single Python asset."
+    },
+    {
+        "start": 508.0,
+        "end": 523.0,
+        "text": "And let's just go ahead and run that again. It will start ingesting the data for us. So while that's running, we will go ahead and start with another ingestion that we want to do, which is some lookup table."
+    },
+    {
+        "start": 523.0,
+        "end": 544.0,
+        "text": "So in here we want to define basically what we call them as seed files and they can be from a local file. So in this case we have a CSV file or you can also define a seed file that comes from a specific website or specific data source that has a CSV file and it will automatically bring that in for you."
+    },
+    {
+        "start": 545.0,
+        "end": 559.0,
+        "text": "So in this case here I will just read it from our local CSV file that I have created and we can set the name here. So now our ingestion has finished for the trips data for that one month."
+    },
+    {
+        "start": 559.0,
+        "end": 570.0,
+        "text": "And now we have also defined our seed file that comes from this local CSV file. I've defined this by just looking at the documentation of the New York City website."
+    },
+    {
+        "start": 570.0,
+        "end": 583.0,
+        "text": "And we can also in here when we set up our seed file, we can give the columns descriptions. I will remove those for now to making simple. And let's run this asset as well now."
+    },
+    {
+        "start": 583.0,
+        "end": 594.0,
+        "text": "So it went ahead and ingested our CSV file into our database. And here I've also used another built in brand feature, which is the built in quality checks."
+    },
+    {
+        "start": 595.0,
+        "end": 609.0,
+        "text": "And here I for example set this column cannot be null and needs to be unique and for this other one it must be not null. And as you see from the logs here it automatically runs those quality checks once the asset finishes running."
+    },
+    {
+        "start": 609.0,
+        "end": 619.0,
+        "text": "One more thing to mention about Python assets is that you can have a requirements and run automatically handles the environment installs these library dependencies for you."
+    },
+    {
+        "start": 619.0,
+        "end": 631.0,
+        "text": "And if different pipelines have different requirements, you can have that set up like this so that you don't install dependencies globally and you install them locally within the pipeline that you have."
+    },
+    {
+        "start": 631.0,
+        "end": 639.0,
+        "text": "So now let's move on to the next step and bring in our staging sets. So I will just move the temporary folder that we had."
+    },
+    {
+        "start": 640.0,
+        "end": 650.0,
+        "text": "So in here you can go through step by step to understand the setup better, but this is a SQL asset. So the first thing we will start off with is let's give it a name."
+    },
+    {
+        "start": 650.0,
+        "end": 660.0,
+        "text": "So in here let's just say staging dot trip. So this will go into this staging schema, the data set that we defined and the type will in this case be duck TV SQL."
+    },
+    {
+        "start": 660.0,
+        "end": 673.0,
+        "text": "So one thing that we want to set up here is the dependencies. So since we ingest the data from two different sources, we want to set those as the dependencies here, have our trips data and we have the lookup as well."
+    },
+    {
+        "start": 673.0,
+        "end": 681.0,
+        "text": "So when we set those as dependencies here, it will automatically create the dependency between these assets."
+    },
+    {
+        "start": 681.0,
+        "end": 687.0,
+        "text": "And that means once the ingestion assets finish running, it will automatically trigger this asset to run."
+    },
+    {
+        "start": 687.0,
+        "end": 694.0,
+        "text": "And when it comes to materialization, you can take a look at the list of different materializations. We support for different types of databases."
+    },
+    {
+        "start": 694.0,
+        "end": 701.0,
+        "text": "In this case, if you just go with a simple table materialization, that means that the table will be recreated each time."
+    },
+    {
+        "start": 701.0,
+        "end": 709.0,
+        "text": "But you can also play around with strategies like time interval, merge, append, delete and insert, create and replace."
+    },
+    {
+        "start": 709.0,
+        "end": 721.0,
+        "text": "We support wide variety of different strategies. In this case to keep things very simple, I will just set it as table, which means that it will delete and recreate the table each time."
+    },
+    {
+        "start": 721.0,
+        "end": 725.0,
+        "text": "For now, I will remove these. We can come back and add these later."
+    },
+    {
+        "start": 725.0,
+        "end": 731.0,
+        "text": "Another key feature of Bruin as part of the quality checks is to create your own custom quality checks."
+    },
+    {
+        "start": 731.0,
+        "end": 741.0,
+        "text": "So in this case, for example, let's say that we want to say, row count is greater than zero. And you will give it a specific query that will run in order to check RUN."
+    },
+    {
+        "start": 741.0,
+        "end": 755.0,
+        "text": "And there will be an expected value defined here. So in this case, it's more than one, which means that if this Boolean condition is met, then it will return a one, which will match this and it passes the quality check."
+    },
+    {
+        "start": 755.0,
+        "end": 767.0,
+        "text": "So now in order for us to actually process the data, your stage is clean it. We have some steps. These are recommended steps, but it's really up to you how you want to stage and process the data."
+    },
+    {
+        "start": 767.0,
+        "end": 777.0,
+        "text": "So I will go ahead here and let's give it this file and say create the staging skill asset."
+    },
+    {
+        "start": 777.0,
+        "end": 789.0,
+        "text": "Alright, so I asked Cursor to create the query for me. It's just doing some basic cleaning of the data."
+    },
+    {
+        "start": 789.0,
+        "end": 801.0,
+        "text": "It's called lessing the pickup and drop off date times for us and doing simple deduplication and joining it with the payment lookup table to get some additional information."
+    },
+    {
+        "start": 801.0,
+        "end": 812.0,
+        "text": "And if we go ahead and run this asset now and now it ran that query for us, it created the table."
+    },
+    {
+        "start": 812.0,
+        "end": 825.0,
+        "text": "And let's move on to the last section and create a simple report here. So I want to go through every step, but it's very similar to what we did in the previous staging step that we just created."
+    },
+    {
+        "start": 825.0,
+        "end": 837.0,
+        "text": "So let's just go ahead create the report. Alright, so it has created the final report for us. We just do a recap."
+    },
+    {
+        "start": 837.0,
+        "end": 846.0,
+        "text": "So we have a dependency on the previous stage. The materialization we just kept it as a table that will create or replace the asset for us."
+    },
+    {
+        "start": 846.0,
+        "end": 856.0,
+        "text": "And we can take a look at the rendered asset here. So it begins a transaction. It drops the table if it exists. It creates it again with the query that we have provided here."
+    },
+    {
+        "start": 856.0,
+        "end": 865.0,
+        "text": "So all of the transaction and the drop table, create table syntax is already compiled by Bruin for us."
+    },
+    {
+        "start": 865.0,
+        "end": 879.0,
+        "text": "And then we have given it all the columns. We have added some checks to it. And it's the query is really just doing a simple aggregation based on the trip date and the taxi type and the payment type."
+    },
+    {
+        "start": 879.0,
+        "end": 889.0,
+        "text": "And we can go ahead and run this query now. So you have the panel open. So now we essentially have created the end to end pipeline."
+    },
+    {
+        "start": 889.0,
+        "end": 900.0,
+        "text": "Now let's go ahead and first open our pipeline YAML file. And here we will want to take a look at the pipeline that we have created."
+    },
+    {
+        "start": 900.0,
+        "end": 907.0,
+        "text": "If we go look at the the NH tab right next to the terminal, you can see the different assets that you have created."
+    },
+    {
+        "start": 907.0,
+        "end": 916.0,
+        "text": "And let's create a final run here for the entire pipeline. This way we can see all of the assets run together."
+    },
+    {
+        "start": 917.0,
+        "end": 926.0,
+        "text": "This now essentially has created the end to end pipeline for us where you can go ahead now and create your own reports."
+    },
+    {
+        "start": 926.0,
+        "end": 939.0,
+        "text": "Process the data differently, play around with different materialization and incremental strategies. And in the next step we will discuss how to create this whole pipeline with just the single prompt to the agent."
+    }
+]

@@ -1,0 +1,847 @@
+[
+    {
+        "start": 0.0,
+        "end": 4.0,
+        "text": "Welcome back to this video, four of the engine zoom cam week 5."
+    },
+    {
+        "start": 4.0,
+        "end": 9.52,
+        "text": "And in this video we will take a first look at PicePAR and we will load some data with this"
+    },
+    {
+        "start": 9.52,
+        "end": 15.120000000000001,
+        "text": "and we will save this data with PicePAR. So that's roughly the plan. We will see how to read a CSV"
+    },
+    {
+        "start": 15.120000000000001,
+        "end": 20.56,
+        "text": "file. We already saw this in the previous video, but we will take a larger file. We will talk a bit"
+    },
+    {
+        "start": 20.56,
+        "end": 25.6,
+        "text": "about partitions. What partitions are, then we will see how to save this data to ParkEd. We saw"
+    },
+    {
+        "start": 25.6,
+        "end": 30.880000000000003,
+        "text": "this already, but we didn't really talk about that. And then finally we also saw this spark"
+    },
+    {
+        "start": 30.880000000000003,
+        "end": 37.2,
+        "text": "mastery UI. We will take a look at this. So that's roughly the plan. And I will again use"
+    },
+    {
+        "start": 37.2,
+        "end": 44.16,
+        "text": "a remote machine. So right now I am connected with SSH to this computer. So I have a terminal"
+    },
+    {
+        "start": 44.16,
+        "end": 49.84,
+        "text": "on this computer already. And by the way, the two-pitter notebook we created in the previous video,"
+    },
+    {
+        "start": 49.84,
+        "end": 58.24,
+        "text": "I put this into the code folder, which is in the week 5 location. So this is where we will do"
+    },
+    {
+        "start": 58.24,
+        "end": 64.16,
+        "text": "all the stuff. And what I want to do now is I want to execute this Python path thing that I"
+    },
+    {
+        "start": 64.16,
+        "end": 71.76,
+        "text": "probably should have added to Parts of C in this one. And now I want to start to put a notebook here."
+    },
+    {
+        "start": 72.72,
+        "end": 75.52000000000001,
+        "text": "So let me copy it to my browser."
+    },
+    {
+        "start": 78.08000000000001,
+        "end": 84.72,
+        "text": "Yeah, for some reasons I'm not forwarding a port. So now I am. I know what happened with my"
+    },
+    {
+        "start": 84.72,
+        "end": 92.56,
+        "text": "configs. So now I am forwarding the port. So I want to now create a new notebook. But I will name it as"
+    },
+    {
+        "start": 94.88000000000001,
+        "end": 100.80000000000001,
+        "text": "and let me open this as well. I want to copy some code from there. So I will copy the imports."
+    },
+    {
+        "start": 102.72,
+        "end": 108.80000000000001,
+        "text": "So this Spark session has maybe I explained last time. So this is an object that we use for"
+    },
+    {
+        "start": 108.80000000000001,
+        "end": 114.88000000000001,
+        "text": "interacting with Spark. So this is what we use for reading things. This is our main entry point"
+    },
+    {
+        "start": 114.88000000000001,
+        "end": 122.64,
+        "text": "to Spark. And I also need to open another port, which is I think port 4040. If I go to local"
+    },
+    {
+        "start": 122.64,
+        "end": 129.76,
+        "text": "host 4040, then now because we started this local Spark, we have the master application UI."
+    },
+    {
+        "start": 129.76,
+        "end": 137.04,
+        "text": "We haven't executed anything. That's why we don't have anything here. And what I want to do next"
+    },
+    {
+        "start": 137.04,
+        "end": 146.95999999999998,
+        "text": "is I want to go to NY Taxi data website. And I want to take data from January. But instead of using"
+    },
+    {
+        "start": 146.95999999999998,
+        "end": 152.95999999999998,
+        "text": "yellow or green taxi records, I want to use high volume for higher vehicle trip records. So I want to"
+    },
+    {
+        "start": 153.20000000000002,
+        "end": 159.68,
+        "text": "use high volume because Spark is supposed to process high volume data. Well, this is still not"
+    },
+    {
+        "start": 159.68,
+        "end": 165.68,
+        "text": "super large, but I'll use it and I don't think we actually use this data in the previous videos"
+    },
+    {
+        "start": 165.68,
+        "end": 175.76000000000002,
+        "text": "so that should be fine. Okay, I am downloading this now. It's quite a large for 700 mix. I don't"
+    },
+    {
+        "start": 175.76000000000002,
+        "end": 182.4,
+        "text": "think it qualifies as a very large data set, but it is not small. We can see that there are quite a"
+    },
+    {
+        "start": 182.4,
+        "end": 190.96,
+        "text": "few records, almost 12 millions. So this is indeed not insignificant. We loaded that. And next,"
+    },
+    {
+        "start": 190.96,
+        "end": 197.92000000000002,
+        "text": "I want to use this thing, the same thing as we did last time for reading this ssify. So let's read"
+    },
+    {
+        "start": 197.92000000000002,
+        "end": 206.64000000000001,
+        "text": "this to Spark. To specify the header here. And now let's run show. Yes, so it correctly gets the"
+    },
+    {
+        "start": 206.64,
+        "end": 214.72,
+        "text": "names of the columns. And if we go to our Spark cluster UI, let me refresh it. We see that there"
+    },
+    {
+        "start": 214.72,
+        "end": 219.04,
+        "text": "are new things there. This is for each time. Each time we execute this. So that makes it"
+    },
+    {
+        "start": 219.04,
+        "end": 224.23999999999998,
+        "text": "for more time. We will see now that there is another job. Every time we execute something, it is"
+    },
+    {
+        "start": 224.23999999999998,
+        "end": 231.11999999999998,
+        "text": "reflected here. Now I want to instead of using show, I want to do head and then five. So it will"
+    },
+    {
+        "start": 231.20000000000002,
+        "end": 238.4,
+        "text": "turn the first five records. And we can see that it is reading these not as timestamps, but it reads"
+    },
+    {
+        "start": 238.4,
+        "end": 244.16,
+        "text": "this as strings. So this one is also string, even though it's supposed to be a number. So Spark,"
+    },
+    {
+        "start": 244.16,
+        "end": 250.32,
+        "text": "unlike Pandas, Spark doesn't try to infer the types for these fields. So that's why everything is"
+    },
+    {
+        "start": 250.32,
+        "end": 256.08,
+        "text": "string. And we can see this is if we do, I think there is a field called schema. It's not very well"
+    },
+    {
+        "start": 256.08,
+        "end": 261.44,
+        "text": "formatted. What we see that everything is string type. It just reads everything is string."
+    },
+    {
+        "start": 261.44,
+        "end": 267.12,
+        "text": "And remember the trick we did in week one. So in week one, we used Pandas to infer the types."
+    },
+    {
+        "start": 267.12,
+        "end": 272.32,
+        "text": "And then we used these types to create a schema in our local database. I want to do something"
+    },
+    {
+        "start": 272.32,
+        "end": 278.64,
+        "text": "similar here. Instead of using the entire data set, I will use and if you're doing this on windows,"
+    },
+    {
+        "start": 278.64,
+        "end": 284.15999999999997,
+        "text": "by the way. So these are all Linux commands. So on Windows, they might not work. But probably you"
+    },
+    {
+        "start": 284.16,
+        "end": 290.48,
+        "text": "can use something like Minji GW or GitBush for getting these commands as well on Windows."
+    },
+    {
+        "start": 290.48,
+        "end": 300.32000000000005,
+        "text": "Anyway, so what head is doing is so this command head and 101 will keep only the first 101 rows."
+    },
+    {
+        "start": 300.32000000000005,
+        "end": 308.40000000000003,
+        "text": "And I want to save it to a file called head CSE. And what it will give us. So let's take a look at"
+    },
+    {
+        "start": 308.47999999999996,
+        "end": 317.76,
+        "text": "this head. Yeah, it is the first 101 rows. And we can check if we do VC-L. It will show us that"
+    },
+    {
+        "start": 317.76,
+        "end": 323.84,
+        "text": "there is only 101 rows. Because I don't want to open to use Pandas to open a 700 megabyte file."
+    },
+    {
+        "start": 323.84,
+        "end": 330.4,
+        "text": "I'm not sure how Pandas will react to that. So I will only, maybe let's use 1000. So I will only"
+    },
+    {
+        "start": 330.56,
+        "end": 337.59999999999997,
+        "text": "use Pandas to open a relatively small file. So let me do this. Let me do this Pandas."
+    },
+    {
+        "start": 337.59999999999997,
+        "end": 348.96,
+        "text": "It is CSE. And I'll call it the F Pandas. And now Pandas is what it should be. These types."
+    },
+    {
+        "start": 350.08,
+        "end": 354.79999999999995,
+        "text": "It should be doing a good job at identifying the types. So PU, PC,"
+    },
+    {
+        "start": 354.8,
+        "end": 361.52000000000004,
+        "text": "application ID is integer, drop of integer in these strings. Yeah, this should be a timestamp."
+    },
+    {
+        "start": 361.52000000000004,
+        "end": 367.76,
+        "text": "But again, Pandas is also not that smart to figure out that this is a timestamp. And we can use"
+    },
+    {
+        "start": 367.76,
+        "end": 373.36,
+        "text": "Spark to turn this data frame into a Spark data frame. So in Spark, in Spark session, there is"
+    },
+    {
+        "start": 373.36,
+        "end": 378.88,
+        "text": "a method called create data frame, which can take in a Pandas data frame and create a Spark data frame."
+    },
+    {
+        "start": 378.96,
+        "end": 384.56,
+        "text": "So when we do this, this thing becomes as Spark data frame. So you can do show and then it will"
+    },
+    {
+        "start": 384.56,
+        "end": 391.44,
+        "text": "actually, you see, do something here. So this is a Pandas data frame. And in this Pandas data frame,"
+    },
+    {
+        "start": 391.44,
+        "end": 397.68,
+        "text": "if we put, if we print schema, then we see that this drop of location ID is long,"
+    },
+    {
+        "start": 397.68,
+        "end": 403.52,
+        "text": "pick application ID is long. So it attempts to do a bit of parsing. So what I want to do now,"
+    },
+    {
+        "start": 403.52,
+        "end": 409.28,
+        "text": "so I don't want to use it as is because I want to change a long to integer, long is less memory"
+    },
+    {
+        "start": 409.28,
+        "end": 416.32,
+        "text": "efficient format. So integer takes four bytes and long takes eight bytes each value. Yeah, I want"
+    },
+    {
+        "start": 416.32,
+        "end": 422.47999999999996,
+        "text": "to be a little bit more efficient here. That's why I will use integer. But let me just take this and"
+    },
+    {
+        "start": 422.47999999999996,
+        "end": 430.47999999999996,
+        "text": "I will post it to my Visual Studio code and then I want a bit of formatting here. So I want to make"
+    },
+    {
+        "start": 431.20000000000005,
+        "end": 438.48,
+        "text": "it not one large line, but many smaller ones. And I don't know if this list thing will probably"
+    },
+    {
+        "start": 438.48,
+        "end": 444.96000000000004,
+        "text": "need it. So this stack type is something that comes from Scala. We need to turn this into Python code."
+    },
+    {
+        "start": 444.96000000000004,
+        "end": 451.76,
+        "text": "We will use this for declaring a schema for our data frame. So these things are all strings."
+    },
+    {
+        "start": 451.76,
+        "end": 459.44,
+        "text": "So we will put them in quotes. And then here we need also to sort of invoke it, use brackets."
+    },
+    {
+        "start": 459.44,
+        "end": 466.64,
+        "text": "And in Python true, to start with capital team, as we discuss pick up day time and drop of day"
+    },
+    {
+        "start": 466.64,
+        "end": 474.8,
+        "text": "time should be a timestamp. And for timestamp, the type should be timestamp. I think then here"
+    },
+    {
+        "start": 474.8,
+        "end": 482.15999999999997,
+        "text": "we will use integer. So this one, I don't know what srflug is for most of the records that I checked."
+    },
+    {
+        "start": 482.16,
+        "end": 489.44,
+        "text": "So if we look at our file, we see that this srflug for most of the records is empty."
+    },
+    {
+        "start": 489.44,
+        "end": 495.12,
+        "text": "So if I go down, you see it's empty. I don't really know what is there. I don't think it is"
+    },
+    {
+        "start": 495.12,
+        "end": 501.68,
+        "text": "actually a double. But it does just for empty things it uses not a number. That's why it makes it"
+    },
+    {
+        "start": 501.68,
+        "end": 506.8,
+        "text": "double. But I'm not sure if it's double. So what I'll do is I'll use string type instead. And then"
+    },
+    {
+        "start": 506.88,
+        "end": 513.28,
+        "text": "this true means that it can be null. So it can be nullable. And this srflug is definitely"
+    },
+    {
+        "start": 513.28,
+        "end": 518.4,
+        "text": "nullable. I'm not sure about the rest, but I'll stick with that. So this is the schema that we will"
+    },
+    {
+        "start": 518.4,
+        "end": 525.04,
+        "text": "use now for this part, that I'll frame. Now let me, I'll create a variable that is called schema."
+    },
+    {
+        "start": 526.64,
+        "end": 532.08,
+        "text": "And put this. And then actually I need to import a bunch of things here. The schemas live in"
+    },
+    {
+        "start": 532.72,
+        "end": 541.6,
+        "text": "Pyspark SQL and they live in schemas or types. Yeah, types. But instead of importing all of them"
+    },
+    {
+        "start": 541.6,
+        "end": 547.12,
+        "text": "separately, what I want to do is I just want to import types as the entire package."
+    },
+    {
+        "start": 547.12,
+        "end": 553.76,
+        "text": "What it means that I will need to add types here in front of each name. Let me go to Visual Studio"
+    },
+    {
+        "start": 553.76,
+        "end": 560.24,
+        "text": "again for that. I will use this multiple select again. So I need to do it here. Then I will"
+    },
+    {
+        "start": 560.24,
+        "end": 570.4,
+        "text": "soon need to do it here and here. So let me drop it here. That schema doesn't work because this"
+    },
+    {
+        "start": 570.4,
+        "end": 576.32,
+        "text": "needs to be a list. Remember it was a list. I removed it. And Python lists look like that. So now"
+    },
+    {
+        "start": 576.32,
+        "end": 582.64,
+        "text": "this is schema. And now when we read the cc file, we need to tell it for this cc file, this must be"
+    },
+    {
+        "start": 582.72,
+        "end": 591.4399999999999,
+        "text": "the schema. Let me do that. So here I think I just need to say schema and then provide the schema."
+    },
+    {
+        "start": 592.56,
+        "end": 602.88,
+        "text": "It seems to work. Let me print it. And then if I now do head 10, then we can see that date time"
+    },
+    {
+        "start": 602.88,
+        "end": 608.96,
+        "text": "is properly parsed. Location pick application and drop of location are also numbers. So they don't"
+    },
+    {
+        "start": 609.0400000000001,
+        "end": 614.32,
+        "text": "have quotes around this. And yeah, these two things are still things. And that's our flag. It's"
+    },
+    {
+        "start": 614.32,
+        "end": 620.48,
+        "text": "known for everything. So this is how we define schema. And now I want to take this data frame and"
+    },
+    {
+        "start": 620.48,
+        "end": 625.36,
+        "text": "try it to park it because right now it's cc. I want to save it as parking file. So here we have one"
+    },
+    {
+        "start": 625.36,
+        "end": 631.52,
+        "text": "huge cc file. And actually having just one file is not good. I want to show you to tell you a"
+    },
+    {
+        "start": 631.52,
+        "end": 637.12,
+        "text": "bit about internal source park. We will actually cover that in more details later. Imagine that this"
+    },
+    {
+        "start": 637.12,
+        "end": 643.76,
+        "text": "is our spark cluster. And inside the spark cluster, we have a bunch of executors. These are"
+    },
+    {
+        "start": 643.76,
+        "end": 649.52,
+        "text": "computers that actually are doing computational work. So they pull the files from our data lake"
+    },
+    {
+        "start": 649.52,
+        "end": 656.5600000000001,
+        "text": "and they do some computation. And the way they work. So let's say we have a bunch of files. So this"
+    },
+    {
+        "start": 656.5600000000001,
+        "end": 664.0,
+        "text": "is our Google Cloud Storage or can be some location somewhere. I think in this Google Cloud Storage,"
+    },
+    {
+        "start": 664.0,
+        "end": 671.28,
+        "text": "we have some location, a bucket name, then folder, and then inside folder, we have some structure."
+    },
+    {
+        "start": 671.28,
+        "end": 674.16,
+        "text": "And then inside this folder, we have a bunch of files."
+    },
+    {
+        "start": 676.48,
+        "end": 681.92,
+        "text": "And now what happens? Let's say we have Uber executors, not that many. And we have more files than"
+    },
+    {
+        "start": 681.92,
+        "end": 688.4,
+        "text": "executors. And then each of this file will go to an executor. So this executor will get this file."
+    },
+    {
+        "start": 688.48,
+        "end": 694.72,
+        "text": "This executor will get that file and so on. So each of them will get a file and they will do"
+    },
+    {
+        "start": 694.72,
+        "end": 700.3199999999999,
+        "text": "something with this file. And we see that two files are left. So when this executor is done with"
+    },
+    {
+        "start": 700.3199999999999,
+        "end": 706.16,
+        "text": "processing this file, it will go ahead and pick this one. And when, for example, this one finishes,"
+    },
+    {
+        "start": 706.16,
+        "end": 713.04,
+        "text": "then it will take this file. Because this two will be already processed. So the available executors"
+    },
+    {
+        "start": 713.04,
+        "end": 719.28,
+        "text": "will just go ahead and pick the next file. And imagine that instead of having eight files here,"
+    },
+    {
+        "start": 719.28,
+        "end": 725.12,
+        "text": "we will have only one. So if something like this happens, then only one executor can pick this file."
+    },
+    {
+        "start": 725.12,
+        "end": 731.4399999999999,
+        "text": "It means that this executor will pick this file and this one will be idle. So they will not be"
+    },
+    {
+        "start": 731.4399999999999,
+        "end": 736.88,
+        "text": "able to do anything. They will just sit and wait till this executor processes this file. So this"
+    },
+    {
+        "start": 736.88,
+        "end": 742.64,
+        "text": "is not good. And we want to have a bunch of smaller files instead of one large file. But what we have"
+    },
+    {
+        "start": 742.64,
+        "end": 749.04,
+        "text": "right now is a one large CSV file. So somehow want to break it into multiple files and"
+    },
+    {
+        "start": 749.04,
+        "end": 754.64,
+        "text": "these things in Spark, they actually have a name. So they are called partitions."
+    },
+    {
+        "start": 756.16,
+        "end": 761.52,
+        "text": "Instead of having one large partition, which only one executor can take, we want to have many"
+    },
+    {
+        "start": 761.52,
+        "end": 768.24,
+        "text": "partitions. So what if we take one large file and split it into let's say 24 partitions."
+    },
+    {
+        "start": 768.24,
+        "end": 773.44,
+        "text": "For that, there is a special command in Spark called three partition. And the parameters of"
+    },
+    {
+        "start": 773.44,
+        "end": 779.04,
+        "text": "these three partition is number of partitions we want to have. So it can take a data frame with"
+    },
+    {
+        "start": 779.04,
+        "end": 784.4,
+        "text": "many partitions. And here data frame would be all these files when we do Spark read and provide"
+    },
+    {
+        "start": 784.4,
+        "end": 790.08,
+        "text": "this location. It will create a data frame with as many partitions inside this data frame as there"
+    },
+    {
+        "start": 790.08,
+        "end": 796.96,
+        "text": "are files in that folder. So let us execute this command. And actually when we execute this,"
+    },
+    {
+        "start": 797.0400000000001,
+        "end": 803.52,
+        "text": "the free partition, if we go to our Spark master, we see that nothing was executed here."
+    },
+    {
+        "start": 803.52,
+        "end": 810.32,
+        "text": "This command, three partition is lazy command. It doesn't trigger the repetition in yet when we"
+    },
+    {
+        "start": 810.32,
+        "end": 815.76,
+        "text": "reassign this data frame now will be the partition, but it will be the partition in the future."
+    },
+    {
+        "start": 815.76,
+        "end": 821.12,
+        "text": "Right now it's still the same old data frame. When we actually do something, let's say when we"
+    },
+    {
+        "start": 821.2,
+        "end": 827.04,
+        "text": "save the data frame. Only then this command will be applied. So you see, so here nothing is happening,"
+    },
+    {
+        "start": 827.04,
+        "end": 833.76,
+        "text": "but now I want to say that a frame right, park it, and then now I want to specify the location."
+    },
+    {
+        "start": 833.76,
+        "end": 841.04,
+        "text": "Could be let's say for her vehicles 2021-01. I don't think I need to specify anything else here,"
+    },
+    {
+        "start": 841.04,
+        "end": 847.44,
+        "text": "and now I just execute this. And you see something is happening. I think actually, so here the way"
+    },
+    {
+        "start": 847.5200000000001,
+        "end": 853.36,
+        "text": "I did it, I see that there are six partitions already. So I was probably not right when I said"
+    },
+    {
+        "start": 853.36,
+        "end": 859.12,
+        "text": "it's only one partition. Apparently Spark splits the files somehow inside. So there are six"
+    },
+    {
+        "start": 859.12,
+        "end": 864.48,
+        "text": "partitions because we have eight cores currently. Eight executors are doing something. Right, we can"
+    },
+    {
+        "start": 864.48,
+        "end": 870.6400000000001,
+        "text": "actually see it here. So you see the job that we have right now is called park it, and that we"
+    },
+    {
+        "start": 871.6,
+        "end": 878.24,
+        "text": "and when I click on this, you see it showed us what it actually is doing. So there is this thing"
+    },
+    {
+        "start": 878.24,
+        "end": 886.96,
+        "text": "called exchange. This is where the partition is happening. And we can see that it's doing something."
+    },
+    {
+        "start": 886.96,
+        "end": 892.08,
+        "text": "There are some tasks. We have different executors and they are running these tasks."
+    },
+    {
+        "start": 892.08,
+        "end": 897.76,
+        "text": "This will probably take some time because the partition is a quite expensive operation. We will"
+    },
+    {
+        "start": 897.76,
+        "end": 903.6,
+        "text": "talk about that a bit later. While it's running, let me take a picket, the content of this directory,"
+    },
+    {
+        "start": 903.6,
+        "end": 911.4399999999999,
+        "text": "this one. So right now here we have only this temporary directory. You can also see what is inside."
+    },
+    {
+        "start": 912.96,
+        "end": 917.92,
+        "text": "Yeah, right now nothing is there. So these executors are still processing things. So they're"
+    },
+    {
+        "start": 917.92,
+        "end": 925.04,
+        "text": "reading these data. They're every partitioning it. So they're turning six partitions in 224."
+    },
+    {
+        "start": 925.04,
+        "end": 930.0,
+        "text": "We can actually see that four tasks are finished out of six. Two are still remaining."
+    },
+    {
+        "start": 930.8,
+        "end": 937.28,
+        "text": "One left to go. I think we can see that in this case as well in drops. Yes, of five out of six"
+    },
+    {
+        "start": 937.28,
+        "end": 944.24,
+        "text": "finished and one still is remaining. Now, yeah, we quickly saw that after these six"
+    },
+    {
+        "start": 944.24,
+        "end": 950.64,
+        "text": "operations, something else happened. There was another stage. If I refresh right now, we see that"
+    },
+    {
+        "start": 950.64,
+        "end": 957.04,
+        "text": "this task completed. Probably can go back to drops. Yeah, so it took four minutes. There were two"
+    },
+    {
+        "start": 957.04,
+        "end": 964.48,
+        "text": "stages and the first stage had seven tasks. So one for each partition. And then the second stage,"
+    },
+    {
+        "start": 964.48,
+        "end": 970.56,
+        "text": "I think had 24 tasks. This is when we saved the results. Now, if I look at this folder,"
+    },
+    {
+        "start": 971.4399999999999,
+        "end": 977.6,
+        "text": "I can see that there's a bunch of files. So this part, number of the part, number of the partition,"
+    },
+    {
+        "start": 977.6,
+        "end": 982.16,
+        "text": "and then long name and then snap P. This is a compression algorithm that is used in part"
+    },
+    {
+        "start": 982.16,
+        "end": 987.44,
+        "text": "yet and then dot part yet. So we see we have a bunch of files like that. It should be 24,"
+    },
+    {
+        "start": 987.44,
+        "end": 994.08,
+        "text": "like we asked, or 26 files because we have this success thing. Right, and then it also prints this"
+    },
+    {
+        "start": 994.08,
+        "end": 1000.88,
+        "text": "total, which we see also counts. And this success, this is an empty file, the size is zero. And we just"
+    },
+    {
+        "start": 1000.88,
+        "end": 1006.8000000000001,
+        "text": "indicate that job finished successfully. Unless there is file, we are not sure that these files are"
+    },
+    {
+        "start": 1006.8,
+        "end": 1011.52,
+        "text": "complete, not corrupted and so on. But once the file is there, we see okay, the job finished."
+    },
+    {
+        "start": 1011.52,
+        "end": 1017.12,
+        "text": "So this is sort of like a commit message at the end of our Spark job. And if we want to try"
+    },
+    {
+        "start": 1017.12,
+        "end": 1022.0799999999999,
+        "text": "running one more time, it will complain. So it will say okay, something is already there in this"
+    },
+    {
+        "start": 1022.0799999999999,
+        "end": 1028.72,
+        "text": "location. You can see it, yeah, it says the path or exists. I don't want to run this. If you have"
+    },
+    {
+        "start": 1028.72,
+        "end": 1035.36,
+        "text": "a problem like that, you can say, more to overwrite, and then it will overwrite files there. I will not"
+    },
+    {
+        "start": 1035.6,
+        "end": 1041.28,
+        "text": "do it right now. I think this is all I wanted to show for this video. So in this video, we used"
+    },
+    {
+        "start": 1041.28,
+        "end": 1047.12,
+        "text": "PicePark for reading a CC file. So we also saw how to specify partitions. We talked a bit about"
+    },
+    {
+        "start": 1047.12,
+        "end": 1053.6799999999998,
+        "text": "partitions, so partition is roughly each file. Then we saw how to save data to park it for local"
+    },
+    {
+        "start": 1053.6799999999998,
+        "end": 1060.6399999999999,
+        "text": "experiments. And we can check that the size of this file is a lot smaller than the size of the"
+    },
+    {
+        "start": 1060.64,
+        "end": 1065.2800000000002,
+        "text": "original CC file. But we saw that in the previous weeks as well. So the compression is like"
+    },
+    {
+        "start": 1065.2800000000002,
+        "end": 1070.64,
+        "text": "four times. And then we talked a bit about master UI in this thing. This is the thing that we can"
+    },
+    {
+        "start": 1070.64,
+        "end": 1077.3600000000001,
+        "text": "use for monitoring the progress of our jobs. So that was a first look at PicePark, which is"
+    },
+    {
+        "start": 1077.3600000000001,
+        "end": 1081.92,
+        "text": "the ready file, and then wrote the results to another file. In the next video, I want to talk about"
+    },
+    {
+        "start": 1081.92,
+        "end": 1087.76,
+        "text": "Spark data frames. Spark data frames are these things that we have here, the F. They're similar to"
+    },
+    {
+        "start": 1087.76,
+        "end": 1092.56,
+        "text": "Pinellas data frames, but not quite. So I want to spend some time talking about them in the next"
+    },
+    {
+        "start": 1092.56,
+        "end": 1096.0,
+        "text": "video. See you soon."
+    }
+]

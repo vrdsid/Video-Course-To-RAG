@@ -1,0 +1,897 @@
+[
+    {
+        "start": 0.0,
+        "end": 3.24,
+        "text": "Welcome to the next part of the data engineering zoom camp."
+    },
+    {
+        "start": 3.24,
+        "end": 6.2,
+        "text": "In the previous episode, we set up Google Cloud Platform"
+    },
+    {
+        "start": 6.2,
+        "end": 9.44,
+        "text": "ready for us to build our first ELT pipeline."
+    },
+    {
+        "start": 9.44,
+        "end": 11.48,
+        "text": "Let's jump into that and get building."
+    },
+    {
+        "start": 11.48,
+        "end": 12.96,
+        "text": "Now, I've already gone ahead and started"
+    },
+    {
+        "start": 12.96,
+        "end": 14.4,
+        "text": "to build this workflow."
+    },
+    {
+        "start": 14.4,
+        "end": 17.88,
+        "text": "And this is heavily inspired by the original Postgres one,"
+    },
+    {
+        "start": 17.88,
+        "end": 20.44,
+        "text": "which if we have a look here and go to topology,"
+    },
+    {
+        "start": 20.44,
+        "end": 22.72,
+        "text": "we can see this is very, very similar,"
+    },
+    {
+        "start": 22.72,
+        "end": 25.04,
+        "text": "but we've just swapped out the Postgres steps,"
+    },
+    {
+        "start": 25.04,
+        "end": 28.28,
+        "text": "and we've replaced them with Google Cloud ones."
+    },
+    {
+        "start": 28.28,
+        "end": 30.8,
+        "text": "Now, it's worth noting that this is actually very similar"
+    },
+    {
+        "start": 30.8,
+        "end": 31.92,
+        "text": "to the first example."
+    },
+    {
+        "start": 31.92,
+        "end": 35.44,
+        "text": "There is no schedule, and the BigQuery example"
+    },
+    {
+        "start": 35.44,
+        "end": 39.400000000000006,
+        "text": "will use inputs for so-or-for selecting the year and month."
+    },
+    {
+        "start": 39.400000000000006,
+        "end": 43.04,
+        "text": "We'll look at scheduling and backfills for BigQuery"
+    },
+    {
+        "start": 43.04,
+        "end": 44.44,
+        "text": "in the next episode."
+    },
+    {
+        "start": 44.44,
+        "end": 46.96,
+        "text": "This workflow is going to look very similar to begin with."
+    },
+    {
+        "start": 46.96,
+        "end": 49.760000000000005,
+        "text": "We've got the exact same inputs that we had before,"
+    },
+    {
+        "start": 49.760000000000005,
+        "end": 53.08,
+        "text": "but the start of the differences is in the variables."
+    },
+    {
+        "start": 53.08,
+        "end": 55.8,
+        "text": "Now, in this case, we are now not going"
+    },
+    {
+        "start": 55.8,
+        "end": 57.92,
+        "text": "to be creating Postgres tables."
+    },
+    {
+        "start": 57.92,
+        "end": 60.84,
+        "text": "So we need to make a few differences."
+    },
+    {
+        "start": 60.84,
+        "end": 63.32,
+        "text": "First thing we need to do is be able to reference"
+    },
+    {
+        "start": 63.32,
+        "end": 67.44,
+        "text": "the file we upload to our data lake and GCS in BigQuery."
+    },
+    {
+        "start": 67.44,
+        "end": 68.8,
+        "text": "Here we've got our first variable that's"
+    },
+    {
+        "start": 68.8,
+        "end": 71.32000000000001,
+        "text": "going to use the GCP bucket name here,"
+    },
+    {
+        "start": 71.32000000000001,
+        "end": 74.04,
+        "text": "and it's going to take the variable file, which"
+    },
+    {
+        "start": 74.04,
+        "end": 75.32000000000001,
+        "text": "is the one above here, that's going"
+    },
+    {
+        "start": 75.32000000000001,
+        "end": 77.52000000000001,
+        "text": "to be formed based on the inputs we provide."
+    },
+    {
+        "start": 77.52000000000001,
+        "end": 81.28,
+        "text": "So this could be whichever data set and which month and year."
+    },
+    {
+        "start": 81.28,
+        "end": 83.88,
+        "text": "Then we need to create a table inside of our data set"
+    },
+    {
+        "start": 83.88,
+        "end": 84.8,
+        "text": "in BigQuery."
+    },
+    {
+        "start": 84.8,
+        "end": 87.72,
+        "text": "So this is quite similar to what we saw in Postgres,"
+    },
+    {
+        "start": 87.72,
+        "end": 90.67999999999999,
+        "text": "but instead we are now replacing it with the key value pairs"
+    },
+    {
+        "start": 90.67999999999999,
+        "end": 92.76,
+        "text": "to make sure which is following the BigQuery structure"
+    },
+    {
+        "start": 92.76,
+        "end": 97.16,
+        "text": "of having your data set dot and then the name of your table."
+    },
+    {
+        "start": 97.16,
+        "end": 99.72,
+        "text": "And then data very similar to what we had last time."
+    },
+    {
+        "start": 99.72,
+        "end": 101.32,
+        "text": "Now we're going to set label so we can easily"
+    },
+    {
+        "start": 101.32,
+        "end": 103.56,
+        "text": "see in the executions which month we've run."
+    },
+    {
+        "start": 103.56,
+        "end": 104.88,
+        "text": "And then download the data."
+    },
+    {
+        "start": 104.88,
+        "end": 106.6,
+        "text": "Again, none of this has changed."
+    },
+    {
+        "start": 106.6,
+        "end": 110.52,
+        "text": "Now, the first big step is uploading to GCS."
+    },
+    {
+        "start": 110.52,
+        "end": 112.48,
+        "text": "Now we're going to take the data that we"
+    },
+    {
+        "start": 112.48,
+        "end": 114.75999999999999,
+        "text": "got from Vars.data, which is going"
+    },
+    {
+        "start": 114.76,
+        "end": 118.12,
+        "text": "to get the output from our extract task"
+    },
+    {
+        "start": 118.12,
+        "end": 120.0,
+        "text": "and format it nicely for us."
+    },
+    {
+        "start": 120.0,
+        "end": 121.80000000000001,
+        "text": "And we're going to pass that to GCS."
+    },
+    {
+        "start": 121.80000000000001,
+        "end": 124.48,
+        "text": "And then we're going to tell it to upload it with the GCS"
+    },
+    {
+        "start": 124.48,
+        "end": 127.16000000000001,
+        "text": "file name, which is one of the requirements for GCS."
+    },
+    {
+        "start": 127.16000000000001,
+        "end": 130.08,
+        "text": "It needs it to have the GSColan slash slash the bucket"
+    },
+    {
+        "start": 130.08,
+        "end": 131.56,
+        "text": "name slash the file."
+    },
+    {
+        "start": 131.56,
+        "end": 133.04000000000002,
+        "text": "And if you want to add extra directories in,"
+    },
+    {
+        "start": 133.04000000000002,
+        "end": 134.12,
+        "text": "you can do that too."
+    },
+    {
+        "start": 134.12,
+        "end": 135.52,
+        "text": "And it's worth noting that we actually"
+    },
+    {
+        "start": 135.52,
+        "end": 138.32,
+        "text": "have the plug-in default to the bottom here set of for GCP,"
+    },
+    {
+        "start": 138.32,
+        "end": 140.4,
+        "text": "just like we did in our previous video,"
+    },
+    {
+        "start": 140.4,
+        "end": 142.64000000000001,
+        "text": "where service account, project ID, and location"
+    },
+    {
+        "start": 142.64000000000001,
+        "end": 144.12,
+        "text": "and the bucket name are all set."
+    },
+    {
+        "start": 144.12,
+        "end": 145.4,
+        "text": "So we don't have to keep adding these"
+    },
+    {
+        "start": 145.4,
+        "end": 148.88,
+        "text": "because we are going to use a lot of these GCP plug-ins."
+    },
+    {
+        "start": 148.88,
+        "end": 150.68,
+        "text": "Now we've got a nift statement here for yellow and green,"
+    },
+    {
+        "start": 150.68,
+        "end": 153.0,
+        "text": "just like we did in the Postgres example."
+    },
+    {
+        "start": 153.0,
+        "end": 154.72,
+        "text": "But we've replaced those Postgres tasks"
+    },
+    {
+        "start": 154.72,
+        "end": 156.84,
+        "text": "with BigQuery query tasks."
+    },
+    {
+        "start": 156.84,
+        "end": 158.92000000000002,
+        "text": "Now let's have a look at how these are different"
+    },
+    {
+        "start": 158.92000000000002,
+        "end": 160.48000000000002,
+        "text": "to the Postgres ones."
+    },
+    {
+        "start": 160.48000000000002,
+        "end": 163.0,
+        "text": "So here we're creating a table as our first step."
+    },
+    {
+        "start": 163.0,
+        "end": 164.56,
+        "text": "And we're saying that if it doesn't exist,"
+    },
+    {
+        "start": 164.56,
+        "end": 168.4,
+        "text": "it should use the project ID dot the data set, which is how"
+    },
+    {
+        "start": 168.4,
+        "end": 170.08,
+        "text": "BigQuery likes things to be structured."
+    },
+    {
+        "start": 170.08,
+        "end": 173.88,
+        "text": "It likes them to be your project ID dot the data set dot"
+    },
+    {
+        "start": 174.4,
+        "end": 177.07999999999998,
+        "text": "in this case, we're doing dot data set dot."
+    },
+    {
+        "start": 177.07999999999998,
+        "end": 180.68,
+        "text": "And then yellow trip data will be the name of our table."
+    },
+    {
+        "start": 180.68,
+        "end": 183.24,
+        "text": "Then we need to specify all of the different columns"
+    },
+    {
+        "start": 183.24,
+        "end": 185.56,
+        "text": "we would like and what data type they would be."
+    },
+    {
+        "start": 185.56,
+        "end": 188.72,
+        "text": "Now this is all using specific BigQuery syntax."
+    },
+    {
+        "start": 188.72,
+        "end": 190.56,
+        "text": "So I'd recommend checking out the Google Cloud Docs"
+    },
+    {
+        "start": 190.56,
+        "end": 192.16,
+        "text": "if you want to make any changes here."
+    },
+    {
+        "start": 192.16,
+        "end": 193.76,
+        "text": "But this is a little bit different to what we did"
+    },
+    {
+        "start": 193.76,
+        "end": 194.6,
+        "text": "for Postgres."
+    },
+    {
+        "start": 194.6,
+        "end": 197.16,
+        "text": "Then underneath we're going to create a staging table,"
+    },
+    {
+        "start": 197.16,
+        "end": 199.2,
+        "text": "which is where we're going to be able to load each month"
+    },
+    {
+        "start": 199.2,
+        "end": 202.68,
+        "text": "so we can create those unique IDs and add the file name,"
+    },
+    {
+        "start": 202.68,
+        "end": 204.96,
+        "text": "again, very similar to that previous one."
+    },
+    {
+        "start": 204.96,
+        "end": 208.0,
+        "text": "And here we're also telling it to load in the data."
+    },
+    {
+        "start": 208.0,
+        "end": 210.92000000000002,
+        "text": "So specifically, we're saying it to CSV file,"
+    },
+    {
+        "start": 210.92000000000002,
+        "end": 214.08,
+        "text": "it can get the URI from Google Cloud Storage."
+    },
+    {
+        "start": 214.08,
+        "end": 216.44,
+        "text": "So here we've just told it to reference all of the data"
+    },
+    {
+        "start": 216.44,
+        "end": 216.96,
+        "text": "lake."
+    },
+    {
+        "start": 216.96,
+        "end": 218.68,
+        "text": "And then we've told it to skip the first row,"
+    },
+    {
+        "start": 218.68,
+        "end": 219.96,
+        "text": "because those are just headers."
+    },
+    {
+        "start": 219.96,
+        "end": 222.16,
+        "text": "Now in the next part here, what we're doing"
+    },
+    {
+        "start": 222.16,
+        "end": 225.84,
+        "text": "is adding in those unique IDs and the file name."
+    },
+    {
+        "start": 225.84,
+        "end": 228.4,
+        "text": "Now if we go back to Postgres and go into the edits"
+    },
+    {
+        "start": 228.4,
+        "end": 230.16,
+        "text": "have, this is going to fundamentally"
+    },
+    {
+        "start": 230.16,
+        "end": 231.56,
+        "text": "look very, very similar."
+    },
+    {
+        "start": 231.56,
+        "end": 235.28,
+        "text": "As you can see here, we just added the unique ID and the file"
+    },
+    {
+        "start": 235.28,
+        "end": 235.76,
+        "text": "name."
+    },
+    {
+        "start": 235.76,
+        "end": 237.4,
+        "text": "This is looking very, very similar."
+    },
+    {
+        "start": 237.4,
+        "end": 240.04,
+        "text": "But with a few tweaks to suit the BigQuery syntax."
+    },
+    {
+        "start": 240.04,
+        "end": 243.12,
+        "text": "And we've told it to use the data from the table above."
+    },
+    {
+        "start": 243.12,
+        "end": 246.6,
+        "text": "Once we're happy with that, now we can perform the final merge"
+    },
+    {
+        "start": 246.6,
+        "end": 248.64000000000001,
+        "text": "to get it all into that refinal table"
+    },
+    {
+        "start": 248.64000000000001,
+        "end": 251.0,
+        "text": "that we were just calling yellow trip data."
+    },
+    {
+        "start": 251.0,
+        "end": 254.32,
+        "text": "So what we can do is merge it from the yellow trip data"
+    },
+    {
+        "start": 254.32,
+        "end": 256.88,
+        "text": "table using the other table."
+    },
+    {
+        "start": 256.88,
+        "end": 258.72,
+        "text": "And as you can see, it's going to make sure"
+    },
+    {
+        "start": 258.72,
+        "end": 261.12,
+        "text": "that there are no duplicates as part of that."
+    },
+    {
+        "start": 261.12,
+        "end": 263.36,
+        "text": "So popping back to the topology view,"
+    },
+    {
+        "start": 263.36,
+        "end": 265.24,
+        "text": "green does the exact same thing just"
+    },
+    {
+        "start": 265.24,
+        "end": 268.2,
+        "text": "with the different columns that the green data set has."
+    },
+    {
+        "start": 268.2,
+        "end": 271.68,
+        "text": "But the key takeaway here is the first big step"
+    },
+    {
+        "start": 271.68,
+        "end": 274.28000000000003,
+        "text": "is we are extracting the data and then immediately"
+    },
+    {
+        "start": 274.28000000000003,
+        "end": 276.72,
+        "text": "loading it into our data lake."
+    },
+    {
+        "start": 276.72,
+        "end": 280.32,
+        "text": "Once it's in our data lake, then it's really easy for BigQuery"
+    },
+    {
+        "start": 280.32,
+        "end": 282.12,
+        "text": "to then reference that data."
+    },
+    {
+        "start": 282.12,
+        "end": 283.96,
+        "text": "As you can see here, we're able just"
+    },
+    {
+        "start": 283.96,
+        "end": 286.16,
+        "text": "to reference the data lake URL."
+    },
+    {
+        "start": 286.16,
+        "end": 287.8,
+        "text": "And it's able to then just get that data"
+    },
+    {
+        "start": 287.8,
+        "end": 289.12,
+        "text": "and start working with it."
+    },
+    {
+        "start": 289.12,
+        "end": 290.72,
+        "text": "Once it's in there, we'll be able to then"
+    },
+    {
+        "start": 290.72,
+        "end": 293.24,
+        "text": "run our transformations to add those extra columns."
+    },
+    {
+        "start": 293.24,
+        "end": 294.68,
+        "text": "And then we'll be able to run the merge."
+    },
+    {
+        "start": 294.68,
+        "end": 296.6,
+        "text": "So I think the next thing we need to do now"
+    },
+    {
+        "start": 296.6,
+        "end": 297.52000000000004,
+        "text": "is run this."
+    },
+    {
+        "start": 297.52000000000004,
+        "end": 299.08000000000004,
+        "text": "But let's run it for the yellow data set"
+    },
+    {
+        "start": 299.08000000000004,
+        "end": 300.76000000000005,
+        "text": "and see the performance improvement."
+    },
+    {
+        "start": 300.76000000000005,
+        "end": 303.20000000000005,
+        "text": "Now let's execute this for the yellow data set"
+    },
+    {
+        "start": 303.20000000000005,
+        "end": 304.92,
+        "text": "in January 2019."
+    },
+    {
+        "start": 304.92,
+        "end": 307.08000000000004,
+        "text": "So we can see those performance improvements."
+    },
+    {
+        "start": 307.08000000000004,
+        "end": 308.52000000000004,
+        "text": "Now actually, the longest step here"
+    },
+    {
+        "start": 308.52000000000004,
+        "end": 312.04,
+        "text": "is actually going to be extracting the data to my local system."
+    },
+    {
+        "start": 312.04,
+        "end": 313.84000000000003,
+        "text": "You could maybe look at moving this to the cloud"
+    },
+    {
+        "start": 313.84000000000003,
+        "end": 315.44000000000005,
+        "text": "where it does the extraction and then"
+    },
+    {
+        "start": 315.44000000000005,
+        "end": 318.36,
+        "text": "moving it straight to your data lake entirely on the cloud,"
+    },
+    {
+        "start": 318.36,
+        "end": 320.28000000000003,
+        "text": "where Kestra is just interacting with each"
+    },
+    {
+        "start": 320.28,
+        "end": 323.23999999999995,
+        "text": "of these systems as it needs to to tell them to talk to each other."
+    },
+    {
+        "start": 323.23999999999995,
+        "end": 325.08,
+        "text": "But this is going to really emphasize"
+    },
+    {
+        "start": 325.08,
+        "end": 327.23999999999995,
+        "text": "the size of the yellow data set."
+    },
+    {
+        "start": 327.23999999999995,
+        "end": 329.0,
+        "text": "Now the extraction has finished,"
+    },
+    {
+        "start": 329.0,
+        "end": 331.15999999999997,
+        "text": "but the upload is going to be also limited"
+    },
+    {
+        "start": 331.15999999999997,
+        "end": 332.79999999999995,
+        "text": "by my internet connection."
+    },
+    {
+        "start": 332.79999999999995,
+        "end": 335.15999999999997,
+        "text": "Now that it's uploaded, we can see the performance"
+    },
+    {
+        "start": 335.15999999999997,
+        "end": 337.47999999999996,
+        "text": "of BigQuery coming into play here."
+    },
+    {
+        "start": 337.47999999999996,
+        "end": 339.0,
+        "text": "We've already created our tables."
+    },
+    {
+        "start": 339.0,
+        "end": 341.0,
+        "text": "It's now creating those unique IDs"
+    },
+    {
+        "start": 341.0,
+        "end": 343.67999999999995,
+        "text": "and the file name columns for that table"
+    },
+    {
+        "start": 343.67999999999995,
+        "end": 345.44,
+        "text": "before it then goes and runs the merge."
+    },
+    {
+        "start": 345.44,
+        "end": 347.79999999999995,
+        "text": "Now that it's done that, it's going to perform the merge."
+    },
+    {
+        "start": 347.8,
+        "end": 350.56,
+        "text": "And we can see that it took about 30 seconds"
+    },
+    {
+        "start": 350.56,
+        "end": 352.48,
+        "text": "to do the unique IDs."
+    },
+    {
+        "start": 352.48,
+        "end": 354.84000000000003,
+        "text": "But the merge itself only took five seconds."
+    },
+    {
+        "start": 354.84000000000003,
+        "end": 359.08,
+        "text": "So this is a great way for being able to really speed up the process,"
+    },
+    {
+        "start": 359.08,
+        "end": 362.0,
+        "text": "whereas postgres would have taken way, way longer."
+    },
+    {
+        "start": 362.0,
+        "end": 364.72,
+        "text": "Now if we go over to our storage bucket,"
+    },
+    {
+        "start": 364.72,
+        "end": 367.48,
+        "text": "we'll be able to see that yellow data set is now there."
+    },
+    {
+        "start": 367.48,
+        "end": 368.8,
+        "text": "We can see that in there."
+    },
+    {
+        "start": 368.8,
+        "end": 371.64,
+        "text": "And a previous execution I ran earlier with the green."
+    },
+    {
+        "start": 371.64,
+        "end": 375.08000000000004,
+        "text": "Now if we go over to our Zoom Camp BigQuery,"
+    },
+    {
+        "start": 375.08000000000004,
+        "end": 377.40000000000003,
+        "text": "now here is where we can see the real magic."
+    },
+    {
+        "start": 377.4,
+        "end": 380.28,
+        "text": "We can see the yellow trip data table is here."
+    },
+    {
+        "start": 380.28,
+        "end": 381.91999999999996,
+        "text": "And we can see that it's got all that data."
+    },
+    {
+        "start": 381.91999999999996,
+        "end": 383.71999999999997,
+        "text": "Now if I click preview, we'll be able to see"
+    },
+    {
+        "start": 383.71999999999997,
+        "end": 385.15999999999997,
+        "text": "that it's got 2019 in it."
+    },
+    {
+        "start": 385.15999999999997,
+        "end": 386.28,
+        "text": "No problems."
+    },
+    {
+        "start": 386.28,
+        "end": 389.08,
+        "text": "We can also see the original 2019 table."
+    },
+    {
+        "start": 389.08,
+        "end": 390.76,
+        "text": "We can see the original 2019 table,"
+    },
+    {
+        "start": 390.76,
+        "end": 393.2,
+        "text": "and then the one with those unique IDs."
+    },
+    {
+        "start": 393.2,
+        "end": 395.91999999999996,
+        "text": "So if I was to run this again, we'll"
+    },
+    {
+        "start": 395.91999999999996,
+        "end": 399.79999999999995,
+        "text": "be able to see more tables getting added for those specific months."
+    },
+    {
+        "start": 399.79999999999995,
+        "end": 402.64,
+        "text": "And then they'll all get merged together into this final table."
+    },
+    {
+        "start": 402.64,
+        "end": 407.23999999999995,
+        "text": "So hopefully that has helped you build your first ELT pipeline."
+    },
+    {
+        "start": 407.24,
+        "end": 409.6,
+        "text": "Let me know what you think as you run this yourself"
+    },
+    {
+        "start": 409.6,
+        "end": 411.96000000000004,
+        "text": "and play around with some of the parameters."
+    },
+    {
+        "start": 411.96000000000004,
+        "end": 413.28000000000003,
+        "text": "Now in the next video, we're going to look"
+    },
+    {
+        "start": 413.28000000000003,
+        "end": 416.72,
+        "text": "at how we can integrate schedules and backfields directly"
+    },
+    {
+        "start": 416.72,
+        "end": 418.2,
+        "text": "to our workflow."
+    },
+    {
+        "start": 418.2,
+        "end": 420.04,
+        "text": "So stay tuned for that."
+    }
+]

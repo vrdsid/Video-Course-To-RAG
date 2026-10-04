@@ -1,0 +1,752 @@
+[
+    {
+        "start": 0.0,
+        "end": 5.28,
+        "text": "Welcome back, this is another video of the engineering zoom camp and we are talking about internals of spark."
+    },
+    {
+        "start": 5.28,
+        "end": 10.32,
+        "text": "In the previous videos we talked about spark cluster, what kind of things are there,"
+    },
+    {
+        "start": 10.32,
+        "end": 15.84,
+        "text": "and we also talked about group by how group by is implemented and we talked about reshuffling."
+    },
+    {
+        "start": 15.84,
+        "end": 22.080000000000002,
+        "text": "In this video I want to talk about joints. I want to talk about two types of joints when we"
+    },
+    {
+        "start": 22.080000000000002,
+        "end": 28.400000000000002,
+        "text": "join two tables that are a thick all size and then another type of joint when one of the tables"
+    },
+    {
+        "start": 28.4,
+        "end": 33.68,
+        "text": "is a lot smaller than the other table. And I will also talk about this external"
+    },
+    {
+        "start": 33.68,
+        "end": 39.519999999999996,
+        "text": "mesh sort algorithm and reshuffling because this is how joints are implemented in spark."
+    },
+    {
+        "start": 39.519999999999996,
+        "end": 46.480000000000004,
+        "text": "So let us start where we left last time. So last time we created these two tables,"
+    },
+    {
+        "start": 47.36,
+        "end": 54.08,
+        "text": "revenue for green taxes and revenue for yellow taxes. And yeah, so we did this by grouping by"
+    },
+    {
+        "start": 54.08,
+        "end": 59.36,
+        "text": "our and zone. And now what I want to do is I want to join these two tables into one table."
+    },
+    {
+        "start": 59.36,
+        "end": 68.32,
+        "text": "So we have this table for yellow or green. They have our, they have zone and then they have"
+    },
+    {
+        "start": 68.32,
+        "end": 75.28,
+        "text": "revenue and number of trips and the same for green. So this is the thing we group by and what I want"
+    },
+    {
+        "start": 75.28,
+        "end": 82.64,
+        "text": "to do is I want to join by these two columns and then as a result have a wider table with six columns."
+    },
+    {
+        "start": 82.64,
+        "end": 91.84,
+        "text": "So the first will be our then zone, our zone and then revenue yellow and number of trips yellow"
+    },
+    {
+        "start": 91.84,
+        "end": 99.6,
+        "text": "then revenue green and number of trips green and this is not common. So I want to do this"
+    },
+    {
+        "start": 99.6,
+        "end": 107.36,
+        "text": "join. I want to join these two tables by our and by zone. So let me do that. So I will take this one"
+    },
+    {
+        "start": 108.32,
+        "end": 116.72,
+        "text": "did frame green revenue and this yellow revenue and I will just do join green join with yellow"
+    },
+    {
+        "start": 116.72,
+        "end": 123.12,
+        "text": "and then on on is a list of fields on which we are going to join list of columns and then it will"
+    },
+    {
+        "start": 123.12,
+        "end": 131.04,
+        "text": "be our and zone. And then the type of this joint should be how the type is outer outer joint"
+    },
+    {
+        "start": 131.76,
+        "end": 139.6,
+        "text": "and outer joint is let's say when we have a record that is in green but not in yellow. We want to"
+    },
+    {
+        "start": 139.6,
+        "end": 144.79999999999998,
+        "text": "have zeros in yellow and when something is in yellow but not in green we want to have zero in the"
+    },
+    {
+        "start": 144.79999999999998,
+        "end": 150.56,
+        "text": "green part. So that's why the joint should be the type is outer joint and I'll call it that a frame"
+    },
+    {
+        "start": 150.56,
+        "end": 158.95999999999998,
+        "text": "join for the lack of a better name and let me see how it looks like. I'll just do show what's"
+    },
+    {
+        "start": 158.96,
+        "end": 165.12,
+        "text": "actually happening right now. It's executing the entire thing from the very beginning. So at the"
+    },
+    {
+        "start": 165.12,
+        "end": 170.72,
+        "text": "beginning we're reading the data and the pocket files then we're executing this query then we're"
+    },
+    {
+        "start": 170.72,
+        "end": 176.56,
+        "text": "reading another set of pocket files executing this query and then we're joining. So we're doing"
+    },
+    {
+        "start": 176.56,
+        "end": 182.48000000000002,
+        "text": "quite a lot of things here and to see that because the join is outer in this part we have null but"
+    },
+    {
+        "start": 182.48000000000002,
+        "end": 188.24,
+        "text": "we have something here and then in the same way we have null on the right but something is here."
+    },
+    {
+        "start": 188.24,
+        "end": 192.8,
+        "text": "We see a problem that it's just amount number of records and amount number of records without"
+    },
+    {
+        "start": 192.8,
+        "end": 198.0,
+        "text": "saying that this should be green or yellow and this so I don't know which one is which. For that"
+    },
+    {
+        "start": 198.64000000000001,
+        "end": 206.4,
+        "text": "let me rename columns. I will use this with column renamed like that. I will rename my amount to green"
+    },
+    {
+        "start": 206.4,
+        "end": 214.56,
+        "text": "amount and number of records to green number of records and I'll call it that a frame green"
+    },
+    {
+        "start": 214.56,
+        "end": 221.6,
+        "text": "to a new tempo and yeah actually let me do the same thing with yellow but now instead of green"
+    },
+    {
+        "start": 221.6,
+        "end": 227.68,
+        "text": "I will have yellow and yeah of course should be yellow here as well and now we'll join this two."
+    },
+    {
+        "start": 227.68,
+        "end": 235.28,
+        "text": "So I'll join this one with this one and if I now look at the columns that we have here then the"
+    },
+    {
+        "start": 235.28,
+        "end": 241.44,
+        "text": "columns are green amount green number of records yellow amount yellow number of records. Yeah cool"
+    },
+    {
+        "start": 241.52,
+        "end": 252.16,
+        "text": "let me save this so I'll do right, park it and I'll use data report revenue and then let's say it all"
+    },
+    {
+        "start": 252.16,
+        "end": 259.6,
+        "text": "and while it is executing the whole thing let us take a look at the job so we have three stages"
+    },
+    {
+        "start": 261.2,
+        "end": 266.4,
+        "text": "yeah so this looks quite interesting we have the first stage this is the stage where we are reading"
+    },
+    {
+        "start": 267.03999999999996,
+        "end": 271.59999999999997,
+        "text": "the data we're doing group by and this is the same so this is the first one and the second one"
+    },
+    {
+        "start": 271.59999999999997,
+        "end": 276.47999999999996,
+        "text": "the so the first one we are doing this for yellow taxi or green taxi it doesn't matter and then for"
+    },
+    {
+        "start": 276.47999999999996,
+        "end": 282.88,
+        "text": "the other type of taxi then we combine everything here so here we have three stages and I think I just"
+    },
+    {
+        "start": 282.88,
+        "end": 288.64,
+        "text": "finished yeah it finished yeah we already talked about group by and now I want to talk about joints"
+    },
+    {
+        "start": 288.64,
+        "end": 294.56,
+        "text": "so I see it needs to finish this one it needs to finish this one and then it combines them in two two"
+    },
+    {
+        "start": 294.64,
+        "end": 301.12,
+        "text": "here during the search mode join and then it finally outputs everything so now let me spend some"
+    },
+    {
+        "start": 301.12,
+        "end": 308.16,
+        "text": "time talking how it actually works here in this case we have two data sets so we have yellow data"
+    },
+    {
+        "start": 308.16,
+        "end": 315.04,
+        "text": "set with a bunch of partitions and then we have clean data sets with a bunch of partitions let me"
+    },
+    {
+        "start": 315.04,
+        "end": 321.52,
+        "text": "just use fewer partitions here yeah so we have yellow and we have green and we want to join"
+    },
+    {
+        "start": 321.52,
+        "end": 329.35999999999996,
+        "text": "these two data sets so we have a bunch of records here I'll call it Y1 Y2 Y3 and so on and this one"
+    },
+    {
+        "start": 329.35999999999996,
+        "end": 339.76,
+        "text": "will be G1 G2 G3 and so on so this Y will be record with multiple columns it will be our zone"
+    },
+    {
+        "start": 339.76,
+        "end": 347.84,
+        "text": "then revenue and count of trips right so this is a complex record and what we want to do now is for"
+    },
+    {
+        "start": 347.84,
+        "end": 353.67999999999995,
+        "text": "each record we have in our data frame in each partition we want to create complex record that"
+    },
+    {
+        "start": 353.67999999999995,
+        "end": 359.76,
+        "text": "will look like key and then this record we have a composite key because we are joining on two columns"
+    },
+    {
+        "start": 359.76,
+        "end": 368.71999999999997,
+        "text": "so the key is our and and so on so this will be a key one and then we have key two Y2 so this"
+    },
+    {
+        "start": 368.71999999999997,
+        "end": 374.79999999999995,
+        "text": "is the first partition we do this for every record so for the second partition it would be key one"
+    },
+    {
+        "start": 374.8,
+        "end": 383.6,
+        "text": "will be the same our zone as here and it will be Y3 and so on and then for green let's say it will"
+    },
+    {
+        "start": 383.6,
+        "end": 398.48,
+        "text": "be K2 G1 K3 G2 and maybe K4 G3 and so on so we do this for every record and now we do re-shuffling"
+    },
+    {
+        "start": 398.48,
+        "end": 404.08000000000004,
+        "text": "something like we did here when we wanted to bring the same key for grouping by in the same"
+    },
+    {
+        "start": 404.08000000000004,
+        "end": 409.84000000000003,
+        "text": "partition so now we want to do the same thing now let's say we'll have three positions"
+    },
+    {
+        "start": 410.48,
+        "end": 416.64000000000004,
+        "text": "or whatever yeah we'll do the shuffling now and the purpose of this shuffling is we want to make"
+    },
+    {
+        "start": 416.64000000000004,
+        "end": 423.04,
+        "text": "sure that for example everything with K1 yeah I just realized that actually cannot be the same key"
+    },
+    {
+        "start": 423.04,
+        "end": 429.44,
+        "text": "in different positions because we did group by before but what can happen is we have K1 here"
+    },
+    {
+        "start": 429.44,
+        "end": 436.64000000000004,
+        "text": "but we do not have K1 in the green part what will happen everything with K1 will go to this partition"
+    },
+    {
+        "start": 436.64000000000004,
+        "end": 445.44,
+        "text": "K1 Y1 here and then everything with K2 will go to the second partition K2 and K2 to have two"
+    },
+    {
+        "start": 445.44,
+        "end": 457.04,
+        "text": "records with K2 K2 Y2 K2 G1 and then for K3 it will go to the third partition we'll have K3 Y3"
+    },
+    {
+        "start": 457.04,
+        "end": 465.12,
+        "text": "and then this last will say go again to the first partition so we'll have K4 and G3 so now we did"
+    },
+    {
+        "start": 465.12,
+        "end": 470.8,
+        "text": "this re-shuffling to make sure that records with the same key end up in the same partition and now"
+    },
+    {
+        "start": 470.88,
+        "end": 478.0,
+        "text": "we're doing again this similar to the reduced step we did here when we reduced multiple records into"
+    },
+    {
+        "start": 478.0,
+        "end": 485.12,
+        "text": "one we want to do the same thing here so if we see two records here like in this case we turn them"
+    },
+    {
+        "start": 485.12,
+        "end": 493.52,
+        "text": "into one record so this in this case it will be K2 Y2 G1 in this case we don't have a pair because"
+    },
+    {
+        "start": 493.52,
+        "end": 504.24,
+        "text": "this is an outer joint we will have K1 Y1 and now and the same here it will be K4 empty G3 and of"
+    },
+    {
+        "start": 504.24,
+        "end": 511.28,
+        "text": "course if our joint will be in the join then we would simply not output these records so depending on"
+    },
+    {
+        "start": 511.28,
+        "end": 516.64,
+        "text": "the type of the joint we decide what to do with records when one of the think is empty here"
+    },
+    {
+        "start": 516.72,
+        "end": 525.1999999999999,
+        "text": "and the same will do here K3 Y3 empty here and again the algorithm that is doing this re-shuffling is"
+    },
+    {
+        "start": 525.1999999999999,
+        "end": 533.04,
+        "text": "called external merge sort and we can actually see that in the plan this is called sort merge"
+    },
+    {
+        "start": 533.04,
+        "end": 539.6,
+        "text": "join because this is exactly how this join is implemented it uses sort merge join it involves"
+    },
+    {
+        "start": 539.6,
+        "end": 545.04,
+        "text": "this re-shuffling process and we see how much re-shuffling actually happens by looking at these two"
+    },
+    {
+        "start": 545.04,
+        "end": 551.52,
+        "text": "things here shuffle rate and shuffle rate and so here what we did was actually interesting"
+    },
+    {
+        "start": 551.52,
+        "end": 559.12,
+        "text": "so we didn't read from the data we saved we computed this on the fly so instead of reusing"
+    },
+    {
+        "start": 559.12,
+        "end": 564.56,
+        "text": "the calculations we did last time we just recomputed everything we can try to see what happens if"
+    },
+    {
+        "start": 564.56,
+        "end": 571.1999999999999,
+        "text": "instead of doing that we load the data we previously prepared so in this case what we call"
+    },
+    {
+        "start": 571.2800000000001,
+        "end": 577.2800000000001,
+        "text": "this thing is we materialize the results so instead of doing this chain of computations we did"
+    },
+    {
+        "start": 577.2800000000001,
+        "end": 583.6800000000001,
+        "text": "one part and we saved the result and then we can just load this and continue so we materialize that"
+    },
+    {
+        "start": 583.6800000000001,
+        "end": 587.9200000000001,
+        "text": "because maybe we need it for something else as well maybe we want to have a dashboard just for"
+    },
+    {
+        "start": 587.9200000000001,
+        "end": 596.4000000000001,
+        "text": "green data separately so let me just do that a frame green revenue and I'll do a spare read"
+    },
+    {
+        "start": 597.28,
+        "end": 603.52,
+        "text": "part cut and then I will read it from here what from green they will do the same with yellow"
+    },
+    {
+        "start": 604.88,
+        "end": 609.84,
+        "text": "so now instead of computing everything on the fly we will use materialize the results results"
+    },
+    {
+        "start": 609.84,
+        "end": 617.52,
+        "text": "that were saved previously and we will rename the columns again do the join and let's write the"
+    },
+    {
+        "start": 617.52,
+        "end": 627.84,
+        "text": "results because I needed to do more to write okay I'll move the show think and let me see how"
+    },
+    {
+        "start": 627.84,
+        "end": 636.16,
+        "text": "the plan looks like so it's also three stages yeah it's not very different maybe it's doing a bit"
+    },
+    {
+        "start": 636.16,
+        "end": 640.64,
+        "text": "less shuffling I don't know yeah I think the reason it's not different is because I don't know"
+    },
+    {
+        "start": 640.64,
+        "end": 646.3199999999999,
+        "text": "probably this dataset is just too small to see the difference between the two but let's say if"
+    },
+    {
+        "start": 647.2,
+        "end": 653.36,
+        "text": "this temporary thing was quite large then probably we would see some difference also could be that"
+    },
+    {
+        "start": 653.36,
+        "end": 660.0,
+        "text": "we are joining and grouping by by the same field so maybe that's why the plan we have when we do"
+    },
+    {
+        "start": 660.0,
+        "end": 665.2800000000001,
+        "text": "everything on the fly it looks the same as this one I don't know I will not spend much time"
+    },
+    {
+        "start": 665.2800000000001,
+        "end": 670.24,
+        "text": "talking about this right now and because the main thing I wanted to explain is how join is"
+    },
+    {
+        "start": 670.24,
+        "end": 676.1600000000001,
+        "text": "implemented in Spark and this is the case when we have two relatively large tables that we want to"
+    },
+    {
+        "start": 676.16,
+        "end": 682.0,
+        "text": "join they are not super large like 1020 max but still we can pretend they are large but there is"
+    },
+    {
+        "start": 682.0,
+        "end": 688.4,
+        "text": "another case when one table is large and the other table is small and this is the case when we do"
+    },
+    {
+        "start": 688.4,
+        "end": 696.88,
+        "text": "that frame join now let me instead of recomputing this I will just do park it park it so I don't want"
+    },
+    {
+        "start": 696.88,
+        "end": 703.6,
+        "text": "to compute it and wait I don't know one minute so we have this data frame join data frame and we have"
+    },
+    {
+        "start": 703.6,
+        "end": 711.2,
+        "text": "this zone here right so now let's say we want to see what this zone actually is and we have this"
+    },
+    {
+        "start": 711.2,
+        "end": 718.64,
+        "text": "other file with zones let me read it start of frame zones I you can create it if you don't have it"
+    },
+    {
+        "start": 718.64,
+        "end": 724.5600000000001,
+        "text": "so there is this notebook test that I think we used for testing one of the first videos where"
+    },
+    {
+        "start": 724.5600000000001,
+        "end": 732.1600000000001,
+        "text": "we download this zone cc file and then we write it to park it so actually now I want to read this file"
+    },
+    {
+        "start": 732.24,
+        "end": 741.04,
+        "text": "so it will be spark edit park it zones so let me take a look at zones so yeah so these are the"
+    },
+    {
+        "start": 741.04,
+        "end": 746.88,
+        "text": "zones and now I want to join these two tables on that of frame join and that of frame zones for that"
+    },
+    {
+        "start": 746.88,
+        "end": 753.6,
+        "text": "I will do that of frame join again join and then I will join it with that of frame zones and then"
+    },
+    {
+        "start": 753.84,
+        "end": 763.2,
+        "text": "join I think the column name is a zone here because we have a different name in each table instead of"
+    },
+    {
+        "start": 763.2,
+        "end": 768.48,
+        "text": "just using on and specifying the name of the columns I will use a condition here that looks like that"
+    },
+    {
+        "start": 768.48,
+        "end": 777.9200000000001,
+        "text": "so it will be data frame join zone equals equals data frame zones location ready and then the type"
+    },
+    {
+        "start": 778.0,
+        "end": 783.4399999999999,
+        "text": "yeah I don't think we need to specify the type here so I'll call it data frame result let's see"
+    },
+    {
+        "start": 783.4399999999999,
+        "end": 790.24,
+        "text": "what the result is so it just does the join yeah maybe we actually don't need location ID here"
+    },
+    {
+        "start": 790.24,
+        "end": 795.76,
+        "text": "so I will use this drop method to remove location ID so now we will have the same data frame but"
+    },
+    {
+        "start": 795.76,
+        "end": 801.4399999999999,
+        "text": "without location ID so this is we also have some information about zone so the name the service"
+    },
+    {
+        "start": 801.9200000000001,
+        "end": 809.2,
+        "text": "and zone yeah I will now save it to park it right park it I know where to write let me just write it"
+    },
+    {
+        "start": 809.2,
+        "end": 816.72,
+        "text": "to temporary and leave a new zones because when I do show it will only do a part of the thing"
+    },
+    {
+        "start": 816.72,
+        "end": 820.08,
+        "text": "and I want to process the entire dataset that's why I want to write it to park it"
+    },
+    {
+        "start": 821.84,
+        "end": 829.5200000000001,
+        "text": "let me see the frame result okay it complains that it says zone int and zone string are different"
+    },
+    {
+        "start": 829.52,
+        "end": 837.68,
+        "text": "so let me just drop maybe zone lowercase as well so we don't have the ID we just have the name"
+    },
+    {
+        "start": 838.56,
+        "end": 844.16,
+        "text": "it actually finished it was quite fast and let me look at the execution plan we see that there are"
+    },
+    {
+        "start": 844.16,
+        "end": 851.52,
+        "text": "two things here first it was broadcast exchange and then the second was this park it and there was"
+    },
+    {
+        "start": 851.52,
+        "end": 857.6,
+        "text": "only one stage not two stages but one and we can see that it was just a case scan and then this"
+    },
+    {
+        "start": 857.6800000000001,
+        "end": 863.44,
+        "text": "whole stage code again with everything it didn't do anything else before that except this broadcast"
+    },
+    {
+        "start": 863.44,
+        "end": 869.0400000000001,
+        "text": "exchange so I want to talk now a bit about this broadcast exchange and the reason this plan"
+    },
+    {
+        "start": 869.0400000000001,
+        "end": 874.96,
+        "text": "this execution plan looks different from what we had before is because this data frame zones is"
+    },
+    {
+        "start": 874.96,
+        "end": 882.4,
+        "text": "a very small table and what happens there we have one table that is small I'll call it zones"
+    },
+    {
+        "start": 882.4,
+        "end": 890.48,
+        "text": "and then we have another table not table data frame revenue and because zones is small what happens"
+    },
+    {
+        "start": 890.48,
+        "end": 900.64,
+        "text": "is have a bunch of executors that process this revenue these executors so each of them gets a partition"
+    },
+    {
+        "start": 900.64,
+        "end": 907.92,
+        "text": "of revenue and instead of doing this thing pending the key to each record instead of doing this"
+    },
+    {
+        "start": 907.92,
+        "end": 913.52,
+        "text": "and doing merge sort of join each executor gets a copy of the zones data frame so the entire data"
+    },
+    {
+        "start": 913.52,
+        "end": 920.16,
+        "text": "frame because it's very small it just broadcasts this sends a copy of the entire data set to each"
+    },
+    {
+        "start": 920.16,
+        "end": 926.3199999999999,
+        "text": "executor you have three executors so the third executor will also get a copy and then the joint"
+    },
+    {
+        "start": 926.3199999999999,
+        "end": 934.0799999999999,
+        "text": "happens in memory so for each record in revenue we have this zone ID and we just look up here and"
+    },
+    {
+        "start": 934.5600000000001,
+        "end": 940.4000000000001,
+        "text": "it gives us this information and we just append it and then we do this for every record so we don't"
+    },
+    {
+        "start": 940.4000000000001,
+        "end": 947.2,
+        "text": "need to shuffle any data we just need to send this small table zones to every executor and do a look"
+    },
+    {
+        "start": 947.2,
+        "end": 954.1600000000001,
+        "text": "up there this is much much much faster than doing merge sort train I think this is all I wanted to"
+    },
+    {
+        "start": 954.1600000000001,
+        "end": 960.32,
+        "text": "show you let me check the plan I wanted to show you how to join two large tables and how to join"
+    },
+    {
+        "start": 960.32,
+        "end": 965.2,
+        "text": "one large and one small table in the first case we use merge sort join we add the key to each"
+    },
+    {
+        "start": 965.2,
+        "end": 970.6400000000001,
+        "text": "record and then we do shuffling and we make sure that records with the same key end up in the same"
+    },
+    {
+        "start": 970.6400000000001,
+        "end": 977.12,
+        "text": "partition and then the other case when we join one large table and one small table we broadcast"
+    },
+    {
+        "start": 977.12,
+        "end": 982.6400000000001,
+        "text": "the small table to all the executors and then we don't need to do any to shuffling so this is quite"
+    },
+    {
+        "start": 982.6400000000001,
+        "end": 987.7600000000001,
+        "text": "fast and because there is no reshuffling it's just one stage and that's all I wanted to cover in"
+    },
+    {
+        "start": 987.76,
+        "end": 993.6,
+        "text": "this video about joints and in the next video I want to talk about another thing that we haven't"
+    },
+    {
+        "start": 993.6,
+        "end": 999.2,
+        "text": "talked about so far we've been dealing with data frames data frames are built on top of another"
+    },
+    {
+        "start": 999.2,
+        "end": 1005.04,
+        "text": "data structure that is called RDD a resilient distributed data sets this is what spark used in"
+    },
+    {
+        "start": 1005.04,
+        "end": 1010.3199999999999,
+        "text": "the first version and then in spark version number two they built with the substraction"
+    },
+    {
+        "start": 1010.3199999999999,
+        "end": 1015.6,
+        "text": "on data frame on top of our release but our release are still quite useful in the next video I"
+    },
+    {
+        "start": 1015.6,
+        "end": 1020.8000000000001,
+        "text": "want to talk about these LEDs and what kind of operations we can do with our dds so they are"
+    },
+    {
+        "start": 1020.8000000000001,
+        "end": 1025.6,
+        "text": "lower level operations but they are still useful so see you soon"
+    }
+]
